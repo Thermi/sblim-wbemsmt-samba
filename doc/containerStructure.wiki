@@ -1,0 +1,1424 @@
+{anchor:Index}
+| *serviceContainerPackage* |  	[#serviceContainerPackage.ServiceAllowHostSecurityDataContainer] \\  	[#serviceContainerPackage.ServiceDenyHostDataContainer] \\  	[#serviceContainerPackage.ServiceGlobalSecurityOptionsDataContainer] \\  	[#serviceContainerPackage.ServiceLoggingDataContainer] \\  	[#serviceContainerPackage.ServiceOperationsDataContainer] \\  	[#serviceContainerPackage.ServiceOptionsDataContainer] \\  	[#serviceContainerPackage.ServiceScriptingDataContainer] \\  	[#serviceContainerPackage.ServiceUserSecurityOptionsDataContainer] \\  	[#serviceContainerPackage.ServiceWinsDataContainer] \\  	[#serviceContainerPackage.UserACLItemDataContainerForService] \\  |
+| *globalContainerPackage* |  	[#globalContainerPackage.AdminUsersInPrinterGlobals] \\  	[#globalContainerPackage.AdminUsersInShareGlobals] \\  	[#globalContainerPackage.CMDShareGlobalsDataContainer] \\  	[#globalContainerPackage.GUIShareGlobalsDataContainer] \\  	[#globalContainerPackage.PrintingGlobalsDataContainer] \\  	[#globalContainerPackage.ShareGlobalsDataContainer] \\  	[#globalContainerPackage.UserIsAdminItem] \\  |
+| *shareContainerPackage* |  	[#shareContainerPackage.CMDShareFileAttributes] \\  	[#shareContainerPackage.GUIShareFileAttributes] \\  	[#shareContainerPackage.PrinterACLItemDataContainer] \\  	[#shareContainerPackage.ShareACLItemDataContainer] \\  	[#shareContainerPackage.ShareAllowHostSecurityDataContainer] \\  	[#shareContainerPackage.ShareDenyHostSecurityDataContainer] \\  	[#shareContainerPackage.ShareFileAttributes] \\  	[#shareContainerPackage.ShareListDataContainer] \\  	[#shareContainerPackage.ShareListItemDataContainer] \\  	[#shareContainerPackage.ShareOptionsDataContainer] \\  	[#shareContainerPackage.UserACLItemDataContainerForShare] \\  	[#shareContainerPackage.UserInShareACLDataContainer] \\  |
+| *printerContainerPackage* |  	[#printerContainerPackage.PrinterAllowHostSecurityDataContainer] \\  	[#printerContainerPackage.PrinterDenyHostSecurityDataContainer] \\  	[#printerContainerPackage.PrinterListDataContainer] \\  	[#printerContainerPackage.PrinterListItemDataContainer] \\  	[#printerContainerPackage.PrinterOptionsDataContainer] \\  	[#printerContainerPackage.PrintingOptionsDataContainer] \\  	[#printerContainerPackage.UserACLItemDataContainerForPrinter] \\  	[#printerContainerPackage.UserInPrinterACLDataContainer] \\  |
+| *hostContainerPackage* |  	[#hostContainerPackage.HostDataContainer] \\  |
+| *userContainerPackage* |  	[#userContainerPackage.PrinterInUserACLDataContainer] \\  	[#userContainerPackage.ShareInUserACLDataContainer] \\  	[#userContainerPackage.UserDataContainer] \\  	[#userContainerPackage.UserListDataContainer] \\  	[#userContainerPackage.UserListItemDataContainer] \\  |
+| *wizardContainerPackage* |  	[#wizardContainerPackage.HostWizardPage1] \\  	[#wizardContainerPackage.HostWizardPage2] \\  	[#wizardContainerPackage.PrinterInUserWizardACLItemDataContainer] \\  	[#wizardContainerPackage.PrinterWizardPage1] \\  	[#wizardContainerPackage.PrinterWizardPage2] \\  	[#wizardContainerPackage.PrinterWizardPage3] \\  	[#wizardContainerPackage.PrinterWizardPage4] \\  	[#wizardContainerPackage.PrinterWizardPage5] \\  	[#wizardContainerPackage.ShareInUserWizardACLItemDataContainer] \\  	[#wizardContainerPackage.ShareWizardPage1] \\  	[#wizardContainerPackage.ShareWizardPage2] \\  	[#wizardContainerPackage.ShareWizardPage3CMD] \\  	[#wizardContainerPackage.ShareWizardPage3GUI] \\  	[#wizardContainerPackage.ShareWizardPage4] \\  	[#wizardContainerPackage.UserInPrinterWizardACLItemDataContainer] \\  	[#wizardContainerPackage.UserInShareWizardACLItemDataContainer] \\  	[#wizardContainerPackage.UserWizardPage1] \\  	[#wizardContainerPackage.UserWizardPage2] \\  	[#wizardContainerPackage.UserWizardPage3] \\  |
+
+
+[#Index]
+{anchor:globalContainerPackage.AdminUsersInPrinterGlobals}
+{panel:title=globalContainerPackage.AdminUsersInPrinterGlobals|titleBGColor=#CCE5FF| bgColor=#FFFFFF}
+
+| *Description* | container for admin Users in global printer settings \\ |
+| *Related FCO*\\ |  ---  |
+| *Adapter* \\ | sambaAdapter |
+| *Package* \\ | Interface: org.sblim.wbemsmt.samba.bl.container.global |
+| *Actions* | MODIFY \\ |
+| *CustomLayouter* \\ | --- |
+
+*Relations*
+| *RelationType&nbsp;* | *&nbsp;related DataContainer* \\ | *&nbsp;Additional Information* \\ |
+| Extends | [#globalContainerPackage.UserIsAdminItem] \\ | |
+{panel}
+
+	
+
+[#Index]
+{anchor:globalContainerPackage.AdminUsersInShareGlobals}
+{panel:title=globalContainerPackage.AdminUsersInShareGlobals|titleBGColor=#CCE5FF| bgColor=#FFFFFF}
+
+| *Description* | container for admin Users in global share settings \\ |
+| *Related FCO*\\ |  ---  |
+| *Adapter* \\ | sambaAdapter |
+| *Package* \\ | Interface: org.sblim.wbemsmt.samba.bl.container.global |
+| *Actions* | MODIFY \\ |
+| *CustomLayouter* \\ | --- |
+
+*Relations*
+| *RelationType&nbsp;* | *&nbsp;related DataContainer* \\ | *&nbsp;Additional Information* \\ |
+| Extends | [#globalContainerPackage.UserIsAdminItem] \\ | |
+{panel}
+
+	
+
+[#Index]
+{anchor:globalContainerPackage.CMDShareGlobalsDataContainer}
+{panel:title=globalContainerPackage.CMDShareGlobalsDataContainer|titleBGColor=#CCE5FF| bgColor=#FFFFFF}
+
+| *Description* | Container with CLI-extension for global share settings \\ |
+| *Related FCO*\\ | org.sblim.wbemsmt.samba.bl.fco.Linux_SambaShareSecurityOptions |
+| *Adapter* \\ | sambaAdapter |
+| *Package* \\ | Interface: org.sblim.wbemsmt.samba.bl.container.global |
+| *Actions* | MODIFY \\ |
+| *CustomLayouter* \\ | --- |
+*Fields:*
+| *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
+| CreateMask | UNSIGNED_INT16 | TEXTFIELD | Linux_SambaShareSecurityOptions.get_CreateMask \\ | --- | -createMask, Optional,Default is noDefaultValue |
+| DirectoryMask | UNSIGNED_INT16 | TEXTFIELD | Linux_SambaShareSecurityOptions.get_DirectoryMask \\ | --- | -directoryMask, Optional,Default is noDefaultValue |
+| DirectorySecurityMask | UNSIGNED_INT16 | TEXTFIELD | Linux_SambaShareSecurityOptions.get_DirectorySecurityMask \\ | --- | -directorySecurityMask, Optional,Default is noDefaultValue |
+
+*Relations*
+| *RelationType&nbsp;* | *&nbsp;related DataContainer* \\ | *&nbsp;Additional Information* \\ |
+| Extends | [#globalContainerPackage.ShareGlobalsDataContainer] \\ | |
+{panel}
+
+	
+
+[#Index]
+{anchor:globalContainerPackage.GUIShareGlobalsDataContainer}
+{panel:title=globalContainerPackage.GUIShareGlobalsDataContainer|titleBGColor=#CCE5FF| bgColor=#FFFFFF}
+
+| *Description* | Container with UI-extensions for global share settings \\ |
+| *Related FCO*\\ |  ---  |
+| *Adapter* \\ | sambaAdapter |
+| *Package* \\ | Interface: org.sblim.wbemsmt.samba.bl.container.global |
+| *Actions* | MODIFY \\ |
+| *CustomLayouter* \\ | X |
+*Fields:*
+| *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
+| create_u | BOOLEAN | CHECKBOX | Linux_SambaShareSecurityOptions.get_CreateMask \\ | Userdefined | Not used for Commandline |
+| create_g | BOOLEAN | CHECKBOX | Linux_SambaShareSecurityOptions.get_CreateMask \\ | Userdefined | Not used for Commandline |
+| create_s | BOOLEAN | CHECKBOX | Linux_SambaShareSecurityOptions.get_CreateMask \\ | Userdefined | Not used for Commandline |
+| create_user_r | BOOLEAN | CHECKBOX | Linux_SambaShareSecurityOptions.get_CreateMask \\ | Userdefined | Not used for Commandline |
+| create_user_w | BOOLEAN | CHECKBOX | Linux_SambaShareSecurityOptions.get_CreateMask \\ | Userdefined | Not used for Commandline |
+| create_user_x | BOOLEAN | CHECKBOX | Linux_SambaShareSecurityOptions.get_CreateMask \\ | Userdefined | Not used for Commandline |
+| create_group_r | BOOLEAN | CHECKBOX | Linux_SambaShareSecurityOptions.get_CreateMask \\ | Userdefined | Not used for Commandline |
+| create_group_w | BOOLEAN | CHECKBOX | Linux_SambaShareSecurityOptions.get_CreateMask \\ | Userdefined | Not used for Commandline |
+| create_group_x | BOOLEAN | CHECKBOX | Linux_SambaShareSecurityOptions.get_CreateMask \\ | Userdefined | Not used for Commandline |
+| create_other_r | BOOLEAN | CHECKBOX | Linux_SambaShareSecurityOptions.get_CreateMask \\ | Userdefined | Not used for Commandline |
+| create_other_w | BOOLEAN | CHECKBOX | Linux_SambaShareSecurityOptions.get_CreateMask \\ | Userdefined | Not used for Commandline |
+| create_other_x | BOOLEAN | CHECKBOX | Linux_SambaShareSecurityOptions.get_CreateMask \\ | Userdefined | Not used for Commandline |
+| directory_u | BOOLEAN | CHECKBOX | Linux_SambaShareSecurityOptions.get_DirectoryMask \\ | Userdefined | Not used for Commandline |
+| directory_g | BOOLEAN | CHECKBOX | Linux_SambaShareSecurityOptions.get_DirectoryMask \\ | Userdefined | Not used for Commandline |
+| directory_s | BOOLEAN | CHECKBOX | Linux_SambaShareSecurityOptions.get_DirectoryMask \\ | Userdefined | Not used for Commandline |
+| directory_user_r | BOOLEAN | CHECKBOX | Linux_SambaShareSecurityOptions.get_DirectoryMask \\ | Userdefined | Not used for Commandline |
+| directory_user_w | BOOLEAN | CHECKBOX | Linux_SambaShareSecurityOptions.get_DirectoryMask \\ | Userdefined | Not used for Commandline |
+| directory_user_x | BOOLEAN | CHECKBOX | Linux_SambaShareSecurityOptions.get_DirectoryMask \\ | Userdefined | Not used for Commandline |
+| directory_group_r | BOOLEAN | CHECKBOX | Linux_SambaShareSecurityOptions.get_DirectoryMask \\ | Userdefined | Not used for Commandline |
+| directory_group_w | BOOLEAN | CHECKBOX | Linux_SambaShareSecurityOptions.get_DirectoryMask \\ | Userdefined | Not used for Commandline |
+| directory_group_x | BOOLEAN | CHECKBOX | Linux_SambaShareSecurityOptions.get_DirectoryMask \\ | Userdefined | Not used for Commandline |
+| directory_other_r | BOOLEAN | CHECKBOX | Linux_SambaShareSecurityOptions.get_DirectoryMask \\ | Userdefined | Not used for Commandline |
+| directory_other_w | BOOLEAN | CHECKBOX | Linux_SambaShareSecurityOptions.get_DirectoryMask \\ | Userdefined | Not used for Commandline |
+| directory_other_x | BOOLEAN | CHECKBOX | Linux_SambaShareSecurityOptions.get_DirectoryMask \\ | Userdefined | Not used for Commandline |
+| directory_security_u | BOOLEAN | CHECKBOX | Linux_SambaShareSecurityOptions.get_DirectorySecurityMask \\ | Userdefined | Not used for Commandline |
+| directory_security_g | BOOLEAN | CHECKBOX | Linux_SambaShareSecurityOptions.get_DirectorySecurityMask \\ | Userdefined | Not used for Commandline |
+| directory_security_s | BOOLEAN | CHECKBOX | Linux_SambaShareSecurityOptions.get_DirectorySecurityMask \\ | Userdefined | Not used for Commandline |
+| directory_security_user_r | BOOLEAN | CHECKBOX | Linux_SambaShareSecurityOptions.get_DirectorySecurityMask \\ | Userdefined | Not used for Commandline |
+| directory_security_user_w | BOOLEAN | CHECKBOX | Linux_SambaShareSecurityOptions.get_DirectorySecurityMask \\ | Userdefined | Not used for Commandline |
+| directory_security_user_x | BOOLEAN | CHECKBOX | Linux_SambaShareSecurityOptions.get_DirectorySecurityMask \\ | Userdefined | Not used for Commandline |
+| directory_security_group_r | BOOLEAN | CHECKBOX | Linux_SambaShareSecurityOptions.get_DirectorySecurityMask \\ | Userdefined | Not used for Commandline |
+| directory_security_group_w | BOOLEAN | CHECKBOX | Linux_SambaShareSecurityOptions.get_DirectorySecurityMask \\ | Userdefined | Not used for Commandline |
+| directory_security_group_x | BOOLEAN | CHECKBOX | Linux_SambaShareSecurityOptions.get_DirectorySecurityMask \\ | Userdefined | Not used for Commandline |
+| directory_security_other_r | BOOLEAN | CHECKBOX | Linux_SambaShareSecurityOptions.get_DirectorySecurityMask \\ | Userdefined | Not used for Commandline |
+| directory_security_other_w | BOOLEAN | CHECKBOX | Linux_SambaShareSecurityOptions.get_DirectorySecurityMask \\ | Userdefined | Not used for Commandline |
+| directory_security_other_x | BOOLEAN | CHECKBOX | Linux_SambaShareSecurityOptions.get_DirectorySecurityMask \\ | Userdefined | Not used for Commandline |
+
+*Relations*
+| *RelationType&nbsp;* | *&nbsp;related DataContainer* \\ | *&nbsp;Additional Information* \\ |
+| Extends | [#globalContainerPackage.ShareGlobalsDataContainer] \\ | |
+| Link | [#globalContainerPackage.AdminUsersInShareGlobals] | Rolename: users, Type: LIST |
+{panel}
+
+	
+
+[#Index]
+{anchor:globalContainerPackage.PrintingGlobalsDataContainer}
+{panel:title=globalContainerPackage.PrintingGlobalsDataContainer|titleBGColor=#CCE5FF| bgColor=#FFFFFF}
+
+| *Description* | Container for Global printer settings \\ |
+| *Related FCO*\\ | org.sblim.wbemsmt.samba.bl.fco.Linux_SambaGlobalPrintingOptions |
+| *Adapter* \\ | sambaAdapter |
+| *Package* \\ | Interface: org.sblim.wbemsmt.samba.bl.container.global |
+| *Actions* | MODIFY \\ |
+| *CustomLayouter* \\ | --- |
+*Fields:*
+| *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
+| PrintcapCacheTime | UNSIGNED_INT64 | TEXTFIELD | Linux_SambaGlobalPrintingOptions.get_PrintcapCacheTime \\ | --- | -printcapCacheTime, Optional,Default is noDefaultValue |
+| SystemPrinterName | UNSIGNED_INT16 | COMBOBOX | Linux_SambaGlobalPrintingOptions.get_SystemPrinterName \\ | Userdefined | -systemPrinterName, Optional,Default is noDefaultValue |
+| CupsOptions | STRING | TEXTFIELD | Linux_SambaGlobalPrintingOptions.get_CupsOptions \\ | --- | -cupsOptions, Optional,Default is noDefaultValue |
+| DefaultDevMode | BOOLEAN | CHECKBOX | Linux_SambaGlobalPrintingOptions.get_DefaultDevMode \\ | --- | -defaultDevMode, Optional,Default is noDefaultValue |
+| MaxPrintjobs | UNSIGNED_INT64 | TEXTFIELD | Linux_SambaGlobalPrintingOptions.get_MaxPrintjobs \\ | --- | -maxPrintjobs, Optional,Default is noDefaultValue |
+| MaxReportedPrintjobs | UNSIGNED_INT64 | TEXTFIELD | Linux_SambaGlobalPrintingOptions.get_MaxReportedPrintjobs \\ | --- | -maxReportedPrintjobs, Optional,Default is noDefaultValue |
+| PrintCommand | STRING | TEXTFIELD | Linux_SambaGlobalPrintingOptions.get_PrintCommand \\ | --- | -printCommand, Optional,Default is noDefaultValue |
+| UseClientDriver | BOOLEAN | CHECKBOX | Linux_SambaGlobalPrintingOptions.get_UseClientDriver \\ | --- | -useClientDriver, Optional,Default is noDefaultValue |
+
+*Relations*
+| *RelationType&nbsp;* | *&nbsp;related DataContainer* \\ | *&nbsp;Additional Information* \\ |
+| Link | [#globalContainerPackage.AdminUsersInPrinterGlobals] | Rolename: users, Type: LIST |
+{panel}
+
+	
+
+[#Index]
+{anchor:globalContainerPackage.ShareGlobalsDataContainer}
+{panel:title=globalContainerPackage.ShareGlobalsDataContainer|titleBGColor=#CCE5FF| bgColor=#FFFFFF}
+
+| *Description* | Container for Global share settings \\ |
+| *Related FCO*\\ | org.sblim.wbemsmt.samba.bl.fco.Linux_SambaGlobalFileNameHandlingOptions |
+| *Adapter* \\ | sambaAdapter |
+| *Package* \\ | Interface: org.sblim.wbemsmt.samba.bl.container.global |
+| *Actions* | MODIFY \\ |
+| *CustomLayouter* \\ | --- |
+*Fields:*
+| *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
+| CaseSensitive | BOOLEAN | CHECKBOX | Linux_SambaGlobalFileNameHandlingOptions.get_CaseSensitive \\ | --- | -caseSensitive, Optional,Default is noDefaultValue |
+| DosFiletimes | BOOLEAN | CHECKBOX | Linux_SambaGlobalFileNameHandlingOptions.get_DosFiletimes \\ | --- | -dosFiletimes, Optional,Default is noDefaultValue |
+| HideDotFiles | BOOLEAN | CHECKBOX | Linux_SambaGlobalFileNameHandlingOptions.get_HideDotFiles \\ | --- | -hideDotFiles, Optional,Default is noDefaultValue |
+| AclCompatibility | UNSIGNED_INT8 | COMBOBOX | Linux_SambaGlobalProtocolOptions.get_AclCompatibility \\ | --- | -aclCompatibility, Optional,Default is noDefaultValue |
+| EASupport | BOOLEAN | CHECKBOX | Linux_SambaGlobalProtocolOptions.get_EASupport \\ | --- | -eaSupport, Optional,Default is noDefaultValue |
+| NTACLSupport | BOOLEAN | CHECKBOX | Linux_SambaGlobalProtocolOptions.get_NTACLSupport \\ | --- | -ntaclSupport, Optional,Default is noDefaultValue |
+
+{panel}
+
+	
+
+[#Index]
+{anchor:globalContainerPackage.UserIsAdminItem}
+{panel:title=globalContainerPackage.UserIsAdminItem|titleBGColor=#CCE5FF| bgColor=#FFFFFF}
+
+| *Description* | Container for defining user as admin \\ |
+| *Related FCO*\\ | org.sblim.wbemsmt.samba.bl.fco.Linux_SambaUser |
+| *Adapter* \\ | sambaAdapter |
+| *Package* \\ | Interface: org.sblim.wbemsmt.samba.bl.container.global |
+| *Actions* | MODIFY \\ |
+| *CustomLayouter* \\ | --- |
+*Fields:*
+| *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
+| SambaUserName | STRING | LABEL | Linux_SambaUser.get_SambaUserName \\ | Readonly, Userdefined | -sambaUsername, Required, Used for selection |
+| admin | BOOLEAN | CHECKBOX | userdefined \\ | Userdefined | -admin, Optional,Default is noDefaultValue |
+
+{panel}
+
+	
+
+[#Index]
+{anchor:hostContainerPackage.HostDataContainer}
+{panel:title=hostContainerPackage.HostDataContainer|titleBGColor=#CCE5FF| bgColor=#FFFFFF}
+
+| *Description* | Container for a samba host \\ |
+| *Related FCO*\\ | org.sblim.wbemsmt.samba.bl.fco.Linux_SambaHost |
+| *Adapter* \\ | sambaAdapter |
+| *Package* \\ | Interface: org.sblim.wbemsmt.samba.bl.container.host |
+| *Actions* | DELETE, MODIFY \\ |
+| *CustomLayouter* \\ | --- |
+*Fields:*
+| *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
+| Name | STRING | TEXTFIELD | Linux_SambaHost.get_Name \\ | --- | -host, Optional,Default is noDefaultValue |
+
+{panel}
+
+	
+
+[#Index]
+{anchor:printerContainerPackage.PrinterAllowHostSecurityDataContainer}
+{panel:title=printerContainerPackage.PrinterAllowHostSecurityDataContainer|titleBGColor=#CCE5FF| bgColor=#FFFFFF}
+
+| *Description* | Container for AllowHosts within a printer \\ |
+| *Related FCO*\\ |  ---  |
+| *Adapter* \\ | sambaAdapter |
+| *Package* \\ | Interface: org.sblim.wbemsmt.samba.bl.container.printer |
+| *Actions* | MODIFY \\ |
+| *CustomLayouter* \\ | --- |
+
+*Relations*
+| *RelationType&nbsp;* | *&nbsp;related DataContainer* \\ | *&nbsp;Additional Information* \\ |
+| Extends | [#serviceContainerPackage.ServiceAllowHostSecurityDataContainer] \\ | |
+{panel}
+
+	
+
+[#Index]
+{anchor:printerContainerPackage.PrinterDenyHostSecurityDataContainer}
+{panel:title=printerContainerPackage.PrinterDenyHostSecurityDataContainer|titleBGColor=#CCE5FF| bgColor=#FFFFFF}
+
+| *Description* | Container for DenyHosts within a printer \\ |
+| *Related FCO*\\ |  ---  |
+| *Adapter* \\ | sambaAdapter |
+| *Package* \\ | Interface: org.sblim.wbemsmt.samba.bl.container.printer |
+| *Actions* | MODIFY \\ |
+| *CustomLayouter* \\ | --- |
+
+*Relations*
+| *RelationType&nbsp;* | *&nbsp;related DataContainer* \\ | *&nbsp;Additional Information* \\ |
+| Extends | [#serviceContainerPackage.ServiceDenyHostDataContainer] \\ | |
+{panel}
+
+	
+
+[#Index]
+{anchor:printerContainerPackage.PrinterListDataContainer}
+{panel:title=printerContainerPackage.PrinterListDataContainer|titleBGColor=#CCE5FF| bgColor=#FFFFFF}
+
+| *Description* | List with printers \\ |
+| *Related FCO*\\ |  ---  |
+| *Adapter* \\ | sambaAdapter |
+| *Package* \\ | Interface: org.sblim.wbemsmt.samba.bl.container.printer |
+| *Actions* | --- \\ |
+| *CustomLayouter* \\ | --- |
+
+*Relations*
+| *RelationType&nbsp;* | *&nbsp;related DataContainer* \\ | *&nbsp;Additional Information* \\ |
+| Link | [#printerContainerPackage.PrinterListItemDataContainer] | Rolename: printers, Type: LIST |
+{panel}
+
+	
+
+[#Index]
+{anchor:printerContainerPackage.PrinterListItemDataContainer}
+{panel:title=printerContainerPackage.PrinterListItemDataContainer|titleBGColor=#CCE5FF| bgColor=#FFFFFF}
+
+| *Description* | printer within a list of printers \\ |
+| *Related FCO*\\ |  ---  |
+| *Adapter* \\ | sambaAdapter |
+| *Package* \\ | Interface: org.sblim.wbemsmt.samba.bl.container.printer |
+| *Actions* | --- \\ |
+| *CustomLayouter* \\ | --- |
+
+*Relations*
+| *RelationType&nbsp;* | *&nbsp;related DataContainer* \\ | *&nbsp;Additional Information* \\ |
+| Extends | [#printerContainerPackage.PrinterOptionsDataContainer] \\ | |
+{panel}
+
+	
+
+[#Index]
+{anchor:printerContainerPackage.PrinterOptionsDataContainer}
+{panel:title=printerContainerPackage.PrinterOptionsDataContainer|titleBGColor=#CCE5FF| bgColor=#FFFFFF}
+
+| *Description* | Container for a printer's options \\ |
+| *Related FCO*\\ | org.sblim.wbemsmt.samba.bl.fco.Linux_SambaPrinterOptions |
+| *Adapter* \\ | sambaAdapter |
+| *Package* \\ | Interface: org.sblim.wbemsmt.samba.bl.container.printer |
+| *Actions* | DELETE, MODIFY \\ |
+| *CustomLayouter* \\ | --- |
+*Fields:*
+| *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
+| Name | STRING | LABEL | Linux_SambaPrinterOptions.get_Name \\ | Readonly | -sambaPrintername, Required, Used for selection |
+| SystemPrinterName | UNSIGNED_INT16 | COMBOBOX | Linux_SambaPrinterOptions.get_SystemPrinterName \\ | Userdefined | -systemPrinterName, Optional,Default is noDefaultValue |
+| Path | STRING | TEXTFIELD | Linux_SambaPrinterOptions.get_Path \\ | --- | -path, Optional,Default is noDefaultValue |
+| Comment | STRING | TEXTFIELD | Linux_SambaPrinterOptions.get_Comment \\ | --- | -comment, Optional,Default is noDefaultValue |
+| Available | BOOLEAN | CHECKBOX | Linux_SambaPrinterOptions.get_Available \\ | --- | -available, Optional,Default is noDefaultValue |
+| GuestOK | BOOLEAN | CHECKBOX | Linux_SambaCommonSecurityOptions.get_GuestOK \\ | --- | -guestOK, Optional,Default is noDefaultValue |
+| GuestOnly | BOOLEAN | CHECKBOX | Linux_SambaCommonSecurityOptions.get_GuestOnly \\ | --- | -guestOnly, Optional,Default is noDefaultValue |
+| HostsAllow | STRING | TEXTFIELD | Linux_SambaCommonSecurityOptions.get_HostsAllow \\ | --- | -hostAllow, Optional,Default is noDefaultValue |
+| HostsDeny | STRING | TEXTFIELD | Linux_SambaCommonSecurityOptions.get_HostsDeny \\ | --- | -hostDeny, Optional,Default is noDefaultValue |
+| ReadOnly | BOOLEAN | CHECKBOX | Linux_SambaCommonSecurityOptions.get_ReadOnly \\ | --- | -readOnly, Optional,Default is noDefaultValue |
+| Browsable | BOOLEAN | CHECKBOX | Linux_SambaSharePrinterBrowseOptions.get_Browsable \\ | --- | -browsable, Optional,Default is noDefaultValue |
+
+{panel}
+
+	
+
+[#Index]
+{anchor:printerContainerPackage.PrintingOptionsDataContainer}
+{panel:title=printerContainerPackage.PrintingOptionsDataContainer|titleBGColor=#CCE5FF| bgColor=#FFFFFF}
+
+| *Description* | container for printing options \\ |
+| *Related FCO*\\ | org.sblim.wbemsmt.samba.bl.fco.Linux_SambaPrinterPrintingOptions |
+| *Adapter* \\ | sambaAdapter |
+| *Package* \\ | Interface: org.sblim.wbemsmt.samba.bl.container.printer |
+| *Actions* | MODIFY \\ |
+| *CustomLayouter* \\ | --- |
+*Fields:*
+| *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
+| CupsOptions | STRING | TEXTFIELD | Linux_SambaPrinterPrintingOptions.get_CupsOptions \\ | --- | -cupsOptions, Optional,Default is noDefaultValue |
+| DefaultDevMode | BOOLEAN | CHECKBOX | Linux_SambaPrinterPrintingOptions.get_DefaultDevMode \\ | --- | -defaultDevMode, Optional,Default is noDefaultValue |
+| MaxPrintjobs | UNSIGNED_INT64 | TEXTFIELD | Linux_SambaPrinterPrintingOptions.get_MaxPrintjobs \\ | --- | -maxPrintjobs, Optional,Default is noDefaultValue |
+| MaxReportedPrintjobs | UNSIGNED_INT64 | TEXTFIELD | Linux_SambaPrinterPrintingOptions.get_MaxReportedPrintjobs \\ | --- | -maxReportedPrintjobs, Optional,Default is noDefaultValue |
+| PrintCommand | STRING | TEXTFIELD | Linux_SambaPrinterPrintingOptions.get_PrintCommand \\ | --- | -printCommand, Optional,Default is noDefaultValue |
+| UseClientDriver | BOOLEAN | CHECKBOX | Linux_SambaPrinterPrintingOptions.get_UseClientDriver \\ | --- | -useClientDriver, Optional,Default is noDefaultValue |
+
+{panel}
+
+	
+
+[#Index]
+{anchor:printerContainerPackage.UserACLItemDataContainerForPrinter}
+{panel:title=printerContainerPackage.UserACLItemDataContainerForPrinter|titleBGColor=#CCE5FF| bgColor=#FFFFFF}
+
+| *Description* | Container representing a user's acl within a printer \\ |
+| *Related FCO*\\ | org.sblim.wbemsmt.samba.bl.fco.Linux_SambaUser |
+| *Adapter* \\ | sambaAdapter |
+| *Package* \\ | Interface: org.sblim.wbemsmt.samba.bl.container.printer |
+| *Actions* | MODIFY \\ |
+| *CustomLayouter* \\ | --- |
+*Fields:*
+| *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
+| SambaUserName | STRING | LABEL | Linux_SambaUser.get_SambaUserName \\ | Readonly | -sambaUsername, Required, Used for selection |
+| accessTypeVI | UNSIGNED_INT16 | RADIOBUTTON | userdefined \\ | Userdefined | -access, Optional,Default is noDefaultValue |
+| accessTypeRW | UNSIGNED_INT16 | RADIOBUTTON | userdefined \\ | Userdefined | -accessTypeRW, Optional,Default is noDefaultValue |
+| admin | BOOLEAN | CHECKBOX | userdefined \\ | Userdefined | -admin, Optional,Default is noDefaultValue |
+
+{panel}
+
+	
+
+[#Index]
+{anchor:printerContainerPackage.UserInPrinterACLDataContainer}
+{panel:title=printerContainerPackage.UserInPrinterACLDataContainer|titleBGColor=#CCE5FF| bgColor=#FFFFFF}
+
+| *Description* |  \\ |
+| *Related FCO*\\ | org.sblim.wbemsmt.samba.bl.fco.Linux_SambaUser |
+| *Adapter* \\ | sambaAdapter |
+| *Package* \\ | Interface: org.sblim.wbemsmt.samba.bl.container.printer |
+| *Actions* | MODIFY \\ |
+| *CustomLayouter* \\ | --- |
+*Fields:*
+| *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
+| currentForceUser | STRING | LABEL | userdefined \\ | Readonly, Userdefined | -currentForceUser, Optional,Default is noDefaultValue |
+| newForceUser | UNSIGNED_INT16 | COMBOBOX | userdefined \\ | Userdefined | -newForceUser, Optional,Default is noDefaultValue |
+
+*Relations*
+| *RelationType&nbsp;* | *&nbsp;related DataContainer* \\ | *&nbsp;Additional Information* \\ |
+| Link | [#printerContainerPackage.UserACLItemDataContainerForPrinter] | Rolename: users, Type: LIST |
+{panel}
+
+	
+
+[#Index]
+{anchor:serviceContainerPackage.ServiceAllowHostSecurityDataContainer}
+{panel:title=serviceContainerPackage.ServiceAllowHostSecurityDataContainer|titleBGColor=#CCE5FF| bgColor=#FFFFFF}
+
+| *Description* | Container to define AllowHosts \\ |
+| *Related FCO*\\ |  ---  |
+| *Adapter* \\ | sambaAdapter |
+| *Package* \\ | Interface: org.sblim.wbemsmt.samba.bl.container.service |
+| *Actions* | MODIFY \\ |
+| *CustomLayouter* \\ | --- |
+*Fields:*
+| *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
+| allowedHosts | UNSIGNED_INT16 | LIST | userdefined \\ | Userdefined | -allowedHosts, Optional,Default is noDefaultValue |
+| hostsToAllow | UNSIGNED_INT16 | LIST | userdefined \\ | Userdefined | -hostsToAllow, Optional,Default is noDefaultValue |
+| addHost | STRING | BUTTON | userdefined \\ | Userdefined | -addHost, Optional,Default is noDefaultValue |
+| removeHost | BOOLEAN | BUTTON | userdefined \\ | Userdefined | -removeHost, Optional,Default is noDefaultValue |
+
+{panel}
+
+	
+
+[#Index]
+{anchor:serviceContainerPackage.ServiceDenyHostDataContainer}
+{panel:title=serviceContainerPackage.ServiceDenyHostDataContainer|titleBGColor=#CCE5FF| bgColor=#FFFFFF}
+
+| *Description* | Container to define DenyHosts \\ |
+| *Related FCO*\\ |  ---  |
+| *Adapter* \\ | sambaAdapter |
+| *Package* \\ | Interface: org.sblim.wbemsmt.samba.bl.container.service |
+| *Actions* | MODIFY \\ |
+| *CustomLayouter* \\ | --- |
+*Fields:*
+| *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
+| deniedHosts | UNSIGNED_INT16 | LIST | userdefined \\ | Userdefined | -allowedHosts, Optional,Default is noDefaultValue |
+| hostsToDeny | UNSIGNED_INT16 | LIST | userdefined \\ | Userdefined | -hostsToAllow, Optional,Default is noDefaultValue |
+| addHost | STRING | BUTTON | userdefined \\ | Userdefined | -addHost, Optional,Default is noDefaultValue |
+| removeHost | STRING | BUTTON | userdefined \\ | Userdefined | -removeHost, Optional,Default is noDefaultValue |
+
+{panel}
+
+	
+
+[#Index]
+{anchor:serviceContainerPackage.ServiceGlobalSecurityOptionsDataContainer}
+{panel:title=serviceContainerPackage.ServiceGlobalSecurityOptionsDataContainer|titleBGColor=#CCE5FF| bgColor=#FFFFFF}
+
+| *Description* | Container for defining Security Options \\ |
+| *Related FCO*\\ | org.sblim.wbemsmt.samba.bl.fco.Linux_SambaGlobalSecurityOptions |
+| *Adapter* \\ | sambaAdapter |
+| *Package* \\ | Interface: org.sblim.wbemsmt.samba.bl.container.service |
+| *Actions* | MODIFY \\ |
+| *CustomLayouter* \\ | --- |
+*Fields:*
+| *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
+| AuthMethods | STRING | TEXTFIELD | Linux_SambaGlobalSecurityOptions.get_AuthMethods \\ | --- | -authMethods, Optional,Default is noDefaultValue |
+| EncryptPasswords | BOOLEAN | CHECKBOX | Linux_SambaGlobalSecurityOptions.get_EncryptPasswords \\ | --- | -encryptPasswords, Optional,Default is noDefaultValue |
+| MinPasswordLength | UNSIGNED_INT8 | TEXTFIELD | Linux_SambaGlobalSecurityOptions.get_MinPasswordLength \\ | --- | -minLength, Optional,Default is noDefaultValue |
+| NullPasswords | BOOLEAN | CHECKBOX | Linux_SambaGlobalSecurityOptions.get_NullPasswords \\ | --- | -nullPasswords, Optional,Default is noDefaultValue |
+| PassdbBackend | UNSIGNED_INT16 | COMBOBOX | Linux_SambaGlobalSecurityOptions.get_PassdbBackend \\ | Userdefined | -passdbBackend, Optional,Default is noDefaultValue |
+| SMBPasswdFile | STRING | TEXTFIELD | Linux_SambaGlobalSecurityOptions.get_SMBPasswdFile \\ | --- | -smbPasswdFile, Optional,Default is noDefaultValue |
+| Security | UNSIGNED_INT8 | COMBOBOX | Linux_SambaGlobalSecurityOptions.get_Security \\ | --- | -security, Optional,Default is noDefaultValue |
+| GuestOK | BOOLEAN | CHECKBOX | Linux_SambaCommonSecurityOptions.get_GuestOK \\ | --- | -guestOK, Optional,Default is noDefaultValue |
+| GuestOnly | BOOLEAN | CHECKBOX | Linux_SambaCommonSecurityOptions.get_GuestOnly \\ | --- | -guestOnly, Optional,Default is noDefaultValue |
+| HostsAllow | STRING | TEXTFIELD | Linux_SambaCommonSecurityOptions.get_HostsAllow \\ | --- | -hostAllow, Optional,Default is noDefaultValue |
+| HostsDeny | STRING | TEXTFIELD | Linux_SambaCommonSecurityOptions.get_HostsDeny \\ | --- | -hostDeny, Optional,Default is noDefaultValue |
+| ReadOnly | BOOLEAN | CHECKBOX | Linux_SambaCommonSecurityOptions.get_ReadOnly \\ | --- | -readOnly, Optional,Default is noDefaultValue |
+| DomainMaster | UNSIGNED_INT16 | COMBOBOX | Linux_SambaGlobalBrowseOptions.get_DomainMaster \\ | --- | -domainMaster, Optional,Default is noDefaultValue |
+| Browsable | BOOLEAN | CHECKBOX | Linux_SambaGlobalBrowseOptions.get_Browsable \\ | --- | -browsable, Optional,Default is noDefaultValue |
+
+{panel}
+
+	
+
+[#Index]
+{anchor:serviceContainerPackage.ServiceLoggingDataContainer}
+{panel:title=serviceContainerPackage.ServiceLoggingDataContainer|titleBGColor=#CCE5FF| bgColor=#FFFFFF}
+
+| *Description* | Container for defining the logging \\ |
+| *Related FCO*\\ | org.sblim.wbemsmt.samba.bl.fco.Linux_SambaLoggingOptions |
+| *Adapter* \\ | sambaAdapter |
+| *Package* \\ | Interface: org.sblim.wbemsmt.samba.bl.container.service |
+| *Actions* | MODIFY \\ |
+| *CustomLayouter* \\ | --- |
+*Fields:*
+| *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
+| SysLog | UNSIGNED_INT16 | TEXTFIELD | Linux_SambaLoggingOptions.get_SysLog \\ | --- | -syslog, Optional,Default is noDefaultValue |
+| SysLogOnly | BOOLEAN | CHECKBOX | Linux_SambaLoggingOptions.get_SysLogOnly \\ | --- | -syslogOnly, Optional,Default is noDefaultValue |
+| MaxLogSize | UNSIGNED_INT32 | TEXTFIELD | Linux_SambaLoggingOptions.get_MaxLogSize \\ | --- | -maxLogSize, Optional,Default is noDefaultValue |
+| DebugHiresTimestamp | BOOLEAN | CHECKBOX | Linux_SambaLoggingOptions.get_DebugHiresTimestamp \\ | --- | -debugHires, Optional,Default is noDefaultValue |
+| DebugPID | BOOLEAN | CHECKBOX | Linux_SambaLoggingOptions.get_DebugPID \\ | --- | -debugPID, Optional,Default is noDefaultValue |
+| DebugTimestamp | BOOLEAN | CHECKBOX | Linux_SambaLoggingOptions.get_DebugTimestamp \\ | --- | -debugTimestamp, Optional,Default is noDefaultValue |
+| DebugUID | BOOLEAN | CHECKBOX | Linux_SambaLoggingOptions.get_DebugUID \\ | --- | -debugUID, Optional,Default is noDefaultValue |
+| LogFile | STRING | TEXTFIELD | Linux_SambaLoggingOptions.get_LogFile \\ | --- | -logfile, Optional,Default is noDefaultValue |
+| LogLevel | STRING | TEXTFIELD | Linux_SambaLoggingOptions.get_LogLevel \\ | --- | -loglevel, Optional,Default is noDefaultValue |
+
+{panel}
+
+	
+
+[#Index]
+{anchor:serviceContainerPackage.ServiceOperationsDataContainer}
+{panel:title=serviceContainerPackage.ServiceOperationsDataContainer|titleBGColor=#CCE5FF| bgColor=#FFFFFF}
+
+| *Description* | Container for Operations on the Service Object \\ |
+| *Related FCO*\\ | org.sblim.wbemsmt.samba.bl.fco.Linux_SambaService |
+| *Adapter* \\ | sambaAdapter |
+| *Package* \\ | Interface: org.sblim.wbemsmt.samba.bl.container.service |
+| *Actions* | MODIFY \\ |
+| *CustomLayouter* \\ | --- |
+*Fields:*
+| *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
+| Started | BOOLEAN | CHECKBOX | Linux_SambaService.get_Started \\ | Readonly | Not used for Commandline |
+| startService | UNSIGNED_INT32 | BUTTON | Linux_SambaService.invoke_startService \\ | --- | -start, Optional,Default is noDefaultValue |
+| stopService | UNSIGNED_INT32 | BUTTON | Linux_SambaService.invoke_stopService \\ | --- | -stop, Optional,Default is noDefaultValue |
+| restartService | UNSIGNED_INT8 | BUTTON | userdefined \\ | Userdefined | -restart, Optional,Default is noDefaultValue |
+
+{panel}
+
+	
+
+[#Index]
+{anchor:serviceContainerPackage.ServiceOptionsDataContainer}
+{panel:title=serviceContainerPackage.ServiceOptionsDataContainer|titleBGColor=#CCE5FF| bgColor=#FFFFFF}
+
+| *Description* | Container for Setting Options on the Samba Service \\ |
+| *Related FCO*\\ | org.sblim.wbemsmt.samba.bl.fco.Linux_SambaGlobalOptions |
+| *Adapter* \\ | sambaAdapter |
+| *Package* \\ | Interface: org.sblim.wbemsmt.samba.bl.container.service |
+| *Actions* | MODIFY \\ |
+| *CustomLayouter* \\ | --- |
+*Fields:*
+| *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
+| BindInterfacesOnly | BOOLEAN | CHECKBOX | Linux_SambaGlobalOptions.get_BindInterfacesOnly \\ | --- | -bindInterfaces, Optional,Default is noDefaultValue |
+| Interfaces | STRING | TEXTFIELD | Linux_SambaGlobalOptions.get_Interfaces \\ | --- | -interfaces, Optional,Default is noDefaultValue |
+| NetbiosAlias | STRING | TEXTFIELD | Linux_SambaGlobalOptions.get_NetbiosAlias \\ | --- | -netbiosAlias, Optional,Default is noDefaultValue |
+| NetbiosName | STRING | TEXTFIELD | Linux_SambaGlobalOptions.get_NetbiosName \\ | --- | -netbiosName, Optional,Default is noDefaultValue |
+| ServerString | STRING | TEXTFIELD | Linux_SambaGlobalOptions.get_ServerString \\ | --- | -serverString, Optional,Default is noDefaultValue |
+| Workgroup | STRING | TEXTFIELD | Linux_SambaGlobalOptions.get_Workgroup \\ | --- | -workgroup, Optional,Default is noDefaultValue |
+| ConfigurationFile | STRING | TEXTFIELD | Linux_SambaServiceConfiguration.get_ConfigurationFile \\ | --- | -configurationFile, Optional,Default is noDefaultValue |
+
+{panel}
+
+	
+
+[#Index]
+{anchor:serviceContainerPackage.ServiceScriptingDataContainer}
+{panel:title=serviceContainerPackage.ServiceScriptingDataContainer|titleBGColor=#CCE5FF| bgColor=#FFFFFF}
+
+| *Description* | Container to Scripting Options \\ |
+| *Related FCO*\\ | org.sblim.wbemsmt.samba.bl.fco.Linux_SambaScriptingOptions |
+| *Adapter* \\ | sambaAdapter |
+| *Package* \\ | Interface: org.sblim.wbemsmt.samba.bl.container.service |
+| *Actions* | MODIFY \\ |
+| *CustomLayouter* \\ | --- |
+*Fields:*
+| *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
+| AddGroupScript | STRING | TEXTFIELD | Linux_SambaScriptingOptions.get_AddGroupScript \\ | --- | -addGroupScript, Optional,Default is noDefaultValue |
+| AddPrinterCommand | STRING | TEXTFIELD | Linux_SambaScriptingOptions.get_AddPrinterCommand \\ | --- | -addPrinterCommand, Optional,Default is noDefaultValue |
+| AddShareCommand | STRING | TEXTFIELD | Linux_SambaScriptingOptions.get_AddShareCommand \\ | --- | -addShareCommand, Optional,Default is noDefaultValue |
+| AddUserScript | STRING | TEXTFIELD | Linux_SambaScriptingOptions.get_AddUserScript \\ | --- | -addUserScript, Optional,Default is noDefaultValue |
+| AddUsertoGroupScript | STRING | TEXTFIELD | Linux_SambaScriptingOptions.get_AddUsertoGroupScript \\ | --- | -addUsertoGroupScript, Optional,Default is noDefaultValue |
+| DeleteGroupScript | STRING | TEXTFIELD | Linux_SambaScriptingOptions.get_DeleteGrouprScript \\ | --- | -deleteGroupScript, Optional,Default is noDefaultValue |
+| DeleteUserScript | STRING | TEXTFIELD | Linux_SambaScriptingOptions.get_DeleteUserScript \\ | --- | -deleteUserScript, Optional,Default is noDefaultValue |
+| DeleteUserfromGroupScript | STRING | TEXTFIELD | Linux_SambaScriptingOptions.get_DeleteUserfromGroupScript \\ | --- | -deleteUserfromGroupScript, Optional,Default is noDefaultValue |
+| SetPrimaryGroupScript | STRING | TEXTFIELD | Linux_SambaScriptingOptions.get_SetPrimaryGroupScript \\ | --- | -setPrimaryGroupScript, Optional,Default is noDefaultValue |
+
+{panel}
+
+	
+
+[#Index]
+{anchor:serviceContainerPackage.ServiceUserSecurityOptionsDataContainer}
+{panel:title=serviceContainerPackage.ServiceUserSecurityOptionsDataContainer|titleBGColor=#CCE5FF| bgColor=#FFFFFF}
+
+| *Description* | Container for defining user related security options \\ |
+| *Related FCO*\\ |  ---  |
+| *Adapter* \\ | sambaAdapter |
+| *Package* \\ | Interface: org.sblim.wbemsmt.samba.bl.container.service |
+| *Actions* | MODIFY \\ |
+| *CustomLayouter* \\ | --- |
+*Fields:*
+| *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
+| guestUser | STRING | LABEL | userdefined \\ | Readonly, Userdefined | -userForGuestAccount, Optional,Default is noDefaultValue |
+| currentForceUser | STRING | LABEL | userdefined \\ | Readonly, Userdefined | -currentForceUser, Optional,Default is noDefaultValue |
+| newForceUser | UNSIGNED_INT16 | COMBOBOX | userdefined \\ | Userdefined | -newForceUser, Optional,Default is noDefaultValue |
+
+*Relations*
+| *RelationType&nbsp;* | *&nbsp;related DataContainer* \\ | *&nbsp;Additional Information* \\ |
+| Link | [#serviceContainerPackage.UserACLItemDataContainerForService] | Rolename: userRights, Type: LIST |
+{panel}
+
+	
+
+[#Index]
+{anchor:serviceContainerPackage.ServiceWinsDataContainer}
+{panel:title=serviceContainerPackage.ServiceWinsDataContainer|titleBGColor=#CCE5FF| bgColor=#FFFFFF}
+
+| *Description* | Container for WINS Options \\ |
+| *Related FCO*\\ | org.sblim.wbemsmt.samba.bl.fco.Linux_SambaWinsOptions |
+| *Adapter* \\ | sambaAdapter |
+| *Package* \\ | Interface: org.sblim.wbemsmt.samba.bl.container.service |
+| *Actions* | MODIFY \\ |
+| *CustomLayouter* \\ | --- |
+*Fields:*
+| *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
+| DNS_Proxy | STRING | TEXTFIELD | Linux_SambaWinsOptions.get_DNS_Proxy \\ | --- | -dnsProxy, Optional,Default is noDefaultValue |
+| WINSHook | STRING | TEXTFIELD | Linux_SambaWinsOptions.get_WINSHook \\ | --- | -winsHook, Optional,Default is noDefaultValue |
+| WINSProxy | BOOLEAN | CHECKBOX | Linux_SambaWinsOptions.get_WINSProxy \\ | --- | -winsProxy, Optional,Default is noDefaultValue |
+| WINSServer | STRING | TEXTFIELD | Linux_SambaWinsOptions.get_WINSServer \\ | --- | -winsServer, Optional,Default is noDefaultValue |
+| WINSSupport | BOOLEAN | CHECKBOX | Linux_SambaWinsOptions.get_WINSSupport \\ | --- | -winsSupport, Optional,Default is noDefaultValue |
+
+{panel}
+
+	
+
+[#Index]
+{anchor:serviceContainerPackage.UserACLItemDataContainerForService}
+{panel:title=serviceContainerPackage.UserACLItemDataContainerForService|titleBGColor=#CCE5FF| bgColor=#FFFFFF}
+
+| *Description* | Container with a abstract definition of the rights that can be given to a user \\ |
+| *Related FCO*\\ | org.sblim.wbemsmt.samba.bl.fco.Linux_SambaUser |
+| *Adapter* \\ | sambaAdapter |
+| *Package* \\ | Interface: org.sblim.wbemsmt.samba.bl.container.service |
+| *Actions* | MODIFY \\ |
+| *CustomLayouter* \\ | --- |
+*Fields:*
+| *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
+| SambaUserName | STRING | LABEL | Linux_SambaUser.get_SambaUserName \\ | Readonly | -sambaUsername, Required, Used for selection |
+| accessTypeVI | UNSIGNED_INT16 | RADIOBUTTON | userdefined \\ | Userdefined | -access, Optional,Default is noDefaultValue |
+| accessTypeRW | UNSIGNED_INT16 | RADIOBUTTON | userdefined \\ | Userdefined | -accessTypeRW, Optional,Default is noDefaultValue |
+
+{panel}
+
+	
+
+[#Index]
+{anchor:shareContainerPackage.CMDShareFileAttributes}
+{panel:title=shareContainerPackage.CMDShareFileAttributes|titleBGColor=#CCE5FF| bgColor=#FFFFFF}
+
+| *Description* | CLI extensions for FileAttributres for a share \\ |
+| *Related FCO*\\ | org.sblim.wbemsmt.samba.bl.fco.Linux_SambaShareSecurityOptions |
+| *Adapter* \\ | sambaAdapter |
+| *Package* \\ | Interface: org.sblim.wbemsmt.samba.bl.container.share |
+| *Actions* | MODIFY \\ |
+| *CustomLayouter* \\ | --- |
+*Fields:*
+| *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
+| CreateMask | UNSIGNED_INT16 | TEXTFIELD | Linux_SambaShareSecurityOptions.get_CreateMask \\ | --- | -createMask, Required |
+| DirectoryMask | UNSIGNED_INT16 | TEXTFIELD | Linux_SambaShareSecurityOptions.get_DirectoryMask \\ | --- | -directoryMask, Required |
+| DirectorySecurityMask | UNSIGNED_INT16 | TEXTFIELD | Linux_SambaShareSecurityOptions.get_DirectorySecurityMask \\ | --- | -directorySecurityMask, Required |
+
+*Relations*
+| *RelationType&nbsp;* | *&nbsp;related DataContainer* \\ | *&nbsp;Additional Information* \\ |
+| Extends | [#shareContainerPackage.ShareFileAttributes] \\ | |
+{panel}
+
+	
+
+[#Index]
+{anchor:shareContainerPackage.GUIShareFileAttributes}
+{panel:title=shareContainerPackage.GUIShareFileAttributes|titleBGColor=#CCE5FF| bgColor=#FFFFFF}
+
+| *Description* | UI extensions for FileAttributres for a share \\ |
+| *Related FCO*\\ |  ---  |
+| *Adapter* \\ | sambaAdapter |
+| *Package* \\ | Interface: org.sblim.wbemsmt.samba.bl.container.share |
+| *Actions* | MODIFY \\ |
+| *CustomLayouter* \\ | X |
+*Fields:*
+| *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
+| create_u | BOOLEAN | CHECKBOX | Linux_SambaShareSecurityOptions.get_CreateMask \\ | Userdefined | Not used for Commandline |
+| create_g | BOOLEAN | CHECKBOX | Linux_SambaShareSecurityOptions.get_CreateMask \\ | Userdefined | Not used for Commandline |
+| create_s | BOOLEAN | CHECKBOX | Linux_SambaShareSecurityOptions.get_CreateMask \\ | Userdefined | Not used for Commandline |
+| create_user_r | BOOLEAN | CHECKBOX | Linux_SambaShareSecurityOptions.get_CreateMask \\ | Userdefined | Not used for Commandline |
+| create_user_w | BOOLEAN | CHECKBOX | Linux_SambaShareSecurityOptions.get_CreateMask \\ | Userdefined | Not used for Commandline |
+| create_user_x | BOOLEAN | CHECKBOX | Linux_SambaShareSecurityOptions.get_CreateMask \\ | Userdefined | Not used for Commandline |
+| create_group_r | BOOLEAN | CHECKBOX | Linux_SambaShareSecurityOptions.get_CreateMask \\ | Userdefined | Not used for Commandline |
+| create_group_w | BOOLEAN | CHECKBOX | Linux_SambaShareSecurityOptions.get_CreateMask \\ | Userdefined | Not used for Commandline |
+| create_group_x | BOOLEAN | CHECKBOX | Linux_SambaShareSecurityOptions.get_CreateMask \\ | Userdefined | Not used for Commandline |
+| create_other_r | BOOLEAN | CHECKBOX | Linux_SambaShareSecurityOptions.get_CreateMask \\ | Userdefined | Not used for Commandline |
+| create_other_w | BOOLEAN | CHECKBOX | Linux_SambaShareSecurityOptions.get_CreateMask \\ | Userdefined | Not used for Commandline |
+| create_other_x | BOOLEAN | CHECKBOX | Linux_SambaShareSecurityOptions.get_CreateMask \\ | Userdefined | Not used for Commandline |
+| directory_u | BOOLEAN | CHECKBOX | Linux_SambaShareSecurityOptions.get_DirectoryMask \\ | Userdefined | Not used for Commandline |
+| directory_g | BOOLEAN | CHECKBOX | Linux_SambaShareSecurityOptions.get_DirectoryMask \\ | Userdefined | Not used for Commandline |
+| directory_s | BOOLEAN | CHECKBOX | Linux_SambaShareSecurityOptions.get_DirectoryMask \\ | Userdefined | Not used for Commandline |
+| directory_user_r | BOOLEAN | CHECKBOX | Linux_SambaShareSecurityOptions.get_DirectoryMask \\ | Userdefined | Not used for Commandline |
+| directory_user_w | BOOLEAN | CHECKBOX | Linux_SambaShareSecurityOptions.get_DirectoryMask \\ | Userdefined | Not used for Commandline |
+| directory_user_x | BOOLEAN | CHECKBOX | Linux_SambaShareSecurityOptions.get_DirectoryMask \\ | Userdefined | Not used for Commandline |
+| directory_group_r | BOOLEAN | CHECKBOX | Linux_SambaShareSecurityOptions.get_DirectoryMask \\ | Userdefined | Not used for Commandline |
+| directory_group_w | BOOLEAN | CHECKBOX | Linux_SambaShareSecurityOptions.get_DirectoryMask \\ | Userdefined | Not used for Commandline |
+| directory_group_x | BOOLEAN | CHECKBOX | Linux_SambaShareSecurityOptions.get_DirectoryMask \\ | Userdefined | Not used for Commandline |
+| directory_other_r | BOOLEAN | CHECKBOX | Linux_SambaShareSecurityOptions.get_DirectoryMask \\ | Userdefined | Not used for Commandline |
+| directory_other_w | BOOLEAN | CHECKBOX | Linux_SambaShareSecurityOptions.get_DirectoryMask \\ | Userdefined | Not used for Commandline |
+| directory_other_x | BOOLEAN | CHECKBOX | Linux_SambaShareSecurityOptions.get_DirectoryMask \\ | Userdefined | Not used for Commandline |
+| directory_security_u | BOOLEAN | CHECKBOX | Linux_SambaShareSecurityOptions.get_DirectorySecurityMask \\ | Userdefined | Not used for Commandline |
+| directory_security_g | BOOLEAN | CHECKBOX | Linux_SambaShareSecurityOptions.get_DirectorySecurityMask \\ | Userdefined | Not used for Commandline |
+| directory_security_s | BOOLEAN | CHECKBOX | Linux_SambaShareSecurityOptions.get_DirectorySecurityMask \\ | Userdefined | Not used for Commandline |
+| directory_security_user_r | BOOLEAN | CHECKBOX | Linux_SambaShareSecurityOptions.get_DirectorySecurityMask \\ | Userdefined | Not used for Commandline |
+| directory_security_user_w | BOOLEAN | CHECKBOX | Linux_SambaShareSecurityOptions.get_DirectorySecurityMask \\ | Userdefined | Not used for Commandline |
+| directory_security_user_x | BOOLEAN | CHECKBOX | Linux_SambaShareSecurityOptions.get_DirectorySecurityMask \\ | Userdefined | Not used for Commandline |
+| directory_security_group_r | BOOLEAN | CHECKBOX | Linux_SambaShareSecurityOptions.get_DirectorySecurityMask \\ | Userdefined | Not used for Commandline |
+| directory_security_group_w | BOOLEAN | CHECKBOX | Linux_SambaShareSecurityOptions.get_DirectorySecurityMask \\ | Userdefined | Not used for Commandline |
+| directory_security_group_x | BOOLEAN | CHECKBOX | Linux_SambaShareSecurityOptions.get_DirectorySecurityMask \\ | Userdefined | Not used for Commandline |
+| directory_security_other_r | BOOLEAN | CHECKBOX | Linux_SambaShareSecurityOptions.get_DirectorySecurityMask \\ | Userdefined | Not used for Commandline |
+| directory_security_other_w | BOOLEAN | CHECKBOX | Linux_SambaShareSecurityOptions.get_DirectorySecurityMask \\ | Userdefined | Not used for Commandline |
+| directory_security_other_x | BOOLEAN | CHECKBOX | Linux_SambaShareSecurityOptions.get_DirectorySecurityMask \\ | Userdefined | Not used for Commandline |
+
+*Relations*
+| *RelationType&nbsp;* | *&nbsp;related DataContainer* \\ | *&nbsp;Additional Information* \\ |
+| Extends | [#shareContainerPackage.ShareFileAttributes] \\ | |
+{panel}
+
+	
+
+[#Index]
+{anchor:shareContainerPackage.PrinterACLItemDataContainer}
+{panel:title=shareContainerPackage.PrinterACLItemDataContainer|titleBGColor=#CCE5FF| bgColor=#FFFFFF}
+
+| *Description* | Container representing a user's acl related to a printer \\ |
+| *Related FCO*\\ | org.sblim.wbemsmt.samba.bl.fco.Linux_SambaPrinterOptions |
+| *Adapter* \\ | sambaAdapter |
+| *Package* \\ | Interface: org.sblim.wbemsmt.samba.bl.container.share |
+| *Actions* | MODIFY \\ |
+| *CustomLayouter* \\ | --- |
+*Fields:*
+| *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
+| PrinterName | STRING | LABEL | Linux_SambaPrinterOptions.get_Name \\ | Readonly | -sambaPrintername, Required, Used for selection |
+| accessTypeVI | UNSIGNED_INT16 | RADIOBUTTON | userdefined \\ | Userdefined | -access, Optional,Default is noDefaultValue |
+| accessTypeRW | UNSIGNED_INT16 | RADIOBUTTON | userdefined \\ | Userdefined | -accessTypeRW, Optional,Default is noDefaultValue |
+| admin | BOOLEAN | CHECKBOX | userdefined \\ | Userdefined | -admin, Optional,Default is noDefaultValue |
+
+{panel}
+
+	
+
+[#Index]
+{anchor:shareContainerPackage.ShareACLItemDataContainer}
+{panel:title=shareContainerPackage.ShareACLItemDataContainer|titleBGColor=#CCE5FF| bgColor=#FFFFFF}
+
+| *Description* | Container representing a user's acl related to a share \\ |
+| *Related FCO*\\ | org.sblim.wbemsmt.samba.bl.fco.Linux_SambaShareOptions |
+| *Adapter* \\ | sambaAdapter |
+| *Package* \\ | Interface: org.sblim.wbemsmt.samba.bl.container.share |
+| *Actions* | MODIFY \\ |
+| *CustomLayouter* \\ | --- |
+*Fields:*
+| *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
+| shareName | STRING | LABEL | Linux_SambaShareOptions.get_Name \\ | --- | -shareName, Required, Used for selection |
+| accessTypeVI | UNSIGNED_INT16 | RADIOBUTTON | userdefined \\ | Userdefined | -access, Optional,Default is noDefaultValue |
+| accessTypeRW | UNSIGNED_INT16 | RADIOBUTTON | userdefined \\ | Userdefined | -accessTypeRW, Optional,Default is noDefaultValue |
+| admin | BOOLEAN | CHECKBOX | userdefined \\ | Userdefined | -admin, Optional,Default is noDefaultValue |
+
+{panel}
+
+	
+
+[#Index]
+{anchor:shareContainerPackage.ShareAllowHostSecurityDataContainer}
+{panel:title=shareContainerPackage.ShareAllowHostSecurityDataContainer|titleBGColor=#CCE5FF| bgColor=#FFFFFF}
+
+| *Description* | Container for AllowHosts within a share \\ |
+| *Related FCO*\\ |  ---  |
+| *Adapter* \\ | sambaAdapter |
+| *Package* \\ | Interface: org.sblim.wbemsmt.samba.bl.container.share |
+| *Actions* | MODIFY \\ |
+| *CustomLayouter* \\ | --- |
+
+*Relations*
+| *RelationType&nbsp;* | *&nbsp;related DataContainer* \\ | *&nbsp;Additional Information* \\ |
+| Extends | [#serviceContainerPackage.ServiceAllowHostSecurityDataContainer] \\ | |
+{panel}
+
+	
+
+[#Index]
+{anchor:shareContainerPackage.ShareDenyHostSecurityDataContainer}
+{panel:title=shareContainerPackage.ShareDenyHostSecurityDataContainer|titleBGColor=#CCE5FF| bgColor=#FFFFFF}
+
+| *Description* | Container for DenyHosts within a share \\ |
+| *Related FCO*\\ |  ---  |
+| *Adapter* \\ | sambaAdapter |
+| *Package* \\ | Interface: org.sblim.wbemsmt.samba.bl.container.share |
+| *Actions* | MODIFY \\ |
+| *CustomLayouter* \\ | --- |
+
+*Relations*
+| *RelationType&nbsp;* | *&nbsp;related DataContainer* \\ | *&nbsp;Additional Information* \\ |
+| Extends | [#serviceContainerPackage.ServiceDenyHostDataContainer] \\ | |
+{panel}
+
+	
+
+[#Index]
+{anchor:shareContainerPackage.ShareFileAttributes}
+{panel:title=shareContainerPackage.ShareFileAttributes|titleBGColor=#CCE5FF| bgColor=#FFFFFF}
+
+| *Description* | FileAttributres for a share \\ |
+| *Related FCO*\\ | org.sblim.wbemsmt.samba.bl.fco.Linux_SambaShareFileNameHandlingOptions |
+| *Adapter* \\ | sambaAdapter |
+| *Package* \\ | Interface: org.sblim.wbemsmt.samba.bl.container.share |
+| *Actions* | MODIFY \\ |
+| *CustomLayouter* \\ | --- |
+*Fields:*
+| *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
+| CaseSensitive | BOOLEAN | CHECKBOX | Linux_SambaShareFileNameHandlingOptions.get_CaseSensitive \\ | --- | -caseSensitive, Optional,Default is noDefaultValue |
+| HideDotFiles | BOOLEAN | CHECKBOX | Linux_SambaShareFileNameHandlingOptions.get_HideDotFiles \\ | --- | -hideDotFiles, Optional,Default is noDefaultValue |
+| DosFiletimes | BOOLEAN | CHECKBOX | Linux_SambaShareFileNameHandlingOptions.get_DosFiletimes \\ | --- | -dosFiletimes, Optional,Default is noDefaultValue |
+| EASupport | BOOLEAN | CHECKBOX | Linux_SambaShareProtocolOptions.get_EASupport \\ | --- | -eaSupport, Optional,Default is noDefaultValue |
+| AclCompatibility | UNSIGNED_INT8 | COMBOBOX | Linux_SambaShareProtocolOptions.get_AclCompatibility \\ | --- | -aclCompatibility, Optional,Default is noDefaultValue |
+| NTACLSupport | BOOLEAN | CHECKBOX | Linux_SambaShareProtocolOptions.get_NTACLSupport \\ | --- | -ntaclSupport, Optional,Default is noDefaultValue |
+
+{panel}
+
+	
+
+[#Index]
+{anchor:shareContainerPackage.ShareListDataContainer}
+{panel:title=shareContainerPackage.ShareListDataContainer|titleBGColor=#CCE5FF| bgColor=#FFFFFF}
+
+| *Description* | List with shares \\ |
+| *Related FCO*\\ |  ---  |
+| *Adapter* \\ | sambaAdapter |
+| *Package* \\ | Interface: org.sblim.wbemsmt.samba.bl.container.share |
+| *Actions* | --- \\ |
+| *CustomLayouter* \\ | --- |
+
+*Relations*
+| *RelationType&nbsp;* | *&nbsp;related DataContainer* \\ | *&nbsp;Additional Information* \\ |
+| Link | [#shareContainerPackage.ShareListItemDataContainer] | Rolename: shares, Type: LIST |
+{panel}
+
+	
+
+[#Index]
+{anchor:shareContainerPackage.ShareListItemDataContainer}
+{panel:title=shareContainerPackage.ShareListItemDataContainer|titleBGColor=#CCE5FF| bgColor=#FFFFFF}
+
+| *Description* | share within a list of shares \\ |
+| *Related FCO*\\ |  ---  |
+| *Adapter* \\ | sambaAdapter |
+| *Package* \\ | Interface: org.sblim.wbemsmt.samba.bl.container.share |
+| *Actions* | --- \\ |
+| *CustomLayouter* \\ | --- |
+
+*Relations*
+| *RelationType&nbsp;* | *&nbsp;related DataContainer* \\ | *&nbsp;Additional Information* \\ |
+| Extends | [#shareContainerPackage.ShareOptionsDataContainer] \\ | |
+{panel}
+
+	
+
+[#Index]
+{anchor:shareContainerPackage.ShareOptionsDataContainer}
+{panel:title=shareContainerPackage.ShareOptionsDataContainer|titleBGColor=#CCE5FF| bgColor=#FFFFFF}
+
+| *Description* | Container for Share Options \\ |
+| *Related FCO*\\ | org.sblim.wbemsmt.samba.bl.fco.Linux_SambaShareOptions |
+| *Adapter* \\ | sambaAdapter |
+| *Package* \\ | Interface: org.sblim.wbemsmt.samba.bl.container.share |
+| *Actions* | DELETE, MODIFY \\ |
+| *CustomLayouter* \\ | --- |
+*Fields:*
+| *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
+| Name | STRING | LABEL | Linux_SambaShareOptions.get_Name \\ | Readonly | -sharename, Required, Used for selection |
+| Available | BOOLEAN | CHECKBOX | Linux_SambaShareOptions.get_Available \\ | --- | -available, Optional,Default is noDefaultValue |
+| Comment | STRING | TEXTFIELD | Linux_SambaShareOptions.get_Comment \\ | --- | -comment, Optional,Default is noDefaultValue |
+| Path | STRING | TEXTFIELD | Linux_SambaShareOptions.get_Path \\ | --- | -path, Optional,Default is noDefaultValue |
+| Browsable | BOOLEAN | CHECKBOX | Linux_SambaSharePrinterBrowseOptions.get_Browsable \\ | --- | -browsable, Optional,Default is noDefaultValue |
+| GuestOK | BOOLEAN | CHECKBOX | Linux_SambaCommonSecurityOptions.get_GuestOK \\ | --- | -guestok, Optional,Default is noDefaultValue |
+| GuestOnly | BOOLEAN | CHECKBOX | Linux_SambaCommonSecurityOptions.get_GuestOnly \\ | --- | -guestOnly, Optional,Default is noDefaultValue |
+| HostsAllow | STRING | TEXTFIELD | Linux_SambaCommonSecurityOptions.get_HostsAllow \\ | --- | -hostsAllow, Optional,Default is noDefaultValue |
+| HostsDeny | STRING | TEXTFIELD | Linux_SambaCommonSecurityOptions.get_HostsDeny \\ | --- | -hostsDeny, Optional,Default is noDefaultValue |
+| ReadOnly | BOOLEAN | CHECKBOX | Linux_SambaCommonSecurityOptions.get_ReadOnly \\ | --- | -readOnly, Optional,Default is noDefaultValue |
+
+{panel}
+
+	
+
+[#Index]
+{anchor:shareContainerPackage.UserACLItemDataContainerForShare}
+{panel:title=shareContainerPackage.UserACLItemDataContainerForShare|titleBGColor=#CCE5FF| bgColor=#FFFFFF}
+
+| *Description* | Container representing a user's acl within a share \\ |
+| *Related FCO*\\ | org.sblim.wbemsmt.samba.bl.fco.Linux_SambaUser |
+| *Adapter* \\ | sambaAdapter |
+| *Package* \\ | Interface: org.sblim.wbemsmt.samba.bl.container.share |
+| *Actions* | MODIFY \\ |
+| *CustomLayouter* \\ | --- |
+*Fields:*
+| *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
+| SambaUserName | STRING | LABEL | Linux_SambaUser.get_SambaUserName \\ | Readonly | -sambaUsername, Required, Used for selection |
+| accessTypeVI | UNSIGNED_INT16 | RADIOBUTTON | userdefined \\ | Userdefined | -access, Optional,Default is noDefaultValue |
+| accessTypeRW | UNSIGNED_INT16 | RADIOBUTTON | userdefined \\ | Userdefined | -accessTypeRW, Optional,Default is noDefaultValue |
+| admin | BOOLEAN | CHECKBOX | userdefined \\ | Userdefined | -admin, Optional,Default is noDefaultValue |
+
+{panel}
+
+	
+
+[#Index]
+{anchor:shareContainerPackage.UserInShareACLDataContainer}
+{panel:title=shareContainerPackage.UserInShareACLDataContainer|titleBGColor=#CCE5FF| bgColor=#FFFFFF}
+
+| *Description* |  \\ |
+| *Related FCO*\\ | org.sblim.wbemsmt.samba.bl.fco.Linux_SambaUser |
+| *Adapter* \\ | sambaAdapter |
+| *Package* \\ | Interface: org.sblim.wbemsmt.samba.bl.container.share |
+| *Actions* | MODIFY \\ |
+| *CustomLayouter* \\ | --- |
+*Fields:*
+| *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
+| newForceUser | UNSIGNED_INT16 | COMBOBOX | userdefined \\ | Userdefined | -newForceUser, Optional,Default is noDefaultValue |
+| currentForceUser | STRING | LABEL | userdefined \\ | Readonly, Userdefined | -newOptions, Optional,Default is noDefaultValue |
+
+*Relations*
+| *RelationType&nbsp;* | *&nbsp;related DataContainer* \\ | *&nbsp;Additional Information* \\ |
+| Link | [#shareContainerPackage.UserACLItemDataContainerForShare] | Rolename: users, Type: LIST |
+{panel}
+
+	
+
+[#Index]
+{anchor:userContainerPackage.PrinterInUserACLDataContainer}
+{panel:title=userContainerPackage.PrinterInUserACLDataContainer|titleBGColor=#CCE5FF| bgColor=#FFFFFF}
+
+| *Description* | Container for the printer-related acl within a user \\ |
+| *Related FCO*\\ |  ---  |
+| *Adapter* \\ | sambaAdapter |
+| *Package* \\ | Interface: org.sblim.wbemsmt.samba.bl.container.user |
+| *Actions* | MODIFY \\ |
+| *CustomLayouter* \\ | --- |
+
+*Relations*
+| *RelationType&nbsp;* | *&nbsp;related DataContainer* \\ | *&nbsp;Additional Information* \\ |
+| Link | [#shareContainerPackage.PrinterACLItemDataContainer] | Rolename: printers, Type: LIST |
+{panel}
+
+	
+
+[#Index]
+{anchor:userContainerPackage.ShareInUserACLDataContainer}
+{panel:title=userContainerPackage.ShareInUserACLDataContainer|titleBGColor=#CCE5FF| bgColor=#FFFFFF}
+
+| *Description* | Container for the share-related acl within a user \\ |
+| *Related FCO*\\ |  ---  |
+| *Adapter* \\ | sambaAdapter |
+| *Package* \\ | Interface: org.sblim.wbemsmt.samba.bl.container.user |
+| *Actions* | MODIFY \\ |
+| *CustomLayouter* \\ | --- |
+
+*Relations*
+| *RelationType&nbsp;* | *&nbsp;related DataContainer* \\ | *&nbsp;Additional Information* \\ |
+| Link | [#shareContainerPackage.ShareACLItemDataContainer] | Rolename: shares, Type: LIST |
+{panel}
+
+	
+
+[#Index]
+{anchor:userContainerPackage.UserDataContainer}
+{panel:title=userContainerPackage.UserDataContainer|titleBGColor=#CCE5FF| bgColor=#FFFFFF}
+
+| *Description* | Container for a user's data \\ |
+| *Related FCO*\\ | org.sblim.wbemsmt.samba.bl.fco.Linux_SambaUser |
+| *Adapter* \\ | sambaAdapter |
+| *Package* \\ | Interface: org.sblim.wbemsmt.samba.bl.container.user |
+| *Actions* | DELETE, MODIFY \\ |
+| *CustomLayouter* \\ | --- |
+*Fields:*
+| *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
+| SambaUserName | STRING | LABEL | Linux_SambaUser.get_SambaUserName \\ | Readonly | -sambaUserName, Optional,Default is noDefaultValue, Used for selection |
+| SystemUserName | STRING | LABEL | Linux_SambaUser.get_SystemUserName \\ | Readonly | -systemUserName, Optional,Default is noDefaultValue |
+| isGuest | BOOLEAN | CHECKBOX | userdefined \\ | Userdefined | -isGuest, Optional,Default is noDefaultValue |
+
+{panel}
+
+	
+
+[#Index]
+{anchor:userContainerPackage.UserListDataContainer}
+{panel:title=userContainerPackage.UserListDataContainer|titleBGColor=#CCE5FF| bgColor=#FFFFFF}
+
+| *Description* | List with users \\ |
+| *Related FCO*\\ |  ---  |
+| *Adapter* \\ | sambaAdapter |
+| *Package* \\ | Interface: org.sblim.wbemsmt.samba.bl.container.user |
+| *Actions* | --- \\ |
+| *CustomLayouter* \\ | --- |
+
+*Relations*
+| *RelationType&nbsp;* | *&nbsp;related DataContainer* \\ | *&nbsp;Additional Information* \\ |
+| Link | [#userContainerPackage.UserListItemDataContainer] | Rolename: users, Type: LIST |
+{panel}
+
+	
+
+[#Index]
+{anchor:userContainerPackage.UserListItemDataContainer}
+{panel:title=userContainerPackage.UserListItemDataContainer|titleBGColor=#CCE5FF| bgColor=#FFFFFF}
+
+| *Description* | user within a list of users \\ |
+| *Related FCO*\\ |  ---  |
+| *Adapter* \\ | sambaAdapter |
+| *Package* \\ | Interface: org.sblim.wbemsmt.samba.bl.container.user |
+| *Actions* | --- \\ |
+| *CustomLayouter* \\ | --- |
+
+*Relations*
+| *RelationType&nbsp;* | *&nbsp;related DataContainer* \\ | *&nbsp;Additional Information* \\ |
+| Extends | [#userContainerPackage.UserDataContainer] \\ | |
+{panel}
+
+	
+
+[#Index]
+{anchor:wizardContainerPackage.HostWizardPage1}
+{panel:title=wizardContainerPackage.HostWizardPage1|titleBGColor=#CCE5FF| bgColor=#FFFFFF}
+
+| *Description* |  \\ |
+| *Related FCO*\\ |  ---  |
+| *Adapter* \\ | sambaAdapter |
+| *Package* \\ | Interface: org.sblim.wbemsmt.samba.bl.container.wizard |
+| *Actions* | WIZARD \\ |
+| *CustomLayouter* \\ | --- |
+*Fields:*
+| *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
+| Name | STRING | TEXTFIELD | Linux_SambaShareOptions.get_Name \\ | --- | -name, Optional,Default is noDefaultValue |
+
+{panel}
+
+	
+
+[#Index]
+{anchor:wizardContainerPackage.HostWizardPage2}
+{panel:title=wizardContainerPackage.HostWizardPage2|titleBGColor=#CCE5FF| bgColor=#FFFFFF}
+
+| *Description* |  \\ |
+| *Related FCO*\\ |  ---  |
+| *Adapter* \\ | sambaAdapter |
+| *Package* \\ | Interface: org.sblim.wbemsmt.samba.bl.container.wizard |
+| *Actions* | CREATE, WIZARD \\ |
+| *CustomLayouter* \\ | --- |
+*Fields:*
+| *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
+| Name | STRING | TEXTFIELD | Linux_SambaShareOptions.get_Name \\ | Readonly | -name, Optional,Default is noDefaultValue |
+
+{panel}
+
+	
+
+[#Index]
+{anchor:wizardContainerPackage.PrinterInUserWizardACLItemDataContainer}
+{panel:title=wizardContainerPackage.PrinterInUserWizardACLItemDataContainer|titleBGColor=#CCE5FF| bgColor=#FFFFFF}
+
+| *Description* | Defines a printer-related acl within the user wizard \\ |
+| *Related FCO*\\ |  ---  |
+| *Adapter* \\ | sambaAdapter |
+| *Package* \\ | Interface: org.sblim.wbemsmt.samba.bl.container.wizard |
+| *Actions* | WIZARD \\ |
+| *CustomLayouter* \\ | --- |
+
+*Relations*
+| *RelationType&nbsp;* | *&nbsp;related DataContainer* \\ | *&nbsp;Additional Information* \\ |
+| Extends | [#shareContainerPackage.PrinterACLItemDataContainer] \\ | |
+{panel}
+
+	
+
+[#Index]
+{anchor:wizardContainerPackage.PrinterWizardPage1}
+{panel:title=wizardContainerPackage.PrinterWizardPage1|titleBGColor=#CCE5FF| bgColor=#FFFFFF}
+
+| *Description* |  \\ |
+| *Related FCO*\\ |  ---  |
+| *Adapter* \\ | sambaAdapter |
+| *Package* \\ | Interface: org.sblim.wbemsmt.samba.bl.container.wizard |
+| *Actions* | WIZARD \\ |
+| *CustomLayouter* \\ | X |
+*Fields:*
+| *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
+| allOrOne | UNSIGNED_INT16 | RADIOBUTTON | userdefined \\ | Userdefined | -allOrOne, Required |
+
+{panel}
+
+	
+
+[#Index]
+{anchor:wizardContainerPackage.PrinterWizardPage2}
+{panel:title=wizardContainerPackage.PrinterWizardPage2|titleBGColor=#CCE5FF| bgColor=#FFFFFF}
+
+| *Description* |  \\ |
+| *Related FCO*\\ | org.sblim.wbemsmt.samba.bl.fco.Linux_SambaPrinterOptions |
+| *Adapter* \\ | sambaAdapter |
+| *Package* \\ | Interface: org.sblim.wbemsmt.samba.bl.container.wizard |
+| *Actions* | WIZARD \\ |
+| *CustomLayouter* \\ | --- |
+*Fields:*
+| *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
+| SambaPrinterName | STRING | TEXTFIELD | Linux_SambaPrinterOptions.get_Name \\ | --- | -sambaPrinterName, Optional,Default is noDefaultValue |
+| SystemPrinterName | UNSIGNED_INT16 | COMBOBOX | userdefined \\ | Userdefined | -systemPrintername, Optional,Default is noDefaultValue |
+| Path | STRING | TEXTFIELD | Linux_SambaPrinterOptions.get_Path \\ | --- | -path, Required |
+| Comment | STRING | TEXTFIELD | Linux_SambaPrinterOptions.get_Comment \\ | --- | -comment, Optional,Default is noDefaultValue |
+
+{panel}
+
+	
+
+[#Index]
+{anchor:wizardContainerPackage.PrinterWizardPage3}
+{panel:title=wizardContainerPackage.PrinterWizardPage3|titleBGColor=#CCE5FF| bgColor=#FFFFFF}
+
+| *Description* |  \\ |
+| *Related FCO*\\ |  ---  |
+| *Adapter* \\ | sambaAdapter |
+| *Package* \\ | Interface: org.sblim.wbemsmt.samba.bl.container.wizard |
+| *Actions* | WIZARD \\ |
+| *CustomLayouter* \\ | --- |
+*Fields:*
+| *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
+| seenByEverybody | BOOLEAN | CHECKBOX | userdefined \\ | Userdefined | -seenByEverybody, Optional,Default is noDefaultValue |
+| enableGuest | BOOLEAN | CHECKBOX | userdefined \\ | Userdefined | -enableGuest, Optional,Default is noDefaultValue |
+| enableAllUsers | BOOLEAN | CHECKBOX_WITH_CLICKEVENT | userdefined \\ | Userdefined | -enableAllUsers, Optional,Default is noDefaultValue |
+| forceUser | UNSIGNED_INT16 | COMBOBOX | userdefined \\ | Userdefined | -forceUser, Optional,Default is noDefaultValue |
+
+*Relations*
+| *RelationType&nbsp;* | *&nbsp;related DataContainer* \\ | *&nbsp;Additional Information* \\ |
+| Link | [#wizardContainerPackage.UserInPrinterWizardACLItemDataContainer] | Rolename: users, Type: LIST |
+{panel}
+
+	
+
+[#Index]
+{anchor:wizardContainerPackage.PrinterWizardPage4}
+{panel:title=wizardContainerPackage.PrinterWizardPage4|titleBGColor=#CCE5FF| bgColor=#FFFFFF}
+
+| *Description* |  \\ |
+| *Related FCO*\\ | org.sblim.wbemsmt.samba.bl.fco.Linux_SambaPrinterPrintingOptions |
+| *Adapter* \\ | sambaAdapter |
+| *Package* \\ | Interface: org.sblim.wbemsmt.samba.bl.container.wizard |
+| *Actions* | WIZARD \\ |
+| *CustomLayouter* \\ | --- |
+*Fields:*
+| *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
+| CupsOptions | STRING | TEXTFIELD | Linux_SambaPrinterPrintingOptions.get_CupsOptions \\ | --- | -cupsOptions, Optional,Default is noDefaultValue |
+| PrintCommand | STRING | TEXTFIELD | Linux_SambaPrinterPrintingOptions.get_PrintCommand \\ | --- | -printCommand, Optional,Default is noDefaultValue |
+
+{panel}
+
+	
+
+[#Index]
+{anchor:wizardContainerPackage.PrinterWizardPage5}
+{panel:title=wizardContainerPackage.PrinterWizardPage5|titleBGColor=#CCE5FF| bgColor=#FFFFFF}
+
+| *Description* |  \\ |
+| *Related FCO*\\ | org.sblim.wbemsmt.samba.bl.fco.Linux_SambaPrinterOptions |
+| *Adapter* \\ | sambaAdapter |
+| *Package* \\ | Interface: org.sblim.wbemsmt.samba.bl.container.wizard |
+| *Actions* | CREATE, WIZARD \\ |
+| *CustomLayouter* \\ | --- |
+*Fields:*
+| *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
+| allOrOne | UNSIGNED_INT16 | RADIOBUTTON | userdefined \\ | Readonly, Userdefined | -allOrOne, Required |
+| SambaPrinterName | STRING | TEXTFIELD | Linux_SambaPrinterOptions.get_Name \\ | Readonly | -sambaPrinterName, Optional,Default is noDefaultValue |
+| SystemPrinterName | UNSIGNED_INT16 | COMBOBOX | userdefined \\ | Readonly, Userdefined | -systemPrintername, Optional,Default is noDefaultValue |
+| Path | STRING | TEXTFIELD | Linux_SambaPrinterOptions.get_Path \\ | Readonly | -path, Required |
+| Comment | STRING | TEXTFIELD | Linux_SambaPrinterOptions.get_Comment \\ | Readonly | -comment, Optional,Default is noDefaultValue |
+| seenByEverybody | BOOLEAN | CHECKBOX | userdefined \\ | Readonly, Userdefined | -seenByEverybody, Optional,Default is noDefaultValue |
+| enableGuest | BOOLEAN | CHECKBOX | userdefined \\ | Readonly, Userdefined | -enableGuest, Optional,Default is noDefaultValue |
+| CupsOptions | STRING | TEXTFIELD | Linux_SambaPrinterPrintingOptions.get_CupsOptions \\ | Readonly | -cupsOptions, Optional,Default is noDefaultValue |
+| PrintCommand | STRING | TEXTFIELD | Linux_SambaPrinterPrintingOptions.get_PrintCommand \\ | Readonly | -printCommand, Optional,Default is noDefaultValue |
+| forceUser | STRING | TEXTFIELD | userdefined \\ | Readonly, Userdefined | Not used for Commandline |
+
+*Relations*
+| *RelationType&nbsp;* | *&nbsp;related DataContainer* \\ | *&nbsp;Additional Information* \\ |
+| Link | [#wizardContainerPackage.UserInPrinterWizardACLItemDataContainer] | Rolename: users, Type: LIST |
+{panel}
+
+	
+
+[#Index]
+{anchor:wizardContainerPackage.ShareInUserWizardACLItemDataContainer}
+{panel:title=wizardContainerPackage.ShareInUserWizardACLItemDataContainer|titleBGColor=#CCE5FF| bgColor=#FFFFFF}
+
+| *Description* | Defines a share-related acl within the user wizard \\ |
+| *Related FCO*\\ |  ---  |
+| *Adapter* \\ | sambaAdapter |
+| *Package* \\ | Interface: org.sblim.wbemsmt.samba.bl.container.wizard |
+| *Actions* | WIZARD \\ |
+| *CustomLayouter* \\ | --- |
+
+*Relations*
+| *RelationType&nbsp;* | *&nbsp;related DataContainer* \\ | *&nbsp;Additional Information* \\ |
+| Extends | [#shareContainerPackage.ShareACLItemDataContainer] \\ | |
+{panel}
+
+	
+
+[#Index]
+{anchor:wizardContainerPackage.ShareWizardPage1}
+{panel:title=wizardContainerPackage.ShareWizardPage1|titleBGColor=#CCE5FF| bgColor=#FFFFFF}
+
+| *Description* |  \\ |
+| *Related FCO*\\ | org.sblim.wbemsmt.samba.bl.fco.Linux_SambaShareOptions |
+| *Adapter* \\ | sambaAdapter |
+| *Package* \\ | Interface: org.sblim.wbemsmt.samba.bl.container.wizard |
+| *Actions* | WIZARD \\ |
+| *CustomLayouter* \\ | --- |
+*Fields:*
+| *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
+| Name | STRING | TEXTFIELD | Linux_SambaShareOptions.get_Name \\ | --- | -sharename, Required |
+| Path | STRING | TEXTFIELD | Linux_SambaShareOptions.get_Path \\ | --- | -path, Required |
+| Comment | STRING | TEXTFIELD | Linux_SambaShareOptions.get_Comment \\ | --- | -comment, Optional,Default is noDefaultValue |
+
+{panel}
+
+	
+
+[#Index]
+{anchor:wizardContainerPackage.ShareWizardPage2}
+{panel:title=wizardContainerPackage.ShareWizardPage2|titleBGColor=#CCE5FF| bgColor=#FFFFFF}
+
+| *Description* |  \\ |
+| *Related FCO*\\ | org.sblim.wbemsmt.samba.bl.fco.Linux_SambaShareOptions |
+| *Adapter* \\ | sambaAdapter |
+| *Package* \\ | Interface: org.sblim.wbemsmt.samba.bl.container.wizard |
+| *Actions* | WIZARD \\ |
+| *CustomLayouter* \\ | --- |
+*Fields:*
+| *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
+| seenByEverybody | BOOLEAN | CHECKBOX | userdefined \\ | Userdefined | -seenByEverybody, Optional,Default is noDefaultValue |
+| forceUser | UNSIGNED_INT16 | COMBOBOX | userdefined \\ | Userdefined | -forceUser, Optional,Default is noDefaultValue |
+| enableGuest | BOOLEAN | CHECKBOX | userdefined \\ | Userdefined | -enableGuest, Optional,Default is noDefaultValue |
+| enableAllUsers | BOOLEAN | CHECKBOX_WITH_CLICKEVENT | userdefined \\ | Userdefined | -enableAllUsers, Optional,Default is noDefaultValue |
+
+*Relations*
+| *RelationType&nbsp;* | *&nbsp;related DataContainer* \\ | *&nbsp;Additional Information* \\ |
+| Link | [#wizardContainerPackage.UserInShareWizardACLItemDataContainer] | Rolename: users, Type: LIST |
+{panel}
+
+	
+
+[#Index]
+{anchor:wizardContainerPackage.ShareWizardPage3CMD}
+{panel:title=wizardContainerPackage.ShareWizardPage3CMD|titleBGColor=#CCE5FF| bgColor=#FFFFFF}
+
+| *Description* | page 3 of the share wizard for the CLI \\ |
+| *Related FCO*\\ |  ---  |
+| *Adapter* \\ | sambaAdapter |
+| *Package* \\ | Interface: org.sblim.wbemsmt.samba.bl.container.wizard |
+| *Actions* | WIZARD \\ |
+| *CustomLayouter* \\ | --- |
+*Fields:*
+| *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
+| CreateMask | UNSIGNED_INT16 | TEXTFIELD | Linux_SambaShareSecurityOptions.get_CreateMask \\ | --- | -createMask, Required |
+| DirectoryMask | UNSIGNED_INT16 | TEXTFIELD | Linux_SambaShareSecurityOptions.get_DirectoryMask \\ | --- | -directoryMask, Required |
+| DirectorySecurityMask | UNSIGNED_INT16 | TEXTFIELD | Linux_SambaShareSecurityOptions.get_DirectorySecurityMask \\ | --- | -directorySecurityMask, Required |
+
+{panel}
+
+	
+
+[#Index]
+{anchor:wizardContainerPackage.ShareWizardPage3GUI}
+{panel:title=wizardContainerPackage.ShareWizardPage3GUI|titleBGColor=#CCE5FF| bgColor=#FFFFFF}
+
+| *Description* | page 3 of the share wizard for the UI \\ |
+| *Related FCO*\\ |  ---  |
+| *Adapter* \\ | sambaAdapter |
+| *Package* \\ | Interface: org.sblim.wbemsmt.samba.bl.container.wizard |
+| *Actions* | WIZARD \\ |
+| *CustomLayouter* \\ | X |
+*Fields:*
+| *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
+| create_u | BOOLEAN | CHECKBOX | Linux_SambaShareSecurityOptions.get_CreateMask \\ | Userdefined | Not used for Commandline |
+| create_g | BOOLEAN | CHECKBOX | Linux_SambaShareSecurityOptions.get_CreateMask \\ | Userdefined | Not used for Commandline |
+| create_s | BOOLEAN | CHECKBOX | Linux_SambaShareSecurityOptions.get_CreateMask \\ | Userdefined | Not used for Commandline |
+| create_user_r | BOOLEAN | CHECKBOX | Linux_SambaShareSecurityOptions.get_CreateMask \\ | Userdefined | Not used for Commandline |
+| create_user_w | BOOLEAN | CHECKBOX | Linux_SambaShareSecurityOptions.get_CreateMask \\ | Userdefined | Not used for Commandline |
+| create_user_x | BOOLEAN | CHECKBOX | Linux_SambaShareSecurityOptions.get_CreateMask \\ | Userdefined | Not used for Commandline |
+| create_group_r | BOOLEAN | CHECKBOX | Linux_SambaShareSecurityOptions.get_CreateMask \\ | Userdefined | Not used for Commandline |
+| create_group_w | BOOLEAN | CHECKBOX | Linux_SambaShareSecurityOptions.get_CreateMask \\ | Userdefined | Not used for Commandline |
+| create_group_x | BOOLEAN | CHECKBOX | Linux_SambaShareSecurityOptions.get_CreateMask \\ | Userdefined | Not used for Commandline |
+| create_other_r | BOOLEAN | CHECKBOX | Linux_SambaShareSecurityOptions.get_CreateMask \\ | Userdefined | Not used for Commandline |
+| create_other_w | BOOLEAN | CHECKBOX | Linux_SambaShareSecurityOptions.get_CreateMask \\ | Userdefined | Not used for Commandline |
+| create_other_x | BOOLEAN | CHECKBOX | Linux_SambaShareSecurityOptions.get_CreateMask \\ | Userdefined | Not used for Commandline |
+| directory_u | BOOLEAN | CHECKBOX | Linux_SambaShareSecurityOptions.get_DirectoryMask \\ | Userdefined | Not used for Commandline |
+| directory_g | BOOLEAN | CHECKBOX | Linux_SambaShareSecurityOptions.get_DirectoryMask \\ | Userdefined | Not used for Commandline |
+| directory_s | BOOLEAN | CHECKBOX | Linux_SambaShareSecurityOptions.get_DirectoryMask \\ | Userdefined | Not used for Commandline |
+| directory_user_r | BOOLEAN | CHECKBOX | Linux_SambaShareSecurityOptions.get_DirectoryMask \\ | Userdefined | Not used for Commandline |
+| directory_user_w | BOOLEAN | CHECKBOX | Linux_SambaShareSecurityOptions.get_DirectoryMask \\ | Userdefined | Not used for Commandline |
+| directory_user_x | BOOLEAN | CHECKBOX | Linux_SambaShareSecurityOptions.get_DirectoryMask \\ | Userdefined | Not used for Commandline |
+| directory_group_r | BOOLEAN | CHECKBOX | Linux_SambaShareSecurityOptions.get_DirectoryMask \\ | Userdefined | Not used for Commandline |
+| directory_group_w | BOOLEAN | CHECKBOX | Linux_SambaShareSecurityOptions.get_DirectoryMask \\ | Userdefined | Not used for Commandline |
+| directory_group_x | BOOLEAN | CHECKBOX | Linux_SambaShareSecurityOptions.get_DirectoryMask \\ | Userdefined | Not used for Commandline |
+| directory_other_r | BOOLEAN | CHECKBOX | Linux_SambaShareSecurityOptions.get_DirectoryMask \\ | Userdefined | Not used for Commandline |
+| directory_other_w | BOOLEAN | CHECKBOX | Linux_SambaShareSecurityOptions.get_DirectoryMask \\ | Userdefined | Not used for Commandline |
+| directory_other_x | BOOLEAN | CHECKBOX | Linux_SambaShareSecurityOptions.get_DirectoryMask \\ | Userdefined | Not used for Commandline |
+| directory_security_u | BOOLEAN | CHECKBOX | Linux_SambaShareSecurityOptions.get_DirectorySecurityMask \\ | Userdefined | Not used for Commandline |
+| directory_security_g | BOOLEAN | CHECKBOX | Linux_SambaShareSecurityOptions.get_DirectorySecurityMask \\ | Userdefined | Not used for Commandline |
+| directory_security_s | BOOLEAN | CHECKBOX | Linux_SambaShareSecurityOptions.get_DirectorySecurityMask \\ | Userdefined | Not used for Commandline |
+| directory_security_user_r | BOOLEAN | CHECKBOX | Linux_SambaShareSecurityOptions.get_DirectorySecurityMask \\ | Userdefined | Not used for Commandline |
+| directory_security_user_w | BOOLEAN | CHECKBOX | Linux_SambaShareSecurityOptions.get_DirectorySecurityMask \\ | Userdefined | Not used for Commandline |
+| directory_security_user_x | BOOLEAN | CHECKBOX | Linux_SambaShareSecurityOptions.get_DirectorySecurityMask \\ | Userdefined | Not used for Commandline |
+| directory_security_group_r | BOOLEAN | CHECKBOX | Linux_SambaShareSecurityOptions.get_DirectorySecurityMask \\ | Userdefined | Not used for Commandline |
+| directory_security_group_w | BOOLEAN | CHECKBOX | Linux_SambaShareSecurityOptions.get_DirectorySecurityMask \\ | Userdefined | Not used for Commandline |
+| directory_security_group_x | BOOLEAN | CHECKBOX | Linux_SambaShareSecurityOptions.get_DirectorySecurityMask \\ | Userdefined | Not used for Commandline |
+| directory_security_other_r | BOOLEAN | CHECKBOX | Linux_SambaShareSecurityOptions.get_DirectorySecurityMask \\ | Userdefined | Not used for Commandline |
+| directory_security_other_w | BOOLEAN | CHECKBOX | Linux_SambaShareSecurityOptions.get_DirectorySecurityMask \\ | Userdefined | Not used for Commandline |
+| directory_security_other_x | BOOLEAN | CHECKBOX | Linux_SambaShareSecurityOptions.get_DirectorySecurityMask \\ | Userdefined | Not used for Commandline |
+
+{panel}
+
+	
+
+[#Index]
+{anchor:wizardContainerPackage.ShareWizardPage4}
+{panel:title=wizardContainerPackage.ShareWizardPage4|titleBGColor=#CCE5FF| bgColor=#FFFFFF}
+
+| *Description* |  \\ |
+| *Related FCO*\\ | org.sblim.wbemsmt.samba.bl.fco.Linux_SambaShareOptions |
+| *Adapter* \\ | sambaAdapter |
+| *Package* \\ | Interface: org.sblim.wbemsmt.samba.bl.container.wizard |
+| *Actions* | CREATE, WIZARD \\ |
+| *CustomLayouter* \\ | --- |
+*Fields:*
+| *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
+| Name | STRING | TEXTFIELD | Linux_SambaShareOptions.get_Name \\ | Readonly | Not used for Commandline |
+| Path | STRING | TEXTFIELD | Linux_SambaShareOptions.get_Path \\ | Readonly | Not used for Commandline |
+| Comment | STRING | TEXTFIELD | Linux_SambaShareOptions.get_Comment \\ | Readonly | Not used for Commandline |
+| seenByEverybody | BOOLEAN | CHECKBOX | userdefined \\ | Readonly, Userdefined | -seenByEverybody, Optional,Default is noDefaultValue |
+| enableGuest | BOOLEAN | CHECKBOX | userdefined \\ | Readonly, Userdefined | -enableGuest, Optional,Default is noDefaultValue |
+| CreateMask | STRING | TEXTFIELD | Linux_SambaShareSecurityOptions.get_CreateMask \\ | Readonly | -createMask, Required |
+| DirectoryMask | STRING | TEXTFIELD | Linux_SambaShareSecurityOptions.get_DirectoryMask \\ | Readonly | -directoryMask, Required |
+| DirectorySecurityMask | STRING | TEXTFIELD | Linux_SambaShareSecurityOptions.get_DirectorySecurityMask \\ | Readonly | -directorySecurityMask, Required |
+| forceUser | STRING | TEXTFIELD | userdefined \\ | Readonly, Userdefined | Not used for Commandline |
+
+*Relations*
+| *RelationType&nbsp;* | *&nbsp;related DataContainer* \\ | *&nbsp;Additional Information* \\ |
+| Link | [#wizardContainerPackage.UserInShareWizardACLItemDataContainer] | Rolename: users, Type: LIST |
+{panel}
+
+	
+
+[#Index]
+{anchor:wizardContainerPackage.UserInPrinterWizardACLItemDataContainer}
+{panel:title=wizardContainerPackage.UserInPrinterWizardACLItemDataContainer|titleBGColor=#CCE5FF| bgColor=#FFFFFF}
+
+| *Description* | Defines a user-related acl within the printer wizard \\ |
+| *Related FCO*\\ |  ---  |
+| *Adapter* \\ | sambaAdapter |
+| *Package* \\ | Interface: org.sblim.wbemsmt.samba.bl.container.wizard |
+| *Actions* | WIZARD \\ |
+| *CustomLayouter* \\ | --- |
+
+*Relations*
+| *RelationType&nbsp;* | *&nbsp;related DataContainer* \\ | *&nbsp;Additional Information* \\ |
+| Extends | [#printerContainerPackage.UserACLItemDataContainerForPrinter] \\ | |
+{panel}
+
+	
+
+[#Index]
+{anchor:wizardContainerPackage.UserInShareWizardACLItemDataContainer}
+{panel:title=wizardContainerPackage.UserInShareWizardACLItemDataContainer|titleBGColor=#CCE5FF| bgColor=#FFFFFF}
+
+| *Description* | Defines a user-related acl within the share-wizard \\ |
+| *Related FCO*\\ |  ---  |
+| *Adapter* \\ | sambaAdapter |
+| *Package* \\ | Interface: org.sblim.wbemsmt.samba.bl.container.wizard |
+| *Actions* | WIZARD \\ |
+| *CustomLayouter* \\ | --- |
+
+*Relations*
+| *RelationType&nbsp;* | *&nbsp;related DataContainer* \\ | *&nbsp;Additional Information* \\ |
+| Extends | [#shareContainerPackage.UserACLItemDataContainerForShare] \\ | |
+{panel}
+
+	
+
+[#Index]
+{anchor:wizardContainerPackage.UserWizardPage1}
+{panel:title=wizardContainerPackage.UserWizardPage1|titleBGColor=#CCE5FF| bgColor=#FFFFFF}
+
+| *Description* |  \\ |
+| *Related FCO*\\ | org.sblim.wbemsmt.samba.bl.fco.Linux_SambaUser |
+| *Adapter* \\ | sambaAdapter |
+| *Package* \\ | Interface: org.sblim.wbemsmt.samba.bl.container.wizard |
+| *Actions* | WIZARD \\ |
+| *CustomLayouter* \\ | --- |
+*Fields:*
+| *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
+| SambaUserName | STRING | TEXTFIELD | Linux_SambaUser.get_SambaUserName \\ | --- | -username, Required |
+| SystemUserName | UNSIGNED_INT16 | LIST | Linux_SambaUser.get_SystemUserName \\ | --- | -systemUser, Required |
+| SambaUserPassword | STRING | PASSWORD | Linux_SambaUser.get_SambaUserPassword \\ | --- | -userPassword, Required |
+| SambaUserPassword2 | STRING | PASSWORD | Linux_SambaUser.get_SambaUserPassword \\ | --- | -userPasswordVerify, Required |
+| isGuest | BOOLEAN | CHECKBOX | userdefined \\ | Userdefined | -isGuest, Required |
+
+{panel}
+
+	
+
+[#Index]
+{anchor:wizardContainerPackage.UserWizardPage2}
+{panel:title=wizardContainerPackage.UserWizardPage2|titleBGColor=#CCE5FF| bgColor=#FFFFFF}
+
+| *Description* |  \\ |
+| *Related FCO*\\ |  ---  |
+| *Adapter* \\ | sambaAdapter |
+| *Package* \\ | Interface: org.sblim.wbemsmt.samba.bl.container.wizard |
+| *Actions* | WIZARD \\ |
+| *CustomLayouter* \\ | --- |
+*Fields:*
+| *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
+| accessToAll | BOOLEAN | CHECKBOX_WITH_CLICKEVENT | userdefined \\ | Userdefined | -accessToAll, Required |
+
+*Relations*
+| *RelationType&nbsp;* | *&nbsp;related DataContainer* \\ | *&nbsp;Additional Information* \\ |
+| Link | [#wizardContainerPackage.ShareInUserWizardACLItemDataContainer] | Rolename: shares, Type: LIST |
+| Link | [#wizardContainerPackage.PrinterInUserWizardACLItemDataContainer] | Rolename: printers, Type: LIST |
+{panel}
+
+	
+
+[#Index]
+{anchor:wizardContainerPackage.UserWizardPage3}
+{panel:title=wizardContainerPackage.UserWizardPage3|titleBGColor=#CCE5FF| bgColor=#FFFFFF}
+
+| *Description* |  \\ |
+| *Related FCO*\\ |  ---  |
+| *Adapter* \\ | sambaAdapter |
+| *Package* \\ | Interface: org.sblim.wbemsmt.samba.bl.container.wizard |
+| *Actions* | CREATE, WIZARD \\ |
+| *CustomLayouter* \\ | --- |
+*Fields:*
+| *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
+| SambaUserName | STRING | TEXTFIELD | Linux_SambaUser.get_SambaUserName \\ | Readonly | -username, Optional,Default is noDefaultValue |
+| SystemUserName | STRING | TEXTFIELD | Linux_SambaUser.get_SystemUserName \\ | Readonly | -systemUser, Optional,Default is noDefaultValue |
+| isGuest | BOOLEAN | CHECKBOX | userdefined \\ | Readonly, Userdefined | -isGuest, Optional,Default is noDefaultValue |
+
+*Relations*
+| *RelationType&nbsp;* | *&nbsp;related DataContainer* \\ | *&nbsp;Additional Information* \\ |
+| Link | [#wizardContainerPackage.ShareInUserWizardACLItemDataContainer] | Rolename: shares, Type: LIST |
+| Link | [#wizardContainerPackage.PrinterInUserWizardACLItemDataContainer] | Rolename: printers, Type: LIST |
+{panel}
