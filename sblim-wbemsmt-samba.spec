@@ -82,6 +82,7 @@ install README    $RPM_BUILD_ROOT%{_docdir}/%{name}-%{version}/README
 install ChangeLog $RPM_BUILD_ROOT%{_docdir}/%{name}-%{version}/ChangeLog
 install NEWS      $RPM_BUILD_ROOT%{_docdir}/%{name}-%{version}/NEWS
 install TroubleShooting $RPM_BUILD_ROOT%{_docdir}/%{name}-%{version}/TroubleShooting
+install MultipleHostsSupport $RPM_BUILD_ROOT%{_docdir}/%{name}-%{version}/MultipleHostsSupport
 
 install target/package/etc/sblim-wbemsmt/tasklauncher.d/samba-task-config.xml $RPM_BUILD_ROOT%{_sysconfdir}/sblim-wbemsmt/tasklauncher.d/
 install target/package/cli-scripts/sblim-wbemsmt-samba-cli.sh $RPM_BUILD_ROOT%{_bindir}/sblim-wbemsmt-samba-cli.sh
@@ -122,6 +123,7 @@ fi
 %doc %{_docdir}/%{name}-%{version}/ChangeLog
 %doc %{_docdir}/%{name}-%{version}/NEWS
 %doc %{_docdir}/%{name}-%{version}/TroubleShooting
+%doc %{_docdir}/%{name}-%{version}/MultipleHostsSupport
 %{_javadir}/sblim-wbemsmt/%{name}.jar
 %{_javadir}/sblim-wbemsmt/%{name}-%{version}.jar
 %{_bindir}/sblim-wbemsmt-samba-cli.sh

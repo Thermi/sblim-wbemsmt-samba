@@ -147,7 +147,8 @@
                       COPYING,
                       NEWS,
                       README,
-          	          TroubleShooting,
+                      MultipleHostsSupport,
+                      TroubleShooting,
           	          sblim-wbemsmt-samba.spec"
             excludes="**/.ant-targets-build.xml, 
           	          ${dir.compile.output}/**, 
@@ -179,6 +180,7 @@
                         COPYING,
                         NEWS,
                         README,
+                        MultipleHostsSupport,
     	                TroubleShooting"
               excludes="${dir.compile.output}/**, ${dir.package.output}, ${dir.release.output}/**"
               prefix="sblim-${ant.project.name}"/>
