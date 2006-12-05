@@ -17,7 +17,7 @@ License:        Common Public License
 Url:            http://sblim.sourceforge.net/
 Group:          Development/Libraries/Java
 Vendor:         IBM
-Summary:        WBEM-SMT Samba client components
+Summary:        Provides a wbemsmt-based task that provides support to configure Samba
 SOURCE0:        %{name}-%{version}-src.tar.bz2
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}
 BuildArch:      noarch
@@ -43,11 +43,11 @@ Requires: jakarta-commons-lang >= 2.0
 ###############################################################################
 
 %description
-This package of the WBEM-SMT project contains all client parts for the Samba 
-task. This includes
-- Business Logic code
-- Command Line Interface
-- JSF based application
+This module provides the wbemsmt-based task that provides the support to
+configure Samba shares, printers and users.
+It contains the generated data containers, the generated first class objects 
+and the business logic for the Samba app. It also contains the generated cli 
+interface for the samba task. 
 
 ###############################################################################
 
@@ -126,3 +126,21 @@ fi
 %{_javadir}/sblim-wbemsmt/%{name}-%{version}.jar
 %{_bindir}/sblim-wbemsmt-samba-cli.sh
 %attr(444,root,tomcat) %config(noreplace) %{_sysconfdir}/sblim-wbemsmt/tasklauncher.d/samba-task-config.xml
+
+###############################################################################
+%changelog
+* Mon Dec 4 2006 Wolfgang Taphorn <taphorn@de.ibm.com> 0.2.3-1
+  - Consolidation of the different cvs modules
+  - Inclusion of fixes for the following bug entries:
+    o 1609093  wbemsmt-samba: Consolidation of cvs module
+
+* Tue Oct 17 2006 Wolfgang Taphorn <taphorn@de.ibm.com> 0.2.2-1
+  Changelog information out of the distributed cvs modules
+  - Inclusion of fixes for the following bug entries:
+    o 1576424  UserWizard: CreateAll-Checkbox causes Error
+    o 1576423  PrinterWizard: CIM_ERR_ALREADY_EXISTS while creating Printer
+    o 1573739  Samba: Rework of ACL UI Elements
+    o 1573713  WizardPanels are vanishing
+    
+* Sat Jul 22 2006 Wolfgang Taphorn <taphorn@de.ibm.com> 0.2.1-1
+  - Initial upload of distributed CVS modules

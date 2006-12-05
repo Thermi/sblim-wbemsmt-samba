@@ -1,0 +1,15 @@
+Changes in 0.2.3-1 :
+==============================================================================
+
+- #1609093  wbemsmt-samba: Consolidation of cvs module
+
+
+Changes in 0.2.2-1 : (Distributed packages - which are removed from CVS)
+==============================================================================
+
+- #1576424  UserWizard: CreateAll-Checkbox causes Error
+- #1576423  PrinterWizard: CIM_ERR_ALREADY_EXISTS while creating Printer
+- #1573739  Samba: Rework of ACL UI Elements
+- #1573713  WizardPanels are vanishing
+- #1574472  Cleanup for client projects
+
