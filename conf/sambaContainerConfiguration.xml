@@ -903,7 +903,7 @@
 		</dcg:container>
 	</dcg:container-definitions>
 	<pl:presentationLayer>
-		<pl:environment taskLauncherConfig="../wbemsmt-samba-bl2/java/sambaTree.xml/" doJSF="true" doSwing="false" doCmd="true">
+		<pl:environment taskLauncherConfig="../wbemsmt-samba/java/sambaTree.xml/" doJSF="true" doSwing="false" doCmd="true">
 			<pl:listenerPackage packageId="implPackage1">
 				<pl:delegationPackage dir="../wbemsmt-samba/java/" id="listenerDelegatee" name="org.sblim.wbemsmt.samba.listener"/>
 				<pl:jsfPackage dir="../wbemsmt-samba/java/" id="listenerJsf" name="org.sblim.wbemsmt.jsf.samba.listener"/>
