@@ -80,8 +80,9 @@ public class GUIShareFileAttributesImpl extends org.sblim.wbemsmt.tools.jsf.Edit
 		}	
 	
 	public GUIShareFileAttributesImpl(org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
-		super(adapter,bindingPrefix, "GUIShareFileAttributes.caption");
-		
+
+				super(adapter,bindingPrefix, "GUIShareFileAttributes.caption");
+				
 				
     			
     				layouter = new GUIShareFileAttributesImplLayouter();//.layout(getPanelForCustomLayout(),this,bundle);

@@ -34,8 +34,9 @@ public class AdminUsersInShareGlobalsImpl extends org.sblim.wbemsmt.tools.jsf.Ed
 		
 	
 	public AdminUsersInShareGlobalsImpl(org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
-		super(adapter,bindingPrefix, "AdminUsersInShareGlobals.caption");
-		
+
+				super(adapter,bindingPrefix, "AdminUsersInShareGlobals.caption");
+				
 				
     			
     	    		        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_usr_SambaUserName());

@@ -35,8 +35,9 @@ public class UserACLItemDataContainerForServiceImpl extends org.sblim.wbemsmt.to
 		
 	
 	public UserACLItemDataContainerForServiceImpl(org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
-		super(adapter,bindingPrefix, "UserACLItemDataContainerForService.caption");
-		
+
+				super(adapter,bindingPrefix, "UserACLItemDataContainerForService.caption");
+				
 				
     			
     	    		        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_SambaUserName());

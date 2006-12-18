@@ -36,8 +36,9 @@ public class PrinterDenyHostSecurityDataContainerImpl extends org.sblim.wbemsmt.
 		
 	
 	public PrinterDenyHostSecurityDataContainerImpl(org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
-		super(adapter,bindingPrefix, "PrinterDenyHostSecurityDataContainer.caption");
-		
+
+				super(adapter,bindingPrefix, "PrinterDenyHostSecurityDataContainer.caption");
+				
 				
     			
     	    		        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_usr_DeniedHosts());

@@ -36,8 +36,9 @@ public class ServiceAllowHostSecurityDataContainerImpl extends org.sblim.wbemsmt
 		
 	
 	public ServiceAllowHostSecurityDataContainerImpl(org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
-		super(adapter,bindingPrefix, "ServiceAllowHostSecurityDataContainer.caption");
-		
+
+				super(adapter,bindingPrefix, "ServiceAllowHostSecurityDataContainer.caption");
+				
 				
     			
     	    		        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_usr_AllowedHosts());

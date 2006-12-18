@@ -67,7 +67,7 @@ public class UserACLItemDataContainerForShare_AsUsers_InUserInShareACLDataContai
 			//setFooter(getInputFieldContainer(),"#{localeManager.bundle['SAMBA'].UserACLItemDataContainerForShare_AsUsers_InUserInShareACLDataContainerImpl_footerText}","UserACLItemDataContainerForShare_AsUsers_InUserInShareACLDataContainerImpl.footerText");
 			//setFooter(getInputFieldContainer(),"UserACLItemDataContainerForShare_AsUsers_InUserInShareACLDataContainerImpl.footerText");
 			String binding = "#{" +  bindingPrefix + "users["+ index +"].footerText}";
-			setFooter(getInputFieldContainer(),"UserACLItemDataContainerForShare_AsUsers_InUserInShareACLDataContainer.footerText",binding);
+			setFooter(getOuterPanel(),"UserACLItemDataContainerForShare_AsUsers_InUserInShareACLDataContainer.footerText",binding);
 		}
 		adapter.initContainer(this);
 	}

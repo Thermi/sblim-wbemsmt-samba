@@ -41,8 +41,9 @@ public class ServiceLoggingDataContainerImpl extends org.sblim.wbemsmt.tools.jsf
 		
 	
 	public ServiceLoggingDataContainerImpl(org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
-		super(adapter,bindingPrefix, "ServiceLoggingDataContainer.caption");
-		
+
+				super(adapter,bindingPrefix, "ServiceLoggingDataContainer.caption");
+				
 				
     			
     	    		        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_SysLog());

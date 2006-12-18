@@ -33,8 +33,9 @@ public class ShareListDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.Edit
 		
 	
 	public ShareListDataContainerImpl(org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
-		super(adapter,bindingPrefix, "ShareListDataContainer.caption");
-		
+
+				super(adapter,bindingPrefix, "ShareListDataContainer.caption");
+				
 				
     			
     	    						

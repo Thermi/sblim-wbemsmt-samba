@@ -35,8 +35,9 @@ public class UserInPrinterACLDataContainerImpl extends org.sblim.wbemsmt.tools.j
 		
 	
 	public UserInPrinterACLDataContainerImpl(org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
-		super(adapter,bindingPrefix, "UserInPrinterACLDataContainer.caption");
-		
+
+				super(adapter,bindingPrefix, "UserInPrinterACLDataContainer.caption");
+				
 				
     			
     	    		        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_usr_CurrentForceUser());

@@ -34,8 +34,9 @@ public class AdminUsersInPrinterGlobalsImpl extends org.sblim.wbemsmt.tools.jsf.
 		
 	
 	public AdminUsersInPrinterGlobalsImpl(org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
-		super(adapter,bindingPrefix, "AdminUsersInPrinterGlobals.caption");
-		
+
+				super(adapter,bindingPrefix, "AdminUsersInPrinterGlobals.caption");
+				
 				
     			
     	    		        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_usr_SambaUserName());

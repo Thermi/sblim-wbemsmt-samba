@@ -41,8 +41,9 @@ public class PrintingGlobalsDataContainerImpl extends org.sblim.wbemsmt.tools.js
 		
 	
 	public PrintingGlobalsDataContainerImpl(org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
-		super(adapter,bindingPrefix, "PrintingGlobalsDataContainer.caption");
-		
+
+				super(adapter,bindingPrefix, "PrintingGlobalsDataContainer.caption");
+				
 				
     			
     	    		        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_PrintcapCacheTime());

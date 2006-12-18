@@ -33,8 +33,9 @@ public class PrinterListDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.Ed
 		
 	
 	public PrinterListDataContainerImpl(org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
-		super(adapter,bindingPrefix, "PrinterListDataContainer.caption");
-		
+
+				super(adapter,bindingPrefix, "PrinterListDataContainer.caption");
+				
 				
     			
     	    						

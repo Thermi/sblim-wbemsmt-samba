@@ -43,8 +43,9 @@ public class PrinterOptionsDataContainerImpl extends org.sblim.wbemsmt.tools.jsf
 		
 	
 	public PrinterOptionsDataContainerImpl(org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
-		super(adapter,bindingPrefix, "PrinterOptionsDataContainer.caption");
-		
+
+				super(adapter,bindingPrefix, "PrinterOptionsDataContainer.caption");
+				
 				
     			
     	    		        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_Name());

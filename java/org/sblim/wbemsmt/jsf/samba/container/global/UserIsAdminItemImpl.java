@@ -34,8 +34,9 @@ public class UserIsAdminItemImpl extends org.sblim.wbemsmt.tools.jsf.EditBasePan
 		
 	
 	public UserIsAdminItemImpl(org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
-		super(adapter,bindingPrefix, "UserIsAdminItem.caption");
-		
+
+				super(adapter,bindingPrefix, "UserIsAdminItem.caption");
+				
 				
     			
     	    		        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_usr_SambaUserName());

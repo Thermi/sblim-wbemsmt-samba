@@ -35,8 +35,9 @@ public class UserListItemDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.E
 		
 	
 	public UserListItemDataContainerImpl(org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
-		super(adapter,bindingPrefix, "UserListItemDataContainer.caption");
-		
+
+				super(adapter,bindingPrefix, "UserListItemDataContainer.caption");
+				
 				
     			
     	    		        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_SambaUserName());

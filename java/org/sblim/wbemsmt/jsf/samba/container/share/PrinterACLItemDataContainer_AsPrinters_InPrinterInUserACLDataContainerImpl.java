@@ -67,7 +67,7 @@ public class PrinterACLItemDataContainer_AsPrinters_InPrinterInUserACLDataContai
 			//setFooter(getInputFieldContainer(),"#{localeManager.bundle['SAMBA'].PrinterACLItemDataContainer_AsPrinters_InPrinterInUserACLDataContainerImpl_footerText}","PrinterACLItemDataContainer_AsPrinters_InPrinterInUserACLDataContainerImpl.footerText");
 			//setFooter(getInputFieldContainer(),"PrinterACLItemDataContainer_AsPrinters_InPrinterInUserACLDataContainerImpl.footerText");
 			String binding = "#{" +  bindingPrefix + "printers["+ index +"].footerText}";
-			setFooter(getInputFieldContainer(),"PrinterACLItemDataContainer_AsPrinters_InPrinterInUserACLDataContainer.footerText",binding);
+			setFooter(getOuterPanel(),"PrinterACLItemDataContainer_AsPrinters_InPrinterInUserACLDataContainer.footerText",binding);
 		}
 		adapter.initContainer(this);
 	}

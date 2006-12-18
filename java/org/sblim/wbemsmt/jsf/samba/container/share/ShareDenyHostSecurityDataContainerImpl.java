@@ -36,8 +36,9 @@ public class ShareDenyHostSecurityDataContainerImpl extends org.sblim.wbemsmt.to
 		
 	
 	public ShareDenyHostSecurityDataContainerImpl(org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
-		super(adapter,bindingPrefix, "ShareDenyHostSecurityDataContainer.caption");
-		
+
+				super(adapter,bindingPrefix, "ShareDenyHostSecurityDataContainer.caption");
+				
 				
     			
     	    		        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_usr_DeniedHosts());

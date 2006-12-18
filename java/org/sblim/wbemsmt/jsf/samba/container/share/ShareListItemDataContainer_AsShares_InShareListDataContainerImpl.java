@@ -85,7 +85,7 @@ public class ShareListItemDataContainer_AsShares_InShareListDataContainerImpl ex
 			//setFooter(getInputFieldContainer(),"#{localeManager.bundle['SAMBA'].ShareListItemDataContainer_AsShares_InShareListDataContainerImpl_footerText}","ShareListItemDataContainer_AsShares_InShareListDataContainerImpl.footerText");
 			//setFooter(getInputFieldContainer(),"ShareListItemDataContainer_AsShares_InShareListDataContainerImpl.footerText");
 			String binding = "#{" +  bindingPrefix + "shares["+ index +"].footerText}";
-			setFooter(getInputFieldContainer(),"ShareListItemDataContainer_AsShares_InShareListDataContainer.footerText",binding);
+			setFooter(getOuterPanel(),"ShareListItemDataContainer_AsShares_InShareListDataContainer.footerText",binding);
 		}
 		adapter.initContainer(this);
 	}

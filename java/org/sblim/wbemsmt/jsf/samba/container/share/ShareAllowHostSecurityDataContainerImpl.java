@@ -36,8 +36,9 @@ public class ShareAllowHostSecurityDataContainerImpl extends org.sblim.wbemsmt.t
 		
 	
 	public ShareAllowHostSecurityDataContainerImpl(org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
-		super(adapter,bindingPrefix, "ShareAllowHostSecurityDataContainer.caption");
-		
+
+				super(adapter,bindingPrefix, "ShareAllowHostSecurityDataContainer.caption");
+				
 				
     			
     	    		        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_usr_AllowedHosts());

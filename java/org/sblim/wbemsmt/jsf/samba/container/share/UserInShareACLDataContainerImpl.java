@@ -35,8 +35,9 @@ public class UserInShareACLDataContainerImpl extends org.sblim.wbemsmt.tools.jsf
 		
 	
 	public UserInShareACLDataContainerImpl(org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
-		super(adapter,bindingPrefix, "UserInShareACLDataContainer.caption");
-		
+
+				super(adapter,bindingPrefix, "UserInShareACLDataContainer.caption");
+				
 				
     			
     	    		        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_usr_NewForceUser());

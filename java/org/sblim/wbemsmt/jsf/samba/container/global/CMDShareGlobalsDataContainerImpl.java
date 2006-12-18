@@ -41,8 +41,9 @@ public class CMDShareGlobalsDataContainerImpl extends org.sblim.wbemsmt.tools.js
 		
 	
 	public CMDShareGlobalsDataContainerImpl(org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
-		super(adapter,bindingPrefix, "CMDShareGlobalsDataContainer.caption");
-		
+
+				super(adapter,bindingPrefix, "CMDShareGlobalsDataContainer.caption");
+				
 				
     			
     	    		        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_CaseSensitive());

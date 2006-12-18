@@ -36,8 +36,9 @@ public class PrinterAllowHostSecurityDataContainerImpl extends org.sblim.wbemsmt
 		
 	
 	public PrinterAllowHostSecurityDataContainerImpl(org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
-		super(adapter,bindingPrefix, "PrinterAllowHostSecurityDataContainer.caption");
-		
+
+				super(adapter,bindingPrefix, "PrinterAllowHostSecurityDataContainer.caption");
+				
 				
     			
     	    		        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_usr_AllowedHosts());

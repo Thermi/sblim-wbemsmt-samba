@@ -35,8 +35,9 @@ public class UserDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.EditBaseP
 		
 	
 	public UserDataContainerImpl(org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
-		super(adapter,bindingPrefix, "UserDataContainer.caption");
-		
+
+				super(adapter,bindingPrefix, "UserDataContainer.caption");
+				
 				
     			
     	    		        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_SambaUserName());

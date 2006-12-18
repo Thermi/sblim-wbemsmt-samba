@@ -84,6 +84,10 @@ public class EditShareGlobalsListenerEditBeanFieldTab extends EditBean {
                     				org.sblim.wbemsmt.jsf.samba.container.global.AdminUsersInShareGlobals_AsUsers_InGUIShareGlobalsDataContainerImpl child = new org.sblim.wbemsmt.jsf.samba.container.global.AdminUsersInShareGlobals_AsUsers_InGUIShareGlobalsDataContainerImpl(adapter1,bindingPrefix, i,grid);
                     				currentEditContainer1.getUsers().add(child);
                     			}
+                    			if (count > 0) {
+                					((MultiLineBasePanel)currentEditContainer1.getUsers().get(0)).updateRows(count);
+                				}
+								
                             	    							adapter1.updateControls(currentEditContainer1);
     						} catch (Exception e) {
     							throw new ObjectSaveException("Canot update Model after saving data",e);
@@ -129,9 +133,7 @@ public class EditShareGlobalsListenerEditBeanFieldTab extends EditBean {
 			
 			UIComponentBase addToThis = panel;
 			
-							//HtmlForm form = (HtmlForm) FacesContext.getCurrentInstance().getApplication().createComponent(HtmlForm.COMPONENT_TYPE);
-				//panel.getChildren().add(form);
-				//addToThis = form;
+							panel.setStyleClass("editPanelNoTabs");
 						TaskLauncherTreeNodeSelector selector = null;
 			//CimObjectKey key = null;
 			HtmlPanelGrid containerPanel = null;
@@ -161,9 +163,8 @@ public class EditShareGlobalsListenerEditBeanFieldTab extends EditBean {
 				containerPanel = (HtmlPanelGrid) FacesContext.getCurrentInstance().getApplication().createComponent(HtmlPanelGrid.COMPONENT_TYPE);
 				containerPanel.getChildren().add(currentEditContainer1.getInputFieldContainer());
 				containerPanel.setWidth("100%");
-				containerPanel.setStyle("border-width:1px;border-color=#99CCFF;margin-bottom:10px");
-				//containerPanel.setStyleClass("outerTable");
-
+    			    				containerPanel.setStyleClass("editPanelNoTabsOnlyContainers");
+    			
 				//update the child objects
 								
             	    			count = adapter1.count(org.sblim.wbemsmt.samba.bl.container.global.AdminUsersInShareGlobals.class);
@@ -173,6 +174,9 @@ public class EditShareGlobalsListenerEditBeanFieldTab extends EditBean {
     				org.sblim.wbemsmt.jsf.samba.container.global.AdminUsersInShareGlobals_AsUsers_InGUIShareGlobalsDataContainerImpl child = new org.sblim.wbemsmt.jsf.samba.container.global.AdminUsersInShareGlobals_AsUsers_InGUIShareGlobalsDataContainerImpl(adapter1,bindingPrefix, i,grid);
     				currentEditContainer1.getUsers().add(child);
     			}
+    			if (count > 0) {
+					((MultiLineBasePanel)currentEditContainer1.getUsers().get(0)).updateRows(count);
+				}
             	    			
 				
     			adapter1.updateControls(currentEditContainer1);
@@ -186,8 +190,7 @@ public class EditShareGlobalsListenerEditBeanFieldTab extends EditBean {
 				//add the childs with occurence list
             						
     			if (currentEditContainer1.getUsers().size() > 0) {
-    				HtmlPanelGrid childPanel = ((MultiLineBasePanel)currentEditContainer1.getUsers().get(0)).getInputFieldContainer();
-					childPanel.setStyleClass("multiLineChildTable");
+    				HtmlPanelGrid childPanel = ((MultiLineBasePanel)currentEditContainer1.getUsers().get(0)).getOuterPanel();
 					childPanel.setId(org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent.asJsfId("EditShareGlobalsChild_users"));
     				childEditFields.getChildren().add(childPanel); 	
     			}

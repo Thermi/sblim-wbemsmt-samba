@@ -36,8 +36,9 @@ public class ServiceOperationsDataContainerImpl extends org.sblim.wbemsmt.tools.
 		
 	
 	public ServiceOperationsDataContainerImpl(org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
-		super(adapter,bindingPrefix, "ServiceOperationsDataContainer.caption");
-		
+
+				super(adapter,bindingPrefix, "ServiceOperationsDataContainer.caption");
+				
 				
     			
     	    		        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_Started());

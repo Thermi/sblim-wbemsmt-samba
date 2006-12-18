@@ -44,7 +44,7 @@ public class GUIShareGlobalsDataContainerImplLayouter extends JsfLayouter {
 		
 		
 		HtmlPanelGrid gridRights = JsfUtil.createPanelGrid(4);
-		HtmlPanelGrid gridOtherFields = JsfUtil.createPanelGrid(2);
+		HtmlPanelGrid gridOtherFields = JsfUtil.createPanelGrid(1);
 
 		//parent.getChildren().add(gridRights);
 		parent.getChildren().add(gridOtherFields);

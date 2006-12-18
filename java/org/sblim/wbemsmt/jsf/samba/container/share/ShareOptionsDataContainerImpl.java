@@ -42,8 +42,9 @@ public class ShareOptionsDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.E
 		
 	
 	public ShareOptionsDataContainerImpl(org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
-		super(adapter,bindingPrefix, "ShareOptionsDataContainer.caption");
-		
+
+				super(adapter,bindingPrefix, "ShareOptionsDataContainer.caption");
+				
 				
     			
     	    		        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_Name());

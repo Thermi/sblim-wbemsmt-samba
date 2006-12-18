@@ -36,8 +36,9 @@ public class ServiceUserSecurityOptionsDataContainerImpl extends org.sblim.wbems
 		
 	
 	public ServiceUserSecurityOptionsDataContainerImpl(org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
-		super(adapter,bindingPrefix, "ServiceUserSecurityOptionsDataContainer.caption");
-		
+
+				super(adapter,bindingPrefix, "ServiceUserSecurityOptionsDataContainer.caption");
+				
 				
     			
     	    		        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_usr_GuestUser());

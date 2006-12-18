@@ -36,8 +36,9 @@ public class PrinterACLItemDataContainerImpl extends org.sblim.wbemsmt.tools.jsf
 		
 	
 	public PrinterACLItemDataContainerImpl(org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
-		super(adapter,bindingPrefix, "PrinterACLItemDataContainer.caption");
-		
+
+				super(adapter,bindingPrefix, "PrinterACLItemDataContainer.caption");
+				
 				
     			
     	    		        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_PrinterName());

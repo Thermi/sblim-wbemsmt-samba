@@ -81,8 +81,9 @@ public class GUIShareGlobalsDataContainerImpl extends org.sblim.wbemsmt.tools.js
 		}	
 	
 	public GUIShareGlobalsDataContainerImpl(org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
-		super(adapter,bindingPrefix, "GUIShareGlobalsDataContainer.caption");
-		
+
+				super(adapter,bindingPrefix, "GUIShareGlobalsDataContainer.caption");
+				
 				
     			
     				layouter = new GUIShareGlobalsDataContainerImplLayouter();//.layout(getPanelForCustomLayout(),this,bundle);

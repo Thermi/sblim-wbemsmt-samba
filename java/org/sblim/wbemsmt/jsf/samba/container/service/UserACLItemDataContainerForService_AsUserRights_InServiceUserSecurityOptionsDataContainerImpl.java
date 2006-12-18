@@ -64,7 +64,7 @@ public class UserACLItemDataContainerForService_AsUserRights_InServiceUserSecuri
 			//setFooter(getInputFieldContainer(),"#{localeManager.bundle['SAMBA'].UserACLItemDataContainerForService_AsUserRights_InServiceUserSecurityOptionsDataContainerImpl_footerText}","UserACLItemDataContainerForService_AsUserRights_InServiceUserSecurityOptionsDataContainerImpl.footerText");
 			//setFooter(getInputFieldContainer(),"UserACLItemDataContainerForService_AsUserRights_InServiceUserSecurityOptionsDataContainerImpl.footerText");
 			String binding = "#{" +  bindingPrefix + "userRights["+ index +"].footerText}";
-			setFooter(getInputFieldContainer(),"UserACLItemDataContainerForService_AsUserRights_InServiceUserSecurityOptionsDataContainer.footerText",binding);
+			setFooter(getOuterPanel(),"UserACLItemDataContainerForService_AsUserRights_InServiceUserSecurityOptionsDataContainer.footerText",binding);
 		}
 		adapter.initContainer(this);
 	}

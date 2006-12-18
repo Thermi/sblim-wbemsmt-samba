@@ -117,6 +117,10 @@ public class EditServiceListenerEditBeanTabSecurity extends EditBean {
                     				org.sblim.wbemsmt.jsf.samba.container.service.UserACLItemDataContainerForService_AsUserRights_InServiceUserSecurityOptionsDataContainerImpl child = new org.sblim.wbemsmt.jsf.samba.container.service.UserACLItemDataContainerForService_AsUserRights_InServiceUserSecurityOptionsDataContainerImpl(adapter2,bindingPrefix, i,grid);
                     				currentEditContainer2.getUserRights().add(child);
                     			}
+                    			if (count > 0) {
+                					((MultiLineBasePanel)currentEditContainer2.getUserRights().get(0)).updateRows(count);
+                				}
+								
                             	    							adapter2.updateControls(currentEditContainer2);
     						} catch (Exception e) {
     							throw new ObjectSaveException("Canot update Model after saving data",e);
@@ -174,9 +178,7 @@ public class EditServiceListenerEditBeanTabSecurity extends EditBean {
 				containerPanel = (HtmlPanelGrid) FacesContext.getCurrentInstance().getApplication().createComponent(HtmlPanelGrid.COMPONENT_TYPE);
 				containerPanel.getChildren().add(currentEditContainer1.getInputFieldContainer());
 				containerPanel.setWidth("100%");
-				containerPanel.setStyle("border-width:1px;border-color=#99CCFF;margin-bottom:10px");
-				//containerPanel.setStyleClass("outerTable");
-
+    			
 				//update the child objects
 								
             	    			
@@ -221,9 +223,7 @@ public class EditServiceListenerEditBeanTabSecurity extends EditBean {
 				containerPanel = (HtmlPanelGrid) FacesContext.getCurrentInstance().getApplication().createComponent(HtmlPanelGrid.COMPONENT_TYPE);
 				containerPanel.getChildren().add(currentEditContainer2.getInputFieldContainer());
 				containerPanel.setWidth("100%");
-				containerPanel.setStyle("border-width:1px;border-color=#99CCFF;margin-bottom:10px");
-				//containerPanel.setStyleClass("outerTable");
-
+    			
 				//update the child objects
 								
             	    			count = adapter2.count(org.sblim.wbemsmt.samba.bl.container.service.UserACLItemDataContainerForService.class);
@@ -233,6 +233,9 @@ public class EditServiceListenerEditBeanTabSecurity extends EditBean {
     				org.sblim.wbemsmt.jsf.samba.container.service.UserACLItemDataContainerForService_AsUserRights_InServiceUserSecurityOptionsDataContainerImpl child = new org.sblim.wbemsmt.jsf.samba.container.service.UserACLItemDataContainerForService_AsUserRights_InServiceUserSecurityOptionsDataContainerImpl(adapter2,bindingPrefix, i,grid);
     				currentEditContainer2.getUserRights().add(child);
     			}
+    			if (count > 0) {
+					((MultiLineBasePanel)currentEditContainer2.getUserRights().get(0)).updateRows(count);
+				}
             	    			
 				
     			adapter2.updateControls(currentEditContainer2);
@@ -246,8 +249,7 @@ public class EditServiceListenerEditBeanTabSecurity extends EditBean {
 				//add the childs with occurence list
             						
     			if (currentEditContainer2.getUserRights().size() > 0) {
-    				HtmlPanelGrid childPanel = ((MultiLineBasePanel)currentEditContainer2.getUserRights().get(0)).getInputFieldContainer();
-					childPanel.setStyleClass("multiLineChildTable");
+    				HtmlPanelGrid childPanel = ((MultiLineBasePanel)currentEditContainer2.getUserRights().get(0)).getOuterPanel();
 					childPanel.setId(org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent.asJsfId("editUserSecurityPanelChild_userRights"));
     				childEditFields.getChildren().add(childPanel); 	
     			}

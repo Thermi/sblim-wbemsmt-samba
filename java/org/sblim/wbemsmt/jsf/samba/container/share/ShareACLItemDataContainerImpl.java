@@ -36,8 +36,9 @@ public class ShareACLItemDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.E
 		
 	
 	public ShareACLItemDataContainerImpl(org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
-		super(adapter,bindingPrefix, "ShareACLItemDataContainer.caption");
-		
+
+				super(adapter,bindingPrefix, "ShareACLItemDataContainer.caption");
+				
 				
     			
     	    		        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_ShareName());

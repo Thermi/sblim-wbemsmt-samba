@@ -64,7 +64,7 @@ public class UserListItemDataContainer_AsUsers_InUserListDataContainerImpl exten
 			//setFooter(getInputFieldContainer(),"#{localeManager.bundle['SAMBA'].UserListItemDataContainer_AsUsers_InUserListDataContainerImpl_footerText}","UserListItemDataContainer_AsUsers_InUserListDataContainerImpl.footerText");
 			//setFooter(getInputFieldContainer(),"UserListItemDataContainer_AsUsers_InUserListDataContainerImpl.footerText");
 			String binding = "#{" +  bindingPrefix + "users["+ index +"].footerText}";
-			setFooter(getInputFieldContainer(),"UserListItemDataContainer_AsUsers_InUserListDataContainer.footerText",binding);
+			setFooter(getOuterPanel(),"UserListItemDataContainer_AsUsers_InUserListDataContainer.footerText",binding);
 		}
 		adapter.initContainer(this);
 	}

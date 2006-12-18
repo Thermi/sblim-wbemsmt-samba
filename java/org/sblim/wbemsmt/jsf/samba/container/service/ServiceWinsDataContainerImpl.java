@@ -37,8 +37,9 @@ public class ServiceWinsDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.Ed
 		
 	
 	public ServiceWinsDataContainerImpl(org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
-		super(adapter,bindingPrefix, "ServiceWinsDataContainer.caption");
-		
+
+				super(adapter,bindingPrefix, "ServiceWinsDataContainer.caption");
+				
 				
     			
     	    		        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_DNS_Proxy());

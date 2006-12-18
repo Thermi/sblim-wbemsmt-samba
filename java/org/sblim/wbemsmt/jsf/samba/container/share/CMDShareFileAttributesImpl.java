@@ -41,8 +41,9 @@ public class CMDShareFileAttributesImpl extends org.sblim.wbemsmt.tools.jsf.Edit
 		
 	
 	public CMDShareFileAttributesImpl(org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
-		super(adapter,bindingPrefix, "CMDShareFileAttributes.caption");
-		
+
+				super(adapter,bindingPrefix, "CMDShareFileAttributes.caption");
+				
 				
     			
     	    		        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_CaseSensitive());

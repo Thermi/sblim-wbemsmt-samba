@@ -41,8 +41,9 @@ public class ServiceScriptingDataContainerImpl extends org.sblim.wbemsmt.tools.j
 		
 	
 	public ServiceScriptingDataContainerImpl(org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
-		super(adapter,bindingPrefix, "ServiceScriptingDataContainer.caption");
-		
+
+				super(adapter,bindingPrefix, "ServiceScriptingDataContainer.caption");
+				
 				
     			
     	    		        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_AddGroupScript());

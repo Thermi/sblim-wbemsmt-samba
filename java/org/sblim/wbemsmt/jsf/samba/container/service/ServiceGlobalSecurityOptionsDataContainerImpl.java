@@ -46,8 +46,9 @@ public class ServiceGlobalSecurityOptionsDataContainerImpl extends org.sblim.wbe
 		
 	
 	public ServiceGlobalSecurityOptionsDataContainerImpl(org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
-		super(adapter,bindingPrefix, "ServiceGlobalSecurityOptionsDataContainer.caption");
-		
+
+				super(adapter,bindingPrefix, "ServiceGlobalSecurityOptionsDataContainer.caption");
+				
 				
     			
     	    		        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_AuthMethods());

@@ -33,8 +33,9 @@ public class PrinterInUserACLDataContainerImpl extends org.sblim.wbemsmt.tools.j
 		
 	
 	public PrinterInUserACLDataContainerImpl(org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
-		super(adapter,bindingPrefix, "PrinterInUserACLDataContainer.caption");
-		
+
+				super(adapter,bindingPrefix, "PrinterInUserACLDataContainer.caption");
+				
 				
     			
     	    						

@@ -61,7 +61,7 @@ public class AdminUsersInPrinterGlobals_AsUsers_InPrintingGlobalsDataContainerIm
 			//setFooter(getInputFieldContainer(),"#{localeManager.bundle['SAMBA'].AdminUsersInPrinterGlobals_AsUsers_InPrintingGlobalsDataContainerImpl_footerText}","AdminUsersInPrinterGlobals_AsUsers_InPrintingGlobalsDataContainerImpl.footerText");
 			//setFooter(getInputFieldContainer(),"AdminUsersInPrinterGlobals_AsUsers_InPrintingGlobalsDataContainerImpl.footerText");
 			String binding = "#{" +  bindingPrefix + "users["+ index +"].footerText}";
-			setFooter(getInputFieldContainer(),"AdminUsersInPrinterGlobals_AsUsers_InPrintingGlobalsDataContainer.footerText",binding);
+			setFooter(getOuterPanel(),"AdminUsersInPrinterGlobals_AsUsers_InPrintingGlobalsDataContainer.footerText",binding);
 		}
 		adapter.initContainer(this);
 	}

@@ -38,8 +38,9 @@ public class ShareFileAttributesImpl extends org.sblim.wbemsmt.tools.jsf.EditBas
 		
 	
 	public ShareFileAttributesImpl(org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
-		super(adapter,bindingPrefix, "ShareFileAttributes.caption");
-		
+
+				super(adapter,bindingPrefix, "ShareFileAttributes.caption");
+				
 				
     			
     	    		        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_CaseSensitive());

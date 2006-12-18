@@ -36,8 +36,9 @@ public class ServiceDenyHostDataContainerImpl extends org.sblim.wbemsmt.tools.js
 		
 	
 	public ServiceDenyHostDataContainerImpl(org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
-		super(adapter,bindingPrefix, "ServiceDenyHostDataContainer.caption");
-		
+
+				super(adapter,bindingPrefix, "ServiceDenyHostDataContainer.caption");
+				
 				
     			
     	    		        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_usr_DeniedHosts());
