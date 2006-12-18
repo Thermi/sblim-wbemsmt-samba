@@ -74,8 +74,9 @@ public class ShareWizardPage3GUIImpl extends org.sblim.wbemsmt.tools.wizard.jsf.
 		}	
 	
 	public ShareWizardPage3GUIImpl(org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
-		super(adapter,bindingPrefix, "ShareWizardPage3GUI.caption");
-		
+
+				super(adapter,bindingPrefix, "ShareWizardPage3GUI.caption","ShareWizardPage3GUI.subTitle");
+				
 				
     			
     				layouter = new ShareWizardPage3GUIImplLayouter();//.layout(getPanelForCustomLayout(),this,bundle);

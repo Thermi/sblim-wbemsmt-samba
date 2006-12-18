@@ -37,8 +37,9 @@ public class ShareWizardPage2Impl extends org.sblim.wbemsmt.tools.wizard.jsf.Wiz
 		
 	
 	public ShareWizardPage2Impl(org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
-		super(adapter,bindingPrefix, "ShareWizardPage2.caption");
-		
+
+				super(adapter,bindingPrefix, "ShareWizardPage2.caption","ShareWizardPage2.subTitle");
+				
 				
     			
     	    		        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_usr_SeenByEverybody());

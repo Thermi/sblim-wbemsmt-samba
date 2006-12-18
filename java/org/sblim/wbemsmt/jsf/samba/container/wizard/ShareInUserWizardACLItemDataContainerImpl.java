@@ -36,8 +36,9 @@ public class ShareInUserWizardACLItemDataContainerImpl extends org.sblim.wbemsmt
 		
 	
 	public ShareInUserWizardACLItemDataContainerImpl(org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
-		super(adapter,bindingPrefix, "ShareInUserWizardACLItemDataContainer.caption");
-		
+
+				super(adapter,bindingPrefix, "ShareInUserWizardACLItemDataContainer.caption","ShareInUserWizardACLItemDataContainer.subTitle");
+				
 				
     			
     	    		        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_ShareName());

@@ -42,7 +42,7 @@ public class UserWizard extends CliWizardBase implements IPageWizardAdapter {
 	
 	public UserWizard(final org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter adapter) {
 		super(adapter,ResourceBundleManager.getResourceBundle(new String[]{"messages","messagesSamba"},Locale.getDefault()));
-		this.container = new org.sblim.wbemsmt.samba.wizard.UserWizardContainer (new org.sblim.wbemsmt.samba.wizard.UserWizardContainerPanels()
+		this.container = new org.sblim.wbemsmt.samba.wizard.UserWizardContainer (adapter, new org.sblim.wbemsmt.samba.wizard.UserWizardContainerPanels()
  			{
             					public Object getPage1()  throws WbemSmtException {
 					DataContainer dc = new org.sblim.wbemsmt.cli.samba.container.wizard.UserWizardPage1Impl(adapter);

@@ -39,8 +39,9 @@ public class PrinterWizardPage1Impl extends org.sblim.wbemsmt.tools.wizard.jsf.W
 		}	
 	
 	public PrinterWizardPage1Impl(org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
-		super(adapter,bindingPrefix, "PrinterWizardPage1.caption");
-		
+
+				super(adapter,bindingPrefix, "PrinterWizardPage1.caption","PrinterWizardPage1.subTitle");
+				
 				
     			
     				layouter = new PrinterWizardPage1ImplLayouter();//.layout(getPanelForCustomLayout(),this,bundle);

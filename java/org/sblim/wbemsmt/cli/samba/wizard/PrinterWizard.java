@@ -42,7 +42,7 @@ public class PrinterWizard extends CliWizardBase implements IPageWizardAdapter {
 	
 	public PrinterWizard(final org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter adapter) {
 		super(adapter,ResourceBundleManager.getResourceBundle(new String[]{"messages","messagesSamba"},Locale.getDefault()));
-		this.container = new org.sblim.wbemsmt.samba.wizard.PrinterWizardContainer (new org.sblim.wbemsmt.samba.wizard.PrinterWizardContainerPanels()
+		this.container = new org.sblim.wbemsmt.samba.wizard.PrinterWizardContainer (adapter, new org.sblim.wbemsmt.samba.wizard.PrinterWizardContainerPanels()
  			{
             					public Object getPage1()  throws WbemSmtException {
 					DataContainer dc = new org.sblim.wbemsmt.cli.samba.container.wizard.PrinterWizardPage1Impl(adapter);

@@ -33,8 +33,9 @@ public class HostWizardPage2Impl extends org.sblim.wbemsmt.tools.wizard.jsf.Wiza
 		
 	
 	public HostWizardPage2Impl(org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
-		super(adapter,bindingPrefix, "HostWizardPage2.caption");
-		
+
+				super(adapter,bindingPrefix, "HostWizardPage2.caption","HostWizardPage2.subTitle");
+				
 				
     			
     	    		        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_Name());

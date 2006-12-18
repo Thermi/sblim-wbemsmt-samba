@@ -42,7 +42,7 @@ public class ShareWizard extends CliWizardBase implements IPageWizardAdapter {
 	
 	public ShareWizard(final org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter adapter) {
 		super(adapter,ResourceBundleManager.getResourceBundle(new String[]{"messages","messagesSamba"},Locale.getDefault()));
-		this.container = new org.sblim.wbemsmt.samba.wizard.ShareWizardContainer (new org.sblim.wbemsmt.samba.wizard.ShareWizardContainerPanels()
+		this.container = new org.sblim.wbemsmt.samba.wizard.ShareWizardContainer (adapter, new org.sblim.wbemsmt.samba.wizard.ShareWizardContainerPanels()
  			{
             					public Object getPage1()  throws WbemSmtException {
 					DataContainer dc = new org.sblim.wbemsmt.cli.samba.container.wizard.ShareWizardPage1Impl(adapter);

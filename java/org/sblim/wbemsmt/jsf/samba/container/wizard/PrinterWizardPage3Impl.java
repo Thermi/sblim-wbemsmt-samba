@@ -37,8 +37,9 @@ public class PrinterWizardPage3Impl extends org.sblim.wbemsmt.tools.wizard.jsf.W
 		
 	
 	public PrinterWizardPage3Impl(org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
-		super(adapter,bindingPrefix, "PrinterWizardPage3.caption");
-		
+
+				super(adapter,bindingPrefix, "PrinterWizardPage3.caption","PrinterWizardPage3.subTitle");
+				
 				
     			
     	    		        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_usr_SeenByEverybody());

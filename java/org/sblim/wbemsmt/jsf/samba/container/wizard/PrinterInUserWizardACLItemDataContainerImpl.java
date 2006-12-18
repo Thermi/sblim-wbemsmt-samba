@@ -36,8 +36,9 @@ public class PrinterInUserWizardACLItemDataContainerImpl extends org.sblim.wbems
 		
 	
 	public PrinterInUserWizardACLItemDataContainerImpl(org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
-		super(adapter,bindingPrefix, "PrinterInUserWizardACLItemDataContainer.caption");
-		
+
+				super(adapter,bindingPrefix, "PrinterInUserWizardACLItemDataContainer.caption","PrinterInUserWizardACLItemDataContainer.subTitle");
+				
 				
     			
     	    		        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_PrinterName());

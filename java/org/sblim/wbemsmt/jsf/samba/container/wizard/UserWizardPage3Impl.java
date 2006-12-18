@@ -37,8 +37,9 @@ public class UserWizardPage3Impl extends org.sblim.wbemsmt.tools.wizard.jsf.Wiza
 		
 	
 	public UserWizardPage3Impl(org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
-		super(adapter,bindingPrefix, "UserWizardPage3.caption");
-		
+
+				super(adapter,bindingPrefix, "UserWizardPage3.caption","UserWizardPage3.subTitle");
+				
 				
     			
     	    		        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_SambaUserName());

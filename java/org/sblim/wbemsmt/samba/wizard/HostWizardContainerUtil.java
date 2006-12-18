@@ -19,9 +19,12 @@
   */
 package org.sblim.wbemsmt.samba.wizard;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import org.sblim.wbemsmt.tools.wizard.WizardContainerUtil;
+import org.sblim.wbemsmt.tools.wizard.WizardStepList;
+import org.sblim.wbemsmt.tools.wizard.container.IWizardContainer;
 
 public class HostWizardContainerUtil extends WizardContainerUtil {
 
@@ -36,4 +39,8 @@ public class HostWizardContainerUtil extends WizardContainerUtil {
 		return getNextPanelDefault(currentPageName,panelNames);
 	}
 
+	public void addInitialWizardSteps(IWizardContainer wizardContainer, WizardStepList stepList, HashMap hmPages) {
+		super.addInitialWizardStepsDefault(wizardContainer, stepList, panelNames);
+	}
+	
 }

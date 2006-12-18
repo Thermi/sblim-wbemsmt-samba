@@ -42,7 +42,7 @@ public class HostWizard extends CliWizardBase implements IPageWizardAdapter {
 	
 	public HostWizard(final org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter adapter) {
 		super(adapter,ResourceBundleManager.getResourceBundle(new String[]{"messages","messagesSamba"},Locale.getDefault()));
-		this.container = new org.sblim.wbemsmt.samba.wizard.HostWizardContainer (new org.sblim.wbemsmt.samba.wizard.HostWizardContainerPanels()
+		this.container = new org.sblim.wbemsmt.samba.wizard.HostWizardContainer (adapter, new org.sblim.wbemsmt.samba.wizard.HostWizardContainerPanels()
  			{
             					public Object getPage1()  throws WbemSmtException {
 					DataContainer dc = new org.sblim.wbemsmt.cli.samba.container.wizard.HostWizardPage1Impl(adapter);

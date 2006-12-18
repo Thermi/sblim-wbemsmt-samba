@@ -49,9 +49,9 @@ public class HostWizard extends JSFWizardBase implements IPageWizardAdapter {
 	final org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter adapter;
 	
 	public HostWizard(final org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter adapter) {
-		super(adapter,ResourceBundleManager.getResourceBundle(new String[]{"messages","messagesSamba"},LocaleManager.getCurrent(FacesContext.getCurrentInstance()).getCurrentLocale()));
+		super(adapter,ResourceBundleManager.getResourceBundle(new String[]{"messages","messagesSamba"},LocaleManager.getCurrent(FacesContext.getCurrentInstance()).getCurrentLocale()),"HostWizard.title");
 		this.adapter = adapter;
-		this.container = new org.sblim.wbemsmt.samba.wizard.HostWizardContainer (new org.sblim.wbemsmt.samba.wizard.HostWizardContainerPanels()
+		this.container = new org.sblim.wbemsmt.samba.wizard.HostWizardContainer (adapter,new org.sblim.wbemsmt.samba.wizard.HostWizardContainerPanels()
  			{
             						//update the child objects
     				
@@ -158,6 +158,9 @@ public class HostWizard extends JSFWizardBase implements IPageWizardAdapter {
    {
      //do nothing
    }
+
+   
+   //Workaround for a bug within myFaces - Everytime a new panel is created the childs are created also
    
 	public void countAndCreateChilds(DataContainer dataContainer) throws UpdateControlsException {
             						if (dataContainer instanceof org.sblim.wbemsmt.jsf.samba.container.wizard.HostWizardPage1Impl)
@@ -199,4 +202,9 @@ public class HostWizard extends JSFWizardBase implements IPageWizardAdapter {
 						}
     				}
             		}   
+	
+	public String getFinishText()
+	{
+		return bundle.getString("HostWizard.finishText",bundle.getString("wizard.finishText"));
+	}
 }
