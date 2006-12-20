@@ -19,9 +19,11 @@
   */
 package org.sblim.wbemsmt.samba.bl.validator;
 
+import org.sblim.wbemsmt.bl.adapter.Message;
 import org.sblim.wbemsmt.bl.adapter.MessageList;
 import org.sblim.wbemsmt.exception.ValidationException;
 import org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter;
+import org.sblim.wbemsmt.samba.bl.adapter.SambaErrCodes;
 import org.sblim.wbemsmt.samba.bl.wrapper.User;
 import org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf;
 import org.sblim.wbemsmt.tools.validator.Validator;
@@ -56,8 +58,9 @@ public class SambaUsernameValidator extends Validator {
 			User user = sambaCimAdapter.getSelectedService().getUsers().getUserByName(userName);
 			if (user != null)
 			{
-				String msg = adapter.getBundle().getString("validator.userExists",new Object[]{userName});
-				result.addError(msg,component);
+				String msg = adapter.getBundle().getString(SambaErrCodes.MSG_USER_EXISTS,"validator.userExists",new Object[]{userName});
+				result.addMessage(new Message(SambaErrCodes.MSG_USER_EXISTS,Message.ERROR,msg,component));
+				
 			}
 		}
 	}

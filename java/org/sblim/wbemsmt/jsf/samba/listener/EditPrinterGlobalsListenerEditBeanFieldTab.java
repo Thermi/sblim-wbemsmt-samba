@@ -66,7 +66,7 @@ public class EditPrinterGlobalsListenerEditBeanFieldTab extends EditBean {
     				{
         				adapter1.validateValues(currentEditContainer1);
         				result = currentEditContainer1.getMessagesList();
-    					        				addErrors(bundle.getString("validation.error"),result,bundle);
+    					        				addValidationErrors(result,bundle);
     					    					
         				if (!result.hasErrors())
         				{
@@ -99,15 +99,16 @@ public class EditPrinterGlobalsListenerEditBeanFieldTab extends EditBean {
     					
     					            				if (result.hasErrors())
             				{
-            					addErrors(bundle.getString("save.error"),result,bundle);
+            					addSaveError(result,bundle);
             				}
             				else if (result.hasWarning())
             				{
-            					addErrors(bundle.getString("save.warning"),result,bundle);
+            					addSaveWarning(result,bundle);
             				}
             				else if (result.hasInfo())
             				{
-            					addErrors(bundle.getString("save.info"),result,bundle);
+            					addSaveInfo(result,bundle);
+
             				}
     					    					
         				saveResult.addAll(result);
@@ -115,7 +116,7 @@ public class EditPrinterGlobalsListenerEditBeanFieldTab extends EditBean {
 										    			
 				if (successCount == 1)
     			{
-        				addInfo(bundle.getString("save.success"));
+        				addSaveSuccess(bundle);
     			}
 			
 						

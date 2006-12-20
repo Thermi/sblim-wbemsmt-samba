@@ -19,9 +19,11 @@
   */
 package org.sblim.wbemsmt.samba.bl.validator;
 
+import org.sblim.wbemsmt.bl.adapter.Message;
 import org.sblim.wbemsmt.bl.adapter.MessageList;
 import org.sblim.wbemsmt.exception.ValidationException;
 import org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter;
+import org.sblim.wbemsmt.samba.bl.adapter.SambaErrCodes;
 import org.sblim.wbemsmt.samba.bl.wrapper.Printer;
 import org.sblim.wbemsmt.samba.bl.wrapper.Share;
 import org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf;
@@ -55,21 +57,21 @@ public class DuplicateSambaServiceValidator extends Validator {
 		Share share = sambaCimAdapter.getSelectedService().getShares().getShareByName(name);
 		if (share != null)
 		{
-			String msg = adapter.getBundle().getString("validator.shareExists",new Object[]{shareOrPrinterName.getLabelText(), name});
-			result.addError(msg,shareOrPrinterName);
+			String msg = adapter.getBundle().getString(SambaErrCodes.MSG_SHARE_EXISTS, "validator.shareExists",new Object[]{shareOrPrinterName.getLabelText(), name});
+			result.addMessage(new Message(SambaErrCodes.MSG_SHARE_EXISTS,Message.ERROR,msg,shareOrPrinterName));
 		}
 		
 		Printer printer = sambaCimAdapter.getSelectedService().getPrinters().getPrinterByName(name);
 		if (printer != null)
 		{
-			String msg = adapter.getBundle().getString("validator.printerExists",new Object[]{shareOrPrinterName.getLabelText(),name});
-			result.addError(msg,shareOrPrinterName);
+			String msg = adapter.getBundle().getString(SambaErrCodes.MSG_PRINTER_EXISTS, "validator.printerExists",new Object[]{shareOrPrinterName.getLabelText(), name});
+			result.addMessage(new Message(SambaErrCodes.MSG_PRINTER_EXISTS,Message.ERROR,msg,shareOrPrinterName));
 		}
 		
 		if (name.equalsIgnoreCase("global"))
 		{
-			String msg = adapter.getBundle().getString("validator.globalExists", new Object[]{shareOrPrinterName.getLabelText()});
-			result.addError(msg,shareOrPrinterName);
+			String msg = adapter.getBundle().getString(SambaErrCodes.MSG_GLOBAL_EXISTS,"validator.globalExists", new Object[]{shareOrPrinterName.getLabelText()});
+			result.addMessage(new Message(SambaErrCodes.MSG_PRINTER_EXISTS,Message.ERROR,msg,shareOrPrinterName));
 		}
 
 	}
