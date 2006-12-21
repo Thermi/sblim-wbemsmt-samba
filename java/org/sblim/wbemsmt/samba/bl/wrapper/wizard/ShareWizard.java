@@ -100,11 +100,9 @@ public class ShareWizard   extends SambaWizard{
 			//next time in the wizard is first time
 			updatedContainers.clear();
 			
-			//reload
-			if (adapter.getRootNode() != null)
-			{
-				adapter.getRootNode().readSubnodes(true);
-			}
+			adapter.setMarkedForReload();
+			container.setKey(new CimObjectKey(share));
+
 		} catch (Exception e) {
 			throw new ObjectCreationException(adapter.getBundle().getString("cannot.create.share"),e);
 		}

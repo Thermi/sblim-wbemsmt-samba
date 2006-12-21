@@ -37,7 +37,6 @@ import org.sblim.wbemsmt.exception.ModelLoadException;
 import org.sblim.wbemsmt.exception.ObjectCreationException;
 import org.sblim.wbemsmt.exception.ObjectSaveException;
 import org.sblim.wbemsmt.exception.UpdateControlsException;
-import org.sblim.wbemsmt.exception.WbemSmtException;
 import org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter;
 import org.sblim.wbemsmt.samba.bl.container.wizard.PrinterWizardPage1;
 import org.sblim.wbemsmt.samba.bl.container.wizard.PrinterWizardPage2;
@@ -94,13 +93,14 @@ public class PrinterWizard  extends SambaWizard {
 			throw new ObjectSaveException(adapter.getBundle().getString("cannot.find.systemprinters"),e);
 		}
 		
+		Linux_SambaPrinterOptions printer = null;
 		if (getDefineForAllPrinters())
 		{
 				
 				for (int i=0; i < systemPrinters.size(); i++)
 				{
-					SystemPrinter printer = systemPrinters.getSystemPrinter(i);
-					createPrinter(PrinterWizard.DEFAULT_PREFIX_PRINTER + printer.getName(),printer);
+					SystemPrinter sysPrinter = systemPrinters.getSystemPrinter(i);
+					printer = createPrinter(PrinterWizard.DEFAULT_PREFIX_PRINTER + sysPrinter.getName(),sysPrinter);
 				}
 		}
 		else
@@ -108,7 +108,7 @@ public class PrinterWizard  extends SambaWizard {
 			UnsignedInt16 idx = (UnsignedInt16) page2.get_usr_SystemPrinterName().getConvertedControlValue();
 			if (idx != null)
 			{
-				createPrinter((String) page2.get_SambaPrinterName().getConvertedControlValue(),systemPrinters.getSystemPrinter(idx.intValue()));
+				printer = createPrinter((String) page2.get_SambaPrinterName().getConvertedControlValue(),systemPrinters.getSystemPrinter(idx.intValue()));
 				
 			}
 			else
@@ -120,22 +120,14 @@ public class PrinterWizard  extends SambaWizard {
 		//next time in the wizard is first time
 		updatedContainers.clear();
 		
-		//reload
-		if (adapter.getRootNode() != null)
-		{
-			try {
-				adapter.getRootNode().readSubnodes(true);
-			} catch (WbemSmtException e) {
-				throw new ObjectCreationException(e);
-			}
-		}
-		
+		adapter.setMarkedForReload();
+		container.setKey(new CimObjectKey(printer));
 		
 	}
 
 
 
-	private void createPrinter(String name, SystemPrinter systemPrinter) throws ObjectCreationException {
+	private Linux_SambaPrinterOptions createPrinter(String name, SystemPrinter systemPrinter) throws ObjectCreationException {
 		
 		Linux_SambaPrinterOptions printer = new Linux_SambaPrinterOptions();
 		CIMClient cc = adapter.getCimClient();
@@ -162,7 +154,7 @@ public class PrinterWizard  extends SambaWizard {
 			createPrintingOpts(printer, cc);			
 
 			createUserAcl(cc, printer);
-			
+			return printer;
 			
 			
 		} catch (ObjectCreationException e) {
