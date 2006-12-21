@@ -68,6 +68,7 @@ public class PrinterDenyHostSecurityDataContainerImpl extends org.sblim.wbemsmt.
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.UnsignedInt16StringConverter();
 				boolean readOnly = false;
     			ic_usr_DeniedHosts = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFListComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_usr_DeniedHosts;
     	}
@@ -88,6 +89,7 @@ public class PrinterDenyHostSecurityDataContainerImpl extends org.sblim.wbemsmt.
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.UnsignedInt16StringConverter();
 				boolean readOnly = false;
     			ic_usr_HostsToDeny = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFListComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_usr_HostsToDeny;
     	}
@@ -108,6 +110,7 @@ public class PrinterDenyHostSecurityDataContainerImpl extends org.sblim.wbemsmt.
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = false;
     			ic_usr_AddHost = new org.sblim.wbemsmt.tools.input.jsf.JSFButtonComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_usr_AddHost;
     	}
@@ -128,6 +131,7 @@ public class PrinterDenyHostSecurityDataContainerImpl extends org.sblim.wbemsmt.
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = false;
     			ic_usr_RemoveHost = new org.sblim.wbemsmt.tools.input.jsf.JSFButtonComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_usr_RemoveHost;
     	}

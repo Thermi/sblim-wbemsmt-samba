@@ -80,6 +80,7 @@ public class ShareListItemDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = true;
     			ic_Name = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_Name;
     	}
@@ -100,6 +101,7 @@ public class ShareListItemDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = false;
     			ic_Available = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_Available;
     	}
@@ -120,6 +122,7 @@ public class ShareListItemDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = false;
     			ic_Comment = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_Comment;
     	}
@@ -140,6 +143,7 @@ public class ShareListItemDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = false;
     			ic_Path = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_Path;
     	}
@@ -160,6 +164,7 @@ public class ShareListItemDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = false;
     			ic_Browsable = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_Browsable;
     	}
@@ -180,6 +185,7 @@ public class ShareListItemDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = false;
     			ic_GuestOK = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_GuestOK;
     	}
@@ -200,6 +206,7 @@ public class ShareListItemDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = false;
     			ic_GuestOnly = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_GuestOnly;
     	}
@@ -220,6 +227,7 @@ public class ShareListItemDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = false;
     			ic_HostsAllow = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_HostsAllow;
     	}
@@ -240,6 +248,7 @@ public class ShareListItemDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = false;
     			ic_HostsDeny = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_HostsDeny;
     	}
@@ -260,6 +269,7 @@ public class ShareListItemDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = false;
     			ic_ReadOnly = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_ReadOnly;
     	}

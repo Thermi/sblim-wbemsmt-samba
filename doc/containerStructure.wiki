@@ -1075,8 +1075,8 @@
 | *CustomLayouter* \\ | --- |
 *Fields:*
 | *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
-| SambaPrinterName | STRING | TEXTFIELD | Linux_SambaPrinterOptions.get_Name \\ | --- | -sambaPrinterName, Optional,Default is noDefaultValue |
-| SystemPrinterName | UNSIGNED_INT16 | COMBOBOX | userdefined \\ | Userdefined | -systemPrintername, Optional,Default is noDefaultValue |
+| SambaPrinterName | STRING | TEXTFIELD | Linux_SambaPrinterOptions.get_Name \\ | --- | -sambaPrinterName, Required |
+| SystemPrinterName | UNSIGNED_INT16 | COMBOBOX | userdefined \\ | Userdefined | -systemPrintername, Required |
 | Path | STRING | TEXTFIELD | Linux_SambaPrinterOptions.get_Path \\ | --- | -path, Required |
 | Comment | STRING | TEXTFIELD | Linux_SambaPrinterOptions.get_Comment \\ | --- | -comment, Optional,Default is noDefaultValue |
 

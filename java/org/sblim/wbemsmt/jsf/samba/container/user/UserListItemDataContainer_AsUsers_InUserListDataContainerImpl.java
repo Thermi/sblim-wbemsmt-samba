@@ -47,7 +47,7 @@ public class UserListItemDataContainer_AsUsers_InUserListDataContainerImpl exten
 	public UserListItemDataContainer_AsUsers_InUserListDataContainerImpl(org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter adapter,String bindingPrefix,int index, HtmlPanelGrid grid) throws InitContainerException {
 	    super(adapter,
 			  bindingPrefix, // the prefix for binding values
-			  "#{" +  bindingPrefix + "users["+ index +"].titleText}", // binding for Title
+			  "#{" +  bindingPrefix + "users["+ index +"]", // binding for Title
 			  "UserListItemDataContainer_AsUsers_InUserListDataContainer.caption", //Key for title
 			  3,grid);
 		this.index = index;
@@ -87,6 +87,7 @@ public class UserListItemDataContainer_AsUsers_InUserListDataContainerImpl exten
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = true;
     			ic_SambaUserName = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_SambaUserName;
     	}
@@ -107,6 +108,7 @@ public class UserListItemDataContainer_AsUsers_InUserListDataContainerImpl exten
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = true;
     			ic_SystemUserName = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_SystemUserName;
     	}
@@ -127,6 +129,7 @@ public class UserListItemDataContainer_AsUsers_InUserListDataContainerImpl exten
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = false;
     			ic_usr_IsGuest = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_usr_IsGuest;
     	}

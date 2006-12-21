@@ -79,11 +79,11 @@ public class CreateSambaPrinter extends CimCommand implements ContainerUpdater {
 			/**
 		 * 
 		 */
-		public static final OptionDefinition KEY_sambaPrinterName = new OptionDefinition("sambaPrinterName",null,"PrinterWizardPage2.SambaPrinterName.argValue",false,false,"PrinterWizardPage2.SambaPrinterName.argDescription");
+		public static final OptionDefinition KEY_sambaPrinterName = new OptionDefinition("sambaPrinterName",null,"PrinterWizardPage2.SambaPrinterName.argValue",true,false,"PrinterWizardPage2.SambaPrinterName.argDescription");
 			/**
 		 * 
 		 */
-		public static final OptionDefinition KEY_systemPrintername = new OptionDefinition("systemPrintername",null,"PrinterWizardPage2.SystemPrinterName.argValue",false,false,"PrinterWizardPage2.SystemPrinterName.argDescription");
+		public static final OptionDefinition KEY_systemPrintername = new OptionDefinition("systemPrintername",null,"PrinterWizardPage2.SystemPrinterName.argValue",true,false,"PrinterWizardPage2.SystemPrinterName.argDescription");
 			/**
 		 * 
 		 */

@@ -77,6 +77,7 @@ public class PrintingGlobalsDataContainerImpl extends org.sblim.wbemsmt.tools.js
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.UnsignedInt64StringConverter();
 				boolean readOnly = false;
     			ic_PrintcapCacheTime = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_PrintcapCacheTime;
     	}
@@ -97,6 +98,7 @@ public class PrintingGlobalsDataContainerImpl extends org.sblim.wbemsmt.tools.js
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.UnsignedInt16StringConverter();
 				boolean readOnly = false;
     			ic_usr_SystemPrinterName = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFComboBoxComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_usr_SystemPrinterName;
     	}
@@ -117,6 +119,7 @@ public class PrintingGlobalsDataContainerImpl extends org.sblim.wbemsmt.tools.js
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = false;
     			ic_CupsOptions = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_CupsOptions;
     	}
@@ -137,6 +140,7 @@ public class PrintingGlobalsDataContainerImpl extends org.sblim.wbemsmt.tools.js
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = false;
     			ic_DefaultDevMode = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_DefaultDevMode;
     	}
@@ -157,6 +161,7 @@ public class PrintingGlobalsDataContainerImpl extends org.sblim.wbemsmt.tools.js
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.UnsignedInt64StringConverter();
 				boolean readOnly = false;
     			ic_MaxPrintjobs = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_MaxPrintjobs;
     	}
@@ -177,6 +182,7 @@ public class PrintingGlobalsDataContainerImpl extends org.sblim.wbemsmt.tools.js
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.UnsignedInt64StringConverter();
 				boolean readOnly = false;
     			ic_MaxReportedPrintjobs = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_MaxReportedPrintjobs;
     	}
@@ -197,6 +203,7 @@ public class PrintingGlobalsDataContainerImpl extends org.sblim.wbemsmt.tools.js
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = false;
     			ic_PrintCommand = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_PrintCommand;
     	}
@@ -217,6 +224,7 @@ public class PrintingGlobalsDataContainerImpl extends org.sblim.wbemsmt.tools.js
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = false;
     			ic_UseClientDriver = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_UseClientDriver;
     	}

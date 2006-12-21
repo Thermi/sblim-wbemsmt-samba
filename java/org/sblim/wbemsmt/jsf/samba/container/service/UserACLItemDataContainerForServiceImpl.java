@@ -66,6 +66,7 @@ public class UserACLItemDataContainerForServiceImpl extends org.sblim.wbemsmt.to
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = true;
     			ic_SambaUserName = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_SambaUserName;
     	}
@@ -86,6 +87,7 @@ public class UserACLItemDataContainerForServiceImpl extends org.sblim.wbemsmt.to
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.UnsignedInt16StringConverter();
 				boolean readOnly = false;
     			ic_usr_AccessTypeVI = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFRadioButtonComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_usr_AccessTypeVI;
     	}
@@ -106,6 +108,7 @@ public class UserACLItemDataContainerForServiceImpl extends org.sblim.wbemsmt.to
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.UnsignedInt16StringConverter();
 				boolean readOnly = false;
     			ic_usr_AccessTypeRW = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFRadioButtonComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_usr_AccessTypeRW;
     	}

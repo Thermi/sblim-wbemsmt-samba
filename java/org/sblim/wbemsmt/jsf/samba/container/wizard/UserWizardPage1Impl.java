@@ -70,6 +70,8 @@ public class UserWizardPage1Impl extends org.sblim.wbemsmt.tools.wizard.jsf.Wiza
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = false;
     			ic_SambaUserName = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
+								ic_SambaUserName.setRequired(true);
+				;
     		}
     		return ic_SambaUserName;
     	}
@@ -90,6 +92,8 @@ public class UserWizardPage1Impl extends org.sblim.wbemsmt.tools.wizard.jsf.Wiza
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.UnsignedInt16StringConverter();
 				boolean readOnly = false;
     			ic_SystemUserName = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFListComponent(parent,label,binding,converter, readOnly);
+								ic_SystemUserName.setRequired(true);
+				;
     		}
     		return ic_SystemUserName;
     	}
@@ -110,6 +114,8 @@ public class UserWizardPage1Impl extends org.sblim.wbemsmt.tools.wizard.jsf.Wiza
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = false;
     			ic_SambaUserPassword = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFPasswordFieldComponent(parent,label,binding,converter, readOnly);
+								ic_SambaUserPassword.setRequired(true);
+				;
     		}
     		return ic_SambaUserPassword;
     	}
@@ -130,6 +136,8 @@ public class UserWizardPage1Impl extends org.sblim.wbemsmt.tools.wizard.jsf.Wiza
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = false;
     			ic_SambaUserPassword2 = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFPasswordFieldComponent(parent,label,binding,converter, readOnly);
+								ic_SambaUserPassword2.setRequired(true);
+				;
     		}
     		return ic_SambaUserPassword2;
     	}
@@ -150,6 +158,7 @@ public class UserWizardPage1Impl extends org.sblim.wbemsmt.tools.wizard.jsf.Wiza
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = false;
     			ic_usr_IsGuest = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_usr_IsGuest;
     	}

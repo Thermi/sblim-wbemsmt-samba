@@ -48,7 +48,7 @@ public class UserInShareWizardACLItemDataContainer_AsUsers_InShareWizardPage2Imp
 	public UserInShareWizardACLItemDataContainer_AsUsers_InShareWizardPage2Impl(org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter adapter,String bindingPrefix,int index, HtmlPanelGrid grid) throws InitContainerException {
 	    super(adapter,
 			  bindingPrefix, // the prefix for binding values
-			  "#{" +  bindingPrefix + "users["+ index +"].titleText}", // binding for Title
+			  "#{" +  bindingPrefix + "users["+ index +"]", // binding for Title
 			  "UserInShareWizardACLItemDataContainer_AsUsers_InShareWizardPage2.caption", //Key for title
 			  4,grid);
 		this.index = index;
@@ -90,6 +90,7 @@ public class UserInShareWizardACLItemDataContainer_AsUsers_InShareWizardPage2Imp
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = true;
     			ic_SambaUserName = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_SambaUserName;
     	}
@@ -110,6 +111,7 @@ public class UserInShareWizardACLItemDataContainer_AsUsers_InShareWizardPage2Imp
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.UnsignedInt16StringConverter();
 				boolean readOnly = false;
     			ic_usr_AccessTypeVI = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFRadioButtonComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_usr_AccessTypeVI;
     	}
@@ -130,6 +132,7 @@ public class UserInShareWizardACLItemDataContainer_AsUsers_InShareWizardPage2Imp
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.UnsignedInt16StringConverter();
 				boolean readOnly = false;
     			ic_usr_AccessTypeRW = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFRadioButtonComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_usr_AccessTypeRW;
     	}
@@ -150,6 +153,7 @@ public class UserInShareWizardACLItemDataContainer_AsUsers_InShareWizardPage2Imp
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = false;
     			ic_usr_Admin = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_usr_Admin;
     	}

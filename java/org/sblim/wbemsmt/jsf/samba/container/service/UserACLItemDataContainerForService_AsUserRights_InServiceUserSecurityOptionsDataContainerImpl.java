@@ -47,7 +47,7 @@ public class UserACLItemDataContainerForService_AsUserRights_InServiceUserSecuri
 	public UserACLItemDataContainerForService_AsUserRights_InServiceUserSecurityOptionsDataContainerImpl(org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter adapter,String bindingPrefix,int index, HtmlPanelGrid grid) throws InitContainerException {
 	    super(adapter,
 			  bindingPrefix, // the prefix for binding values
-			  "#{" +  bindingPrefix + "userRights["+ index +"].titleText}", // binding for Title
+			  "#{" +  bindingPrefix + "userRights["+ index +"]", // binding for Title
 			  "UserACLItemDataContainerForService_AsUserRights_InServiceUserSecurityOptionsDataContainer.caption", //Key for title
 			  3,grid);
 		this.index = index;
@@ -87,6 +87,7 @@ public class UserACLItemDataContainerForService_AsUserRights_InServiceUserSecuri
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = true;
     			ic_SambaUserName = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_SambaUserName;
     	}
@@ -107,6 +108,7 @@ public class UserACLItemDataContainerForService_AsUserRights_InServiceUserSecuri
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.UnsignedInt16StringConverter();
 				boolean readOnly = false;
     			ic_usr_AccessTypeVI = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFRadioButtonComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_usr_AccessTypeVI;
     	}
@@ -127,6 +129,7 @@ public class UserACLItemDataContainerForService_AsUserRights_InServiceUserSecuri
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.UnsignedInt16StringConverter();
 				boolean readOnly = false;
     			ic_usr_AccessTypeRW = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFRadioButtonComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_usr_AccessTypeRW;
     	}

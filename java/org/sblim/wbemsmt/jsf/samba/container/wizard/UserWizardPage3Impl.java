@@ -68,6 +68,7 @@ public class UserWizardPage3Impl extends org.sblim.wbemsmt.tools.wizard.jsf.Wiza
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = true;
     			ic_SambaUserName = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_SambaUserName;
     	}
@@ -88,6 +89,7 @@ public class UserWizardPage3Impl extends org.sblim.wbemsmt.tools.wizard.jsf.Wiza
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = true;
     			ic_SystemUserName = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_SystemUserName;
     	}
@@ -108,6 +110,7 @@ public class UserWizardPage3Impl extends org.sblim.wbemsmt.tools.wizard.jsf.Wiza
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = true;
     			ic_usr_IsGuest = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_usr_IsGuest;
     	}

@@ -64,6 +64,7 @@ public class UserIsAdminItemImpl extends org.sblim.wbemsmt.tools.jsf.EditBasePan
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = true;
     			ic_usr_SambaUserName = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_usr_SambaUserName;
     	}
@@ -84,6 +85,7 @@ public class UserIsAdminItemImpl extends org.sblim.wbemsmt.tools.jsf.EditBasePan
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = false;
     			ic_usr_Admin = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_usr_Admin;
     	}

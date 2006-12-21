@@ -78,6 +78,7 @@ public class ServiceScriptingDataContainerImpl extends org.sblim.wbemsmt.tools.j
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = false;
     			ic_AddGroupScript = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_AddGroupScript;
     	}
@@ -98,6 +99,7 @@ public class ServiceScriptingDataContainerImpl extends org.sblim.wbemsmt.tools.j
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = false;
     			ic_AddPrinterCommand = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_AddPrinterCommand;
     	}
@@ -118,6 +120,7 @@ public class ServiceScriptingDataContainerImpl extends org.sblim.wbemsmt.tools.j
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = false;
     			ic_AddShareCommand = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_AddShareCommand;
     	}
@@ -138,6 +141,7 @@ public class ServiceScriptingDataContainerImpl extends org.sblim.wbemsmt.tools.j
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = false;
     			ic_AddUserScript = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_AddUserScript;
     	}
@@ -158,6 +162,7 @@ public class ServiceScriptingDataContainerImpl extends org.sblim.wbemsmt.tools.j
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = false;
     			ic_AddUsertoGroupScript = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_AddUsertoGroupScript;
     	}
@@ -178,6 +183,7 @@ public class ServiceScriptingDataContainerImpl extends org.sblim.wbemsmt.tools.j
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = false;
     			ic_DeleteGroupScript = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_DeleteGroupScript;
     	}
@@ -198,6 +204,7 @@ public class ServiceScriptingDataContainerImpl extends org.sblim.wbemsmt.tools.j
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = false;
     			ic_DeleteUserScript = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_DeleteUserScript;
     	}
@@ -218,6 +225,7 @@ public class ServiceScriptingDataContainerImpl extends org.sblim.wbemsmt.tools.j
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = false;
     			ic_DeleteUserfromGroupScript = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_DeleteUserfromGroupScript;
     	}
@@ -238,6 +246,7 @@ public class ServiceScriptingDataContainerImpl extends org.sblim.wbemsmt.tools.j
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = false;
     			ic_SetPrimaryGroupScript = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_SetPrimaryGroupScript;
     	}

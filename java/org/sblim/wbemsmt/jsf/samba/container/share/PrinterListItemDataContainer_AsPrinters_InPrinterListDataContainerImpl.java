@@ -55,7 +55,7 @@ public class PrinterListItemDataContainer_AsPrinters_InPrinterListDataContainerI
 	public PrinterListItemDataContainer_AsPrinters_InPrinterListDataContainerImpl(org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter adapter,String bindingPrefix,int index, HtmlPanelGrid grid) throws InitContainerException {
 	    super(adapter,
 			  bindingPrefix, // the prefix for binding values
-			  "#{" +  bindingPrefix + "printers["+ index +"].titleText}", // binding for Title
+			  "#{" +  bindingPrefix + "printers["+ index +"]", // binding for Title
 			  "PrinterListItemDataContainer_AsPrinters_InPrinterListDataContainer.caption", //Key for title
 			  11,grid);
 		this.index = index;
@@ -111,6 +111,7 @@ public class PrinterListItemDataContainer_AsPrinters_InPrinterListDataContainerI
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = true;
     			ic_Name = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_Name;
     	}
@@ -131,6 +132,7 @@ public class PrinterListItemDataContainer_AsPrinters_InPrinterListDataContainerI
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.UnsignedInt16StringConverter();
 				boolean readOnly = false;
     			ic_usr_SystemPrinterName = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFComboBoxComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_usr_SystemPrinterName;
     	}
@@ -151,6 +153,7 @@ public class PrinterListItemDataContainer_AsPrinters_InPrinterListDataContainerI
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = false;
     			ic_Path = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_Path;
     	}
@@ -171,6 +174,7 @@ public class PrinterListItemDataContainer_AsPrinters_InPrinterListDataContainerI
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = false;
     			ic_Comment = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_Comment;
     	}
@@ -191,6 +195,7 @@ public class PrinterListItemDataContainer_AsPrinters_InPrinterListDataContainerI
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = false;
     			ic_Available = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_Available;
     	}
@@ -211,6 +216,7 @@ public class PrinterListItemDataContainer_AsPrinters_InPrinterListDataContainerI
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = false;
     			ic_GuestOK = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_GuestOK;
     	}
@@ -231,6 +237,7 @@ public class PrinterListItemDataContainer_AsPrinters_InPrinterListDataContainerI
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = false;
     			ic_GuestOnly = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_GuestOnly;
     	}
@@ -251,6 +258,7 @@ public class PrinterListItemDataContainer_AsPrinters_InPrinterListDataContainerI
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = false;
     			ic_HostsAllow = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_HostsAllow;
     	}
@@ -271,6 +279,7 @@ public class PrinterListItemDataContainer_AsPrinters_InPrinterListDataContainerI
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = false;
     			ic_HostsDeny = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_HostsDeny;
     	}
@@ -291,6 +300,7 @@ public class PrinterListItemDataContainer_AsPrinters_InPrinterListDataContainerI
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = false;
     			ic_ReadOnly = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_ReadOnly;
     	}
@@ -311,6 +321,7 @@ public class PrinterListItemDataContainer_AsPrinters_InPrinterListDataContainerI
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = false;
     			ic_Browsable = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_Browsable;
     	}

@@ -72,6 +72,7 @@ public class PrintingOptionsDataContainerImpl extends org.sblim.wbemsmt.tools.js
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = false;
     			ic_CupsOptions = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_CupsOptions;
     	}
@@ -92,6 +93,7 @@ public class PrintingOptionsDataContainerImpl extends org.sblim.wbemsmt.tools.js
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = false;
     			ic_DefaultDevMode = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_DefaultDevMode;
     	}
@@ -112,6 +114,7 @@ public class PrintingOptionsDataContainerImpl extends org.sblim.wbemsmt.tools.js
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.UnsignedInt64StringConverter();
 				boolean readOnly = false;
     			ic_MaxPrintjobs = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_MaxPrintjobs;
     	}
@@ -132,6 +135,7 @@ public class PrintingOptionsDataContainerImpl extends org.sblim.wbemsmt.tools.js
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.UnsignedInt64StringConverter();
 				boolean readOnly = false;
     			ic_MaxReportedPrintjobs = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_MaxReportedPrintjobs;
     	}
@@ -152,6 +156,7 @@ public class PrintingOptionsDataContainerImpl extends org.sblim.wbemsmt.tools.js
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = false;
     			ic_PrintCommand = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_PrintCommand;
     	}
@@ -172,6 +177,7 @@ public class PrintingOptionsDataContainerImpl extends org.sblim.wbemsmt.tools.js
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = false;
     			ic_UseClientDriver = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_UseClientDriver;
     	}

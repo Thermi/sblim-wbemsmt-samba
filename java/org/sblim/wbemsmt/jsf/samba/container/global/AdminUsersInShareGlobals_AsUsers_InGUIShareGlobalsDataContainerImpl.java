@@ -46,7 +46,7 @@ public class AdminUsersInShareGlobals_AsUsers_InGUIShareGlobalsDataContainerImpl
 	public AdminUsersInShareGlobals_AsUsers_InGUIShareGlobalsDataContainerImpl(org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter adapter,String bindingPrefix,int index, HtmlPanelGrid grid) throws InitContainerException {
 	    super(adapter,
 			  bindingPrefix, // the prefix for binding values
-			  "#{" +  bindingPrefix + "users["+ index +"].titleText}", // binding for Title
+			  "#{" +  bindingPrefix + "users["+ index +"]", // binding for Title
 			  "AdminUsersInShareGlobals_AsUsers_InGUIShareGlobalsDataContainer.caption", //Key for title
 			  2,grid);
 		this.index = index;
@@ -84,6 +84,7 @@ public class AdminUsersInShareGlobals_AsUsers_InGUIShareGlobalsDataContainerImpl
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = true;
     			ic_usr_SambaUserName = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_usr_SambaUserName;
     	}
@@ -104,6 +105,7 @@ public class AdminUsersInShareGlobals_AsUsers_InGUIShareGlobalsDataContainerImpl
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = false;
     			ic_usr_Admin = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_usr_Admin;
     	}

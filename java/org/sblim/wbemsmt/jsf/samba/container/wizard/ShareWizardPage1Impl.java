@@ -66,6 +66,8 @@ public class ShareWizardPage1Impl extends org.sblim.wbemsmt.tools.wizard.jsf.Wiz
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = false;
     			ic_Name = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
+								ic_Name.setRequired(true);
+				;
     		}
     		return ic_Name;
     	}
@@ -86,6 +88,8 @@ public class ShareWizardPage1Impl extends org.sblim.wbemsmt.tools.wizard.jsf.Wiz
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = false;
     			ic_Path = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
+								ic_Path.setRequired(true);
+				;
     		}
     		return ic_Path;
     	}
@@ -106,6 +110,7 @@ public class ShareWizardPage1Impl extends org.sblim.wbemsmt.tools.wizard.jsf.Wiz
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = false;
     			ic_Comment = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_Comment;
     	}

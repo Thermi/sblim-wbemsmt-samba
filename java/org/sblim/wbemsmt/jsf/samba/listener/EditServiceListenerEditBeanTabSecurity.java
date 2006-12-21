@@ -116,9 +116,11 @@ public class EditServiceListenerEditBeanTabSecurity extends EditBean {
                     				HtmlPanelGrid grid = i==0 ? null :((MultiLineBasePanel)currentEditContainer2.getUserRights().get(0)).getInputFieldContainer();
                     				org.sblim.wbemsmt.jsf.samba.container.service.UserACLItemDataContainerForService_AsUserRights_InServiceUserSecurityOptionsDataContainerImpl child = new org.sblim.wbemsmt.jsf.samba.container.service.UserACLItemDataContainerForService_AsUserRights_InServiceUserSecurityOptionsDataContainerImpl(adapter2,bindingPrefix, i,grid);
                     				currentEditContainer2.getUserRights().add(child);
+									((MultiLineBasePanel)child).setFirst((MultiLineBasePanel)currentEditContainer2.getUserRights().get(0));
                     			}
                     			if (count > 0) {
-                					((MultiLineBasePanel)currentEditContainer2.getUserRights().get(0)).updateRows(count);
+                					((MultiLineBasePanel)currentEditContainer2.getUserRights().get(0)).setList(currentEditContainer2.getUserRights());
+                					((MultiLineBasePanel)currentEditContainer2.getUserRights().get(0)).updateRows();
                 				}
 								
                             	    							adapter2.updateControls(currentEditContainer2);
@@ -146,6 +148,8 @@ public class EditServiceListenerEditBeanTabSecurity extends EditBean {
 						int count = 0;
 						panel = (HtmlPanelGrid) FacesContext.getCurrentInstance().getApplication().createComponent(HtmlPanelGrid.COMPONENT_TYPE);			
 			panel.setWidth("100%");
+			panel.setCellspacing("0");
+			panel.setCellpadding("0");
 			
 			UIComponentBase addToThis = panel;
 			
@@ -178,6 +182,8 @@ public class EditServiceListenerEditBeanTabSecurity extends EditBean {
 				containerPanel = (HtmlPanelGrid) FacesContext.getCurrentInstance().getApplication().createComponent(HtmlPanelGrid.COMPONENT_TYPE);
 				containerPanel.getChildren().add(currentEditContainer1.getInputFieldContainer());
 				containerPanel.setWidth("100%");
+    			containerPanel.setCellspacing("0");
+    			containerPanel.setCellpadding("0");
     			
 				//update the child objects
 								
@@ -198,6 +204,7 @@ public class EditServiceListenerEditBeanTabSecurity extends EditBean {
 				containers.add(currentEditContainer1);
 				
             					
+				addFooter(panel);
 				
 			
 								
@@ -223,6 +230,8 @@ public class EditServiceListenerEditBeanTabSecurity extends EditBean {
 				containerPanel = (HtmlPanelGrid) FacesContext.getCurrentInstance().getApplication().createComponent(HtmlPanelGrid.COMPONENT_TYPE);
 				containerPanel.getChildren().add(currentEditContainer2.getInputFieldContainer());
 				containerPanel.setWidth("100%");
+    			containerPanel.setCellspacing("0");
+    			containerPanel.setCellpadding("0");
     			
 				//update the child objects
 								
@@ -232,9 +241,11 @@ public class EditServiceListenerEditBeanTabSecurity extends EditBean {
     				HtmlPanelGrid grid = i==0 ? null :((MultiLineBasePanel)currentEditContainer2.getUserRights().get(0)).getInputFieldContainer();
     				org.sblim.wbemsmt.jsf.samba.container.service.UserACLItemDataContainerForService_AsUserRights_InServiceUserSecurityOptionsDataContainerImpl child = new org.sblim.wbemsmt.jsf.samba.container.service.UserACLItemDataContainerForService_AsUserRights_InServiceUserSecurityOptionsDataContainerImpl(adapter2,bindingPrefix, i,grid);
     				currentEditContainer2.getUserRights().add(child);
+					((MultiLineBasePanel)child).setFirst((MultiLineBasePanel)currentEditContainer2.getUserRights().get(0));
     			}
     			if (count > 0) {
-					((MultiLineBasePanel)currentEditContainer2.getUserRights().get(0)).updateRows(count);
+					((MultiLineBasePanel)currentEditContainer2.getUserRights().get(0)).setList(currentEditContainer2.getUserRights());
+					((MultiLineBasePanel)currentEditContainer2.getUserRights().get(0)).updateRows();
 				}
             	    			
 				
@@ -259,6 +270,7 @@ public class EditServiceListenerEditBeanTabSecurity extends EditBean {
 				containers.add(currentEditContainer2);
 				
             					
+				addFooter(panel);
 				
 			
 						//Creating no OK/Cancel-Button because saving single Tabs is disabled (EditAction.saveSinglePanels)

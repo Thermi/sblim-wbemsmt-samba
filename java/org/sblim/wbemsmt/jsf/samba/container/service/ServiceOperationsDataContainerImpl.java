@@ -68,6 +68,7 @@ public class ServiceOperationsDataContainerImpl extends org.sblim.wbemsmt.tools.
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = true;
     			ic_Started = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_Started;
     	}
@@ -88,6 +89,7 @@ public class ServiceOperationsDataContainerImpl extends org.sblim.wbemsmt.tools.
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = false;
     			ic_invoke_StartService = new org.sblim.wbemsmt.tools.input.jsf.JSFButtonComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_invoke_StartService;
     	}
@@ -108,6 +110,7 @@ public class ServiceOperationsDataContainerImpl extends org.sblim.wbemsmt.tools.
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = false;
     			ic_invoke_StopService = new org.sblim.wbemsmt.tools.input.jsf.JSFButtonComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_invoke_StopService;
     	}
@@ -128,6 +131,7 @@ public class ServiceOperationsDataContainerImpl extends org.sblim.wbemsmt.tools.
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = false;
     			ic_usr_RestartService = new org.sblim.wbemsmt.tools.input.jsf.JSFButtonComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_usr_RestartService;
     	}

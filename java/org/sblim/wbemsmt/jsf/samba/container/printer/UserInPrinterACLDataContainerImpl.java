@@ -65,6 +65,7 @@ public class UserInPrinterACLDataContainerImpl extends org.sblim.wbemsmt.tools.j
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = true;
     			ic_usr_CurrentForceUser = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_usr_CurrentForceUser;
     	}
@@ -85,6 +86,7 @@ public class UserInPrinterACLDataContainerImpl extends org.sblim.wbemsmt.tools.j
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.UnsignedInt16StringConverter();
 				boolean readOnly = false;
     			ic_usr_NewForceUser = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFComboBoxComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_usr_NewForceUser;
     	}

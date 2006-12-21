@@ -107,10 +107,12 @@ public class ShareWizard extends JSFWizardBase implements IPageWizardAdapter {
                                 	HtmlPanelGrid grid = i==0 ? null :((org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel)panel2.getUsers().get(0)).getInputFieldContainer();
                                 	org.sblim.wbemsmt.jsf.samba.container.wizard.UserInShareWizardACLItemDataContainer_AsUsers_InShareWizardPage2Impl child = new org.sblim.wbemsmt.jsf.samba.container.wizard.UserInShareWizardACLItemDataContainer_AsUsers_InShareWizardPage2Impl(adapter,binding, i,grid);
                                 	panel2.getUsers().add(child);
+									((org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel)child).setFirst((org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel)panel2.getUsers().get(0));									
                                 }
                                 if (count > 0)
                                 {
-                                	((org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel)panel2.getUsers().get(0)).updateRows(count);
+                                	((org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel)panel2.getUsers().get(0)).setList(panel2.getUsers());
+                                	((org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel)panel2.getUsers().get(0)).updateRows();
                                 }
 								
                                 					
@@ -158,10 +160,12 @@ public class ShareWizard extends JSFWizardBase implements IPageWizardAdapter {
                                 	HtmlPanelGrid grid = i==0 ? null :((org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel)panel3.getUsers().get(0)).getInputFieldContainer();
                                 	org.sblim.wbemsmt.jsf.samba.container.wizard.UserInShareWizardACLItemDataContainer_AsUsers_InShareWizardPage4Impl child = new org.sblim.wbemsmt.jsf.samba.container.wizard.UserInShareWizardACLItemDataContainer_AsUsers_InShareWizardPage4Impl(adapter,binding, i,grid);
                                 	panel3.getUsers().add(child);
+									((org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel)child).setFirst((org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel)panel3.getUsers().get(0));									
                                 }
                                 if (count > 0)
                                 {
-                                	((org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel)panel3.getUsers().get(0)).updateRows(count);
+                                	((org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel)panel3.getUsers().get(0)).setList(panel3.getUsers());
+                                	((org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel)panel3.getUsers().get(0)).updateRows();
                                 }
 								
                                 					
@@ -267,11 +271,14 @@ public class ShareWizard extends JSFWizardBase implements IPageWizardAdapter {
                                 	HtmlPanelGrid grid = i==0 ? null :((org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel)panel2.getUsers().get(0)).getInputFieldContainer();
                                 	org.sblim.wbemsmt.jsf.samba.container.wizard.UserInShareWizardACLItemDataContainer_AsUsers_InShareWizardPage2Impl child = new org.sblim.wbemsmt.jsf.samba.container.wizard.UserInShareWizardACLItemDataContainer_AsUsers_InShareWizardPage2Impl(adapter,binding, i,grid);
                                 	panel2.getUsers().add(child);
+									((org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel)child).setFirst((org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel)panel2.getUsers().get(0));
+									
                                 }
 								
                                 if (count > 0)
                                 {
-                                	((org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel)panel2.getUsers().get(0)).updateRows(count);
+                                	((org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel)panel2.getUsers().get(0)).setList(panel2.getUsers());
+                                	((org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel)panel2.getUsers().get(0)).updateRows();
                                 }
 								
                                 					
@@ -307,11 +314,14 @@ public class ShareWizard extends JSFWizardBase implements IPageWizardAdapter {
                                 	HtmlPanelGrid grid = i==0 ? null :((org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel)panel3.getUsers().get(0)).getInputFieldContainer();
                                 	org.sblim.wbemsmt.jsf.samba.container.wizard.UserInShareWizardACLItemDataContainer_AsUsers_InShareWizardPage4Impl child = new org.sblim.wbemsmt.jsf.samba.container.wizard.UserInShareWizardACLItemDataContainer_AsUsers_InShareWizardPage4Impl(adapter,binding, i,grid);
                                 	panel3.getUsers().add(child);
+									((org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel)child).setFirst((org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel)panel3.getUsers().get(0));
+									
                                 }
 								
                                 if (count > 0)
                                 {
-                                	((org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel)panel3.getUsers().get(0)).updateRows(count);
+                                	((org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel)panel3.getUsers().get(0)).setList(panel3.getUsers());
+                                	((org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel)panel3.getUsers().get(0)).updateRows();
                                 }
 								
                                 					

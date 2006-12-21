@@ -107,10 +107,12 @@ public class UserWizard extends JSFWizardBase implements IPageWizardAdapter {
                                 	HtmlPanelGrid grid = i==0 ? null :((org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel)panel2.getShares().get(0)).getInputFieldContainer();
                                 	org.sblim.wbemsmt.jsf.samba.container.wizard.ShareInUserWizardACLItemDataContainer_AsShares_InUserWizardPage2Impl child = new org.sblim.wbemsmt.jsf.samba.container.wizard.ShareInUserWizardACLItemDataContainer_AsShares_InUserWizardPage2Impl(adapter,binding, i,grid);
                                 	panel2.getShares().add(child);
+									((org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel)child).setFirst((org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel)panel2.getShares().get(0));									
                                 }
                                 if (count > 0)
                                 {
-                                	((org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel)panel2.getShares().get(0)).updateRows(count);
+                                	((org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel)panel2.getShares().get(0)).setList(panel2.getShares());
+                                	((org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel)panel2.getShares().get(0)).updateRows();
                                 }
 								
                                                             count = adapter.count(org.sblim.wbemsmt.samba.bl.container.wizard.PrinterInUserWizardACLItemDataContainer.class);
@@ -119,10 +121,12 @@ public class UserWizard extends JSFWizardBase implements IPageWizardAdapter {
                                 	HtmlPanelGrid grid = i==0 ? null :((org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel)panel2.getPrinters().get(0)).getInputFieldContainer();
                                 	org.sblim.wbemsmt.jsf.samba.container.wizard.PrinterInUserWizardACLItemDataContainer_AsPrinters_InUserWizardPage2Impl child = new org.sblim.wbemsmt.jsf.samba.container.wizard.PrinterInUserWizardACLItemDataContainer_AsPrinters_InUserWizardPage2Impl(adapter,binding, i,grid);
                                 	panel2.getPrinters().add(child);
+									((org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel)child).setFirst((org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel)panel2.getPrinters().get(0));									
                                 }
                                 if (count > 0)
                                 {
-                                	((org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel)panel2.getPrinters().get(0)).updateRows(count);
+                                	((org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel)panel2.getPrinters().get(0)).setList(panel2.getPrinters());
+                                	((org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel)panel2.getPrinters().get(0)).updateRows();
                                 }
 								
                                 					
@@ -176,10 +180,12 @@ public class UserWizard extends JSFWizardBase implements IPageWizardAdapter {
                                 	HtmlPanelGrid grid = i==0 ? null :((org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel)panel3.getShares().get(0)).getInputFieldContainer();
                                 	org.sblim.wbemsmt.jsf.samba.container.wizard.ShareInUserWizardACLItemDataContainer_AsShares_InUserWizardPage3Impl child = new org.sblim.wbemsmt.jsf.samba.container.wizard.ShareInUserWizardACLItemDataContainer_AsShares_InUserWizardPage3Impl(adapter,binding, i,grid);
                                 	panel3.getShares().add(child);
+									((org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel)child).setFirst((org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel)panel3.getShares().get(0));									
                                 }
                                 if (count > 0)
                                 {
-                                	((org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel)panel3.getShares().get(0)).updateRows(count);
+                                	((org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel)panel3.getShares().get(0)).setList(panel3.getShares());
+                                	((org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel)panel3.getShares().get(0)).updateRows();
                                 }
 								
                                                             count = adapter.count(org.sblim.wbemsmt.samba.bl.container.wizard.PrinterInUserWizardACLItemDataContainer.class);
@@ -188,10 +194,12 @@ public class UserWizard extends JSFWizardBase implements IPageWizardAdapter {
                                 	HtmlPanelGrid grid = i==0 ? null :((org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel)panel3.getPrinters().get(0)).getInputFieldContainer();
                                 	org.sblim.wbemsmt.jsf.samba.container.wizard.PrinterInUserWizardACLItemDataContainer_AsPrinters_InUserWizardPage3Impl child = new org.sblim.wbemsmt.jsf.samba.container.wizard.PrinterInUserWizardACLItemDataContainer_AsPrinters_InUserWizardPage3Impl(adapter,binding, i,grid);
                                 	panel3.getPrinters().add(child);
+									((org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel)child).setFirst((org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel)panel3.getPrinters().get(0));									
                                 }
                                 if (count > 0)
                                 {
-                                	((org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel)panel3.getPrinters().get(0)).updateRows(count);
+                                	((org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel)panel3.getPrinters().get(0)).setList(panel3.getPrinters());
+                                	((org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel)panel3.getPrinters().get(0)).updateRows();
                                 }
 								
                                 					
@@ -303,11 +311,14 @@ public class UserWizard extends JSFWizardBase implements IPageWizardAdapter {
                                 	HtmlPanelGrid grid = i==0 ? null :((org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel)panel2.getShares().get(0)).getInputFieldContainer();
                                 	org.sblim.wbemsmt.jsf.samba.container.wizard.ShareInUserWizardACLItemDataContainer_AsShares_InUserWizardPage2Impl child = new org.sblim.wbemsmt.jsf.samba.container.wizard.ShareInUserWizardACLItemDataContainer_AsShares_InUserWizardPage2Impl(adapter,binding, i,grid);
                                 	panel2.getShares().add(child);
+									((org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel)child).setFirst((org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel)panel2.getShares().get(0));
+									
                                 }
 								
                                 if (count > 0)
                                 {
-                                	((org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel)panel2.getShares().get(0)).updateRows(count);
+                                	((org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel)panel2.getShares().get(0)).setList(panel2.getShares());
+                                	((org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel)panel2.getShares().get(0)).updateRows();
                                 }
 								
                             								
@@ -317,11 +328,14 @@ public class UserWizard extends JSFWizardBase implements IPageWizardAdapter {
                                 	HtmlPanelGrid grid = i==0 ? null :((org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel)panel2.getPrinters().get(0)).getInputFieldContainer();
                                 	org.sblim.wbemsmt.jsf.samba.container.wizard.PrinterInUserWizardACLItemDataContainer_AsPrinters_InUserWizardPage2Impl child = new org.sblim.wbemsmt.jsf.samba.container.wizard.PrinterInUserWizardACLItemDataContainer_AsPrinters_InUserWizardPage2Impl(adapter,binding, i,grid);
                                 	panel2.getPrinters().add(child);
+									((org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel)child).setFirst((org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel)panel2.getPrinters().get(0));
+									
                                 }
 								
                                 if (count > 0)
                                 {
-                                	((org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel)panel2.getPrinters().get(0)).updateRows(count);
+                                	((org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel)panel2.getPrinters().get(0)).setList(panel2.getPrinters());
+                                	((org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel)panel2.getPrinters().get(0)).updateRows();
                                 }
 								
                                 					
@@ -363,11 +377,14 @@ public class UserWizard extends JSFWizardBase implements IPageWizardAdapter {
                                 	HtmlPanelGrid grid = i==0 ? null :((org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel)panel3.getShares().get(0)).getInputFieldContainer();
                                 	org.sblim.wbemsmt.jsf.samba.container.wizard.ShareInUserWizardACLItemDataContainer_AsShares_InUserWizardPage3Impl child = new org.sblim.wbemsmt.jsf.samba.container.wizard.ShareInUserWizardACLItemDataContainer_AsShares_InUserWizardPage3Impl(adapter,binding, i,grid);
                                 	panel3.getShares().add(child);
+									((org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel)child).setFirst((org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel)panel3.getShares().get(0));
+									
                                 }
 								
                                 if (count > 0)
                                 {
-                                	((org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel)panel3.getShares().get(0)).updateRows(count);
+                                	((org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel)panel3.getShares().get(0)).setList(panel3.getShares());
+                                	((org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel)panel3.getShares().get(0)).updateRows();
                                 }
 								
                             								
@@ -377,11 +394,14 @@ public class UserWizard extends JSFWizardBase implements IPageWizardAdapter {
                                 	HtmlPanelGrid grid = i==0 ? null :((org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel)panel3.getPrinters().get(0)).getInputFieldContainer();
                                 	org.sblim.wbemsmt.jsf.samba.container.wizard.PrinterInUserWizardACLItemDataContainer_AsPrinters_InUserWizardPage3Impl child = new org.sblim.wbemsmt.jsf.samba.container.wizard.PrinterInUserWizardACLItemDataContainer_AsPrinters_InUserWizardPage3Impl(adapter,binding, i,grid);
                                 	panel3.getPrinters().add(child);
+									((org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel)child).setFirst((org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel)panel3.getPrinters().get(0));
+									
                                 }
 								
                                 if (count > 0)
                                 {
-                                	((org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel)panel3.getPrinters().get(0)).updateRows(count);
+                                	((org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel)panel3.getPrinters().get(0)).setList(panel3.getPrinters());
+                                	((org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel)panel3.getPrinters().get(0)).updateRows();
                                 }
 								
                                 					

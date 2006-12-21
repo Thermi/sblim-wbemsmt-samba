@@ -132,6 +132,8 @@ public class EditShareListenerEditBeanShareGeneral extends EditBean {
 			HtmlPanelGrid childEditFields = null;
 						panel = (HtmlPanelGrid) FacesContext.getCurrentInstance().getApplication().createComponent(HtmlPanelGrid.COMPONENT_TYPE);			
 			panel.setWidth("100%");
+			panel.setCellspacing("0");
+			panel.setCellpadding("0");
 			
 			UIComponentBase addToThis = panel;
 			
@@ -164,6 +166,8 @@ public class EditShareListenerEditBeanShareGeneral extends EditBean {
 				containerPanel = (HtmlPanelGrid) FacesContext.getCurrentInstance().getApplication().createComponent(HtmlPanelGrid.COMPONENT_TYPE);
 				containerPanel.getChildren().add(currentEditContainer1.getInputFieldContainer());
 				containerPanel.setWidth("100%");
+    			containerPanel.setCellspacing("0");
+    			containerPanel.setCellpadding("0");
     			
 				//update the child objects
 								
@@ -184,6 +188,7 @@ public class EditShareListenerEditBeanShareGeneral extends EditBean {
 				containers.add(currentEditContainer1);
 				
             					
+				addFooter(panel);
 				
 			
 								
@@ -209,6 +214,8 @@ public class EditShareListenerEditBeanShareGeneral extends EditBean {
 				containerPanel = (HtmlPanelGrid) FacesContext.getCurrentInstance().getApplication().createComponent(HtmlPanelGrid.COMPONENT_TYPE);
 				containerPanel.getChildren().add(currentEditContainer2.getInputFieldContainer());
 				containerPanel.setWidth("100%");
+    			containerPanel.setCellspacing("0");
+    			containerPanel.setCellpadding("0");
     			
 				//update the child objects
 								
@@ -230,6 +237,7 @@ public class EditShareListenerEditBeanShareGeneral extends EditBean {
 				
             						currentEditContainer2.getLayouter().layout(currentEditContainer2.getInputFieldContainer(),currentEditContainer2 ,bundle);
             					
+				addFooter(panel);
 				
 			
 						//Creating no OK/Cancel-Button because saving single Tabs is disabled (EditAction.saveSinglePanels)
