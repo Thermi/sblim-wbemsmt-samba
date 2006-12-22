@@ -1,5 +1,5 @@
 /** 
-  * DeleteHostListener.java
+  * Ignore.java
   *
 
  
@@ -30,11 +30,11 @@ import org.sblim.wbemsmt.bl.tree.TaskLauncherTreeNodeEvent;
 import org.sblim.wbemsmt.tools.runtime.RuntimeUtil;
 import org.sblim.wbemsmt.exception.WbemSmtException;
 
-public class DeleteHostListener extends TaskLauncherContextMenuEventListenerImpl implements org.sblim.wbemsmt.tasklauncher.event.DeleteListener {
+public class Ignore extends TaskLauncherContextMenuEventListenerImpl implements org.sblim.wbemsmt.tasklauncher.event.ListListener {
 
-	String jsfListener = "org.sblim.wbemsmt.jsf.samba.listener.DeleteHostListener";
-	String swingListener = "org.sblim.wbemsmt.jswing.samba.listener.DeleteHostListener";
-	//String cmdListener = "org.sblim.wbemsmt.cli.samba.listener.DeleteHostListener";
+	String jsfListener = "org.sblim.wbemsmt.jsf.samba.listener.Ignore";
+	String swingListener = "org.sblim.wbemsmt.jswing.samba.listener.Ignore";
+	//String cmdListener = "org.sblim.wbemsmt.cli.samba.listener.Ignore";
 	
 	public String processEvent(TaskLauncherTreeNodeEvent event) throws WbemSmtException {
 		

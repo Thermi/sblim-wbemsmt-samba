@@ -145,8 +145,16 @@ public class DeleteSambaHost extends CimCommand {
 			
 			dc.trace(System.out);
 			
-			adapter.delete();
-			System.out.println("\n" + bundle.getString("deleted",new Object[]{bundle.getString("HostDataContainer.caption")}));
+			if (getConfirmation())
+			{
+    			adapter.delete();
+    			System.out.println("\n" + bundle.getString("deleted",new Object[]{bundle.getString("HostDataContainer.caption")}));
+			}
+			else
+			{
+    			System.out.println("\n" + bundle.getString("not.deleted",new Object[]{bundle.getString("HostDataContainer.caption")}));
+			}
+			
 		
 		}
 		catch (Exception e)

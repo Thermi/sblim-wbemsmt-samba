@@ -30,7 +30,7 @@ import org.sblim.wbemsmt.bl.tree.TaskLauncherTreeNodeEvent;
 import org.sblim.wbemsmt.tools.runtime.RuntimeUtil;
 import org.sblim.wbemsmt.exception.WbemSmtException;
 
-public class Ingore extends TaskLauncherContextMenuEventListenerImpl {
+public class Ingore extends TaskLauncherContextMenuEventListenerImpl implements org.sblim.wbemsmt.tasklauncher.event.ListListener {
 
 	String jsfListener = "org.sblim.wbemsmt.jsf.samba.listener.Ingore";
 	String swingListener = "org.sblim.wbemsmt.jswing.samba.listener.Ingore";

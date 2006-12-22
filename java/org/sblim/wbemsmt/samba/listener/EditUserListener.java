@@ -30,7 +30,7 @@ import org.sblim.wbemsmt.bl.tree.TaskLauncherTreeNodeEvent;
 import org.sblim.wbemsmt.tools.runtime.RuntimeUtil;
 import org.sblim.wbemsmt.exception.WbemSmtException;
 
-public class EditUserListener extends TaskLauncherContextMenuEventListenerImpl {
+public class EditUserListener extends TaskLauncherContextMenuEventListenerImpl implements org.sblim.wbemsmt.tasklauncher.event.EditListener {
 
 	String jsfListener = "org.sblim.wbemsmt.jsf.samba.listener.EditUserListener";
 	String swingListener = "org.sblim.wbemsmt.jswing.samba.listener.EditUserListener";
