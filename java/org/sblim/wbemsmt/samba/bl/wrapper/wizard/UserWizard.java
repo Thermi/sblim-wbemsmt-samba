@@ -27,7 +27,6 @@ import org.sblim.wbem.cim.CIMProperty;
 import org.sblim.wbem.cim.CIMValue;
 import org.sblim.wbem.cim.UnsignedInt16;
 import org.sblim.wbem.client.CIMClient;
-import org.sblim.wbemsmt.bl.adapter.CimObjectKey;
 import org.sblim.wbemsmt.bl.adapter.DataContainer;
 import org.sblim.wbemsmt.bl.fco.FcoHelper;
 import org.sblim.wbemsmt.exception.ModelLoadException;
@@ -208,8 +207,7 @@ public class UserWizard extends SambaWizard {
 			}
 
 			adapter.setMarkedForReload();
-			container.setKey(new CimObjectKey(user));
-
+			adapter.setPathOfTreeNode(user.getCimObjectPath());
 
 		} catch (ObjectCreationException e) {
 			throw e;

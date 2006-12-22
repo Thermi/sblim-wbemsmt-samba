@@ -121,7 +121,7 @@ public class PrinterWizard  extends SambaWizard {
 		updatedContainers.clear();
 		
 		adapter.setMarkedForReload();
-		container.setKey(new CimObjectKey(printer));
+		adapter.setPathOfTreeNode(printer.getCimObjectPath());
 		
 	}
 

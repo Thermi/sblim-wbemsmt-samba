@@ -101,7 +101,7 @@ public class ShareWizard   extends SambaWizard{
 			updatedContainers.clear();
 			
 			adapter.setMarkedForReload();
-			container.setKey(new CimObjectKey(share));
+			adapter.setPathOfTreeNode(share.getCimObjectPath());
 
 		} catch (Exception e) {
 			throw new ObjectCreationException(adapter.getBundle().getString("cannot.create.share"),e);
