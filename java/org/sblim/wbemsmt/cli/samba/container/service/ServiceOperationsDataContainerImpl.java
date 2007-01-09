@@ -78,7 +78,7 @@ public class ServiceOperationsDataContainerImpl extends BaseDataContainer implem
     		{
 				String label = bundle.getString("ServiceOperationsDataContainer.startService");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
-    			ic_invoke_StartService = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
+    			ic_invoke_StartService = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(this,label,"",converter);
     		}
     		return ic_invoke_StartService;
     	}
@@ -94,7 +94,7 @@ public class ServiceOperationsDataContainerImpl extends BaseDataContainer implem
     		{
 				String label = bundle.getString("ServiceOperationsDataContainer.stopService");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
-    			ic_invoke_StopService = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
+    			ic_invoke_StopService = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(this,label,"",converter);
     		}
     		return ic_invoke_StopService;
     	}
@@ -110,7 +110,7 @@ public class ServiceOperationsDataContainerImpl extends BaseDataContainer implem
     		{
 				String label = bundle.getString("ServiceOperationsDataContainer.restartService");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
-    			ic_usr_RestartService = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
+    			ic_usr_RestartService = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(this,label,"",converter);
     		}
     		return ic_usr_RestartService;
     	}

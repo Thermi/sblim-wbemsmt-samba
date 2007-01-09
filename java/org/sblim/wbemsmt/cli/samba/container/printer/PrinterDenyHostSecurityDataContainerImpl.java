@@ -94,7 +94,7 @@ public class PrinterDenyHostSecurityDataContainerImpl extends BaseDataContainer 
     		{
 				String label = bundle.getString("PrinterDenyHostSecurityDataContainer.addHost");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
-    			ic_usr_AddHost = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
+    			ic_usr_AddHost = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(this,label,"",converter);
     		}
     		return ic_usr_AddHost;
     	}
@@ -110,7 +110,7 @@ public class PrinterDenyHostSecurityDataContainerImpl extends BaseDataContainer 
     		{
 				String label = bundle.getString("PrinterDenyHostSecurityDataContainer.removeHost");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
-    			ic_usr_RemoveHost = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
+    			ic_usr_RemoveHost = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(this,label,"",converter);
     		}
     		return ic_usr_RemoveHost;
     	}
