@@ -38,6 +38,7 @@ import org.sblim.wbemsmt.bl.fco.FcoHelper;
 import org.sblim.wbemsmt.exception.ModelLoadException;
 import org.sblim.wbemsmt.exception.ModelUpdateException;
 import org.sblim.wbemsmt.exception.ObjectDeletionException;
+import org.sblim.wbemsmt.exception.ObjectRevertException;
 import org.sblim.wbemsmt.exception.ObjectSaveException;
 import org.sblim.wbemsmt.exception.UpdateControlsException;
 import org.sblim.wbemsmt.samba.bl.adapter.SambaObject;
@@ -235,6 +236,42 @@ public class PrinterGlobals extends SambaObject {
 	public Set getAdminUsers(CIMClient cc) throws ModelLoadException
 	{
 		return adminsBySambaUserName;
+	}
+
+	public MessageList revert(AdminUsersInPrinterGlobals container, Linux_SambaUser fco) throws ObjectRevertException {
+		try {
+			loadGlobalPrinterAdmins(container.getAdapter().getCimClient());
+		} catch (ModelLoadException e) {
+			throw new ObjectRevertException(e);
+		}
+		return null;
+	}
+
+	public MessageList revert(PrintingGlobalsDataContainer container) throws ObjectRevertException {
+		
+		globalPrintingOptions1 = null;
+
+		container.getAdapter().revert(container.getUsers(),service.getUsers().getFCOs());		
+		
+		reloadChilds = true;
+		try {
+			reloadChilds(container.getAdapter().getCimClient());
+		} catch (ModelLoadException e) {
+			throw new ObjectRevertException(e);
+		}
+		resetPrinterAcl(service);
+		resetPrinterChilds(service);
+		resetUserAcl(service);
+		return null;
+	}
+
+	public MessageList revert(AdminUsersInPrinterGlobals container) throws ObjectRevertException {
+		try {
+			loadGlobalPrinterAdmins(container.getAdapter().getCimClient());
+		} catch (ModelLoadException e) {
+			throw new ObjectRevertException(e);
+		}
+		return null;
 	}
 
 

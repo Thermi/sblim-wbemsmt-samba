@@ -38,6 +38,7 @@ import org.sblim.wbemsmt.bl.fco.CIMPropertyBuilder;
 import org.sblim.wbemsmt.bl.fco.FcoHelper;
 import org.sblim.wbemsmt.exception.ModelLoadException;
 import org.sblim.wbemsmt.exception.ModelUpdateException;
+import org.sblim.wbemsmt.exception.ObjectRevertException;
 import org.sblim.wbemsmt.exception.ObjectSaveException;
 import org.sblim.wbemsmt.exception.UpdateControlsException;
 import org.sblim.wbemsmt.exception.WbemSmtException;
@@ -498,5 +499,41 @@ public class Printer extends SambaObject {
 			throw new ObjectSaveException(newForceUser,e);
 		}
 	}
-	
+
+	public MessageList revert(PrinterOptionsDataContainer container) throws ObjectRevertException {
+		try {
+			printer = (Linux_SambaPrinterOptions) FcoHelper.reload(printer, container.getAdapter().getCimClient());
+		} catch (ModelLoadException e) {
+			throw new ObjectRevertException(e);
+		}
+
+		printingOptions = null;
+		forceUser = null;
+		return null;
+	}
+
+	public MessageList revert(PrinterAllowHostSecurityDataContainer container) {
+		allowHosts = null;
+		return null;
+	}
+	public MessageList revert(PrinterDenyHostSecurityDataContainer container) {
+		denyHosts = null;
+		return null;
+	}
+
+	public MessageList revert(PrintingOptionsDataContainer container) {
+		printingOptions = null;
+		return null;
+	}
+
+	public MessageList revert(UserInPrinterACLDataContainer container) throws ObjectRevertException {
+		resetPrinterUsers();
+		return null;
+	}
+
+
+	public MessageList revert(UserACLItemDataContainerForPrinter container) {
+		resetPrinterUsers();
+		return null;
+	}
 }

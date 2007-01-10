@@ -31,7 +31,9 @@ import org.sblim.wbem.client.CIMClient;
 import org.sblim.wbemsmt.bl.adapter.CimObjectKey;
 import org.sblim.wbemsmt.bl.adapter.DataContainer;
 import org.sblim.wbemsmt.bl.adapter.MessageList;
+import org.sblim.wbemsmt.bl.fco.FcoHelper;
 import org.sblim.wbemsmt.exception.ModelLoadException;
+import org.sblim.wbemsmt.exception.ObjectRevertException;
 import org.sblim.wbemsmt.exception.ObjectSaveException;
 import org.sblim.wbemsmt.exception.UpdateControlsException;
 import org.sblim.wbemsmt.samba.bl.adapter.SambaObject;
@@ -553,6 +555,46 @@ public class User extends SambaObject {
 			throw new ObjectSaveException(e);
 		}
 		
+		return null;
+	}
+
+	public MessageList revert(UserDataContainer container) throws ObjectRevertException {
+		try {
+			user = (Linux_SambaUser) FcoHelper.reload(user, container.getAdapter().getCimClient());
+			isGuestWorkingCopy = isGuestOnServer;
+		} catch (ModelLoadException e) {
+			throw new ObjectRevertException(e);
+		}
+		return null;
+	}
+
+	public MessageList revert(PrinterInUserACLDataContainer container) {
+		resetAcl();
+		return null;
+	}
+
+	public MessageList revert(ShareInUserACLDataContainer container) {
+		resetAcl();
+		return null;
+	}
+
+	public MessageList revert(ShareACLItemDataContainer container) {
+		resetAcl();
+		return null;
+	}
+
+	public MessageList revert(PrinterACLItemDataContainer container) {
+		resetAcl();
+		return null;
+	}
+
+	public MessageList revert(PrinterACLItemDataContainer container, Linux_SambaPrinterOptions fco) {
+		resetAcl();
+		return null;
+	}
+
+	public MessageList revert(ShareACLItemDataContainer container, Linux_SambaShareOptions fco) {
+		resetAcl();
 		return null;
 	}
 	

@@ -212,7 +212,7 @@ public class EditPrinterGlobalsListenerEditBeanFieldTab extends EditBean {
 				addFooter(panel);
 				
 			
-						addOKCancel(addToThis,"objectActionController.editBeans['fieldTab'].");
+						addOKRevert(addToThis,"objectActionController.editBeans['fieldTab'].");
 						
 		}
 		
@@ -230,5 +230,24 @@ public class EditPrinterGlobalsListenerEditBeanFieldTab extends EditBean {
        {
 	       super.reload();
        }
+	   
+    	public String revert() throws ObjectRevertException
+    	{
+    	        
+    					adapter1 .revert(currentEditContainer1 );
+    		
+			try
+			{
+    	        
+    					adapter1 .updateControls(currentEditContainer1 );
+						} catch (UpdateControlsException e)
+			{
+				throw new ObjectRevertException("Cannot updateControls after Reverting the changes",e);
+			}
+			
+			
+			return EditBean.PAGE_EDIT;
+    	}
+	   
 		
 }

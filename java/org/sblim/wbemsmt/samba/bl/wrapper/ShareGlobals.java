@@ -36,6 +36,7 @@ import org.sblim.wbemsmt.bl.adapter.MessageList;
 import org.sblim.wbemsmt.bl.fco.FcoHelper;
 import org.sblim.wbemsmt.exception.ModelLoadException;
 import org.sblim.wbemsmt.exception.ObjectDeletionException;
+import org.sblim.wbemsmt.exception.ObjectRevertException;
 import org.sblim.wbemsmt.exception.ObjectSaveException;
 import org.sblim.wbemsmt.exception.UpdateControlsException;
 import org.sblim.wbemsmt.samba.bl.adapter.SambaObject;
@@ -331,4 +332,54 @@ public class ShareGlobals extends SambaObject {
 		super.updateSharePrinterAdminForGlobalControls(container,fco,adminsBySambaUserName);
 	}
 
+
+	public MessageList revert(AdminUsersInShareGlobals container, Linux_SambaUser fco) throws ObjectRevertException {
+		try {
+			loadGlobalShareAdmins(container.getAdapter().getCimClient());
+		} catch (ModelLoadException e) {
+			throw new ObjectRevertException(e);
+		}
+		return null;
+	}
+
+	public MessageList revert(ShareGlobalsDataContainer container) throws ObjectRevertException {
+		
+		reloadChilds = true;
+		try {
+			reloadChilds(container.getAdapter().getCimClient());
+		} catch (ModelLoadException e) {
+			throw new ObjectRevertException(e);
+		}
+		resetPrinterAcl(service);
+		resetPrinterChilds(service);
+		resetUserAcl(service);
+		return null;
+	}
+
+	public MessageList revert(AdminUsersInShareGlobals container) throws ObjectRevertException {
+		try {
+			loadGlobalShareAdmins(container.getAdapter().getCimClient());
+		} catch (ModelLoadException e) {
+			throw new ObjectRevertException(e);
+		}
+		return null;
+	}
+
+	
+	public void revertShareGlobals(ShareGlobalsDataContainer container) throws ObjectRevertException {
+		reloadChilds = true;
+		try {
+			reloadChilds(container.getAdapter().getCimClient());
+		} catch (ModelLoadException e) {
+			throw new ObjectRevertException(e);
+		}
+		
+		resetShareAcl(service);
+		resetShareChilds(service);
+		resetUserAcl(service);
+
+		//force a reload next time
+		protocolOptions1 = null;
+		filenameHandlingOptions1 = null;
+	}
 }

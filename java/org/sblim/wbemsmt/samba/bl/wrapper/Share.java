@@ -36,6 +36,7 @@ import org.sblim.wbemsmt.bl.adapter.MessageList;
 import org.sblim.wbemsmt.bl.fco.FcoHelper;
 import org.sblim.wbemsmt.exception.ModelLoadException;
 import org.sblim.wbemsmt.exception.ModelUpdateException;
+import org.sblim.wbemsmt.exception.ObjectRevertException;
 import org.sblim.wbemsmt.exception.ObjectSaveException;
 import org.sblim.wbemsmt.exception.UpdateControlsException;
 import org.sblim.wbemsmt.exception.WbemSmtException;
@@ -596,5 +597,41 @@ public class Share extends SambaObject
 		updateControls(container,fco);
 	}
 
+	public MessageList revert(ShareOptionsDataContainer container) throws ObjectRevertException {
+		shareBrowseOptions = null;
+		shareCommonSecurityOptions = null;
+		shareSecurityOptions = null;
+		try {
+			share = (Linux_SambaShareOptions) FcoHelper.reload(share, container.getAdapter().getCimClient());
+		} catch (ModelLoadException e) {
+			throw new ObjectRevertException(e);
+		}
+		return null;
+	}
+
+	public MessageList revert(ShareAllowHostSecurityDataContainer container) {
+		allowHosts = null;
+		return null;
+	}
+	public MessageList revert(ShareDenyHostSecurityDataContainer container) {
+		denyHosts = null;
+		return null;
+	}
+
+	public MessageList revert(UserInShareACLDataContainer container) throws ObjectRevertException {
+		resetShareUsers();
+		return null;
+	}
+
+
+	public MessageList revert(UserACLItemDataContainerForShare container) {
+		resetShareUsers();
+		return null;
+	}
+
+	public MessageList revert(ShareFileAttributes container) {
+		shareSecurityOptions = null;
+		return null;
+	}
 	
 }

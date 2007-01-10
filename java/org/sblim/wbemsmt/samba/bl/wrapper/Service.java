@@ -43,6 +43,7 @@ import org.sblim.wbemsmt.exception.ModelUpdateException;
 import org.sblim.wbemsmt.exception.ObjectCreationException;
 import org.sblim.wbemsmt.exception.ObjectDeletionException;
 import org.sblim.wbemsmt.exception.ObjectNotFoundException;
+import org.sblim.wbemsmt.exception.ObjectRevertException;
 import org.sblim.wbemsmt.exception.ObjectSaveException;
 import org.sblim.wbemsmt.exception.UpdateControlsException;
 import org.sblim.wbemsmt.exception.WbemSmtException;
@@ -1087,6 +1088,63 @@ public class Service extends SambaObject {
 		} catch (WbemSmtException e) {
 			throw new ObjectSaveException(e);
 		}
+	}
+
+	public MessageList revertImpl(ServiceLoggingDataContainer container) {
+		loggingOptions1 = null;
+		return null;
+	}
+
+	public MessageList revertImpl(ServiceGlobalSecurityOptionsDataContainer container) {
+		globalOptions1 = null;
+		globalSecurityOptions1 = null;
+		return null;
+	}
+
+	public MessageList revertImpl(ServiceUserSecurityOptionsDataContainer container) throws ObjectRevertException {
+		//force reload
+		resetPrinterAcl(this);
+		resetShareAcl(this);				
+		try {
+			reloadShareUsers(container.getAdapter().getCimClient());
+		} catch (ModelLoadException e) {
+			throw new ObjectRevertException(e);
+		}
+		return null;
+	}
+
+	public MessageList revertImpl(ServiceAllowHostSecurityDataContainer container) {
+		allowHosts = null;
+		return null;
+	}
+
+	public MessageList revertImpl(ServiceDenyHostDataContainer container) {
+		denyHosts = null;
+		return null;
+	}
+
+	public MessageList revertImpl(ServiceScriptingDataContainer container) {
+		scriptingOptions1 = null;
+		return null;
+	}
+
+	public MessageList revertImpl(ServiceWinsDataContainer container) {
+		winsOptions1 = null;
+		return null;
+	}
+
+	public MessageList revertImpl(ServiceOptionsDataContainer container) {
+		globalOptions1 = null;
+		serviceConfig1 = null;
+		return null;
+	}
+
+	public MessageList revert(UserACLItemDataContainerForService container) throws ObjectRevertException {
+		return null;
+	}
+
+	public MessageList revert(UserACLItemDataContainerForService container, Linux_SambaUser fco) throws ObjectRevertException {
+		return null;
 	}
 	
 

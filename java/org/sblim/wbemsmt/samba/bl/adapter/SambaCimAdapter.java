@@ -36,6 +36,7 @@ import org.sblim.wbemsmt.bl.adapter.DeleteDelegatee;
 import org.sblim.wbemsmt.bl.adapter.InitContainerDelegatee;
 import org.sblim.wbemsmt.bl.adapter.InitWizardDelegatee;
 import org.sblim.wbemsmt.bl.adapter.InstallValidatorsDelegatee;
+import org.sblim.wbemsmt.bl.adapter.RevertDelegatee;
 import org.sblim.wbemsmt.bl.adapter.SaveDelegatee;
 import org.sblim.wbemsmt.bl.adapter.UpdateControlsDelegatee;
 import org.sblim.wbemsmt.bl.adapter.UpdateModelDelegatee;
@@ -85,6 +86,7 @@ public class SambaCimAdapter extends AbstractBaseCimAdapter {
 	SambaCimAdapterUpdateControlsDelegatee sambaCimAdapterUpdateControlsDelegatee = null;
 	SambaCimAdapterUpdateModelDelegatee sambaCimAdapterUpdateModelDelegatee = null;
 	SambaCimAdapterSaveDelegatee sambaCimAdapterSaveDelegatee = null;
+	SambaCimAdapterRevertDelegatee sambaCimAdapterRevertDelegatee = null;
 	SambaCimAdapterDeleteDelegatee sambaCimAdapterDeleteDelegatee = null;
 	SambaCimAdapterCountDelegatee sambaCimAdapterCountDelegatee = null;
 	SambaCimAdapterInstallValidatorsDelegatee sambaCimAdapterInstallValidatorsDelegatee = null;
@@ -112,6 +114,7 @@ public class SambaCimAdapter extends AbstractBaseCimAdapter {
 		sambaCimAdapterUpdateControlsDelegatee = new SambaCimAdapterUpdateControlsDelegatee(this);
 		sambaCimAdapterUpdateModelDelegatee = new SambaCimAdapterUpdateModelDelegatee(this);
 		sambaCimAdapterSaveDelegatee = new SambaCimAdapterSaveDelegatee(this);
+		sambaCimAdapterRevertDelegatee = new SambaCimAdapterRevertDelegatee(this);
 		sambaCimAdapterDeleteDelegatee = new SambaCimAdapterDeleteDelegatee(this);
 		sambaCimAdapterCountDelegatee = new SambaCimAdapterCountDelegatee(this);
 		sambaCimAdapterInstallValidatorsDelegatee = new SambaCimAdapterInstallValidatorsDelegatee(this);
@@ -526,6 +529,10 @@ public class SambaCimAdapter extends AbstractBaseCimAdapter {
 
 	public SaveDelegatee getSaveDelegatee() {
 		return sambaCimAdapterSaveDelegatee;
+	}
+
+	public RevertDelegatee getRevertDelegatee() {
+		return sambaCimAdapterRevertDelegatee;
 	}
 
 	public DeleteDelegatee getDeleteDelegatee() {
