@@ -210,4 +210,31 @@ public class PrintingOptionsDataContainerImpl extends BaseDataContainer implemen
 			
 	}
 	
+	/**
+	 * Return a list of all Fields. A Field is a LabeledBaseInputComponentIf
+	 * @return
+	 */
+	public List getFields()
+	{
+		List fields = new ArrayList();
+    				fields.add(get_CupsOptions());
+    				fields.add(get_DefaultDevMode());
+    				fields.add(get_MaxPrintjobs());
+    				fields.add(get_MaxReportedPrintjobs());
+    				fields.add(get_PrintCommand());
+    				fields.add(get_UseClientDriver());
+    			return fields;
+	}
+
+	/**
+	 * Return a list of all associated childContainers. A childContainer is a DataContainer
+	 * @return
+	 */
+	public List getChildContainers()
+	{
+		List childs = new ArrayList();
+    	    			return childs;
+	
+	}
+	
 }

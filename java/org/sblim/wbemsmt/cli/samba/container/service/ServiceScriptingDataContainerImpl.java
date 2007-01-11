@@ -276,4 +276,34 @@ public class ServiceScriptingDataContainerImpl extends BaseDataContainer impleme
 			
 	}
 	
+	/**
+	 * Return a list of all Fields. A Field is a LabeledBaseInputComponentIf
+	 * @return
+	 */
+	public List getFields()
+	{
+		List fields = new ArrayList();
+    				fields.add(get_AddGroupScript());
+    				fields.add(get_AddPrinterCommand());
+    				fields.add(get_AddShareCommand());
+    				fields.add(get_AddUserScript());
+    				fields.add(get_AddUsertoGroupScript());
+    				fields.add(get_DeleteGroupScript());
+    				fields.add(get_DeleteUserScript());
+    				fields.add(get_DeleteUserfromGroupScript());
+    				fields.add(get_SetPrimaryGroupScript());
+    			return fields;
+	}
+
+	/**
+	 * Return a list of all associated childContainers. A childContainer is a DataContainer
+	 * @return
+	 */
+	public List getChildContainers()
+	{
+		List childs = new ArrayList();
+    	    			return childs;
+	
+	}
+	
 }

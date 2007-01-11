@@ -144,4 +144,28 @@ public class UserACLItemDataContainerForServiceImpl extends BaseDataContainer im
 			
 	}
 	
+	/**
+	 * Return a list of all Fields. A Field is a LabeledBaseInputComponentIf
+	 * @return
+	 */
+	public List getFields()
+	{
+		List fields = new ArrayList();
+    				fields.add(get_SambaUserName());
+    				fields.add(get_usr_AccessTypeVI());
+    				fields.add(get_usr_AccessTypeRW());
+    			return fields;
+	}
+
+	/**
+	 * Return a list of all associated childContainers. A childContainer is a DataContainer
+	 * @return
+	 */
+	public List getChildContainers()
+	{
+		List childs = new ArrayList();
+    	    			return childs;
+	
+	}
+	
 }

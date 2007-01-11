@@ -209,7 +209,7 @@ public class EditPrinterGlobalsListenerEditBeanFieldTab extends EditBean {
 				containers.add(currentEditContainer1);
 				
             					
-				addFooter(panel);
+				addFooter(panel,"objectActionController.editBeans['fieldTab'].");
 				
 			
 						addOKRevert(addToThis,"objectActionController.editBeans['fieldTab'].");

@@ -25,6 +25,7 @@
 package org.sblim.wbemsmt.jsf.samba.container.service;
 
 import org.sblim.wbemsmt.exception.*;
+import java.util.*;
 
 public class ServiceWinsDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.EditBasePanel implements org.sblim.wbemsmt.samba.bl.container.service.ServiceWinsDataContainer {
 
@@ -188,6 +189,32 @@ public class ServiceWinsDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.Ed
 
 	public String[] getResourceBundleNames() {
 		return new String[]{"messages","messagesSamba"};
+	}
+
+	/**
+	 * Return a list of all Fields. A Field is a LabeledBaseInputComponentIf
+	 * @return
+	 */
+	public List getFields()
+	{
+		List fields = new ArrayList();
+    				fields.add(get_DNS_Proxy());
+    				fields.add(get_WINSHook());
+    				fields.add(get_WINSProxy());
+    				fields.add(get_WINSServer());
+    				fields.add(get_WINSSupport());
+    			return fields;
+	}
+
+	/**
+	 * Return a list of all associated childContainers. A childContainer is a DataContainer
+	 * @return
+	 */
+	public List getChildContainers()
+	{
+		List childs = new ArrayList();
+    	    			return childs;
+	
 	}
 
 	

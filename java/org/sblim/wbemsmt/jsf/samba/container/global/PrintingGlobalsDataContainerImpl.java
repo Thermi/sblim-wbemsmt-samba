@@ -25,6 +25,7 @@
 package org.sblim.wbemsmt.jsf.samba.container.global;
 
 import org.sblim.wbemsmt.exception.*;
+import java.util.*;
 
 public class PrintingGlobalsDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.EditBasePanel implements org.sblim.wbemsmt.samba.bl.container.global.PrintingGlobalsDataContainer {
 
@@ -280,6 +281,36 @@ public class PrintingGlobalsDataContainerImpl extends org.sblim.wbemsmt.tools.js
 
 	public String[] getResourceBundleNames() {
 		return new String[]{"messages","messagesSamba"};
+	}
+
+	/**
+	 * Return a list of all Fields. A Field is a LabeledBaseInputComponentIf
+	 * @return
+	 */
+	public List getFields()
+	{
+		List fields = new ArrayList();
+    				fields.add(get_PrintcapCacheTime());
+    				fields.add(get_usr_SystemPrinterName());
+    				fields.add(get_CupsOptions());
+    				fields.add(get_DefaultDevMode());
+    				fields.add(get_MaxPrintjobs());
+    				fields.add(get_MaxReportedPrintjobs());
+    				fields.add(get_PrintCommand());
+    				fields.add(get_UseClientDriver());
+    			return fields;
+	}
+
+	/**
+	 * Return a list of all associated childContainers. A childContainer is a DataContainer
+	 * @return
+	 */
+	public List getChildContainers()
+	{
+		List childs = new ArrayList();
+    	    		childs.addAll(getUsers());
+    	    			return childs;
+	
 	}
 
 	

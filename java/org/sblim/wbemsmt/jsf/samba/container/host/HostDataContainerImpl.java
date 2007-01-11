@@ -25,6 +25,7 @@
 package org.sblim.wbemsmt.jsf.samba.container.host;
 
 import org.sblim.wbemsmt.exception.*;
+import java.util.*;
 
 public class HostDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.EditBasePanel implements org.sblim.wbemsmt.samba.bl.container.host.HostDataContainer {
 
@@ -80,6 +81,28 @@ public class HostDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.EditBaseP
 
 	public String[] getResourceBundleNames() {
 		return new String[]{"messages","messagesSamba"};
+	}
+
+	/**
+	 * Return a list of all Fields. A Field is a LabeledBaseInputComponentIf
+	 * @return
+	 */
+	public List getFields()
+	{
+		List fields = new ArrayList();
+    				fields.add(get_Name());
+    			return fields;
+	}
+
+	/**
+	 * Return a list of all associated childContainers. A childContainer is a DataContainer
+	 * @return
+	 */
+	public List getChildContainers()
+	{
+		List childs = new ArrayList();
+    	    			return childs;
+	
 	}
 
 	

@@ -164,4 +164,29 @@ public class ServiceUserSecurityOptionsDataContainerImpl extends BaseDataContain
 			
 	}
 	
+	/**
+	 * Return a list of all Fields. A Field is a LabeledBaseInputComponentIf
+	 * @return
+	 */
+	public List getFields()
+	{
+		List fields = new ArrayList();
+    				fields.add(get_usr_GuestUser());
+    				fields.add(get_usr_CurrentForceUser());
+    				fields.add(get_usr_NewForceUser());
+    			return fields;
+	}
+
+	/**
+	 * Return a list of all associated childContainers. A childContainer is a DataContainer
+	 * @return
+	 */
+	public List getChildContainers()
+	{
+		List childs = new ArrayList();
+    	    		childs.addAll(getUserRights());
+    	    			return childs;
+	
+	}
+	
 }

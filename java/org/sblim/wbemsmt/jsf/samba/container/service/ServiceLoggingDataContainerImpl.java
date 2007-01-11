@@ -25,6 +25,7 @@
 package org.sblim.wbemsmt.jsf.samba.container.service;
 
 import org.sblim.wbemsmt.exception.*;
+import java.util.*;
 
 public class ServiceLoggingDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.EditBasePanel implements org.sblim.wbemsmt.samba.bl.container.service.ServiceLoggingDataContainer {
 
@@ -296,6 +297,36 @@ public class ServiceLoggingDataContainerImpl extends org.sblim.wbemsmt.tools.jsf
 
 	public String[] getResourceBundleNames() {
 		return new String[]{"messages","messagesSamba"};
+	}
+
+	/**
+	 * Return a list of all Fields. A Field is a LabeledBaseInputComponentIf
+	 * @return
+	 */
+	public List getFields()
+	{
+		List fields = new ArrayList();
+    				fields.add(get_SysLog());
+    				fields.add(get_SysLogOnly());
+    				fields.add(get_MaxLogSize());
+    				fields.add(get_DebugHiresTimestamp());
+    				fields.add(get_DebugPID());
+    				fields.add(get_DebugTimestamp());
+    				fields.add(get_DebugUID());
+    				fields.add(get_LogFile());
+    				fields.add(get_LogLevel());
+    			return fields;
+	}
+
+	/**
+	 * Return a list of all associated childContainers. A childContainer is a DataContainer
+	 * @return
+	 */
+	public List getChildContainers()
+	{
+		List childs = new ArrayList();
+    	    			return childs;
+	
 	}
 
 	

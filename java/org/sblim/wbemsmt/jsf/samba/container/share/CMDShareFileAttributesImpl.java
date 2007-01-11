@@ -25,6 +25,7 @@
 package org.sblim.wbemsmt.jsf.samba.container.share;
 
 import org.sblim.wbemsmt.exception.*;
+import java.util.*;
 
 public class CMDShareFileAttributesImpl extends org.sblim.wbemsmt.tools.jsf.EditBasePanel implements org.sblim.wbemsmt.samba.bl.container.share.CMDShareFileAttributes {
 
@@ -296,6 +297,36 @@ public class CMDShareFileAttributesImpl extends org.sblim.wbemsmt.tools.jsf.Edit
 
 	public String[] getResourceBundleNames() {
 		return new String[]{"messages","messagesSamba"};
+	}
+
+	/**
+	 * Return a list of all Fields. A Field is a LabeledBaseInputComponentIf
+	 * @return
+	 */
+	public List getFields()
+	{
+		List fields = new ArrayList();
+    				fields.add(get_CaseSensitive());
+    				fields.add(get_HideDotFiles());
+    				fields.add(get_DosFiletimes());
+    				fields.add(get_EASupport());
+    				fields.add(get_AclCompatibility());
+    				fields.add(get_NTACLSupport());
+    				fields.add(get_CreateMask());
+    				fields.add(get_DirectoryMask());
+    				fields.add(get_DirectorySecurityMask());
+    			return fields;
+	}
+
+	/**
+	 * Return a list of all associated childContainers. A childContainer is a DataContainer
+	 * @return
+	 */
+	public List getChildContainers()
+	{
+		List childs = new ArrayList();
+    	    			return childs;
+	
 	}
 
 	

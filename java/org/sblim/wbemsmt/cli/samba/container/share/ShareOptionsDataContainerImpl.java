@@ -298,4 +298,35 @@ public class ShareOptionsDataContainerImpl extends BaseDataContainer implements 
 			
 	}
 	
+	/**
+	 * Return a list of all Fields. A Field is a LabeledBaseInputComponentIf
+	 * @return
+	 */
+	public List getFields()
+	{
+		List fields = new ArrayList();
+    				fields.add(get_Name());
+    				fields.add(get_Available());
+    				fields.add(get_Comment());
+    				fields.add(get_Path());
+    				fields.add(get_Browsable());
+    				fields.add(get_GuestOK());
+    				fields.add(get_GuestOnly());
+    				fields.add(get_HostsAllow());
+    				fields.add(get_HostsDeny());
+    				fields.add(get_ReadOnly());
+    			return fields;
+	}
+
+	/**
+	 * Return a list of all associated childContainers. A childContainer is a DataContainer
+	 * @return
+	 */
+	public List getChildContainers()
+	{
+		List childs = new ArrayList();
+    	    			return childs;
+	
+	}
+	
 }

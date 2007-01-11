@@ -25,6 +25,7 @@
 package org.sblim.wbemsmt.jsf.samba.container.wizard;
 
 import org.sblim.wbemsmt.exception.*;
+import java.util.*;
 
 public class ShareWizardPage1Impl extends org.sblim.wbemsmt.tools.wizard.jsf.WizardBasePanel implements org.sblim.wbemsmt.samba.bl.container.wizard.ShareWizardPage1 {
 
@@ -136,6 +137,30 @@ public class ShareWizardPage1Impl extends org.sblim.wbemsmt.tools.wizard.jsf.Wiz
 
 	public String[] getResourceBundleNames() {
 		return new String[]{"messages","messagesSamba"};
+	}
+
+	/**
+	 * Return a list of all Fields. A Field is a LabeledBaseInputComponentIf
+	 * @return
+	 */
+	public List getFields()
+	{
+		List fields = new ArrayList();
+    				fields.add(get_Name());
+    				fields.add(get_Path());
+    				fields.add(get_Comment());
+    			return fields;
+	}
+
+	/**
+	 * Return a list of all associated childContainers. A childContainer is a DataContainer
+	 * @return
+	 */
+	public List getChildContainers()
+	{
+		List childs = new ArrayList();
+    	    			return childs;
+	
 	}
 
 	

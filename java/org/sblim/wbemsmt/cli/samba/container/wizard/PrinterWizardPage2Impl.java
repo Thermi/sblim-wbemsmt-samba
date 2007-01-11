@@ -166,4 +166,29 @@ public class PrinterWizardPage2Impl extends BaseDataContainer implements org.sbl
 			
 	}
 	
+	/**
+	 * Return a list of all Fields. A Field is a LabeledBaseInputComponentIf
+	 * @return
+	 */
+	public List getFields()
+	{
+		List fields = new ArrayList();
+    				fields.add(get_SambaPrinterName());
+    				fields.add(get_usr_SystemPrinterName());
+    				fields.add(get_Path());
+    				fields.add(get_Comment());
+    			return fields;
+	}
+
+	/**
+	 * Return a list of all associated childContainers. A childContainer is a DataContainer
+	 * @return
+	 */
+	public List getChildContainers()
+	{
+		List childs = new ArrayList();
+    	    			return childs;
+	
+	}
+	
 }

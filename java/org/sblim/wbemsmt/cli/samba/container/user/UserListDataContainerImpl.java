@@ -98,4 +98,26 @@ public class UserListDataContainerImpl extends BaseDataContainer implements org.
 			
 	}
 	
+	/**
+	 * Return a list of all Fields. A Field is a LabeledBaseInputComponentIf
+	 * @return
+	 */
+	public List getFields()
+	{
+		List fields = new ArrayList();
+    			return fields;
+	}
+
+	/**
+	 * Return a list of all associated childContainers. A childContainer is a DataContainer
+	 * @return
+	 */
+	public List getChildContainers()
+	{
+		List childs = new ArrayList();
+    	    		childs.addAll(getUsers());
+    	    			return childs;
+	
+	}
+	
 }

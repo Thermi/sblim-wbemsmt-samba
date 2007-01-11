@@ -151,4 +151,29 @@ public class ServiceOperationsDataContainerImpl extends BaseDataContainer implem
 			
 	}
 	
+	/**
+	 * Return a list of all Fields. A Field is a LabeledBaseInputComponentIf
+	 * @return
+	 */
+	public List getFields()
+	{
+		List fields = new ArrayList();
+    				fields.add(get_Started());
+    				fields.add(get_invoke_StartService());
+    				fields.add(get_invoke_StopService());
+    				fields.add(get_usr_RestartService());
+    			return fields;
+	}
+
+	/**
+	 * Return a list of all associated childContainers. A childContainer is a DataContainer
+	 * @return
+	 */
+	public List getChildContainers()
+	{
+		List childs = new ArrayList();
+    	    			return childs;
+	
+	}
+	
 }

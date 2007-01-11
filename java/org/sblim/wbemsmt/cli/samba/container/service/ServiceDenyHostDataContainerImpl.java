@@ -156,4 +156,29 @@ public class ServiceDenyHostDataContainerImpl extends BaseDataContainer implemen
 			
 	}
 	
+	/**
+	 * Return a list of all Fields. A Field is a LabeledBaseInputComponentIf
+	 * @return
+	 */
+	public List getFields()
+	{
+		List fields = new ArrayList();
+    				fields.add(get_usr_DeniedHosts());
+    				fields.add(get_usr_HostsToDeny());
+    				fields.add(get_usr_AddHost());
+    				fields.add(get_usr_RemoveHost());
+    			return fields;
+	}
+
+	/**
+	 * Return a list of all associated childContainers. A childContainer is a DataContainer
+	 * @return
+	 */
+	public List getChildContainers()
+	{
+		List childs = new ArrayList();
+    	    			return childs;
+	
+	}
+	
 }

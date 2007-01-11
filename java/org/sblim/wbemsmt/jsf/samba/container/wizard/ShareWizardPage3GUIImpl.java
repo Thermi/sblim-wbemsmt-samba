@@ -25,6 +25,7 @@
 package org.sblim.wbemsmt.jsf.samba.container.wizard;
 
 import org.sblim.wbemsmt.exception.*;
+import java.util.*;
 
 public class ShareWizardPage3GUIImpl extends org.sblim.wbemsmt.tools.wizard.jsf.WizardBasePanel implements org.sblim.wbemsmt.samba.bl.container.wizard.ShareWizardPage3GUI {
 
@@ -996,6 +997,63 @@ public class ShareWizardPage3GUIImpl extends org.sblim.wbemsmt.tools.wizard.jsf.
 
 	public String[] getResourceBundleNames() {
 		return new String[]{"messages","messagesSamba"};
+	}
+
+	/**
+	 * Return a list of all Fields. A Field is a LabeledBaseInputComponentIf
+	 * @return
+	 */
+	public List getFields()
+	{
+		List fields = new ArrayList();
+    				fields.add(get_usr_Create_u());
+    				fields.add(get_usr_Create_g());
+    				fields.add(get_usr_Create_s());
+    				fields.add(get_usr_Create_user_r());
+    				fields.add(get_usr_Create_user_w());
+    				fields.add(get_usr_Create_user_x());
+    				fields.add(get_usr_Create_group_r());
+    				fields.add(get_usr_Create_group_w());
+    				fields.add(get_usr_Create_group_x());
+    				fields.add(get_usr_Create_other_r());
+    				fields.add(get_usr_Create_other_w());
+    				fields.add(get_usr_Create_other_x());
+    				fields.add(get_usr_Directory_u());
+    				fields.add(get_usr_Directory_g());
+    				fields.add(get_usr_Directory_s());
+    				fields.add(get_usr_Directory_user_r());
+    				fields.add(get_usr_Directory_user_w());
+    				fields.add(get_usr_Directory_user_x());
+    				fields.add(get_usr_Directory_group_r());
+    				fields.add(get_usr_Directory_group_w());
+    				fields.add(get_usr_Directory_group_x());
+    				fields.add(get_usr_Directory_other_r());
+    				fields.add(get_usr_Directory_other_w());
+    				fields.add(get_usr_Directory_other_x());
+    				fields.add(get_usr_Directory_security_u());
+    				fields.add(get_usr_Directory_security_g());
+    				fields.add(get_usr_Directory_security_s());
+    				fields.add(get_usr_Directory_security_user_r());
+    				fields.add(get_usr_Directory_security_user_w());
+    				fields.add(get_usr_Directory_security_user_x());
+    				fields.add(get_usr_Directory_security_group_r());
+    				fields.add(get_usr_Directory_security_group_w());
+    				fields.add(get_usr_Directory_security_group_x());
+    				fields.add(get_usr_Directory_security_other_r());
+    				fields.add(get_usr_Directory_security_other_w());
+    				fields.add(get_usr_Directory_security_other_x());
+    			return fields;
+	}
+
+	/**
+	 * Return a list of all associated childContainers. A childContainer is a DataContainer
+	 * @return
+	 */
+	public List getChildContainers()
+	{
+		List childs = new ArrayList();
+    	    			return childs;
+	
 	}
 
 	

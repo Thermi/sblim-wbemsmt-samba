@@ -26,6 +26,7 @@ package org.sblim.wbemsmt.jsf.samba.container.global;
 
 import javax.faces.component.html.HtmlPanelGrid;
 
+import java.util.*;
 import org.sblim.wbemsmt.bl.adapter.*;
 import org.sblim.wbemsmt.tools.input.jsf.*;
 import org.sblim.wbemsmt.tools.input.*;
@@ -144,4 +145,28 @@ public class AdminUsersInShareGlobals_AsUsers_InGUIShareGlobalsDataContainerImpl
 	protected String getOrientationOfColumnAsCss(int column) {
 		return orientationOfColumnAsCss[column];
 	}
+	
+	/**
+	 * Return a list of all Fields. A Field is a LabeledBaseInputComponentIf
+	 * @return
+	 */
+	public List getFields()
+	{
+		List fields = new ArrayList();
+    				fields.add(get_usr_SambaUserName());
+    				fields.add(get_usr_Admin());
+    			return fields;
+	}
+
+	/**
+	 * Return a list of all associated childContainers. A childContainer is a DataContainer
+	 * @return
+	 */
+	public List getChildContainers()
+	{
+		List childs = new ArrayList();
+    	    			return childs;
+	
+	}
+	
 }

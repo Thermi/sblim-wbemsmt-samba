@@ -204,7 +204,7 @@ public class EditServiceListenerEditBeanTabSecurity extends EditBean {
 				containers.add(currentEditContainer1);
 				
             					
-				addFooter(panel);
+				addFooter(panel,"objectActionController.editBeans['tabSecurity'].");
 				
 			
 								
@@ -270,7 +270,7 @@ public class EditServiceListenerEditBeanTabSecurity extends EditBean {
 				containers.add(currentEditContainer2);
 				
             					
-				addFooter(panel);
+				addFooter(panel,"objectActionController.editBeans['tabSecurity'].");
 				
 			
 						//Creating no OK/Cancel-Button because saving single Tabs is disabled (EditAction.saveSinglePanels)

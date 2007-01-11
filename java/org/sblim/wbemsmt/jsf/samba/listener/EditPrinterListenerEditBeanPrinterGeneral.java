@@ -188,7 +188,7 @@ public class EditPrinterListenerEditBeanPrinterGeneral extends EditBean {
 				containers.add(currentEditContainer1);
 				
             					
-				addFooter(panel);
+				addFooter(panel,"objectActionController.editBeans['printerGeneral'].");
 				
 			
 								
@@ -236,7 +236,7 @@ public class EditPrinterListenerEditBeanPrinterGeneral extends EditBean {
 				containers.add(currentEditContainer2);
 				
             					
-				addFooter(panel);
+				addFooter(panel,"objectActionController.editBeans['printerGeneral'].");
 				
 			
 						//Creating no OK/Cancel-Button because saving single Tabs is disabled (EditAction.saveSinglePanels)

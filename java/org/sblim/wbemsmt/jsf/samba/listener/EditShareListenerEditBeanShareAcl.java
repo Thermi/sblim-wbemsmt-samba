@@ -188,7 +188,7 @@ public class EditShareListenerEditBeanShareAcl extends EditBean {
 				containers.add(currentEditContainer1);
 				
             					
-				addFooter(panel);
+				addFooter(panel,"objectActionController.editBeans['shareAcl'].");
 				
 			
 						//Creating no OK/Cancel-Button because saving single Tabs is disabled (EditAction.saveSinglePanels)

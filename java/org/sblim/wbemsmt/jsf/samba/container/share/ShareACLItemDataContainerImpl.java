@@ -25,6 +25,7 @@
 package org.sblim.wbemsmt.jsf.samba.container.share;
 
 import org.sblim.wbemsmt.exception.*;
+import java.util.*;
 
 public class ShareACLItemDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.EditBasePanel implements org.sblim.wbemsmt.samba.bl.container.share.ShareACLItemDataContainer {
 
@@ -161,6 +162,31 @@ public class ShareACLItemDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.E
 
 	public String[] getResourceBundleNames() {
 		return new String[]{"messages","messagesSamba"};
+	}
+
+	/**
+	 * Return a list of all Fields. A Field is a LabeledBaseInputComponentIf
+	 * @return
+	 */
+	public List getFields()
+	{
+		List fields = new ArrayList();
+    				fields.add(get_ShareName());
+    				fields.add(get_usr_AccessTypeVI());
+    				fields.add(get_usr_AccessTypeRW());
+    				fields.add(get_usr_Admin());
+    			return fields;
+	}
+
+	/**
+	 * Return a list of all associated childContainers. A childContainer is a DataContainer
+	 * @return
+	 */
+	public List getChildContainers()
+	{
+		List childs = new ArrayList();
+    	    			return childs;
+	
 	}
 
 	

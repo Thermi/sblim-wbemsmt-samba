@@ -296,4 +296,35 @@ public class ShareWizardPage4Impl extends BaseDataContainer implements org.sblim
 			
 	}
 	
+	/**
+	 * Return a list of all Fields. A Field is a LabeledBaseInputComponentIf
+	 * @return
+	 */
+	public List getFields()
+	{
+		List fields = new ArrayList();
+    				fields.add(get_Name());
+    				fields.add(get_Path());
+    				fields.add(get_Comment());
+    				fields.add(get_usr_SeenByEverybody());
+    				fields.add(get_usr_EnableGuest());
+    				fields.add(get_CreateMask());
+    				fields.add(get_DirectoryMask());
+    				fields.add(get_DirectorySecurityMask());
+    				fields.add(get_usr_ForceUser());
+    			return fields;
+	}
+
+	/**
+	 * Return a list of all associated childContainers. A childContainer is a DataContainer
+	 * @return
+	 */
+	public List getChildContainers()
+	{
+		List childs = new ArrayList();
+    	    		childs.addAll(getUsers());
+    	    			return childs;
+	
+	}
+	
 }

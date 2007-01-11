@@ -188,7 +188,7 @@ public class EditShareListenerEditBeanShareGeneral extends EditBean {
 				containers.add(currentEditContainer1);
 				
             					
-				addFooter(panel);
+				addFooter(panel,"objectActionController.editBeans['shareGeneral'].");
 				
 			
 								
@@ -237,7 +237,7 @@ public class EditShareListenerEditBeanShareGeneral extends EditBean {
 				
             						currentEditContainer2.getLayouter().layout(currentEditContainer2.getInputFieldContainer(),currentEditContainer2 ,bundle);
             					
-				addFooter(panel);
+				addFooter(panel,"objectActionController.editBeans['shareGeneral'].");
 				
 			
 						//Creating no OK/Cancel-Button because saving single Tabs is disabled (EditAction.saveSinglePanels)

@@ -25,6 +25,7 @@
 package org.sblim.wbemsmt.jsf.samba.container.user;
 
 import org.sblim.wbemsmt.exception.*;
+import java.util.*;
 
 public class UserListItemDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.EditBasePanel implements org.sblim.wbemsmt.samba.bl.container.user.UserListItemDataContainer {
 
@@ -134,6 +135,30 @@ public class UserListItemDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.E
 
 	public String[] getResourceBundleNames() {
 		return new String[]{"messages","messagesSamba"};
+	}
+
+	/**
+	 * Return a list of all Fields. A Field is a LabeledBaseInputComponentIf
+	 * @return
+	 */
+	public List getFields()
+	{
+		List fields = new ArrayList();
+    				fields.add(get_SambaUserName());
+    				fields.add(get_SystemUserName());
+    				fields.add(get_usr_IsGuest());
+    			return fields;
+	}
+
+	/**
+	 * Return a list of all associated childContainers. A childContainer is a DataContainer
+	 * @return
+	 */
+	public List getChildContainers()
+	{
+		List childs = new ArrayList();
+    	    			return childs;
+	
 	}
 
 	

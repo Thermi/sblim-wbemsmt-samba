@@ -232,4 +232,32 @@ public class ServiceOptionsDataContainerImpl extends BaseDataContainer implement
 			
 	}
 	
+	/**
+	 * Return a list of all Fields. A Field is a LabeledBaseInputComponentIf
+	 * @return
+	 */
+	public List getFields()
+	{
+		List fields = new ArrayList();
+    				fields.add(get_BindInterfacesOnly());
+    				fields.add(get_Interfaces());
+    				fields.add(get_NetbiosAlias());
+    				fields.add(get_NetbiosName());
+    				fields.add(get_ServerString());
+    				fields.add(get_Workgroup());
+    				fields.add(get_ConfigurationFile());
+    			return fields;
+	}
+
+	/**
+	 * Return a list of all associated childContainers. A childContainer is a DataContainer
+	 * @return
+	 */
+	public List getChildContainers()
+	{
+		List childs = new ArrayList();
+    	    			return childs;
+	
+	}
+	
 }

@@ -140,4 +140,28 @@ public class UserWizardPage2Impl extends BaseDataContainer implements org.sblim.
 			
 	}
 	
+	/**
+	 * Return a list of all Fields. A Field is a LabeledBaseInputComponentIf
+	 * @return
+	 */
+	public List getFields()
+	{
+		List fields = new ArrayList();
+    				fields.add(get_usr_AccessToAll());
+    			return fields;
+	}
+
+	/**
+	 * Return a list of all associated childContainers. A childContainer is a DataContainer
+	 * @return
+	 */
+	public List getChildContainers()
+	{
+		List childs = new ArrayList();
+    	    		childs.addAll(getShares());
+    	    		childs.addAll(getPrinters());
+    	    			return childs;
+	
+	}
+	
 }

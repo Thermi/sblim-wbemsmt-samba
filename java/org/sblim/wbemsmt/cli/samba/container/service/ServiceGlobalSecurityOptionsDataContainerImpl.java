@@ -386,4 +386,39 @@ public class ServiceGlobalSecurityOptionsDataContainerImpl extends BaseDataConta
 			
 	}
 	
+	/**
+	 * Return a list of all Fields. A Field is a LabeledBaseInputComponentIf
+	 * @return
+	 */
+	public List getFields()
+	{
+		List fields = new ArrayList();
+    				fields.add(get_AuthMethods());
+    				fields.add(get_EncryptPasswords());
+    				fields.add(get_MinPasswordLength());
+    				fields.add(get_NullPasswords());
+    				fields.add(get_usr_PassdbBackend());
+    				fields.add(get_SMBPasswdFile());
+    				fields.add(get_Security());
+    				fields.add(get_GuestOK());
+    				fields.add(get_GuestOnly());
+    				fields.add(get_HostsAllow());
+    				fields.add(get_HostsDeny());
+    				fields.add(get_ReadOnly());
+    				fields.add(get_DomainMaster());
+    				fields.add(get_Browsable());
+    			return fields;
+	}
+
+	/**
+	 * Return a list of all associated childContainers. A childContainer is a DataContainer
+	 * @return
+	 */
+	public List getChildContainers()
+	{
+		List childs = new ArrayList();
+    	    			return childs;
+	
+	}
+	
 }

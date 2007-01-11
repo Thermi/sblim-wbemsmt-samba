@@ -237,7 +237,7 @@ public class EditUserListenerEditBeanAcl extends EditBean {
 				containers.add(currentEditContainer1);
 				
             					
-				addFooter(panel);
+				addFooter(panel,"objectActionController.editBeans['acl'].");
 				
 			
 								
@@ -303,7 +303,7 @@ public class EditUserListenerEditBeanAcl extends EditBean {
 				containers.add(currentEditContainer2);
 				
             					
-				addFooter(panel);
+				addFooter(panel,"objectActionController.editBeans['acl'].");
 				
 			
 						//Creating no OK/Cancel-Button because saving single Tabs is disabled (EditAction.saveSinglePanels)
