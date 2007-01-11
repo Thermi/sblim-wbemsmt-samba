@@ -28,16 +28,26 @@ import javax.faces.component.html.HtmlPanelGrid;
 
 import org.sblim.wbemsmt.bl.adapter.*;
 import org.sblim.wbemsmt.tools.input.jsf.*;
+import org.sblim.wbemsmt.tools.input.*;
 import org.sblim.wbemsmt.exception.*;
 
 	
 public class PrinterInUserWizardACLItemDataContainer_AsPrinters_InUserWizardPage3Impl extends org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel implements org.sblim.wbemsmt.samba.bl.container.wizard.PrinterInUserWizardACLItemDataContainer {
 
 			private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_PrinterName;
-    		private org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf ic_usr_AccessTypeVI;
-    		private org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf ic_usr_AccessTypeRW;
-    		private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_usr_Admin;
-    	
+			private org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf ic_usr_AccessTypeVI;
+			private org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf ic_usr_AccessTypeRW;
+			private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_usr_Admin;
+		
+	private static String[] orientationOfColumnAsCss = new String[]{
+    				"left",
+    				"left",
+    				"left",
+    				"left",
+    		
+	};
+	
+	
 	
 	private final int index;
 	
@@ -78,6 +88,7 @@ public class PrinterInUserWizardACLItemDataContainer_AsPrinters_InUserWizardPage
 		* DataType STRING
 		* UIType LABEL
 		* ReadOnly true
+		* Orientation LEFT
 		*/
 
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_PrinterName() {
@@ -91,6 +102,7 @@ public class PrinterInUserWizardACLItemDataContainer_AsPrinters_InUserWizardPage
 				boolean readOnly = true;
     			ic_PrinterName = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent(parent,label,binding,converter, readOnly);
 				;
+				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent)ic_PrinterName).setOrientation( LabeledBaseInputComponentIf.LEFT );
     		}
     		return ic_PrinterName;
     	}
@@ -99,6 +111,7 @@ public class PrinterInUserWizardACLItemDataContainer_AsPrinters_InUserWizardPage
 		* DataType UNSIGNED_INT16
 		* UIType RADIOBUTTON
 		* ReadOnly false
+		* Orientation LEFT
 		*/
 
 		public org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf get_usr_AccessTypeVI() {
@@ -112,6 +125,7 @@ public class PrinterInUserWizardACLItemDataContainer_AsPrinters_InUserWizardPage
 				boolean readOnly = false;
     			ic_usr_AccessTypeVI = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFRadioButtonComponent(parent,label,binding,converter, readOnly);
 				;
+				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFRadioButtonComponent)ic_usr_AccessTypeVI).setOrientation( LabeledBaseInputComponentIf.LEFT );
     		}
     		return ic_usr_AccessTypeVI;
     	}
@@ -120,6 +134,7 @@ public class PrinterInUserWizardACLItemDataContainer_AsPrinters_InUserWizardPage
 		* DataType UNSIGNED_INT16
 		* UIType RADIOBUTTON
 		* ReadOnly false
+		* Orientation LEFT
 		*/
 
 		public org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf get_usr_AccessTypeRW() {
@@ -133,6 +148,7 @@ public class PrinterInUserWizardACLItemDataContainer_AsPrinters_InUserWizardPage
 				boolean readOnly = false;
     			ic_usr_AccessTypeRW = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFRadioButtonComponent(parent,label,binding,converter, readOnly);
 				;
+				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFRadioButtonComponent)ic_usr_AccessTypeRW).setOrientation( LabeledBaseInputComponentIf.LEFT );
     		}
     		return ic_usr_AccessTypeRW;
     	}
@@ -141,6 +157,7 @@ public class PrinterInUserWizardACLItemDataContainer_AsPrinters_InUserWizardPage
 		* DataType BOOLEAN
 		* UIType CHECKBOX
 		* ReadOnly false
+		* Orientation LEFT
 		*/
 
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_Admin() {
@@ -154,6 +171,7 @@ public class PrinterInUserWizardACLItemDataContainer_AsPrinters_InUserWizardPage
 				boolean readOnly = false;
     			ic_usr_Admin = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
+				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent)ic_usr_Admin).setOrientation( LabeledBaseInputComponentIf.LEFT );
     		}
     		return ic_usr_Admin;
     	}
@@ -185,5 +203,7 @@ public class PrinterInUserWizardACLItemDataContainer_AsPrinters_InUserWizardPage
 		return new String[]{"messages","messagesSamba"};
 	}
 	
-
+	protected String getOrientationOfColumnAsCss(int column) {
+		return orientationOfColumnAsCss[column];
+	}
 }

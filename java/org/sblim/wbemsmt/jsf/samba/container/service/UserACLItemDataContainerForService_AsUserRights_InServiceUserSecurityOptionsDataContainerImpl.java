@@ -28,15 +28,24 @@ import javax.faces.component.html.HtmlPanelGrid;
 
 import org.sblim.wbemsmt.bl.adapter.*;
 import org.sblim.wbemsmt.tools.input.jsf.*;
+import org.sblim.wbemsmt.tools.input.*;
 import org.sblim.wbemsmt.exception.*;
 
 	
 public class UserACLItemDataContainerForService_AsUserRights_InServiceUserSecurityOptionsDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel implements org.sblim.wbemsmt.samba.bl.container.service.UserACLItemDataContainerForService {
 
 			private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_SambaUserName;
-    		private org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf ic_usr_AccessTypeVI;
-    		private org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf ic_usr_AccessTypeRW;
-    	
+			private org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf ic_usr_AccessTypeVI;
+			private org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf ic_usr_AccessTypeRW;
+		
+	private static String[] orientationOfColumnAsCss = new String[]{
+    				"left",
+    				"left",
+    				"left",
+    		
+	};
+	
+	
 	
 	private final int index;
 	
@@ -75,6 +84,7 @@ public class UserACLItemDataContainerForService_AsUserRights_InServiceUserSecuri
 		* DataType STRING
 		* UIType LABEL
 		* ReadOnly true
+		* Orientation LEFT
 		*/
 
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_SambaUserName() {
@@ -88,6 +98,7 @@ public class UserACLItemDataContainerForService_AsUserRights_InServiceUserSecuri
 				boolean readOnly = true;
     			ic_SambaUserName = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent(parent,label,binding,converter, readOnly);
 				;
+				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent)ic_SambaUserName).setOrientation( LabeledBaseInputComponentIf.LEFT );
     		}
     		return ic_SambaUserName;
     	}
@@ -96,6 +107,7 @@ public class UserACLItemDataContainerForService_AsUserRights_InServiceUserSecuri
 		* DataType UNSIGNED_INT16
 		* UIType RADIOBUTTON
 		* ReadOnly false
+		* Orientation LEFT
 		*/
 
 		public org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf get_usr_AccessTypeVI() {
@@ -109,6 +121,7 @@ public class UserACLItemDataContainerForService_AsUserRights_InServiceUserSecuri
 				boolean readOnly = false;
     			ic_usr_AccessTypeVI = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFRadioButtonComponent(parent,label,binding,converter, readOnly);
 				;
+				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFRadioButtonComponent)ic_usr_AccessTypeVI).setOrientation( LabeledBaseInputComponentIf.LEFT );
     		}
     		return ic_usr_AccessTypeVI;
     	}
@@ -117,6 +130,7 @@ public class UserACLItemDataContainerForService_AsUserRights_InServiceUserSecuri
 		* DataType UNSIGNED_INT16
 		* UIType RADIOBUTTON
 		* ReadOnly false
+		* Orientation LEFT
 		*/
 
 		public org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf get_usr_AccessTypeRW() {
@@ -130,6 +144,7 @@ public class UserACLItemDataContainerForService_AsUserRights_InServiceUserSecuri
 				boolean readOnly = false;
     			ic_usr_AccessTypeRW = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFRadioButtonComponent(parent,label,binding,converter, readOnly);
 				;
+				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFRadioButtonComponent)ic_usr_AccessTypeRW).setOrientation( LabeledBaseInputComponentIf.LEFT );
     		}
     		return ic_usr_AccessTypeRW;
     	}
@@ -157,5 +172,7 @@ public class UserACLItemDataContainerForService_AsUserRights_InServiceUserSecuri
 		return new String[]{"messages","messagesSamba"};
 	}
 	
-
+	protected String getOrientationOfColumnAsCss(int column) {
+		return orientationOfColumnAsCss[column];
+	}
 }

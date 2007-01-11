@@ -28,22 +28,38 @@ import javax.faces.component.html.HtmlPanelGrid;
 
 import org.sblim.wbemsmt.bl.adapter.*;
 import org.sblim.wbemsmt.tools.input.jsf.*;
+import org.sblim.wbemsmt.tools.input.*;
 import org.sblim.wbemsmt.exception.*;
 
 	
 public class ShareListItemDataContainer_AsShares_InShareListDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel implements org.sblim.wbemsmt.samba.bl.container.share.ShareListItemDataContainer {
 
 			private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_Name;
-    		private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_Available;
-    		private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_Comment;
-    		private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_Path;
-    		private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_Browsable;
-    		private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_GuestOK;
-    		private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_GuestOnly;
-    		private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_HostsAllow;
-    		private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_HostsDeny;
-    		private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_ReadOnly;
-    	
+			private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_Available;
+			private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_Comment;
+			private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_Path;
+			private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_Browsable;
+			private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_GuestOK;
+			private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_GuestOnly;
+			private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_HostsAllow;
+			private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_HostsDeny;
+			private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_ReadOnly;
+		
+	private static String[] orientationOfColumnAsCss = new String[]{
+    				"left",
+    				"left",
+    				"left",
+    				"left",
+    				"left",
+    				"left",
+    				"left",
+    				"left",
+    				"left",
+    				"left",
+    		
+	};
+	
+	
 	
 	private final int index;
 	
@@ -96,6 +112,7 @@ public class ShareListItemDataContainer_AsShares_InShareListDataContainerImpl ex
 		* DataType STRING
 		* UIType LABEL
 		* ReadOnly true
+		* Orientation LEFT
 		*/
 
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_Name() {
@@ -109,6 +126,7 @@ public class ShareListItemDataContainer_AsShares_InShareListDataContainerImpl ex
 				boolean readOnly = true;
     			ic_Name = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent(parent,label,binding,converter, readOnly);
 				;
+				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent)ic_Name).setOrientation( LabeledBaseInputComponentIf.LEFT );
     		}
     		return ic_Name;
     	}
@@ -117,6 +135,7 @@ public class ShareListItemDataContainer_AsShares_InShareListDataContainerImpl ex
 		* DataType BOOLEAN
 		* UIType CHECKBOX
 		* ReadOnly false
+		* Orientation LEFT
 		*/
 
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_Available() {
@@ -130,6 +149,7 @@ public class ShareListItemDataContainer_AsShares_InShareListDataContainerImpl ex
 				boolean readOnly = false;
     			ic_Available = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
+				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent)ic_Available).setOrientation( LabeledBaseInputComponentIf.LEFT );
     		}
     		return ic_Available;
     	}
@@ -138,6 +158,7 @@ public class ShareListItemDataContainer_AsShares_InShareListDataContainerImpl ex
 		* DataType STRING
 		* UIType TEXTFIELD
 		* ReadOnly false
+		* Orientation LEFT
 		*/
 
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_Comment() {
@@ -151,6 +172,7 @@ public class ShareListItemDataContainer_AsShares_InShareListDataContainerImpl ex
 				boolean readOnly = false;
     			ic_Comment = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
 				;
+				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent)ic_Comment).setOrientation( LabeledBaseInputComponentIf.LEFT );
     		}
     		return ic_Comment;
     	}
@@ -159,6 +181,7 @@ public class ShareListItemDataContainer_AsShares_InShareListDataContainerImpl ex
 		* DataType STRING
 		* UIType TEXTFIELD
 		* ReadOnly false
+		* Orientation LEFT
 		*/
 
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_Path() {
@@ -172,6 +195,7 @@ public class ShareListItemDataContainer_AsShares_InShareListDataContainerImpl ex
 				boolean readOnly = false;
     			ic_Path = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
 				;
+				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent)ic_Path).setOrientation( LabeledBaseInputComponentIf.LEFT );
     		}
     		return ic_Path;
     	}
@@ -180,6 +204,7 @@ public class ShareListItemDataContainer_AsShares_InShareListDataContainerImpl ex
 		* DataType BOOLEAN
 		* UIType CHECKBOX
 		* ReadOnly false
+		* Orientation LEFT
 		*/
 
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_Browsable() {
@@ -193,6 +218,7 @@ public class ShareListItemDataContainer_AsShares_InShareListDataContainerImpl ex
 				boolean readOnly = false;
     			ic_Browsable = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
+				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent)ic_Browsable).setOrientation( LabeledBaseInputComponentIf.LEFT );
     		}
     		return ic_Browsable;
     	}
@@ -201,6 +227,7 @@ public class ShareListItemDataContainer_AsShares_InShareListDataContainerImpl ex
 		* DataType BOOLEAN
 		* UIType CHECKBOX
 		* ReadOnly false
+		* Orientation LEFT
 		*/
 
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_GuestOK() {
@@ -214,6 +241,7 @@ public class ShareListItemDataContainer_AsShares_InShareListDataContainerImpl ex
 				boolean readOnly = false;
     			ic_GuestOK = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
+				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent)ic_GuestOK).setOrientation( LabeledBaseInputComponentIf.LEFT );
     		}
     		return ic_GuestOK;
     	}
@@ -222,6 +250,7 @@ public class ShareListItemDataContainer_AsShares_InShareListDataContainerImpl ex
 		* DataType BOOLEAN
 		* UIType CHECKBOX
 		* ReadOnly false
+		* Orientation LEFT
 		*/
 
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_GuestOnly() {
@@ -235,6 +264,7 @@ public class ShareListItemDataContainer_AsShares_InShareListDataContainerImpl ex
 				boolean readOnly = false;
     			ic_GuestOnly = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
+				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent)ic_GuestOnly).setOrientation( LabeledBaseInputComponentIf.LEFT );
     		}
     		return ic_GuestOnly;
     	}
@@ -243,6 +273,7 @@ public class ShareListItemDataContainer_AsShares_InShareListDataContainerImpl ex
 		* DataType STRING
 		* UIType TEXTFIELD
 		* ReadOnly false
+		* Orientation LEFT
 		*/
 
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_HostsAllow() {
@@ -256,6 +287,7 @@ public class ShareListItemDataContainer_AsShares_InShareListDataContainerImpl ex
 				boolean readOnly = false;
     			ic_HostsAllow = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
 				;
+				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent)ic_HostsAllow).setOrientation( LabeledBaseInputComponentIf.LEFT );
     		}
     		return ic_HostsAllow;
     	}
@@ -264,6 +296,7 @@ public class ShareListItemDataContainer_AsShares_InShareListDataContainerImpl ex
 		* DataType STRING
 		* UIType TEXTFIELD
 		* ReadOnly false
+		* Orientation LEFT
 		*/
 
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_HostsDeny() {
@@ -277,6 +310,7 @@ public class ShareListItemDataContainer_AsShares_InShareListDataContainerImpl ex
 				boolean readOnly = false;
     			ic_HostsDeny = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
 				;
+				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent)ic_HostsDeny).setOrientation( LabeledBaseInputComponentIf.LEFT );
     		}
     		return ic_HostsDeny;
     	}
@@ -285,6 +319,7 @@ public class ShareListItemDataContainer_AsShares_InShareListDataContainerImpl ex
 		* DataType BOOLEAN
 		* UIType CHECKBOX
 		* ReadOnly false
+		* Orientation LEFT
 		*/
 
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_ReadOnly() {
@@ -298,6 +333,7 @@ public class ShareListItemDataContainer_AsShares_InShareListDataContainerImpl ex
 				boolean readOnly = false;
     			ic_ReadOnly = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
+				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent)ic_ReadOnly).setOrientation( LabeledBaseInputComponentIf.LEFT );
     		}
     		return ic_ReadOnly;
     	}
@@ -353,5 +389,7 @@ public class ShareListItemDataContainer_AsShares_InShareListDataContainerImpl ex
 		return new String[]{"messages","messagesSamba"};
 	}
 	
-
+	protected String getOrientationOfColumnAsCss(int column) {
+		return orientationOfColumnAsCss[column];
+	}
 }

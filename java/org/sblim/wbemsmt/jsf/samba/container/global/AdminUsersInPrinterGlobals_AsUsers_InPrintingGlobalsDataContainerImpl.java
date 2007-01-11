@@ -28,14 +28,22 @@ import javax.faces.component.html.HtmlPanelGrid;
 
 import org.sblim.wbemsmt.bl.adapter.*;
 import org.sblim.wbemsmt.tools.input.jsf.*;
+import org.sblim.wbemsmt.tools.input.*;
 import org.sblim.wbemsmt.exception.*;
 
 	
 public class AdminUsersInPrinterGlobals_AsUsers_InPrintingGlobalsDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel implements org.sblim.wbemsmt.samba.bl.container.global.AdminUsersInPrinterGlobals {
 
 			private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_usr_SambaUserName;
-    		private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_usr_Admin;
-    	
+			private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_usr_Admin;
+		
+	private static String[] orientationOfColumnAsCss = new String[]{
+    				"left",
+    				"left",
+    		
+	};
+	
+	
 	
 	private final int index;
 	
@@ -72,6 +80,7 @@ public class AdminUsersInPrinterGlobals_AsUsers_InPrintingGlobalsDataContainerIm
 		* DataType STRING
 		* UIType LABEL
 		* ReadOnly true
+		* Orientation LEFT
 		*/
 
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_SambaUserName() {
@@ -85,6 +94,7 @@ public class AdminUsersInPrinterGlobals_AsUsers_InPrintingGlobalsDataContainerIm
 				boolean readOnly = true;
     			ic_usr_SambaUserName = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent(parent,label,binding,converter, readOnly);
 				;
+				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent)ic_usr_SambaUserName).setOrientation( LabeledBaseInputComponentIf.LEFT );
     		}
     		return ic_usr_SambaUserName;
     	}
@@ -93,6 +103,7 @@ public class AdminUsersInPrinterGlobals_AsUsers_InPrintingGlobalsDataContainerIm
 		* DataType BOOLEAN
 		* UIType CHECKBOX
 		* ReadOnly false
+		* Orientation LEFT
 		*/
 
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_Admin() {
@@ -106,6 +117,7 @@ public class AdminUsersInPrinterGlobals_AsUsers_InPrintingGlobalsDataContainerIm
 				boolean readOnly = false;
     			ic_usr_Admin = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
+				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent)ic_usr_Admin).setOrientation( LabeledBaseInputComponentIf.LEFT );
     		}
     		return ic_usr_Admin;
     	}
@@ -129,5 +141,7 @@ public class AdminUsersInPrinterGlobals_AsUsers_InPrintingGlobalsDataContainerIm
 		return new String[]{"messages","messagesSamba"};
 	}
 	
-
+	protected String getOrientationOfColumnAsCss(int column) {
+		return orientationOfColumnAsCss[column];
+	}
 }

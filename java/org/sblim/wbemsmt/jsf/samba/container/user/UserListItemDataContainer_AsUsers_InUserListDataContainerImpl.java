@@ -28,15 +28,24 @@ import javax.faces.component.html.HtmlPanelGrid;
 
 import org.sblim.wbemsmt.bl.adapter.*;
 import org.sblim.wbemsmt.tools.input.jsf.*;
+import org.sblim.wbemsmt.tools.input.*;
 import org.sblim.wbemsmt.exception.*;
 
 	
 public class UserListItemDataContainer_AsUsers_InUserListDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel implements org.sblim.wbemsmt.samba.bl.container.user.UserListItemDataContainer {
 
 			private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_SambaUserName;
-    		private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_SystemUserName;
-    		private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_usr_IsGuest;
-    	
+			private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_SystemUserName;
+			private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_usr_IsGuest;
+		
+	private static String[] orientationOfColumnAsCss = new String[]{
+    				"left",
+    				"left",
+    				"left",
+    		
+	};
+	
+	
 	
 	private final int index;
 	
@@ -75,6 +84,7 @@ public class UserListItemDataContainer_AsUsers_InUserListDataContainerImpl exten
 		* DataType STRING
 		* UIType LABEL
 		* ReadOnly true
+		* Orientation LEFT
 		*/
 
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_SambaUserName() {
@@ -88,6 +98,7 @@ public class UserListItemDataContainer_AsUsers_InUserListDataContainerImpl exten
 				boolean readOnly = true;
     			ic_SambaUserName = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent(parent,label,binding,converter, readOnly);
 				;
+				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent)ic_SambaUserName).setOrientation( LabeledBaseInputComponentIf.LEFT );
     		}
     		return ic_SambaUserName;
     	}
@@ -96,6 +107,7 @@ public class UserListItemDataContainer_AsUsers_InUserListDataContainerImpl exten
 		* DataType STRING
 		* UIType LABEL
 		* ReadOnly true
+		* Orientation LEFT
 		*/
 
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_SystemUserName() {
@@ -109,6 +121,7 @@ public class UserListItemDataContainer_AsUsers_InUserListDataContainerImpl exten
 				boolean readOnly = true;
     			ic_SystemUserName = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent(parent,label,binding,converter, readOnly);
 				;
+				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent)ic_SystemUserName).setOrientation( LabeledBaseInputComponentIf.LEFT );
     		}
     		return ic_SystemUserName;
     	}
@@ -117,6 +130,7 @@ public class UserListItemDataContainer_AsUsers_InUserListDataContainerImpl exten
 		* DataType BOOLEAN
 		* UIType CHECKBOX
 		* ReadOnly false
+		* Orientation LEFT
 		*/
 
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_IsGuest() {
@@ -130,6 +144,7 @@ public class UserListItemDataContainer_AsUsers_InUserListDataContainerImpl exten
 				boolean readOnly = false;
     			ic_usr_IsGuest = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
+				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent)ic_usr_IsGuest).setOrientation( LabeledBaseInputComponentIf.LEFT );
     		}
     		return ic_usr_IsGuest;
     	}
@@ -157,5 +172,7 @@ public class UserListItemDataContainer_AsUsers_InUserListDataContainerImpl exten
 		return new String[]{"messages","messagesSamba"};
 	}
 	
-
+	protected String getOrientationOfColumnAsCss(int column) {
+		return orientationOfColumnAsCss[column];
+	}
 }
