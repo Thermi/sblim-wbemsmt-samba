@@ -27,6 +27,10 @@ package org.sblim.wbemsmt.jsf.samba.container.service;
 import org.sblim.wbemsmt.exception.*;
 import java.util.*;
 
+
+
+import org.sblim.wbemsmt.bl.adapter.DataContainer;
+
 public class ServiceWinsDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.EditBasePanel implements org.sblim.wbemsmt.samba.bl.container.service.ServiceWinsDataContainer {
 
 			private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_DNS_Proxy;
@@ -191,6 +195,8 @@ public class ServiceWinsDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.Ed
 		return new String[]{"messages","messagesSamba"};
 	}
 
+	
+ 
 	/**
 	 * Return a list of all Fields. A Field is a LabeledBaseInputComponentIf
 	 * @return
@@ -215,6 +221,19 @@ public class ServiceWinsDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.Ed
 		List childs = new ArrayList();
     	    			return childs;
 	
+	}
+	
+	public void copyFrom(DataContainer sourceContainer)
+	{
+		ServiceWinsDataContainerImpl source = (ServiceWinsDataContainerImpl)sourceContainer;
+	
+    	    		get_DNS_Proxy().setValue(source.get_DNS_Proxy().getValue());
+		    		get_WINSHook().setValue(source.get_WINSHook().getValue());
+		    		get_WINSProxy().setValue(source.get_WINSProxy().getValue());
+		    		get_WINSServer().setValue(source.get_WINSServer().getValue());
+		    		get_WINSSupport().setValue(source.get_WINSSupport().getValue());
+				
+    	    	
 	}
 
 	

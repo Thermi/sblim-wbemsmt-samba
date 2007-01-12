@@ -27,10 +27,14 @@ package org.sblim.wbemsmt.jsf.samba.container.share;
 import javax.faces.component.html.HtmlPanelGrid;
 
 import java.util.*;
-import org.sblim.wbemsmt.bl.adapter.*;
 import org.sblim.wbemsmt.tools.input.jsf.*;
 import org.sblim.wbemsmt.tools.input.*;
 import org.sblim.wbemsmt.exception.*;
+
+
+
+import org.sblim.wbemsmt.bl.adapter.DataContainer;
+
 
 	
 public class PrinterACLItemDataContainer_AsPrinters_InPrinterInUserACLDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel implements org.sblim.wbemsmt.samba.bl.container.share.PrinterACLItemDataContainer {
@@ -208,6 +212,9 @@ public class PrinterACLItemDataContainer_AsPrinters_InPrinterInUserACLDataContai
 		return orientationOfColumnAsCss[column];
 	}
 	
+
+	
+ 
 	/**
 	 * Return a list of all Fields. A Field is a LabeledBaseInputComponentIf
 	 * @return
@@ -232,5 +239,19 @@ public class PrinterACLItemDataContainer_AsPrinters_InPrinterInUserACLDataContai
     	    			return childs;
 	
 	}
+	
+	public void copyFrom(DataContainer sourceContainer)
+	{
+		PrinterACLItemDataContainer_AsPrinters_InPrinterInUserACLDataContainerImpl source = (PrinterACLItemDataContainer_AsPrinters_InPrinterInUserACLDataContainerImpl)sourceContainer;
+	
+    	    		get_PrinterName().setValue(source.get_PrinterName().getValue());
+		    		get_usr_AccessTypeVI().setValue(source.get_usr_AccessTypeVI().getValue());
+		    		get_usr_AccessTypeRW().setValue(source.get_usr_AccessTypeRW().getValue());
+		    		get_usr_Admin().setValue(source.get_usr_Admin().getValue());
+				
+    	    	
+	}
+	
+	
 	
 }

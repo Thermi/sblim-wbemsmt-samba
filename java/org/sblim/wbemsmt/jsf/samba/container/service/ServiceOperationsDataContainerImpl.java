@@ -27,6 +27,10 @@ package org.sblim.wbemsmt.jsf.samba.container.service;
 import org.sblim.wbemsmt.exception.*;
 import java.util.*;
 
+
+
+import org.sblim.wbemsmt.bl.adapter.DataContainer;
+
 public class ServiceOperationsDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.EditBasePanel implements org.sblim.wbemsmt.samba.bl.container.service.ServiceOperationsDataContainer {
 
 			private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_Started;
@@ -164,6 +168,8 @@ public class ServiceOperationsDataContainerImpl extends org.sblim.wbemsmt.tools.
 		return new String[]{"messages","messagesSamba"};
 	}
 
+	
+ 
 	/**
 	 * Return a list of all Fields. A Field is a LabeledBaseInputComponentIf
 	 * @return
@@ -187,6 +193,18 @@ public class ServiceOperationsDataContainerImpl extends org.sblim.wbemsmt.tools.
 		List childs = new ArrayList();
     	    			return childs;
 	
+	}
+	
+	public void copyFrom(DataContainer sourceContainer)
+	{
+		ServiceOperationsDataContainerImpl source = (ServiceOperationsDataContainerImpl)sourceContainer;
+	
+    	    		get_Started().setValue(source.get_Started().getValue());
+		    		get_invoke_StartService().setValue(source.get_invoke_StartService().getValue());
+		    		get_invoke_StopService().setValue(source.get_invoke_StopService().getValue());
+		    		get_usr_RestartService().setValue(source.get_usr_RestartService().getValue());
+				
+    	    	
 	}
 
 	

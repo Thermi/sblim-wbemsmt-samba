@@ -34,6 +34,11 @@ import org.sblim.wbemsmt.bl.adapter.*;
 import org.sblim.wbemsmt.tools.resources.*;
 import org.sblim.wbemsmt.exception.*;
 
+
+
+import org.sblim.wbemsmt.bl.adapter.DataContainer;
+
+
 public class ServiceGlobalSecurityOptionsDataContainerImpl extends BaseDataContainer implements org.sblim.wbemsmt.samba.bl.container.service.ServiceGlobalSecurityOptionsDataContainer {
 
 	protected static WbemSmtResourceBundle bundle = ResourceBundleManager.getResourceBundle(new String[]{"messages","messagesSamba"},Locale.getDefault());
@@ -386,6 +391,8 @@ public class ServiceGlobalSecurityOptionsDataContainerImpl extends BaseDataConta
 			
 	}
 	
+	
+ 
 	/**
 	 * Return a list of all Fields. A Field is a LabeledBaseInputComponentIf
 	 * @return
@@ -421,4 +428,25 @@ public class ServiceGlobalSecurityOptionsDataContainerImpl extends BaseDataConta
 	
 	}
 	
+	public void copyFrom(DataContainer sourceContainer)
+	{
+		ServiceGlobalSecurityOptionsDataContainerImpl source = (ServiceGlobalSecurityOptionsDataContainerImpl)sourceContainer;
+	
+    	    		get_AuthMethods().setValue(source.get_AuthMethods().getValue());
+		    		get_EncryptPasswords().setValue(source.get_EncryptPasswords().getValue());
+		    		get_MinPasswordLength().setValue(source.get_MinPasswordLength().getValue());
+		    		get_NullPasswords().setValue(source.get_NullPasswords().getValue());
+		    		get_usr_PassdbBackend().setValue(source.get_usr_PassdbBackend().getValue());
+		    		get_SMBPasswdFile().setValue(source.get_SMBPasswdFile().getValue());
+		    		get_Security().setValue(source.get_Security().getValue());
+		    		get_GuestOK().setValue(source.get_GuestOK().getValue());
+		    		get_GuestOnly().setValue(source.get_GuestOnly().getValue());
+		    		get_HostsAllow().setValue(source.get_HostsAllow().getValue());
+		    		get_HostsDeny().setValue(source.get_HostsDeny().getValue());
+		    		get_ReadOnly().setValue(source.get_ReadOnly().getValue());
+		    		get_DomainMaster().setValue(source.get_DomainMaster().getValue());
+		    		get_Browsable().setValue(source.get_Browsable().getValue());
+				
+    	    	
+	}
 }

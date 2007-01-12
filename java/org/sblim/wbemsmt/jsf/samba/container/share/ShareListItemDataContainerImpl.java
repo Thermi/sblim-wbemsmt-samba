@@ -27,6 +27,10 @@ package org.sblim.wbemsmt.jsf.samba.container.share;
 import org.sblim.wbemsmt.exception.*;
 import java.util.*;
 
+
+
+import org.sblim.wbemsmt.bl.adapter.DataContainer;
+
 public class ShareListItemDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.EditBasePanel implements org.sblim.wbemsmt.samba.bl.container.share.ShareListItemDataContainer {
 
 			private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_Name;
@@ -326,6 +330,8 @@ public class ShareListItemDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.
 		return new String[]{"messages","messagesSamba"};
 	}
 
+	
+ 
 	/**
 	 * Return a list of all Fields. A Field is a LabeledBaseInputComponentIf
 	 * @return
@@ -355,6 +361,24 @@ public class ShareListItemDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.
 		List childs = new ArrayList();
     	    			return childs;
 	
+	}
+	
+	public void copyFrom(DataContainer sourceContainer)
+	{
+		ShareListItemDataContainerImpl source = (ShareListItemDataContainerImpl)sourceContainer;
+	
+    	    		get_Name().setValue(source.get_Name().getValue());
+		    		get_Available().setValue(source.get_Available().getValue());
+		    		get_Comment().setValue(source.get_Comment().getValue());
+		    		get_Path().setValue(source.get_Path().getValue());
+		    		get_Browsable().setValue(source.get_Browsable().getValue());
+		    		get_GuestOK().setValue(source.get_GuestOK().getValue());
+		    		get_GuestOnly().setValue(source.get_GuestOnly().getValue());
+		    		get_HostsAllow().setValue(source.get_HostsAllow().getValue());
+		    		get_HostsDeny().setValue(source.get_HostsDeny().getValue());
+		    		get_ReadOnly().setValue(source.get_ReadOnly().getValue());
+				
+    	    	
 	}
 
 	

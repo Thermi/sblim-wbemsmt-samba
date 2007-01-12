@@ -34,6 +34,11 @@ import org.sblim.wbemsmt.bl.adapter.*;
 import org.sblim.wbemsmt.tools.resources.*;
 import org.sblim.wbemsmt.exception.*;
 
+
+
+import org.sblim.wbemsmt.bl.adapter.DataContainer;
+
+
 public class PrinterDenyHostSecurityDataContainerImpl extends BaseDataContainer implements org.sblim.wbemsmt.samba.bl.container.printer.PrinterDenyHostSecurityDataContainer {
 
 	protected static WbemSmtResourceBundle bundle = ResourceBundleManager.getResourceBundle(new String[]{"messages","messagesSamba"},Locale.getDefault());
@@ -156,6 +161,8 @@ public class PrinterDenyHostSecurityDataContainerImpl extends BaseDataContainer 
 			
 	}
 	
+	
+ 
 	/**
 	 * Return a list of all Fields. A Field is a LabeledBaseInputComponentIf
 	 * @return
@@ -181,4 +188,15 @@ public class PrinterDenyHostSecurityDataContainerImpl extends BaseDataContainer 
 	
 	}
 	
+	public void copyFrom(DataContainer sourceContainer)
+	{
+		PrinterDenyHostSecurityDataContainerImpl source = (PrinterDenyHostSecurityDataContainerImpl)sourceContainer;
+	
+    	    		get_usr_DeniedHosts().setValue(source.get_usr_DeniedHosts().getValue());
+		    		get_usr_HostsToDeny().setValue(source.get_usr_HostsToDeny().getValue());
+		    		get_usr_AddHost().setValue(source.get_usr_AddHost().getValue());
+		    		get_usr_RemoveHost().setValue(source.get_usr_RemoveHost().getValue());
+				
+    	    	
+	}
 }

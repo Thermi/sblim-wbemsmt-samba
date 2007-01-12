@@ -27,10 +27,14 @@ package org.sblim.wbemsmt.jsf.samba.container.wizard;
 import javax.faces.component.html.HtmlPanelGrid;
 
 import java.util.*;
-import org.sblim.wbemsmt.bl.adapter.*;
 import org.sblim.wbemsmt.tools.input.jsf.*;
 import org.sblim.wbemsmt.tools.input.*;
 import org.sblim.wbemsmt.exception.*;
+
+
+
+import org.sblim.wbemsmt.bl.adapter.DataContainer;
+
 
 	
 public class UserInShareWizardACLItemDataContainer_AsUsers_InShareWizardPage4Impl extends org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel implements org.sblim.wbemsmt.samba.bl.container.wizard.UserInShareWizardACLItemDataContainer {
@@ -208,6 +212,9 @@ public class UserInShareWizardACLItemDataContainer_AsUsers_InShareWizardPage4Imp
 		return orientationOfColumnAsCss[column];
 	}
 	
+
+	
+ 
 	/**
 	 * Return a list of all Fields. A Field is a LabeledBaseInputComponentIf
 	 * @return
@@ -232,5 +239,19 @@ public class UserInShareWizardACLItemDataContainer_AsUsers_InShareWizardPage4Imp
     	    			return childs;
 	
 	}
+	
+	public void copyFrom(DataContainer sourceContainer)
+	{
+		UserInShareWizardACLItemDataContainer_AsUsers_InShareWizardPage4Impl source = (UserInShareWizardACLItemDataContainer_AsUsers_InShareWizardPage4Impl)sourceContainer;
+	
+    	    		get_SambaUserName().setValue(source.get_SambaUserName().getValue());
+		    		get_usr_AccessTypeVI().setValue(source.get_usr_AccessTypeVI().getValue());
+		    		get_usr_AccessTypeRW().setValue(source.get_usr_AccessTypeRW().getValue());
+		    		get_usr_Admin().setValue(source.get_usr_Admin().getValue());
+				
+    	    	
+	}
+	
+	
 	
 }

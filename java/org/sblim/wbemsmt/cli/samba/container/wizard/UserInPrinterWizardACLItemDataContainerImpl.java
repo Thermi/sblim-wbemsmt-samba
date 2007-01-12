@@ -34,6 +34,11 @@ import org.sblim.wbemsmt.bl.adapter.*;
 import org.sblim.wbemsmt.tools.resources.*;
 import org.sblim.wbemsmt.exception.*;
 
+
+
+import org.sblim.wbemsmt.bl.adapter.DataContainer;
+
+
 public class UserInPrinterWizardACLItemDataContainerImpl extends BaseDataContainer implements org.sblim.wbemsmt.samba.bl.container.wizard.UserInPrinterWizardACLItemDataContainer {
 
 	protected static WbemSmtResourceBundle bundle = ResourceBundleManager.getResourceBundle(new String[]{"messages","messagesSamba"},Locale.getDefault());
@@ -166,6 +171,8 @@ public class UserInPrinterWizardACLItemDataContainerImpl extends BaseDataContain
 			
 	}
 	
+	
+ 
 	/**
 	 * Return a list of all Fields. A Field is a LabeledBaseInputComponentIf
 	 * @return
@@ -191,4 +198,15 @@ public class UserInPrinterWizardACLItemDataContainerImpl extends BaseDataContain
 	
 	}
 	
+	public void copyFrom(DataContainer sourceContainer)
+	{
+		UserInPrinterWizardACLItemDataContainerImpl source = (UserInPrinterWizardACLItemDataContainerImpl)sourceContainer;
+	
+    	    		get_SambaUserName().setValue(source.get_SambaUserName().getValue());
+		    		get_usr_AccessTypeVI().setValue(source.get_usr_AccessTypeVI().getValue());
+		    		get_usr_AccessTypeRW().setValue(source.get_usr_AccessTypeRW().getValue());
+		    		get_usr_Admin().setValue(source.get_usr_Admin().getValue());
+				
+    	    	
+	}
 }

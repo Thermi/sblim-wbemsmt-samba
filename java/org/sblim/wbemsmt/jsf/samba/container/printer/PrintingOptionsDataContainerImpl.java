@@ -27,6 +27,10 @@ package org.sblim.wbemsmt.jsf.samba.container.printer;
 import org.sblim.wbemsmt.exception.*;
 import java.util.*;
 
+
+
+import org.sblim.wbemsmt.bl.adapter.DataContainer;
+
 public class PrintingOptionsDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.EditBasePanel implements org.sblim.wbemsmt.samba.bl.container.printer.PrintingOptionsDataContainer {
 
 			private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_CupsOptions;
@@ -218,6 +222,8 @@ public class PrintingOptionsDataContainerImpl extends org.sblim.wbemsmt.tools.js
 		return new String[]{"messages","messagesSamba"};
 	}
 
+	
+ 
 	/**
 	 * Return a list of all Fields. A Field is a LabeledBaseInputComponentIf
 	 * @return
@@ -243,6 +249,20 @@ public class PrintingOptionsDataContainerImpl extends org.sblim.wbemsmt.tools.js
 		List childs = new ArrayList();
     	    			return childs;
 	
+	}
+	
+	public void copyFrom(DataContainer sourceContainer)
+	{
+		PrintingOptionsDataContainerImpl source = (PrintingOptionsDataContainerImpl)sourceContainer;
+	
+    	    		get_CupsOptions().setValue(source.get_CupsOptions().getValue());
+		    		get_DefaultDevMode().setValue(source.get_DefaultDevMode().getValue());
+		    		get_MaxPrintjobs().setValue(source.get_MaxPrintjobs().getValue());
+		    		get_MaxReportedPrintjobs().setValue(source.get_MaxReportedPrintjobs().getValue());
+		    		get_PrintCommand().setValue(source.get_PrintCommand().getValue());
+		    		get_UseClientDriver().setValue(source.get_UseClientDriver().getValue());
+				
+    	    	
 	}
 
 	

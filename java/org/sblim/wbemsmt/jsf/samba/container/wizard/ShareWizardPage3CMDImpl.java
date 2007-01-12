@@ -27,6 +27,10 @@ package org.sblim.wbemsmt.jsf.samba.container.wizard;
 import org.sblim.wbemsmt.exception.*;
 import java.util.*;
 
+
+
+import org.sblim.wbemsmt.bl.adapter.DataContainer;
+
 public class ShareWizardPage3CMDImpl extends org.sblim.wbemsmt.tools.wizard.jsf.WizardBasePanel implements org.sblim.wbemsmt.samba.bl.container.wizard.ShareWizardPage3CMD {
 
 			private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_CreateMask;
@@ -137,6 +141,8 @@ public class ShareWizardPage3CMDImpl extends org.sblim.wbemsmt.tools.wizard.jsf.
 		return new String[]{"messages","messagesSamba"};
 	}
 
+	
+ 
 	/**
 	 * Return a list of all Fields. A Field is a LabeledBaseInputComponentIf
 	 * @return
@@ -159,6 +165,17 @@ public class ShareWizardPage3CMDImpl extends org.sblim.wbemsmt.tools.wizard.jsf.
 		List childs = new ArrayList();
     	    			return childs;
 	
+	}
+	
+	public void copyFrom(DataContainer sourceContainer)
+	{
+		ShareWizardPage3CMDImpl source = (ShareWizardPage3CMDImpl)sourceContainer;
+	
+    	    		get_CreateMask().setValue(source.get_CreateMask().getValue());
+		    		get_DirectoryMask().setValue(source.get_DirectoryMask().getValue());
+		    		get_DirectorySecurityMask().setValue(source.get_DirectorySecurityMask().getValue());
+				
+    	    	
 	}
 
 	

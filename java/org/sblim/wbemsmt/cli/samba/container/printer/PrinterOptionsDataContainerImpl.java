@@ -34,6 +34,11 @@ import org.sblim.wbemsmt.bl.adapter.*;
 import org.sblim.wbemsmt.tools.resources.*;
 import org.sblim.wbemsmt.exception.*;
 
+
+
+import org.sblim.wbemsmt.bl.adapter.DataContainer;
+
+
 public class PrinterOptionsDataContainerImpl extends BaseDataContainer implements org.sblim.wbemsmt.samba.bl.container.printer.PrinterOptionsDataContainer {
 
 	protected static WbemSmtResourceBundle bundle = ResourceBundleManager.getResourceBundle(new String[]{"messages","messagesSamba"},Locale.getDefault());
@@ -320,6 +325,8 @@ public class PrinterOptionsDataContainerImpl extends BaseDataContainer implement
 			
 	}
 	
+	
+ 
 	/**
 	 * Return a list of all Fields. A Field is a LabeledBaseInputComponentIf
 	 * @return
@@ -352,4 +359,22 @@ public class PrinterOptionsDataContainerImpl extends BaseDataContainer implement
 	
 	}
 	
+	public void copyFrom(DataContainer sourceContainer)
+	{
+		PrinterOptionsDataContainerImpl source = (PrinterOptionsDataContainerImpl)sourceContainer;
+	
+    	    		get_Name().setValue(source.get_Name().getValue());
+		    		get_usr_SystemPrinterName().setValue(source.get_usr_SystemPrinterName().getValue());
+		    		get_Path().setValue(source.get_Path().getValue());
+		    		get_Comment().setValue(source.get_Comment().getValue());
+		    		get_Available().setValue(source.get_Available().getValue());
+		    		get_GuestOK().setValue(source.get_GuestOK().getValue());
+		    		get_GuestOnly().setValue(source.get_GuestOnly().getValue());
+		    		get_HostsAllow().setValue(source.get_HostsAllow().getValue());
+		    		get_HostsDeny().setValue(source.get_HostsDeny().getValue());
+		    		get_ReadOnly().setValue(source.get_ReadOnly().getValue());
+		    		get_Browsable().setValue(source.get_Browsable().getValue());
+				
+    	    	
+	}
 }

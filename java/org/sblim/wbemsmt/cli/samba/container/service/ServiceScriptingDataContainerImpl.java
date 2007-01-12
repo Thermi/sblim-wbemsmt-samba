@@ -34,6 +34,11 @@ import org.sblim.wbemsmt.bl.adapter.*;
 import org.sblim.wbemsmt.tools.resources.*;
 import org.sblim.wbemsmt.exception.*;
 
+
+
+import org.sblim.wbemsmt.bl.adapter.DataContainer;
+
+
 public class ServiceScriptingDataContainerImpl extends BaseDataContainer implements org.sblim.wbemsmt.samba.bl.container.service.ServiceScriptingDataContainer {
 
 	protected static WbemSmtResourceBundle bundle = ResourceBundleManager.getResourceBundle(new String[]{"messages","messagesSamba"},Locale.getDefault());
@@ -276,6 +281,8 @@ public class ServiceScriptingDataContainerImpl extends BaseDataContainer impleme
 			
 	}
 	
+	
+ 
 	/**
 	 * Return a list of all Fields. A Field is a LabeledBaseInputComponentIf
 	 * @return
@@ -306,4 +313,20 @@ public class ServiceScriptingDataContainerImpl extends BaseDataContainer impleme
 	
 	}
 	
+	public void copyFrom(DataContainer sourceContainer)
+	{
+		ServiceScriptingDataContainerImpl source = (ServiceScriptingDataContainerImpl)sourceContainer;
+	
+    	    		get_AddGroupScript().setValue(source.get_AddGroupScript().getValue());
+		    		get_AddPrinterCommand().setValue(source.get_AddPrinterCommand().getValue());
+		    		get_AddShareCommand().setValue(source.get_AddShareCommand().getValue());
+		    		get_AddUserScript().setValue(source.get_AddUserScript().getValue());
+		    		get_AddUsertoGroupScript().setValue(source.get_AddUsertoGroupScript().getValue());
+		    		get_DeleteGroupScript().setValue(source.get_DeleteGroupScript().getValue());
+		    		get_DeleteUserScript().setValue(source.get_DeleteUserScript().getValue());
+		    		get_DeleteUserfromGroupScript().setValue(source.get_DeleteUserfromGroupScript().getValue());
+		    		get_SetPrimaryGroupScript().setValue(source.get_SetPrimaryGroupScript().getValue());
+				
+    	    	
+	}
 }

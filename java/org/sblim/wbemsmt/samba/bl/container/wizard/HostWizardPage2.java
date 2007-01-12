@@ -39,7 +39,7 @@ public interface HostWizardPage2 extends org.sblim.wbemsmt.bl.adapter.DataContai
 		/**
 		* <br>
 		* DataType STRING<br>
-		* UIType TEXTFIELD<br>
+		* UIType LABEL<br>
 		* Relation to FCO: Linux_SambaShareOptions.get_Name<br>
 		*/
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_Name();

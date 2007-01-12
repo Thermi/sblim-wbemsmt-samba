@@ -34,6 +34,11 @@ import org.sblim.wbemsmt.bl.adapter.*;
 import org.sblim.wbemsmt.tools.resources.*;
 import org.sblim.wbemsmt.exception.*;
 
+
+
+import org.sblim.wbemsmt.bl.adapter.DataContainer;
+
+
 public class PrinterWizardPage4Impl extends BaseDataContainer implements org.sblim.wbemsmt.samba.bl.container.wizard.PrinterWizardPage4 {
 
 	protected static WbemSmtResourceBundle bundle = ResourceBundleManager.getResourceBundle(new String[]{"messages","messagesSamba"},Locale.getDefault());
@@ -122,6 +127,8 @@ public class PrinterWizardPage4Impl extends BaseDataContainer implements org.sbl
 			
 	}
 	
+	
+ 
 	/**
 	 * Return a list of all Fields. A Field is a LabeledBaseInputComponentIf
 	 * @return
@@ -145,4 +152,13 @@ public class PrinterWizardPage4Impl extends BaseDataContainer implements org.sbl
 	
 	}
 	
+	public void copyFrom(DataContainer sourceContainer)
+	{
+		PrinterWizardPage4Impl source = (PrinterWizardPage4Impl)sourceContainer;
+	
+    	    		get_CupsOptions().setValue(source.get_CupsOptions().getValue());
+		    		get_PrintCommand().setValue(source.get_PrintCommand().getValue());
+				
+    	    	
+	}
 }

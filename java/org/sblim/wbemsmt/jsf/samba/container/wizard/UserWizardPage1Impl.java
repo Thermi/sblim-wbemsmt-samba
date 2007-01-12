@@ -27,6 +27,10 @@ package org.sblim.wbemsmt.jsf.samba.container.wizard;
 import org.sblim.wbemsmt.exception.*;
 import java.util.*;
 
+
+
+import org.sblim.wbemsmt.bl.adapter.DataContainer;
+
 public class UserWizardPage1Impl extends org.sblim.wbemsmt.tools.wizard.jsf.WizardBasePanel implements org.sblim.wbemsmt.samba.bl.container.wizard.UserWizardPage1 {
 
 			private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_SambaUserName;
@@ -195,6 +199,8 @@ public class UserWizardPage1Impl extends org.sblim.wbemsmt.tools.wizard.jsf.Wiza
 		return new String[]{"messages","messagesSamba"};
 	}
 
+	
+ 
 	/**
 	 * Return a list of all Fields. A Field is a LabeledBaseInputComponentIf
 	 * @return
@@ -219,6 +225,19 @@ public class UserWizardPage1Impl extends org.sblim.wbemsmt.tools.wizard.jsf.Wiza
 		List childs = new ArrayList();
     	    			return childs;
 	
+	}
+	
+	public void copyFrom(DataContainer sourceContainer)
+	{
+		UserWizardPage1Impl source = (UserWizardPage1Impl)sourceContainer;
+	
+    	    		get_SambaUserName().setValue(source.get_SambaUserName().getValue());
+		    		get_SystemUserName().setValue(source.get_SystemUserName().getValue());
+		    		get_SambaUserPassword().setValue(source.get_SambaUserPassword().getValue());
+		    		get_SambaUserPassword2().setValue(source.get_SambaUserPassword2().getValue());
+		    		get_usr_IsGuest().setValue(source.get_usr_IsGuest().getValue());
+				
+    	    	
 	}
 
 	

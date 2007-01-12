@@ -27,10 +27,14 @@ package org.sblim.wbemsmt.jsf.samba.container.user;
 import javax.faces.component.html.HtmlPanelGrid;
 
 import java.util.*;
-import org.sblim.wbemsmt.bl.adapter.*;
 import org.sblim.wbemsmt.tools.input.jsf.*;
 import org.sblim.wbemsmt.tools.input.*;
 import org.sblim.wbemsmt.exception.*;
+
+
+
+import org.sblim.wbemsmt.bl.adapter.DataContainer;
+
 
 	
 public class UserListItemDataContainer_AsUsers_InUserListDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel implements org.sblim.wbemsmt.samba.bl.container.user.UserListItemDataContainer {
@@ -177,6 +181,9 @@ public class UserListItemDataContainer_AsUsers_InUserListDataContainerImpl exten
 		return orientationOfColumnAsCss[column];
 	}
 	
+
+	
+ 
 	/**
 	 * Return a list of all Fields. A Field is a LabeledBaseInputComponentIf
 	 * @return
@@ -200,5 +207,18 @@ public class UserListItemDataContainer_AsUsers_InUserListDataContainerImpl exten
     	    			return childs;
 	
 	}
+	
+	public void copyFrom(DataContainer sourceContainer)
+	{
+		UserListItemDataContainer_AsUsers_InUserListDataContainerImpl source = (UserListItemDataContainer_AsUsers_InUserListDataContainerImpl)sourceContainer;
+	
+    	    		get_SambaUserName().setValue(source.get_SambaUserName().getValue());
+		    		get_SystemUserName().setValue(source.get_SystemUserName().getValue());
+		    		get_usr_IsGuest().setValue(source.get_usr_IsGuest().getValue());
+				
+    	    	
+	}
+	
+	
 	
 }

@@ -57,7 +57,7 @@ public interface PrinterWizardPage5 extends org.sblim.wbemsmt.bl.adapter.DataCon
 		/**
 		* <br>
 		* DataType STRING<br>
-		* UIType TEXTFIELD<br>
+		* UIType LABEL<br>
 		* Relation to FCO: Linux_SambaPrinterOptions.get_Name<br>
 		*/
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_SambaPrinterName();
@@ -73,7 +73,7 @@ public interface PrinterWizardPage5 extends org.sblim.wbemsmt.bl.adapter.DataCon
 		/**
 		* <br>
 		* DataType STRING<br>
-		* UIType TEXTFIELD<br>
+		* UIType LABEL<br>
 		* Relation to FCO: Linux_SambaPrinterOptions.get_Path<br>
 		*/
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_Path();
@@ -81,7 +81,7 @@ public interface PrinterWizardPage5 extends org.sblim.wbemsmt.bl.adapter.DataCon
 		/**
 		* <br>
 		* DataType STRING<br>
-		* UIType TEXTFIELD<br>
+		* UIType LABEL<br>
 		* Relation to FCO: Linux_SambaPrinterOptions.get_Comment<br>
 		*/
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_Comment();
@@ -105,7 +105,7 @@ public interface PrinterWizardPage5 extends org.sblim.wbemsmt.bl.adapter.DataCon
 		/**
 		* <br>
 		* DataType STRING<br>
-		* UIType TEXTFIELD<br>
+		* UIType LABEL<br>
 		* Relation to FCO: Linux_SambaPrinterPrintingOptions.get_CupsOptions<br>
 		*/
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_CupsOptions();
@@ -113,7 +113,7 @@ public interface PrinterWizardPage5 extends org.sblim.wbemsmt.bl.adapter.DataCon
 		/**
 		* <br>
 		* DataType STRING<br>
-		* UIType TEXTFIELD<br>
+		* UIType LABEL<br>
 		* Relation to FCO: Linux_SambaPrinterPrintingOptions.get_PrintCommand<br>
 		*/
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_PrintCommand();
@@ -121,7 +121,7 @@ public interface PrinterWizardPage5 extends org.sblim.wbemsmt.bl.adapter.DataCon
 		/**
 		* <br>
 		* DataType STRING<br>
-		* UIType TEXTFIELD<br>
+		* UIType LABEL<br>
 		* Relation to FCO: userdefined<br>
 		*/
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_ForceUser();

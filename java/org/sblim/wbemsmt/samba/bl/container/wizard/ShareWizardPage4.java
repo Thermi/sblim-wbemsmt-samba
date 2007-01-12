@@ -48,7 +48,7 @@ public interface ShareWizardPage4 extends org.sblim.wbemsmt.bl.adapter.DataConta
 		/**
 		* <br>
 		* DataType STRING<br>
-		* UIType TEXTFIELD<br>
+		* UIType LABEL<br>
 		* Relation to FCO: Linux_SambaShareOptions.get_Name<br>
 		*/
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_Name();
@@ -56,7 +56,7 @@ public interface ShareWizardPage4 extends org.sblim.wbemsmt.bl.adapter.DataConta
 		/**
 		* <br>
 		* DataType STRING<br>
-		* UIType TEXTFIELD<br>
+		* UIType LABEL<br>
 		* Relation to FCO: Linux_SambaShareOptions.get_Path<br>
 		*/
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_Path();
@@ -64,7 +64,7 @@ public interface ShareWizardPage4 extends org.sblim.wbemsmt.bl.adapter.DataConta
 		/**
 		* <br>
 		* DataType STRING<br>
-		* UIType TEXTFIELD<br>
+		* UIType LABEL<br>
 		* Relation to FCO: Linux_SambaShareOptions.get_Comment<br>
 		*/
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_Comment();
@@ -88,7 +88,7 @@ public interface ShareWizardPage4 extends org.sblim.wbemsmt.bl.adapter.DataConta
 		/**
 		* the Default Create Mask<br>
 		* DataType STRING<br>
-		* UIType TEXTFIELD<br>
+		* UIType LABEL<br>
 		* Relation to FCO: Linux_SambaShareSecurityOptions.get_CreateMask<br>
 		*/
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_CreateMask();
@@ -96,7 +96,7 @@ public interface ShareWizardPage4 extends org.sblim.wbemsmt.bl.adapter.DataConta
 		/**
 		* The directory Mask<br>
 		* DataType STRING<br>
-		* UIType TEXTFIELD<br>
+		* UIType LABEL<br>
 		* Relation to FCO: Linux_SambaShareSecurityOptions.get_DirectoryMask<br>
 		*/
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_DirectoryMask();
@@ -104,7 +104,7 @@ public interface ShareWizardPage4 extends org.sblim.wbemsmt.bl.adapter.DataConta
 		/**
 		* <br>
 		* DataType STRING<br>
-		* UIType TEXTFIELD<br>
+		* UIType LABEL<br>
 		* Relation to FCO: Linux_SambaShareSecurityOptions.get_DirectorySecurityMask<br>
 		*/
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_DirectorySecurityMask();
@@ -112,7 +112,7 @@ public interface ShareWizardPage4 extends org.sblim.wbemsmt.bl.adapter.DataConta
 		/**
 		* <br>
 		* DataType STRING<br>
-		* UIType TEXTFIELD<br>
+		* UIType LABEL<br>
 		* Relation to FCO: userdefined<br>
 		*/
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_ForceUser();

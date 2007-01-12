@@ -27,6 +27,10 @@ package org.sblim.wbemsmt.jsf.samba.container.wizard;
 import org.sblim.wbemsmt.exception.*;
 import java.util.*;
 
+
+
+import org.sblim.wbemsmt.bl.adapter.DataContainer;
+
 public class PrinterWizardPage2Impl extends org.sblim.wbemsmt.tools.wizard.jsf.WizardBasePanel implements org.sblim.wbemsmt.samba.bl.container.wizard.PrinterWizardPage2 {
 
 			private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_SambaPrinterName;
@@ -167,6 +171,8 @@ public class PrinterWizardPage2Impl extends org.sblim.wbemsmt.tools.wizard.jsf.W
 		return new String[]{"messages","messagesSamba"};
 	}
 
+	
+ 
 	/**
 	 * Return a list of all Fields. A Field is a LabeledBaseInputComponentIf
 	 * @return
@@ -190,6 +196,18 @@ public class PrinterWizardPage2Impl extends org.sblim.wbemsmt.tools.wizard.jsf.W
 		List childs = new ArrayList();
     	    			return childs;
 	
+	}
+	
+	public void copyFrom(DataContainer sourceContainer)
+	{
+		PrinterWizardPage2Impl source = (PrinterWizardPage2Impl)sourceContainer;
+	
+    	    		get_SambaPrinterName().setValue(source.get_SambaPrinterName().getValue());
+		    		get_usr_SystemPrinterName().setValue(source.get_usr_SystemPrinterName().getValue());
+		    		get_Path().setValue(source.get_Path().getValue());
+		    		get_Comment().setValue(source.get_Comment().getValue());
+				
+    	    	
 	}
 
 	

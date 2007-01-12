@@ -27,10 +27,14 @@ package org.sblim.wbemsmt.jsf.samba.container.share;
 import javax.faces.component.html.HtmlPanelGrid;
 
 import java.util.*;
-import org.sblim.wbemsmt.bl.adapter.*;
 import org.sblim.wbemsmt.tools.input.jsf.*;
 import org.sblim.wbemsmt.tools.input.*;
 import org.sblim.wbemsmt.exception.*;
+
+
+
+import org.sblim.wbemsmt.bl.adapter.DataContainer;
+
 
 	
 public class PrinterListItemDataContainer_AsPrinters_InPrinterListDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel implements org.sblim.wbemsmt.samba.bl.container.printer.PrinterListItemDataContainer {
@@ -425,6 +429,9 @@ public class PrinterListItemDataContainer_AsPrinters_InPrinterListDataContainerI
 		return orientationOfColumnAsCss[column];
 	}
 	
+
+	
+ 
 	/**
 	 * Return a list of all Fields. A Field is a LabeledBaseInputComponentIf
 	 * @return
@@ -456,5 +463,26 @@ public class PrinterListItemDataContainer_AsPrinters_InPrinterListDataContainerI
     	    			return childs;
 	
 	}
+	
+	public void copyFrom(DataContainer sourceContainer)
+	{
+		PrinterListItemDataContainer_AsPrinters_InPrinterListDataContainerImpl source = (PrinterListItemDataContainer_AsPrinters_InPrinterListDataContainerImpl)sourceContainer;
+	
+    	    		get_Name().setValue(source.get_Name().getValue());
+		    		get_usr_SystemPrinterName().setValue(source.get_usr_SystemPrinterName().getValue());
+		    		get_Path().setValue(source.get_Path().getValue());
+		    		get_Comment().setValue(source.get_Comment().getValue());
+		    		get_Available().setValue(source.get_Available().getValue());
+		    		get_GuestOK().setValue(source.get_GuestOK().getValue());
+		    		get_GuestOnly().setValue(source.get_GuestOnly().getValue());
+		    		get_HostsAllow().setValue(source.get_HostsAllow().getValue());
+		    		get_HostsDeny().setValue(source.get_HostsDeny().getValue());
+		    		get_ReadOnly().setValue(source.get_ReadOnly().getValue());
+		    		get_Browsable().setValue(source.get_Browsable().getValue());
+				
+    	    	
+	}
+	
+	
 	
 }

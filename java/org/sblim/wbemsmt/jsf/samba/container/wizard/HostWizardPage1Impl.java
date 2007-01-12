@@ -27,6 +27,10 @@ package org.sblim.wbemsmt.jsf.samba.container.wizard;
 import org.sblim.wbemsmt.exception.*;
 import java.util.*;
 
+
+
+import org.sblim.wbemsmt.bl.adapter.DataContainer;
+
 public class HostWizardPage1Impl extends org.sblim.wbemsmt.tools.wizard.jsf.WizardBasePanel implements org.sblim.wbemsmt.samba.bl.container.wizard.HostWizardPage1 {
 
 			private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_Name;
@@ -83,6 +87,8 @@ public class HostWizardPage1Impl extends org.sblim.wbemsmt.tools.wizard.jsf.Wiza
 		return new String[]{"messages","messagesSamba"};
 	}
 
+	
+ 
 	/**
 	 * Return a list of all Fields. A Field is a LabeledBaseInputComponentIf
 	 * @return
@@ -103,6 +109,15 @@ public class HostWizardPage1Impl extends org.sblim.wbemsmt.tools.wizard.jsf.Wiza
 		List childs = new ArrayList();
     	    			return childs;
 	
+	}
+	
+	public void copyFrom(DataContainer sourceContainer)
+	{
+		HostWizardPage1Impl source = (HostWizardPage1Impl)sourceContainer;
+	
+    	    		get_Name().setValue(source.get_Name().getValue());
+				
+    	    	
 	}
 
 	

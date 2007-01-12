@@ -43,7 +43,7 @@ public interface UserWizardPage3 extends org.sblim.wbemsmt.bl.adapter.DataContai
 		/**
 		* <br>
 		* DataType STRING<br>
-		* UIType TEXTFIELD<br>
+		* UIType LABEL<br>
 		* Relation to FCO: Linux_SambaUser.get_SambaUserName<br>
 		*/
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_SambaUserName();
@@ -51,7 +51,7 @@ public interface UserWizardPage3 extends org.sblim.wbemsmt.bl.adapter.DataContai
 		/**
 		* <br>
 		* DataType STRING<br>
-		* UIType TEXTFIELD<br>
+		* UIType LABEL<br>
 		* Relation to FCO: Linux_SambaUser.get_SystemUserName<br>
 		*/
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_SystemUserName();

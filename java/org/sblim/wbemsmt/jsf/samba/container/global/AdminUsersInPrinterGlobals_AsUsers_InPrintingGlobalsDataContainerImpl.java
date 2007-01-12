@@ -27,10 +27,14 @@ package org.sblim.wbemsmt.jsf.samba.container.global;
 import javax.faces.component.html.HtmlPanelGrid;
 
 import java.util.*;
-import org.sblim.wbemsmt.bl.adapter.*;
 import org.sblim.wbemsmt.tools.input.jsf.*;
 import org.sblim.wbemsmt.tools.input.*;
 import org.sblim.wbemsmt.exception.*;
+
+
+
+import org.sblim.wbemsmt.bl.adapter.DataContainer;
+
 
 	
 public class AdminUsersInPrinterGlobals_AsUsers_InPrintingGlobalsDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel implements org.sblim.wbemsmt.samba.bl.container.global.AdminUsersInPrinterGlobals {
@@ -146,6 +150,9 @@ public class AdminUsersInPrinterGlobals_AsUsers_InPrintingGlobalsDataContainerIm
 		return orientationOfColumnAsCss[column];
 	}
 	
+
+	
+ 
 	/**
 	 * Return a list of all Fields. A Field is a LabeledBaseInputComponentIf
 	 * @return
@@ -168,5 +175,17 @@ public class AdminUsersInPrinterGlobals_AsUsers_InPrintingGlobalsDataContainerIm
     	    			return childs;
 	
 	}
+	
+	public void copyFrom(DataContainer sourceContainer)
+	{
+		AdminUsersInPrinterGlobals_AsUsers_InPrintingGlobalsDataContainerImpl source = (AdminUsersInPrinterGlobals_AsUsers_InPrintingGlobalsDataContainerImpl)sourceContainer;
+	
+    	    		get_usr_SambaUserName().setValue(source.get_usr_SambaUserName().getValue());
+		    		get_usr_Admin().setValue(source.get_usr_Admin().getValue());
+				
+    	    	
+	}
+	
+	
 	
 }

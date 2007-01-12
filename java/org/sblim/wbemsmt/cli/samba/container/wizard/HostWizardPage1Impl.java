@@ -34,6 +34,11 @@ import org.sblim.wbemsmt.bl.adapter.*;
 import org.sblim.wbemsmt.tools.resources.*;
 import org.sblim.wbemsmt.exception.*;
 
+
+
+import org.sblim.wbemsmt.bl.adapter.DataContainer;
+
+
 public class HostWizardPage1Impl extends BaseDataContainer implements org.sblim.wbemsmt.samba.bl.container.wizard.HostWizardPage1 {
 
 	protected static WbemSmtResourceBundle bundle = ResourceBundleManager.getResourceBundle(new String[]{"messages","messagesSamba"},Locale.getDefault());
@@ -100,6 +105,8 @@ public class HostWizardPage1Impl extends BaseDataContainer implements org.sblim.
 			
 	}
 	
+	
+ 
 	/**
 	 * Return a list of all Fields. A Field is a LabeledBaseInputComponentIf
 	 * @return
@@ -122,4 +129,12 @@ public class HostWizardPage1Impl extends BaseDataContainer implements org.sblim.
 	
 	}
 	
+	public void copyFrom(DataContainer sourceContainer)
+	{
+		HostWizardPage1Impl source = (HostWizardPage1Impl)sourceContainer;
+	
+    	    		get_Name().setValue(source.get_Name().getValue());
+				
+    	    	
+	}
 }

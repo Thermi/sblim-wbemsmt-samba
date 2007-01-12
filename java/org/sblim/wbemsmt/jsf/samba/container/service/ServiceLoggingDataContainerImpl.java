@@ -27,6 +27,10 @@ package org.sblim.wbemsmt.jsf.samba.container.service;
 import org.sblim.wbemsmt.exception.*;
 import java.util.*;
 
+
+
+import org.sblim.wbemsmt.bl.adapter.DataContainer;
+
 public class ServiceLoggingDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.EditBasePanel implements org.sblim.wbemsmt.samba.bl.container.service.ServiceLoggingDataContainer {
 
 			private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_SysLog;
@@ -299,6 +303,8 @@ public class ServiceLoggingDataContainerImpl extends org.sblim.wbemsmt.tools.jsf
 		return new String[]{"messages","messagesSamba"};
 	}
 
+	
+ 
 	/**
 	 * Return a list of all Fields. A Field is a LabeledBaseInputComponentIf
 	 * @return
@@ -327,6 +333,23 @@ public class ServiceLoggingDataContainerImpl extends org.sblim.wbemsmt.tools.jsf
 		List childs = new ArrayList();
     	    			return childs;
 	
+	}
+	
+	public void copyFrom(DataContainer sourceContainer)
+	{
+		ServiceLoggingDataContainerImpl source = (ServiceLoggingDataContainerImpl)sourceContainer;
+	
+    	    		get_SysLog().setValue(source.get_SysLog().getValue());
+		    		get_SysLogOnly().setValue(source.get_SysLogOnly().getValue());
+		    		get_MaxLogSize().setValue(source.get_MaxLogSize().getValue());
+		    		get_DebugHiresTimestamp().setValue(source.get_DebugHiresTimestamp().getValue());
+		    		get_DebugPID().setValue(source.get_DebugPID().getValue());
+		    		get_DebugTimestamp().setValue(source.get_DebugTimestamp().getValue());
+		    		get_DebugUID().setValue(source.get_DebugUID().getValue());
+		    		get_LogFile().setValue(source.get_LogFile().getValue());
+		    		get_LogLevel().setValue(source.get_LogLevel().getValue());
+				
+    	    	
 	}
 
 	

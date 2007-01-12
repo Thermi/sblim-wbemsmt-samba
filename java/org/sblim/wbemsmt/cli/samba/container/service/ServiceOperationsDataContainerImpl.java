@@ -34,6 +34,11 @@ import org.sblim.wbemsmt.bl.adapter.*;
 import org.sblim.wbemsmt.tools.resources.*;
 import org.sblim.wbemsmt.exception.*;
 
+
+
+import org.sblim.wbemsmt.bl.adapter.DataContainer;
+
+
 public class ServiceOperationsDataContainerImpl extends BaseDataContainer implements org.sblim.wbemsmt.samba.bl.container.service.ServiceOperationsDataContainer {
 
 	protected static WbemSmtResourceBundle bundle = ResourceBundleManager.getResourceBundle(new String[]{"messages","messagesSamba"},Locale.getDefault());
@@ -151,6 +156,8 @@ public class ServiceOperationsDataContainerImpl extends BaseDataContainer implem
 			
 	}
 	
+	
+ 
 	/**
 	 * Return a list of all Fields. A Field is a LabeledBaseInputComponentIf
 	 * @return
@@ -176,4 +183,15 @@ public class ServiceOperationsDataContainerImpl extends BaseDataContainer implem
 	
 	}
 	
+	public void copyFrom(DataContainer sourceContainer)
+	{
+		ServiceOperationsDataContainerImpl source = (ServiceOperationsDataContainerImpl)sourceContainer;
+	
+    	    		get_Started().setValue(source.get_Started().getValue());
+		    		get_invoke_StartService().setValue(source.get_invoke_StartService().getValue());
+		    		get_invoke_StopService().setValue(source.get_invoke_StopService().getValue());
+		    		get_usr_RestartService().setValue(source.get_usr_RestartService().getValue());
+				
+    	    	
+	}
 }

@@ -34,6 +34,11 @@ import org.sblim.wbemsmt.bl.adapter.*;
 import org.sblim.wbemsmt.tools.resources.*;
 import org.sblim.wbemsmt.exception.*;
 
+
+
+import org.sblim.wbemsmt.bl.adapter.DataContainer;
+
+
 public class ServiceOptionsDataContainerImpl extends BaseDataContainer implements org.sblim.wbemsmt.samba.bl.container.service.ServiceOptionsDataContainer {
 
 	protected static WbemSmtResourceBundle bundle = ResourceBundleManager.getResourceBundle(new String[]{"messages","messagesSamba"},Locale.getDefault());
@@ -232,6 +237,8 @@ public class ServiceOptionsDataContainerImpl extends BaseDataContainer implement
 			
 	}
 	
+	
+ 
 	/**
 	 * Return a list of all Fields. A Field is a LabeledBaseInputComponentIf
 	 * @return
@@ -260,4 +267,18 @@ public class ServiceOptionsDataContainerImpl extends BaseDataContainer implement
 	
 	}
 	
+	public void copyFrom(DataContainer sourceContainer)
+	{
+		ServiceOptionsDataContainerImpl source = (ServiceOptionsDataContainerImpl)sourceContainer;
+	
+    	    		get_BindInterfacesOnly().setValue(source.get_BindInterfacesOnly().getValue());
+		    		get_Interfaces().setValue(source.get_Interfaces().getValue());
+		    		get_NetbiosAlias().setValue(source.get_NetbiosAlias().getValue());
+		    		get_NetbiosName().setValue(source.get_NetbiosName().getValue());
+		    		get_ServerString().setValue(source.get_ServerString().getValue());
+		    		get_Workgroup().setValue(source.get_Workgroup().getValue());
+		    		get_ConfigurationFile().setValue(source.get_ConfigurationFile().getValue());
+				
+    	    	
+	}
 }

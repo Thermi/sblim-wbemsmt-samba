@@ -34,6 +34,11 @@ import org.sblim.wbemsmt.bl.adapter.*;
 import org.sblim.wbemsmt.tools.resources.*;
 import org.sblim.wbemsmt.exception.*;
 
+
+
+import org.sblim.wbemsmt.bl.adapter.DataContainer;
+
+
 public class UserACLItemDataContainerForServiceImpl extends BaseDataContainer implements org.sblim.wbemsmt.samba.bl.container.service.UserACLItemDataContainerForService {
 
 	protected static WbemSmtResourceBundle bundle = ResourceBundleManager.getResourceBundle(new String[]{"messages","messagesSamba"},Locale.getDefault());
@@ -144,6 +149,8 @@ public class UserACLItemDataContainerForServiceImpl extends BaseDataContainer im
 			
 	}
 	
+	
+ 
 	/**
 	 * Return a list of all Fields. A Field is a LabeledBaseInputComponentIf
 	 * @return
@@ -168,4 +175,14 @@ public class UserACLItemDataContainerForServiceImpl extends BaseDataContainer im
 	
 	}
 	
+	public void copyFrom(DataContainer sourceContainer)
+	{
+		UserACLItemDataContainerForServiceImpl source = (UserACLItemDataContainerForServiceImpl)sourceContainer;
+	
+    	    		get_SambaUserName().setValue(source.get_SambaUserName().getValue());
+		    		get_usr_AccessTypeVI().setValue(source.get_usr_AccessTypeVI().getValue());
+		    		get_usr_AccessTypeRW().setValue(source.get_usr_AccessTypeRW().getValue());
+				
+    	    	
+	}
 }

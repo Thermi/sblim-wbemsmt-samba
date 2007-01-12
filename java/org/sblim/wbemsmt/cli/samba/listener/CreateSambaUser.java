@@ -79,10 +79,6 @@ public class CreateSambaUser extends CimCommand implements ContainerUpdater {
 			/**
 		 * 
 		 */
-		public static final OptionDefinition KEY_systemUser = new OptionDefinition("systemUser",null,"UserWizardPage1.SystemUserName.argValue",true,false,"UserWizardPage1.SystemUserName.argDescription");
-			/**
-		 * 
-		 */
 		public static final OptionDefinition KEY_userPassword = new OptionDefinition("userPassword",null,"UserWizardPage1.SambaUserPassword.argValue",true,false,"UserWizardPage1.SambaUserPassword.argDescription");
 			/**
 		 * 
@@ -96,6 +92,10 @@ public class CreateSambaUser extends CimCommand implements ContainerUpdater {
 		 * 
 		 */
 		public static final OptionDefinition KEY_accessToAll = new OptionDefinition("accessToAll",null,"UserWizardPage2.accessToAll.argValue",true,false,"UserWizardPage2.accessToAll.argDescription");
+			/**
+		 * 
+		 */
+		public static final OptionDefinition KEY_systemUser = new OptionDefinition("systemUser",null,"UserWizardPage3.SystemUserName.argValue",false,false,"UserWizardPage3.SystemUserName.argDescription");
 		
 public static final OptionDefinition KEY_locale = new OptionDefinition("locale","en","locale",false,false,"locale");	
 	
@@ -110,11 +110,11 @@ public static final OptionDefinition KEY_locale = new OptionDefinition("locale",
     	    	KEY_GLOBAL_privatekeyfile,
     	    	KEY_GLOBAL_serviceName,
     	    	KEY_username,
-    	    	KEY_systemUser,
     	    	KEY_userPassword,
     	    	KEY_userPasswordVerify,
     	    	KEY_isGuest,
     	    	KEY_accessToAll,
+    	    	KEY_systemUser,
     			KEY_locale,
 	};
 
@@ -358,9 +358,10 @@ public static final OptionDefinition KEY_locale = new OptionDefinition("locale",
 	
 	private void setCommandLineValues(CommandLine cmd,AbstractBaseCimAdapter adapter, org.sblim.wbemsmt.samba.bl.container.wizard.UserWizardPage3 dc) throws WbemSmtException {
 		//set the values
-				
+											setValue(cmd,dc.get_SystemUserName(),KEY_systemUser);
+															
 		//The Buttons
-    			
+    												
 	}	
 
 	}

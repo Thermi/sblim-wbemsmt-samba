@@ -34,6 +34,11 @@ import org.sblim.wbemsmt.bl.adapter.*;
 import org.sblim.wbemsmt.tools.resources.*;
 import org.sblim.wbemsmt.exception.*;
 
+
+
+import org.sblim.wbemsmt.bl.adapter.DataContainer;
+
+
 public class GUIShareGlobalsDataContainerImpl extends BaseDataContainer implements org.sblim.wbemsmt.samba.bl.container.global.GUIShareGlobalsDataContainer {
 
 	protected static WbemSmtResourceBundle bundle = ResourceBundleManager.getResourceBundle(new String[]{"messages","messagesSamba"},Locale.getDefault());
@@ -1022,6 +1027,8 @@ public class GUIShareGlobalsDataContainerImpl extends BaseDataContainer implemen
 			
 	}
 	
+	
+ 
 	/**
 	 * Return a list of all Fields. A Field is a LabeledBaseInputComponentIf
 	 * @return
@@ -1086,4 +1093,64 @@ public class GUIShareGlobalsDataContainerImpl extends BaseDataContainer implemen
 	
 	}
 	
+	public void copyFrom(DataContainer sourceContainer)
+	{
+		GUIShareGlobalsDataContainerImpl source = (GUIShareGlobalsDataContainerImpl)sourceContainer;
+	
+    	    		get_CaseSensitive().setValue(source.get_CaseSensitive().getValue());
+		    		get_DosFiletimes().setValue(source.get_DosFiletimes().getValue());
+		    		get_HideDotFiles().setValue(source.get_HideDotFiles().getValue());
+		    		get_AclCompatibility().setValue(source.get_AclCompatibility().getValue());
+		    		get_EASupport().setValue(source.get_EASupport().getValue());
+		    		get_NTACLSupport().setValue(source.get_NTACLSupport().getValue());
+		    		get_usr_Create_u().setValue(source.get_usr_Create_u().getValue());
+		    		get_usr_Create_g().setValue(source.get_usr_Create_g().getValue());
+		    		get_usr_Create_s().setValue(source.get_usr_Create_s().getValue());
+		    		get_usr_Create_user_r().setValue(source.get_usr_Create_user_r().getValue());
+		    		get_usr_Create_user_w().setValue(source.get_usr_Create_user_w().getValue());
+		    		get_usr_Create_user_x().setValue(source.get_usr_Create_user_x().getValue());
+		    		get_usr_Create_group_r().setValue(source.get_usr_Create_group_r().getValue());
+		    		get_usr_Create_group_w().setValue(source.get_usr_Create_group_w().getValue());
+		    		get_usr_Create_group_x().setValue(source.get_usr_Create_group_x().getValue());
+		    		get_usr_Create_other_r().setValue(source.get_usr_Create_other_r().getValue());
+		    		get_usr_Create_other_w().setValue(source.get_usr_Create_other_w().getValue());
+		    		get_usr_Create_other_x().setValue(source.get_usr_Create_other_x().getValue());
+		    		get_usr_Directory_u().setValue(source.get_usr_Directory_u().getValue());
+		    		get_usr_Directory_g().setValue(source.get_usr_Directory_g().getValue());
+		    		get_usr_Directory_s().setValue(source.get_usr_Directory_s().getValue());
+		    		get_usr_Directory_user_r().setValue(source.get_usr_Directory_user_r().getValue());
+		    		get_usr_Directory_user_w().setValue(source.get_usr_Directory_user_w().getValue());
+		    		get_usr_Directory_user_x().setValue(source.get_usr_Directory_user_x().getValue());
+		    		get_usr_Directory_group_r().setValue(source.get_usr_Directory_group_r().getValue());
+		    		get_usr_Directory_group_w().setValue(source.get_usr_Directory_group_w().getValue());
+		    		get_usr_Directory_group_x().setValue(source.get_usr_Directory_group_x().getValue());
+		    		get_usr_Directory_other_r().setValue(source.get_usr_Directory_other_r().getValue());
+		    		get_usr_Directory_other_w().setValue(source.get_usr_Directory_other_w().getValue());
+		    		get_usr_Directory_other_x().setValue(source.get_usr_Directory_other_x().getValue());
+		    		get_usr_Directory_security_u().setValue(source.get_usr_Directory_security_u().getValue());
+		    		get_usr_Directory_security_g().setValue(source.get_usr_Directory_security_g().getValue());
+		    		get_usr_Directory_security_s().setValue(source.get_usr_Directory_security_s().getValue());
+		    		get_usr_Directory_security_user_r().setValue(source.get_usr_Directory_security_user_r().getValue());
+		    		get_usr_Directory_security_user_w().setValue(source.get_usr_Directory_security_user_w().getValue());
+		    		get_usr_Directory_security_user_x().setValue(source.get_usr_Directory_security_user_x().getValue());
+		    		get_usr_Directory_security_group_r().setValue(source.get_usr_Directory_security_group_r().getValue());
+		    		get_usr_Directory_security_group_w().setValue(source.get_usr_Directory_security_group_w().getValue());
+		    		get_usr_Directory_security_group_x().setValue(source.get_usr_Directory_security_group_x().getValue());
+		    		get_usr_Directory_security_other_r().setValue(source.get_usr_Directory_security_other_r().getValue());
+		    		get_usr_Directory_security_other_w().setValue(source.get_usr_Directory_security_other_w().getValue());
+		    		get_usr_Directory_security_other_x().setValue(source.get_usr_Directory_security_other_x().getValue());
+				
+    	    		List targetListForUsers = (List) getUsers();
+    		List sourceListForUsers = (List) source.getUsers();
+    		if (sourceListForUsers.size() != targetListForUsers.size())
+    		{
+    			throw new IllegalArgumentException("The Lists are not from same size. Source is " + sourceListForUsers.size() + " and target is " + targetListForUsers.size() );
+    		}
+			for (int ii=0; ii < sourceListForUsers.size(); ii++)
+			{
+				((DataContainer) targetListForUsers.get(ii)).copyFrom(((DataContainer) sourceListForUsers.get(ii)));
+			}
+			
+    	    	
+	}
 }

@@ -34,6 +34,11 @@ import org.sblim.wbemsmt.bl.adapter.*;
 import org.sblim.wbemsmt.tools.resources.*;
 import org.sblim.wbemsmt.exception.*;
 
+
+
+import org.sblim.wbemsmt.bl.adapter.DataContainer;
+
+
 public class UserWizardPage2Impl extends BaseDataContainer implements org.sblim.wbemsmt.samba.bl.container.wizard.UserWizardPage2 {
 
 	protected static WbemSmtResourceBundle bundle = ResourceBundleManager.getResourceBundle(new String[]{"messages","messagesSamba"},Locale.getDefault());
@@ -140,6 +145,8 @@ public class UserWizardPage2Impl extends BaseDataContainer implements org.sblim.
 			
 	}
 	
+	
+ 
 	/**
 	 * Return a list of all Fields. A Field is a LabeledBaseInputComponentIf
 	 * @return
@@ -164,4 +171,34 @@ public class UserWizardPage2Impl extends BaseDataContainer implements org.sblim.
 	
 	}
 	
+	public void copyFrom(DataContainer sourceContainer)
+	{
+		UserWizardPage2Impl source = (UserWizardPage2Impl)sourceContainer;
+	
+    	    		get_usr_AccessToAll().setValue(source.get_usr_AccessToAll().getValue());
+				
+    	    		List targetListForShares = (List) getShares();
+    		List sourceListForShares = (List) source.getShares();
+    		if (sourceListForShares.size() != targetListForShares.size())
+    		{
+    			throw new IllegalArgumentException("The Lists are not from same size. Source is " + sourceListForShares.size() + " and target is " + targetListForShares.size() );
+    		}
+			for (int ii=0; ii < sourceListForShares.size(); ii++)
+			{
+				((DataContainer) targetListForShares.get(ii)).copyFrom(((DataContainer) sourceListForShares.get(ii)));
+			}
+			
+    	    		List targetListForPrinters = (List) getPrinters();
+    		List sourceListForPrinters = (List) source.getPrinters();
+    		if (sourceListForPrinters.size() != targetListForPrinters.size())
+    		{
+    			throw new IllegalArgumentException("The Lists are not from same size. Source is " + sourceListForPrinters.size() + " and target is " + targetListForPrinters.size() );
+    		}
+			for (int ii=0; ii < sourceListForPrinters.size(); ii++)
+			{
+				((DataContainer) targetListForPrinters.get(ii)).copyFrom(((DataContainer) sourceListForPrinters.get(ii)));
+			}
+			
+    	    	
+	}
 }

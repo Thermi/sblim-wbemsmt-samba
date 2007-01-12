@@ -678,17 +678,17 @@
 			<dcg:field name="allOrOne" dataType="UNSIGNED_INT16" userDefined="true" uiType="RADIOBUTTON" fcoFieldName="userdefined" description="" readOnly="true">
 				<cmd:option required="true" usedForSelection="false" long="allOrOne" comment="" defaultValue="noDefaultValue"/>
 			</dcg:field>
-			<dcg:field name="SambaPrinterName" dataType="STRING" userDefined="false" uiType="TEXTFIELD" fcoFieldName="Linux_SambaPrinterOptions.get_Name" description="" readOnly="true">
-				<cmd:option required="false" usedForSelection="false" long="sambaPrinterName" comment="" defaultValue="noDefaultValue"/>
+			<dcg:field name="SambaPrinterName" dataType="STRING" userDefined="false" uiType="LABEL" fcoFieldName="Linux_SambaPrinterOptions.get_Name" description="" readOnly="true" orientation="LEFT" required="false">
+				<cmd:option required="false" usedForSelection="false" long="sambaPrinterName" comment="" defaultValue="noDefaultValue" duplicateOK="false"/>
 			</dcg:field>
 			<dcg:field name="SystemPrinterName" dataType="UNSIGNED_INT16" userDefined="true" uiType="COMBOBOX" fcoFieldName="userdefined" description="maps to Linux_SambaPrinterOptions.get_SystemPrinterName" readOnly="true">
 				<cmd:option required="false" usedForSelection="false" long="systemPrintername" comment="" defaultValue="noDefaultValue"/>
 			</dcg:field>
-			<dcg:field name="Path" dataType="STRING" userDefined="false" uiType="TEXTFIELD" fcoFieldName="Linux_SambaPrinterOptions.get_Path" description="" readOnly="true">
-				<cmd:option required="true" usedForSelection="false" long="path" comment="" defaultValue="noDefaultValue"/>
+			<dcg:field name="Path" dataType="STRING" userDefined="false" uiType="LABEL" fcoFieldName="Linux_SambaPrinterOptions.get_Path" description="" readOnly="true" orientation="LEFT" required="false">
+				<cmd:option required="false" usedForSelection="false" long="path" comment="" defaultValue="noDefaultValue" duplicateOK="false"/>
 			</dcg:field>
-			<dcg:field name="Comment" dataType="STRING" userDefined="false" uiType="TEXTFIELD" fcoFieldName="Linux_SambaPrinterOptions.get_Comment" description="" readOnly="true">
-				<cmd:option required="false" usedForSelection="false" long="comment" comment="" defaultValue="noDefaultValue"/>
+			<dcg:field name="Comment" dataType="STRING" userDefined="false" uiType="LABEL" fcoFieldName="Linux_SambaPrinterOptions.get_Comment" description="" readOnly="true" orientation="LEFT" required="false">
+				<cmd:option required="false" usedForSelection="false" long="comment" comment="" defaultValue="noDefaultValue" duplicateOK="false"/>
 			</dcg:field>
 			<dcg:field name="seenByEverybody" dataType="BOOLEAN" userDefined="true" uiType="CHECKBOX" fcoFieldName="userdefined" description="" readOnly="true">
 				<cmd:option required="false" usedForSelection="false" long="seenByEverybody" comment="" defaultValue="noDefaultValue"/>
@@ -696,13 +696,13 @@
 			<dcg:field name="enableGuest" dataType="BOOLEAN" userDefined="true" uiType="CHECKBOX" fcoFieldName="userdefined" description="" readOnly="true">
 				<cmd:option required="false" usedForSelection="false" long="enableGuest" comment="" defaultValue="noDefaultValue"/>
 			</dcg:field>
-			<dcg:field name="CupsOptions" dataType="STRING" userDefined="false" uiType="TEXTFIELD" fcoFieldName="Linux_SambaPrinterPrintingOptions.get_CupsOptions" description="" readOnly="true">
-				<cmd:option required="false" usedForSelection="false" long="cupsOptions" comment="" defaultValue="noDefaultValue"/>
+			<dcg:field name="CupsOptions" dataType="STRING" userDefined="false" uiType="LABEL" fcoFieldName="Linux_SambaPrinterPrintingOptions.get_CupsOptions" description="" readOnly="true" orientation="LEFT" required="false">
+				<cmd:option required="false" usedForSelection="false" long="cupsOptions" comment="" defaultValue="noDefaultValue" duplicateOK="false"/>
 			</dcg:field>
-			<dcg:field name="PrintCommand" dataType="STRING" userDefined="false" uiType="TEXTFIELD" fcoFieldName="Linux_SambaPrinterPrintingOptions.get_PrintCommand" description="" readOnly="true">
-				<cmd:option required="false" usedForSelection="false" long="printCommand" comment="" defaultValue="noDefaultValue"/>
+			<dcg:field name="PrintCommand" dataType="STRING" userDefined="false" uiType="LABEL" fcoFieldName="Linux_SambaPrinterPrintingOptions.get_PrintCommand" description="" readOnly="true" orientation="LEFT" required="false">
+				<cmd:option required="false" usedForSelection="false" long="printCommand" comment="" defaultValue="noDefaultValue" duplicateOK="false"/>
 			</dcg:field>
-			<dcg:field name="forceUser" dataType="STRING" userDefined="true" uiType="TEXTFIELD" fcoFieldName="userdefined" description="" readOnly="true"/>
+			<dcg:field name="forceUser" dataType="STRING" userDefined="true" uiType="LABEL" fcoFieldName="userdefined" description="" readOnly="true" orientation="LEFT" required="false"/>
 			<dcg:link linkedContainer="UserInPrinterWizardACLItemDataContainer" linkedPackage="wizardContainerPackage" occurrence="LIST" role="users" description=""/>
 		</dcg:container>
 		<dcg:container name="UserWizardPage1" packageId="wizardContainerPackage" implPackageId="wizardContainerImpl" adapterId="sambaAdapter" description="" canCreate="false" canModify="false" canDelete="false" isWizard="true">
@@ -710,8 +710,8 @@
 			<dcg:field name="SambaUserName" dataType="STRING" userDefined="false" uiType="TEXTFIELD" fcoFieldName="Linux_SambaUser.get_SambaUserName" description="" readOnly="false" required="true">
 				<cmd:option required="true" usedForSelection="false" long="username" comment="" defaultValue="noDefaultValue" duplicateOK="false"/>
 			</dcg:field>
-			<dcg:field name="SystemUserName" dataType="UNSIGNED_INT16" userDefined="false" uiType="LIST" fcoFieldName="Linux_SambaUser.get_SystemUserName" description="" readOnly="false" required="true">
-				<cmd:option required="true" usedForSelection="false" long="systemUser" comment="" defaultValue="noDefaultValue" duplicateOK="false"/>
+			<dcg:field name="SystemUserName" dataType="UNSIGNED_INT16" userDefined="false" uiType="LIST" fcoFieldName="Linux_SambaUser.get_SystemUserName" description="" readOnly="false" required="true" orientation="LEFT">
+				<cmd:option required="true" usedForSelection="false" long="systemUser" comment="" defaultValue="noDefaultValue" duplicateOK="true"/>
 			</dcg:field>
 			<dcg:field name="SambaUserPassword" dataType="STRING" userDefined="false" uiType="PASSWORD" fcoFieldName="Linux_SambaUser.get_SambaUserPassword" description="" readOnly="false" required="true">
 				<cmd:option required="true" usedForSelection="false" long="userPassword" comment="" defaultValue="noDefaultValue" duplicateOK="false"/>
@@ -731,11 +731,11 @@
 			<dcg:link linkedContainer="PrinterInUserWizardACLItemDataContainer" linkedPackage="wizardContainerPackage" occurrence="LIST" role="printers" description=""/>
 		</dcg:container>
 		<dcg:container implPackageId="wizardContainerImpl" name="UserWizardPage3" packageId="wizardContainerPackage" adapterId="sambaAdapter" description="" canCreate="true" canModify="false" canDelete="false" isWizard="true">
-			<dcg:field name="SambaUserName" dataType="STRING" userDefined="false" uiType="TEXTFIELD" fcoFieldName="Linux_SambaUser.get_SambaUserName" description="" readOnly="true">
-				<cmd:option required="false" usedForSelection="false" long="username" comment="" defaultValue="noDefaultValue"/>
+			<dcg:field name="SambaUserName" dataType="STRING" userDefined="false" uiType="LABEL" fcoFieldName="Linux_SambaUser.get_SambaUserName" description="" readOnly="true" orientation="LEFT" required="false">
+				<cmd:option required="false" usedForSelection="false" long="username" comment="" defaultValue="noDefaultValue" duplicateOK="false"/>
 			</dcg:field>
-			<dcg:field name="SystemUserName" dataType="STRING" userDefined="false" uiType="TEXTFIELD" fcoFieldName="Linux_SambaUser.get_SystemUserName" description="" readOnly="true">
-				<cmd:option required="false" usedForSelection="false" long="systemUser" comment="" defaultValue="noDefaultValue"/>
+			<dcg:field name="SystemUserName" dataType="STRING" userDefined="false" uiType="LABEL" fcoFieldName="Linux_SambaUser.get_SystemUserName" description="" readOnly="false" orientation="LEFT" required="false">
+				<cmd:option required="false" usedForSelection="false" long="systemUser" comment="" defaultValue="noDefaultValue" duplicateOK="true"/>
 			</dcg:field>
 			<dcg:field name="isGuest" dataType="BOOLEAN" userDefined="true" uiType="CHECKBOX" fcoFieldName="userdefined" description="" readOnly="true">
 				<cmd:option required="false" usedForSelection="false" long="isGuest" comment="" defaultValue="noDefaultValue"/>
@@ -811,11 +811,11 @@
 		</dcg:container>
 		<dcg:container name="ShareWizardPage4" packageId="wizardContainerPackage" implPackageId="wizardContainerImpl" adapterId="sambaAdapter" description="" canCreate="true" canModify="false" canDelete="false" isWizard="true">
 			<dcg:fcoRelation fcoName="Linux_SambaShareOptions" fcoPackageId="org.sblim.wbemsmt.samba.bl.fco"/>
-			<dcg:field name="Name" dataType="STRING" userDefined="false" uiType="TEXTFIELD" fcoFieldName="Linux_SambaShareOptions.get_Name" description="" readOnly="true">
+			<dcg:field name="Name" dataType="STRING" userDefined="false" uiType="LABEL" fcoFieldName="Linux_SambaShareOptions.get_Name" description="" readOnly="true" orientation="LEFT" required="false">
 			</dcg:field>
-			<dcg:field name="Path" dataType="STRING" userDefined="false" uiType="TEXTFIELD" fcoFieldName="Linux_SambaShareOptions.get_Path" description="" readOnly="true">
+			<dcg:field name="Path" dataType="STRING" userDefined="false" uiType="LABEL" fcoFieldName="Linux_SambaShareOptions.get_Path" description="" readOnly="true" orientation="LEFT" required="false">
 			</dcg:field>
-			<dcg:field name="Comment" dataType="STRING" userDefined="false" uiType="TEXTFIELD" fcoFieldName="Linux_SambaShareOptions.get_Comment" description="" readOnly="true">
+			<dcg:field name="Comment" dataType="STRING" userDefined="false" uiType="LABEL" fcoFieldName="Linux_SambaShareOptions.get_Comment" description="" readOnly="true" orientation="LEFT" required="false">
 			</dcg:field>
 			<dcg:field name="seenByEverybody" dataType="BOOLEAN" userDefined="true" uiType="CHECKBOX" fcoFieldName="userdefined" description="" readOnly="true">
 				<cmd:option required="false" usedForSelection="false" long="seenByEverybody" comment="" defaultValue="noDefaultValue"/>
@@ -823,16 +823,16 @@
 			<dcg:field name="enableGuest" dataType="BOOLEAN" userDefined="true" uiType="CHECKBOX" fcoFieldName="userdefined" description="" readOnly="true">
 				<cmd:option required="false" usedForSelection="false" long="enableGuest" comment="" defaultValue="noDefaultValue"/>
 			</dcg:field>
-			<dcg:field name="CreateMask" dataType="STRING" userDefined="false" uiType="TEXTFIELD" fcoFieldName="Linux_SambaShareSecurityOptions.get_CreateMask" description="the Default Create Mask" readOnly="true">
-				<cmd:option required="true" usedForSelection="false" long="createMask" comment="the Default Create Mask" defaultValue="noDefaultValue"/>
+			<dcg:field name="CreateMask" dataType="STRING" userDefined="false" uiType="LABEL" fcoFieldName="Linux_SambaShareSecurityOptions.get_CreateMask" description="the Default Create Mask" readOnly="true" orientation="LEFT" required="false">
+				<cmd:option required="false" usedForSelection="false" long="createMask" comment="the Default Create Mask" defaultValue="noDefaultValue" duplicateOK="false"/>
 			</dcg:field>
-			<dcg:field name="DirectoryMask" dataType="STRING" userDefined="false" uiType="TEXTFIELD" fcoFieldName="Linux_SambaShareSecurityOptions.get_DirectoryMask" description="The directory Mask" readOnly="true">
-				<cmd:option required="true" usedForSelection="false" long="directoryMask" comment="The directory Mask" defaultValue="noDefaultValue"/>
+			<dcg:field name="DirectoryMask" dataType="STRING" userDefined="false" uiType="LABEL" fcoFieldName="Linux_SambaShareSecurityOptions.get_DirectoryMask" description="The directory Mask" readOnly="true" orientation="LEFT" required="false">
+				<cmd:option required="false" usedForSelection="false" long="directoryMask" comment="The directory Mask" defaultValue="noDefaultValue" duplicateOK="false"/>
 			</dcg:field>
-			<dcg:field name="DirectorySecurityMask" dataType="STRING" userDefined="false" uiType="TEXTFIELD" fcoFieldName="Linux_SambaShareSecurityOptions.get_DirectorySecurityMask" description="" readOnly="true">
-				<cmd:option required="true" usedForSelection="false" long="directorySecurityMask" comment="" defaultValue="noDefaultValue"/>
+			<dcg:field name="DirectorySecurityMask" dataType="STRING" userDefined="false" uiType="LABEL" fcoFieldName="Linux_SambaShareSecurityOptions.get_DirectorySecurityMask" description="" readOnly="true" orientation="LEFT" required="false">
+				<cmd:option required="false" usedForSelection="false" long="directorySecurityMask" comment="" defaultValue="noDefaultValue" duplicateOK="false"/>
 			</dcg:field>
-			<dcg:field name="forceUser" dataType="STRING" userDefined="true" uiType="TEXTFIELD" fcoFieldName="userdefined" description="" readOnly="true"/>
+			<dcg:field name="forceUser" dataType="STRING" userDefined="true" uiType="LABEL" fcoFieldName="userdefined" description="" readOnly="true" orientation="LEFT" required="false"/>
 			<dcg:link linkedContainer="UserInShareWizardACLItemDataContainer" linkedPackage="wizardContainerPackage" occurrence="LIST" role="users" description=""/>
 		</dcg:container>
 		<dcg:container name="HostWizardPage1" packageId="wizardContainerPackage" implPackageId="wizardContainerImpl" adapterId="sambaAdapter" description="" canCreate="false" canModify="false" canDelete="false" isWizard="true">
@@ -841,8 +841,8 @@
 			</dcg:field>
 		</dcg:container>
 		<dcg:container name="HostWizardPage2" packageId="wizardContainerPackage" implPackageId="wizardContainerImpl" adapterId="sambaAdapter" description="" canCreate="true" canModify="false" canDelete="false" isWizard="true">
-			<dcg:field name="Name" dataType="STRING" userDefined="false" uiType="TEXTFIELD" fcoFieldName="Linux_SambaShareOptions.get_Name" description="" readOnly="true">
-				<cmd:option required="false" usedForSelection="false" long="name" comment="" defaultValue="noDefaultValue"/>
+			<dcg:field name="Name" dataType="STRING" userDefined="false" uiType="LABEL" fcoFieldName="Linux_SambaShareOptions.get_Name" description="" readOnly="true" orientation="LEFT" required="false">
+				<cmd:option required="false" usedForSelection="false" long="name" comment="" defaultValue="noDefaultValue" duplicateOK="false"/>
 			</dcg:field>
 		</dcg:container>
 		<dcg:container implPackageId="wizardContainerImpl" name="PrinterInUserWizardACLItemDataContainer" packageId="wizardContainerPackage" adapterId="sambaAdapter" description="Defines a printer-related acl within the user wizard" canCreate="false" canModify="false" canDelete="false" isWizard="true" customLayouter="false">

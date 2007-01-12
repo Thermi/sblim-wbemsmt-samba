@@ -34,6 +34,11 @@ import org.sblim.wbemsmt.bl.adapter.*;
 import org.sblim.wbemsmt.tools.resources.*;
 import org.sblim.wbemsmt.exception.*;
 
+
+
+import org.sblim.wbemsmt.bl.adapter.DataContainer;
+
+
 public class PrintingOptionsDataContainerImpl extends BaseDataContainer implements org.sblim.wbemsmt.samba.bl.container.printer.PrintingOptionsDataContainer {
 
 	protected static WbemSmtResourceBundle bundle = ResourceBundleManager.getResourceBundle(new String[]{"messages","messagesSamba"},Locale.getDefault());
@@ -210,6 +215,8 @@ public class PrintingOptionsDataContainerImpl extends BaseDataContainer implemen
 			
 	}
 	
+	
+ 
 	/**
 	 * Return a list of all Fields. A Field is a LabeledBaseInputComponentIf
 	 * @return
@@ -237,4 +244,17 @@ public class PrintingOptionsDataContainerImpl extends BaseDataContainer implemen
 	
 	}
 	
+	public void copyFrom(DataContainer sourceContainer)
+	{
+		PrintingOptionsDataContainerImpl source = (PrintingOptionsDataContainerImpl)sourceContainer;
+	
+    	    		get_CupsOptions().setValue(source.get_CupsOptions().getValue());
+		    		get_DefaultDevMode().setValue(source.get_DefaultDevMode().getValue());
+		    		get_MaxPrintjobs().setValue(source.get_MaxPrintjobs().getValue());
+		    		get_MaxReportedPrintjobs().setValue(source.get_MaxReportedPrintjobs().getValue());
+		    		get_PrintCommand().setValue(source.get_PrintCommand().getValue());
+		    		get_UseClientDriver().setValue(source.get_UseClientDriver().getValue());
+				
+    	    	
+	}
 }

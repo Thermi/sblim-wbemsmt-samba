@@ -27,6 +27,10 @@ package org.sblim.wbemsmt.jsf.samba.container.global;
 import org.sblim.wbemsmt.exception.*;
 import java.util.*;
 
+
+
+import org.sblim.wbemsmt.bl.adapter.DataContainer;
+
 public class ShareGlobalsDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.EditBasePanel implements org.sblim.wbemsmt.samba.bl.container.global.ShareGlobalsDataContainer {
 
 			private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_CaseSensitive;
@@ -218,6 +222,8 @@ public class ShareGlobalsDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.E
 		return new String[]{"messages","messagesSamba"};
 	}
 
+	
+ 
 	/**
 	 * Return a list of all Fields. A Field is a LabeledBaseInputComponentIf
 	 * @return
@@ -243,6 +249,20 @@ public class ShareGlobalsDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.E
 		List childs = new ArrayList();
     	    			return childs;
 	
+	}
+	
+	public void copyFrom(DataContainer sourceContainer)
+	{
+		ShareGlobalsDataContainerImpl source = (ShareGlobalsDataContainerImpl)sourceContainer;
+	
+    	    		get_CaseSensitive().setValue(source.get_CaseSensitive().getValue());
+		    		get_DosFiletimes().setValue(source.get_DosFiletimes().getValue());
+		    		get_HideDotFiles().setValue(source.get_HideDotFiles().getValue());
+		    		get_AclCompatibility().setValue(source.get_AclCompatibility().getValue());
+		    		get_EASupport().setValue(source.get_EASupport().getValue());
+		    		get_NTACLSupport().setValue(source.get_NTACLSupport().getValue());
+				
+    	    	
 	}
 
 	

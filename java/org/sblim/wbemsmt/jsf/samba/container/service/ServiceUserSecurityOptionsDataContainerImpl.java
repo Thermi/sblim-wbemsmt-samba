@@ -27,6 +27,10 @@ package org.sblim.wbemsmt.jsf.samba.container.service;
 import org.sblim.wbemsmt.exception.*;
 import java.util.*;
 
+
+
+import org.sblim.wbemsmt.bl.adapter.DataContainer;
+
 public class ServiceUserSecurityOptionsDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.EditBasePanel implements org.sblim.wbemsmt.samba.bl.container.service.ServiceUserSecurityOptionsDataContainer {
 
 			private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_usr_GuestUser;
@@ -148,6 +152,8 @@ public class ServiceUserSecurityOptionsDataContainerImpl extends org.sblim.wbems
 		return new String[]{"messages","messagesSamba"};
 	}
 
+	
+ 
 	/**
 	 * Return a list of all Fields. A Field is a LabeledBaseInputComponentIf
 	 * @return
@@ -171,6 +177,28 @@ public class ServiceUserSecurityOptionsDataContainerImpl extends org.sblim.wbems
     	    		childs.addAll(getUserRights());
     	    			return childs;
 	
+	}
+	
+	public void copyFrom(DataContainer sourceContainer)
+	{
+		ServiceUserSecurityOptionsDataContainerImpl source = (ServiceUserSecurityOptionsDataContainerImpl)sourceContainer;
+	
+    	    		get_usr_GuestUser().setValue(source.get_usr_GuestUser().getValue());
+		    		get_usr_CurrentForceUser().setValue(source.get_usr_CurrentForceUser().getValue());
+		    		get_usr_NewForceUser().setValue(source.get_usr_NewForceUser().getValue());
+				
+    	    		List targetListForUserRights = (List) getUserRights();
+    		List sourceListForUserRights = (List) source.getUserRights();
+    		if (sourceListForUserRights.size() != targetListForUserRights.size())
+    		{
+    			throw new IllegalArgumentException("The Lists are not from same size. Source is " + sourceListForUserRights.size() + " and target is " + targetListForUserRights.size() );
+    		}
+			for (int ii=0; ii < sourceListForUserRights.size(); ii++)
+			{
+				((DataContainer) targetListForUserRights.get(ii)).copyFrom(((DataContainer) sourceListForUserRights.get(ii)));
+			}
+			
+    	    	
 	}
 
 	

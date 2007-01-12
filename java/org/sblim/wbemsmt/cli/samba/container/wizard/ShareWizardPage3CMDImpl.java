@@ -34,6 +34,11 @@ import org.sblim.wbemsmt.bl.adapter.*;
 import org.sblim.wbemsmt.tools.resources.*;
 import org.sblim.wbemsmt.exception.*;
 
+
+
+import org.sblim.wbemsmt.bl.adapter.DataContainer;
+
+
 public class ShareWizardPage3CMDImpl extends BaseDataContainer implements org.sblim.wbemsmt.samba.bl.container.wizard.ShareWizardPage3CMD {
 
 	protected static WbemSmtResourceBundle bundle = ResourceBundleManager.getResourceBundle(new String[]{"messages","messagesSamba"},Locale.getDefault());
@@ -144,6 +149,8 @@ public class ShareWizardPage3CMDImpl extends BaseDataContainer implements org.sb
 			
 	}
 	
+	
+ 
 	/**
 	 * Return a list of all Fields. A Field is a LabeledBaseInputComponentIf
 	 * @return
@@ -168,4 +175,14 @@ public class ShareWizardPage3CMDImpl extends BaseDataContainer implements org.sb
 	
 	}
 	
+	public void copyFrom(DataContainer sourceContainer)
+	{
+		ShareWizardPage3CMDImpl source = (ShareWizardPage3CMDImpl)sourceContainer;
+	
+    	    		get_CreateMask().setValue(source.get_CreateMask().getValue());
+		    		get_DirectoryMask().setValue(source.get_DirectoryMask().getValue());
+		    		get_DirectorySecurityMask().setValue(source.get_DirectorySecurityMask().getValue());
+				
+    	    	
+	}
 }

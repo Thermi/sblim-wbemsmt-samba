@@ -27,6 +27,10 @@ package org.sblim.wbemsmt.jsf.samba.container.global;
 import org.sblim.wbemsmt.exception.*;
 import java.util.*;
 
+
+
+import org.sblim.wbemsmt.bl.adapter.DataContainer;
+
 public class CMDShareGlobalsDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.EditBasePanel implements org.sblim.wbemsmt.samba.bl.container.global.CMDShareGlobalsDataContainer {
 
 			private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_CaseSensitive;
@@ -299,6 +303,8 @@ public class CMDShareGlobalsDataContainerImpl extends org.sblim.wbemsmt.tools.js
 		return new String[]{"messages","messagesSamba"};
 	}
 
+	
+ 
 	/**
 	 * Return a list of all Fields. A Field is a LabeledBaseInputComponentIf
 	 * @return
@@ -327,6 +333,23 @@ public class CMDShareGlobalsDataContainerImpl extends org.sblim.wbemsmt.tools.js
 		List childs = new ArrayList();
     	    			return childs;
 	
+	}
+	
+	public void copyFrom(DataContainer sourceContainer)
+	{
+		CMDShareGlobalsDataContainerImpl source = (CMDShareGlobalsDataContainerImpl)sourceContainer;
+	
+    	    		get_CaseSensitive().setValue(source.get_CaseSensitive().getValue());
+		    		get_DosFiletimes().setValue(source.get_DosFiletimes().getValue());
+		    		get_HideDotFiles().setValue(source.get_HideDotFiles().getValue());
+		    		get_AclCompatibility().setValue(source.get_AclCompatibility().getValue());
+		    		get_EASupport().setValue(source.get_EASupport().getValue());
+		    		get_NTACLSupport().setValue(source.get_NTACLSupport().getValue());
+		    		get_CreateMask().setValue(source.get_CreateMask().getValue());
+		    		get_DirectoryMask().setValue(source.get_DirectoryMask().getValue());
+		    		get_DirectorySecurityMask().setValue(source.get_DirectorySecurityMask().getValue());
+				
+    	    	
 	}
 
 	

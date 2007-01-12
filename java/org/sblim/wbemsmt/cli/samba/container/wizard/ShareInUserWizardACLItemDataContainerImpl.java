@@ -34,6 +34,11 @@ import org.sblim.wbemsmt.bl.adapter.*;
 import org.sblim.wbemsmt.tools.resources.*;
 import org.sblim.wbemsmt.exception.*;
 
+
+
+import org.sblim.wbemsmt.bl.adapter.DataContainer;
+
+
 public class ShareInUserWizardACLItemDataContainerImpl extends BaseDataContainer implements org.sblim.wbemsmt.samba.bl.container.wizard.ShareInUserWizardACLItemDataContainer {
 
 	protected static WbemSmtResourceBundle bundle = ResourceBundleManager.getResourceBundle(new String[]{"messages","messagesSamba"},Locale.getDefault());
@@ -166,6 +171,8 @@ public class ShareInUserWizardACLItemDataContainerImpl extends BaseDataContainer
 			
 	}
 	
+	
+ 
 	/**
 	 * Return a list of all Fields. A Field is a LabeledBaseInputComponentIf
 	 * @return
@@ -191,4 +198,15 @@ public class ShareInUserWizardACLItemDataContainerImpl extends BaseDataContainer
 	
 	}
 	
+	public void copyFrom(DataContainer sourceContainer)
+	{
+		ShareInUserWizardACLItemDataContainerImpl source = (ShareInUserWizardACLItemDataContainerImpl)sourceContainer;
+	
+    	    		get_ShareName().setValue(source.get_ShareName().getValue());
+		    		get_usr_AccessTypeVI().setValue(source.get_usr_AccessTypeVI().getValue());
+		    		get_usr_AccessTypeRW().setValue(source.get_usr_AccessTypeRW().getValue());
+		    		get_usr_Admin().setValue(source.get_usr_Admin().getValue());
+				
+    	    	
+	}
 }

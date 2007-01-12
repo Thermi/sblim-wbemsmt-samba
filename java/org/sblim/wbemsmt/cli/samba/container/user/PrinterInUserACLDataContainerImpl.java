@@ -34,6 +34,11 @@ import org.sblim.wbemsmt.bl.adapter.*;
 import org.sblim.wbemsmt.tools.resources.*;
 import org.sblim.wbemsmt.exception.*;
 
+
+
+import org.sblim.wbemsmt.bl.adapter.DataContainer;
+
+
 public class PrinterInUserACLDataContainerImpl extends BaseDataContainer implements org.sblim.wbemsmt.samba.bl.container.user.PrinterInUserACLDataContainer {
 
 	protected static WbemSmtResourceBundle bundle = ResourceBundleManager.getResourceBundle(new String[]{"messages","messagesSamba"},Locale.getDefault());
@@ -98,6 +103,8 @@ public class PrinterInUserACLDataContainerImpl extends BaseDataContainer impleme
 			
 	}
 	
+	
+ 
 	/**
 	 * Return a list of all Fields. A Field is a LabeledBaseInputComponentIf
 	 * @return
@@ -120,4 +127,22 @@ public class PrinterInUserACLDataContainerImpl extends BaseDataContainer impleme
 	
 	}
 	
+	public void copyFrom(DataContainer sourceContainer)
+	{
+		PrinterInUserACLDataContainerImpl source = (PrinterInUserACLDataContainerImpl)sourceContainer;
+	
+    			
+    	    		List targetListForPrinters = (List) getPrinters();
+    		List sourceListForPrinters = (List) source.getPrinters();
+    		if (sourceListForPrinters.size() != targetListForPrinters.size())
+    		{
+    			throw new IllegalArgumentException("The Lists are not from same size. Source is " + sourceListForPrinters.size() + " and target is " + targetListForPrinters.size() );
+    		}
+			for (int ii=0; ii < sourceListForPrinters.size(); ii++)
+			{
+				((DataContainer) targetListForPrinters.get(ii)).copyFrom(((DataContainer) sourceListForPrinters.get(ii)));
+			}
+			
+    	    	
+	}
 }

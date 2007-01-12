@@ -1021,7 +1021,7 @@
 | *CustomLayouter* \\ | --- |
 *Fields:*
 | *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
-| Name | STRING | TEXTFIELD | Linux_SambaShareOptions.get_Name \\ | Readonly | -name, Optional,Default is noDefaultValue |
+| Name | STRING | LABEL | Linux_SambaShareOptions.get_Name \\ | Readonly | -name, Optional,Default is noDefaultValue |
 
 {panel}
 
@@ -1140,15 +1140,15 @@
 *Fields:*
 | *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
 | allOrOne | UNSIGNED_INT16 | RADIOBUTTON | userdefined \\ | Readonly, Userdefined | -allOrOne, Required |
-| SambaPrinterName | STRING | TEXTFIELD | Linux_SambaPrinterOptions.get_Name \\ | Readonly | -sambaPrinterName, Optional,Default is noDefaultValue |
+| SambaPrinterName | STRING | LABEL | Linux_SambaPrinterOptions.get_Name \\ | Readonly | -sambaPrinterName, Optional,Default is noDefaultValue |
 | SystemPrinterName | UNSIGNED_INT16 | COMBOBOX | userdefined \\ | Readonly, Userdefined | -systemPrintername, Optional,Default is noDefaultValue |
-| Path | STRING | TEXTFIELD | Linux_SambaPrinterOptions.get_Path \\ | Readonly | -path, Required |
-| Comment | STRING | TEXTFIELD | Linux_SambaPrinterOptions.get_Comment \\ | Readonly | -comment, Optional,Default is noDefaultValue |
+| Path | STRING | LABEL | Linux_SambaPrinterOptions.get_Path \\ | Readonly | -path, Optional,Default is noDefaultValue |
+| Comment | STRING | LABEL | Linux_SambaPrinterOptions.get_Comment \\ | Readonly | -comment, Optional,Default is noDefaultValue |
 | seenByEverybody | BOOLEAN | CHECKBOX | userdefined \\ | Readonly, Userdefined | -seenByEverybody, Optional,Default is noDefaultValue |
 | enableGuest | BOOLEAN | CHECKBOX | userdefined \\ | Readonly, Userdefined | -enableGuest, Optional,Default is noDefaultValue |
-| CupsOptions | STRING | TEXTFIELD | Linux_SambaPrinterPrintingOptions.get_CupsOptions \\ | Readonly | -cupsOptions, Optional,Default is noDefaultValue |
-| PrintCommand | STRING | TEXTFIELD | Linux_SambaPrinterPrintingOptions.get_PrintCommand \\ | Readonly | -printCommand, Optional,Default is noDefaultValue |
-| forceUser | STRING | TEXTFIELD | userdefined \\ | Readonly, Userdefined | Not used for Commandline |
+| CupsOptions | STRING | LABEL | Linux_SambaPrinterPrintingOptions.get_CupsOptions \\ | Readonly | -cupsOptions, Optional,Default is noDefaultValue |
+| PrintCommand | STRING | LABEL | Linux_SambaPrinterPrintingOptions.get_PrintCommand \\ | Readonly | -printCommand, Optional,Default is noDefaultValue |
+| forceUser | STRING | LABEL | userdefined \\ | Readonly, Userdefined | Not used for Commandline |
 
 *Relations*
 | *RelationType&nbsp;* | *&nbsp;related DataContainer* \\ | *&nbsp;Additional Information* \\ |
@@ -1304,15 +1304,15 @@
 | *CustomLayouter* \\ | --- |
 *Fields:*
 | *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
-| Name | STRING | TEXTFIELD | Linux_SambaShareOptions.get_Name \\ | Readonly | Not used for Commandline |
-| Path | STRING | TEXTFIELD | Linux_SambaShareOptions.get_Path \\ | Readonly | Not used for Commandline |
-| Comment | STRING | TEXTFIELD | Linux_SambaShareOptions.get_Comment \\ | Readonly | Not used for Commandline |
+| Name | STRING | LABEL | Linux_SambaShareOptions.get_Name \\ | Readonly | Not used for Commandline |
+| Path | STRING | LABEL | Linux_SambaShareOptions.get_Path \\ | Readonly | Not used for Commandline |
+| Comment | STRING | LABEL | Linux_SambaShareOptions.get_Comment \\ | Readonly | Not used for Commandline |
 | seenByEverybody | BOOLEAN | CHECKBOX | userdefined \\ | Readonly, Userdefined | -seenByEverybody, Optional,Default is noDefaultValue |
 | enableGuest | BOOLEAN | CHECKBOX | userdefined \\ | Readonly, Userdefined | -enableGuest, Optional,Default is noDefaultValue |
-| CreateMask | STRING | TEXTFIELD | Linux_SambaShareSecurityOptions.get_CreateMask \\ | Readonly | -createMask, Required |
-| DirectoryMask | STRING | TEXTFIELD | Linux_SambaShareSecurityOptions.get_DirectoryMask \\ | Readonly | -directoryMask, Required |
-| DirectorySecurityMask | STRING | TEXTFIELD | Linux_SambaShareSecurityOptions.get_DirectorySecurityMask \\ | Readonly | -directorySecurityMask, Required |
-| forceUser | STRING | TEXTFIELD | userdefined \\ | Readonly, Userdefined | Not used for Commandline |
+| CreateMask | STRING | LABEL | Linux_SambaShareSecurityOptions.get_CreateMask \\ | Readonly | -createMask, Optional,Default is noDefaultValue |
+| DirectoryMask | STRING | LABEL | Linux_SambaShareSecurityOptions.get_DirectoryMask \\ | Readonly | -directoryMask, Optional,Default is noDefaultValue |
+| DirectorySecurityMask | STRING | LABEL | Linux_SambaShareSecurityOptions.get_DirectorySecurityMask \\ | Readonly | -directorySecurityMask, Optional,Default is noDefaultValue |
+| forceUser | STRING | LABEL | userdefined \\ | Readonly, Userdefined | Not used for Commandline |
 
 *Relations*
 | *RelationType&nbsp;* | *&nbsp;related DataContainer* \\ | *&nbsp;Additional Information* \\ |
@@ -1370,7 +1370,7 @@
 *Fields:*
 | *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
 | SambaUserName | STRING | TEXTFIELD | Linux_SambaUser.get_SambaUserName \\ | --- | -username, Required |
-| SystemUserName | UNSIGNED_INT16 | LIST | Linux_SambaUser.get_SystemUserName \\ | --- | -systemUser, Required |
+| SystemUserName | UNSIGNED_INT16 | LIST | Linux_SambaUser.get_SystemUserName \\ | --- | -systemUser, Required, Duplicates allowed |
 | SambaUserPassword | STRING | PASSWORD | Linux_SambaUser.get_SambaUserPassword \\ | --- | -userPassword, Required |
 | SambaUserPassword2 | STRING | PASSWORD | Linux_SambaUser.get_SambaUserPassword \\ | --- | -userPasswordVerify, Required |
 | isGuest | BOOLEAN | CHECKBOX | userdefined \\ | Userdefined | -isGuest, Required |
@@ -1413,8 +1413,8 @@
 | *CustomLayouter* \\ | --- |
 *Fields:*
 | *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
-| SambaUserName | STRING | TEXTFIELD | Linux_SambaUser.get_SambaUserName \\ | Readonly | -username, Optional,Default is noDefaultValue |
-| SystemUserName | STRING | TEXTFIELD | Linux_SambaUser.get_SystemUserName \\ | Readonly | -systemUser, Optional,Default is noDefaultValue |
+| SambaUserName | STRING | LABEL | Linux_SambaUser.get_SambaUserName \\ | Readonly | -username, Optional,Default is noDefaultValue |
+| SystemUserName | STRING | LABEL | Linux_SambaUser.get_SystemUserName \\ | --- | -systemUser, Optional,Default is noDefaultValue, Duplicates allowed |
 | isGuest | BOOLEAN | CHECKBOX | userdefined \\ | Readonly, Userdefined | -isGuest, Optional,Default is noDefaultValue |
 
 *Relations*

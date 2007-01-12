@@ -27,6 +27,10 @@ package org.sblim.wbemsmt.jsf.samba.container.share;
 import org.sblim.wbemsmt.exception.*;
 import java.util.*;
 
+
+
+import org.sblim.wbemsmt.bl.adapter.DataContainer;
+
 public class GUIShareFileAttributesImpl extends org.sblim.wbemsmt.tools.jsf.EditBasePanel implements org.sblim.wbemsmt.samba.bl.container.share.GUIShareFileAttributes {
 
 			private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_CaseSensitive;
@@ -1155,6 +1159,8 @@ public class GUIShareFileAttributesImpl extends org.sblim.wbemsmt.tools.jsf.Edit
 		return new String[]{"messages","messagesSamba"};
 	}
 
+	
+ 
 	/**
 	 * Return a list of all Fields. A Field is a LabeledBaseInputComponentIf
 	 * @return
@@ -1216,6 +1222,56 @@ public class GUIShareFileAttributesImpl extends org.sblim.wbemsmt.tools.jsf.Edit
 		List childs = new ArrayList();
     	    			return childs;
 	
+	}
+	
+	public void copyFrom(DataContainer sourceContainer)
+	{
+		GUIShareFileAttributesImpl source = (GUIShareFileAttributesImpl)sourceContainer;
+	
+    	    		get_CaseSensitive().setValue(source.get_CaseSensitive().getValue());
+		    		get_HideDotFiles().setValue(source.get_HideDotFiles().getValue());
+		    		get_DosFiletimes().setValue(source.get_DosFiletimes().getValue());
+		    		get_EASupport().setValue(source.get_EASupport().getValue());
+		    		get_AclCompatibility().setValue(source.get_AclCompatibility().getValue());
+		    		get_NTACLSupport().setValue(source.get_NTACLSupport().getValue());
+		    		get_usr_Create_u().setValue(source.get_usr_Create_u().getValue());
+		    		get_usr_Create_g().setValue(source.get_usr_Create_g().getValue());
+		    		get_usr_Create_s().setValue(source.get_usr_Create_s().getValue());
+		    		get_usr_Create_user_r().setValue(source.get_usr_Create_user_r().getValue());
+		    		get_usr_Create_user_w().setValue(source.get_usr_Create_user_w().getValue());
+		    		get_usr_Create_user_x().setValue(source.get_usr_Create_user_x().getValue());
+		    		get_usr_Create_group_r().setValue(source.get_usr_Create_group_r().getValue());
+		    		get_usr_Create_group_w().setValue(source.get_usr_Create_group_w().getValue());
+		    		get_usr_Create_group_x().setValue(source.get_usr_Create_group_x().getValue());
+		    		get_usr_Create_other_r().setValue(source.get_usr_Create_other_r().getValue());
+		    		get_usr_Create_other_w().setValue(source.get_usr_Create_other_w().getValue());
+		    		get_usr_Create_other_x().setValue(source.get_usr_Create_other_x().getValue());
+		    		get_usr_Directory_u().setValue(source.get_usr_Directory_u().getValue());
+		    		get_usr_Directory_g().setValue(source.get_usr_Directory_g().getValue());
+		    		get_usr_Directory_s().setValue(source.get_usr_Directory_s().getValue());
+		    		get_usr_Directory_user_r().setValue(source.get_usr_Directory_user_r().getValue());
+		    		get_usr_Directory_user_w().setValue(source.get_usr_Directory_user_w().getValue());
+		    		get_usr_Directory_user_x().setValue(source.get_usr_Directory_user_x().getValue());
+		    		get_usr_Directory_group_r().setValue(source.get_usr_Directory_group_r().getValue());
+		    		get_usr_Directory_group_w().setValue(source.get_usr_Directory_group_w().getValue());
+		    		get_usr_Directory_group_x().setValue(source.get_usr_Directory_group_x().getValue());
+		    		get_usr_Directory_other_r().setValue(source.get_usr_Directory_other_r().getValue());
+		    		get_usr_Directory_other_w().setValue(source.get_usr_Directory_other_w().getValue());
+		    		get_usr_Directory_other_x().setValue(source.get_usr_Directory_other_x().getValue());
+		    		get_usr_Directory_security_u().setValue(source.get_usr_Directory_security_u().getValue());
+		    		get_usr_Directory_security_g().setValue(source.get_usr_Directory_security_g().getValue());
+		    		get_usr_Directory_security_s().setValue(source.get_usr_Directory_security_s().getValue());
+		    		get_usr_Directory_security_user_r().setValue(source.get_usr_Directory_security_user_r().getValue());
+		    		get_usr_Directory_security_user_w().setValue(source.get_usr_Directory_security_user_w().getValue());
+		    		get_usr_Directory_security_user_x().setValue(source.get_usr_Directory_security_user_x().getValue());
+		    		get_usr_Directory_security_group_r().setValue(source.get_usr_Directory_security_group_r().getValue());
+		    		get_usr_Directory_security_group_w().setValue(source.get_usr_Directory_security_group_w().getValue());
+		    		get_usr_Directory_security_group_x().setValue(source.get_usr_Directory_security_group_x().getValue());
+		    		get_usr_Directory_security_other_r().setValue(source.get_usr_Directory_security_other_r().getValue());
+		    		get_usr_Directory_security_other_w().setValue(source.get_usr_Directory_security_other_w().getValue());
+		    		get_usr_Directory_security_other_x().setValue(source.get_usr_Directory_security_other_x().getValue());
+				
+    	    	
 	}
 
 	

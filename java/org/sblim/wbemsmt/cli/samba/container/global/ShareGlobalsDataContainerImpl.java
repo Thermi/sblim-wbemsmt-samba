@@ -34,6 +34,11 @@ import org.sblim.wbemsmt.bl.adapter.*;
 import org.sblim.wbemsmt.tools.resources.*;
 import org.sblim.wbemsmt.exception.*;
 
+
+
+import org.sblim.wbemsmt.bl.adapter.DataContainer;
+
+
 public class ShareGlobalsDataContainerImpl extends BaseDataContainer implements org.sblim.wbemsmt.samba.bl.container.global.ShareGlobalsDataContainer {
 
 	protected static WbemSmtResourceBundle bundle = ResourceBundleManager.getResourceBundle(new String[]{"messages","messagesSamba"},Locale.getDefault());
@@ -210,6 +215,8 @@ public class ShareGlobalsDataContainerImpl extends BaseDataContainer implements 
 			
 	}
 	
+	
+ 
 	/**
 	 * Return a list of all Fields. A Field is a LabeledBaseInputComponentIf
 	 * @return
@@ -237,4 +244,17 @@ public class ShareGlobalsDataContainerImpl extends BaseDataContainer implements 
 	
 	}
 	
+	public void copyFrom(DataContainer sourceContainer)
+	{
+		ShareGlobalsDataContainerImpl source = (ShareGlobalsDataContainerImpl)sourceContainer;
+	
+    	    		get_CaseSensitive().setValue(source.get_CaseSensitive().getValue());
+		    		get_DosFiletimes().setValue(source.get_DosFiletimes().getValue());
+		    		get_HideDotFiles().setValue(source.get_HideDotFiles().getValue());
+		    		get_AclCompatibility().setValue(source.get_AclCompatibility().getValue());
+		    		get_EASupport().setValue(source.get_EASupport().getValue());
+		    		get_NTACLSupport().setValue(source.get_NTACLSupport().getValue());
+				
+    	    	
+	}
 }

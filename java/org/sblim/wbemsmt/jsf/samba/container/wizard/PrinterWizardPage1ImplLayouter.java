@@ -40,7 +40,7 @@ public class PrinterWizardPage1ImplLayouter extends JsfLayouter {
 		txt.setEscape(false);
 		group.getChildren().add(txt);
 
-		group.getChildren().add(get_usr_AllOrOne.getComponent());
+		group.getChildren().add(get_usr_AllOrOne.getComponentPanel());
 		
 		HtmlOutputText txt1 = JsfUtil.createText("<br><br><br>");
 		txt1.setEscape(false);

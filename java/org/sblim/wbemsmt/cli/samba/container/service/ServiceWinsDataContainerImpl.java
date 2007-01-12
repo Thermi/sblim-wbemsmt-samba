@@ -34,6 +34,11 @@ import org.sblim.wbemsmt.bl.adapter.*;
 import org.sblim.wbemsmt.tools.resources.*;
 import org.sblim.wbemsmt.exception.*;
 
+
+
+import org.sblim.wbemsmt.bl.adapter.DataContainer;
+
+
 public class ServiceWinsDataContainerImpl extends BaseDataContainer implements org.sblim.wbemsmt.samba.bl.container.service.ServiceWinsDataContainer {
 
 	protected static WbemSmtResourceBundle bundle = ResourceBundleManager.getResourceBundle(new String[]{"messages","messagesSamba"},Locale.getDefault());
@@ -188,6 +193,8 @@ public class ServiceWinsDataContainerImpl extends BaseDataContainer implements o
 			
 	}
 	
+	
+ 
 	/**
 	 * Return a list of all Fields. A Field is a LabeledBaseInputComponentIf
 	 * @return
@@ -214,4 +221,16 @@ public class ServiceWinsDataContainerImpl extends BaseDataContainer implements o
 	
 	}
 	
+	public void copyFrom(DataContainer sourceContainer)
+	{
+		ServiceWinsDataContainerImpl source = (ServiceWinsDataContainerImpl)sourceContainer;
+	
+    	    		get_DNS_Proxy().setValue(source.get_DNS_Proxy().getValue());
+		    		get_WINSHook().setValue(source.get_WINSHook().getValue());
+		    		get_WINSProxy().setValue(source.get_WINSProxy().getValue());
+		    		get_WINSServer().setValue(source.get_WINSServer().getValue());
+		    		get_WINSSupport().setValue(source.get_WINSSupport().getValue());
+				
+    	    	
+	}
 }

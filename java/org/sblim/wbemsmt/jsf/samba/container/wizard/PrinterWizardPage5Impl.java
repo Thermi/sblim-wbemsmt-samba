@@ -27,6 +27,10 @@ package org.sblim.wbemsmt.jsf.samba.container.wizard;
 import org.sblim.wbemsmt.exception.*;
 import java.util.*;
 
+
+
+import org.sblim.wbemsmt.bl.adapter.DataContainer;
+
 public class PrinterWizardPage5Impl extends org.sblim.wbemsmt.tools.wizard.jsf.WizardBasePanel implements org.sblim.wbemsmt.samba.bl.container.wizard.PrinterWizardPage5 {
 
 			private org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf ic_usr_AllOrOne;
@@ -89,7 +93,7 @@ public class PrinterWizardPage5Impl extends org.sblim.wbemsmt.tools.wizard.jsf.W
 			/**
 		* 
 		* DataType STRING
-		* UIType TEXTFIELD
+		* UIType LABEL
 		* ReadOnly true
 		*/
 
@@ -102,7 +106,7 @@ public class PrinterWizardPage5Impl extends org.sblim.wbemsmt.tools.wizard.jsf.W
 				org.sblim.wbemsmt.bl.adapter.DataContainer parent = this;
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = true;
-    			ic_SambaPrinterName = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
+    			ic_SambaPrinterName = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent(parent,label,binding,converter, readOnly);
 				;
     		}
     		return ic_SambaPrinterName;
@@ -131,7 +135,7 @@ public class PrinterWizardPage5Impl extends org.sblim.wbemsmt.tools.wizard.jsf.W
 			/**
 		* 
 		* DataType STRING
-		* UIType TEXTFIELD
+		* UIType LABEL
 		* ReadOnly true
 		*/
 
@@ -144,7 +148,7 @@ public class PrinterWizardPage5Impl extends org.sblim.wbemsmt.tools.wizard.jsf.W
 				org.sblim.wbemsmt.bl.adapter.DataContainer parent = this;
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = true;
-    			ic_Path = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
+    			ic_Path = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent(parent,label,binding,converter, readOnly);
 				;
     		}
     		return ic_Path;
@@ -152,7 +156,7 @@ public class PrinterWizardPage5Impl extends org.sblim.wbemsmt.tools.wizard.jsf.W
 			/**
 		* 
 		* DataType STRING
-		* UIType TEXTFIELD
+		* UIType LABEL
 		* ReadOnly true
 		*/
 
@@ -165,7 +169,7 @@ public class PrinterWizardPage5Impl extends org.sblim.wbemsmt.tools.wizard.jsf.W
 				org.sblim.wbemsmt.bl.adapter.DataContainer parent = this;
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = true;
-    			ic_Comment = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
+    			ic_Comment = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent(parent,label,binding,converter, readOnly);
 				;
     		}
     		return ic_Comment;
@@ -215,7 +219,7 @@ public class PrinterWizardPage5Impl extends org.sblim.wbemsmt.tools.wizard.jsf.W
 			/**
 		* 
 		* DataType STRING
-		* UIType TEXTFIELD
+		* UIType LABEL
 		* ReadOnly true
 		*/
 
@@ -228,7 +232,7 @@ public class PrinterWizardPage5Impl extends org.sblim.wbemsmt.tools.wizard.jsf.W
 				org.sblim.wbemsmt.bl.adapter.DataContainer parent = this;
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = true;
-    			ic_CupsOptions = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
+    			ic_CupsOptions = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent(parent,label,binding,converter, readOnly);
 				;
     		}
     		return ic_CupsOptions;
@@ -236,7 +240,7 @@ public class PrinterWizardPage5Impl extends org.sblim.wbemsmt.tools.wizard.jsf.W
 			/**
 		* 
 		* DataType STRING
-		* UIType TEXTFIELD
+		* UIType LABEL
 		* ReadOnly true
 		*/
 
@@ -249,7 +253,7 @@ public class PrinterWizardPage5Impl extends org.sblim.wbemsmt.tools.wizard.jsf.W
 				org.sblim.wbemsmt.bl.adapter.DataContainer parent = this;
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = true;
-    			ic_PrintCommand = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
+    			ic_PrintCommand = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent(parent,label,binding,converter, readOnly);
 				;
     		}
     		return ic_PrintCommand;
@@ -257,7 +261,7 @@ public class PrinterWizardPage5Impl extends org.sblim.wbemsmt.tools.wizard.jsf.W
 			/**
 		* 
 		* DataType STRING
-		* UIType TEXTFIELD
+		* UIType LABEL
 		* ReadOnly true
 		*/
 
@@ -270,7 +274,7 @@ public class PrinterWizardPage5Impl extends org.sblim.wbemsmt.tools.wizard.jsf.W
 				org.sblim.wbemsmt.bl.adapter.DataContainer parent = this;
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = true;
-    			ic_usr_ForceUser = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
+    			ic_usr_ForceUser = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent(parent,label,binding,converter, readOnly);
 				;
     		}
     		return ic_usr_ForceUser;
@@ -337,6 +341,8 @@ public class PrinterWizardPage5Impl extends org.sblim.wbemsmt.tools.wizard.jsf.W
 		return new String[]{"messages","messagesSamba"};
 	}
 
+	
+ 
 	/**
 	 * Return a list of all Fields. A Field is a LabeledBaseInputComponentIf
 	 * @return
@@ -367,6 +373,35 @@ public class PrinterWizardPage5Impl extends org.sblim.wbemsmt.tools.wizard.jsf.W
     	    		childs.addAll(getUsers());
     	    			return childs;
 	
+	}
+	
+	public void copyFrom(DataContainer sourceContainer)
+	{
+		PrinterWizardPage5Impl source = (PrinterWizardPage5Impl)sourceContainer;
+	
+    	    		get_usr_AllOrOne().setValue(source.get_usr_AllOrOne().getValue());
+		    		get_SambaPrinterName().setValue(source.get_SambaPrinterName().getValue());
+		    		get_usr_SystemPrinterName().setValue(source.get_usr_SystemPrinterName().getValue());
+		    		get_Path().setValue(source.get_Path().getValue());
+		    		get_Comment().setValue(source.get_Comment().getValue());
+		    		get_usr_SeenByEverybody().setValue(source.get_usr_SeenByEverybody().getValue());
+		    		get_usr_EnableGuest().setValue(source.get_usr_EnableGuest().getValue());
+		    		get_CupsOptions().setValue(source.get_CupsOptions().getValue());
+		    		get_PrintCommand().setValue(source.get_PrintCommand().getValue());
+		    		get_usr_ForceUser().setValue(source.get_usr_ForceUser().getValue());
+				
+    	    		List targetListForUsers = (List) getUsers();
+    		List sourceListForUsers = (List) source.getUsers();
+    		if (sourceListForUsers.size() != targetListForUsers.size())
+    		{
+    			throw new IllegalArgumentException("The Lists are not from same size. Source is " + sourceListForUsers.size() + " and target is " + targetListForUsers.size() );
+    		}
+			for (int ii=0; ii < sourceListForUsers.size(); ii++)
+			{
+				((DataContainer) targetListForUsers.get(ii)).copyFrom(((DataContainer) sourceListForUsers.get(ii)));
+			}
+			
+    	    	
 	}
 
 	

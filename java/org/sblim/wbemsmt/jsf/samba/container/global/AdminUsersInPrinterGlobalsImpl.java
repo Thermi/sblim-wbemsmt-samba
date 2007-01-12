@@ -27,6 +27,10 @@ package org.sblim.wbemsmt.jsf.samba.container.global;
 import org.sblim.wbemsmt.exception.*;
 import java.util.*;
 
+
+
+import org.sblim.wbemsmt.bl.adapter.DataContainer;
+
 public class AdminUsersInPrinterGlobalsImpl extends org.sblim.wbemsmt.tools.jsf.EditBasePanel implements org.sblim.wbemsmt.samba.bl.container.global.AdminUsersInPrinterGlobals {
 
 			private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_usr_SambaUserName;
@@ -110,6 +114,8 @@ public class AdminUsersInPrinterGlobalsImpl extends org.sblim.wbemsmt.tools.jsf.
 		return new String[]{"messages","messagesSamba"};
 	}
 
+	
+ 
 	/**
 	 * Return a list of all Fields. A Field is a LabeledBaseInputComponentIf
 	 * @return
@@ -131,6 +137,16 @@ public class AdminUsersInPrinterGlobalsImpl extends org.sblim.wbemsmt.tools.jsf.
 		List childs = new ArrayList();
     	    			return childs;
 	
+	}
+	
+	public void copyFrom(DataContainer sourceContainer)
+	{
+		AdminUsersInPrinterGlobalsImpl source = (AdminUsersInPrinterGlobalsImpl)sourceContainer;
+	
+    	    		get_usr_SambaUserName().setValue(source.get_usr_SambaUserName().getValue());
+		    		get_usr_Admin().setValue(source.get_usr_Admin().getValue());
+				
+    	    	
 	}
 
 	

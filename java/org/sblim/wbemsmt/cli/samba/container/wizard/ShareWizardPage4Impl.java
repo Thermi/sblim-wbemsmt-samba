@@ -34,6 +34,11 @@ import org.sblim.wbemsmt.bl.adapter.*;
 import org.sblim.wbemsmt.tools.resources.*;
 import org.sblim.wbemsmt.exception.*;
 
+
+
+import org.sblim.wbemsmt.bl.adapter.DataContainer;
+
+
 public class ShareWizardPage4Impl extends BaseDataContainer implements org.sblim.wbemsmt.samba.bl.container.wizard.ShareWizardPage4 {
 
 	protected static WbemSmtResourceBundle bundle = ResourceBundleManager.getResourceBundle(new String[]{"messages","messagesSamba"},Locale.getDefault());
@@ -59,7 +64,7 @@ public class ShareWizardPage4Impl extends BaseDataContainer implements org.sblim
 			/**
 		* 
 		* DataType STRING
-		* UIType TEXTFIELD
+		* UIType LABEL
 		* ReadOnly true
 		*/
 
@@ -75,7 +80,7 @@ public class ShareWizardPage4Impl extends BaseDataContainer implements org.sblim
 			/**
 		* 
 		* DataType STRING
-		* UIType TEXTFIELD
+		* UIType LABEL
 		* ReadOnly true
 		*/
 
@@ -91,7 +96,7 @@ public class ShareWizardPage4Impl extends BaseDataContainer implements org.sblim
 			/**
 		* 
 		* DataType STRING
-		* UIType TEXTFIELD
+		* UIType LABEL
 		* ReadOnly true
 		*/
 
@@ -139,7 +144,7 @@ public class ShareWizardPage4Impl extends BaseDataContainer implements org.sblim
 			/**
 		* the Default Create Mask
 		* DataType STRING
-		* UIType TEXTFIELD
+		* UIType LABEL
 		* ReadOnly true
 		*/
 
@@ -155,7 +160,7 @@ public class ShareWizardPage4Impl extends BaseDataContainer implements org.sblim
 			/**
 		* The directory Mask
 		* DataType STRING
-		* UIType TEXTFIELD
+		* UIType LABEL
 		* ReadOnly true
 		*/
 
@@ -171,7 +176,7 @@ public class ShareWizardPage4Impl extends BaseDataContainer implements org.sblim
 			/**
 		* 
 		* DataType STRING
-		* UIType TEXTFIELD
+		* UIType LABEL
 		* ReadOnly true
 		*/
 
@@ -187,7 +192,7 @@ public class ShareWizardPage4Impl extends BaseDataContainer implements org.sblim
 			/**
 		* 
 		* DataType STRING
-		* UIType TEXTFIELD
+		* UIType LABEL
 		* ReadOnly true
 		*/
 
@@ -296,6 +301,8 @@ public class ShareWizardPage4Impl extends BaseDataContainer implements org.sblim
 			
 	}
 	
+	
+ 
 	/**
 	 * Return a list of all Fields. A Field is a LabeledBaseInputComponentIf
 	 * @return
@@ -327,4 +334,31 @@ public class ShareWizardPage4Impl extends BaseDataContainer implements org.sblim
 	
 	}
 	
+	public void copyFrom(DataContainer sourceContainer)
+	{
+		ShareWizardPage4Impl source = (ShareWizardPage4Impl)sourceContainer;
+	
+    	    		get_Name().setValue(source.get_Name().getValue());
+		    		get_Path().setValue(source.get_Path().getValue());
+		    		get_Comment().setValue(source.get_Comment().getValue());
+		    		get_usr_SeenByEverybody().setValue(source.get_usr_SeenByEverybody().getValue());
+		    		get_usr_EnableGuest().setValue(source.get_usr_EnableGuest().getValue());
+		    		get_CreateMask().setValue(source.get_CreateMask().getValue());
+		    		get_DirectoryMask().setValue(source.get_DirectoryMask().getValue());
+		    		get_DirectorySecurityMask().setValue(source.get_DirectorySecurityMask().getValue());
+		    		get_usr_ForceUser().setValue(source.get_usr_ForceUser().getValue());
+				
+    	    		List targetListForUsers = (List) getUsers();
+    		List sourceListForUsers = (List) source.getUsers();
+    		if (sourceListForUsers.size() != targetListForUsers.size())
+    		{
+    			throw new IllegalArgumentException("The Lists are not from same size. Source is " + sourceListForUsers.size() + " and target is " + targetListForUsers.size() );
+    		}
+			for (int ii=0; ii < sourceListForUsers.size(); ii++)
+			{
+				((DataContainer) targetListForUsers.get(ii)).copyFrom(((DataContainer) sourceListForUsers.get(ii)));
+			}
+			
+    	    	
+	}
 }

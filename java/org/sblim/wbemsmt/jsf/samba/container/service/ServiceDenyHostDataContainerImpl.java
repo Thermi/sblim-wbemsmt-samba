@@ -27,6 +27,10 @@ package org.sblim.wbemsmt.jsf.samba.container.service;
 import org.sblim.wbemsmt.exception.*;
 import java.util.*;
 
+
+
+import org.sblim.wbemsmt.bl.adapter.DataContainer;
+
 public class ServiceDenyHostDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.EditBasePanel implements org.sblim.wbemsmt.samba.bl.container.service.ServiceDenyHostDataContainer {
 
 			private org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf ic_usr_DeniedHosts;
@@ -164,6 +168,8 @@ public class ServiceDenyHostDataContainerImpl extends org.sblim.wbemsmt.tools.js
 		return new String[]{"messages","messagesSamba"};
 	}
 
+	
+ 
 	/**
 	 * Return a list of all Fields. A Field is a LabeledBaseInputComponentIf
 	 * @return
@@ -187,6 +193,18 @@ public class ServiceDenyHostDataContainerImpl extends org.sblim.wbemsmt.tools.js
 		List childs = new ArrayList();
     	    			return childs;
 	
+	}
+	
+	public void copyFrom(DataContainer sourceContainer)
+	{
+		ServiceDenyHostDataContainerImpl source = (ServiceDenyHostDataContainerImpl)sourceContainer;
+	
+    	    		get_usr_DeniedHosts().setValue(source.get_usr_DeniedHosts().getValue());
+		    		get_usr_HostsToDeny().setValue(source.get_usr_HostsToDeny().getValue());
+		    		get_usr_AddHost().setValue(source.get_usr_AddHost().getValue());
+		    		get_usr_RemoveHost().setValue(source.get_usr_RemoveHost().getValue());
+				
+    	    	
 	}
 
 	

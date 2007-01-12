@@ -27,6 +27,10 @@ package org.sblim.wbemsmt.jsf.samba.container.service;
 import org.sblim.wbemsmt.exception.*;
 import java.util.*;
 
+
+
+import org.sblim.wbemsmt.bl.adapter.DataContainer;
+
 public class ServiceOptionsDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.EditBasePanel implements org.sblim.wbemsmt.samba.bl.container.service.ServiceOptionsDataContainer {
 
 			private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_BindInterfacesOnly;
@@ -245,6 +249,8 @@ public class ServiceOptionsDataContainerImpl extends org.sblim.wbemsmt.tools.jsf
 		return new String[]{"messages","messagesSamba"};
 	}
 
+	
+ 
 	/**
 	 * Return a list of all Fields. A Field is a LabeledBaseInputComponentIf
 	 * @return
@@ -271,6 +277,21 @@ public class ServiceOptionsDataContainerImpl extends org.sblim.wbemsmt.tools.jsf
 		List childs = new ArrayList();
     	    			return childs;
 	
+	}
+	
+	public void copyFrom(DataContainer sourceContainer)
+	{
+		ServiceOptionsDataContainerImpl source = (ServiceOptionsDataContainerImpl)sourceContainer;
+	
+    	    		get_BindInterfacesOnly().setValue(source.get_BindInterfacesOnly().getValue());
+		    		get_Interfaces().setValue(source.get_Interfaces().getValue());
+		    		get_NetbiosAlias().setValue(source.get_NetbiosAlias().getValue());
+		    		get_NetbiosName().setValue(source.get_NetbiosName().getValue());
+		    		get_ServerString().setValue(source.get_ServerString().getValue());
+		    		get_Workgroup().setValue(source.get_Workgroup().getValue());
+		    		get_ConfigurationFile().setValue(source.get_ConfigurationFile().getValue());
+				
+    	    	
 	}
 
 	

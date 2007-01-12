@@ -34,6 +34,11 @@ import org.sblim.wbemsmt.bl.adapter.*;
 import org.sblim.wbemsmt.tools.resources.*;
 import org.sblim.wbemsmt.exception.*;
 
+
+
+import org.sblim.wbemsmt.bl.adapter.DataContainer;
+
+
 public class UserInPrinterACLDataContainerImpl extends BaseDataContainer implements org.sblim.wbemsmt.samba.bl.container.printer.UserInPrinterACLDataContainer {
 
 	protected static WbemSmtResourceBundle bundle = ResourceBundleManager.getResourceBundle(new String[]{"messages","messagesSamba"},Locale.getDefault());
@@ -142,6 +147,8 @@ public class UserInPrinterACLDataContainerImpl extends BaseDataContainer impleme
 			
 	}
 	
+	
+ 
 	/**
 	 * Return a list of all Fields. A Field is a LabeledBaseInputComponentIf
 	 * @return
@@ -166,4 +173,24 @@ public class UserInPrinterACLDataContainerImpl extends BaseDataContainer impleme
 	
 	}
 	
+	public void copyFrom(DataContainer sourceContainer)
+	{
+		UserInPrinterACLDataContainerImpl source = (UserInPrinterACLDataContainerImpl)sourceContainer;
+	
+    	    		get_usr_CurrentForceUser().setValue(source.get_usr_CurrentForceUser().getValue());
+		    		get_usr_NewForceUser().setValue(source.get_usr_NewForceUser().getValue());
+				
+    	    		List targetListForUsers = (List) getUsers();
+    		List sourceListForUsers = (List) source.getUsers();
+    		if (sourceListForUsers.size() != targetListForUsers.size())
+    		{
+    			throw new IllegalArgumentException("The Lists are not from same size. Source is " + sourceListForUsers.size() + " and target is " + targetListForUsers.size() );
+    		}
+			for (int ii=0; ii < sourceListForUsers.size(); ii++)
+			{
+				((DataContainer) targetListForUsers.get(ii)).copyFrom(((DataContainer) sourceListForUsers.get(ii)));
+			}
+			
+    	    	
+	}
 }
