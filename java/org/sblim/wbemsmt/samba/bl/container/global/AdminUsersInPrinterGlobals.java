@@ -29,29 +29,11 @@ public interface AdminUsersInPrinterGlobals extends org.sblim.wbemsmt.samba.bl.c
 	/** 
 	 * Constants for Fields and Roles
 	 **/
-			public static final String FIELD_USR_SAMBAUSERNAME = "usr_SambaUserName" ;
-			public static final String FIELD_USR_ADMIN = "usr_Admin" ;
 		
 	
 	/** 
 	 * Defined Fields
 	 **/
-			
-		/**
-		* <br>
-		* DataType STRING<br>
-		* UIType LABEL<br>
-		* Relation to FCO: Linux_SambaUser.get_SambaUserName<br>
-		*/
-		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_SambaUserName();
-			
-		/**
-		* relates to Linux_SambaAdminUsersForShare<br>
-		* DataType BOOLEAN<br>
-		* UIType CHECKBOX<br>
-		* Relation to FCO: userdefined<br>
-		*/
-		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_Admin();
 	
 	
 	/** 

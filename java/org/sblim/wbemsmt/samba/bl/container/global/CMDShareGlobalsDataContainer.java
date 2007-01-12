@@ -29,12 +29,6 @@ public interface CMDShareGlobalsDataContainer extends org.sblim.wbemsmt.samba.bl
 	/** 
 	 * Constants for Fields and Roles
 	 **/
-			public static final String FIELD_CASESENSITIVE = "CaseSensitive" ;
-			public static final String FIELD_DOSFILETIMES = "DosFiletimes" ;
-			public static final String FIELD_HIDEDOTFILES = "HideDotFiles" ;
-			public static final String FIELD_ACLCOMPATIBILITY = "AclCompatibility" ;
-			public static final String FIELD_EASUPPORT = "EASupport" ;
-			public static final String FIELD_NTACLSUPPORT = "NTACLSupport" ;
 			public static final String FIELD_CREATEMASK = "CreateMask" ;
 			public static final String FIELD_DIRECTORYMASK = "DirectoryMask" ;
 			public static final String FIELD_DIRECTORYSECURITYMASK = "DirectorySecurityMask" ;
@@ -43,54 +37,6 @@ public interface CMDShareGlobalsDataContainer extends org.sblim.wbemsmt.samba.bl
 	/** 
 	 * Defined Fields
 	 **/
-			
-		/**
-		* <br>
-		* DataType BOOLEAN<br>
-		* UIType CHECKBOX<br>
-		* Relation to FCO: Linux_SambaGlobalFileNameHandlingOptions.get_CaseSensitive<br>
-		*/
-		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_CaseSensitive();
-			
-		/**
-		* <br>
-		* DataType BOOLEAN<br>
-		* UIType CHECKBOX<br>
-		* Relation to FCO: Linux_SambaGlobalFileNameHandlingOptions.get_DosFiletimes<br>
-		*/
-		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_DosFiletimes();
-			
-		/**
-		* <br>
-		* DataType BOOLEAN<br>
-		* UIType CHECKBOX<br>
-		* Relation to FCO: Linux_SambaGlobalFileNameHandlingOptions.get_HideDotFiles<br>
-		*/
-		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_HideDotFiles();
-			
-		/**
-		* <br>
-		* DataType UNSIGNED_INT8<br>
-		* UIType COMBOBOX<br>
-		* Relation to FCO: Linux_SambaGlobalProtocolOptions.get_AclCompatibility<br>
-		*/
-		public org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf get_AclCompatibility();
-			
-		/**
-		* <br>
-		* DataType BOOLEAN<br>
-		* UIType CHECKBOX<br>
-		* Relation to FCO: Linux_SambaGlobalProtocolOptions.get_EASupport<br>
-		*/
-		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_EASupport();
-			
-		/**
-		* <br>
-		* DataType BOOLEAN<br>
-		* UIType CHECKBOX<br>
-		* Relation to FCO: Linux_SambaGlobalProtocolOptions.get_NTACLSupport<br>
-		*/
-		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_NTACLSupport();
 			
 		/**
 		* the Default Create Mask<br>

@@ -29,38 +29,11 @@ public interface UserListItemDataContainer extends org.sblim.wbemsmt.samba.bl.co
 	/** 
 	 * Constants for Fields and Roles
 	 **/
-			public static final String FIELD_SAMBAUSERNAME = "SambaUserName" ;
-			public static final String FIELD_SYSTEMUSERNAME = "SystemUserName" ;
-			public static final String FIELD_USR_ISGUEST = "usr_IsGuest" ;
 		
 	
 	/** 
 	 * Defined Fields
 	 **/
-			
-		/**
-		* <br>
-		* DataType STRING<br>
-		* UIType LABEL<br>
-		* Relation to FCO: Linux_SambaUser.get_SambaUserName<br>
-		*/
-		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_SambaUserName();
-			
-		/**
-		* <br>
-		* DataType STRING<br>
-		* UIType LABEL<br>
-		* Relation to FCO: Linux_SambaUser.get_SystemUserName<br>
-		*/
-		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_SystemUserName();
-			
-		/**
-		* <br>
-		* DataType BOOLEAN<br>
-		* UIType CHECKBOX<br>
-		* Relation to FCO: userdefined<br>
-		*/
-		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_IsGuest();
 	
 	
 	/** 

@@ -29,47 +29,11 @@ public interface ShareAllowHostSecurityDataContainer extends org.sblim.wbemsmt.s
 	/** 
 	 * Constants for Fields and Roles
 	 **/
-			public static final String FIELD_USR_ALLOWEDHOSTS = "usr_AllowedHosts" ;
-			public static final String FIELD_USR_HOSTSTOALLOW = "usr_HostsToAllow" ;
-			public static final String FIELD_USR_ADDHOST = "usr_AddHost" ;
-			public static final String FIELD_USR_REMOVEHOST = "usr_RemoveHost" ;
 		
 	
 	/** 
 	 * Defined Fields
 	 **/
-			
-		/**
-		* <br>
-		* DataType UNSIGNED_INT16<br>
-		* UIType LIST<br>
-		* Relation to FCO: userdefined<br>
-		*/
-		public org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf get_usr_AllowedHosts();
-			
-		/**
-		* <br>
-		* DataType UNSIGNED_INT16<br>
-		* UIType LIST<br>
-		* Relation to FCO: userdefined<br>
-		*/
-		public org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf get_usr_HostsToAllow();
-			
-		/**
-		* <br>
-		* DataType STRING<br>
-		* UIType BUTTON<br>
-		* Relation to FCO: userdefined<br>
-		*/
-		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_AddHost();
-			
-		/**
-		* <br>
-		* DataType BOOLEAN<br>
-		* UIType BUTTON<br>
-		* Relation to FCO: userdefined<br>
-		*/
-		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_RemoveHost();
 	
 	
 	/** 

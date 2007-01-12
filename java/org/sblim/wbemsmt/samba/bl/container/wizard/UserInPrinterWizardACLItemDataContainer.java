@@ -29,47 +29,11 @@ public interface UserInPrinterWizardACLItemDataContainer extends org.sblim.wbems
 	/** 
 	 * Constants for Fields and Roles
 	 **/
-			public static final String FIELD_SAMBAUSERNAME = "SambaUserName" ;
-			public static final String FIELD_USR_ACCESSTYPEVI = "usr_AccessTypeVI" ;
-			public static final String FIELD_USR_ACCESSTYPERW = "usr_AccessTypeRW" ;
-			public static final String FIELD_USR_ADMIN = "usr_Admin" ;
 		
 	
 	/** 
 	 * Defined Fields
 	 **/
-			
-		/**
-		* <br>
-		* DataType STRING<br>
-		* UIType LABEL<br>
-		* Relation to FCO: Linux_SambaUser.get_SambaUserName<br>
-		*/
-		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_SambaUserName();
-			
-		/**
-		* relates to<br> Linux_SambaReadListForShare<br> Linux_SambaWriteListForShare<br> Linux_SambaInvalidUsersForShare<br> Linux_SambaValidUsersForShare<br> <br>
-		* DataType UNSIGNED_INT16<br>
-		* UIType RADIOBUTTON<br>
-		* Relation to FCO: userdefined<br>
-		*/
-		public org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf get_usr_AccessTypeVI();
-			
-		/**
-		* relates to<br> Linux_SambaReadListForShare<br> Linux_SambaWriteListForShare<br> Linux_SambaInvalidUsersForShare<br> Linux_SambaValidUsersForShare<br> <br>
-		* DataType UNSIGNED_INT16<br>
-		* UIType RADIOBUTTON<br>
-		* Relation to FCO: userdefined<br>
-		*/
-		public org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf get_usr_AccessTypeRW();
-			
-		/**
-		* relates to Linux_SambaAdminUsersForShare<br>
-		* DataType BOOLEAN<br>
-		* UIType CHECKBOX<br>
-		* Relation to FCO: userdefined<br>
-		*/
-		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_Admin();
 	
 	
 	/** 

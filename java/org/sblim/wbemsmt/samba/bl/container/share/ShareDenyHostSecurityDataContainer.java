@@ -29,47 +29,11 @@ public interface ShareDenyHostSecurityDataContainer extends org.sblim.wbemsmt.sa
 	/** 
 	 * Constants for Fields and Roles
 	 **/
-			public static final String FIELD_USR_DENIEDHOSTS = "usr_DeniedHosts" ;
-			public static final String FIELD_USR_HOSTSTODENY = "usr_HostsToDeny" ;
-			public static final String FIELD_USR_ADDHOST = "usr_AddHost" ;
-			public static final String FIELD_USR_REMOVEHOST = "usr_RemoveHost" ;
 		
 	
 	/** 
 	 * Defined Fields
 	 **/
-			
-		/**
-		* <br>
-		* DataType UNSIGNED_INT16<br>
-		* UIType LIST<br>
-		* Relation to FCO: userdefined<br>
-		*/
-		public org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf get_usr_DeniedHosts();
-			
-		/**
-		* <br>
-		* DataType UNSIGNED_INT16<br>
-		* UIType LIST<br>
-		* Relation to FCO: userdefined<br>
-		*/
-		public org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf get_usr_HostsToDeny();
-			
-		/**
-		* <br>
-		* DataType STRING<br>
-		* UIType BUTTON<br>
-		* Relation to FCO: userdefined<br>
-		*/
-		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_AddHost();
-			
-		/**
-		* <br>
-		* DataType STRING<br>
-		* UIType BUTTON<br>
-		* Relation to FCO: userdefined<br>
-		*/
-		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_RemoveHost();
 	
 	
 	/** 

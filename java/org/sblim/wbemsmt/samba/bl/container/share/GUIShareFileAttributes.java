@@ -29,12 +29,6 @@ public interface GUIShareFileAttributes extends org.sblim.wbemsmt.samba.bl.conta
 	/** 
 	 * Constants for Fields and Roles
 	 **/
-			public static final String FIELD_CASESENSITIVE = "CaseSensitive" ;
-			public static final String FIELD_HIDEDOTFILES = "HideDotFiles" ;
-			public static final String FIELD_DOSFILETIMES = "DosFiletimes" ;
-			public static final String FIELD_EASUPPORT = "EASupport" ;
-			public static final String FIELD_ACLCOMPATIBILITY = "AclCompatibility" ;
-			public static final String FIELD_NTACLSUPPORT = "NTACLSupport" ;
 			public static final String FIELD_USR_CREATE_U = "usr_Create_u" ;
 			public static final String FIELD_USR_CREATE_G = "usr_Create_g" ;
 			public static final String FIELD_USR_CREATE_S = "usr_Create_s" ;
@@ -76,54 +70,6 @@ public interface GUIShareFileAttributes extends org.sblim.wbemsmt.samba.bl.conta
 	/** 
 	 * Defined Fields
 	 **/
-			
-		/**
-		* <br>
-		* DataType BOOLEAN<br>
-		* UIType CHECKBOX<br>
-		* Relation to FCO: Linux_SambaShareFileNameHandlingOptions.get_CaseSensitive<br>
-		*/
-		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_CaseSensitive();
-			
-		/**
-		* <br>
-		* DataType BOOLEAN<br>
-		* UIType CHECKBOX<br>
-		* Relation to FCO: Linux_SambaShareFileNameHandlingOptions.get_HideDotFiles<br>
-		*/
-		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_HideDotFiles();
-			
-		/**
-		* <br>
-		* DataType BOOLEAN<br>
-		* UIType CHECKBOX<br>
-		* Relation to FCO: Linux_SambaShareFileNameHandlingOptions.get_DosFiletimes<br>
-		*/
-		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_DosFiletimes();
-			
-		/**
-		* <br>
-		* DataType BOOLEAN<br>
-		* UIType CHECKBOX<br>
-		* Relation to FCO: Linux_SambaShareProtocolOptions.get_EASupport<br>
-		*/
-		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_EASupport();
-			
-		/**
-		* <br>
-		* DataType UNSIGNED_INT8<br>
-		* UIType COMBOBOX<br>
-		* Relation to FCO: Linux_SambaShareProtocolOptions.get_AclCompatibility<br>
-		*/
-		public org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf get_AclCompatibility();
-			
-		/**
-		* <br>
-		* DataType BOOLEAN<br>
-		* UIType CHECKBOX<br>
-		* Relation to FCO: Linux_SambaShareProtocolOptions.get_NTACLSupport<br>
-		*/
-		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_NTACLSupport();
 			
 		/**
 		* only one part of the bitmask<br>
