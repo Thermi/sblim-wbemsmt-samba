@@ -435,4 +435,10 @@ public class UserWizard extends JSFWizardBase implements IPageWizardAdapter {
 	{
 		return bundle.getString("UserWizard.finishText",bundle.getString("wizard.finishText"));
 	}
+	
+	public String getJavaScriptWaitStatement()
+	{
+		String text = bundle.getString("UserWizard.createWaitText",bundle.getString("wizard.createWaitText"));
+		return org.sblim.wbemsmt.tools.jsf.JavascriptUtil.getShowWaitCall(text);
+	}
 }

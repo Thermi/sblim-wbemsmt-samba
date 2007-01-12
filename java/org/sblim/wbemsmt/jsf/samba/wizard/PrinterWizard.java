@@ -454,4 +454,10 @@ public class PrinterWizard extends JSFWizardBase implements IPageWizardAdapter {
 	{
 		return bundle.getString("PrinterWizard.finishText",bundle.getString("wizard.finishText"));
 	}
+	
+	public String getJavaScriptWaitStatement()
+	{
+		String text = bundle.getString("PrinterWizard.createWaitText",bundle.getString("wizard.createWaitText"));
+		return org.sblim.wbemsmt.tools.jsf.JavascriptUtil.getShowWaitCall(text);
+	}
 }
