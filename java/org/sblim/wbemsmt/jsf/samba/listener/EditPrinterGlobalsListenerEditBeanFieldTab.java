@@ -155,7 +155,7 @@ public class EditPrinterGlobalsListenerEditBeanFieldTab extends EditBean {
 				selector = new org.sblim.wbemsmt.bl.tree.CurrentTaskLauncherTreeNodeSelector();
 				selector.select(treeNode,adapter1,"EditPrinterGlobals");
 
-				
+				adapter1 .setActiveModule(AbstractBaseCimAdapter.ACTIVE_EDIT);				
 				
 				//ADD THE FIELDS FOR CONTAINER PrintingGlobalsDataContainer in EditPanel ${editPanel.getId()}
 				

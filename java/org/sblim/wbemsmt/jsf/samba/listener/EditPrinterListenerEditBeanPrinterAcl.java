@@ -135,7 +135,7 @@ public class EditPrinterListenerEditBeanPrinterAcl extends EditBean {
 				selector = new org.sblim.wbemsmt.bl.tree.CurrentTaskLauncherTreeNodeSelector();
 				selector.select(treeNode,adapter1,"editPrinterAcl");
 
-				
+				adapter1 .setActiveModule(AbstractBaseCimAdapter.ACTIVE_EDIT);				
 				
 				//ADD THE FIELDS FOR CONTAINER UserInPrinterACLDataContainer in EditPanel ${editPanel.getId()}
 				

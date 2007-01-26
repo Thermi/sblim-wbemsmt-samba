@@ -169,7 +169,7 @@ public class EditServiceListenerEditBeanTabSecurity extends EditBean {
 				selector = new org.sblim.wbemsmt.bl.tree.CurrentTaskLauncherTreeNodeSelector();
 				selector.select(treeNode,adapter1,"editGlobalSecurityPanel");
 
-				
+				adapter1 .setActiveModule(AbstractBaseCimAdapter.ACTIVE_EDIT);				
 				
 				//ADD THE FIELDS FOR CONTAINER ServiceGlobalSecurityOptionsDataContainer in EditPanel ${editPanel.getId()}
 				
@@ -217,7 +217,7 @@ public class EditServiceListenerEditBeanTabSecurity extends EditBean {
 				selector = new org.sblim.wbemsmt.bl.tree.CurrentTaskLauncherTreeNodeSelector();
 				selector.select(treeNode,adapter2,"editUserSecurityPanel");
 
-				
+				adapter2 .setActiveModule(AbstractBaseCimAdapter.ACTIVE_EDIT);				
 				
 				//ADD THE FIELDS FOR CONTAINER ServiceUserSecurityOptionsDataContainer in EditPanel ${editPanel.getId()}
 				

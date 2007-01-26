@@ -184,7 +184,7 @@ public class EditUserListenerEditBeanAcl extends EditBean {
 				selector = new org.sblim.wbemsmt.bl.tree.CurrentTaskLauncherTreeNodeSelector();
 				selector.select(treeNode,adapter1,"shareACL");
 
-				
+				adapter1 .setActiveModule(AbstractBaseCimAdapter.ACTIVE_EDIT);				
 				
 				//ADD THE FIELDS FOR CONTAINER ShareInUserACLDataContainer in EditPanel ${editPanel.getId()}
 				
@@ -250,7 +250,7 @@ public class EditUserListenerEditBeanAcl extends EditBean {
 				selector = new org.sblim.wbemsmt.bl.tree.CurrentTaskLauncherTreeNodeSelector();
 				selector.select(treeNode,adapter2,"printerACL");
 
-				
+				adapter2 .setActiveModule(AbstractBaseCimAdapter.ACTIVE_EDIT);				
 				
 				//ADD THE FIELDS FOR CONTAINER PrinterInUserACLDataContainer in EditPanel ${editPanel.getId()}
 				

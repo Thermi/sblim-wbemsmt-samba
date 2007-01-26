@@ -153,7 +153,7 @@ public class EditPrinterListenerEditBeanPrinterGeneral extends EditBean {
 				selector = new org.sblim.wbemsmt.bl.tree.CurrentTaskLauncherTreeNodeSelector();
 				selector.select(treeNode,adapter1,"editPrinterOptions");
 
-				
+				adapter1 .setActiveModule(AbstractBaseCimAdapter.ACTIVE_EDIT);				
 				
 				//ADD THE FIELDS FOR CONTAINER PrinterOptionsDataContainer in EditPanel ${editPanel.getId()}
 				
@@ -201,7 +201,7 @@ public class EditPrinterListenerEditBeanPrinterGeneral extends EditBean {
 				selector = new org.sblim.wbemsmt.bl.tree.CurrentTaskLauncherTreeNodeSelector();
 				selector.select(treeNode,adapter2,"editPrintingOptions");
 
-				
+				adapter2 .setActiveModule(AbstractBaseCimAdapter.ACTIVE_EDIT);				
 				
 				//ADD THE FIELDS FOR CONTAINER PrintingOptionsDataContainer in EditPanel ${editPanel.getId()}
 				

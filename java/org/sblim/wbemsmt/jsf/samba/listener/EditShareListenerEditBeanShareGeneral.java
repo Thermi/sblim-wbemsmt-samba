@@ -153,7 +153,7 @@ public class EditShareListenerEditBeanShareGeneral extends EditBean {
 				selector = new org.sblim.wbemsmt.bl.tree.CurrentTaskLauncherTreeNodeSelector();
 				selector.select(treeNode,adapter1,"editSharePanel");
 
-				
+				adapter1 .setActiveModule(AbstractBaseCimAdapter.ACTIVE_EDIT);				
 				
 				//ADD THE FIELDS FOR CONTAINER ShareOptionsDataContainer in EditPanel ${editPanel.getId()}
 				
@@ -201,7 +201,7 @@ public class EditShareListenerEditBeanShareGeneral extends EditBean {
 				selector = new org.sblim.wbemsmt.bl.tree.CurrentTaskLauncherTreeNodeSelector();
 				selector.select(treeNode,adapter2,"editShareFileAttributes");
 
-				
+				adapter2 .setActiveModule(AbstractBaseCimAdapter.ACTIVE_EDIT);				
 				
 				//ADD THE FIELDS FOR CONTAINER GUIShareFileAttributes in EditPanel ${editPanel.getId()}
 				
