@@ -37,6 +37,7 @@ import org.sblim.wbemsmt.exception.*;
 
 
 import org.sblim.wbemsmt.bl.adapter.DataContainer;
+import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
 
 public class ServiceUserSecurityOptionsDataContainerImpl extends BaseDataContainer implements org.sblim.wbemsmt.samba.bl.container.service.ServiceUserSecurityOptionsDataContainer {
@@ -215,6 +216,10 @@ public class ServiceUserSecurityOptionsDataContainerImpl extends BaseDataContain
 				((DataContainer) targetListForUserRights.get(ii)).copyFrom(((DataContainer) sourceListForUserRights.get(ii)));
 			}
 			
-    	    	
-	}
+    	    		}
+	
+	public boolean isModified()
+	{
+    	return DataContainerUtil.isModified(this);
+	}		
 }

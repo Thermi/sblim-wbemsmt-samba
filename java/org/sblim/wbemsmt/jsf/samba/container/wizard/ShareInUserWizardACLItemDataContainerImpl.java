@@ -30,6 +30,7 @@ import java.util.*;
 
 
 import org.sblim.wbemsmt.bl.adapter.DataContainer;
+import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
 public class ShareInUserWizardACLItemDataContainerImpl extends org.sblim.wbemsmt.tools.wizard.jsf.WizardBasePanel implements org.sblim.wbemsmt.samba.bl.container.wizard.ShareInUserWizardACLItemDataContainer {
 
@@ -204,8 +205,12 @@ public class ShareInUserWizardACLItemDataContainerImpl extends org.sblim.wbemsmt
 		    		get_usr_AccessTypeRW().setValue(source.get_usr_AccessTypeRW().getValue());
 		    		get_usr_Admin().setValue(source.get_usr_Admin().getValue());
 				
-    	    	
-	}
+    	    		}
+	
+	public boolean isModified()
+	{
+    	return DataContainerUtil.isModified(this);
+	}		
 
 	
 }

@@ -37,6 +37,7 @@ import org.sblim.wbemsmt.exception.*;
 
 
 import org.sblim.wbemsmt.bl.adapter.DataContainer;
+import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
 
 public class ServiceLoggingDataContainerImpl extends BaseDataContainer implements org.sblim.wbemsmt.samba.bl.container.service.ServiceLoggingDataContainer {
@@ -327,6 +328,10 @@ public class ServiceLoggingDataContainerImpl extends BaseDataContainer implement
 		    		get_LogFile().setValue(source.get_LogFile().getValue());
 		    		get_LogLevel().setValue(source.get_LogLevel().getValue());
 				
-    	    	
-	}
+    	    		}
+	
+	public boolean isModified()
+	{
+    	return DataContainerUtil.isModified(this);
+	}		
 }

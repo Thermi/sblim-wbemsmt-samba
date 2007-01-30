@@ -34,6 +34,7 @@ import org.sblim.wbemsmt.exception.*;
 
 
 import org.sblim.wbemsmt.bl.adapter.DataContainer;
+import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
 
 	
@@ -216,8 +217,12 @@ public class UserACLItemDataContainerForService_AsUserRights_InServiceUserSecuri
 		    		get_usr_AccessTypeVI().setValue(source.get_usr_AccessTypeVI().getValue());
 		    		get_usr_AccessTypeRW().setValue(source.get_usr_AccessTypeRW().getValue());
 				
-    	    	
-	}
+    	    		}
+	
+	public boolean isModified()
+	{
+    	return DataContainerUtil.isModified(this);
+	}		
 	
 	
 	

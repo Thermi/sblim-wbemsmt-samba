@@ -37,6 +37,7 @@ import org.sblim.wbemsmt.exception.*;
 
 
 import org.sblim.wbemsmt.bl.adapter.DataContainer;
+import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
 
 public class UserListDataContainerImpl extends BaseDataContainer implements org.sblim.wbemsmt.samba.bl.container.user.UserListDataContainer {
@@ -143,6 +144,10 @@ public class UserListDataContainerImpl extends BaseDataContainer implements org.
 				((DataContainer) targetListForUsers.get(ii)).copyFrom(((DataContainer) sourceListForUsers.get(ii)));
 			}
 			
-    	    	
-	}
+    	    		}
+	
+	public boolean isModified()
+	{
+    	return DataContainerUtil.isModified(this);
+	}		
 }

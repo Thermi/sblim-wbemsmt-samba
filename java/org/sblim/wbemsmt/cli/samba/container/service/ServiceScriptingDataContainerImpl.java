@@ -37,6 +37,7 @@ import org.sblim.wbemsmt.exception.*;
 
 
 import org.sblim.wbemsmt.bl.adapter.DataContainer;
+import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
 
 public class ServiceScriptingDataContainerImpl extends BaseDataContainer implements org.sblim.wbemsmt.samba.bl.container.service.ServiceScriptingDataContainer {
@@ -327,6 +328,10 @@ public class ServiceScriptingDataContainerImpl extends BaseDataContainer impleme
 		    		get_DeleteUserfromGroupScript().setValue(source.get_DeleteUserfromGroupScript().getValue());
 		    		get_SetPrimaryGroupScript().setValue(source.get_SetPrimaryGroupScript().getValue());
 				
-    	    	
-	}
+    	    		}
+	
+	public boolean isModified()
+	{
+    	return DataContainerUtil.isModified(this);
+	}		
 }

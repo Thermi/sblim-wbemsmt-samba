@@ -30,6 +30,7 @@ import java.util.*;
 
 
 import org.sblim.wbemsmt.bl.adapter.DataContainer;
+import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
 public class HostDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.EditBasePanel implements org.sblim.wbemsmt.samba.bl.container.host.HostDataContainer {
 
@@ -117,8 +118,12 @@ public class HostDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.EditBaseP
 	
     	    		get_Name().setValue(source.get_Name().getValue());
 				
-    	    	
-	}
+    	    		}
+	
+	public boolean isModified()
+	{
+    	return DataContainerUtil.isModified(this);
+	}		
 
 	
 }

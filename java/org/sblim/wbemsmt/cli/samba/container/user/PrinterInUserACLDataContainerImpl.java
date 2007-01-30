@@ -37,6 +37,7 @@ import org.sblim.wbemsmt.exception.*;
 
 
 import org.sblim.wbemsmt.bl.adapter.DataContainer;
+import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
 
 public class PrinterInUserACLDataContainerImpl extends BaseDataContainer implements org.sblim.wbemsmt.samba.bl.container.user.PrinterInUserACLDataContainer {
@@ -143,6 +144,10 @@ public class PrinterInUserACLDataContainerImpl extends BaseDataContainer impleme
 				((DataContainer) targetListForPrinters.get(ii)).copyFrom(((DataContainer) sourceListForPrinters.get(ii)));
 			}
 			
-    	    	
-	}
+    	    		}
+	
+	public boolean isModified()
+	{
+    	return DataContainerUtil.isModified(this);
+	}		
 }

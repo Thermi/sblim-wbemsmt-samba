@@ -37,6 +37,7 @@ import org.sblim.wbemsmt.exception.*;
 
 
 import org.sblim.wbemsmt.bl.adapter.DataContainer;
+import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
 
 public class UserDataContainerImpl extends BaseDataContainer implements org.sblim.wbemsmt.samba.bl.container.user.UserDataContainer {
@@ -183,6 +184,10 @@ public class UserDataContainerImpl extends BaseDataContainer implements org.sbli
 		    		get_SystemUserName().setValue(source.get_SystemUserName().getValue());
 		    		get_usr_IsGuest().setValue(source.get_usr_IsGuest().getValue());
 				
-    	    	
-	}
+    	    		}
+	
+	public boolean isModified()
+	{
+    	return DataContainerUtil.isModified(this);
+	}		
 }

@@ -37,6 +37,7 @@ import org.sblim.wbemsmt.exception.*;
 
 
 import org.sblim.wbemsmt.bl.adapter.DataContainer;
+import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
 
 public class ServiceAllowHostSecurityDataContainerImpl extends BaseDataContainer implements org.sblim.wbemsmt.samba.bl.container.service.ServiceAllowHostSecurityDataContainer {
@@ -197,6 +198,10 @@ public class ServiceAllowHostSecurityDataContainerImpl extends BaseDataContainer
 		    		get_usr_AddHost().setValue(source.get_usr_AddHost().getValue());
 		    		get_usr_RemoveHost().setValue(source.get_usr_RemoveHost().getValue());
 				
-    	    	
-	}
+    	    		}
+	
+	public boolean isModified()
+	{
+    	return DataContainerUtil.isModified(this);
+	}		
 }

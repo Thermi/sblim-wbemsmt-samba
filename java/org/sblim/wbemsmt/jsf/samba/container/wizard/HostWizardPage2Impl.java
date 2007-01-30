@@ -30,6 +30,7 @@ import java.util.*;
 
 
 import org.sblim.wbemsmt.bl.adapter.DataContainer;
+import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
 public class HostWizardPage2Impl extends org.sblim.wbemsmt.tools.wizard.jsf.WizardBasePanel implements org.sblim.wbemsmt.samba.bl.container.wizard.HostWizardPage2 {
 
@@ -117,8 +118,12 @@ public class HostWizardPage2Impl extends org.sblim.wbemsmt.tools.wizard.jsf.Wiza
 	
     	    		get_Name().setValue(source.get_Name().getValue());
 				
-    	    	
-	}
+    	    		}
+	
+	public boolean isModified()
+	{
+    	return DataContainerUtil.isModified(this);
+	}		
 
 	
 }

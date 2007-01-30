@@ -30,6 +30,7 @@ import java.util.*;
 
 
 import org.sblim.wbemsmt.bl.adapter.DataContainer;
+import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
 public class ServiceGlobalSecurityOptionsDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.EditBasePanel implements org.sblim.wbemsmt.samba.bl.container.service.ServiceGlobalSecurityOptionsDataContainer {
 
@@ -494,8 +495,12 @@ public class ServiceGlobalSecurityOptionsDataContainerImpl extends org.sblim.wbe
 		    		get_DomainMaster().setValue(source.get_DomainMaster().getValue());
 		    		get_Browsable().setValue(source.get_Browsable().getValue());
 				
-    	    	
-	}
+    	    		}
+	
+	public boolean isModified()
+	{
+    	return DataContainerUtil.isModified(this);
+	}		
 
 	
 }

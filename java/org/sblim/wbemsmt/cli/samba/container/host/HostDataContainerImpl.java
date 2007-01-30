@@ -37,6 +37,7 @@ import org.sblim.wbemsmt.exception.*;
 
 
 import org.sblim.wbemsmt.bl.adapter.DataContainer;
+import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
 
 public class HostDataContainerImpl extends BaseDataContainer implements org.sblim.wbemsmt.samba.bl.container.host.HostDataContainer {
@@ -135,6 +136,10 @@ public class HostDataContainerImpl extends BaseDataContainer implements org.sbli
 	
     	    		get_Name().setValue(source.get_Name().getValue());
 				
-    	    	
-	}
+    	    		}
+	
+	public boolean isModified()
+	{
+    	return DataContainerUtil.isModified(this);
+	}		
 }

@@ -37,6 +37,7 @@ import org.sblim.wbemsmt.exception.*;
 
 
 import org.sblim.wbemsmt.bl.adapter.DataContainer;
+import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
 
 public class ShareListItemDataContainerImpl extends BaseDataContainer implements org.sblim.wbemsmt.samba.bl.container.share.ShareListItemDataContainer {
@@ -351,6 +352,10 @@ public class ShareListItemDataContainerImpl extends BaseDataContainer implements
 		    		get_HostsDeny().setValue(source.get_HostsDeny().getValue());
 		    		get_ReadOnly().setValue(source.get_ReadOnly().getValue());
 				
-    	    	
-	}
+    	    		}
+	
+	public boolean isModified()
+	{
+    	return DataContainerUtil.isModified(this);
+	}		
 }

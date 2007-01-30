@@ -30,6 +30,7 @@ import java.util.*;
 
 
 import org.sblim.wbemsmt.bl.adapter.DataContainer;
+import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
 public class UserIsAdminItemImpl extends org.sblim.wbemsmt.tools.jsf.EditBasePanel implements org.sblim.wbemsmt.samba.bl.container.global.UserIsAdminItem {
 
@@ -146,8 +147,12 @@ public class UserIsAdminItemImpl extends org.sblim.wbemsmt.tools.jsf.EditBasePan
     	    		get_usr_SambaUserName().setValue(source.get_usr_SambaUserName().getValue());
 		    		get_usr_Admin().setValue(source.get_usr_Admin().getValue());
 				
-    	    	
-	}
+    	    		}
+	
+	public boolean isModified()
+	{
+    	return DataContainerUtil.isModified(this);
+	}		
 
 	
 }

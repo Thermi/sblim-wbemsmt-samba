@@ -30,6 +30,7 @@ import java.util.*;
 
 
 import org.sblim.wbemsmt.bl.adapter.DataContainer;
+import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
 public class ShareWizardPage3CMDImpl extends org.sblim.wbemsmt.tools.wizard.jsf.WizardBasePanel implements org.sblim.wbemsmt.samba.bl.container.wizard.ShareWizardPage3CMD {
 
@@ -175,8 +176,12 @@ public class ShareWizardPage3CMDImpl extends org.sblim.wbemsmt.tools.wizard.jsf.
 		    		get_DirectoryMask().setValue(source.get_DirectoryMask().getValue());
 		    		get_DirectorySecurityMask().setValue(source.get_DirectorySecurityMask().getValue());
 				
-    	    	
-	}
+    	    		}
+	
+	public boolean isModified()
+	{
+    	return DataContainerUtil.isModified(this);
+	}		
 
 	
 }

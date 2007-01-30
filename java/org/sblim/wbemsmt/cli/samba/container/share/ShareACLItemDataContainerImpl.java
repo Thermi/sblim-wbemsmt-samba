@@ -37,6 +37,7 @@ import org.sblim.wbemsmt.exception.*;
 
 
 import org.sblim.wbemsmt.bl.adapter.DataContainer;
+import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
 
 public class ShareACLItemDataContainerImpl extends BaseDataContainer implements org.sblim.wbemsmt.samba.bl.container.share.ShareACLItemDataContainer {
@@ -207,6 +208,10 @@ public class ShareACLItemDataContainerImpl extends BaseDataContainer implements 
 		    		get_usr_AccessTypeRW().setValue(source.get_usr_AccessTypeRW().getValue());
 		    		get_usr_Admin().setValue(source.get_usr_Admin().getValue());
 				
-    	    	
-	}
+    	    		}
+	
+	public boolean isModified()
+	{
+    	return DataContainerUtil.isModified(this);
+	}		
 }

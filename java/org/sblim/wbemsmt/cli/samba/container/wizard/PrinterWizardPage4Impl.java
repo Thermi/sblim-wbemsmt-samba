@@ -37,6 +37,7 @@ import org.sblim.wbemsmt.exception.*;
 
 
 import org.sblim.wbemsmt.bl.adapter.DataContainer;
+import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
 
 public class PrinterWizardPage4Impl extends BaseDataContainer implements org.sblim.wbemsmt.samba.bl.container.wizard.PrinterWizardPage4 {
@@ -159,6 +160,10 @@ public class PrinterWizardPage4Impl extends BaseDataContainer implements org.sbl
     	    		get_CupsOptions().setValue(source.get_CupsOptions().getValue());
 		    		get_PrintCommand().setValue(source.get_PrintCommand().getValue());
 				
-    	    	
-	}
+    	    		}
+	
+	public boolean isModified()
+	{
+    	return DataContainerUtil.isModified(this);
+	}		
 }

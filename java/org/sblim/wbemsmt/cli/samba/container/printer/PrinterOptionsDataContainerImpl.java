@@ -37,6 +37,7 @@ import org.sblim.wbemsmt.exception.*;
 
 
 import org.sblim.wbemsmt.bl.adapter.DataContainer;
+import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
 
 public class PrinterOptionsDataContainerImpl extends BaseDataContainer implements org.sblim.wbemsmt.samba.bl.container.printer.PrinterOptionsDataContainer {
@@ -375,6 +376,10 @@ public class PrinterOptionsDataContainerImpl extends BaseDataContainer implement
 		    		get_ReadOnly().setValue(source.get_ReadOnly().getValue());
 		    		get_Browsable().setValue(source.get_Browsable().getValue());
 				
-    	    	
-	}
+    	    		}
+	
+	public boolean isModified()
+	{
+    	return DataContainerUtil.isModified(this);
+	}		
 }

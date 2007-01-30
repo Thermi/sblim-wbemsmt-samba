@@ -37,6 +37,7 @@ import org.sblim.wbemsmt.exception.*;
 
 
 import org.sblim.wbemsmt.bl.adapter.DataContainer;
+import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
 
 public class ShareFileAttributesImpl extends BaseDataContainer implements org.sblim.wbemsmt.samba.bl.container.share.ShareFileAttributes {
@@ -255,6 +256,10 @@ public class ShareFileAttributesImpl extends BaseDataContainer implements org.sb
 		    		get_AclCompatibility().setValue(source.get_AclCompatibility().getValue());
 		    		get_NTACLSupport().setValue(source.get_NTACLSupport().getValue());
 				
-    	    	
-	}
+    	    		}
+	
+	public boolean isModified()
+	{
+    	return DataContainerUtil.isModified(this);
+	}		
 }

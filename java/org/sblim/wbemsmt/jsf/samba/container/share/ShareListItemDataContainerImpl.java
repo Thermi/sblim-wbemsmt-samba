@@ -30,6 +30,7 @@ import java.util.*;
 
 
 import org.sblim.wbemsmt.bl.adapter.DataContainer;
+import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
 public class ShareListItemDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.EditBasePanel implements org.sblim.wbemsmt.samba.bl.container.share.ShareListItemDataContainer {
 
@@ -378,8 +379,12 @@ public class ShareListItemDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.
 		    		get_HostsDeny().setValue(source.get_HostsDeny().getValue());
 		    		get_ReadOnly().setValue(source.get_ReadOnly().getValue());
 				
-    	    	
-	}
+    	    		}
+	
+	public boolean isModified()
+	{
+    	return DataContainerUtil.isModified(this);
+	}		
 
 	
 }

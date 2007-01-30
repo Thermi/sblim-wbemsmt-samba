@@ -30,6 +30,7 @@ import java.util.*;
 
 
 import org.sblim.wbemsmt.bl.adapter.DataContainer;
+import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
 public class PrinterWizardPage2Impl extends org.sblim.wbemsmt.tools.wizard.jsf.WizardBasePanel implements org.sblim.wbemsmt.samba.bl.container.wizard.PrinterWizardPage2 {
 
@@ -207,8 +208,12 @@ public class PrinterWizardPage2Impl extends org.sblim.wbemsmt.tools.wizard.jsf.W
 		    		get_Path().setValue(source.get_Path().getValue());
 		    		get_Comment().setValue(source.get_Comment().getValue());
 				
-    	    	
-	}
+    	    		}
+	
+	public boolean isModified()
+	{
+    	return DataContainerUtil.isModified(this);
+	}		
 
 	
 }

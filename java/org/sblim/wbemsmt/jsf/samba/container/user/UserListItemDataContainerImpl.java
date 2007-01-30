@@ -30,6 +30,7 @@ import java.util.*;
 
 
 import org.sblim.wbemsmt.bl.adapter.DataContainer;
+import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
 public class UserListItemDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.EditBasePanel implements org.sblim.wbemsmt.samba.bl.container.user.UserListItemDataContainer {
 
@@ -175,8 +176,12 @@ public class UserListItemDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.E
 		    		get_SystemUserName().setValue(source.get_SystemUserName().getValue());
 		    		get_usr_IsGuest().setValue(source.get_usr_IsGuest().getValue());
 				
-    	    	
-	}
+    	    		}
+	
+	public boolean isModified()
+	{
+    	return DataContainerUtil.isModified(this);
+	}		
 
 	
 }

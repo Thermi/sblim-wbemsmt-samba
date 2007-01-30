@@ -30,6 +30,7 @@ import java.util.*;
 
 
 import org.sblim.wbemsmt.bl.adapter.DataContainer;
+import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
 public class AdminUsersInShareGlobalsImpl extends org.sblim.wbemsmt.tools.jsf.EditBasePanel implements org.sblim.wbemsmt.samba.bl.container.global.AdminUsersInShareGlobals {
 
@@ -146,8 +147,12 @@ public class AdminUsersInShareGlobalsImpl extends org.sblim.wbemsmt.tools.jsf.Ed
     	    		get_usr_SambaUserName().setValue(source.get_usr_SambaUserName().getValue());
 		    		get_usr_Admin().setValue(source.get_usr_Admin().getValue());
 				
-    	    	
-	}
+    	    		}
+	
+	public boolean isModified()
+	{
+    	return DataContainerUtil.isModified(this);
+	}		
 
 	
 }

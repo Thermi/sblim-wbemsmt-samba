@@ -37,6 +37,7 @@ import org.sblim.wbemsmt.exception.*;
 
 
 import org.sblim.wbemsmt.bl.adapter.DataContainer;
+import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
 
 public class UserWizardPage1Impl extends BaseDataContainer implements org.sblim.wbemsmt.samba.bl.container.wizard.UserWizardPage1 {
@@ -231,6 +232,10 @@ public class UserWizardPage1Impl extends BaseDataContainer implements org.sblim.
 		    		get_SambaUserPassword2().setValue(source.get_SambaUserPassword2().getValue());
 		    		get_usr_IsGuest().setValue(source.get_usr_IsGuest().getValue());
 				
-    	    	
-	}
+    	    		}
+	
+	public boolean isModified()
+	{
+    	return DataContainerUtil.isModified(this);
+	}		
 }

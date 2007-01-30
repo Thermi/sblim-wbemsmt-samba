@@ -34,6 +34,7 @@ import org.sblim.wbemsmt.exception.*;
 
 
 import org.sblim.wbemsmt.bl.adapter.DataContainer;
+import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
 
 	
@@ -447,8 +448,12 @@ public class ShareListItemDataContainer_AsShares_InShareListDataContainerImpl ex
 		    		get_HostsDeny().setValue(source.get_HostsDeny().getValue());
 		    		get_ReadOnly().setValue(source.get_ReadOnly().getValue());
 				
-    	    	
-	}
+    	    		}
+	
+	public boolean isModified()
+	{
+    	return DataContainerUtil.isModified(this);
+	}		
 	
 	
 	

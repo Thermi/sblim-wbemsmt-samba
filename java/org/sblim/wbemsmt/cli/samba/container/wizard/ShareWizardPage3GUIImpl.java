@@ -37,6 +37,7 @@ import org.sblim.wbemsmt.exception.*;
 
 
 import org.sblim.wbemsmt.bl.adapter.DataContainer;
+import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
 
 public class ShareWizardPage3GUIImpl extends BaseDataContainer implements org.sblim.wbemsmt.samba.bl.container.wizard.ShareWizardPage3GUI {
@@ -975,6 +976,10 @@ public class ShareWizardPage3GUIImpl extends BaseDataContainer implements org.sb
 		    		get_usr_Directory_security_other_w().setValue(source.get_usr_Directory_security_other_w().getValue());
 		    		get_usr_Directory_security_other_x().setValue(source.get_usr_Directory_security_other_x().getValue());
 				
-    	    	
-	}
+    	    		}
+	
+	public boolean isModified()
+	{
+    	return DataContainerUtil.isModified(this);
+	}		
 }

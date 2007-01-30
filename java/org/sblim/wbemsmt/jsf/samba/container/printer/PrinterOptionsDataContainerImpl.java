@@ -30,6 +30,7 @@ import java.util.*;
 
 
 import org.sblim.wbemsmt.bl.adapter.DataContainer;
+import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
 public class PrinterOptionsDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.EditBasePanel implements org.sblim.wbemsmt.samba.bl.container.printer.PrinterOptionsDataContainer {
 
@@ -407,8 +408,12 @@ public class PrinterOptionsDataContainerImpl extends org.sblim.wbemsmt.tools.jsf
 		    		get_ReadOnly().setValue(source.get_ReadOnly().getValue());
 		    		get_Browsable().setValue(source.get_Browsable().getValue());
 				
-    	    	
-	}
+    	    		}
+	
+	public boolean isModified()
+	{
+    	return DataContainerUtil.isModified(this);
+	}		
 
 	
 }

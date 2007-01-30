@@ -37,6 +37,7 @@ import org.sblim.wbemsmt.exception.*;
 
 
 import org.sblim.wbemsmt.bl.adapter.DataContainer;
+import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
 
 public class CMDShareGlobalsDataContainerImpl extends BaseDataContainer implements org.sblim.wbemsmt.samba.bl.container.global.CMDShareGlobalsDataContainer {
@@ -327,6 +328,10 @@ public class CMDShareGlobalsDataContainerImpl extends BaseDataContainer implemen
 		    		get_DirectoryMask().setValue(source.get_DirectoryMask().getValue());
 		    		get_DirectorySecurityMask().setValue(source.get_DirectorySecurityMask().getValue());
 				
-    	    	
-	}
+    	    		}
+	
+	public boolean isModified()
+	{
+    	return DataContainerUtil.isModified(this);
+	}		
 }

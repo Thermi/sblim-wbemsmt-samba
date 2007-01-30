@@ -37,6 +37,7 @@ import org.sblim.wbemsmt.exception.*;
 
 
 import org.sblim.wbemsmt.bl.adapter.DataContainer;
+import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
 
 public class ServiceOptionsDataContainerImpl extends BaseDataContainer implements org.sblim.wbemsmt.samba.bl.container.service.ServiceOptionsDataContainer {
@@ -279,6 +280,10 @@ public class ServiceOptionsDataContainerImpl extends BaseDataContainer implement
 		    		get_Workgroup().setValue(source.get_Workgroup().getValue());
 		    		get_ConfigurationFile().setValue(source.get_ConfigurationFile().getValue());
 				
-    	    	
-	}
+    	    		}
+	
+	public boolean isModified()
+	{
+    	return DataContainerUtil.isModified(this);
+	}		
 }

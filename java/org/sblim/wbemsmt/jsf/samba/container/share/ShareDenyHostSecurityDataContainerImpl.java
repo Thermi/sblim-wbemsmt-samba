@@ -30,6 +30,7 @@ import java.util.*;
 
 
 import org.sblim.wbemsmt.bl.adapter.DataContainer;
+import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
 public class ShareDenyHostSecurityDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.EditBasePanel implements org.sblim.wbemsmt.samba.bl.container.share.ShareDenyHostSecurityDataContainer {
 
@@ -204,8 +205,12 @@ public class ShareDenyHostSecurityDataContainerImpl extends org.sblim.wbemsmt.to
 		    		get_usr_AddHost().setValue(source.get_usr_AddHost().getValue());
 		    		get_usr_RemoveHost().setValue(source.get_usr_RemoveHost().getValue());
 				
-    	    	
-	}
+    	    		}
+	
+	public boolean isModified()
+	{
+    	return DataContainerUtil.isModified(this);
+	}		
 
 	
 }

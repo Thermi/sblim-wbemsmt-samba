@@ -37,6 +37,7 @@ import org.sblim.wbemsmt.exception.*;
 
 
 import org.sblim.wbemsmt.bl.adapter.DataContainer;
+import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
 
 public class ServiceGlobalSecurityOptionsDataContainerImpl extends BaseDataContainer implements org.sblim.wbemsmt.samba.bl.container.service.ServiceGlobalSecurityOptionsDataContainer {
@@ -447,6 +448,10 @@ public class ServiceGlobalSecurityOptionsDataContainerImpl extends BaseDataConta
 		    		get_DomainMaster().setValue(source.get_DomainMaster().getValue());
 		    		get_Browsable().setValue(source.get_Browsable().getValue());
 				
-    	    	
-	}
+    	    		}
+	
+	public boolean isModified()
+	{
+    	return DataContainerUtil.isModified(this);
+	}		
 }

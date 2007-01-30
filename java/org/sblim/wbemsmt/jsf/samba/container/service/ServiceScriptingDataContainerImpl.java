@@ -30,6 +30,7 @@ import java.util.*;
 
 
 import org.sblim.wbemsmt.bl.adapter.DataContainer;
+import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
 public class ServiceScriptingDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.EditBasePanel implements org.sblim.wbemsmt.samba.bl.container.service.ServiceScriptingDataContainer {
 
@@ -349,8 +350,12 @@ public class ServiceScriptingDataContainerImpl extends org.sblim.wbemsmt.tools.j
 		    		get_DeleteUserfromGroupScript().setValue(source.get_DeleteUserfromGroupScript().getValue());
 		    		get_SetPrimaryGroupScript().setValue(source.get_SetPrimaryGroupScript().getValue());
 				
-    	    	
-	}
+    	    		}
+	
+	public boolean isModified()
+	{
+    	return DataContainerUtil.isModified(this);
+	}		
 
 	
 }

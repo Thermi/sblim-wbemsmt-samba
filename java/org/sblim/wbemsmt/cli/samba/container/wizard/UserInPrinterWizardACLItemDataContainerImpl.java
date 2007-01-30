@@ -37,6 +37,7 @@ import org.sblim.wbemsmt.exception.*;
 
 
 import org.sblim.wbemsmt.bl.adapter.DataContainer;
+import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
 
 public class UserInPrinterWizardACLItemDataContainerImpl extends BaseDataContainer implements org.sblim.wbemsmt.samba.bl.container.wizard.UserInPrinterWizardACLItemDataContainer {
@@ -207,6 +208,10 @@ public class UserInPrinterWizardACLItemDataContainerImpl extends BaseDataContain
 		    		get_usr_AccessTypeRW().setValue(source.get_usr_AccessTypeRW().getValue());
 		    		get_usr_Admin().setValue(source.get_usr_Admin().getValue());
 				
-    	    	
-	}
+    	    		}
+	
+	public boolean isModified()
+	{
+    	return DataContainerUtil.isModified(this);
+	}		
 }

@@ -30,6 +30,7 @@ import java.util.*;
 
 
 import org.sblim.wbemsmt.bl.adapter.DataContainer;
+import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
 public class UserACLItemDataContainerForServiceImpl extends org.sblim.wbemsmt.tools.jsf.EditBasePanel implements org.sblim.wbemsmt.samba.bl.container.service.UserACLItemDataContainerForService {
 
@@ -175,8 +176,12 @@ public class UserACLItemDataContainerForServiceImpl extends org.sblim.wbemsmt.to
 		    		get_usr_AccessTypeVI().setValue(source.get_usr_AccessTypeVI().getValue());
 		    		get_usr_AccessTypeRW().setValue(source.get_usr_AccessTypeRW().getValue());
 				
-    	    	
-	}
+    	    		}
+	
+	public boolean isModified()
+	{
+    	return DataContainerUtil.isModified(this);
+	}		
 
 	
 }

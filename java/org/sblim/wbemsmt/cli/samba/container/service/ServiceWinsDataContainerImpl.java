@@ -37,6 +37,7 @@ import org.sblim.wbemsmt.exception.*;
 
 
 import org.sblim.wbemsmt.bl.adapter.DataContainer;
+import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
 
 public class ServiceWinsDataContainerImpl extends BaseDataContainer implements org.sblim.wbemsmt.samba.bl.container.service.ServiceWinsDataContainer {
@@ -231,6 +232,10 @@ public class ServiceWinsDataContainerImpl extends BaseDataContainer implements o
 		    		get_WINSServer().setValue(source.get_WINSServer().getValue());
 		    		get_WINSSupport().setValue(source.get_WINSSupport().getValue());
 				
-    	    	
-	}
+    	    		}
+	
+	public boolean isModified()
+	{
+    	return DataContainerUtil.isModified(this);
+	}		
 }

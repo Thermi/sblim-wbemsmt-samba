@@ -37,6 +37,7 @@ import org.sblim.wbemsmt.exception.*;
 
 
 import org.sblim.wbemsmt.bl.adapter.DataContainer;
+import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
 
 public class ShareInUserACLDataContainerImpl extends BaseDataContainer implements org.sblim.wbemsmt.samba.bl.container.user.ShareInUserACLDataContainer {
@@ -143,6 +144,10 @@ public class ShareInUserACLDataContainerImpl extends BaseDataContainer implement
 				((DataContainer) targetListForShares.get(ii)).copyFrom(((DataContainer) sourceListForShares.get(ii)));
 			}
 			
-    	    	
-	}
+    	    		}
+	
+	public boolean isModified()
+	{
+    	return DataContainerUtil.isModified(this);
+	}		
 }

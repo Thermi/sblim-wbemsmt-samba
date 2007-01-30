@@ -37,6 +37,7 @@ import org.sblim.wbemsmt.exception.*;
 
 
 import org.sblim.wbemsmt.bl.adapter.DataContainer;
+import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
 
 public class AdminUsersInPrinterGlobalsImpl extends BaseDataContainer implements org.sblim.wbemsmt.samba.bl.container.global.AdminUsersInPrinterGlobals {
@@ -159,6 +160,10 @@ public class AdminUsersInPrinterGlobalsImpl extends BaseDataContainer implements
     	    		get_usr_SambaUserName().setValue(source.get_usr_SambaUserName().getValue());
 		    		get_usr_Admin().setValue(source.get_usr_Admin().getValue());
 				
-    	    	
-	}
+    	    		}
+	
+	public boolean isModified()
+	{
+    	return DataContainerUtil.isModified(this);
+	}		
 }

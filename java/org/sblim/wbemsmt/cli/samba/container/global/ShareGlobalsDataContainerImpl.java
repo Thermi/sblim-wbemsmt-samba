@@ -37,6 +37,7 @@ import org.sblim.wbemsmt.exception.*;
 
 
 import org.sblim.wbemsmt.bl.adapter.DataContainer;
+import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
 
 public class ShareGlobalsDataContainerImpl extends BaseDataContainer implements org.sblim.wbemsmt.samba.bl.container.global.ShareGlobalsDataContainer {
@@ -255,6 +256,10 @@ public class ShareGlobalsDataContainerImpl extends BaseDataContainer implements 
 		    		get_EASupport().setValue(source.get_EASupport().getValue());
 		    		get_NTACLSupport().setValue(source.get_NTACLSupport().getValue());
 				
-    	    	
-	}
+    	    		}
+	
+	public boolean isModified()
+	{
+    	return DataContainerUtil.isModified(this);
+	}		
 }

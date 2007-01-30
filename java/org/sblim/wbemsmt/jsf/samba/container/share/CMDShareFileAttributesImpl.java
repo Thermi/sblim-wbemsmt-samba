@@ -30,6 +30,7 @@ import java.util.*;
 
 
 import org.sblim.wbemsmt.bl.adapter.DataContainer;
+import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
 public class CMDShareFileAttributesImpl extends org.sblim.wbemsmt.tools.jsf.EditBasePanel implements org.sblim.wbemsmt.samba.bl.container.share.CMDShareFileAttributes {
 
@@ -349,8 +350,12 @@ public class CMDShareFileAttributesImpl extends org.sblim.wbemsmt.tools.jsf.Edit
 		    		get_DirectoryMask().setValue(source.get_DirectoryMask().getValue());
 		    		get_DirectorySecurityMask().setValue(source.get_DirectorySecurityMask().getValue());
 				
-    	    	
-	}
+    	    		}
+	
+	public boolean isModified()
+	{
+    	return DataContainerUtil.isModified(this);
+	}		
 
 	
 }

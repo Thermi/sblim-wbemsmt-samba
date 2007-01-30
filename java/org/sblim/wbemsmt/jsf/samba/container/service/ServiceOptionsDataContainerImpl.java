@@ -30,6 +30,7 @@ import java.util.*;
 
 
 import org.sblim.wbemsmt.bl.adapter.DataContainer;
+import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
 public class ServiceOptionsDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.EditBasePanel implements org.sblim.wbemsmt.samba.bl.container.service.ServiceOptionsDataContainer {
 
@@ -291,8 +292,12 @@ public class ServiceOptionsDataContainerImpl extends org.sblim.wbemsmt.tools.jsf
 		    		get_Workgroup().setValue(source.get_Workgroup().getValue());
 		    		get_ConfigurationFile().setValue(source.get_ConfigurationFile().getValue());
 				
-    	    	
-	}
+    	    		}
+	
+	public boolean isModified()
+	{
+    	return DataContainerUtil.isModified(this);
+	}		
 
 	
 }
