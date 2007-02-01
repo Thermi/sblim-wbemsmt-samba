@@ -40,10 +40,7 @@ public class SambaCimAdapterDeleteDelegatee extends SambaDelegatee implements Sa
 		
 		try {
 			FcoHelper.delete(fco,adapter.getCimClient());
-			if (adapter.getRootNode() != null)
-			{
-				adapter.getRootNode().readSubnodes(true);				
-			}
+			adapter.setMarkedForReload();
 		} catch (Exception e) {
 			throw new ObjectDeletionException(fco,e);
 		}
@@ -54,10 +51,7 @@ public class SambaCimAdapterDeleteDelegatee extends SambaDelegatee implements Sa
 	public void deleteImpl(Linux_SambaHost fco) throws ObjectDeletionException {
 		try {
 			FcoHelper.delete(fco,adapter.getCimClient());
-			if (adapter.getRootNode() != null)
-			{
-				adapter.getRootNode().readSubnodes(true);				
-			}
+			adapter.setMarkedForReload();
 		} catch (Exception e) {
 			throw new ObjectDeletionException(fco,e);
 		}
@@ -66,10 +60,7 @@ public class SambaCimAdapterDeleteDelegatee extends SambaDelegatee implements Sa
 	public void deleteImpl(Linux_SambaPrinterOptions fco) throws ObjectDeletionException {
 		try {
 			FcoHelper.delete(fco,adapter.getCimClient());
-			if (adapter.getRootNode() != null)
-			{
-				adapter.getRootNode().readSubnodes(true);				
-			}
+			adapter.setMarkedForReload();
 		} catch (Exception e) {
 			throw new ObjectDeletionException(fco,e);
 		}
@@ -78,10 +69,7 @@ public class SambaCimAdapterDeleteDelegatee extends SambaDelegatee implements Sa
 	public void deleteImpl(Linux_SambaUser fco) throws ObjectDeletionException {
 		try {
 			FcoHelper.delete(fco,adapter.getCimClient());
-			if (adapter.getRootNode() != null)
-			{
-				adapter.getRootNode().readSubnodes(true);				
-			}
+			adapter.setMarkedForReload();
 		} catch (Exception e) {
 			throw new ObjectDeletionException(fco,e);
 		}
