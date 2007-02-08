@@ -3,7 +3,7 @@
   *
 
  
- * (C) Copyright IBM Corp. 2005
+ * © Copyright IBM Corp. 2005
   *
   * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
@@ -42,7 +42,8 @@ public class UserACLItemDataContainerForServiceImpl extends org.sblim.wbemsmt.to
 	
 	public UserACLItemDataContainerForServiceImpl(org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
 
-				super(adapter,bindingPrefix, "UserACLItemDataContainerForService.caption");
+			
+				super(adapter,bindingPrefix, "UserACLItemDataContainerForService.caption",false);
 				
 				
     			
@@ -50,7 +51,7 @@ public class UserACLItemDataContainerForServiceImpl extends org.sblim.wbemsmt.to
         	        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_usr_AccessTypeVI());
         	        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_usr_AccessTypeRW());
         					
-		setFooter(getInputFieldContainer(),"UserACLItemDataContainerForService.footerText");
+		setFooter(getPanelForCustomLayout(),"UserACLItemDataContainerForService.footerText");
 		adapter.initContainer(this);
 	}
 	
@@ -74,6 +75,8 @@ public class UserACLItemDataContainerForServiceImpl extends org.sblim.wbemsmt.to
     			ic_SambaUserName = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_SambaUserName;
     	}
 			/**
@@ -95,6 +98,8 @@ public class UserACLItemDataContainerForServiceImpl extends org.sblim.wbemsmt.to
     			ic_usr_AccessTypeVI = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFRadioButtonComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_AccessTypeVI;
     	}
 			/**
@@ -116,6 +121,8 @@ public class UserACLItemDataContainerForServiceImpl extends org.sblim.wbemsmt.to
     			ic_usr_AccessTypeRW = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFRadioButtonComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_AccessTypeRW;
     	}
 		

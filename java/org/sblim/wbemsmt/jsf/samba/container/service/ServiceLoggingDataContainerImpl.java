@@ -3,7 +3,7 @@
   *
 
  
- * (C) Copyright IBM Corp. 2005
+ * © Copyright IBM Corp. 2005
   *
   * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
@@ -48,7 +48,8 @@ public class ServiceLoggingDataContainerImpl extends org.sblim.wbemsmt.tools.jsf
 	
 	public ServiceLoggingDataContainerImpl(org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
 
-				super(adapter,bindingPrefix, "ServiceLoggingDataContainer.caption");
+			
+				super(adapter,bindingPrefix, "ServiceLoggingDataContainer.caption",false);
 				
 				
     			
@@ -62,7 +63,7 @@ public class ServiceLoggingDataContainerImpl extends org.sblim.wbemsmt.tools.jsf
         	        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_LogFile());
         	        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_LogLevel());
         					
-		setFooter(getInputFieldContainer(),"ServiceLoggingDataContainer.footerText");
+		setFooter(getPanelForCustomLayout(),"ServiceLoggingDataContainer.footerText");
 		adapter.initContainer(this);
 	}
 	
@@ -86,6 +87,8 @@ public class ServiceLoggingDataContainerImpl extends org.sblim.wbemsmt.tools.jsf
     			ic_SysLog = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_SysLog;
     	}
 			/**
@@ -107,6 +110,8 @@ public class ServiceLoggingDataContainerImpl extends org.sblim.wbemsmt.tools.jsf
     			ic_SysLogOnly = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_SysLogOnly;
     	}
 			/**
@@ -128,6 +133,8 @@ public class ServiceLoggingDataContainerImpl extends org.sblim.wbemsmt.tools.jsf
     			ic_MaxLogSize = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_MaxLogSize;
     	}
 			/**
@@ -149,6 +156,8 @@ public class ServiceLoggingDataContainerImpl extends org.sblim.wbemsmt.tools.jsf
     			ic_DebugHiresTimestamp = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_DebugHiresTimestamp;
     	}
 			/**
@@ -170,6 +179,8 @@ public class ServiceLoggingDataContainerImpl extends org.sblim.wbemsmt.tools.jsf
     			ic_DebugPID = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_DebugPID;
     	}
 			/**
@@ -191,6 +202,8 @@ public class ServiceLoggingDataContainerImpl extends org.sblim.wbemsmt.tools.jsf
     			ic_DebugTimestamp = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_DebugTimestamp;
     	}
 			/**
@@ -212,6 +225,8 @@ public class ServiceLoggingDataContainerImpl extends org.sblim.wbemsmt.tools.jsf
     			ic_DebugUID = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_DebugUID;
     	}
 			/**
@@ -233,6 +248,8 @@ public class ServiceLoggingDataContainerImpl extends org.sblim.wbemsmt.tools.jsf
     			ic_LogFile = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_LogFile;
     	}
 			/**
@@ -254,6 +271,8 @@ public class ServiceLoggingDataContainerImpl extends org.sblim.wbemsmt.tools.jsf
     			ic_LogLevel = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_LogLevel;
     	}
 		

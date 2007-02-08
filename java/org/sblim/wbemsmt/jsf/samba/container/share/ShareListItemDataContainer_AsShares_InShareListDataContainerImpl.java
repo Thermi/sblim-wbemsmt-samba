@@ -3,7 +3,7 @@
   *
 
  
- * (C) Copyright IBM Corp. 2005
+ * © Copyright IBM Corp. 2005
   *
   * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
@@ -134,6 +134,8 @@ public class ShareListItemDataContainer_AsShares_InShareListDataContainerImpl ex
 				;
 				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent)ic_Name).setOrientation( LabeledBaseInputComponentIf.LEFT );
     		}
+
+						
     		return ic_Name;
     	}
 			/**
@@ -157,6 +159,8 @@ public class ShareListItemDataContainer_AsShares_InShareListDataContainerImpl ex
 				;
 				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent)ic_Available).setOrientation( LabeledBaseInputComponentIf.LEFT );
     		}
+
+						
     		return ic_Available;
     	}
 			/**
@@ -180,6 +184,8 @@ public class ShareListItemDataContainer_AsShares_InShareListDataContainerImpl ex
 				;
 				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent)ic_Comment).setOrientation( LabeledBaseInputComponentIf.LEFT );
     		}
+
+						
     		return ic_Comment;
     	}
 			/**
@@ -203,6 +209,8 @@ public class ShareListItemDataContainer_AsShares_InShareListDataContainerImpl ex
 				;
 				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent)ic_Path).setOrientation( LabeledBaseInputComponentIf.LEFT );
     		}
+
+						
     		return ic_Path;
     	}
 			/**
@@ -226,6 +234,8 @@ public class ShareListItemDataContainer_AsShares_InShareListDataContainerImpl ex
 				;
 				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent)ic_Browsable).setOrientation( LabeledBaseInputComponentIf.LEFT );
     		}
+
+						
     		return ic_Browsable;
     	}
 			/**
@@ -249,6 +259,8 @@ public class ShareListItemDataContainer_AsShares_InShareListDataContainerImpl ex
 				;
 				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent)ic_GuestOK).setOrientation( LabeledBaseInputComponentIf.LEFT );
     		}
+
+						
     		return ic_GuestOK;
     	}
 			/**
@@ -272,6 +284,8 @@ public class ShareListItemDataContainer_AsShares_InShareListDataContainerImpl ex
 				;
 				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent)ic_GuestOnly).setOrientation( LabeledBaseInputComponentIf.LEFT );
     		}
+
+						
     		return ic_GuestOnly;
     	}
 			/**
@@ -295,6 +309,8 @@ public class ShareListItemDataContainer_AsShares_InShareListDataContainerImpl ex
 				;
 				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent)ic_HostsAllow).setOrientation( LabeledBaseInputComponentIf.LEFT );
     		}
+
+						
     		return ic_HostsAllow;
     	}
 			/**
@@ -318,6 +334,8 @@ public class ShareListItemDataContainer_AsShares_InShareListDataContainerImpl ex
 				;
 				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent)ic_HostsDeny).setOrientation( LabeledBaseInputComponentIf.LEFT );
     		}
+
+						
     		return ic_HostsDeny;
     	}
 			/**
@@ -341,6 +359,8 @@ public class ShareListItemDataContainer_AsShares_InShareListDataContainerImpl ex
 				;
 				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent)ic_ReadOnly).setOrientation( LabeledBaseInputComponentIf.LEFT );
     		}
+
+						
     		return ic_ReadOnly;
     	}
 		

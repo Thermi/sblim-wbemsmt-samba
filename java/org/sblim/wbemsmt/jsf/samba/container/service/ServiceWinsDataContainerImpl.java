@@ -3,7 +3,7 @@
   *
 
  
- * (C) Copyright IBM Corp. 2005
+ * © Copyright IBM Corp. 2005
   *
   * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
@@ -44,7 +44,8 @@ public class ServiceWinsDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.Ed
 	
 	public ServiceWinsDataContainerImpl(org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
 
-				super(adapter,bindingPrefix, "ServiceWinsDataContainer.caption");
+			
+				super(adapter,bindingPrefix, "ServiceWinsDataContainer.caption",false);
 				
 				
     			
@@ -54,7 +55,7 @@ public class ServiceWinsDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.Ed
         	        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_WINSServer());
         	        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_WINSSupport());
         					
-		setFooter(getInputFieldContainer(),"ServiceWinsDataContainer.footerText");
+		setFooter(getPanelForCustomLayout(),"ServiceWinsDataContainer.footerText");
 		adapter.initContainer(this);
 	}
 	
@@ -78,6 +79,8 @@ public class ServiceWinsDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.Ed
     			ic_DNS_Proxy = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_DNS_Proxy;
     	}
 			/**
@@ -99,6 +102,8 @@ public class ServiceWinsDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.Ed
     			ic_WINSHook = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_WINSHook;
     	}
 			/**
@@ -120,6 +125,8 @@ public class ServiceWinsDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.Ed
     			ic_WINSProxy = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_WINSProxy;
     	}
 			/**
@@ -141,6 +148,8 @@ public class ServiceWinsDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.Ed
     			ic_WINSServer = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_WINSServer;
     	}
 			/**
@@ -162,6 +171,8 @@ public class ServiceWinsDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.Ed
     			ic_WINSSupport = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_WINSSupport;
     	}
 		

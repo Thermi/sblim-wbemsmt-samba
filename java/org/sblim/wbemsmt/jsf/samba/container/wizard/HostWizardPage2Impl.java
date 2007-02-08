@@ -3,7 +3,7 @@
   *
 
  
- * (C) Copyright IBM Corp. 2005
+ * © Copyright IBM Corp. 2005
   *
   * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
@@ -40,13 +40,14 @@ public class HostWizardPage2Impl extends org.sblim.wbemsmt.tools.wizard.jsf.Wiza
 	
 	public HostWizardPage2Impl(org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
 
-				super(adapter,bindingPrefix, "HostWizardPage2.caption","HostWizardPage2.subTitle");
+			
+				super(adapter,bindingPrefix, "HostWizardPage2.caption","HostWizardPage2.subTitle",false);
 				
 				
     			
     	    		        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_Name());
         					
-		setFooter(getInputFieldContainer(),"HostWizardPage2.footerText");
+		setFooter(getPanelForCustomLayout(),"HostWizardPage2.footerText");
 		adapter.initContainer(this);
 	}
 	
@@ -70,6 +71,8 @@ public class HostWizardPage2Impl extends org.sblim.wbemsmt.tools.wizard.jsf.Wiza
     			ic_Name = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_Name;
     	}
 		

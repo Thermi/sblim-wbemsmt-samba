@@ -3,7 +3,7 @@
   *
 
  
- * (C) Copyright IBM Corp. 2005
+ * © Copyright IBM Corp. 2005
   *
   * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
@@ -40,12 +40,13 @@ public class UserListDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.EditB
 	
 	public UserListDataContainerImpl(org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
 
-				super(adapter,bindingPrefix, "UserListDataContainer.caption");
+			
+				super(adapter,bindingPrefix, "UserListDataContainer.caption",false);
 				
 				
     			
     	    						
-		setFooter(getInputFieldContainer(),"UserListDataContainer.footerText");
+		setFooter(getPanelForCustomLayout(),"UserListDataContainer.footerText");
 		adapter.initContainer(this);
 	}
 	
@@ -58,7 +59,7 @@ public class UserListDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.EditB
 		*/
 		public java.util.List getUsers()
 		{
-			return icUsers;
+						return icUsers;
 		}
 
 	

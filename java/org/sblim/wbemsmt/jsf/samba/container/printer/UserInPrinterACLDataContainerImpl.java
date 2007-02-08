@@ -3,7 +3,7 @@
   *
 
  
- * (C) Copyright IBM Corp. 2005
+ * © Copyright IBM Corp. 2005
   *
   * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
@@ -42,14 +42,15 @@ public class UserInPrinterACLDataContainerImpl extends org.sblim.wbemsmt.tools.j
 	
 	public UserInPrinterACLDataContainerImpl(org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
 
-				super(adapter,bindingPrefix, "UserInPrinterACLDataContainer.caption");
+			
+				super(adapter,bindingPrefix, "UserInPrinterACLDataContainer.caption",false);
 				
 				
     			
     	    		        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_usr_CurrentForceUser());
         	        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_usr_NewForceUser());
         					
-		setFooter(getInputFieldContainer(),"UserInPrinterACLDataContainer.footerText");
+		setFooter(getPanelForCustomLayout(),"UserInPrinterACLDataContainer.footerText");
 		adapter.initContainer(this);
 	}
 	
@@ -73,6 +74,8 @@ public class UserInPrinterACLDataContainerImpl extends org.sblim.wbemsmt.tools.j
     			ic_usr_CurrentForceUser = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_CurrentForceUser;
     	}
 			/**
@@ -94,6 +97,8 @@ public class UserInPrinterACLDataContainerImpl extends org.sblim.wbemsmt.tools.j
     			ic_usr_NewForceUser = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFComboBoxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_NewForceUser;
     	}
 		
@@ -104,7 +109,7 @@ public class UserInPrinterACLDataContainerImpl extends org.sblim.wbemsmt.tools.j
 		*/
 		public java.util.List getUsers()
 		{
-			return icUsers;
+						return icUsers;
 		}
 
 	

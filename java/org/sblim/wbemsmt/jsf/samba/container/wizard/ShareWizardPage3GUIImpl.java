@@ -3,7 +3,7 @@
   *
 
  
- * (C) Copyright IBM Corp. 2005
+ * © Copyright IBM Corp. 2005
   *
   * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
@@ -81,13 +81,14 @@ public class ShareWizardPage3GUIImpl extends org.sblim.wbemsmt.tools.wizard.jsf.
 	
 	public ShareWizardPage3GUIImpl(org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
 
-				super(adapter,bindingPrefix, "ShareWizardPage3GUI.caption","ShareWizardPage3GUI.subTitle");
+			
+				super(adapter,bindingPrefix, "ShareWizardPage3GUI.caption","ShareWizardPage3GUI.subTitle",false);
 				
 				
     			
     				layouter = new ShareWizardPage3GUIImplLayouter();//.layout(getPanelForCustomLayout(),this,bundle);
 				
-		setFooter(getInputFieldContainer(),"ShareWizardPage3GUI.footerText");
+		setFooter(getPanelForCustomLayout(),"ShareWizardPage3GUI.footerText");
 		adapter.initContainer(this);
 	}
 	
@@ -111,6 +112,8 @@ public class ShareWizardPage3GUIImpl extends org.sblim.wbemsmt.tools.wizard.jsf.
     			ic_usr_Create_u = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_Create_u;
     	}
 			/**
@@ -132,6 +135,8 @@ public class ShareWizardPage3GUIImpl extends org.sblim.wbemsmt.tools.wizard.jsf.
     			ic_usr_Create_g = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_Create_g;
     	}
 			/**
@@ -153,6 +158,8 @@ public class ShareWizardPage3GUIImpl extends org.sblim.wbemsmt.tools.wizard.jsf.
     			ic_usr_Create_s = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_Create_s;
     	}
 			/**
@@ -174,6 +181,8 @@ public class ShareWizardPage3GUIImpl extends org.sblim.wbemsmt.tools.wizard.jsf.
     			ic_usr_Create_user_r = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_Create_user_r;
     	}
 			/**
@@ -195,6 +204,8 @@ public class ShareWizardPage3GUIImpl extends org.sblim.wbemsmt.tools.wizard.jsf.
     			ic_usr_Create_user_w = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_Create_user_w;
     	}
 			/**
@@ -216,6 +227,8 @@ public class ShareWizardPage3GUIImpl extends org.sblim.wbemsmt.tools.wizard.jsf.
     			ic_usr_Create_user_x = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_Create_user_x;
     	}
 			/**
@@ -237,6 +250,8 @@ public class ShareWizardPage3GUIImpl extends org.sblim.wbemsmt.tools.wizard.jsf.
     			ic_usr_Create_group_r = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_Create_group_r;
     	}
 			/**
@@ -258,6 +273,8 @@ public class ShareWizardPage3GUIImpl extends org.sblim.wbemsmt.tools.wizard.jsf.
     			ic_usr_Create_group_w = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_Create_group_w;
     	}
 			/**
@@ -279,6 +296,8 @@ public class ShareWizardPage3GUIImpl extends org.sblim.wbemsmt.tools.wizard.jsf.
     			ic_usr_Create_group_x = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_Create_group_x;
     	}
 			/**
@@ -300,6 +319,8 @@ public class ShareWizardPage3GUIImpl extends org.sblim.wbemsmt.tools.wizard.jsf.
     			ic_usr_Create_other_r = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_Create_other_r;
     	}
 			/**
@@ -321,6 +342,8 @@ public class ShareWizardPage3GUIImpl extends org.sblim.wbemsmt.tools.wizard.jsf.
     			ic_usr_Create_other_w = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_Create_other_w;
     	}
 			/**
@@ -342,6 +365,8 @@ public class ShareWizardPage3GUIImpl extends org.sblim.wbemsmt.tools.wizard.jsf.
     			ic_usr_Create_other_x = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_Create_other_x;
     	}
 			/**
@@ -363,6 +388,8 @@ public class ShareWizardPage3GUIImpl extends org.sblim.wbemsmt.tools.wizard.jsf.
     			ic_usr_Directory_u = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_Directory_u;
     	}
 			/**
@@ -384,6 +411,8 @@ public class ShareWizardPage3GUIImpl extends org.sblim.wbemsmt.tools.wizard.jsf.
     			ic_usr_Directory_g = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_Directory_g;
     	}
 			/**
@@ -405,6 +434,8 @@ public class ShareWizardPage3GUIImpl extends org.sblim.wbemsmt.tools.wizard.jsf.
     			ic_usr_Directory_s = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_Directory_s;
     	}
 			/**
@@ -426,6 +457,8 @@ public class ShareWizardPage3GUIImpl extends org.sblim.wbemsmt.tools.wizard.jsf.
     			ic_usr_Directory_user_r = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_Directory_user_r;
     	}
 			/**
@@ -447,6 +480,8 @@ public class ShareWizardPage3GUIImpl extends org.sblim.wbemsmt.tools.wizard.jsf.
     			ic_usr_Directory_user_w = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_Directory_user_w;
     	}
 			/**
@@ -468,6 +503,8 @@ public class ShareWizardPage3GUIImpl extends org.sblim.wbemsmt.tools.wizard.jsf.
     			ic_usr_Directory_user_x = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_Directory_user_x;
     	}
 			/**
@@ -489,6 +526,8 @@ public class ShareWizardPage3GUIImpl extends org.sblim.wbemsmt.tools.wizard.jsf.
     			ic_usr_Directory_group_r = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_Directory_group_r;
     	}
 			/**
@@ -510,6 +549,8 @@ public class ShareWizardPage3GUIImpl extends org.sblim.wbemsmt.tools.wizard.jsf.
     			ic_usr_Directory_group_w = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_Directory_group_w;
     	}
 			/**
@@ -531,6 +572,8 @@ public class ShareWizardPage3GUIImpl extends org.sblim.wbemsmt.tools.wizard.jsf.
     			ic_usr_Directory_group_x = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_Directory_group_x;
     	}
 			/**
@@ -552,6 +595,8 @@ public class ShareWizardPage3GUIImpl extends org.sblim.wbemsmt.tools.wizard.jsf.
     			ic_usr_Directory_other_r = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_Directory_other_r;
     	}
 			/**
@@ -573,6 +618,8 @@ public class ShareWizardPage3GUIImpl extends org.sblim.wbemsmt.tools.wizard.jsf.
     			ic_usr_Directory_other_w = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_Directory_other_w;
     	}
 			/**
@@ -594,6 +641,8 @@ public class ShareWizardPage3GUIImpl extends org.sblim.wbemsmt.tools.wizard.jsf.
     			ic_usr_Directory_other_x = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_Directory_other_x;
     	}
 			/**
@@ -615,6 +664,8 @@ public class ShareWizardPage3GUIImpl extends org.sblim.wbemsmt.tools.wizard.jsf.
     			ic_usr_Directory_security_u = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_Directory_security_u;
     	}
 			/**
@@ -636,6 +687,8 @@ public class ShareWizardPage3GUIImpl extends org.sblim.wbemsmt.tools.wizard.jsf.
     			ic_usr_Directory_security_g = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_Directory_security_g;
     	}
 			/**
@@ -657,6 +710,8 @@ public class ShareWizardPage3GUIImpl extends org.sblim.wbemsmt.tools.wizard.jsf.
     			ic_usr_Directory_security_s = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_Directory_security_s;
     	}
 			/**
@@ -678,6 +733,8 @@ public class ShareWizardPage3GUIImpl extends org.sblim.wbemsmt.tools.wizard.jsf.
     			ic_usr_Directory_security_user_r = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_Directory_security_user_r;
     	}
 			/**
@@ -699,6 +756,8 @@ public class ShareWizardPage3GUIImpl extends org.sblim.wbemsmt.tools.wizard.jsf.
     			ic_usr_Directory_security_user_w = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_Directory_security_user_w;
     	}
 			/**
@@ -720,6 +779,8 @@ public class ShareWizardPage3GUIImpl extends org.sblim.wbemsmt.tools.wizard.jsf.
     			ic_usr_Directory_security_user_x = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_Directory_security_user_x;
     	}
 			/**
@@ -741,6 +802,8 @@ public class ShareWizardPage3GUIImpl extends org.sblim.wbemsmt.tools.wizard.jsf.
     			ic_usr_Directory_security_group_r = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_Directory_security_group_r;
     	}
 			/**
@@ -762,6 +825,8 @@ public class ShareWizardPage3GUIImpl extends org.sblim.wbemsmt.tools.wizard.jsf.
     			ic_usr_Directory_security_group_w = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_Directory_security_group_w;
     	}
 			/**
@@ -783,6 +848,8 @@ public class ShareWizardPage3GUIImpl extends org.sblim.wbemsmt.tools.wizard.jsf.
     			ic_usr_Directory_security_group_x = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_Directory_security_group_x;
     	}
 			/**
@@ -804,6 +871,8 @@ public class ShareWizardPage3GUIImpl extends org.sblim.wbemsmt.tools.wizard.jsf.
     			ic_usr_Directory_security_other_r = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_Directory_security_other_r;
     	}
 			/**
@@ -825,6 +894,8 @@ public class ShareWizardPage3GUIImpl extends org.sblim.wbemsmt.tools.wizard.jsf.
     			ic_usr_Directory_security_other_w = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_Directory_security_other_w;
     	}
 			/**
@@ -846,6 +917,8 @@ public class ShareWizardPage3GUIImpl extends org.sblim.wbemsmt.tools.wizard.jsf.
     			ic_usr_Directory_security_other_x = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_Directory_security_other_x;
     	}
 		

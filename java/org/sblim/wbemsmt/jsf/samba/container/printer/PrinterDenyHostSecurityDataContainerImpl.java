@@ -3,7 +3,7 @@
   *
 
  
- * (C) Copyright IBM Corp. 2005
+ * © Copyright IBM Corp. 2005
   *
   * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
@@ -43,7 +43,8 @@ public class PrinterDenyHostSecurityDataContainerImpl extends org.sblim.wbemsmt.
 	
 	public PrinterDenyHostSecurityDataContainerImpl(org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
 
-				super(adapter,bindingPrefix, "PrinterDenyHostSecurityDataContainer.caption");
+			
+				super(adapter,bindingPrefix, "PrinterDenyHostSecurityDataContainer.caption",false);
 				
 				
     			
@@ -52,7 +53,7 @@ public class PrinterDenyHostSecurityDataContainerImpl extends org.sblim.wbemsmt.
         	        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_usr_AddHost());
         	        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_usr_RemoveHost());
         					
-		setFooter(getInputFieldContainer(),"PrinterDenyHostSecurityDataContainer.footerText");
+		setFooter(getPanelForCustomLayout(),"PrinterDenyHostSecurityDataContainer.footerText");
 		adapter.initContainer(this);
 	}
 	
@@ -76,6 +77,8 @@ public class PrinterDenyHostSecurityDataContainerImpl extends org.sblim.wbemsmt.
     			ic_usr_DeniedHosts = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFListComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_DeniedHosts;
     	}
 			/**
@@ -97,6 +100,8 @@ public class PrinterDenyHostSecurityDataContainerImpl extends org.sblim.wbemsmt.
     			ic_usr_HostsToDeny = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFListComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_HostsToDeny;
     	}
 			/**
@@ -118,6 +123,8 @@ public class PrinterDenyHostSecurityDataContainerImpl extends org.sblim.wbemsmt.
     			ic_usr_AddHost = new org.sblim.wbemsmt.tools.input.jsf.JSFButtonComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_AddHost;
     	}
 			/**
@@ -139,6 +146,8 @@ public class PrinterDenyHostSecurityDataContainerImpl extends org.sblim.wbemsmt.
     			ic_usr_RemoveHost = new org.sblim.wbemsmt.tools.input.jsf.JSFButtonComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_RemoveHost;
     	}
 		

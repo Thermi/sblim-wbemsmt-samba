@@ -3,7 +3,7 @@
   *
 
  
- * (C) Copyright IBM Corp. 2005
+ * © Copyright IBM Corp. 2005
   *
   * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
@@ -43,7 +43,8 @@ public class ServiceUserSecurityOptionsDataContainerImpl extends org.sblim.wbems
 	
 	public ServiceUserSecurityOptionsDataContainerImpl(org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
 
-				super(adapter,bindingPrefix, "ServiceUserSecurityOptionsDataContainer.caption");
+			
+				super(adapter,bindingPrefix, "ServiceUserSecurityOptionsDataContainer.caption",false);
 				
 				
     			
@@ -51,7 +52,7 @@ public class ServiceUserSecurityOptionsDataContainerImpl extends org.sblim.wbems
         	        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_usr_CurrentForceUser());
         	        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_usr_NewForceUser());
         					
-		setFooter(getInputFieldContainer(),"ServiceUserSecurityOptionsDataContainer.footerText");
+		setFooter(getPanelForCustomLayout(),"ServiceUserSecurityOptionsDataContainer.footerText");
 		adapter.initContainer(this);
 	}
 	
@@ -75,6 +76,8 @@ public class ServiceUserSecurityOptionsDataContainerImpl extends org.sblim.wbems
     			ic_usr_GuestUser = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_GuestUser;
     	}
 			/**
@@ -96,6 +99,8 @@ public class ServiceUserSecurityOptionsDataContainerImpl extends org.sblim.wbems
     			ic_usr_CurrentForceUser = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_CurrentForceUser;
     	}
 			/**
@@ -117,6 +122,8 @@ public class ServiceUserSecurityOptionsDataContainerImpl extends org.sblim.wbems
     			ic_usr_NewForceUser = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFComboBoxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_NewForceUser;
     	}
 		
@@ -127,7 +134,7 @@ public class ServiceUserSecurityOptionsDataContainerImpl extends org.sblim.wbems
 		*/
 		public java.util.List getUserRights()
 		{
-			return icUserRights;
+						return icUserRights;
 		}
 
 	

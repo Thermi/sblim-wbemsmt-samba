@@ -3,7 +3,7 @@
   *
 
  
- * (C) Copyright IBM Corp. 2005
+ * © Copyright IBM Corp. 2005
   *
   * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
@@ -41,14 +41,15 @@ public class PrinterWizardPage4Impl extends org.sblim.wbemsmt.tools.wizard.jsf.W
 	
 	public PrinterWizardPage4Impl(org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
 
-				super(adapter,bindingPrefix, "PrinterWizardPage4.caption","PrinterWizardPage4.subTitle");
+			
+				super(adapter,bindingPrefix, "PrinterWizardPage4.caption","PrinterWizardPage4.subTitle",false);
 				
 				
     			
     	    		        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_CupsOptions());
         	        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_PrintCommand());
         					
-		setFooter(getInputFieldContainer(),"PrinterWizardPage4.footerText");
+		setFooter(getPanelForCustomLayout(),"PrinterWizardPage4.footerText");
 		adapter.initContainer(this);
 	}
 	
@@ -72,6 +73,8 @@ public class PrinterWizardPage4Impl extends org.sblim.wbemsmt.tools.wizard.jsf.W
     			ic_CupsOptions = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_CupsOptions;
     	}
 			/**
@@ -93,6 +96,8 @@ public class PrinterWizardPage4Impl extends org.sblim.wbemsmt.tools.wizard.jsf.W
     			ic_PrintCommand = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_PrintCommand;
     	}
 		

@@ -3,7 +3,7 @@
   *
 
  
- * (C) Copyright IBM Corp. 2005
+ * © Copyright IBM Corp. 2005
   *
   * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
@@ -50,7 +50,8 @@ public class PrinterListItemDataContainerImpl extends org.sblim.wbemsmt.tools.js
 	
 	public PrinterListItemDataContainerImpl(org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
 
-				super(adapter,bindingPrefix, "PrinterListItemDataContainer.caption");
+			
+				super(adapter,bindingPrefix, "PrinterListItemDataContainer.caption",false);
 				
 				
     			
@@ -66,7 +67,7 @@ public class PrinterListItemDataContainerImpl extends org.sblim.wbemsmt.tools.js
         	        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_ReadOnly());
         	        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_Browsable());
         					
-		setFooter(getInputFieldContainer(),"PrinterListItemDataContainer.footerText");
+		setFooter(getPanelForCustomLayout(),"PrinterListItemDataContainer.footerText");
 		adapter.initContainer(this);
 	}
 	
@@ -90,6 +91,8 @@ public class PrinterListItemDataContainerImpl extends org.sblim.wbemsmt.tools.js
     			ic_Name = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_Name;
     	}
 			/**
@@ -111,6 +114,8 @@ public class PrinterListItemDataContainerImpl extends org.sblim.wbemsmt.tools.js
     			ic_usr_SystemPrinterName = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFComboBoxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_SystemPrinterName;
     	}
 			/**
@@ -132,6 +137,8 @@ public class PrinterListItemDataContainerImpl extends org.sblim.wbemsmt.tools.js
     			ic_Path = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_Path;
     	}
 			/**
@@ -153,6 +160,8 @@ public class PrinterListItemDataContainerImpl extends org.sblim.wbemsmt.tools.js
     			ic_Comment = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_Comment;
     	}
 			/**
@@ -174,6 +183,8 @@ public class PrinterListItemDataContainerImpl extends org.sblim.wbemsmt.tools.js
     			ic_Available = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_Available;
     	}
 			/**
@@ -195,6 +206,8 @@ public class PrinterListItemDataContainerImpl extends org.sblim.wbemsmt.tools.js
     			ic_GuestOK = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_GuestOK;
     	}
 			/**
@@ -216,6 +229,8 @@ public class PrinterListItemDataContainerImpl extends org.sblim.wbemsmt.tools.js
     			ic_GuestOnly = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_GuestOnly;
     	}
 			/**
@@ -237,6 +252,8 @@ public class PrinterListItemDataContainerImpl extends org.sblim.wbemsmt.tools.js
     			ic_HostsAllow = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_HostsAllow;
     	}
 			/**
@@ -258,6 +275,8 @@ public class PrinterListItemDataContainerImpl extends org.sblim.wbemsmt.tools.js
     			ic_HostsDeny = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_HostsDeny;
     	}
 			/**
@@ -279,6 +298,8 @@ public class PrinterListItemDataContainerImpl extends org.sblim.wbemsmt.tools.js
     			ic_ReadOnly = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_ReadOnly;
     	}
 			/**
@@ -300,6 +321,8 @@ public class PrinterListItemDataContainerImpl extends org.sblim.wbemsmt.tools.js
     			ic_Browsable = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_Browsable;
     	}
 		

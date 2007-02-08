@@ -3,7 +3,7 @@
   *
 
  
- * (C) Copyright IBM Corp. 2005
+ * © Copyright IBM Corp. 2005
   *
   * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
@@ -87,13 +87,14 @@ public class GUIShareFileAttributesImpl extends org.sblim.wbemsmt.tools.jsf.Edit
 	
 	public GUIShareFileAttributesImpl(org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
 
-				super(adapter,bindingPrefix, "GUIShareFileAttributes.caption");
+			
+				super(adapter,bindingPrefix, "GUIShareFileAttributes.caption",false);
 				
 				
     			
     				layouter = new GUIShareFileAttributesImplLayouter();//.layout(getPanelForCustomLayout(),this,bundle);
 				
-		setFooter(getInputFieldContainer(),"GUIShareFileAttributes.footerText");
+		setFooter(getPanelForCustomLayout(),"GUIShareFileAttributes.footerText");
 		adapter.initContainer(this);
 	}
 	
@@ -117,6 +118,8 @@ public class GUIShareFileAttributesImpl extends org.sblim.wbemsmt.tools.jsf.Edit
     			ic_CaseSensitive = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_CaseSensitive;
     	}
 			/**
@@ -138,6 +141,8 @@ public class GUIShareFileAttributesImpl extends org.sblim.wbemsmt.tools.jsf.Edit
     			ic_HideDotFiles = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_HideDotFiles;
     	}
 			/**
@@ -159,6 +164,8 @@ public class GUIShareFileAttributesImpl extends org.sblim.wbemsmt.tools.jsf.Edit
     			ic_DosFiletimes = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_DosFiletimes;
     	}
 			/**
@@ -180,6 +187,8 @@ public class GUIShareFileAttributesImpl extends org.sblim.wbemsmt.tools.jsf.Edit
     			ic_EASupport = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_EASupport;
     	}
 			/**
@@ -201,6 +210,8 @@ public class GUIShareFileAttributesImpl extends org.sblim.wbemsmt.tools.jsf.Edit
     			ic_AclCompatibility = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFComboBoxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_AclCompatibility;
     	}
 			/**
@@ -222,6 +233,8 @@ public class GUIShareFileAttributesImpl extends org.sblim.wbemsmt.tools.jsf.Edit
     			ic_NTACLSupport = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_NTACLSupport;
     	}
 			/**
@@ -243,6 +256,8 @@ public class GUIShareFileAttributesImpl extends org.sblim.wbemsmt.tools.jsf.Edit
     			ic_usr_Create_u = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_Create_u;
     	}
 			/**
@@ -264,6 +279,8 @@ public class GUIShareFileAttributesImpl extends org.sblim.wbemsmt.tools.jsf.Edit
     			ic_usr_Create_g = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_Create_g;
     	}
 			/**
@@ -285,6 +302,8 @@ public class GUIShareFileAttributesImpl extends org.sblim.wbemsmt.tools.jsf.Edit
     			ic_usr_Create_s = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_Create_s;
     	}
 			/**
@@ -306,6 +325,8 @@ public class GUIShareFileAttributesImpl extends org.sblim.wbemsmt.tools.jsf.Edit
     			ic_usr_Create_user_r = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_Create_user_r;
     	}
 			/**
@@ -327,6 +348,8 @@ public class GUIShareFileAttributesImpl extends org.sblim.wbemsmt.tools.jsf.Edit
     			ic_usr_Create_user_w = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_Create_user_w;
     	}
 			/**
@@ -348,6 +371,8 @@ public class GUIShareFileAttributesImpl extends org.sblim.wbemsmt.tools.jsf.Edit
     			ic_usr_Create_user_x = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_Create_user_x;
     	}
 			/**
@@ -369,6 +394,8 @@ public class GUIShareFileAttributesImpl extends org.sblim.wbemsmt.tools.jsf.Edit
     			ic_usr_Create_group_r = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_Create_group_r;
     	}
 			/**
@@ -390,6 +417,8 @@ public class GUIShareFileAttributesImpl extends org.sblim.wbemsmt.tools.jsf.Edit
     			ic_usr_Create_group_w = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_Create_group_w;
     	}
 			/**
@@ -411,6 +440,8 @@ public class GUIShareFileAttributesImpl extends org.sblim.wbemsmt.tools.jsf.Edit
     			ic_usr_Create_group_x = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_Create_group_x;
     	}
 			/**
@@ -432,6 +463,8 @@ public class GUIShareFileAttributesImpl extends org.sblim.wbemsmt.tools.jsf.Edit
     			ic_usr_Create_other_r = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_Create_other_r;
     	}
 			/**
@@ -453,6 +486,8 @@ public class GUIShareFileAttributesImpl extends org.sblim.wbemsmt.tools.jsf.Edit
     			ic_usr_Create_other_w = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_Create_other_w;
     	}
 			/**
@@ -474,6 +509,8 @@ public class GUIShareFileAttributesImpl extends org.sblim.wbemsmt.tools.jsf.Edit
     			ic_usr_Create_other_x = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_Create_other_x;
     	}
 			/**
@@ -495,6 +532,8 @@ public class GUIShareFileAttributesImpl extends org.sblim.wbemsmt.tools.jsf.Edit
     			ic_usr_Directory_u = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_Directory_u;
     	}
 			/**
@@ -516,6 +555,8 @@ public class GUIShareFileAttributesImpl extends org.sblim.wbemsmt.tools.jsf.Edit
     			ic_usr_Directory_g = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_Directory_g;
     	}
 			/**
@@ -537,6 +578,8 @@ public class GUIShareFileAttributesImpl extends org.sblim.wbemsmt.tools.jsf.Edit
     			ic_usr_Directory_s = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_Directory_s;
     	}
 			/**
@@ -558,6 +601,8 @@ public class GUIShareFileAttributesImpl extends org.sblim.wbemsmt.tools.jsf.Edit
     			ic_usr_Directory_user_r = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_Directory_user_r;
     	}
 			/**
@@ -579,6 +624,8 @@ public class GUIShareFileAttributesImpl extends org.sblim.wbemsmt.tools.jsf.Edit
     			ic_usr_Directory_user_w = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_Directory_user_w;
     	}
 			/**
@@ -600,6 +647,8 @@ public class GUIShareFileAttributesImpl extends org.sblim.wbemsmt.tools.jsf.Edit
     			ic_usr_Directory_user_x = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_Directory_user_x;
     	}
 			/**
@@ -621,6 +670,8 @@ public class GUIShareFileAttributesImpl extends org.sblim.wbemsmt.tools.jsf.Edit
     			ic_usr_Directory_group_r = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_Directory_group_r;
     	}
 			/**
@@ -642,6 +693,8 @@ public class GUIShareFileAttributesImpl extends org.sblim.wbemsmt.tools.jsf.Edit
     			ic_usr_Directory_group_w = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_Directory_group_w;
     	}
 			/**
@@ -663,6 +716,8 @@ public class GUIShareFileAttributesImpl extends org.sblim.wbemsmt.tools.jsf.Edit
     			ic_usr_Directory_group_x = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_Directory_group_x;
     	}
 			/**
@@ -684,6 +739,8 @@ public class GUIShareFileAttributesImpl extends org.sblim.wbemsmt.tools.jsf.Edit
     			ic_usr_Directory_other_r = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_Directory_other_r;
     	}
 			/**
@@ -705,6 +762,8 @@ public class GUIShareFileAttributesImpl extends org.sblim.wbemsmt.tools.jsf.Edit
     			ic_usr_Directory_other_w = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_Directory_other_w;
     	}
 			/**
@@ -726,6 +785,8 @@ public class GUIShareFileAttributesImpl extends org.sblim.wbemsmt.tools.jsf.Edit
     			ic_usr_Directory_other_x = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_Directory_other_x;
     	}
 			/**
@@ -747,6 +808,8 @@ public class GUIShareFileAttributesImpl extends org.sblim.wbemsmt.tools.jsf.Edit
     			ic_usr_Directory_security_u = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_Directory_security_u;
     	}
 			/**
@@ -768,6 +831,8 @@ public class GUIShareFileAttributesImpl extends org.sblim.wbemsmt.tools.jsf.Edit
     			ic_usr_Directory_security_g = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_Directory_security_g;
     	}
 			/**
@@ -789,6 +854,8 @@ public class GUIShareFileAttributesImpl extends org.sblim.wbemsmt.tools.jsf.Edit
     			ic_usr_Directory_security_s = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_Directory_security_s;
     	}
 			/**
@@ -810,6 +877,8 @@ public class GUIShareFileAttributesImpl extends org.sblim.wbemsmt.tools.jsf.Edit
     			ic_usr_Directory_security_user_r = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_Directory_security_user_r;
     	}
 			/**
@@ -831,6 +900,8 @@ public class GUIShareFileAttributesImpl extends org.sblim.wbemsmt.tools.jsf.Edit
     			ic_usr_Directory_security_user_w = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_Directory_security_user_w;
     	}
 			/**
@@ -852,6 +923,8 @@ public class GUIShareFileAttributesImpl extends org.sblim.wbemsmt.tools.jsf.Edit
     			ic_usr_Directory_security_user_x = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_Directory_security_user_x;
     	}
 			/**
@@ -873,6 +946,8 @@ public class GUIShareFileAttributesImpl extends org.sblim.wbemsmt.tools.jsf.Edit
     			ic_usr_Directory_security_group_r = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_Directory_security_group_r;
     	}
 			/**
@@ -894,6 +969,8 @@ public class GUIShareFileAttributesImpl extends org.sblim.wbemsmt.tools.jsf.Edit
     			ic_usr_Directory_security_group_w = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_Directory_security_group_w;
     	}
 			/**
@@ -915,6 +992,8 @@ public class GUIShareFileAttributesImpl extends org.sblim.wbemsmt.tools.jsf.Edit
     			ic_usr_Directory_security_group_x = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_Directory_security_group_x;
     	}
 			/**
@@ -936,6 +1015,8 @@ public class GUIShareFileAttributesImpl extends org.sblim.wbemsmt.tools.jsf.Edit
     			ic_usr_Directory_security_other_r = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_Directory_security_other_r;
     	}
 			/**
@@ -957,6 +1038,8 @@ public class GUIShareFileAttributesImpl extends org.sblim.wbemsmt.tools.jsf.Edit
     			ic_usr_Directory_security_other_w = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_Directory_security_other_w;
     	}
 			/**
@@ -978,6 +1061,8 @@ public class GUIShareFileAttributesImpl extends org.sblim.wbemsmt.tools.jsf.Edit
     			ic_usr_Directory_security_other_x = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_Directory_security_other_x;
     	}
 		

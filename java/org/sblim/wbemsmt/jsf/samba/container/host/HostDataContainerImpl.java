@@ -3,7 +3,7 @@
   *
 
  
- * (C) Copyright IBM Corp. 2005
+ * © Copyright IBM Corp. 2005
   *
   * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
@@ -40,13 +40,14 @@ public class HostDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.EditBaseP
 	
 	public HostDataContainerImpl(org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
 
-				super(adapter,bindingPrefix, "HostDataContainer.caption");
+			
+				super(adapter,bindingPrefix, "HostDataContainer.caption",false);
 				
 				
     			
     	    		        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_Name());
         					
-		setFooter(getInputFieldContainer(),"HostDataContainer.footerText");
+		setFooter(getPanelForCustomLayout(),"HostDataContainer.footerText");
 		adapter.initContainer(this);
 	}
 	
@@ -70,6 +71,8 @@ public class HostDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.EditBaseP
     			ic_Name = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_Name;
     	}
 		

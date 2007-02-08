@@ -3,7 +3,7 @@
   *
 
  
- * (C) Copyright IBM Corp. 2005
+ * © Copyright IBM Corp. 2005
   *
   * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
@@ -53,7 +53,8 @@ public class ServiceGlobalSecurityOptionsDataContainerImpl extends org.sblim.wbe
 	
 	public ServiceGlobalSecurityOptionsDataContainerImpl(org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
 
-				super(adapter,bindingPrefix, "ServiceGlobalSecurityOptionsDataContainer.caption");
+			
+				super(adapter,bindingPrefix, "ServiceGlobalSecurityOptionsDataContainer.caption",false);
 				
 				
     			
@@ -72,7 +73,7 @@ public class ServiceGlobalSecurityOptionsDataContainerImpl extends org.sblim.wbe
         	        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_DomainMaster());
         	        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_Browsable());
         					
-		setFooter(getInputFieldContainer(),"ServiceGlobalSecurityOptionsDataContainer.footerText");
+		setFooter(getPanelForCustomLayout(),"ServiceGlobalSecurityOptionsDataContainer.footerText");
 		adapter.initContainer(this);
 	}
 	
@@ -96,6 +97,8 @@ public class ServiceGlobalSecurityOptionsDataContainerImpl extends org.sblim.wbe
     			ic_AuthMethods = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_AuthMethods;
     	}
 			/**
@@ -117,6 +120,8 @@ public class ServiceGlobalSecurityOptionsDataContainerImpl extends org.sblim.wbe
     			ic_EncryptPasswords = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_EncryptPasswords;
     	}
 			/**
@@ -138,6 +143,8 @@ public class ServiceGlobalSecurityOptionsDataContainerImpl extends org.sblim.wbe
     			ic_MinPasswordLength = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_MinPasswordLength;
     	}
 			/**
@@ -159,6 +166,8 @@ public class ServiceGlobalSecurityOptionsDataContainerImpl extends org.sblim.wbe
     			ic_NullPasswords = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_NullPasswords;
     	}
 			/**
@@ -180,6 +189,8 @@ public class ServiceGlobalSecurityOptionsDataContainerImpl extends org.sblim.wbe
     			ic_usr_PassdbBackend = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFComboBoxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_PassdbBackend;
     	}
 			/**
@@ -201,6 +212,8 @@ public class ServiceGlobalSecurityOptionsDataContainerImpl extends org.sblim.wbe
     			ic_SMBPasswdFile = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_SMBPasswdFile;
     	}
 			/**
@@ -222,6 +235,8 @@ public class ServiceGlobalSecurityOptionsDataContainerImpl extends org.sblim.wbe
     			ic_Security = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFComboBoxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_Security;
     	}
 			/**
@@ -243,6 +258,8 @@ public class ServiceGlobalSecurityOptionsDataContainerImpl extends org.sblim.wbe
     			ic_GuestOK = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_GuestOK;
     	}
 			/**
@@ -264,6 +281,8 @@ public class ServiceGlobalSecurityOptionsDataContainerImpl extends org.sblim.wbe
     			ic_GuestOnly = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_GuestOnly;
     	}
 			/**
@@ -285,6 +304,8 @@ public class ServiceGlobalSecurityOptionsDataContainerImpl extends org.sblim.wbe
     			ic_HostsAllow = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_HostsAllow;
     	}
 			/**
@@ -306,6 +327,8 @@ public class ServiceGlobalSecurityOptionsDataContainerImpl extends org.sblim.wbe
     			ic_HostsDeny = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_HostsDeny;
     	}
 			/**
@@ -327,6 +350,8 @@ public class ServiceGlobalSecurityOptionsDataContainerImpl extends org.sblim.wbe
     			ic_ReadOnly = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_ReadOnly;
     	}
 			/**
@@ -348,6 +373,8 @@ public class ServiceGlobalSecurityOptionsDataContainerImpl extends org.sblim.wbe
     			ic_DomainMaster = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFComboBoxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_DomainMaster;
     	}
 			/**
@@ -369,6 +396,8 @@ public class ServiceGlobalSecurityOptionsDataContainerImpl extends org.sblim.wbe
     			ic_Browsable = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_Browsable;
     	}
 		

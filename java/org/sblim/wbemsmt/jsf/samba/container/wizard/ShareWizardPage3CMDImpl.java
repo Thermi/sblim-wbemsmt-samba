@@ -3,7 +3,7 @@
   *
 
  
- * (C) Copyright IBM Corp. 2005
+ * © Copyright IBM Corp. 2005
   *
   * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
@@ -42,7 +42,8 @@ public class ShareWizardPage3CMDImpl extends org.sblim.wbemsmt.tools.wizard.jsf.
 	
 	public ShareWizardPage3CMDImpl(org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
 
-				super(adapter,bindingPrefix, "ShareWizardPage3CMD.caption","ShareWizardPage3CMD.subTitle");
+			
+				super(adapter,bindingPrefix, "ShareWizardPage3CMD.caption","ShareWizardPage3CMD.subTitle",false);
 				
 				
     			
@@ -50,7 +51,7 @@ public class ShareWizardPage3CMDImpl extends org.sblim.wbemsmt.tools.wizard.jsf.
         	        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_DirectoryMask());
         	        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_DirectorySecurityMask());
         					
-		setFooter(getInputFieldContainer(),"ShareWizardPage3CMD.footerText");
+		setFooter(getPanelForCustomLayout(),"ShareWizardPage3CMD.footerText");
 		adapter.initContainer(this);
 	}
 	
@@ -74,6 +75,8 @@ public class ShareWizardPage3CMDImpl extends org.sblim.wbemsmt.tools.wizard.jsf.
     			ic_CreateMask = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_CreateMask;
     	}
 			/**
@@ -95,6 +98,8 @@ public class ShareWizardPage3CMDImpl extends org.sblim.wbemsmt.tools.wizard.jsf.
     			ic_DirectoryMask = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_DirectoryMask;
     	}
 			/**
@@ -116,6 +121,8 @@ public class ShareWizardPage3CMDImpl extends org.sblim.wbemsmt.tools.wizard.jsf.
     			ic_DirectorySecurityMask = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_DirectorySecurityMask;
     	}
 		

@@ -3,7 +3,7 @@
   *
 
  
- * (C) Copyright IBM Corp. 2005
+ * © Copyright IBM Corp. 2005
   *
   * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
@@ -48,7 +48,8 @@ public class ServiceScriptingDataContainerImpl extends org.sblim.wbemsmt.tools.j
 	
 	public ServiceScriptingDataContainerImpl(org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
 
-				super(adapter,bindingPrefix, "ServiceScriptingDataContainer.caption");
+			
+				super(adapter,bindingPrefix, "ServiceScriptingDataContainer.caption",false);
 				
 				
     			
@@ -62,7 +63,7 @@ public class ServiceScriptingDataContainerImpl extends org.sblim.wbemsmt.tools.j
         	        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_DeleteUserfromGroupScript());
         	        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_SetPrimaryGroupScript());
         					
-		setFooter(getInputFieldContainer(),"ServiceScriptingDataContainer.footerText");
+		setFooter(getPanelForCustomLayout(),"ServiceScriptingDataContainer.footerText");
 		adapter.initContainer(this);
 	}
 	
@@ -86,6 +87,8 @@ public class ServiceScriptingDataContainerImpl extends org.sblim.wbemsmt.tools.j
     			ic_AddGroupScript = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_AddGroupScript;
     	}
 			/**
@@ -107,6 +110,8 @@ public class ServiceScriptingDataContainerImpl extends org.sblim.wbemsmt.tools.j
     			ic_AddPrinterCommand = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_AddPrinterCommand;
     	}
 			/**
@@ -128,6 +133,8 @@ public class ServiceScriptingDataContainerImpl extends org.sblim.wbemsmt.tools.j
     			ic_AddShareCommand = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_AddShareCommand;
     	}
 			/**
@@ -149,6 +156,8 @@ public class ServiceScriptingDataContainerImpl extends org.sblim.wbemsmt.tools.j
     			ic_AddUserScript = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_AddUserScript;
     	}
 			/**
@@ -170,6 +179,8 @@ public class ServiceScriptingDataContainerImpl extends org.sblim.wbemsmt.tools.j
     			ic_AddUsertoGroupScript = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_AddUsertoGroupScript;
     	}
 			/**
@@ -191,6 +202,8 @@ public class ServiceScriptingDataContainerImpl extends org.sblim.wbemsmt.tools.j
     			ic_DeleteGroupScript = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_DeleteGroupScript;
     	}
 			/**
@@ -212,6 +225,8 @@ public class ServiceScriptingDataContainerImpl extends org.sblim.wbemsmt.tools.j
     			ic_DeleteUserScript = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_DeleteUserScript;
     	}
 			/**
@@ -233,6 +248,8 @@ public class ServiceScriptingDataContainerImpl extends org.sblim.wbemsmt.tools.j
     			ic_DeleteUserfromGroupScript = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_DeleteUserfromGroupScript;
     	}
 			/**
@@ -254,6 +271,8 @@ public class ServiceScriptingDataContainerImpl extends org.sblim.wbemsmt.tools.j
     			ic_SetPrimaryGroupScript = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_SetPrimaryGroupScript;
     	}
 		

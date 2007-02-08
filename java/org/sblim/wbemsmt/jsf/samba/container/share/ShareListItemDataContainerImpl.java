@@ -3,7 +3,7 @@
   *
 
  
- * (C) Copyright IBM Corp. 2005
+ * © Copyright IBM Corp. 2005
   *
   * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
@@ -49,7 +49,8 @@ public class ShareListItemDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.
 	
 	public ShareListItemDataContainerImpl(org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
 
-				super(adapter,bindingPrefix, "ShareListItemDataContainer.caption");
+			
+				super(adapter,bindingPrefix, "ShareListItemDataContainer.caption",false);
 				
 				
     			
@@ -64,7 +65,7 @@ public class ShareListItemDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.
         	        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_HostsDeny());
         	        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_ReadOnly());
         					
-		setFooter(getInputFieldContainer(),"ShareListItemDataContainer.footerText");
+		setFooter(getPanelForCustomLayout(),"ShareListItemDataContainer.footerText");
 		adapter.initContainer(this);
 	}
 	
@@ -88,6 +89,8 @@ public class ShareListItemDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.
     			ic_Name = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_Name;
     	}
 			/**
@@ -109,6 +112,8 @@ public class ShareListItemDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.
     			ic_Available = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_Available;
     	}
 			/**
@@ -130,6 +135,8 @@ public class ShareListItemDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.
     			ic_Comment = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_Comment;
     	}
 			/**
@@ -151,6 +158,8 @@ public class ShareListItemDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.
     			ic_Path = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_Path;
     	}
 			/**
@@ -172,6 +181,8 @@ public class ShareListItemDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.
     			ic_Browsable = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_Browsable;
     	}
 			/**
@@ -193,6 +204,8 @@ public class ShareListItemDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.
     			ic_GuestOK = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_GuestOK;
     	}
 			/**
@@ -214,6 +227,8 @@ public class ShareListItemDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.
     			ic_GuestOnly = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_GuestOnly;
     	}
 			/**
@@ -235,6 +250,8 @@ public class ShareListItemDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.
     			ic_HostsAllow = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_HostsAllow;
     	}
 			/**
@@ -256,6 +273,8 @@ public class ShareListItemDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.
     			ic_HostsDeny = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_HostsDeny;
     	}
 			/**
@@ -277,6 +296,8 @@ public class ShareListItemDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.
     			ic_ReadOnly = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_ReadOnly;
     	}
 		

@@ -3,7 +3,7 @@
   *
 
  
- * (C) Copyright IBM Corp. 2005
+ * © Copyright IBM Corp. 2005
   *
   * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
@@ -106,6 +106,8 @@ public class UserListItemDataContainer_AsUsers_InUserListDataContainerImpl exten
 				;
 				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent)ic_SambaUserName).setOrientation( LabeledBaseInputComponentIf.LEFT );
     		}
+
+						
     		return ic_SambaUserName;
     	}
 			/**
@@ -129,6 +131,8 @@ public class UserListItemDataContainer_AsUsers_InUserListDataContainerImpl exten
 				;
 				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent)ic_SystemUserName).setOrientation( LabeledBaseInputComponentIf.LEFT );
     		}
+
+						
     		return ic_SystemUserName;
     	}
 			/**
@@ -152,6 +156,8 @@ public class UserListItemDataContainer_AsUsers_InUserListDataContainerImpl exten
 				;
 				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent)ic_usr_IsGuest).setOrientation( LabeledBaseInputComponentIf.LEFT );
     		}
+
+						
     		return ic_usr_IsGuest;
     	}
 		

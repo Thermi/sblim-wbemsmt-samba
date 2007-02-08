@@ -3,7 +3,7 @@
   *
 
  
- * (C) Copyright IBM Corp. 2005
+ * © Copyright IBM Corp. 2005
   *
   * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
@@ -48,7 +48,8 @@ public class PrintingGlobalsDataContainerImpl extends org.sblim.wbemsmt.tools.js
 	
 	public PrintingGlobalsDataContainerImpl(org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
 
-				super(adapter,bindingPrefix, "PrintingGlobalsDataContainer.caption");
+			
+				super(adapter,bindingPrefix, "PrintingGlobalsDataContainer.caption",false);
 				
 				
     			
@@ -61,7 +62,7 @@ public class PrintingGlobalsDataContainerImpl extends org.sblim.wbemsmt.tools.js
         	        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_PrintCommand());
         	        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_UseClientDriver());
         					
-		setFooter(getInputFieldContainer(),"PrintingGlobalsDataContainer.footerText");
+		setFooter(getPanelForCustomLayout(),"PrintingGlobalsDataContainer.footerText");
 		adapter.initContainer(this);
 	}
 	
@@ -85,6 +86,8 @@ public class PrintingGlobalsDataContainerImpl extends org.sblim.wbemsmt.tools.js
     			ic_PrintcapCacheTime = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_PrintcapCacheTime;
     	}
 			/**
@@ -106,6 +109,8 @@ public class PrintingGlobalsDataContainerImpl extends org.sblim.wbemsmt.tools.js
     			ic_usr_SystemPrinterName = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFComboBoxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_SystemPrinterName;
     	}
 			/**
@@ -127,6 +132,8 @@ public class PrintingGlobalsDataContainerImpl extends org.sblim.wbemsmt.tools.js
     			ic_CupsOptions = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_CupsOptions;
     	}
 			/**
@@ -148,6 +155,8 @@ public class PrintingGlobalsDataContainerImpl extends org.sblim.wbemsmt.tools.js
     			ic_DefaultDevMode = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_DefaultDevMode;
     	}
 			/**
@@ -169,6 +178,8 @@ public class PrintingGlobalsDataContainerImpl extends org.sblim.wbemsmt.tools.js
     			ic_MaxPrintjobs = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_MaxPrintjobs;
     	}
 			/**
@@ -190,6 +201,8 @@ public class PrintingGlobalsDataContainerImpl extends org.sblim.wbemsmt.tools.js
     			ic_MaxReportedPrintjobs = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_MaxReportedPrintjobs;
     	}
 			/**
@@ -211,6 +224,8 @@ public class PrintingGlobalsDataContainerImpl extends org.sblim.wbemsmt.tools.js
     			ic_PrintCommand = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_PrintCommand;
     	}
 			/**
@@ -232,6 +247,8 @@ public class PrintingGlobalsDataContainerImpl extends org.sblim.wbemsmt.tools.js
     			ic_UseClientDriver = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_UseClientDriver;
     	}
 		
@@ -242,7 +259,7 @@ public class PrintingGlobalsDataContainerImpl extends org.sblim.wbemsmt.tools.js
 		*/
 		public java.util.List getUsers()
 		{
-			return icUsers;
+						return icUsers;
 		}
 
 	

@@ -3,7 +3,7 @@
   *
 
  
- * (C) Copyright IBM Corp. 2005
+ * © Copyright IBM Corp. 2005
   *
   * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
@@ -44,7 +44,8 @@ public class UserWizardPage3Impl extends org.sblim.wbemsmt.tools.wizard.jsf.Wiza
 	
 	public UserWizardPage3Impl(org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
 
-				super(adapter,bindingPrefix, "UserWizardPage3.caption","UserWizardPage3.subTitle");
+			
+				super(adapter,bindingPrefix, "UserWizardPage3.caption","UserWizardPage3.subTitle",false);
 				
 				
     			
@@ -52,7 +53,7 @@ public class UserWizardPage3Impl extends org.sblim.wbemsmt.tools.wizard.jsf.Wiza
         	        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_SystemUserName());
         	        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_usr_IsGuest());
         					
-		setFooter(getInputFieldContainer(),"UserWizardPage3.footerText");
+		setFooter(getPanelForCustomLayout(),"UserWizardPage3.footerText");
 		adapter.initContainer(this);
 	}
 	
@@ -76,6 +77,8 @@ public class UserWizardPage3Impl extends org.sblim.wbemsmt.tools.wizard.jsf.Wiza
     			ic_SambaUserName = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_SambaUserName;
     	}
 			/**
@@ -97,6 +100,8 @@ public class UserWizardPage3Impl extends org.sblim.wbemsmt.tools.wizard.jsf.Wiza
     			ic_SystemUserName = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_SystemUserName;
     	}
 			/**
@@ -118,6 +123,8 @@ public class UserWizardPage3Impl extends org.sblim.wbemsmt.tools.wizard.jsf.Wiza
     			ic_usr_IsGuest = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_IsGuest;
     	}
 		
@@ -128,7 +135,7 @@ public class UserWizardPage3Impl extends org.sblim.wbemsmt.tools.wizard.jsf.Wiza
 		*/
 		public java.util.List getShares()
 		{
-			return icShares;
+						return icShares;
 		}
 
 			
@@ -138,7 +145,7 @@ public class UserWizardPage3Impl extends org.sblim.wbemsmt.tools.wizard.jsf.Wiza
 		*/
 		public java.util.List getPrinters()
 		{
-			return icPrinters;
+						return icPrinters;
 		}
 
 	

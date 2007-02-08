@@ -3,7 +3,7 @@
   *
 
  
- * (C) Copyright IBM Corp. 2005
+ * © Copyright IBM Corp. 2005
   *
   * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
@@ -42,7 +42,8 @@ public class ShareWizardPage1Impl extends org.sblim.wbemsmt.tools.wizard.jsf.Wiz
 	
 	public ShareWizardPage1Impl(org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
 
-				super(adapter,bindingPrefix, "ShareWizardPage1.caption","ShareWizardPage1.subTitle");
+			
+				super(adapter,bindingPrefix, "ShareWizardPage1.caption","ShareWizardPage1.subTitle",false);
 				
 				
     			
@@ -50,7 +51,7 @@ public class ShareWizardPage1Impl extends org.sblim.wbemsmt.tools.wizard.jsf.Wiz
         	        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_Path());
         	        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_Comment());
         					
-		setFooter(getInputFieldContainer(),"ShareWizardPage1.footerText");
+		setFooter(getPanelForCustomLayout(),"ShareWizardPage1.footerText");
 		adapter.initContainer(this);
 	}
 	
@@ -75,6 +76,8 @@ public class ShareWizardPage1Impl extends org.sblim.wbemsmt.tools.wizard.jsf.Wiz
 								ic_Name.setRequired(true);
 				;
     		}
+			
+						
     		return ic_Name;
     	}
 			/**
@@ -97,6 +100,8 @@ public class ShareWizardPage1Impl extends org.sblim.wbemsmt.tools.wizard.jsf.Wiz
 								ic_Path.setRequired(true);
 				;
     		}
+			
+						
     		return ic_Path;
     	}
 			/**
@@ -118,6 +123,8 @@ public class ShareWizardPage1Impl extends org.sblim.wbemsmt.tools.wizard.jsf.Wiz
     			ic_Comment = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_Comment;
     	}
 		

@@ -3,7 +3,7 @@
   *
 
  
- * (C) Copyright IBM Corp. 2005
+ * © Copyright IBM Corp. 2005
   *
   * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
@@ -42,7 +42,8 @@ public class UserDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.EditBaseP
 	
 	public UserDataContainerImpl(org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
 
-				super(adapter,bindingPrefix, "UserDataContainer.caption");
+			
+				super(adapter,bindingPrefix, "UserDataContainer.caption",false);
 				
 				
     			
@@ -50,7 +51,7 @@ public class UserDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.EditBaseP
         	        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_SystemUserName());
         	        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_usr_IsGuest());
         					
-		setFooter(getInputFieldContainer(),"UserDataContainer.footerText");
+		setFooter(getPanelForCustomLayout(),"UserDataContainer.footerText");
 		adapter.initContainer(this);
 	}
 	
@@ -74,6 +75,8 @@ public class UserDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.EditBaseP
     			ic_SambaUserName = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_SambaUserName;
     	}
 			/**
@@ -95,6 +98,8 @@ public class UserDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.EditBaseP
     			ic_SystemUserName = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_SystemUserName;
     	}
 			/**
@@ -116,6 +121,8 @@ public class UserDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.EditBaseP
     			ic_usr_IsGuest = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_IsGuest;
     	}
 		

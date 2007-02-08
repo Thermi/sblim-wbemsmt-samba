@@ -3,7 +3,7 @@
   *
 
  
- * (C) Copyright IBM Corp. 2005
+ * © Copyright IBM Corp. 2005
   *
   * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
@@ -43,7 +43,8 @@ public class ShareAllowHostSecurityDataContainerImpl extends org.sblim.wbemsmt.t
 	
 	public ShareAllowHostSecurityDataContainerImpl(org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
 
-				super(adapter,bindingPrefix, "ShareAllowHostSecurityDataContainer.caption");
+			
+				super(adapter,bindingPrefix, "ShareAllowHostSecurityDataContainer.caption",false);
 				
 				
     			
@@ -52,7 +53,7 @@ public class ShareAllowHostSecurityDataContainerImpl extends org.sblim.wbemsmt.t
         	        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_usr_AddHost());
         	        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_usr_RemoveHost());
         					
-		setFooter(getInputFieldContainer(),"ShareAllowHostSecurityDataContainer.footerText");
+		setFooter(getPanelForCustomLayout(),"ShareAllowHostSecurityDataContainer.footerText");
 		adapter.initContainer(this);
 	}
 	
@@ -76,6 +77,8 @@ public class ShareAllowHostSecurityDataContainerImpl extends org.sblim.wbemsmt.t
     			ic_usr_AllowedHosts = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFListComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_AllowedHosts;
     	}
 			/**
@@ -97,6 +100,8 @@ public class ShareAllowHostSecurityDataContainerImpl extends org.sblim.wbemsmt.t
     			ic_usr_HostsToAllow = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFListComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_HostsToAllow;
     	}
 			/**
@@ -118,6 +123,8 @@ public class ShareAllowHostSecurityDataContainerImpl extends org.sblim.wbemsmt.t
     			ic_usr_AddHost = new org.sblim.wbemsmt.tools.input.jsf.JSFButtonComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_AddHost;
     	}
 			/**
@@ -139,6 +146,8 @@ public class ShareAllowHostSecurityDataContainerImpl extends org.sblim.wbemsmt.t
     			ic_usr_RemoveHost = new org.sblim.wbemsmt.tools.input.jsf.JSFButtonComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_RemoveHost;
     	}
 		

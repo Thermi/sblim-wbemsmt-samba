@@ -3,7 +3,7 @@
   *
 
  
- * (C) Copyright IBM Corp. 2005
+ * © Copyright IBM Corp. 2005
   *
   * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
@@ -40,12 +40,13 @@ public class ShareListDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.Edit
 	
 	public ShareListDataContainerImpl(org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
 
-				super(adapter,bindingPrefix, "ShareListDataContainer.caption");
+			
+				super(adapter,bindingPrefix, "ShareListDataContainer.caption",false);
 				
 				
     			
     	    						
-		setFooter(getInputFieldContainer(),"ShareListDataContainer.footerText");
+		setFooter(getPanelForCustomLayout(),"ShareListDataContainer.footerText");
 		adapter.initContainer(this);
 	}
 	
@@ -58,7 +59,7 @@ public class ShareListDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.Edit
 		*/
 		public java.util.List getShares()
 		{
-			return icShares;
+						return icShares;
 		}
 
 	

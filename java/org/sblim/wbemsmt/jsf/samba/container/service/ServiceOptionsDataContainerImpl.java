@@ -3,7 +3,7 @@
   *
 
  
- * (C) Copyright IBM Corp. 2005
+ * © Copyright IBM Corp. 2005
   *
   * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
@@ -46,7 +46,8 @@ public class ServiceOptionsDataContainerImpl extends org.sblim.wbemsmt.tools.jsf
 	
 	public ServiceOptionsDataContainerImpl(org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
 
-				super(adapter,bindingPrefix, "ServiceOptionsDataContainer.caption");
+			
+				super(adapter,bindingPrefix, "ServiceOptionsDataContainer.caption",false);
 				
 				
     			
@@ -58,7 +59,7 @@ public class ServiceOptionsDataContainerImpl extends org.sblim.wbemsmt.tools.jsf
         	        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_Workgroup());
         	        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_ConfigurationFile());
         					
-		setFooter(getInputFieldContainer(),"ServiceOptionsDataContainer.footerText");
+		setFooter(getPanelForCustomLayout(),"ServiceOptionsDataContainer.footerText");
 		adapter.initContainer(this);
 	}
 	
@@ -82,6 +83,8 @@ public class ServiceOptionsDataContainerImpl extends org.sblim.wbemsmt.tools.jsf
     			ic_BindInterfacesOnly = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_BindInterfacesOnly;
     	}
 			/**
@@ -103,6 +106,8 @@ public class ServiceOptionsDataContainerImpl extends org.sblim.wbemsmt.tools.jsf
     			ic_Interfaces = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_Interfaces;
     	}
 			/**
@@ -124,6 +129,8 @@ public class ServiceOptionsDataContainerImpl extends org.sblim.wbemsmt.tools.jsf
     			ic_NetbiosAlias = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_NetbiosAlias;
     	}
 			/**
@@ -145,6 +152,8 @@ public class ServiceOptionsDataContainerImpl extends org.sblim.wbemsmt.tools.jsf
     			ic_NetbiosName = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_NetbiosName;
     	}
 			/**
@@ -166,6 +175,8 @@ public class ServiceOptionsDataContainerImpl extends org.sblim.wbemsmt.tools.jsf
     			ic_ServerString = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_ServerString;
     	}
 			/**
@@ -187,6 +198,8 @@ public class ServiceOptionsDataContainerImpl extends org.sblim.wbemsmt.tools.jsf
     			ic_Workgroup = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_Workgroup;
     	}
 			/**
@@ -208,6 +221,8 @@ public class ServiceOptionsDataContainerImpl extends org.sblim.wbemsmt.tools.jsf
     			ic_ConfigurationFile = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_ConfigurationFile;
     	}
 		

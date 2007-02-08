@@ -3,7 +3,7 @@
   *
 
  
- * (C) Copyright IBM Corp. 2005
+ * © Copyright IBM Corp. 2005
   *
   * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
@@ -45,7 +45,8 @@ public class ShareFileAttributesImpl extends org.sblim.wbemsmt.tools.jsf.EditBas
 	
 	public ShareFileAttributesImpl(org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
 
-				super(adapter,bindingPrefix, "ShareFileAttributes.caption");
+			
+				super(adapter,bindingPrefix, "ShareFileAttributes.caption",false);
 				
 				
     			
@@ -56,7 +57,7 @@ public class ShareFileAttributesImpl extends org.sblim.wbemsmt.tools.jsf.EditBas
         	        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_AclCompatibility());
         	        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_NTACLSupport());
         					
-		setFooter(getInputFieldContainer(),"ShareFileAttributes.footerText");
+		setFooter(getPanelForCustomLayout(),"ShareFileAttributes.footerText");
 		adapter.initContainer(this);
 	}
 	
@@ -80,6 +81,8 @@ public class ShareFileAttributesImpl extends org.sblim.wbemsmt.tools.jsf.EditBas
     			ic_CaseSensitive = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_CaseSensitive;
     	}
 			/**
@@ -101,6 +104,8 @@ public class ShareFileAttributesImpl extends org.sblim.wbemsmt.tools.jsf.EditBas
     			ic_HideDotFiles = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_HideDotFiles;
     	}
 			/**
@@ -122,6 +127,8 @@ public class ShareFileAttributesImpl extends org.sblim.wbemsmt.tools.jsf.EditBas
     			ic_DosFiletimes = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_DosFiletimes;
     	}
 			/**
@@ -143,6 +150,8 @@ public class ShareFileAttributesImpl extends org.sblim.wbemsmt.tools.jsf.EditBas
     			ic_EASupport = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_EASupport;
     	}
 			/**
@@ -164,6 +173,8 @@ public class ShareFileAttributesImpl extends org.sblim.wbemsmt.tools.jsf.EditBas
     			ic_AclCompatibility = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFComboBoxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_AclCompatibility;
     	}
 			/**
@@ -185,6 +196,8 @@ public class ShareFileAttributesImpl extends org.sblim.wbemsmt.tools.jsf.EditBas
     			ic_NTACLSupport = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_NTACLSupport;
     	}
 		

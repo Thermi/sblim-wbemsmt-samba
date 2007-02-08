@@ -3,7 +3,7 @@
   *
 
  
- * (C) Copyright IBM Corp. 2005
+ * © Copyright IBM Corp. 2005
   *
   * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
@@ -43,7 +43,8 @@ public class PrinterWizardPage2Impl extends org.sblim.wbemsmt.tools.wizard.jsf.W
 	
 	public PrinterWizardPage2Impl(org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
 
-				super(adapter,bindingPrefix, "PrinterWizardPage2.caption","PrinterWizardPage2.subTitle");
+			
+				super(adapter,bindingPrefix, "PrinterWizardPage2.caption","PrinterWizardPage2.subTitle",false);
 				
 				
     			
@@ -52,7 +53,7 @@ public class PrinterWizardPage2Impl extends org.sblim.wbemsmt.tools.wizard.jsf.W
         	        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_Path());
         	        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_Comment());
         					
-		setFooter(getInputFieldContainer(),"PrinterWizardPage2.footerText");
+		setFooter(getPanelForCustomLayout(),"PrinterWizardPage2.footerText");
 		adapter.initContainer(this);
 	}
 	
@@ -77,6 +78,8 @@ public class PrinterWizardPage2Impl extends org.sblim.wbemsmt.tools.wizard.jsf.W
 								ic_SambaPrinterName.setRequired(true);
 				;
     		}
+			
+						
     		return ic_SambaPrinterName;
     	}
 			/**
@@ -99,6 +102,8 @@ public class PrinterWizardPage2Impl extends org.sblim.wbemsmt.tools.wizard.jsf.W
 								ic_usr_SystemPrinterName.setRequired(true);
 				;
     		}
+			
+						
     		return ic_usr_SystemPrinterName;
     	}
 			/**
@@ -121,6 +126,8 @@ public class PrinterWizardPage2Impl extends org.sblim.wbemsmt.tools.wizard.jsf.W
 								ic_Path.setRequired(true);
 				;
     		}
+			
+						
     		return ic_Path;
     	}
 			/**
@@ -142,6 +149,8 @@ public class PrinterWizardPage2Impl extends org.sblim.wbemsmt.tools.wizard.jsf.W
     			ic_Comment = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_Comment;
     	}
 		

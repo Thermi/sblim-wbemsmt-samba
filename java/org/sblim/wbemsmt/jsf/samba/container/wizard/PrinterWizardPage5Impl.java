@@ -3,7 +3,7 @@
   *
 
  
- * (C) Copyright IBM Corp. 2005
+ * © Copyright IBM Corp. 2005
   *
   * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
@@ -50,7 +50,8 @@ public class PrinterWizardPage5Impl extends org.sblim.wbemsmt.tools.wizard.jsf.W
 	
 	public PrinterWizardPage5Impl(org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
 
-				super(adapter,bindingPrefix, "PrinterWizardPage5.caption","PrinterWizardPage5.subTitle");
+			
+				super(adapter,bindingPrefix, "PrinterWizardPage5.caption","PrinterWizardPage5.subTitle",false);
 				
 				
     			
@@ -65,7 +66,7 @@ public class PrinterWizardPage5Impl extends org.sblim.wbemsmt.tools.wizard.jsf.W
         	        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_PrintCommand());
         	        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_usr_ForceUser());
         					
-		setFooter(getInputFieldContainer(),"PrinterWizardPage5.footerText");
+		setFooter(getPanelForCustomLayout(),"PrinterWizardPage5.footerText");
 		adapter.initContainer(this);
 	}
 	
@@ -89,6 +90,8 @@ public class PrinterWizardPage5Impl extends org.sblim.wbemsmt.tools.wizard.jsf.W
     			ic_usr_AllOrOne = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFRadioButtonComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_AllOrOne;
     	}
 			/**
@@ -110,6 +113,8 @@ public class PrinterWizardPage5Impl extends org.sblim.wbemsmt.tools.wizard.jsf.W
     			ic_SambaPrinterName = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_SambaPrinterName;
     	}
 			/**
@@ -131,6 +136,8 @@ public class PrinterWizardPage5Impl extends org.sblim.wbemsmt.tools.wizard.jsf.W
     			ic_usr_SystemPrinterName = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFComboBoxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_SystemPrinterName;
     	}
 			/**
@@ -152,6 +159,8 @@ public class PrinterWizardPage5Impl extends org.sblim.wbemsmt.tools.wizard.jsf.W
     			ic_Path = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_Path;
     	}
 			/**
@@ -173,6 +182,8 @@ public class PrinterWizardPage5Impl extends org.sblim.wbemsmt.tools.wizard.jsf.W
     			ic_Comment = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_Comment;
     	}
 			/**
@@ -194,6 +205,8 @@ public class PrinterWizardPage5Impl extends org.sblim.wbemsmt.tools.wizard.jsf.W
     			ic_usr_SeenByEverybody = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_SeenByEverybody;
     	}
 			/**
@@ -215,6 +228,8 @@ public class PrinterWizardPage5Impl extends org.sblim.wbemsmt.tools.wizard.jsf.W
     			ic_usr_EnableGuest = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_EnableGuest;
     	}
 			/**
@@ -236,6 +251,8 @@ public class PrinterWizardPage5Impl extends org.sblim.wbemsmt.tools.wizard.jsf.W
     			ic_CupsOptions = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_CupsOptions;
     	}
 			/**
@@ -257,6 +274,8 @@ public class PrinterWizardPage5Impl extends org.sblim.wbemsmt.tools.wizard.jsf.W
     			ic_PrintCommand = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_PrintCommand;
     	}
 			/**
@@ -278,6 +297,8 @@ public class PrinterWizardPage5Impl extends org.sblim.wbemsmt.tools.wizard.jsf.W
     			ic_usr_ForceUser = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_ForceUser;
     	}
 		
@@ -288,7 +309,7 @@ public class PrinterWizardPage5Impl extends org.sblim.wbemsmt.tools.wizard.jsf.W
 		*/
 		public java.util.List getUsers()
 		{
-			return icUsers;
+						return icUsers;
 		}
 
 	

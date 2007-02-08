@@ -3,7 +3,7 @@
   *
 
  
- * (C) Copyright IBM Corp. 2005
+ * © Copyright IBM Corp. 2005
   *
   * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
@@ -102,6 +102,8 @@ public class AdminUsersInPrinterGlobals_AsUsers_InPrintingGlobalsDataContainerIm
 				;
 				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent)ic_usr_SambaUserName).setOrientation( LabeledBaseInputComponentIf.LEFT );
     		}
+
+						
     		return ic_usr_SambaUserName;
     	}
 			/**
@@ -125,6 +127,8 @@ public class AdminUsersInPrinterGlobals_AsUsers_InPrintingGlobalsDataContainerIm
 				;
 				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent)ic_usr_Admin).setOrientation( LabeledBaseInputComponentIf.LEFT );
     		}
+
+						
     		return ic_usr_Admin;
     	}
 		

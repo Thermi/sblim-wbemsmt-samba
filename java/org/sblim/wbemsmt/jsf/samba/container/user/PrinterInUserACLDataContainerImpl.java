@@ -3,7 +3,7 @@
   *
 
  
- * (C) Copyright IBM Corp. 2005
+ * © Copyright IBM Corp. 2005
   *
   * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
@@ -40,12 +40,13 @@ public class PrinterInUserACLDataContainerImpl extends org.sblim.wbemsmt.tools.j
 	
 	public PrinterInUserACLDataContainerImpl(org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
 
-				super(adapter,bindingPrefix, "PrinterInUserACLDataContainer.caption");
+			
+				super(adapter,bindingPrefix, "PrinterInUserACLDataContainer.caption",false);
 				
 				
     			
     	    						
-		setFooter(getInputFieldContainer(),"PrinterInUserACLDataContainer.footerText");
+		setFooter(getPanelForCustomLayout(),"PrinterInUserACLDataContainer.footerText");
 		adapter.initContainer(this);
 	}
 	
@@ -58,7 +59,7 @@ public class PrinterInUserACLDataContainerImpl extends org.sblim.wbemsmt.tools.j
 		*/
 		public java.util.List getPrinters()
 		{
-			return icPrinters;
+						return icPrinters;
 		}
 
 	

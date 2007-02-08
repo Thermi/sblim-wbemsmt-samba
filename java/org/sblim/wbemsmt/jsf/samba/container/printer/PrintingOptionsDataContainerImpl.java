@@ -3,7 +3,7 @@
   *
 
  
- * (C) Copyright IBM Corp. 2005
+ * © Copyright IBM Corp. 2005
   *
   * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
@@ -45,7 +45,8 @@ public class PrintingOptionsDataContainerImpl extends org.sblim.wbemsmt.tools.js
 	
 	public PrintingOptionsDataContainerImpl(org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
 
-				super(adapter,bindingPrefix, "PrintingOptionsDataContainer.caption");
+			
+				super(adapter,bindingPrefix, "PrintingOptionsDataContainer.caption",false);
 				
 				
     			
@@ -56,7 +57,7 @@ public class PrintingOptionsDataContainerImpl extends org.sblim.wbemsmt.tools.js
         	        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_PrintCommand());
         	        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_UseClientDriver());
         					
-		setFooter(getInputFieldContainer(),"PrintingOptionsDataContainer.footerText");
+		setFooter(getPanelForCustomLayout(),"PrintingOptionsDataContainer.footerText");
 		adapter.initContainer(this);
 	}
 	
@@ -80,6 +81,8 @@ public class PrintingOptionsDataContainerImpl extends org.sblim.wbemsmt.tools.js
     			ic_CupsOptions = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_CupsOptions;
     	}
 			/**
@@ -101,6 +104,8 @@ public class PrintingOptionsDataContainerImpl extends org.sblim.wbemsmt.tools.js
     			ic_DefaultDevMode = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_DefaultDevMode;
     	}
 			/**
@@ -122,6 +127,8 @@ public class PrintingOptionsDataContainerImpl extends org.sblim.wbemsmt.tools.js
     			ic_MaxPrintjobs = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_MaxPrintjobs;
     	}
 			/**
@@ -143,6 +150,8 @@ public class PrintingOptionsDataContainerImpl extends org.sblim.wbemsmt.tools.js
     			ic_MaxReportedPrintjobs = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_MaxReportedPrintjobs;
     	}
 			/**
@@ -164,6 +173,8 @@ public class PrintingOptionsDataContainerImpl extends org.sblim.wbemsmt.tools.js
     			ic_PrintCommand = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_PrintCommand;
     	}
 			/**
@@ -185,6 +196,8 @@ public class PrintingOptionsDataContainerImpl extends org.sblim.wbemsmt.tools.js
     			ic_UseClientDriver = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_UseClientDriver;
     	}
 		

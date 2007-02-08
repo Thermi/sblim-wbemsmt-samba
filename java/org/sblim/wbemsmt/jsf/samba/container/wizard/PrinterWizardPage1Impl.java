@@ -3,7 +3,7 @@
   *
 
  
- * (C) Copyright IBM Corp. 2005
+ * © Copyright IBM Corp. 2005
   *
   * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
@@ -46,13 +46,14 @@ public class PrinterWizardPage1Impl extends org.sblim.wbemsmt.tools.wizard.jsf.W
 	
 	public PrinterWizardPage1Impl(org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
 
-				super(adapter,bindingPrefix, "PrinterWizardPage1.caption","PrinterWizardPage1.subTitle");
+			
+				super(adapter,bindingPrefix, "PrinterWizardPage1.caption","PrinterWizardPage1.subTitle",false);
 				
 				
     			
     				layouter = new PrinterWizardPage1ImplLayouter();//.layout(getPanelForCustomLayout(),this,bundle);
 				
-		setFooter(getInputFieldContainer(),"PrinterWizardPage1.footerText");
+		setFooter(getPanelForCustomLayout(),"PrinterWizardPage1.footerText");
 		adapter.initContainer(this);
 	}
 	
@@ -76,6 +77,8 @@ public class PrinterWizardPage1Impl extends org.sblim.wbemsmt.tools.wizard.jsf.W
     			ic_usr_AllOrOne = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFRadioButtonComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_AllOrOne;
     	}
 		

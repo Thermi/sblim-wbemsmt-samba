@@ -3,7 +3,7 @@
   *
 
  
- * (C) Copyright IBM Corp. 2005
+ * © Copyright IBM Corp. 2005
   *
   * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
@@ -48,7 +48,8 @@ public class CMDShareGlobalsDataContainerImpl extends org.sblim.wbemsmt.tools.js
 	
 	public CMDShareGlobalsDataContainerImpl(org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
 
-				super(adapter,bindingPrefix, "CMDShareGlobalsDataContainer.caption");
+			
+				super(adapter,bindingPrefix, "CMDShareGlobalsDataContainer.caption",false);
 				
 				
     			
@@ -62,7 +63,7 @@ public class CMDShareGlobalsDataContainerImpl extends org.sblim.wbemsmt.tools.js
         	        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_DirectoryMask());
         	        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_DirectorySecurityMask());
         					
-		setFooter(getInputFieldContainer(),"CMDShareGlobalsDataContainer.footerText");
+		setFooter(getPanelForCustomLayout(),"CMDShareGlobalsDataContainer.footerText");
 		adapter.initContainer(this);
 	}
 	
@@ -86,6 +87,8 @@ public class CMDShareGlobalsDataContainerImpl extends org.sblim.wbemsmt.tools.js
     			ic_CaseSensitive = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_CaseSensitive;
     	}
 			/**
@@ -107,6 +110,8 @@ public class CMDShareGlobalsDataContainerImpl extends org.sblim.wbemsmt.tools.js
     			ic_DosFiletimes = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_DosFiletimes;
     	}
 			/**
@@ -128,6 +133,8 @@ public class CMDShareGlobalsDataContainerImpl extends org.sblim.wbemsmt.tools.js
     			ic_HideDotFiles = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_HideDotFiles;
     	}
 			/**
@@ -149,6 +156,8 @@ public class CMDShareGlobalsDataContainerImpl extends org.sblim.wbemsmt.tools.js
     			ic_AclCompatibility = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFComboBoxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_AclCompatibility;
     	}
 			/**
@@ -170,6 +179,8 @@ public class CMDShareGlobalsDataContainerImpl extends org.sblim.wbemsmt.tools.js
     			ic_EASupport = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_EASupport;
     	}
 			/**
@@ -191,6 +202,8 @@ public class CMDShareGlobalsDataContainerImpl extends org.sblim.wbemsmt.tools.js
     			ic_NTACLSupport = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_NTACLSupport;
     	}
 			/**
@@ -212,6 +225,8 @@ public class CMDShareGlobalsDataContainerImpl extends org.sblim.wbemsmt.tools.js
     			ic_CreateMask = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_CreateMask;
     	}
 			/**
@@ -233,6 +248,8 @@ public class CMDShareGlobalsDataContainerImpl extends org.sblim.wbemsmt.tools.js
     			ic_DirectoryMask = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_DirectoryMask;
     	}
 			/**
@@ -254,6 +271,8 @@ public class CMDShareGlobalsDataContainerImpl extends org.sblim.wbemsmt.tools.js
     			ic_DirectorySecurityMask = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_DirectorySecurityMask;
     	}
 		

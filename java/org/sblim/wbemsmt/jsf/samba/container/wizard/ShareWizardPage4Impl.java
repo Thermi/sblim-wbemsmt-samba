@@ -3,7 +3,7 @@
   *
 
  
- * (C) Copyright IBM Corp. 2005
+ * © Copyright IBM Corp. 2005
   *
   * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
@@ -49,7 +49,8 @@ public class ShareWizardPage4Impl extends org.sblim.wbemsmt.tools.wizard.jsf.Wiz
 	
 	public ShareWizardPage4Impl(org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
 
-				super(adapter,bindingPrefix, "ShareWizardPage4.caption","ShareWizardPage4.subTitle");
+			
+				super(adapter,bindingPrefix, "ShareWizardPage4.caption","ShareWizardPage4.subTitle",false);
 				
 				
     			
@@ -63,7 +64,7 @@ public class ShareWizardPage4Impl extends org.sblim.wbemsmt.tools.wizard.jsf.Wiz
         	        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_DirectorySecurityMask());
         	        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_usr_ForceUser());
         					
-		setFooter(getInputFieldContainer(),"ShareWizardPage4.footerText");
+		setFooter(getPanelForCustomLayout(),"ShareWizardPage4.footerText");
 		adapter.initContainer(this);
 	}
 	
@@ -87,6 +88,8 @@ public class ShareWizardPage4Impl extends org.sblim.wbemsmt.tools.wizard.jsf.Wiz
     			ic_Name = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_Name;
     	}
 			/**
@@ -108,6 +111,8 @@ public class ShareWizardPage4Impl extends org.sblim.wbemsmt.tools.wizard.jsf.Wiz
     			ic_Path = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_Path;
     	}
 			/**
@@ -129,6 +134,8 @@ public class ShareWizardPage4Impl extends org.sblim.wbemsmt.tools.wizard.jsf.Wiz
     			ic_Comment = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_Comment;
     	}
 			/**
@@ -150,6 +157,8 @@ public class ShareWizardPage4Impl extends org.sblim.wbemsmt.tools.wizard.jsf.Wiz
     			ic_usr_SeenByEverybody = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_SeenByEverybody;
     	}
 			/**
@@ -171,6 +180,8 @@ public class ShareWizardPage4Impl extends org.sblim.wbemsmt.tools.wizard.jsf.Wiz
     			ic_usr_EnableGuest = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_EnableGuest;
     	}
 			/**
@@ -192,6 +203,8 @@ public class ShareWizardPage4Impl extends org.sblim.wbemsmt.tools.wizard.jsf.Wiz
     			ic_CreateMask = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_CreateMask;
     	}
 			/**
@@ -213,6 +226,8 @@ public class ShareWizardPage4Impl extends org.sblim.wbemsmt.tools.wizard.jsf.Wiz
     			ic_DirectoryMask = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_DirectoryMask;
     	}
 			/**
@@ -234,6 +249,8 @@ public class ShareWizardPage4Impl extends org.sblim.wbemsmt.tools.wizard.jsf.Wiz
     			ic_DirectorySecurityMask = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_DirectorySecurityMask;
     	}
 			/**
@@ -255,6 +272,8 @@ public class ShareWizardPage4Impl extends org.sblim.wbemsmt.tools.wizard.jsf.Wiz
     			ic_usr_ForceUser = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_ForceUser;
     	}
 		
@@ -265,7 +284,7 @@ public class ShareWizardPage4Impl extends org.sblim.wbemsmt.tools.wizard.jsf.Wiz
 		*/
 		public java.util.List getUsers()
 		{
-			return icUsers;
+						return icUsers;
 		}
 
 	

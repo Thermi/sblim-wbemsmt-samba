@@ -3,7 +3,7 @@
   *
 
  
- * (C) Copyright IBM Corp. 2005
+ * © Copyright IBM Corp. 2005
   *
   * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
@@ -43,7 +43,8 @@ public class PrinterACLItemDataContainerImpl extends org.sblim.wbemsmt.tools.jsf
 	
 	public PrinterACLItemDataContainerImpl(org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
 
-				super(adapter,bindingPrefix, "PrinterACLItemDataContainer.caption");
+			
+				super(adapter,bindingPrefix, "PrinterACLItemDataContainer.caption",false);
 				
 				
     			
@@ -52,7 +53,7 @@ public class PrinterACLItemDataContainerImpl extends org.sblim.wbemsmt.tools.jsf
         	        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_usr_AccessTypeRW());
         	        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_usr_Admin());
         					
-		setFooter(getInputFieldContainer(),"PrinterACLItemDataContainer.footerText");
+		setFooter(getPanelForCustomLayout(),"PrinterACLItemDataContainer.footerText");
 		adapter.initContainer(this);
 	}
 	
@@ -76,6 +77,8 @@ public class PrinterACLItemDataContainerImpl extends org.sblim.wbemsmt.tools.jsf
     			ic_PrinterName = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_PrinterName;
     	}
 			/**
@@ -97,6 +100,8 @@ public class PrinterACLItemDataContainerImpl extends org.sblim.wbemsmt.tools.jsf
     			ic_usr_AccessTypeVI = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFRadioButtonComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_AccessTypeVI;
     	}
 			/**
@@ -118,6 +123,8 @@ public class PrinterACLItemDataContainerImpl extends org.sblim.wbemsmt.tools.jsf
     			ic_usr_AccessTypeRW = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFRadioButtonComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_AccessTypeRW;
     	}
 			/**
@@ -139,6 +146,8 @@ public class PrinterACLItemDataContainerImpl extends org.sblim.wbemsmt.tools.jsf
     			ic_usr_Admin = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_Admin;
     	}
 		

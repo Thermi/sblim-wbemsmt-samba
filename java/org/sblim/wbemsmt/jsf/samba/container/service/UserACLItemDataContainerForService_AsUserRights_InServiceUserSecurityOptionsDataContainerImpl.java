@@ -3,7 +3,7 @@
   *
 
  
- * (C) Copyright IBM Corp. 2005
+ * © Copyright IBM Corp. 2005
   *
   * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
@@ -106,6 +106,8 @@ public class UserACLItemDataContainerForService_AsUserRights_InServiceUserSecuri
 				;
 				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent)ic_SambaUserName).setOrientation( LabeledBaseInputComponentIf.LEFT );
     		}
+
+						
     		return ic_SambaUserName;
     	}
 			/**
@@ -129,6 +131,8 @@ public class UserACLItemDataContainerForService_AsUserRights_InServiceUserSecuri
 				;
 				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFRadioButtonComponent)ic_usr_AccessTypeVI).setOrientation( LabeledBaseInputComponentIf.LEFT );
     		}
+
+						
     		return ic_usr_AccessTypeVI;
     	}
 			/**
@@ -152,6 +156,8 @@ public class UserACLItemDataContainerForService_AsUserRights_InServiceUserSecuri
 				;
 				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFRadioButtonComponent)ic_usr_AccessTypeRW).setOrientation( LabeledBaseInputComponentIf.LEFT );
     		}
+
+						
     		return ic_usr_AccessTypeRW;
     	}
 		

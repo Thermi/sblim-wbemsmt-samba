@@ -3,7 +3,7 @@
   *
 
  
- * (C) Copyright IBM Corp. 2005
+ * © Copyright IBM Corp. 2005
   *
   * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
@@ -43,7 +43,8 @@ public class ServiceOperationsDataContainerImpl extends org.sblim.wbemsmt.tools.
 	
 	public ServiceOperationsDataContainerImpl(org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
 
-				super(adapter,bindingPrefix, "ServiceOperationsDataContainer.caption");
+			
+				super(adapter,bindingPrefix, "ServiceOperationsDataContainer.caption",false);
 				
 				
     			
@@ -52,7 +53,7 @@ public class ServiceOperationsDataContainerImpl extends org.sblim.wbemsmt.tools.
         	        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_invoke_StopService());
         	        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_usr_RestartService());
         					
-		setFooter(getInputFieldContainer(),"ServiceOperationsDataContainer.footerText");
+		setFooter(getPanelForCustomLayout(),"ServiceOperationsDataContainer.footerText");
 		adapter.initContainer(this);
 	}
 	
@@ -76,6 +77,8 @@ public class ServiceOperationsDataContainerImpl extends org.sblim.wbemsmt.tools.
     			ic_Started = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_Started;
     	}
 			/**
@@ -97,6 +100,8 @@ public class ServiceOperationsDataContainerImpl extends org.sblim.wbemsmt.tools.
     			ic_invoke_StartService = new org.sblim.wbemsmt.tools.input.jsf.JSFButtonComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_invoke_StartService;
     	}
 			/**
@@ -118,6 +123,8 @@ public class ServiceOperationsDataContainerImpl extends org.sblim.wbemsmt.tools.
     			ic_invoke_StopService = new org.sblim.wbemsmt.tools.input.jsf.JSFButtonComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_invoke_StopService;
     	}
 			/**
@@ -139,6 +146,8 @@ public class ServiceOperationsDataContainerImpl extends org.sblim.wbemsmt.tools.
     			ic_usr_RestartService = new org.sblim.wbemsmt.tools.input.jsf.JSFButtonComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_RestartService;
     	}
 		

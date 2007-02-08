@@ -3,7 +3,7 @@
   *
 
  
- * (C) Copyright IBM Corp. 2005
+ * © Copyright IBM Corp. 2005
   *
   * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
@@ -41,14 +41,15 @@ public class AdminUsersInShareGlobalsImpl extends org.sblim.wbemsmt.tools.jsf.Ed
 	
 	public AdminUsersInShareGlobalsImpl(org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
 
-				super(adapter,bindingPrefix, "AdminUsersInShareGlobals.caption");
+			
+				super(adapter,bindingPrefix, "AdminUsersInShareGlobals.caption",false);
 				
 				
     			
     	    		        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_usr_SambaUserName());
         	        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_usr_Admin());
         					
-		setFooter(getInputFieldContainer(),"AdminUsersInShareGlobals.footerText");
+		setFooter(getPanelForCustomLayout(),"AdminUsersInShareGlobals.footerText");
 		adapter.initContainer(this);
 	}
 	
@@ -72,6 +73,8 @@ public class AdminUsersInShareGlobalsImpl extends org.sblim.wbemsmt.tools.jsf.Ed
     			ic_usr_SambaUserName = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_SambaUserName;
     	}
 			/**
@@ -93,6 +96,8 @@ public class AdminUsersInShareGlobalsImpl extends org.sblim.wbemsmt.tools.jsf.Ed
     			ic_usr_Admin = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_Admin;
     	}
 		
