@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?NLS  TYPE="org.eclipse.help.toc"?>
+<toc label="SAMBA">
+   <topic label="Index" href="index.html">
+	  	  <topic label="CreateShare" href="CreateShare.html"/>
+  	  	  <topic label="CreatePrinter" href="CreatePrinter.html"/>
+  	  	  <topic label="CreateUser" href="CreateUser.html"/>
+  	  	  <topic label="CreateHost" href="CreateHost.html"/>
+  	  	  <topic label="EditShare Tab shareGeneral" href="EditShare.html#tab_0"/>
+  	  	  <topic label="EditShare Tab shareAcl" href="EditShare.html#tab_1"/>
+  	  	  <topic label="EditService Tab tabServiceOptions" href="EditService.html#tab_0"/>
+  	  	  <topic label="EditService Tab tabSecurity" href="EditService.html#tab_1"/>
+  	  	  <topic label="EditService Tab tabOperations" href="EditService.html#tab_2"/>
+  	  	  <topic label="EditShareGlobals" href="EditShareGlobals.html#tab_0"/>
+  	  	  <topic label="EditPrinterGlobals" href="EditPrinterGlobals.html#tab_0"/>
+  	  	  <topic label="EditPrinter Tab printerGeneral" href="EditPrinter.html#tab_0"/>
+  	  	  <topic label="EditPrinter Tab printerAcl" href="EditPrinter.html#tab_1"/>
+  	  	  <topic label="EditUser Tab userGeneral" href="EditUser.html#tab_0"/>
+  	  	  <topic label="EditUser Tab acl" href="EditUser.html#tab_1"/>
+  	     </topic> 
+</toc>
