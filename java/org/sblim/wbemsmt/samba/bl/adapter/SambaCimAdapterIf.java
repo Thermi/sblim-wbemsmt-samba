@@ -31,7 +31,7 @@ import org.sblim.wbemsmt.bl.adapter.*;
 	 * This is the interface containing all Methods
 	 **/
 
-public interface SambaCimAdapterIf extends SambaCimAdapterCountIf, SambaCimAdapterCreateIf, SambaCimAdapterDeleteIf, SambaCimAdapterInstallValidatorsIf, SambaCimAdapterSaveIf, SambaCimAdapterRevertIf, SambaCimAdapterUpdateControlsIf, SambaCimAdapterUpdateModelIf
+public interface SambaCimAdapterIf extends SambaCimAdapterCountIf, SambaCimAdapterCreateIf, SambaCimAdapterDeleteIf, SambaCimAdapterInstallValidatorsIf, SambaCimAdapterSaveIf, SambaCimAdapterRevertIf, SambaCimAdapterUpdateControlsIf, SambaCimAdapterUpdateModelIf, SambaCimAdapterInitWizardIf, SambaCimAdapterInitContainerIf
 {
 
 	public static final String[] RESOURCE_BUNDLE_NAMES = new String[]{"messages","messagesSamba"};
