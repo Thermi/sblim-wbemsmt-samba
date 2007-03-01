@@ -27,11 +27,6 @@ package org.sblim.wbemsmt.cli.samba.container.user;
 import java.util.*;
 
 import org.sblim.wbemsmt.bl.adapter.*;
-//import org.sblim.wbemsmt.tools.converter.*;
-//import org.sblim.wbemsmt.tools.converter.test.*;
-//import org.sblim.wbemsmt.tools.input.*;
-//import org.sblim.wbemsmt.tools.input.test.*;
-import org.sblim.wbemsmt.tools.resources.*;
 import org.sblim.wbemsmt.exception.*;
 
 
@@ -41,8 +36,6 @@ import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
 
 public class UserListDataContainerImpl extends BaseDataContainer implements org.sblim.wbemsmt.samba.bl.container.user.UserListDataContainer {
-
-	protected static WbemSmtResourceBundle bundle = ResourceBundleManager.getResourceBundle(new String[]{"messages","messagesSamba"},Locale.getDefault());
 
 				private java.util.List icUsers = new java.util.ArrayList();
 	
@@ -66,11 +59,11 @@ public class UserListDataContainerImpl extends BaseDataContainer implements org.
 
 	
 		
-	public void trace(java.io.PrintStream printStream, String listOptions, boolean title)
+	public void trace(java.io.PrintWriter 	printStream, String listOptions, boolean title)
 	{
 		if (title)
 		{
-			printStream.println(bundle.getString("UserListDataContainer.caption"));
+			printStream.println(getAdapter().getBundle().getString("UserListDataContainer.caption"));
 		}
 		
 		if (showKey(listOptions))
@@ -89,15 +82,15 @@ public class UserListDataContainerImpl extends BaseDataContainer implements org.
 		}
 	}
 	
-	public void traceChilds(java.io.PrintStream printStream, String listOptions, boolean title)
+	public void traceChilds(java.io.PrintWriter printStream, String listOptions, boolean title)
 	{
     		        		printStream.println();
-        		printStream.println(bundle.getString("UserListDataContainer.role.users"));
+        		printStream.println(getAdapter().getBundle().getString("UserListDataContainer.role.users"));
         		List listusers = getUsers();
         		for (int i = 0; i < listusers.size(); i++) {
         			BaseDataContainer child = (BaseDataContainer)listusers.get(i);
         			printStream.println();
-        			printStream.println(bundle.getString("item") + ": " + (i+1) + " " + bundle.getString("of") + " " + listusers.size());
+        			printStream.println(getAdapter().getBundle().getString("item") + ": " + (i+1) + " " + getAdapter().getBundle().getString("of") + " " + listusers.size());
         			child.trace(printStream,listOptions,false);
         		}
     			

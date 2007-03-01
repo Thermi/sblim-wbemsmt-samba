@@ -27,11 +27,6 @@ package org.sblim.wbemsmt.cli.samba.container.share;
 import java.util.*;
 
 import org.sblim.wbemsmt.bl.adapter.*;
-//import org.sblim.wbemsmt.tools.converter.*;
-//import org.sblim.wbemsmt.tools.converter.test.*;
-//import org.sblim.wbemsmt.tools.input.*;
-//import org.sblim.wbemsmt.tools.input.test.*;
-import org.sblim.wbemsmt.tools.resources.*;
 import org.sblim.wbemsmt.exception.*;
 
 
@@ -41,8 +36,6 @@ import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
 
 public class ShareListDataContainerImpl extends BaseDataContainer implements org.sblim.wbemsmt.samba.bl.container.share.ShareListDataContainer {
-
-	protected static WbemSmtResourceBundle bundle = ResourceBundleManager.getResourceBundle(new String[]{"messages","messagesSamba"},Locale.getDefault());
 
 				private java.util.List icShares = new java.util.ArrayList();
 	
@@ -66,11 +59,11 @@ public class ShareListDataContainerImpl extends BaseDataContainer implements org
 
 	
 		
-	public void trace(java.io.PrintStream printStream, String listOptions, boolean title)
+	public void trace(java.io.PrintWriter 	printStream, String listOptions, boolean title)
 	{
 		if (title)
 		{
-			printStream.println(bundle.getString("ShareListDataContainer.caption"));
+			printStream.println(getAdapter().getBundle().getString("ShareListDataContainer.caption"));
 		}
 		
 		if (showKey(listOptions))
@@ -89,15 +82,15 @@ public class ShareListDataContainerImpl extends BaseDataContainer implements org
 		}
 	}
 	
-	public void traceChilds(java.io.PrintStream printStream, String listOptions, boolean title)
+	public void traceChilds(java.io.PrintWriter printStream, String listOptions, boolean title)
 	{
     		        		printStream.println();
-        		printStream.println(bundle.getString("ShareListDataContainer.role.shares"));
+        		printStream.println(getAdapter().getBundle().getString("ShareListDataContainer.role.shares"));
         		List listshares = getShares();
         		for (int i = 0; i < listshares.size(); i++) {
         			BaseDataContainer child = (BaseDataContainer)listshares.get(i);
         			printStream.println();
-        			printStream.println(bundle.getString("item") + ": " + (i+1) + " " + bundle.getString("of") + " " + listshares.size());
+        			printStream.println(getAdapter().getBundle().getString("item") + ": " + (i+1) + " " + getAdapter().getBundle().getString("of") + " " + listshares.size());
         			child.trace(printStream,listOptions,false);
         		}
     			

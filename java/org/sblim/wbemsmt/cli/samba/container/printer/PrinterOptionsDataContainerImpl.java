@@ -27,11 +27,6 @@ package org.sblim.wbemsmt.cli.samba.container.printer;
 import java.util.*;
 
 import org.sblim.wbemsmt.bl.adapter.*;
-//import org.sblim.wbemsmt.tools.converter.*;
-//import org.sblim.wbemsmt.tools.converter.test.*;
-//import org.sblim.wbemsmt.tools.input.*;
-//import org.sblim.wbemsmt.tools.input.test.*;
-import org.sblim.wbemsmt.tools.resources.*;
 import org.sblim.wbemsmt.exception.*;
 
 
@@ -41,8 +36,6 @@ import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
 
 public class PrinterOptionsDataContainerImpl extends BaseDataContainer implements org.sblim.wbemsmt.samba.bl.container.printer.PrinterOptionsDataContainer {
-
-	protected static WbemSmtResourceBundle bundle = ResourceBundleManager.getResourceBundle(new String[]{"messages","messagesSamba"},Locale.getDefault());
 
 			private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_Name;
     		private org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf ic_usr_SystemPrinterName;
@@ -73,7 +66,7 @@ public class PrinterOptionsDataContainerImpl extends BaseDataContainer implement
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_Name() {
     		if (ic_Name == null)
     		{
-				String label = bundle.getString("PrinterOptionsDataContainer.Name");
+				String label = getAdapter().getBundle().getString("PrinterOptionsDataContainer.Name");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
     			ic_Name = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -89,7 +82,7 @@ public class PrinterOptionsDataContainerImpl extends BaseDataContainer implement
 		public org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf get_usr_SystemPrinterName() {
     		if (ic_usr_SystemPrinterName == null)
     		{
-				String label = bundle.getString("PrinterOptionsDataContainer.SystemPrinterName");
+				String label = getAdapter().getBundle().getString("PrinterOptionsDataContainer.SystemPrinterName");
 				org.sblim.wbemsmt.tools.converter.StringArrayConverter converter = new org.sblim.wbemsmt.tools.converter.UnsignedInt16StringArrayConverter();
     			ic_usr_SystemPrinterName = new org.sblim.wbemsmt.tools.input.test.LabeledTestStringArrayComponent(this,label,"",converter);
     		}
@@ -105,7 +98,7 @@ public class PrinterOptionsDataContainerImpl extends BaseDataContainer implement
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_Path() {
     		if (ic_Path == null)
     		{
-				String label = bundle.getString("PrinterOptionsDataContainer.Path");
+				String label = getAdapter().getBundle().getString("PrinterOptionsDataContainer.Path");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
     			ic_Path = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -121,7 +114,7 @@ public class PrinterOptionsDataContainerImpl extends BaseDataContainer implement
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_Comment() {
     		if (ic_Comment == null)
     		{
-				String label = bundle.getString("PrinterOptionsDataContainer.Comment");
+				String label = getAdapter().getBundle().getString("PrinterOptionsDataContainer.Comment");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
     			ic_Comment = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -137,7 +130,7 @@ public class PrinterOptionsDataContainerImpl extends BaseDataContainer implement
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_Available() {
     		if (ic_Available == null)
     		{
-				String label = bundle.getString("PrinterOptionsDataContainer.Available");
+				String label = getAdapter().getBundle().getString("PrinterOptionsDataContainer.Available");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
     			ic_Available = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -153,7 +146,7 @@ public class PrinterOptionsDataContainerImpl extends BaseDataContainer implement
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_GuestOK() {
     		if (ic_GuestOK == null)
     		{
-				String label = bundle.getString("PrinterOptionsDataContainer.GuestOK");
+				String label = getAdapter().getBundle().getString("PrinterOptionsDataContainer.GuestOK");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
     			ic_GuestOK = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -169,7 +162,7 @@ public class PrinterOptionsDataContainerImpl extends BaseDataContainer implement
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_GuestOnly() {
     		if (ic_GuestOnly == null)
     		{
-				String label = bundle.getString("PrinterOptionsDataContainer.GuestOnly");
+				String label = getAdapter().getBundle().getString("PrinterOptionsDataContainer.GuestOnly");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
     			ic_GuestOnly = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -185,7 +178,7 @@ public class PrinterOptionsDataContainerImpl extends BaseDataContainer implement
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_HostsAllow() {
     		if (ic_HostsAllow == null)
     		{
-				String label = bundle.getString("PrinterOptionsDataContainer.HostsAllow");
+				String label = getAdapter().getBundle().getString("PrinterOptionsDataContainer.HostsAllow");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
     			ic_HostsAllow = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -201,7 +194,7 @@ public class PrinterOptionsDataContainerImpl extends BaseDataContainer implement
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_HostsDeny() {
     		if (ic_HostsDeny == null)
     		{
-				String label = bundle.getString("PrinterOptionsDataContainer.HostsDeny");
+				String label = getAdapter().getBundle().getString("PrinterOptionsDataContainer.HostsDeny");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
     			ic_HostsDeny = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -217,7 +210,7 @@ public class PrinterOptionsDataContainerImpl extends BaseDataContainer implement
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_ReadOnly() {
     		if (ic_ReadOnly == null)
     		{
-				String label = bundle.getString("PrinterOptionsDataContainer.ReadOnly");
+				String label = getAdapter().getBundle().getString("PrinterOptionsDataContainer.ReadOnly");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
     			ic_ReadOnly = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -233,7 +226,7 @@ public class PrinterOptionsDataContainerImpl extends BaseDataContainer implement
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_Browsable() {
     		if (ic_Browsable == null)
     		{
-				String label = bundle.getString("PrinterOptionsDataContainer.Browsable");
+				String label = getAdapter().getBundle().getString("PrinterOptionsDataContainer.Browsable");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
     			ic_Browsable = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -242,11 +235,11 @@ public class PrinterOptionsDataContainerImpl extends BaseDataContainer implement
 		
 	
 		
-	public void trace(java.io.PrintStream printStream, String listOptions, boolean title)
+	public void trace(java.io.PrintWriter 	printStream, String listOptions, boolean title)
 	{
 		if (title)
 		{
-			printStream.println(bundle.getString("PrinterOptionsDataContainer.caption"));
+			printStream.println(getAdapter().getBundle().getString("PrinterOptionsDataContainer.caption"));
 		}
 		
 		if (showKey(listOptions))
@@ -320,7 +313,7 @@ public class PrinterOptionsDataContainerImpl extends BaseDataContainer implement
 		}
 	}
 	
-	public void traceChilds(java.io.PrintStream printStream, String listOptions, boolean title)
+	public void traceChilds(java.io.PrintWriter printStream, String listOptions, boolean title)
 	{
     			
 			

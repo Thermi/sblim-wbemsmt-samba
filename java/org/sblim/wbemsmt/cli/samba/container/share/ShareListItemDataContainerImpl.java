@@ -27,11 +27,6 @@ package org.sblim.wbemsmt.cli.samba.container.share;
 import java.util.*;
 
 import org.sblim.wbemsmt.bl.adapter.*;
-//import org.sblim.wbemsmt.tools.converter.*;
-//import org.sblim.wbemsmt.tools.converter.test.*;
-//import org.sblim.wbemsmt.tools.input.*;
-//import org.sblim.wbemsmt.tools.input.test.*;
-import org.sblim.wbemsmt.tools.resources.*;
 import org.sblim.wbemsmt.exception.*;
 
 
@@ -41,8 +36,6 @@ import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
 
 public class ShareListItemDataContainerImpl extends BaseDataContainer implements org.sblim.wbemsmt.samba.bl.container.share.ShareListItemDataContainer {
-
-	protected static WbemSmtResourceBundle bundle = ResourceBundleManager.getResourceBundle(new String[]{"messages","messagesSamba"},Locale.getDefault());
 
 			private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_Name;
     		private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_Available;
@@ -72,7 +65,7 @@ public class ShareListItemDataContainerImpl extends BaseDataContainer implements
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_Name() {
     		if (ic_Name == null)
     		{
-				String label = bundle.getString("ShareListItemDataContainer.Name");
+				String label = getAdapter().getBundle().getString("ShareListItemDataContainer.Name");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
     			ic_Name = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -88,7 +81,7 @@ public class ShareListItemDataContainerImpl extends BaseDataContainer implements
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_Available() {
     		if (ic_Available == null)
     		{
-				String label = bundle.getString("ShareListItemDataContainer.Available");
+				String label = getAdapter().getBundle().getString("ShareListItemDataContainer.Available");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
     			ic_Available = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -104,7 +97,7 @@ public class ShareListItemDataContainerImpl extends BaseDataContainer implements
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_Comment() {
     		if (ic_Comment == null)
     		{
-				String label = bundle.getString("ShareListItemDataContainer.Comment");
+				String label = getAdapter().getBundle().getString("ShareListItemDataContainer.Comment");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
     			ic_Comment = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -120,7 +113,7 @@ public class ShareListItemDataContainerImpl extends BaseDataContainer implements
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_Path() {
     		if (ic_Path == null)
     		{
-				String label = bundle.getString("ShareListItemDataContainer.Path");
+				String label = getAdapter().getBundle().getString("ShareListItemDataContainer.Path");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
     			ic_Path = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -136,7 +129,7 @@ public class ShareListItemDataContainerImpl extends BaseDataContainer implements
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_Browsable() {
     		if (ic_Browsable == null)
     		{
-				String label = bundle.getString("ShareListItemDataContainer.Browsable");
+				String label = getAdapter().getBundle().getString("ShareListItemDataContainer.Browsable");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
     			ic_Browsable = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -152,7 +145,7 @@ public class ShareListItemDataContainerImpl extends BaseDataContainer implements
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_GuestOK() {
     		if (ic_GuestOK == null)
     		{
-				String label = bundle.getString("ShareListItemDataContainer.GuestOK");
+				String label = getAdapter().getBundle().getString("ShareListItemDataContainer.GuestOK");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
     			ic_GuestOK = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -168,7 +161,7 @@ public class ShareListItemDataContainerImpl extends BaseDataContainer implements
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_GuestOnly() {
     		if (ic_GuestOnly == null)
     		{
-				String label = bundle.getString("ShareListItemDataContainer.GuestOnly");
+				String label = getAdapter().getBundle().getString("ShareListItemDataContainer.GuestOnly");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
     			ic_GuestOnly = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -184,7 +177,7 @@ public class ShareListItemDataContainerImpl extends BaseDataContainer implements
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_HostsAllow() {
     		if (ic_HostsAllow == null)
     		{
-				String label = bundle.getString("ShareListItemDataContainer.HostsAllow");
+				String label = getAdapter().getBundle().getString("ShareListItemDataContainer.HostsAllow");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
     			ic_HostsAllow = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -200,7 +193,7 @@ public class ShareListItemDataContainerImpl extends BaseDataContainer implements
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_HostsDeny() {
     		if (ic_HostsDeny == null)
     		{
-				String label = bundle.getString("ShareListItemDataContainer.HostsDeny");
+				String label = getAdapter().getBundle().getString("ShareListItemDataContainer.HostsDeny");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
     			ic_HostsDeny = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -216,7 +209,7 @@ public class ShareListItemDataContainerImpl extends BaseDataContainer implements
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_ReadOnly() {
     		if (ic_ReadOnly == null)
     		{
-				String label = bundle.getString("ShareListItemDataContainer.ReadOnly");
+				String label = getAdapter().getBundle().getString("ShareListItemDataContainer.ReadOnly");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
     			ic_ReadOnly = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -225,11 +218,11 @@ public class ShareListItemDataContainerImpl extends BaseDataContainer implements
 		
 	
 		
-	public void trace(java.io.PrintStream printStream, String listOptions, boolean title)
+	public void trace(java.io.PrintWriter 	printStream, String listOptions, boolean title)
 	{
 		if (title)
 		{
-			printStream.println(bundle.getString("ShareListItemDataContainer.caption"));
+			printStream.println(getAdapter().getBundle().getString("ShareListItemDataContainer.caption"));
 		}
 		
 		if (showKey(listOptions))
@@ -298,7 +291,7 @@ public class ShareListItemDataContainerImpl extends BaseDataContainer implements
 		}
 	}
 	
-	public void traceChilds(java.io.PrintStream printStream, String listOptions, boolean title)
+	public void traceChilds(java.io.PrintWriter printStream, String listOptions, boolean title)
 	{
     			
 			

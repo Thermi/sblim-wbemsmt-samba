@@ -100,7 +100,9 @@ public class ShareWizard   extends SambaWizard{
 			//next time in the wizard is first time
 			updatedContainers.clear();
 			
+			//reload the tree for this adapter
 			adapter.setMarkedForReload();
+			//select the share in the Tree
 			adapter.setPathOfTreeNode(share.getCimObjectPath());
 
 		} catch (Exception e) {

@@ -27,11 +27,6 @@ package org.sblim.wbemsmt.cli.samba.container.global;
 import java.util.*;
 
 import org.sblim.wbemsmt.bl.adapter.*;
-//import org.sblim.wbemsmt.tools.converter.*;
-//import org.sblim.wbemsmt.tools.converter.test.*;
-//import org.sblim.wbemsmt.tools.input.*;
-//import org.sblim.wbemsmt.tools.input.test.*;
-import org.sblim.wbemsmt.tools.resources.*;
 import org.sblim.wbemsmt.exception.*;
 
 
@@ -41,8 +36,6 @@ import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
 
 public class GUIShareGlobalsDataContainerImpl extends BaseDataContainer implements org.sblim.wbemsmt.samba.bl.container.global.GUIShareGlobalsDataContainer {
-
-	protected static WbemSmtResourceBundle bundle = ResourceBundleManager.getResourceBundle(new String[]{"messages","messagesSamba"},Locale.getDefault());
 
 			private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_CaseSensitive;
     		private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_DosFiletimes;
@@ -105,7 +98,7 @@ public class GUIShareGlobalsDataContainerImpl extends BaseDataContainer implemen
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_CaseSensitive() {
     		if (ic_CaseSensitive == null)
     		{
-				String label = bundle.getString("GUIShareGlobalsDataContainer.CaseSensitive");
+				String label = getAdapter().getBundle().getString("GUIShareGlobalsDataContainer.CaseSensitive");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
     			ic_CaseSensitive = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -121,7 +114,7 @@ public class GUIShareGlobalsDataContainerImpl extends BaseDataContainer implemen
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_DosFiletimes() {
     		if (ic_DosFiletimes == null)
     		{
-				String label = bundle.getString("GUIShareGlobalsDataContainer.DosFiletimes");
+				String label = getAdapter().getBundle().getString("GUIShareGlobalsDataContainer.DosFiletimes");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
     			ic_DosFiletimes = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -137,7 +130,7 @@ public class GUIShareGlobalsDataContainerImpl extends BaseDataContainer implemen
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_HideDotFiles() {
     		if (ic_HideDotFiles == null)
     		{
-				String label = bundle.getString("GUIShareGlobalsDataContainer.HideDotFiles");
+				String label = getAdapter().getBundle().getString("GUIShareGlobalsDataContainer.HideDotFiles");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
     			ic_HideDotFiles = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -153,7 +146,7 @@ public class GUIShareGlobalsDataContainerImpl extends BaseDataContainer implemen
 		public org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf get_AclCompatibility() {
     		if (ic_AclCompatibility == null)
     		{
-				String label = bundle.getString("GUIShareGlobalsDataContainer.AclCompatibility");
+				String label = getAdapter().getBundle().getString("GUIShareGlobalsDataContainer.AclCompatibility");
 				org.sblim.wbemsmt.tools.converter.StringArrayConverter converter = new org.sblim.wbemsmt.tools.converter.UnsignedInt8StringArrayConverter();
     			ic_AclCompatibility = new org.sblim.wbemsmt.tools.input.test.LabeledTestStringArrayComponent(this,label,"",converter);
     		}
@@ -169,7 +162,7 @@ public class GUIShareGlobalsDataContainerImpl extends BaseDataContainer implemen
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_EASupport() {
     		if (ic_EASupport == null)
     		{
-				String label = bundle.getString("GUIShareGlobalsDataContainer.EASupport");
+				String label = getAdapter().getBundle().getString("GUIShareGlobalsDataContainer.EASupport");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
     			ic_EASupport = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -185,7 +178,7 @@ public class GUIShareGlobalsDataContainerImpl extends BaseDataContainer implemen
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_NTACLSupport() {
     		if (ic_NTACLSupport == null)
     		{
-				String label = bundle.getString("GUIShareGlobalsDataContainer.NTACLSupport");
+				String label = getAdapter().getBundle().getString("GUIShareGlobalsDataContainer.NTACLSupport");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
     			ic_NTACLSupport = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -201,7 +194,7 @@ public class GUIShareGlobalsDataContainerImpl extends BaseDataContainer implemen
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_Create_u() {
     		if (ic_usr_Create_u == null)
     		{
-				String label = bundle.getString("GUIShareGlobalsDataContainer.create_u");
+				String label = getAdapter().getBundle().getString("GUIShareGlobalsDataContainer.create_u");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
     			ic_usr_Create_u = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -217,7 +210,7 @@ public class GUIShareGlobalsDataContainerImpl extends BaseDataContainer implemen
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_Create_g() {
     		if (ic_usr_Create_g == null)
     		{
-				String label = bundle.getString("GUIShareGlobalsDataContainer.create_g");
+				String label = getAdapter().getBundle().getString("GUIShareGlobalsDataContainer.create_g");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
     			ic_usr_Create_g = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -233,7 +226,7 @@ public class GUIShareGlobalsDataContainerImpl extends BaseDataContainer implemen
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_Create_s() {
     		if (ic_usr_Create_s == null)
     		{
-				String label = bundle.getString("GUIShareGlobalsDataContainer.create_s");
+				String label = getAdapter().getBundle().getString("GUIShareGlobalsDataContainer.create_s");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
     			ic_usr_Create_s = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -249,7 +242,7 @@ public class GUIShareGlobalsDataContainerImpl extends BaseDataContainer implemen
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_Create_user_r() {
     		if (ic_usr_Create_user_r == null)
     		{
-				String label = bundle.getString("GUIShareGlobalsDataContainer.create_user_r");
+				String label = getAdapter().getBundle().getString("GUIShareGlobalsDataContainer.create_user_r");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
     			ic_usr_Create_user_r = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -265,7 +258,7 @@ public class GUIShareGlobalsDataContainerImpl extends BaseDataContainer implemen
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_Create_user_w() {
     		if (ic_usr_Create_user_w == null)
     		{
-				String label = bundle.getString("GUIShareGlobalsDataContainer.create_user_w");
+				String label = getAdapter().getBundle().getString("GUIShareGlobalsDataContainer.create_user_w");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
     			ic_usr_Create_user_w = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -281,7 +274,7 @@ public class GUIShareGlobalsDataContainerImpl extends BaseDataContainer implemen
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_Create_user_x() {
     		if (ic_usr_Create_user_x == null)
     		{
-				String label = bundle.getString("GUIShareGlobalsDataContainer.create_user_x");
+				String label = getAdapter().getBundle().getString("GUIShareGlobalsDataContainer.create_user_x");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
     			ic_usr_Create_user_x = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -297,7 +290,7 @@ public class GUIShareGlobalsDataContainerImpl extends BaseDataContainer implemen
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_Create_group_r() {
     		if (ic_usr_Create_group_r == null)
     		{
-				String label = bundle.getString("GUIShareGlobalsDataContainer.create_group_r");
+				String label = getAdapter().getBundle().getString("GUIShareGlobalsDataContainer.create_group_r");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
     			ic_usr_Create_group_r = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -313,7 +306,7 @@ public class GUIShareGlobalsDataContainerImpl extends BaseDataContainer implemen
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_Create_group_w() {
     		if (ic_usr_Create_group_w == null)
     		{
-				String label = bundle.getString("GUIShareGlobalsDataContainer.create_group_w");
+				String label = getAdapter().getBundle().getString("GUIShareGlobalsDataContainer.create_group_w");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
     			ic_usr_Create_group_w = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -329,7 +322,7 @@ public class GUIShareGlobalsDataContainerImpl extends BaseDataContainer implemen
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_Create_group_x() {
     		if (ic_usr_Create_group_x == null)
     		{
-				String label = bundle.getString("GUIShareGlobalsDataContainer.create_group_x");
+				String label = getAdapter().getBundle().getString("GUIShareGlobalsDataContainer.create_group_x");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
     			ic_usr_Create_group_x = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -345,7 +338,7 @@ public class GUIShareGlobalsDataContainerImpl extends BaseDataContainer implemen
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_Create_other_r() {
     		if (ic_usr_Create_other_r == null)
     		{
-				String label = bundle.getString("GUIShareGlobalsDataContainer.create_other_r");
+				String label = getAdapter().getBundle().getString("GUIShareGlobalsDataContainer.create_other_r");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
     			ic_usr_Create_other_r = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -361,7 +354,7 @@ public class GUIShareGlobalsDataContainerImpl extends BaseDataContainer implemen
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_Create_other_w() {
     		if (ic_usr_Create_other_w == null)
     		{
-				String label = bundle.getString("GUIShareGlobalsDataContainer.create_other_w");
+				String label = getAdapter().getBundle().getString("GUIShareGlobalsDataContainer.create_other_w");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
     			ic_usr_Create_other_w = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -377,7 +370,7 @@ public class GUIShareGlobalsDataContainerImpl extends BaseDataContainer implemen
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_Create_other_x() {
     		if (ic_usr_Create_other_x == null)
     		{
-				String label = bundle.getString("GUIShareGlobalsDataContainer.create_other_x");
+				String label = getAdapter().getBundle().getString("GUIShareGlobalsDataContainer.create_other_x");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
     			ic_usr_Create_other_x = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -393,7 +386,7 @@ public class GUIShareGlobalsDataContainerImpl extends BaseDataContainer implemen
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_Directory_u() {
     		if (ic_usr_Directory_u == null)
     		{
-				String label = bundle.getString("GUIShareGlobalsDataContainer.directory_u");
+				String label = getAdapter().getBundle().getString("GUIShareGlobalsDataContainer.directory_u");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
     			ic_usr_Directory_u = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -409,7 +402,7 @@ public class GUIShareGlobalsDataContainerImpl extends BaseDataContainer implemen
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_Directory_g() {
     		if (ic_usr_Directory_g == null)
     		{
-				String label = bundle.getString("GUIShareGlobalsDataContainer.directory_g");
+				String label = getAdapter().getBundle().getString("GUIShareGlobalsDataContainer.directory_g");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
     			ic_usr_Directory_g = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -425,7 +418,7 @@ public class GUIShareGlobalsDataContainerImpl extends BaseDataContainer implemen
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_Directory_s() {
     		if (ic_usr_Directory_s == null)
     		{
-				String label = bundle.getString("GUIShareGlobalsDataContainer.directory_s");
+				String label = getAdapter().getBundle().getString("GUIShareGlobalsDataContainer.directory_s");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
     			ic_usr_Directory_s = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -441,7 +434,7 @@ public class GUIShareGlobalsDataContainerImpl extends BaseDataContainer implemen
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_Directory_user_r() {
     		if (ic_usr_Directory_user_r == null)
     		{
-				String label = bundle.getString("GUIShareGlobalsDataContainer.directory_user_r");
+				String label = getAdapter().getBundle().getString("GUIShareGlobalsDataContainer.directory_user_r");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
     			ic_usr_Directory_user_r = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -457,7 +450,7 @@ public class GUIShareGlobalsDataContainerImpl extends BaseDataContainer implemen
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_Directory_user_w() {
     		if (ic_usr_Directory_user_w == null)
     		{
-				String label = bundle.getString("GUIShareGlobalsDataContainer.directory_user_w");
+				String label = getAdapter().getBundle().getString("GUIShareGlobalsDataContainer.directory_user_w");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
     			ic_usr_Directory_user_w = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -473,7 +466,7 @@ public class GUIShareGlobalsDataContainerImpl extends BaseDataContainer implemen
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_Directory_user_x() {
     		if (ic_usr_Directory_user_x == null)
     		{
-				String label = bundle.getString("GUIShareGlobalsDataContainer.directory_user_x");
+				String label = getAdapter().getBundle().getString("GUIShareGlobalsDataContainer.directory_user_x");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
     			ic_usr_Directory_user_x = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -489,7 +482,7 @@ public class GUIShareGlobalsDataContainerImpl extends BaseDataContainer implemen
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_Directory_group_r() {
     		if (ic_usr_Directory_group_r == null)
     		{
-				String label = bundle.getString("GUIShareGlobalsDataContainer.directory_group_r");
+				String label = getAdapter().getBundle().getString("GUIShareGlobalsDataContainer.directory_group_r");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
     			ic_usr_Directory_group_r = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -505,7 +498,7 @@ public class GUIShareGlobalsDataContainerImpl extends BaseDataContainer implemen
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_Directory_group_w() {
     		if (ic_usr_Directory_group_w == null)
     		{
-				String label = bundle.getString("GUIShareGlobalsDataContainer.directory_group_w");
+				String label = getAdapter().getBundle().getString("GUIShareGlobalsDataContainer.directory_group_w");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
     			ic_usr_Directory_group_w = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -521,7 +514,7 @@ public class GUIShareGlobalsDataContainerImpl extends BaseDataContainer implemen
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_Directory_group_x() {
     		if (ic_usr_Directory_group_x == null)
     		{
-				String label = bundle.getString("GUIShareGlobalsDataContainer.directory_group_x");
+				String label = getAdapter().getBundle().getString("GUIShareGlobalsDataContainer.directory_group_x");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
     			ic_usr_Directory_group_x = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -537,7 +530,7 @@ public class GUIShareGlobalsDataContainerImpl extends BaseDataContainer implemen
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_Directory_other_r() {
     		if (ic_usr_Directory_other_r == null)
     		{
-				String label = bundle.getString("GUIShareGlobalsDataContainer.directory_other_r");
+				String label = getAdapter().getBundle().getString("GUIShareGlobalsDataContainer.directory_other_r");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
     			ic_usr_Directory_other_r = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -553,7 +546,7 @@ public class GUIShareGlobalsDataContainerImpl extends BaseDataContainer implemen
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_Directory_other_w() {
     		if (ic_usr_Directory_other_w == null)
     		{
-				String label = bundle.getString("GUIShareGlobalsDataContainer.directory_other_w");
+				String label = getAdapter().getBundle().getString("GUIShareGlobalsDataContainer.directory_other_w");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
     			ic_usr_Directory_other_w = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -569,7 +562,7 @@ public class GUIShareGlobalsDataContainerImpl extends BaseDataContainer implemen
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_Directory_other_x() {
     		if (ic_usr_Directory_other_x == null)
     		{
-				String label = bundle.getString("GUIShareGlobalsDataContainer.directory_other_x");
+				String label = getAdapter().getBundle().getString("GUIShareGlobalsDataContainer.directory_other_x");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
     			ic_usr_Directory_other_x = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -585,7 +578,7 @@ public class GUIShareGlobalsDataContainerImpl extends BaseDataContainer implemen
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_Directory_security_u() {
     		if (ic_usr_Directory_security_u == null)
     		{
-				String label = bundle.getString("GUIShareGlobalsDataContainer.directory_security_u");
+				String label = getAdapter().getBundle().getString("GUIShareGlobalsDataContainer.directory_security_u");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
     			ic_usr_Directory_security_u = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -601,7 +594,7 @@ public class GUIShareGlobalsDataContainerImpl extends BaseDataContainer implemen
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_Directory_security_g() {
     		if (ic_usr_Directory_security_g == null)
     		{
-				String label = bundle.getString("GUIShareGlobalsDataContainer.directory_security_g");
+				String label = getAdapter().getBundle().getString("GUIShareGlobalsDataContainer.directory_security_g");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
     			ic_usr_Directory_security_g = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -617,7 +610,7 @@ public class GUIShareGlobalsDataContainerImpl extends BaseDataContainer implemen
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_Directory_security_s() {
     		if (ic_usr_Directory_security_s == null)
     		{
-				String label = bundle.getString("GUIShareGlobalsDataContainer.directory_security_s");
+				String label = getAdapter().getBundle().getString("GUIShareGlobalsDataContainer.directory_security_s");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
     			ic_usr_Directory_security_s = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -633,7 +626,7 @@ public class GUIShareGlobalsDataContainerImpl extends BaseDataContainer implemen
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_Directory_security_user_r() {
     		if (ic_usr_Directory_security_user_r == null)
     		{
-				String label = bundle.getString("GUIShareGlobalsDataContainer.directory_security_user_r");
+				String label = getAdapter().getBundle().getString("GUIShareGlobalsDataContainer.directory_security_user_r");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
     			ic_usr_Directory_security_user_r = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -649,7 +642,7 @@ public class GUIShareGlobalsDataContainerImpl extends BaseDataContainer implemen
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_Directory_security_user_w() {
     		if (ic_usr_Directory_security_user_w == null)
     		{
-				String label = bundle.getString("GUIShareGlobalsDataContainer.directory_security_user_w");
+				String label = getAdapter().getBundle().getString("GUIShareGlobalsDataContainer.directory_security_user_w");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
     			ic_usr_Directory_security_user_w = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -665,7 +658,7 @@ public class GUIShareGlobalsDataContainerImpl extends BaseDataContainer implemen
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_Directory_security_user_x() {
     		if (ic_usr_Directory_security_user_x == null)
     		{
-				String label = bundle.getString("GUIShareGlobalsDataContainer.directory_security_user_x");
+				String label = getAdapter().getBundle().getString("GUIShareGlobalsDataContainer.directory_security_user_x");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
     			ic_usr_Directory_security_user_x = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -681,7 +674,7 @@ public class GUIShareGlobalsDataContainerImpl extends BaseDataContainer implemen
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_Directory_security_group_r() {
     		if (ic_usr_Directory_security_group_r == null)
     		{
-				String label = bundle.getString("GUIShareGlobalsDataContainer.directory_security_group_r");
+				String label = getAdapter().getBundle().getString("GUIShareGlobalsDataContainer.directory_security_group_r");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
     			ic_usr_Directory_security_group_r = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -697,7 +690,7 @@ public class GUIShareGlobalsDataContainerImpl extends BaseDataContainer implemen
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_Directory_security_group_w() {
     		if (ic_usr_Directory_security_group_w == null)
     		{
-				String label = bundle.getString("GUIShareGlobalsDataContainer.directory_security_group_w");
+				String label = getAdapter().getBundle().getString("GUIShareGlobalsDataContainer.directory_security_group_w");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
     			ic_usr_Directory_security_group_w = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -713,7 +706,7 @@ public class GUIShareGlobalsDataContainerImpl extends BaseDataContainer implemen
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_Directory_security_group_x() {
     		if (ic_usr_Directory_security_group_x == null)
     		{
-				String label = bundle.getString("GUIShareGlobalsDataContainer.directory_security_group_x");
+				String label = getAdapter().getBundle().getString("GUIShareGlobalsDataContainer.directory_security_group_x");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
     			ic_usr_Directory_security_group_x = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -729,7 +722,7 @@ public class GUIShareGlobalsDataContainerImpl extends BaseDataContainer implemen
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_Directory_security_other_r() {
     		if (ic_usr_Directory_security_other_r == null)
     		{
-				String label = bundle.getString("GUIShareGlobalsDataContainer.directory_security_other_r");
+				String label = getAdapter().getBundle().getString("GUIShareGlobalsDataContainer.directory_security_other_r");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
     			ic_usr_Directory_security_other_r = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -745,7 +738,7 @@ public class GUIShareGlobalsDataContainerImpl extends BaseDataContainer implemen
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_Directory_security_other_w() {
     		if (ic_usr_Directory_security_other_w == null)
     		{
-				String label = bundle.getString("GUIShareGlobalsDataContainer.directory_security_other_w");
+				String label = getAdapter().getBundle().getString("GUIShareGlobalsDataContainer.directory_security_other_w");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
     			ic_usr_Directory_security_other_w = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -761,7 +754,7 @@ public class GUIShareGlobalsDataContainerImpl extends BaseDataContainer implemen
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_Directory_security_other_x() {
     		if (ic_usr_Directory_security_other_x == null)
     		{
-				String label = bundle.getString("GUIShareGlobalsDataContainer.directory_security_other_x");
+				String label = getAdapter().getBundle().getString("GUIShareGlobalsDataContainer.directory_security_other_x");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
     			ic_usr_Directory_security_other_x = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -780,11 +773,11 @@ public class GUIShareGlobalsDataContainerImpl extends BaseDataContainer implemen
 
 	
 		
-	public void trace(java.io.PrintStream printStream, String listOptions, boolean title)
+	public void trace(java.io.PrintWriter 	printStream, String listOptions, boolean title)
 	{
 		if (title)
 		{
-			printStream.println(bundle.getString("GUIShareGlobalsDataContainer.caption"));
+			printStream.println(getAdapter().getBundle().getString("GUIShareGlobalsDataContainer.caption"));
 		}
 		
 		if (showKey(listOptions))
@@ -1013,15 +1006,15 @@ public class GUIShareGlobalsDataContainerImpl extends BaseDataContainer implemen
 		}
 	}
 	
-	public void traceChilds(java.io.PrintStream printStream, String listOptions, boolean title)
+	public void traceChilds(java.io.PrintWriter printStream, String listOptions, boolean title)
 	{
     		        		printStream.println();
-        		printStream.println(bundle.getString("GUIShareGlobalsDataContainer.role.users"));
+        		printStream.println(getAdapter().getBundle().getString("GUIShareGlobalsDataContainer.role.users"));
         		List listusers = getUsers();
         		for (int i = 0; i < listusers.size(); i++) {
         			BaseDataContainer child = (BaseDataContainer)listusers.get(i);
         			printStream.println();
-        			printStream.println(bundle.getString("item") + ": " + (i+1) + " " + bundle.getString("of") + " " + listusers.size());
+        			printStream.println(getAdapter().getBundle().getString("item") + ": " + (i+1) + " " + getAdapter().getBundle().getString("of") + " " + listusers.size());
         			child.trace(printStream,listOptions,false);
         		}
     			

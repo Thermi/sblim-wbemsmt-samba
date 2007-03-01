@@ -27,11 +27,6 @@ package org.sblim.wbemsmt.cli.samba.container.user;
 import java.util.*;
 
 import org.sblim.wbemsmt.bl.adapter.*;
-//import org.sblim.wbemsmt.tools.converter.*;
-//import org.sblim.wbemsmt.tools.converter.test.*;
-//import org.sblim.wbemsmt.tools.input.*;
-//import org.sblim.wbemsmt.tools.input.test.*;
-import org.sblim.wbemsmt.tools.resources.*;
 import org.sblim.wbemsmt.exception.*;
 
 
@@ -41,8 +36,6 @@ import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
 
 public class UserListItemDataContainerImpl extends BaseDataContainer implements org.sblim.wbemsmt.samba.bl.container.user.UserListItemDataContainer {
-
-	protected static WbemSmtResourceBundle bundle = ResourceBundleManager.getResourceBundle(new String[]{"messages","messagesSamba"},Locale.getDefault());
 
 			private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_SambaUserName;
     		private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_SystemUserName;
@@ -65,7 +58,7 @@ public class UserListItemDataContainerImpl extends BaseDataContainer implements 
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_SambaUserName() {
     		if (ic_SambaUserName == null)
     		{
-				String label = bundle.getString("UserListItemDataContainer.SambaUserName");
+				String label = getAdapter().getBundle().getString("UserListItemDataContainer.SambaUserName");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
     			ic_SambaUserName = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -81,7 +74,7 @@ public class UserListItemDataContainerImpl extends BaseDataContainer implements 
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_SystemUserName() {
     		if (ic_SystemUserName == null)
     		{
-				String label = bundle.getString("UserListItemDataContainer.SystemUserName");
+				String label = getAdapter().getBundle().getString("UserListItemDataContainer.SystemUserName");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
     			ic_SystemUserName = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -97,7 +90,7 @@ public class UserListItemDataContainerImpl extends BaseDataContainer implements 
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_IsGuest() {
     		if (ic_usr_IsGuest == null)
     		{
-				String label = bundle.getString("UserListItemDataContainer.isGuest");
+				String label = getAdapter().getBundle().getString("UserListItemDataContainer.isGuest");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
     			ic_usr_IsGuest = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -106,11 +99,11 @@ public class UserListItemDataContainerImpl extends BaseDataContainer implements 
 		
 	
 		
-	public void trace(java.io.PrintStream printStream, String listOptions, boolean title)
+	public void trace(java.io.PrintWriter 	printStream, String listOptions, boolean title)
 	{
 		if (title)
 		{
-			printStream.println(bundle.getString("UserListItemDataContainer.caption"));
+			printStream.println(getAdapter().getBundle().getString("UserListItemDataContainer.caption"));
 		}
 		
 		if (showKey(listOptions))
@@ -144,7 +137,7 @@ public class UserListItemDataContainerImpl extends BaseDataContainer implements 
 		}
 	}
 	
-	public void traceChilds(java.io.PrintStream printStream, String listOptions, boolean title)
+	public void traceChilds(java.io.PrintWriter printStream, String listOptions, boolean title)
 	{
     			
 			

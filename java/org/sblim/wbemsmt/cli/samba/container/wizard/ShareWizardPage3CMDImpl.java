@@ -27,11 +27,6 @@ package org.sblim.wbemsmt.cli.samba.container.wizard;
 import java.util.*;
 
 import org.sblim.wbemsmt.bl.adapter.*;
-//import org.sblim.wbemsmt.tools.converter.*;
-//import org.sblim.wbemsmt.tools.converter.test.*;
-//import org.sblim.wbemsmt.tools.input.*;
-//import org.sblim.wbemsmt.tools.input.test.*;
-import org.sblim.wbemsmt.tools.resources.*;
 import org.sblim.wbemsmt.exception.*;
 
 
@@ -41,8 +36,6 @@ import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
 
 public class ShareWizardPage3CMDImpl extends BaseDataContainer implements org.sblim.wbemsmt.samba.bl.container.wizard.ShareWizardPage3CMD {
-
-	protected static WbemSmtResourceBundle bundle = ResourceBundleManager.getResourceBundle(new String[]{"messages","messagesSamba"},Locale.getDefault());
 
 			private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_CreateMask;
     		private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_DirectoryMask;
@@ -65,7 +58,7 @@ public class ShareWizardPage3CMDImpl extends BaseDataContainer implements org.sb
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_CreateMask() {
     		if (ic_CreateMask == null)
     		{
-				String label = bundle.getString("ShareWizardPage3CMD.CreateMask");
+				String label = getAdapter().getBundle().getString("ShareWizardPage3CMD.CreateMask");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.UnsignedInt16StringConverter();
     			ic_CreateMask = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -81,7 +74,7 @@ public class ShareWizardPage3CMDImpl extends BaseDataContainer implements org.sb
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_DirectoryMask() {
     		if (ic_DirectoryMask == null)
     		{
-				String label = bundle.getString("ShareWizardPage3CMD.DirectoryMask");
+				String label = getAdapter().getBundle().getString("ShareWizardPage3CMD.DirectoryMask");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.UnsignedInt16StringConverter();
     			ic_DirectoryMask = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -97,7 +90,7 @@ public class ShareWizardPage3CMDImpl extends BaseDataContainer implements org.sb
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_DirectorySecurityMask() {
     		if (ic_DirectorySecurityMask == null)
     		{
-				String label = bundle.getString("ShareWizardPage3CMD.DirectorySecurityMask");
+				String label = getAdapter().getBundle().getString("ShareWizardPage3CMD.DirectorySecurityMask");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.UnsignedInt16StringConverter();
     			ic_DirectorySecurityMask = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -106,11 +99,11 @@ public class ShareWizardPage3CMDImpl extends BaseDataContainer implements org.sb
 		
 	
 		
-	public void trace(java.io.PrintStream printStream, String listOptions, boolean title)
+	public void trace(java.io.PrintWriter 	printStream, String listOptions, boolean title)
 	{
 		if (title)
 		{
-			printStream.println(bundle.getString("ShareWizardPage3CMD.caption"));
+			printStream.println(getAdapter().getBundle().getString("ShareWizardPage3CMD.caption"));
 		}
 		
 		if (showKey(listOptions))
@@ -144,7 +137,7 @@ public class ShareWizardPage3CMDImpl extends BaseDataContainer implements org.sb
 		}
 	}
 	
-	public void traceChilds(java.io.PrintStream printStream, String listOptions, boolean title)
+	public void traceChilds(java.io.PrintWriter printStream, String listOptions, boolean title)
 	{
     			
 			

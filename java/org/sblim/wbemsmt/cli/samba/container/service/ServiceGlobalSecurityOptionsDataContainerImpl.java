@@ -27,11 +27,6 @@ package org.sblim.wbemsmt.cli.samba.container.service;
 import java.util.*;
 
 import org.sblim.wbemsmt.bl.adapter.*;
-//import org.sblim.wbemsmt.tools.converter.*;
-//import org.sblim.wbemsmt.tools.converter.test.*;
-//import org.sblim.wbemsmt.tools.input.*;
-//import org.sblim.wbemsmt.tools.input.test.*;
-import org.sblim.wbemsmt.tools.resources.*;
 import org.sblim.wbemsmt.exception.*;
 
 
@@ -41,8 +36,6 @@ import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
 
 public class ServiceGlobalSecurityOptionsDataContainerImpl extends BaseDataContainer implements org.sblim.wbemsmt.samba.bl.container.service.ServiceGlobalSecurityOptionsDataContainer {
-
-	protected static WbemSmtResourceBundle bundle = ResourceBundleManager.getResourceBundle(new String[]{"messages","messagesSamba"},Locale.getDefault());
 
 			private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_AuthMethods;
     		private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_EncryptPasswords;
@@ -76,7 +69,7 @@ public class ServiceGlobalSecurityOptionsDataContainerImpl extends BaseDataConta
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_AuthMethods() {
     		if (ic_AuthMethods == null)
     		{
-				String label = bundle.getString("ServiceGlobalSecurityOptionsDataContainer.AuthMethods");
+				String label = getAdapter().getBundle().getString("ServiceGlobalSecurityOptionsDataContainer.AuthMethods");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
     			ic_AuthMethods = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -92,7 +85,7 @@ public class ServiceGlobalSecurityOptionsDataContainerImpl extends BaseDataConta
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_EncryptPasswords() {
     		if (ic_EncryptPasswords == null)
     		{
-				String label = bundle.getString("ServiceGlobalSecurityOptionsDataContainer.EncryptPasswords");
+				String label = getAdapter().getBundle().getString("ServiceGlobalSecurityOptionsDataContainer.EncryptPasswords");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
     			ic_EncryptPasswords = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -108,7 +101,7 @@ public class ServiceGlobalSecurityOptionsDataContainerImpl extends BaseDataConta
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_MinPasswordLength() {
     		if (ic_MinPasswordLength == null)
     		{
-				String label = bundle.getString("ServiceGlobalSecurityOptionsDataContainer.MinPasswordLength");
+				String label = getAdapter().getBundle().getString("ServiceGlobalSecurityOptionsDataContainer.MinPasswordLength");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.UnsignedInt8StringConverter();
     			ic_MinPasswordLength = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -124,7 +117,7 @@ public class ServiceGlobalSecurityOptionsDataContainerImpl extends BaseDataConta
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_NullPasswords() {
     		if (ic_NullPasswords == null)
     		{
-				String label = bundle.getString("ServiceGlobalSecurityOptionsDataContainer.NullPasswords");
+				String label = getAdapter().getBundle().getString("ServiceGlobalSecurityOptionsDataContainer.NullPasswords");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
     			ic_NullPasswords = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -140,7 +133,7 @@ public class ServiceGlobalSecurityOptionsDataContainerImpl extends BaseDataConta
 		public org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf get_usr_PassdbBackend() {
     		if (ic_usr_PassdbBackend == null)
     		{
-				String label = bundle.getString("ServiceGlobalSecurityOptionsDataContainer.PassdbBackend");
+				String label = getAdapter().getBundle().getString("ServiceGlobalSecurityOptionsDataContainer.PassdbBackend");
 				org.sblim.wbemsmt.tools.converter.StringArrayConverter converter = new org.sblim.wbemsmt.tools.converter.UnsignedInt16StringArrayConverter();
     			ic_usr_PassdbBackend = new org.sblim.wbemsmt.tools.input.test.LabeledTestStringArrayComponent(this,label,"",converter);
     		}
@@ -156,7 +149,7 @@ public class ServiceGlobalSecurityOptionsDataContainerImpl extends BaseDataConta
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_SMBPasswdFile() {
     		if (ic_SMBPasswdFile == null)
     		{
-				String label = bundle.getString("ServiceGlobalSecurityOptionsDataContainer.SMBPasswdFile");
+				String label = getAdapter().getBundle().getString("ServiceGlobalSecurityOptionsDataContainer.SMBPasswdFile");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
     			ic_SMBPasswdFile = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -172,7 +165,7 @@ public class ServiceGlobalSecurityOptionsDataContainerImpl extends BaseDataConta
 		public org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf get_Security() {
     		if (ic_Security == null)
     		{
-				String label = bundle.getString("ServiceGlobalSecurityOptionsDataContainer.Security");
+				String label = getAdapter().getBundle().getString("ServiceGlobalSecurityOptionsDataContainer.Security");
 				org.sblim.wbemsmt.tools.converter.StringArrayConverter converter = new org.sblim.wbemsmt.tools.converter.UnsignedInt8StringArrayConverter();
     			ic_Security = new org.sblim.wbemsmt.tools.input.test.LabeledTestStringArrayComponent(this,label,"",converter);
     		}
@@ -188,7 +181,7 @@ public class ServiceGlobalSecurityOptionsDataContainerImpl extends BaseDataConta
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_GuestOK() {
     		if (ic_GuestOK == null)
     		{
-				String label = bundle.getString("ServiceGlobalSecurityOptionsDataContainer.GuestOK");
+				String label = getAdapter().getBundle().getString("ServiceGlobalSecurityOptionsDataContainer.GuestOK");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
     			ic_GuestOK = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -204,7 +197,7 @@ public class ServiceGlobalSecurityOptionsDataContainerImpl extends BaseDataConta
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_GuestOnly() {
     		if (ic_GuestOnly == null)
     		{
-				String label = bundle.getString("ServiceGlobalSecurityOptionsDataContainer.GuestOnly");
+				String label = getAdapter().getBundle().getString("ServiceGlobalSecurityOptionsDataContainer.GuestOnly");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
     			ic_GuestOnly = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -220,7 +213,7 @@ public class ServiceGlobalSecurityOptionsDataContainerImpl extends BaseDataConta
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_HostsAllow() {
     		if (ic_HostsAllow == null)
     		{
-				String label = bundle.getString("ServiceGlobalSecurityOptionsDataContainer.HostsAllow");
+				String label = getAdapter().getBundle().getString("ServiceGlobalSecurityOptionsDataContainer.HostsAllow");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
     			ic_HostsAllow = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -236,7 +229,7 @@ public class ServiceGlobalSecurityOptionsDataContainerImpl extends BaseDataConta
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_HostsDeny() {
     		if (ic_HostsDeny == null)
     		{
-				String label = bundle.getString("ServiceGlobalSecurityOptionsDataContainer.HostsDeny");
+				String label = getAdapter().getBundle().getString("ServiceGlobalSecurityOptionsDataContainer.HostsDeny");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
     			ic_HostsDeny = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -252,7 +245,7 @@ public class ServiceGlobalSecurityOptionsDataContainerImpl extends BaseDataConta
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_ReadOnly() {
     		if (ic_ReadOnly == null)
     		{
-				String label = bundle.getString("ServiceGlobalSecurityOptionsDataContainer.ReadOnly");
+				String label = getAdapter().getBundle().getString("ServiceGlobalSecurityOptionsDataContainer.ReadOnly");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
     			ic_ReadOnly = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -268,7 +261,7 @@ public class ServiceGlobalSecurityOptionsDataContainerImpl extends BaseDataConta
 		public org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf get_DomainMaster() {
     		if (ic_DomainMaster == null)
     		{
-				String label = bundle.getString("ServiceGlobalSecurityOptionsDataContainer.DomainMaster");
+				String label = getAdapter().getBundle().getString("ServiceGlobalSecurityOptionsDataContainer.DomainMaster");
 				org.sblim.wbemsmt.tools.converter.StringArrayConverter converter = new org.sblim.wbemsmt.tools.converter.UnsignedInt16StringArrayConverter();
     			ic_DomainMaster = new org.sblim.wbemsmt.tools.input.test.LabeledTestStringArrayComponent(this,label,"",converter);
     		}
@@ -284,7 +277,7 @@ public class ServiceGlobalSecurityOptionsDataContainerImpl extends BaseDataConta
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_Browsable() {
     		if (ic_Browsable == null)
     		{
-				String label = bundle.getString("ServiceGlobalSecurityOptionsDataContainer.Browsable");
+				String label = getAdapter().getBundle().getString("ServiceGlobalSecurityOptionsDataContainer.Browsable");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
     			ic_Browsable = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -293,11 +286,11 @@ public class ServiceGlobalSecurityOptionsDataContainerImpl extends BaseDataConta
 		
 	
 		
-	public void trace(java.io.PrintStream printStream, String listOptions, boolean title)
+	public void trace(java.io.PrintWriter 	printStream, String listOptions, boolean title)
 	{
 		if (title)
 		{
-			printStream.println(bundle.getString("ServiceGlobalSecurityOptionsDataContainer.caption"));
+			printStream.println(getAdapter().getBundle().getString("ServiceGlobalSecurityOptionsDataContainer.caption"));
 		}
 		
 		if (showKey(listOptions))
@@ -386,7 +379,7 @@ public class ServiceGlobalSecurityOptionsDataContainerImpl extends BaseDataConta
 		}
 	}
 	
-	public void traceChilds(java.io.PrintStream printStream, String listOptions, boolean title)
+	public void traceChilds(java.io.PrintWriter printStream, String listOptions, boolean title)
 	{
     			
 			

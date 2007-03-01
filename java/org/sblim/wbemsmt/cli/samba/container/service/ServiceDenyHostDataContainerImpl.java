@@ -27,11 +27,6 @@ package org.sblim.wbemsmt.cli.samba.container.service;
 import java.util.*;
 
 import org.sblim.wbemsmt.bl.adapter.*;
-//import org.sblim.wbemsmt.tools.converter.*;
-//import org.sblim.wbemsmt.tools.converter.test.*;
-//import org.sblim.wbemsmt.tools.input.*;
-//import org.sblim.wbemsmt.tools.input.test.*;
-import org.sblim.wbemsmt.tools.resources.*;
 import org.sblim.wbemsmt.exception.*;
 
 
@@ -41,8 +36,6 @@ import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
 
 public class ServiceDenyHostDataContainerImpl extends BaseDataContainer implements org.sblim.wbemsmt.samba.bl.container.service.ServiceDenyHostDataContainer {
-
-	protected static WbemSmtResourceBundle bundle = ResourceBundleManager.getResourceBundle(new String[]{"messages","messagesSamba"},Locale.getDefault());
 
 			private org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf ic_usr_DeniedHosts;
     		private org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf ic_usr_HostsToDeny;
@@ -66,7 +59,7 @@ public class ServiceDenyHostDataContainerImpl extends BaseDataContainer implemen
 		public org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf get_usr_DeniedHosts() {
     		if (ic_usr_DeniedHosts == null)
     		{
-				String label = bundle.getString("ServiceDenyHostDataContainer.deniedHosts");
+				String label = getAdapter().getBundle().getString("ServiceDenyHostDataContainer.deniedHosts");
 				org.sblim.wbemsmt.tools.converter.StringArrayConverter converter = new org.sblim.wbemsmt.tools.converter.UnsignedInt16StringArrayConverter();
     			ic_usr_DeniedHosts = new org.sblim.wbemsmt.tools.input.test.LabeledTestStringArrayComponent(this,label,"",converter);
     		}
@@ -82,7 +75,7 @@ public class ServiceDenyHostDataContainerImpl extends BaseDataContainer implemen
 		public org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf get_usr_HostsToDeny() {
     		if (ic_usr_HostsToDeny == null)
     		{
-				String label = bundle.getString("ServiceDenyHostDataContainer.hostsToDeny");
+				String label = getAdapter().getBundle().getString("ServiceDenyHostDataContainer.hostsToDeny");
 				org.sblim.wbemsmt.tools.converter.StringArrayConverter converter = new org.sblim.wbemsmt.tools.converter.UnsignedInt16StringArrayConverter();
     			ic_usr_HostsToDeny = new org.sblim.wbemsmt.tools.input.test.LabeledTestStringArrayComponent(this,label,"",converter);
     		}
@@ -98,7 +91,7 @@ public class ServiceDenyHostDataContainerImpl extends BaseDataContainer implemen
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_AddHost() {
     		if (ic_usr_AddHost == null)
     		{
-				String label = bundle.getString("ServiceDenyHostDataContainer.addHost");
+				String label = getAdapter().getBundle().getString("ServiceDenyHostDataContainer.addHost");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
     			ic_usr_AddHost = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(this,label,"",converter);
     		}
@@ -114,7 +107,7 @@ public class ServiceDenyHostDataContainerImpl extends BaseDataContainer implemen
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_RemoveHost() {
     		if (ic_usr_RemoveHost == null)
     		{
-				String label = bundle.getString("ServiceDenyHostDataContainer.removeHost");
+				String label = getAdapter().getBundle().getString("ServiceDenyHostDataContainer.removeHost");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
     			ic_usr_RemoveHost = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(this,label,"",converter);
     		}
@@ -123,11 +116,11 @@ public class ServiceDenyHostDataContainerImpl extends BaseDataContainer implemen
 		
 	
 		
-	public void trace(java.io.PrintStream printStream, String listOptions, boolean title)
+	public void trace(java.io.PrintWriter 	printStream, String listOptions, boolean title)
 	{
 		if (title)
 		{
-			printStream.println(bundle.getString("ServiceDenyHostDataContainer.caption"));
+			printStream.println(getAdapter().getBundle().getString("ServiceDenyHostDataContainer.caption"));
 		}
 		
 		if (showKey(listOptions))
@@ -156,7 +149,7 @@ public class ServiceDenyHostDataContainerImpl extends BaseDataContainer implemen
 		}
 	}
 	
-	public void traceChilds(java.io.PrintStream printStream, String listOptions, boolean title)
+	public void traceChilds(java.io.PrintWriter printStream, String listOptions, boolean title)
 	{
     			
 			

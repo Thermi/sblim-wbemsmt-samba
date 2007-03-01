@@ -27,11 +27,6 @@ package org.sblim.wbemsmt.cli.samba.container.service;
 import java.util.*;
 
 import org.sblim.wbemsmt.bl.adapter.*;
-//import org.sblim.wbemsmt.tools.converter.*;
-//import org.sblim.wbemsmt.tools.converter.test.*;
-//import org.sblim.wbemsmt.tools.input.*;
-//import org.sblim.wbemsmt.tools.input.test.*;
-import org.sblim.wbemsmt.tools.resources.*;
 import org.sblim.wbemsmt.exception.*;
 
 
@@ -41,8 +36,6 @@ import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
 
 public class ServiceOperationsDataContainerImpl extends BaseDataContainer implements org.sblim.wbemsmt.samba.bl.container.service.ServiceOperationsDataContainer {
-
-	protected static WbemSmtResourceBundle bundle = ResourceBundleManager.getResourceBundle(new String[]{"messages","messagesSamba"},Locale.getDefault());
 
 			private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_Started;
     		private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_invoke_StartService;
@@ -66,7 +59,7 @@ public class ServiceOperationsDataContainerImpl extends BaseDataContainer implem
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_Started() {
     		if (ic_Started == null)
     		{
-				String label = bundle.getString("ServiceOperationsDataContainer.Started");
+				String label = getAdapter().getBundle().getString("ServiceOperationsDataContainer.Started");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
     			ic_Started = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -82,7 +75,7 @@ public class ServiceOperationsDataContainerImpl extends BaseDataContainer implem
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_invoke_StartService() {
     		if (ic_invoke_StartService == null)
     		{
-				String label = bundle.getString("ServiceOperationsDataContainer.startService");
+				String label = getAdapter().getBundle().getString("ServiceOperationsDataContainer.startService");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
     			ic_invoke_StartService = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(this,label,"",converter);
     		}
@@ -98,7 +91,7 @@ public class ServiceOperationsDataContainerImpl extends BaseDataContainer implem
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_invoke_StopService() {
     		if (ic_invoke_StopService == null)
     		{
-				String label = bundle.getString("ServiceOperationsDataContainer.stopService");
+				String label = getAdapter().getBundle().getString("ServiceOperationsDataContainer.stopService");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
     			ic_invoke_StopService = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(this,label,"",converter);
     		}
@@ -114,7 +107,7 @@ public class ServiceOperationsDataContainerImpl extends BaseDataContainer implem
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_RestartService() {
     		if (ic_usr_RestartService == null)
     		{
-				String label = bundle.getString("ServiceOperationsDataContainer.restartService");
+				String label = getAdapter().getBundle().getString("ServiceOperationsDataContainer.restartService");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
     			ic_usr_RestartService = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(this,label,"",converter);
     		}
@@ -123,11 +116,11 @@ public class ServiceOperationsDataContainerImpl extends BaseDataContainer implem
 		
 	
 		
-	public void trace(java.io.PrintStream printStream, String listOptions, boolean title)
+	public void trace(java.io.PrintWriter 	printStream, String listOptions, boolean title)
 	{
 		if (title)
 		{
-			printStream.println(bundle.getString("ServiceOperationsDataContainer.caption"));
+			printStream.println(getAdapter().getBundle().getString("ServiceOperationsDataContainer.caption"));
 		}
 		
 		if (showKey(listOptions))
@@ -151,7 +144,7 @@ public class ServiceOperationsDataContainerImpl extends BaseDataContainer implem
 		}
 	}
 	
-	public void traceChilds(java.io.PrintStream printStream, String listOptions, boolean title)
+	public void traceChilds(java.io.PrintWriter printStream, String listOptions, boolean title)
 	{
     			
 			

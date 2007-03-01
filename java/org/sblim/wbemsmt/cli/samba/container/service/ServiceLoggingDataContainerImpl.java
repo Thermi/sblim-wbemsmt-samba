@@ -27,11 +27,6 @@ package org.sblim.wbemsmt.cli.samba.container.service;
 import java.util.*;
 
 import org.sblim.wbemsmt.bl.adapter.*;
-//import org.sblim.wbemsmt.tools.converter.*;
-//import org.sblim.wbemsmt.tools.converter.test.*;
-//import org.sblim.wbemsmt.tools.input.*;
-//import org.sblim.wbemsmt.tools.input.test.*;
-import org.sblim.wbemsmt.tools.resources.*;
 import org.sblim.wbemsmt.exception.*;
 
 
@@ -41,8 +36,6 @@ import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
 
 public class ServiceLoggingDataContainerImpl extends BaseDataContainer implements org.sblim.wbemsmt.samba.bl.container.service.ServiceLoggingDataContainer {
-
-	protected static WbemSmtResourceBundle bundle = ResourceBundleManager.getResourceBundle(new String[]{"messages","messagesSamba"},Locale.getDefault());
 
 			private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_SysLog;
     		private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_SysLogOnly;
@@ -71,7 +64,7 @@ public class ServiceLoggingDataContainerImpl extends BaseDataContainer implement
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_SysLog() {
     		if (ic_SysLog == null)
     		{
-				String label = bundle.getString("ServiceLoggingDataContainer.SysLog");
+				String label = getAdapter().getBundle().getString("ServiceLoggingDataContainer.SysLog");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.UnsignedInt16StringConverter();
     			ic_SysLog = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -87,7 +80,7 @@ public class ServiceLoggingDataContainerImpl extends BaseDataContainer implement
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_SysLogOnly() {
     		if (ic_SysLogOnly == null)
     		{
-				String label = bundle.getString("ServiceLoggingDataContainer.SysLogOnly");
+				String label = getAdapter().getBundle().getString("ServiceLoggingDataContainer.SysLogOnly");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
     			ic_SysLogOnly = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -103,7 +96,7 @@ public class ServiceLoggingDataContainerImpl extends BaseDataContainer implement
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_MaxLogSize() {
     		if (ic_MaxLogSize == null)
     		{
-				String label = bundle.getString("ServiceLoggingDataContainer.MaxLogSize");
+				String label = getAdapter().getBundle().getString("ServiceLoggingDataContainer.MaxLogSize");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.UnsignedInt32StringConverter();
     			ic_MaxLogSize = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -119,7 +112,7 @@ public class ServiceLoggingDataContainerImpl extends BaseDataContainer implement
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_DebugHiresTimestamp() {
     		if (ic_DebugHiresTimestamp == null)
     		{
-				String label = bundle.getString("ServiceLoggingDataContainer.DebugHiresTimestamp");
+				String label = getAdapter().getBundle().getString("ServiceLoggingDataContainer.DebugHiresTimestamp");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
     			ic_DebugHiresTimestamp = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -135,7 +128,7 @@ public class ServiceLoggingDataContainerImpl extends BaseDataContainer implement
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_DebugPID() {
     		if (ic_DebugPID == null)
     		{
-				String label = bundle.getString("ServiceLoggingDataContainer.DebugPID");
+				String label = getAdapter().getBundle().getString("ServiceLoggingDataContainer.DebugPID");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
     			ic_DebugPID = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -151,7 +144,7 @@ public class ServiceLoggingDataContainerImpl extends BaseDataContainer implement
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_DebugTimestamp() {
     		if (ic_DebugTimestamp == null)
     		{
-				String label = bundle.getString("ServiceLoggingDataContainer.DebugTimestamp");
+				String label = getAdapter().getBundle().getString("ServiceLoggingDataContainer.DebugTimestamp");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
     			ic_DebugTimestamp = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -167,7 +160,7 @@ public class ServiceLoggingDataContainerImpl extends BaseDataContainer implement
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_DebugUID() {
     		if (ic_DebugUID == null)
     		{
-				String label = bundle.getString("ServiceLoggingDataContainer.DebugUID");
+				String label = getAdapter().getBundle().getString("ServiceLoggingDataContainer.DebugUID");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
     			ic_DebugUID = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -183,7 +176,7 @@ public class ServiceLoggingDataContainerImpl extends BaseDataContainer implement
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_LogFile() {
     		if (ic_LogFile == null)
     		{
-				String label = bundle.getString("ServiceLoggingDataContainer.LogFile");
+				String label = getAdapter().getBundle().getString("ServiceLoggingDataContainer.LogFile");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
     			ic_LogFile = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -199,7 +192,7 @@ public class ServiceLoggingDataContainerImpl extends BaseDataContainer implement
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_LogLevel() {
     		if (ic_LogLevel == null)
     		{
-				String label = bundle.getString("ServiceLoggingDataContainer.LogLevel");
+				String label = getAdapter().getBundle().getString("ServiceLoggingDataContainer.LogLevel");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
     			ic_LogLevel = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -208,11 +201,11 @@ public class ServiceLoggingDataContainerImpl extends BaseDataContainer implement
 		
 	
 		
-	public void trace(java.io.PrintStream printStream, String listOptions, boolean title)
+	public void trace(java.io.PrintWriter 	printStream, String listOptions, boolean title)
 	{
 		if (title)
 		{
-			printStream.println(bundle.getString("ServiceLoggingDataContainer.caption"));
+			printStream.println(getAdapter().getBundle().getString("ServiceLoggingDataContainer.caption"));
 		}
 		
 		if (showKey(listOptions))
@@ -276,7 +269,7 @@ public class ServiceLoggingDataContainerImpl extends BaseDataContainer implement
 		}
 	}
 	
-	public void traceChilds(java.io.PrintStream printStream, String listOptions, boolean title)
+	public void traceChilds(java.io.PrintWriter printStream, String listOptions, boolean title)
 	{
     			
 			

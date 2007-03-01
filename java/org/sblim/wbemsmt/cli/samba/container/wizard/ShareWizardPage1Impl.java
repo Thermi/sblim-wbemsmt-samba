@@ -27,11 +27,6 @@ package org.sblim.wbemsmt.cli.samba.container.wizard;
 import java.util.*;
 
 import org.sblim.wbemsmt.bl.adapter.*;
-//import org.sblim.wbemsmt.tools.converter.*;
-//import org.sblim.wbemsmt.tools.converter.test.*;
-//import org.sblim.wbemsmt.tools.input.*;
-//import org.sblim.wbemsmt.tools.input.test.*;
-import org.sblim.wbemsmt.tools.resources.*;
 import org.sblim.wbemsmt.exception.*;
 
 
@@ -41,8 +36,6 @@ import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
 
 public class ShareWizardPage1Impl extends BaseDataContainer implements org.sblim.wbemsmt.samba.bl.container.wizard.ShareWizardPage1 {
-
-	protected static WbemSmtResourceBundle bundle = ResourceBundleManager.getResourceBundle(new String[]{"messages","messagesSamba"},Locale.getDefault());
 
 			private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_Name;
     		private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_Path;
@@ -65,7 +58,7 @@ public class ShareWizardPage1Impl extends BaseDataContainer implements org.sblim
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_Name() {
     		if (ic_Name == null)
     		{
-				String label = bundle.getString("ShareWizardPage1.Name");
+				String label = getAdapter().getBundle().getString("ShareWizardPage1.Name");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
     			ic_Name = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -81,7 +74,7 @@ public class ShareWizardPage1Impl extends BaseDataContainer implements org.sblim
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_Path() {
     		if (ic_Path == null)
     		{
-				String label = bundle.getString("ShareWizardPage1.Path");
+				String label = getAdapter().getBundle().getString("ShareWizardPage1.Path");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
     			ic_Path = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -97,7 +90,7 @@ public class ShareWizardPage1Impl extends BaseDataContainer implements org.sblim
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_Comment() {
     		if (ic_Comment == null)
     		{
-				String label = bundle.getString("ShareWizardPage1.Comment");
+				String label = getAdapter().getBundle().getString("ShareWizardPage1.Comment");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
     			ic_Comment = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -106,11 +99,11 @@ public class ShareWizardPage1Impl extends BaseDataContainer implements org.sblim
 		
 	
 		
-	public void trace(java.io.PrintStream printStream, String listOptions, boolean title)
+	public void trace(java.io.PrintWriter 	printStream, String listOptions, boolean title)
 	{
 		if (title)
 		{
-			printStream.println(bundle.getString("ShareWizardPage1.caption"));
+			printStream.println(getAdapter().getBundle().getString("ShareWizardPage1.caption"));
 		}
 		
 		if (showKey(listOptions))
@@ -144,7 +137,7 @@ public class ShareWizardPage1Impl extends BaseDataContainer implements org.sblim
 		}
 	}
 	
-	public void traceChilds(java.io.PrintStream printStream, String listOptions, boolean title)
+	public void traceChilds(java.io.PrintWriter printStream, String listOptions, boolean title)
 	{
     			
 			

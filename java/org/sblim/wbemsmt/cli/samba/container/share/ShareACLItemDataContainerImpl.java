@@ -27,11 +27,6 @@ package org.sblim.wbemsmt.cli.samba.container.share;
 import java.util.*;
 
 import org.sblim.wbemsmt.bl.adapter.*;
-//import org.sblim.wbemsmt.tools.converter.*;
-//import org.sblim.wbemsmt.tools.converter.test.*;
-//import org.sblim.wbemsmt.tools.input.*;
-//import org.sblim.wbemsmt.tools.input.test.*;
-import org.sblim.wbemsmt.tools.resources.*;
 import org.sblim.wbemsmt.exception.*;
 
 
@@ -41,8 +36,6 @@ import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
 
 public class ShareACLItemDataContainerImpl extends BaseDataContainer implements org.sblim.wbemsmt.samba.bl.container.share.ShareACLItemDataContainer {
-
-	protected static WbemSmtResourceBundle bundle = ResourceBundleManager.getResourceBundle(new String[]{"messages","messagesSamba"},Locale.getDefault());
 
 			private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_ShareName;
     		private org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf ic_usr_AccessTypeVI;
@@ -66,7 +59,7 @@ public class ShareACLItemDataContainerImpl extends BaseDataContainer implements 
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_ShareName() {
     		if (ic_ShareName == null)
     		{
-				String label = bundle.getString("ShareACLItemDataContainer.shareName");
+				String label = getAdapter().getBundle().getString("ShareACLItemDataContainer.shareName");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
     			ic_ShareName = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -82,7 +75,7 @@ public class ShareACLItemDataContainerImpl extends BaseDataContainer implements 
 		public org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf get_usr_AccessTypeVI() {
     		if (ic_usr_AccessTypeVI == null)
     		{
-				String label = bundle.getString("ShareACLItemDataContainer.accessTypeVI");
+				String label = getAdapter().getBundle().getString("ShareACLItemDataContainer.accessTypeVI");
 				org.sblim.wbemsmt.tools.converter.StringArrayConverter converter = new org.sblim.wbemsmt.tools.converter.UnsignedInt16StringArrayConverter();
     			ic_usr_AccessTypeVI = new org.sblim.wbemsmt.tools.input.test.LabeledTestStringArrayComponent(this,label,"",converter);
     		}
@@ -98,7 +91,7 @@ public class ShareACLItemDataContainerImpl extends BaseDataContainer implements 
 		public org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf get_usr_AccessTypeRW() {
     		if (ic_usr_AccessTypeRW == null)
     		{
-				String label = bundle.getString("ShareACLItemDataContainer.accessTypeRW");
+				String label = getAdapter().getBundle().getString("ShareACLItemDataContainer.accessTypeRW");
 				org.sblim.wbemsmt.tools.converter.StringArrayConverter converter = new org.sblim.wbemsmt.tools.converter.UnsignedInt16StringArrayConverter();
     			ic_usr_AccessTypeRW = new org.sblim.wbemsmt.tools.input.test.LabeledTestStringArrayComponent(this,label,"",converter);
     		}
@@ -114,7 +107,7 @@ public class ShareACLItemDataContainerImpl extends BaseDataContainer implements 
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_Admin() {
     		if (ic_usr_Admin == null)
     		{
-				String label = bundle.getString("ShareACLItemDataContainer.admin");
+				String label = getAdapter().getBundle().getString("ShareACLItemDataContainer.admin");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
     			ic_usr_Admin = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -123,11 +116,11 @@ public class ShareACLItemDataContainerImpl extends BaseDataContainer implements 
 		
 	
 		
-	public void trace(java.io.PrintStream printStream, String listOptions, boolean title)
+	public void trace(java.io.PrintWriter 	printStream, String listOptions, boolean title)
 	{
 		if (title)
 		{
-			printStream.println(bundle.getString("ShareACLItemDataContainer.caption"));
+			printStream.println(getAdapter().getBundle().getString("ShareACLItemDataContainer.caption"));
 		}
 		
 		if (showKey(listOptions))
@@ -166,7 +159,7 @@ public class ShareACLItemDataContainerImpl extends BaseDataContainer implements 
 		}
 	}
 	
-	public void traceChilds(java.io.PrintStream printStream, String listOptions, boolean title)
+	public void traceChilds(java.io.PrintWriter printStream, String listOptions, boolean title)
 	{
     			
 			

@@ -24,67 +24,97 @@
 
 package org.sblim.wbemsmt.cli.samba.listener;
 
-import org.apache.commons.cli.CommandLine;
-import org.apache.commons.cli.CommandLineParser;
-import org.apache.commons.cli.Options;
-import org.apache.commons.cli.GnuParser;
-import org.sblim.wbemsmt.bl.adapter.AbstractBaseCimAdapter;
-import org.sblim.wbemsmt.bl.adapter.BaseDataContainer;
-import org.sblim.wbemsmt.bl.adapter.CimAdapterFactory;
-import org.sblim.wbemsmt.exception.WbemSmtException;
+import org.apache.commons.cli.*;
+import org.sblim.wbemsmt.bl.adapter.*;
+import org.sblim.wbemsmt.exception.*;
 import org.sblim.wbemsmt.tools.cli.*;
 
 public class ListSambaShareAclOfUser extends CimCommand {
 
-			/**
-		 * 
-		 */
-		public static final OptionDefinition KEY_GLOBAL_hostname = new OptionDefinition("hostname",null,"ListSambaShareAclOfUser.hostname.argValue",true,true,"ListSambaShareAclOfUser.hostname.argDescription");
-			/**
-		 * 
-		 */
-		public static final OptionDefinition KEY_GLOBAL_port = new OptionDefinition("port","5988","ListSambaShareAclOfUser.port.argValue",false,true,"ListSambaShareAclOfUser.port.argDescription");
-			/**
-		 * 
-		 */
-		public static final OptionDefinition KEY_GLOBAL_namespace = new OptionDefinition("namespace","/root/cimv2","ListSambaShareAclOfUser.namespace.argValue",false,true,"ListSambaShareAclOfUser.namespace.argDescription");
-			/**
-		 * 
-		 */
-		public static final OptionDefinition KEY_GLOBAL_user = new OptionDefinition("user",null,"ListSambaShareAclOfUser.user.argValue",true,true,"ListSambaShareAclOfUser.user.argDescription");
-			/**
-		 * 
-		 */
-		public static final OptionDefinition KEY_GLOBAL_password = new OptionDefinition("password",null,"ListSambaShareAclOfUser.password.argValue",true,true,"ListSambaShareAclOfUser.password.argDescription");
-			/**
-		 * 
-		 */
-		public static final OptionDefinition KEY_GLOBAL_publickeyfile = new OptionDefinition("publickeyfile","none","ListSambaShareAclOfUser.publickeyfile.argValue",false,true,"ListSambaShareAclOfUser.publickeyfile.argDescription");
-			/**
-		 * 
-		 */
-		public static final OptionDefinition KEY_GLOBAL_privatekeyfile = new OptionDefinition("privatekeyfile","none","ListSambaShareAclOfUser.privatekeyfile.argValue",false,true,"ListSambaShareAclOfUser.privatekeyfile.argDescription");
-			/**
-		 * 
-		 */
-		public static final OptionDefinition KEY_GLOBAL_serviceName = new OptionDefinition("serviceName",null,"ListSambaShareAclOfUser.serviceName.argValue",true,true,"ListSambaShareAclOfUser.serviceName.argDescription");
-			/**
-		 * 
-		 */
-		public static final OptionDefinition KEY_sambaUsername = new OptionDefinition("sambaUsername",null,"ListSambaShareAclOfUser.sambaUsername.argValue",true,true,"ListSambaShareAclOfUser.sambaUsername.argDescription");
-			/**
-		 * 
-		 */
-		public static final OptionDefinition KEY_shareName = new OptionDefinition("shareName",null,"ShareACLItemDataContainer.shareName.argValue",true,true,"ShareACLItemDataContainer.shareName.argDescription");
 	
-	/**
-	 * 
-	 */
-	public static final OptionDefinition KEY_list = new OptionDefinition("list", "INSTANCE_WITH_CHILDS",BaseDataContainer.LIST_OPTION_KEY + "|" + BaseDataContainer.LIST_OPTION_INSTANCE + "|" + BaseDataContainer.LIST_OPTION_INSTANCE_WITH_CHILDS,false,true,"listoption");
-	public static final OptionDefinition KEY_locale = new OptionDefinition("locale","en","locale",false,false,"locale");	
+ 
+ 
+	//All Options that are local and defined for this command
+			/**
+		 * 
+		 */
+		public static final OptionDefinition KEY_sambaUsername = new OptionDefinition(null,"sambaUsername","noDefaultValue","ListSambaShareAclOfUser.sambaUsername.argValue",true,false,"ListSambaShareAclOfUser.sambaUsername.argDescription");
+			/**
+		 * 
+		 */
+		public static final OptionDefinition KEY_list = new OptionDefinition(null,"list","INSTANCE_WITH_CHILDS","ListSambaShareAclOfUser.list.argValue",false,false,"ListSambaShareAclOfUser.list.argDescription");
+			/**
+		 * 
+		 */
+		public static final OptionDefinition KEY_shareName = new OptionDefinition(null,"shareName","noDefaultValue","ShareACLItemDataContainer.shareName.argValue",true,false,"ShareACLItemDataContainer.shareName.argDescription");
+		
+	//All Options that are global and task-related
+			/**
+		 * 
+		 */
+		public static final OptionDefinition KEY_GLOBAL_serviceName = new OptionDefinition(null,"serviceName","noDefaultValue","serviceName.argValue",true,false,"serviceName.argDescription");
 	
+	// Global Communication Options
+			/**
+		 * 
+		 */
+		public static final OptionDefinition KEY_GLOBAL_hostname = new OptionDefinition(null,"hostname",null,"hostname.argValue",false,false,"hostname.argDescription");
+			/**
+		 * 
+		 */
+		public static final OptionDefinition KEY_GLOBAL_port = new OptionDefinition(null,"port","5988","port.argValue",false,false,"port.argDescription");
+			/**
+		 * 
+		 */
+		public static final OptionDefinition KEY_GLOBAL_namespace = new OptionDefinition(null,"namespace","/root/cimv2","namespace.argValue",false,false,"namespace.argDescription");
+			/**
+		 * 
+		 */
+		public static final OptionDefinition KEY_GLOBAL_user = new OptionDefinition(null,"user",null,"user.argValue",false,false,"user.argDescription");
+			/**
+		 * 
+		 */
+		public static final OptionDefinition KEY_GLOBAL_password = new OptionDefinition(null,"password",null,"password.argValue",false,false,"password.argDescription");
+			/**
+		 * 
+		 */
+		public static final OptionDefinition KEY_GLOBAL_publickeyfile = new OptionDefinition(null,"publickeyfile",null,"publickeyfile.argValue",false,false,"publickeyfile.argDescription");
+			/**
+		 * 
+		 */
+		public static final OptionDefinition KEY_GLOBAL_privatekeyfile = new OptionDefinition(null,"privatekeyfile",null,"privatekeyfile.argValue",false,false,"privatekeyfile.argDescription");
 	
-	private static final OptionDefinition[] OPTIONS = new OptionDefinition []
+	// Global Common Options
+			/**
+		 * 
+		 */
+		public static final OptionDefinition KEY_GLOBAL_locale = new OptionDefinition("L","locale","en","locale.argValue",false,false,"locale.argDescription");
+			/**
+		 * 
+		 */
+		public static final OptionDefinition KEY_GLOBAL_h = new OptionDefinition("h",null,null,null,false,false,"h.argDescription");
+			/**
+		 * 
+		 */
+		public static final OptionDefinition KEY_GLOBAL_QUESTION_MARK_ = new OptionDefinition("?",null,null,null,false,false,"?.argDescription");
+			/**
+		 * 
+		 */
+		public static final OptionDefinition KEY_GLOBAL_help = new OptionDefinition("h","help",null,null,false,false,"help.argDescription");
+	
+	private static final OptionDefinition[] LOCAL_OPTIONS = new OptionDefinition []
+	{
+    	    	KEY_sambaUsername,
+    	    	KEY_list,
+    	    	KEY_shareName,
+    		};
+
+	private static final OptionDefinition[] GLOBAL_TASK_OPTIONS = new OptionDefinition []
+	{
+    	    	KEY_GLOBAL_serviceName,
+    		};
+
+	private static final OptionDefinition[] GLOBAL_WBEMSMT_COMMUNICATION_OPTIONS = new OptionDefinition []
 	{
     	    	KEY_GLOBAL_hostname,
     	    	KEY_GLOBAL_port,
@@ -93,12 +123,15 @@ public class ListSambaShareAclOfUser extends CimCommand {
     	    	KEY_GLOBAL_password,
     	    	KEY_GLOBAL_publickeyfile,
     	    	KEY_GLOBAL_privatekeyfile,
-    	    	KEY_GLOBAL_serviceName,
-    	    	KEY_sambaUsername,
-    	    	KEY_shareName,
-    			KEY_list,
-		KEY_locale,
-	};
+    		};
+
+	private static final OptionDefinition[] GLOBAL_WBEMSMT_COMMON_OPTIONS = new OptionDefinition []
+	{
+    	    	KEY_GLOBAL_locale,
+    	    	KEY_GLOBAL_h,
+    	    	KEY_GLOBAL_QUESTION_MARK_,
+    	    	KEY_GLOBAL_help,
+    		};
 
 		
  
@@ -111,48 +144,54 @@ public class ListSambaShareAclOfUser extends CimCommand {
 		super("ListSambaShareAclOfUser", new String[]{"messages","messagesSamba"},locale);
 	}
 
-	public void execute(String[] args) throws WbemSmtException {
+	public void execute(CimCommandValues values) throws WbemSmtException {
 		
-    	
-	    Options options = createOptions(OPTIONS, bundle);
-
-		if (args.length == 1 && (args[0].equalsIgnoreCase("--help") || args[0].equalsIgnoreCase("-h") ))
-		{
-			showUsage(options);
-			return;
-		}
-
+	
 		//do the real processing
-		System.out.println("\n" + bundle.getString("listing", new Object[]{bundle.getString("ShareACLItemDataContainer.caption")}));
 		try {
 			
  
+			commandValues = values;
+			cmd = values.getCommandLine();
+
+			Options options = values.getOptions();
 			
-			CommandLineParser parser = new GnuParser();
+			//first handle the help options and then the parseException
+			//if the user wants help parsing the args will fail (due to missing required args)
+			//and so the helpOptions should be handled first
 			
-			//check if the password is the only argument that is missing and query the user if thats the case
-			args = super.checkPassword(parser,options,args,KEY_GLOBAL_hostname,KEY_GLOBAL_user,KEY_GLOBAL_password);
-			
-			cmd = parser.parse( options, args);
+    		if (   hasOption(values.getArgs(), "-" + KEY_GLOBAL_QUESTION_MARK_.getShortKey())
+			    || hasOption(values.getArgs(), "-" + KEY_GLOBAL_h.getShortKey()) )
+    		{
+    			showUsage(values.getOut(), options);
+    			return;
+    		}			
+    		else if ( hasOption(values.getArgs(), "--" + KEY_GLOBAL_help.getLongKey()) )
+    		{
+				//TODO add extendedHelp by loading a manpage or sth else
+    			showUsage(values.getOut(), options);
+    			return;
+    		}			
+
+			else if (values.getParseException() != null)
+			{
+				handleParseException(values,KEY_GLOBAL_password);
+				return;
+			}
 			adapter = 
 					(org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter)CimAdapterFactory.getInstance()
 					.getAdapter(org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter.class,this);
 			adapter.setBundle(bundle);
-			adapter.setCimClient(getCimClient(cmd, 
-				KEY_GLOBAL_hostname,
-				KEY_GLOBAL_port,
-				KEY_GLOBAL_namespace,
-				KEY_GLOBAL_user,
-				KEY_GLOBAL_password,
-				KEY_GLOBAL_publickeyfile,
-				KEY_GLOBAL_privatekeyfile));
+			adapter.setCimClient(values.getCimClient());
 				
 			adapter.loadInitial(adapter.getCimClient());
+			
+			values.getOut().println("\n" + bundle.getString("listing", new Object[]{bundle.getString("ShareACLItemDataContainer.caption")}));
+			
 			CliDataLoader loader = new ListSambaShareAclOfUserLoader();
 			loader.load(bundle,adapter, cmd);
 			
 			org.sblim.wbemsmt.cli.samba.container.share.ShareACLItemDataContainerImpl dc = new org.sblim.wbemsmt.cli.samba.container.share.ShareACLItemDataContainerImpl(adapter);
-			
 			
 			
         				
@@ -163,19 +202,19 @@ public class ListSambaShareAclOfUser extends CimCommand {
 
 			if (BaseDataContainer.listOptionIsValid(listOption))
 			{
-									dc.trace(System.out,listOption);
+									dc.trace(values.getOut(),listOption);
 							}
 			else
 			{
-				System.err.println(bundle.getString("listingOptionNotValid"));
-    			showUsage(options);
+				values.getErr().println(bundle.getString("listingOptionNotValid"));
+    			showUsage(values.getOut(), values.getOptions());
     			return;
 			}
 
 		}
 		catch (Exception e)
 		{
-			super.handleException(e,args,options,KEY_GLOBAL_password);
+			super.handleException(e,values.getArgs(),values.getOptions(),KEY_GLOBAL_password);
 		}
 	}
 	
@@ -183,7 +222,52 @@ public class ListSambaShareAclOfUser extends CimCommand {
 	 * Set all Values that are needed for selecting the right objects. This fields are used even if they are read-only
 	 **/
 	private void setKeyValues(CommandLine cmd,AbstractBaseCimAdapter adapter, org.sblim.wbemsmt.samba.bl.container.share.ShareACLItemDataContainer dc) throws WbemSmtException {
-    	    		    			    				setValue(cmd,dc.get_ShareName(),KEY_shareName);
-    			    			    			    				    				    				    					}	
+    		}	
+	
+	
+ 
+			
+	protected LoginOptionValues getLoginOptions() {
+		return new LoginOptionValues(KEY_GLOBAL_hostname,KEY_GLOBAL_user,KEY_GLOBAL_password);
+	}
+
+	protected CimClientOptionValues getCimClientOptions() {
+		
+		return new CimClientOptionValues(KEY_GLOBAL_hostname,
+				KEY_GLOBAL_port,
+				KEY_GLOBAL_namespace,
+				KEY_GLOBAL_user,
+				KEY_GLOBAL_password,
+				KEY_GLOBAL_publickeyfile,
+				KEY_GLOBAL_privatekeyfile);
+	}
+	
+	public Options getOptions() throws WbemSmtException {
+		Options options = super.createOptions(LOCAL_OPTIONS, bundle);
+		super.createOptions(options, GLOBAL_TASK_OPTIONS, bundle);
+		super.createOptions(options, GLOBAL_WBEMSMT_COMMON_OPTIONS, bundle);
+		super.createOptions(options, GLOBAL_WBEMSMT_COMMUNICATION_OPTIONS, bundle);
+		return options;
+	}
+	
+	public Options getLocalOptions() throws WbemSmtException {
+		Options options = super.createOptions(LOCAL_OPTIONS, bundle);
+		return options;
+	}
+
+	public Options getGlobalWbemsmtCommonOptions() throws WbemSmtException {
+		Options options = super.createOptions(GLOBAL_WBEMSMT_COMMON_OPTIONS, bundle);
+		return options;
+	}
+
+	public Options getGlobalWbemsmtCommunicationOptions() throws WbemSmtException {
+		Options options = super.createOptions(GLOBAL_WBEMSMT_COMMUNICATION_OPTIONS, bundle);
+		return options;
+	}
+
+	public Options getGlobalTaskOptions() throws WbemSmtException {
+		Options options = super.createOptions(GLOBAL_TASK_OPTIONS, bundle);
+		return options;
+	}
 		
 }

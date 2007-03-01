@@ -27,11 +27,6 @@ package org.sblim.wbemsmt.cli.samba.container.share;
 import java.util.*;
 
 import org.sblim.wbemsmt.bl.adapter.*;
-//import org.sblim.wbemsmt.tools.converter.*;
-//import org.sblim.wbemsmt.tools.converter.test.*;
-//import org.sblim.wbemsmt.tools.input.*;
-//import org.sblim.wbemsmt.tools.input.test.*;
-import org.sblim.wbemsmt.tools.resources.*;
 import org.sblim.wbemsmt.exception.*;
 
 
@@ -41,8 +36,6 @@ import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
 
 public class CMDShareFileAttributesImpl extends BaseDataContainer implements org.sblim.wbemsmt.samba.bl.container.share.CMDShareFileAttributes {
-
-	protected static WbemSmtResourceBundle bundle = ResourceBundleManager.getResourceBundle(new String[]{"messages","messagesSamba"},Locale.getDefault());
 
 			private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_CaseSensitive;
     		private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_HideDotFiles;
@@ -71,7 +64,7 @@ public class CMDShareFileAttributesImpl extends BaseDataContainer implements org
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_CaseSensitive() {
     		if (ic_CaseSensitive == null)
     		{
-				String label = bundle.getString("CMDShareFileAttributes.CaseSensitive");
+				String label = getAdapter().getBundle().getString("CMDShareFileAttributes.CaseSensitive");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
     			ic_CaseSensitive = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -87,7 +80,7 @@ public class CMDShareFileAttributesImpl extends BaseDataContainer implements org
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_HideDotFiles() {
     		if (ic_HideDotFiles == null)
     		{
-				String label = bundle.getString("CMDShareFileAttributes.HideDotFiles");
+				String label = getAdapter().getBundle().getString("CMDShareFileAttributes.HideDotFiles");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
     			ic_HideDotFiles = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -103,7 +96,7 @@ public class CMDShareFileAttributesImpl extends BaseDataContainer implements org
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_DosFiletimes() {
     		if (ic_DosFiletimes == null)
     		{
-				String label = bundle.getString("CMDShareFileAttributes.DosFiletimes");
+				String label = getAdapter().getBundle().getString("CMDShareFileAttributes.DosFiletimes");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
     			ic_DosFiletimes = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -119,7 +112,7 @@ public class CMDShareFileAttributesImpl extends BaseDataContainer implements org
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_EASupport() {
     		if (ic_EASupport == null)
     		{
-				String label = bundle.getString("CMDShareFileAttributes.EASupport");
+				String label = getAdapter().getBundle().getString("CMDShareFileAttributes.EASupport");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
     			ic_EASupport = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -135,7 +128,7 @@ public class CMDShareFileAttributesImpl extends BaseDataContainer implements org
 		public org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf get_AclCompatibility() {
     		if (ic_AclCompatibility == null)
     		{
-				String label = bundle.getString("CMDShareFileAttributes.AclCompatibility");
+				String label = getAdapter().getBundle().getString("CMDShareFileAttributes.AclCompatibility");
 				org.sblim.wbemsmt.tools.converter.StringArrayConverter converter = new org.sblim.wbemsmt.tools.converter.UnsignedInt8StringArrayConverter();
     			ic_AclCompatibility = new org.sblim.wbemsmt.tools.input.test.LabeledTestStringArrayComponent(this,label,"",converter);
     		}
@@ -151,7 +144,7 @@ public class CMDShareFileAttributesImpl extends BaseDataContainer implements org
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_NTACLSupport() {
     		if (ic_NTACLSupport == null)
     		{
-				String label = bundle.getString("CMDShareFileAttributes.NTACLSupport");
+				String label = getAdapter().getBundle().getString("CMDShareFileAttributes.NTACLSupport");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
     			ic_NTACLSupport = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -167,7 +160,7 @@ public class CMDShareFileAttributesImpl extends BaseDataContainer implements org
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_CreateMask() {
     		if (ic_CreateMask == null)
     		{
-				String label = bundle.getString("CMDShareFileAttributes.CreateMask");
+				String label = getAdapter().getBundle().getString("CMDShareFileAttributes.CreateMask");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.UnsignedInt16StringConverter();
     			ic_CreateMask = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -183,7 +176,7 @@ public class CMDShareFileAttributesImpl extends BaseDataContainer implements org
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_DirectoryMask() {
     		if (ic_DirectoryMask == null)
     		{
-				String label = bundle.getString("CMDShareFileAttributes.DirectoryMask");
+				String label = getAdapter().getBundle().getString("CMDShareFileAttributes.DirectoryMask");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.UnsignedInt16StringConverter();
     			ic_DirectoryMask = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -199,7 +192,7 @@ public class CMDShareFileAttributesImpl extends BaseDataContainer implements org
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_DirectorySecurityMask() {
     		if (ic_DirectorySecurityMask == null)
     		{
-				String label = bundle.getString("CMDShareFileAttributes.DirectorySecurityMask");
+				String label = getAdapter().getBundle().getString("CMDShareFileAttributes.DirectorySecurityMask");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.UnsignedInt16StringConverter();
     			ic_DirectorySecurityMask = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -208,11 +201,11 @@ public class CMDShareFileAttributesImpl extends BaseDataContainer implements org
 		
 	
 		
-	public void trace(java.io.PrintStream printStream, String listOptions, boolean title)
+	public void trace(java.io.PrintWriter 	printStream, String listOptions, boolean title)
 	{
 		if (title)
 		{
-			printStream.println(bundle.getString("CMDShareFileAttributes.caption"));
+			printStream.println(getAdapter().getBundle().getString("CMDShareFileAttributes.caption"));
 		}
 		
 		if (showKey(listOptions))
@@ -276,7 +269,7 @@ public class CMDShareFileAttributesImpl extends BaseDataContainer implements org
 		}
 	}
 	
-	public void traceChilds(java.io.PrintStream printStream, String listOptions, boolean title)
+	public void traceChilds(java.io.PrintWriter printStream, String listOptions, boolean title)
 	{
     			
 			

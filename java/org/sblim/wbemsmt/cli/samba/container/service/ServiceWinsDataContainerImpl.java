@@ -27,11 +27,6 @@ package org.sblim.wbemsmt.cli.samba.container.service;
 import java.util.*;
 
 import org.sblim.wbemsmt.bl.adapter.*;
-//import org.sblim.wbemsmt.tools.converter.*;
-//import org.sblim.wbemsmt.tools.converter.test.*;
-//import org.sblim.wbemsmt.tools.input.*;
-//import org.sblim.wbemsmt.tools.input.test.*;
-import org.sblim.wbemsmt.tools.resources.*;
 import org.sblim.wbemsmt.exception.*;
 
 
@@ -41,8 +36,6 @@ import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
 
 public class ServiceWinsDataContainerImpl extends BaseDataContainer implements org.sblim.wbemsmt.samba.bl.container.service.ServiceWinsDataContainer {
-
-	protected static WbemSmtResourceBundle bundle = ResourceBundleManager.getResourceBundle(new String[]{"messages","messagesSamba"},Locale.getDefault());
 
 			private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_DNS_Proxy;
     		private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_WINSHook;
@@ -67,7 +60,7 @@ public class ServiceWinsDataContainerImpl extends BaseDataContainer implements o
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_DNS_Proxy() {
     		if (ic_DNS_Proxy == null)
     		{
-				String label = bundle.getString("ServiceWinsDataContainer.DNS_Proxy");
+				String label = getAdapter().getBundle().getString("ServiceWinsDataContainer.DNS_Proxy");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
     			ic_DNS_Proxy = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -83,7 +76,7 @@ public class ServiceWinsDataContainerImpl extends BaseDataContainer implements o
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_WINSHook() {
     		if (ic_WINSHook == null)
     		{
-				String label = bundle.getString("ServiceWinsDataContainer.WINSHook");
+				String label = getAdapter().getBundle().getString("ServiceWinsDataContainer.WINSHook");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
     			ic_WINSHook = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -99,7 +92,7 @@ public class ServiceWinsDataContainerImpl extends BaseDataContainer implements o
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_WINSProxy() {
     		if (ic_WINSProxy == null)
     		{
-				String label = bundle.getString("ServiceWinsDataContainer.WINSProxy");
+				String label = getAdapter().getBundle().getString("ServiceWinsDataContainer.WINSProxy");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
     			ic_WINSProxy = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -115,7 +108,7 @@ public class ServiceWinsDataContainerImpl extends BaseDataContainer implements o
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_WINSServer() {
     		if (ic_WINSServer == null)
     		{
-				String label = bundle.getString("ServiceWinsDataContainer.WINSServer");
+				String label = getAdapter().getBundle().getString("ServiceWinsDataContainer.WINSServer");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
     			ic_WINSServer = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -131,7 +124,7 @@ public class ServiceWinsDataContainerImpl extends BaseDataContainer implements o
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_WINSSupport() {
     		if (ic_WINSSupport == null)
     		{
-				String label = bundle.getString("ServiceWinsDataContainer.WINSSupport");
+				String label = getAdapter().getBundle().getString("ServiceWinsDataContainer.WINSSupport");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
     			ic_WINSSupport = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -140,11 +133,11 @@ public class ServiceWinsDataContainerImpl extends BaseDataContainer implements o
 		
 	
 		
-	public void trace(java.io.PrintStream printStream, String listOptions, boolean title)
+	public void trace(java.io.PrintWriter 	printStream, String listOptions, boolean title)
 	{
 		if (title)
 		{
-			printStream.println(bundle.getString("ServiceWinsDataContainer.caption"));
+			printStream.println(getAdapter().getBundle().getString("ServiceWinsDataContainer.caption"));
 		}
 		
 		if (showKey(listOptions))
@@ -188,7 +181,7 @@ public class ServiceWinsDataContainerImpl extends BaseDataContainer implements o
 		}
 	}
 	
-	public void traceChilds(java.io.PrintStream printStream, String listOptions, boolean title)
+	public void traceChilds(java.io.PrintWriter printStream, String listOptions, boolean title)
 	{
     			
 			

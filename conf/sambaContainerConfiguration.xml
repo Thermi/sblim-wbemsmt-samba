@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Michael Bauschert (private) --><!--
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Michael Bauschert (private) -->
+<!--
 /**
  *  Generated-File by XMLBeans
  *
@@ -16,7 +17,8 @@
  *
  * Contributors: 
  */
---><cli:clientConfig xsi:schemaLocation="http://sblim.org/wbemsmt/clientconfig ../../wbemsmt-tools/tools-dcg/conf/clientConfig.xsd" xmlns:cmd="http://sblim.org/wbemsmt/cmd" xmlns:cli="http://sblim.org/wbemsmt/clientconfig" xmlns:cd="http://sblim.org/wbemsmt/dcg" xmlns:pkg="http://sblim.org/wbemsmt/pkg" xmlns:pl="http://sblim.org/wbemsmt/pl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+-->
+<cli:clientConfig xsi:schemaLocation="http://sblim.org/wbemsmt/clientconfig ../../wbemsmt-tools/tools-dcg/conf/clientConfig.xsd" xmlns:cmd="http://sblim.org/wbemsmt/cmd" xmlns:cli="http://sblim.org/wbemsmt/clientconfig" xmlns:cd="http://sblim.org/wbemsmt/dcg" xmlns:pkg="http://sblim.org/wbemsmt/pkg" xmlns:pl="http://sblim.org/wbemsmt/pl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<cli:environment application="SAMBA" documentationDirectory="../wbemsmt-samba/doc" helpDirectory="../wbemsmt-samba/help">
 		<cli:adapterPackage dir="../wbemsmt-samba/java/" id="adapterPackage" name="org.sblim.wbemsmt.samba.bl.adapter"/>
 		<cli:wizardPackage dir="../wbemsmt-samba/java" id="wizardPackage" name="org.sblim.wbemsmt.samba.wizard"/>
@@ -38,35 +40,35 @@
 		<dcg:container name="ShareGlobalsDataContainer" packageId="globalContainerPackage" implPackageId="globalContainerImpl" adapterId="sambaAdapter" description="Container for Global share settings" canCreate="false" canModify="true" canDelete="false" isWizard="false" customLayouter="false">
 			<dcg:fcoRelation fcoName="Linux_SambaGlobalFileNameHandlingOptions" fcoPackageId="org.sblim.wbemsmt.samba.bl.fco"/>
 			<dcg:field name="CaseSensitive" dataType="BOOLEAN" userDefined="false" uiType="CHECKBOX" fcoFieldName="Linux_SambaGlobalFileNameHandlingOptions.get_CaseSensitive" description="" readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="caseSensitive" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="caseSensitive" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="DosFiletimes" dataType="BOOLEAN" userDefined="false" uiType="CHECKBOX" fcoFieldName="Linux_SambaGlobalFileNameHandlingOptions.get_DosFiletimes" description="" readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="dosFiletimes" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="dosFiletimes" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="HideDotFiles" dataType="BOOLEAN" userDefined="false" uiType="CHECKBOX" fcoFieldName="Linux_SambaGlobalFileNameHandlingOptions.get_HideDotFiles" description="" readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="hideDotFiles" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="hideDotFiles" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="AclCompatibility" dataType="UNSIGNED_INT8" userDefined="false" uiType="COMBOBOX" fcoFieldName="Linux_SambaGlobalProtocolOptions.get_AclCompatibility" description="" readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="aclCompatibility" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="aclCompatibility" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="EASupport" dataType="BOOLEAN" userDefined="false" uiType="CHECKBOX" fcoFieldName="Linux_SambaGlobalProtocolOptions.get_EASupport" description="" readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="eaSupport" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="eaSupport" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="NTACLSupport" dataType="BOOLEAN" userDefined="false" uiType="CHECKBOX" fcoFieldName="Linux_SambaGlobalProtocolOptions.get_NTACLSupport" description="" readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="ntaclSupport" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="ntaclSupport" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 		</dcg:container>
 		<dcg:container name="CMDShareGlobalsDataContainer" packageId="globalContainerPackage" implPackageId="globalContainerImpl" adapterId="sambaAdapter" description="Container with CLI-extension for global share settings" canCreate="false" canModify="true" canDelete="false" isWizard="false" customLayouter="false">
 			<dcg:extends container="ShareGlobalsDataContainer" packageId="globalContainerPackage"/>
 			<dcg:fcoRelation fcoName="Linux_SambaShareSecurityOptions" fcoPackageId="org.sblim.wbemsmt.samba.bl.fco"/>
 			<dcg:field name="CreateMask" dataType="UNSIGNED_INT16" userDefined="false" uiType="TEXTFIELD" fcoFieldName="Linux_SambaShareSecurityOptions.get_CreateMask" description="the Default Create Mask" readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="createMask" comment="the Default Create Mask" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="createMask" comment="the Default Create Mask" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="DirectoryMask" dataType="UNSIGNED_INT16" userDefined="false" uiType="TEXTFIELD" fcoFieldName="Linux_SambaShareSecurityOptions.get_DirectoryMask" description="The directory Mask" readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="directoryMask" comment="The directory Mask" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="directoryMask" comment="The directory Mask" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="DirectorySecurityMask" dataType="UNSIGNED_INT16" userDefined="false" uiType="TEXTFIELD" fcoFieldName="Linux_SambaShareSecurityOptions.get_DirectorySecurityMask" description="" readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="directorySecurityMask" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="directorySecurityMask" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 		</dcg:container>
 		<dcg:container name="GUIShareGlobalsDataContainer" packageId="globalContainerPackage" implPackageId="globalContainerImpl" adapterId="sambaAdapter" description="Container with UI-extensions for global share settings" canCreate="false" canModify="true" canDelete="false" isWizard="false" customLayouter="true">
@@ -112,28 +114,28 @@
 		<dcg:container name="PrintingGlobalsDataContainer" packageId="globalContainerPackage" implPackageId="globalContainerImpl" adapterId="sambaAdapter" canCreate="false" canDelete="false" canModify="true" isWizard="false" description="Container for Global printer settings" customLayouter="false">
 			<dcg:fcoRelation fcoName="Linux_SambaGlobalPrintingOptions" fcoPackageId="org.sblim.wbemsmt.samba.bl.fco"/>
 			<dcg:field name="PrintcapCacheTime" dataType="UNSIGNED_INT64" userDefined="false" uiType="TEXTFIELD" fcoFieldName="Linux_SambaGlobalPrintingOptions.get_PrintcapCacheTime" description="" readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="printcapCacheTime" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="printcapCacheTime" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="SystemPrinterName" dataType="UNSIGNED_INT16" userDefined="true" uiType="COMBOBOX" fcoFieldName="Linux_SambaGlobalPrintingOptions.get_SystemPrinterName" description="" readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="systemPrinterName" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="systemPrinterName" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="CupsOptions" dataType="STRING" userDefined="false" uiType="TEXTFIELD" fcoFieldName="Linux_SambaGlobalPrintingOptions.get_CupsOptions" description="" readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="cupsOptions" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="cupsOptions" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="DefaultDevMode" dataType="BOOLEAN" userDefined="false" uiType="CHECKBOX" fcoFieldName="Linux_SambaGlobalPrintingOptions.get_DefaultDevMode" description="" readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="defaultDevMode" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="defaultDevMode" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="MaxPrintjobs" dataType="UNSIGNED_INT64" userDefined="false" uiType="TEXTFIELD" fcoFieldName="Linux_SambaGlobalPrintingOptions.get_MaxPrintjobs" description="" readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="maxPrintjobs" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="maxPrintjobs" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="MaxReportedPrintjobs" dataType="UNSIGNED_INT64" userDefined="false" uiType="TEXTFIELD" fcoFieldName="Linux_SambaGlobalPrintingOptions.get_MaxReportedPrintjobs" description="" readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="maxReportedPrintjobs" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="maxReportedPrintjobs" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="PrintCommand" dataType="STRING" userDefined="false" uiType="TEXTFIELD" fcoFieldName="Linux_SambaGlobalPrintingOptions.get_PrintCommand" description="" readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="printCommand" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="printCommand" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="UseClientDriver" dataType="BOOLEAN" userDefined="false" uiType="CHECKBOX" fcoFieldName="Linux_SambaGlobalPrintingOptions.get_UseClientDriver" description="" readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="useClientDriver" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="useClientDriver" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:link linkedContainer="AdminUsersInPrinterGlobals" linkedPackage="globalContainerPackage" occurrence="LIST" role="users" description=""/>
 		</dcg:container>
@@ -142,318 +144,318 @@
 			<dcg:field name="Started" dataType="BOOLEAN" userDefined="false" uiType="CHECKBOX" fcoFieldName="Linux_SambaService.get_Started" description="" readOnly="true">
 			</dcg:field>
 			<dcg:field name="startService" dataType="UNSIGNED_INT32" userDefined="false" uiType="BUTTON" fcoFieldName="Linux_SambaService.invoke_startService" description="" readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="start" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="start" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="stopService" dataType="UNSIGNED_INT32" userDefined="false" uiType="BUTTON" fcoFieldName="Linux_SambaService.invoke_stopService" description="" readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="stop" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="stop" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="restartService" dataType="UNSIGNED_INT8" userDefined="true" uiType="BUTTON" fcoFieldName="userdefined" description="" readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="restart" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="restart" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 		</dcg:container>
 		<dcg:container name="ServiceOptionsDataContainer" packageId="serviceContainerPackage" implPackageId="serviceContainerImpl" adapterId="sambaAdapter" canCreate="false" canDelete="false" canModify="true" isWizard="false" description="Container for Setting Options on the Samba Service" customLayouter="false">
 			<dcg:fcoRelation fcoName="Linux_SambaGlobalOptions" fcoPackageId="org.sblim.wbemsmt.samba.bl.fco"/>
 			<dcg:field name="BindInterfacesOnly" dataType="BOOLEAN" userDefined="false" uiType="CHECKBOX" fcoFieldName="Linux_SambaGlobalOptions.get_BindInterfacesOnly" description="" readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="bindInterfaces" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="bindInterfaces" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="Interfaces" dataType="STRING" userDefined="false" uiType="TEXTFIELD" fcoFieldName="Linux_SambaGlobalOptions.get_Interfaces" description="" readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="interfaces" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="interfaces" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="NetbiosAlias" dataType="STRING" userDefined="false" uiType="TEXTFIELD" fcoFieldName="Linux_SambaGlobalOptions.get_NetbiosAlias" description="" readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="netbiosAlias" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="netbiosAlias" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="NetbiosName" dataType="STRING" userDefined="false" uiType="TEXTFIELD" fcoFieldName="Linux_SambaGlobalOptions.get_NetbiosName" description="" readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="netbiosName" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="netbiosName" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="ServerString" dataType="STRING" userDefined="false" uiType="TEXTFIELD" fcoFieldName="Linux_SambaGlobalOptions.get_ServerString" description="" readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="serverString" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="serverString" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="Workgroup" dataType="STRING" userDefined="false" uiType="TEXTFIELD" fcoFieldName="Linux_SambaGlobalOptions.get_Workgroup" description="" readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="workgroup" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="workgroup" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="ConfigurationFile" dataType="STRING" userDefined="false" uiType="TEXTFIELD" fcoFieldName="Linux_SambaServiceConfiguration.get_ConfigurationFile" description="" readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="configurationFile" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="configurationFile" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 		</dcg:container>
 		<dcg:container name="ServiceLoggingDataContainer" packageId="serviceContainerPackage" implPackageId="serviceContainerImpl" adapterId="sambaAdapter" canCreate="false" canDelete="false" canModify="true" isWizard="false" description="Container for defining the logging" customLayouter="false">
 			<dcg:fcoRelation fcoName="Linux_SambaLoggingOptions" fcoPackageId="org.sblim.wbemsmt.samba.bl.fco"/>
 			<dcg:field name="SysLog" dataType="UNSIGNED_INT16" userDefined="false" uiType="TEXTFIELD" fcoFieldName="Linux_SambaLoggingOptions.get_SysLog" description="" readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="syslog" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="syslog" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="SysLogOnly" dataType="BOOLEAN" userDefined="false" uiType="CHECKBOX" fcoFieldName="Linux_SambaLoggingOptions.get_SysLogOnly" description="" readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="syslogOnly" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="syslogOnly" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="MaxLogSize" dataType="UNSIGNED_INT32" userDefined="false" uiType="TEXTFIELD" fcoFieldName="Linux_SambaLoggingOptions.get_MaxLogSize" description="" readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="maxLogSize" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="maxLogSize" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="DebugHiresTimestamp" dataType="BOOLEAN" userDefined="false" uiType="CHECKBOX" fcoFieldName="Linux_SambaLoggingOptions.get_DebugHiresTimestamp" description="" readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="debugHires" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="debugHires" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="DebugPID" dataType="BOOLEAN" userDefined="false" uiType="CHECKBOX" fcoFieldName="Linux_SambaLoggingOptions.get_DebugPID" description="" readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="debugPID" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="debugPID" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="DebugTimestamp" dataType="BOOLEAN" userDefined="false" uiType="CHECKBOX" fcoFieldName="Linux_SambaLoggingOptions.get_DebugTimestamp" description="" readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="debugTimestamp" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="debugTimestamp" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="DebugUID" dataType="BOOLEAN" userDefined="false" uiType="CHECKBOX" fcoFieldName="Linux_SambaLoggingOptions.get_DebugUID" description="" readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="debugUID" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="debugUID" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="LogFile" dataType="STRING" userDefined="false" uiType="TEXTFIELD" fcoFieldName="Linux_SambaLoggingOptions.get_LogFile" description="" readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="logfile" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="logfile" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="LogLevel" dataType="STRING" userDefined="false" uiType="TEXTFIELD" fcoFieldName="Linux_SambaLoggingOptions.get_LogLevel" description="" readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="loglevel" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="loglevel" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 		</dcg:container>
 		<dcg:container name="ServiceGlobalSecurityOptionsDataContainer" packageId="serviceContainerPackage" implPackageId="serviceContainerImpl" adapterId="sambaAdapter" canCreate="false" canDelete="false" canModify="true" isWizard="false" description="Container for defining Security Options" customLayouter="false">
 			<dcg:fcoRelation fcoName="Linux_SambaGlobalSecurityOptions" fcoPackageId="org.sblim.wbemsmt.samba.bl.fco"/>
 			<dcg:field name="AuthMethods" dataType="STRING" userDefined="false" uiType="TEXTFIELD" fcoFieldName="Linux_SambaGlobalSecurityOptions.get_AuthMethods" description="" readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="authMethods" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="authMethods" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="EncryptPasswords" dataType="BOOLEAN" userDefined="false" uiType="CHECKBOX" fcoFieldName="Linux_SambaGlobalSecurityOptions.get_EncryptPasswords" description="" readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="encryptPasswords" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="encryptPasswords" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="MinPasswordLength" dataType="UNSIGNED_INT8" userDefined="false" uiType="TEXTFIELD" fcoFieldName="Linux_SambaGlobalSecurityOptions.get_MinPasswordLength" description="" readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="minLength" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="minLength" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="NullPasswords" dataType="BOOLEAN" userDefined="false" uiType="CHECKBOX" fcoFieldName="Linux_SambaGlobalSecurityOptions.get_NullPasswords" description="" readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="nullPasswords" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="nullPasswords" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="PassdbBackend" dataType="UNSIGNED_INT16" userDefined="true" uiType="COMBOBOX" fcoFieldName="Linux_SambaGlobalSecurityOptions.get_PassdbBackend" description="" readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="passdbBackend" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="passdbBackend" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="SMBPasswdFile" dataType="STRING" userDefined="false" uiType="TEXTFIELD" fcoFieldName="Linux_SambaGlobalSecurityOptions.get_SMBPasswdFile" description="" readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="smbPasswdFile" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="smbPasswdFile" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="Security" dataType="UNSIGNED_INT8" userDefined="false" uiType="COMBOBOX" fcoFieldName="Linux_SambaGlobalSecurityOptions.get_Security" description="" readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="security" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="security" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="GuestOK" dataType="BOOLEAN" userDefined="false" uiType="CHECKBOX" fcoFieldName="Linux_SambaCommonSecurityOptions.get_GuestOK" description="" readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="guestOK" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="guestOK" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="GuestOnly" dataType="BOOLEAN" userDefined="false" uiType="CHECKBOX" fcoFieldName="Linux_SambaCommonSecurityOptions.get_GuestOnly" description="" readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="guestOnly" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="guestOnly" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="HostsAllow" dataType="STRING" userDefined="false" uiType="TEXTFIELD" fcoFieldName="Linux_SambaCommonSecurityOptions.get_HostsAllow" description="" readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="hostAllow" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="hostAllow" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="HostsDeny" dataType="STRING" userDefined="false" uiType="TEXTFIELD" fcoFieldName="Linux_SambaCommonSecurityOptions.get_HostsDeny" description="" readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="hostDeny" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="hostDeny" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="ReadOnly" dataType="BOOLEAN" userDefined="false" uiType="CHECKBOX" fcoFieldName="Linux_SambaCommonSecurityOptions.get_ReadOnly" description="" readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="readOnly" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="readOnly" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="DomainMaster" dataType="UNSIGNED_INT16" userDefined="false" uiType="COMBOBOX" fcoFieldName="Linux_SambaGlobalBrowseOptions.get_DomainMaster" description="" readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="domainMaster" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="domainMaster" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="Browsable" dataType="BOOLEAN" userDefined="false" uiType="CHECKBOX" fcoFieldName="Linux_SambaGlobalBrowseOptions.get_Browsable" description="" readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="browsable" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="browsable" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 		</dcg:container>
 		<dcg:container name="ServiceUserSecurityOptionsDataContainer" packageId="serviceContainerPackage" implPackageId="serviceContainerImpl" adapterId="sambaAdapter" description="Container for defining user related security options" canCreate="false" canModify="true" canDelete="false" isWizard="false" customLayouter="false">
 			<dcg:field name="guestUser" dataType="STRING" userDefined="true" uiType="LABEL" fcoFieldName="userdefined" description="" readOnly="true">
-				<cmd:option long="userForGuestAccount" required="false" usedForSelection="false" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option long="userForGuestAccount" required="false" usedForSelection="false" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="currentForceUser" dataType="STRING" userDefined="true" uiType="LABEL" fcoFieldName="userdefined" description="" readOnly="true">
-				<cmd:option long="currentForceUser" required="false" usedForSelection="false" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option long="currentForceUser" required="false" usedForSelection="false" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="newForceUser" dataType="UNSIGNED_INT16" userDefined="true" uiType="COMBOBOX" fcoFieldName="userdefined" description="" readOnly="false">
-				<cmd:option long="newForceUser" required="false" usedForSelection="false" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option long="newForceUser" required="false" usedForSelection="false" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:link linkedContainer="UserACLItemDataContainerForService" linkedPackage="serviceContainerPackage" occurrence="LIST" role="userRights" description=""/>
 		</dcg:container>
 		<dcg:container name="ServiceAllowHostSecurityDataContainer" packageId="serviceContainerPackage" implPackageId="serviceContainerImpl" adapterId="sambaAdapter" description="Container to define AllowHosts" canCreate="false" canModify="true" canDelete="false" isWizard="false" customLayouter="false">
 			<dcg:field name="allowedHosts" dataType="UNSIGNED_INT16" userDefined="true" uiType="LIST" fcoFieldName="userdefined" description="" readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="allowedHosts" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="allowedHosts" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="hostsToAllow" dataType="UNSIGNED_INT16" userDefined="true" uiType="LIST" fcoFieldName="userdefined" description="" readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="hostsToAllow" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="hostsToAllow" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="addHost" dataType="STRING" userDefined="true" uiType="BUTTON" fcoFieldName="userdefined" description="" readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="addHost" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="addHost" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="removeHost" dataType="BOOLEAN" userDefined="true" uiType="BUTTON" fcoFieldName="userdefined" description="" readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="removeHost" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="removeHost" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 		</dcg:container>
 		<dcg:container name="ServiceDenyHostDataContainer" packageId="serviceContainerPackage" implPackageId="serviceContainerImpl" adapterId="sambaAdapter" description="Container to define DenyHosts" canCreate="false" canModify="true" canDelete="false" isWizard="false" customLayouter="false">
 			<dcg:field name="deniedHosts" dataType="UNSIGNED_INT16" userDefined="true" uiType="LIST" fcoFieldName="userdefined" description="" readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="allowedHosts" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="allowedHosts" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="hostsToDeny" dataType="UNSIGNED_INT16" userDefined="true" uiType="LIST" fcoFieldName="userdefined" description="" readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="hostsToAllow" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="hostsToAllow" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="addHost" dataType="STRING" userDefined="true" uiType="BUTTON" fcoFieldName="userdefined" description="" readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="addHost" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="addHost" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="removeHost" dataType="STRING" userDefined="true" uiType="BUTTON" fcoFieldName="userdefined" description="" readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="removeHost" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="removeHost" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 		</dcg:container>
 		<dcg:container name="ServiceScriptingDataContainer" packageId="serviceContainerPackage" implPackageId="serviceContainerImpl" adapterId="sambaAdapter" canCreate="false" canDelete="false" canModify="true" isWizard="false" description="Container to Scripting Options" customLayouter="false">
 			<dcg:fcoRelation fcoName="Linux_SambaScriptingOptions" fcoPackageId="org.sblim.wbemsmt.samba.bl.fco"/>
 			<dcg:field name="AddGroupScript" dataType="STRING" userDefined="false" uiType="TEXTFIELD" fcoFieldName="Linux_SambaScriptingOptions.get_AddGroupScript" description="" readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="addGroupScript" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="addGroupScript" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="AddPrinterCommand" dataType="STRING" userDefined="false" uiType="TEXTFIELD" fcoFieldName="Linux_SambaScriptingOptions.get_AddPrinterCommand" description="" readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="addPrinterCommand" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="addPrinterCommand" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="AddShareCommand" dataType="STRING" userDefined="false" uiType="TEXTFIELD" fcoFieldName="Linux_SambaScriptingOptions.get_AddShareCommand" description="" readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="addShareCommand" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="addShareCommand" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="AddUserScript" dataType="STRING" userDefined="false" uiType="TEXTFIELD" fcoFieldName="Linux_SambaScriptingOptions.get_AddUserScript" description="" readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="addUserScript" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="addUserScript" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="AddUsertoGroupScript" dataType="STRING" userDefined="false" uiType="TEXTFIELD" fcoFieldName="Linux_SambaScriptingOptions.get_AddUsertoGroupScript" description="" readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="addUsertoGroupScript" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="addUsertoGroupScript" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="DeleteGroupScript" dataType="STRING" userDefined="false" uiType="TEXTFIELD" fcoFieldName="Linux_SambaScriptingOptions.get_DeleteGrouprScript" description="" readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="deleteGroupScript" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="deleteGroupScript" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="DeleteUserScript" dataType="STRING" userDefined="false" uiType="TEXTFIELD" fcoFieldName="Linux_SambaScriptingOptions.get_DeleteUserScript" description="" readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="deleteUserScript" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="deleteUserScript" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="DeleteUserfromGroupScript" dataType="STRING" userDefined="false" uiType="TEXTFIELD" fcoFieldName="Linux_SambaScriptingOptions.get_DeleteUserfromGroupScript" description="" readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="deleteUserfromGroupScript" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="deleteUserfromGroupScript" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="SetPrimaryGroupScript" dataType="STRING" userDefined="false" uiType="TEXTFIELD" fcoFieldName="Linux_SambaScriptingOptions.get_SetPrimaryGroupScript" description="" readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="setPrimaryGroupScript" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="setPrimaryGroupScript" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 		</dcg:container>
 		<dcg:container name="ServiceWinsDataContainer" packageId="serviceContainerPackage" implPackageId="serviceContainerImpl" adapterId="sambaAdapter" canCreate="false" canDelete="false" canModify="true" isWizard="false" description="Container for WINS Options" customLayouter="false">
 			<dcg:fcoRelation fcoName="Linux_SambaWinsOptions" fcoPackageId="org.sblim.wbemsmt.samba.bl.fco"/>
 			<dcg:field name="DNS_Proxy" dataType="STRING" userDefined="false" uiType="TEXTFIELD" fcoFieldName="Linux_SambaWinsOptions.get_DNS_Proxy" description="" readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="dnsProxy" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="dnsProxy" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="WINSHook" dataType="STRING" userDefined="false" uiType="TEXTFIELD" fcoFieldName="Linux_SambaWinsOptions.get_WINSHook" description="" readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="winsHook" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="winsHook" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="WINSProxy" dataType="BOOLEAN" userDefined="false" uiType="CHECKBOX" fcoFieldName="Linux_SambaWinsOptions.get_WINSProxy" description="" readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="winsProxy" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="winsProxy" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="WINSServer" dataType="STRING" userDefined="false" uiType="TEXTFIELD" fcoFieldName="Linux_SambaWinsOptions.get_WINSServer" description="" readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="winsServer" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="winsServer" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="WINSSupport" dataType="BOOLEAN" userDefined="false" uiType="CHECKBOX" fcoFieldName="Linux_SambaWinsOptions.get_WINSSupport" description="" readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="winsSupport" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="winsSupport" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 		</dcg:container>
 		<dcg:container name="ShareOptionsDataContainer" packageId="shareContainerPackage" implPackageId="shareContainerImpl" canCreate="false" canDelete="true" canModify="true" isWizard="false" adapterId="sambaAdapter" description="Container for Share Options" customLayouter="false">
 			<dcg:fcoRelation fcoName="Linux_SambaShareOptions" fcoPackageId="org.sblim.wbemsmt.samba.bl.fco"/>
 			<dcg:field name="Name" dataType="STRING" userDefined="false" uiType="LABEL" fcoFieldName="Linux_SambaShareOptions.get_Name" description="" readOnly="true">
-				<cmd:option required="true" usedForSelection="true" long="sharename" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="true" usedForSelection="true" long="sharename" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="Available" dataType="BOOLEAN" userDefined="false" uiType="CHECKBOX" fcoFieldName="Linux_SambaShareOptions.get_Available" description="" readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="available" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="available" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="Comment" dataType="STRING" userDefined="false" uiType="TEXTFIELD" fcoFieldName="Linux_SambaShareOptions.get_Comment" description="" readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="comment" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="comment" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="Path" dataType="STRING" userDefined="false" uiType="TEXTFIELD" fcoFieldName="Linux_SambaShareOptions.get_Path" description="" readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="path" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="path" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="Browsable" dataType="BOOLEAN" userDefined="false" uiType="CHECKBOX" fcoFieldName="Linux_SambaSharePrinterBrowseOptions.get_Browsable" description="" readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="browsable" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="browsable" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="GuestOK" dataType="BOOLEAN" userDefined="false" uiType="CHECKBOX" fcoFieldName="Linux_SambaCommonSecurityOptions.get_GuestOK" description="" readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="guestok" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="guestok" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="GuestOnly" dataType="BOOLEAN" userDefined="false" uiType="CHECKBOX" fcoFieldName="Linux_SambaCommonSecurityOptions.get_GuestOnly" description="" readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="guestOnly" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="guestOnly" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="HostsAllow" dataType="STRING" userDefined="false" uiType="TEXTFIELD" fcoFieldName="Linux_SambaCommonSecurityOptions.get_HostsAllow" description="" readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="hostsAllow" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="hostsAllow" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="HostsDeny" dataType="STRING" userDefined="false" uiType="TEXTFIELD" fcoFieldName="Linux_SambaCommonSecurityOptions.get_HostsDeny" description="" readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="hostsDeny" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="hostsDeny" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="ReadOnly" dataType="BOOLEAN" userDefined="false" uiType="CHECKBOX" fcoFieldName="Linux_SambaCommonSecurityOptions.get_ReadOnly" description="" readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="readOnly" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="readOnly" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 		</dcg:container>
 		<dcg:container name="UserACLItemDataContainerForShare" packageId="shareContainerPackage" implPackageId="shareContainerImpl" adapterId="sambaAdapter" description="Container representing a user's acl within a share" canCreate="false" canModify="true" canDelete="false" isWizard="false" customLayouter="false">
 			<dcg:fcoRelation fcoName="Linux_SambaUser" fcoPackageId="org.sblim.wbemsmt.samba.bl.fco"/>
 			<dcg:field name="SambaUserName" dataType="STRING" userDefined="false" uiType="LABEL" fcoFieldName="Linux_SambaUser.get_SambaUserName" description="" readOnly="true">
-				<cmd:option required="true" usedForSelection="true" long="sambaUsername" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="true" usedForSelection="true" long="sambaUsername" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="accessTypeVI" dataType="UNSIGNED_INT16" userDefined="true" uiType="RADIOBUTTON" fcoFieldName="userdefined" description="relates to&lt;br> Linux_SambaReadListForShare&lt;br> Linux_SambaWriteListForShare&lt;br> Linux_SambaInvalidUsersForShare&lt;br> Linux_SambaValidUsersForShare&lt;br> " readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="access" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="access" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="accessTypeRW" dataType="UNSIGNED_INT16" userDefined="true" uiType="RADIOBUTTON" fcoFieldName="userdefined" description="relates to&lt;br> Linux_SambaReadListForShare&lt;br> Linux_SambaWriteListForShare&lt;br> Linux_SambaInvalidUsersForShare&lt;br> Linux_SambaValidUsersForShare&lt;br> " readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="accessTypeRW" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="accessTypeRW" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="admin" dataType="BOOLEAN" userDefined="true" uiType="CHECKBOX" fcoFieldName="userdefined" description="relates to Linux_SambaAdminUsersForShare" readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="admin" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="admin" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 		</dcg:container>
 		<dcg:container name="UserACLItemDataContainerForPrinter" packageId="printerContainerPackage" implPackageId="printerContainerImpl" adapterId="sambaAdapter" description="Container representing a user's acl within a printer" canCreate="false" canModify="true" canDelete="false" isWizard="false" customLayouter="false">
 			<dcg:fcoRelation fcoName="Linux_SambaUser" fcoPackageId="org.sblim.wbemsmt.samba.bl.fco"/>
 			<dcg:field name="SambaUserName" dataType="STRING" userDefined="false" uiType="LABEL" fcoFieldName="Linux_SambaUser.get_SambaUserName" description="" readOnly="true">
-				<cmd:option required="true" usedForSelection="true" long="sambaUsername" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="true" usedForSelection="true" long="sambaUsername" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="accessTypeVI" dataType="UNSIGNED_INT16" userDefined="true" uiType="RADIOBUTTON" fcoFieldName="userdefined" description="relates to&lt;br> Linux_SambaReadListForShare&lt;br> Linux_SambaWriteListForShare&lt;br> Linux_SambaInvalidUsersForShare&lt;br> Linux_SambaValidUsersForShare&lt;br> " readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="access" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="access" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="accessTypeRW" dataType="UNSIGNED_INT16" userDefined="true" uiType="RADIOBUTTON" fcoFieldName="userdefined" description="relates to&lt;br> Linux_SambaReadListForShare&lt;br> Linux_SambaWriteListForShare&lt;br> Linux_SambaInvalidUsersForShare&lt;br> Linux_SambaValidUsersForShare&lt;br> " readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="accessTypeRW" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="accessTypeRW" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="admin" dataType="BOOLEAN" userDefined="true" uiType="CHECKBOX" fcoFieldName="userdefined" description="relates to Linux_SambaAdminUsersForShare" readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="admin" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="admin" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 		</dcg:container>
 		<dcg:container name="UserACLItemDataContainerForService" packageId="serviceContainerPackage" implPackageId="serviceContainerImpl" adapterId="sambaAdapter" description="Container with a abstract definition of the rights that can be given to a user" canCreate="false" canModify="true" canDelete="false" isWizard="false" customLayouter="false">
 			<dcg:fcoRelation fcoName="Linux_SambaUser" fcoPackageId="org.sblim.wbemsmt.samba.bl.fco"/>
 			<dcg:field name="SambaUserName" dataType="STRING" userDefined="false" uiType="LABEL" fcoFieldName="Linux_SambaUser.get_SambaUserName" description="" readOnly="true">
-				<cmd:option required="true" usedForSelection="true" long="sambaUsername" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="true" usedForSelection="true" long="sambaUsername" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="accessTypeVI" dataType="UNSIGNED_INT16" userDefined="true" uiType="RADIOBUTTON" fcoFieldName="userdefined" description="relates to&lt;br> Linux_SambaReadListForShare&lt;br> Linux_SambaWriteListForShare&lt;br> Linux_SambaInvalidUsersForShare&lt;br> Linux_SambaValidUsersForShare&lt;br> " readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="access" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="access" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="accessTypeRW" dataType="UNSIGNED_INT16" userDefined="true" uiType="RADIOBUTTON" fcoFieldName="userdefined" description="relates to&lt;br> Linux_SambaReadListForShare&lt;br> Linux_SambaWriteListForShare&lt;br> Linux_SambaInvalidUsersForShare&lt;br> Linux_SambaValidUsersForShare&lt;br> " readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="accessTypeRW" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="accessTypeRW" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 		</dcg:container>
 		<dcg:container name="PrinterACLItemDataContainer" packageId="shareContainerPackage" implPackageId="shareContainerImpl" adapterId="sambaAdapter" description="Container representing a user's acl related to a printer" canCreate="false" canModify="true" canDelete="false" isWizard="false" customLayouter="false">
 			<dcg:fcoRelation fcoName="Linux_SambaPrinterOptions" fcoPackageId="org.sblim.wbemsmt.samba.bl.fco" description=""/>
 			<dcg:field name="PrinterName" dataType="STRING" userDefined="false" uiType="LABEL" fcoFieldName="Linux_SambaPrinterOptions.get_Name" description="" readOnly="true">
-				<cmd:option required="true" usedForSelection="true" long="sambaPrintername" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="true" usedForSelection="true" long="sambaPrintername" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="accessTypeVI" dataType="UNSIGNED_INT16" userDefined="true" uiType="RADIOBUTTON" fcoFieldName="userdefined" description="relates to&lt;br> Linux_SambaReadListForShare&lt;br> Linux_SambaWriteListForShare&lt;br> Linux_SambaInvalidUsersForShare&lt;br> Linux_SambaValidUsersForShare&lt;br> " readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="access" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="access" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="accessTypeRW" dataType="UNSIGNED_INT16" userDefined="true" uiType="RADIOBUTTON" fcoFieldName="userdefined" description="relates to&lt;br> Linux_SambaReadListForShare&lt;br> Linux_SambaWriteListForShare&lt;br> Linux_SambaInvalidUsersForShare&lt;br> Linux_SambaValidUsersForShare&lt;br> " readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="accessTypeRW" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="accessTypeRW" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="admin" dataType="BOOLEAN" userDefined="true" uiType="CHECKBOX" fcoFieldName="userdefined" description="relates to Linux_SambaAdminUsersForShare" readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="admin" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="admin" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 		</dcg:container>
 		<dcg:container name="ShareACLItemDataContainer" packageId="shareContainerPackage" implPackageId="shareContainerImpl" adapterId="sambaAdapter" description="Container representing a user's acl related to a share" canCreate="false" canModify="true" canDelete="false" isWizard="false" customLayouter="false">
 			<dcg:fcoRelation fcoName="Linux_SambaShareOptions" fcoPackageId="org.sblim.wbemsmt.samba.bl.fco" description=""/>
 			<dcg:field name="shareName" dataType="STRING" userDefined="false" uiType="LABEL" fcoFieldName="Linux_SambaShareOptions.get_Name" description="" readOnly="false">
-				<cmd:option required="true" usedForSelection="true" long="shareName" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="true" usedForSelection="true" long="shareName" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="accessTypeVI" dataType="UNSIGNED_INT16" userDefined="true" uiType="RADIOBUTTON" fcoFieldName="userdefined" description="relates to&lt;br> Linux_SambaReadListForShare&lt;br> Linux_SambaWriteListForShare&lt;br> Linux_SambaInvalidUsersForShare&lt;br> Linux_SambaValidUsersForShare&lt;br> " readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="access" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="access" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="accessTypeRW" dataType="UNSIGNED_INT16" userDefined="true" uiType="RADIOBUTTON" fcoFieldName="userdefined" description="relates to&lt;br> Linux_SambaReadListForShare&lt;br> Linux_SambaWriteListForShare&lt;br> Linux_SambaInvalidUsersForShare&lt;br> Linux_SambaValidUsersForShare&lt;br> " readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="accessTypeRW" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="accessTypeRW" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="admin" dataType="BOOLEAN" userDefined="true" uiType="CHECKBOX" fcoFieldName="userdefined" description="relates to Linux_SambaAdminUsersForShare" readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="admin" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="admin" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 		</dcg:container>
 		<dcg:container name="CMDShareFileAttributes" packageId="shareContainerPackage" implPackageId="shareContainerImpl" adapterId="sambaAdapter" description="CLI extensions for FileAttributres for a share" canCreate="false" canModify="true" canDelete="false" isWizard="false" customLayouter="false">
 			<dcg:extends container="ShareFileAttributes" packageId="shareContainerPackage"/>
 			<dcg:fcoRelation fcoName="Linux_SambaShareSecurityOptions" fcoPackageId="org.sblim.wbemsmt.samba.bl.fco"/>
 			<dcg:field name="CreateMask" dataType="UNSIGNED_INT16" userDefined="false" uiType="TEXTFIELD" fcoFieldName="Linux_SambaShareSecurityOptions.get_CreateMask" description="the Default Create Mask" readOnly="false">
-				<cmd:option required="true" usedForSelection="false" long="createMask" comment="the Default Create Mask" defaultValue="noDefaultValue"/>
+				<cmd:option required="true" usedForSelection="false" long="createMask" comment="the Default Create Mask" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="DirectoryMask" dataType="UNSIGNED_INT16" userDefined="false" uiType="TEXTFIELD" fcoFieldName="Linux_SambaShareSecurityOptions.get_DirectoryMask" description="The directory Mask" readOnly="false">
-				<cmd:option required="true" usedForSelection="false" long="directoryMask" comment="The directory Mask" defaultValue="noDefaultValue"/>
+				<cmd:option required="true" usedForSelection="false" long="directoryMask" comment="The directory Mask" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="DirectorySecurityMask" dataType="UNSIGNED_INT16" userDefined="false" uiType="TEXTFIELD" fcoFieldName="Linux_SambaShareSecurityOptions.get_DirectorySecurityMask" description="" readOnly="false">
-				<cmd:option required="true" usedForSelection="false" long="directorySecurityMask" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="true" usedForSelection="false" long="directorySecurityMask" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 		</dcg:container>
 		<dcg:container name="GUIShareFileAttributes" packageId="shareContainerPackage" implPackageId="shareContainerImpl" adapterId="sambaAdapter" description="UI extensions for FileAttributres for a share" canCreate="false" canModify="true" canDelete="false" isWizard="false" customLayouter="true">
@@ -498,22 +500,22 @@
 		<dcg:container name="ShareFileAttributes" packageId="shareContainerPackage" implPackageId="shareContainerImpl" adapterId="sambaAdapter" description="FileAttributres for a share" canCreate="false" canModify="true" canDelete="false" isWizard="false" customLayouter="false">
 			<dcg:fcoRelation fcoName="Linux_SambaShareFileNameHandlingOptions" fcoPackageId="org.sblim.wbemsmt.samba.bl.fco"/>
 			<dcg:field name="CaseSensitive" dataType="BOOLEAN" userDefined="false" uiType="CHECKBOX" fcoFieldName="Linux_SambaShareFileNameHandlingOptions.get_CaseSensitive" description="" readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="caseSensitive" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="caseSensitive" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="HideDotFiles" dataType="BOOLEAN" userDefined="false" uiType="CHECKBOX" fcoFieldName="Linux_SambaShareFileNameHandlingOptions.get_HideDotFiles" description="" readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="hideDotFiles" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="hideDotFiles" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="DosFiletimes" dataType="BOOLEAN" userDefined="false" uiType="CHECKBOX" fcoFieldName="Linux_SambaShareFileNameHandlingOptions.get_DosFiletimes" description="" readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="dosFiletimes" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="dosFiletimes" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="EASupport" dataType="BOOLEAN" userDefined="false" uiType="CHECKBOX" fcoFieldName="Linux_SambaShareProtocolOptions.get_EASupport" description="" readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="eaSupport" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="eaSupport" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="AclCompatibility" dataType="UNSIGNED_INT8" userDefined="false" uiType="COMBOBOX" fcoFieldName="Linux_SambaShareProtocolOptions.get_AclCompatibility" description="" readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="aclCompatibility" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="aclCompatibility" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="NTACLSupport" dataType="BOOLEAN" userDefined="false" uiType="CHECKBOX" fcoFieldName="Linux_SambaShareProtocolOptions.get_NTACLSupport" description="" readOnly="false">
-				<cmd:option long="ntaclSupport" required="false" usedForSelection="false" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option long="ntaclSupport" required="false" usedForSelection="false" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 		</dcg:container>
 		<dcg:container name="ShareAllowHostSecurityDataContainer" packageId="shareContainerPackage" implPackageId="shareContainerImpl" adapterId="sambaAdapter" description="Container for AllowHosts within a share" canCreate="false" canModify="true" canDelete="false" isWizard="false" customLayouter="false">
@@ -525,68 +527,68 @@
 		<dcg:container name="UserInShareACLDataContainer" packageId="shareContainerPackage" implPackageId="shareContainerImpl" adapterId="sambaAdapter" description="" canCreate="false" canModify="true" canDelete="false" isWizard="false">
 			<dcg:fcoRelation fcoName="Linux_SambaUser" fcoPackageId="org.sblim.wbemsmt.samba.bl.fco" description=""/>
 			<dcg:field name="newForceUser" dataType="UNSIGNED_INT16" userDefined="true" uiType="COMBOBOX" fcoFieldName="userdefined" description="" readOnly="false">
-				<cmd:option long="newForceUser" required="false" usedForSelection="false" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option long="newForceUser" required="false" usedForSelection="false" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="currentForceUser" dataType="STRING" userDefined="true" uiType="LABEL" fcoFieldName="userdefined" description="" readOnly="true">
-				<cmd:option long="newOptions" required="false" usedForSelection="false" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option long="newOptions" required="false" usedForSelection="false" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:link linkedContainer="UserACLItemDataContainerForShare" linkedPackage="shareContainerPackage" occurrence="LIST" role="users" description=""/>
 		</dcg:container>
 		<dcg:container name="PrinterOptionsDataContainer" packageId="printerContainerPackage" implPackageId="printerContainerImpl" adapterId="sambaAdapter" canCreate="false" canDelete="true" canModify="true" isWizard="false" description="Container for a printer's options" customLayouter="false">
 			<dcg:fcoRelation fcoName="Linux_SambaPrinterOptions" fcoPackageId="org.sblim.wbemsmt.samba.bl.fco"/>
 			<dcg:field name="Name" dataType="STRING" userDefined="false" uiType="LABEL" fcoFieldName="Linux_SambaPrinterOptions.get_Name" description="" readOnly="true">
-				<cmd:option required="true" usedForSelection="true" long="sambaPrintername" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="true" usedForSelection="true" long="sambaPrintername" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="SystemPrinterName" dataType="UNSIGNED_INT16" userDefined="true" uiType="COMBOBOX" fcoFieldName="Linux_SambaPrinterOptions.get_SystemPrinterName" description="" readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="systemPrinterName" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="systemPrinterName" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="Path" dataType="STRING" userDefined="false" uiType="TEXTFIELD" fcoFieldName="Linux_SambaPrinterOptions.get_Path" description="" readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="path" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="path" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="Comment" dataType="STRING" userDefined="false" uiType="TEXTFIELD" fcoFieldName="Linux_SambaPrinterOptions.get_Comment" description="" readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="comment" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="comment" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="Available" dataType="BOOLEAN" userDefined="false" uiType="CHECKBOX" fcoFieldName="Linux_SambaPrinterOptions.get_Available" description="" readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="available" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="available" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="GuestOK" dataType="BOOLEAN" userDefined="false" uiType="CHECKBOX" fcoFieldName="Linux_SambaCommonSecurityOptions.get_GuestOK" description="" readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="guestOK" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="guestOK" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="GuestOnly" dataType="BOOLEAN" userDefined="false" uiType="CHECKBOX" fcoFieldName="Linux_SambaCommonSecurityOptions.get_GuestOnly" description="" readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="guestOnly" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="guestOnly" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="HostsAllow" dataType="STRING" userDefined="false" uiType="TEXTFIELD" fcoFieldName="Linux_SambaCommonSecurityOptions.get_HostsAllow" description="" readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="hostAllow" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="hostAllow" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="HostsDeny" dataType="STRING" userDefined="false" uiType="TEXTFIELD" fcoFieldName="Linux_SambaCommonSecurityOptions.get_HostsDeny" description="" readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="hostDeny" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="hostDeny" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="ReadOnly" dataType="BOOLEAN" userDefined="false" uiType="CHECKBOX" fcoFieldName="Linux_SambaCommonSecurityOptions.get_ReadOnly" description="" readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="readOnly" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="readOnly" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="Browsable" dataType="BOOLEAN" userDefined="false" uiType="CHECKBOX" fcoFieldName="Linux_SambaSharePrinterBrowseOptions.get_Browsable" description="" readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="browsable" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="browsable" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 		</dcg:container>
 		<dcg:container name="PrintingOptionsDataContainer" packageId="printerContainerPackage" implPackageId="printerContainerImpl" adapterId="sambaAdapter" canCreate="false" canDelete="false" canModify="true" isWizard="false" description="container for printing options" customLayouter="false">
 			<dcg:fcoRelation fcoName="Linux_SambaPrinterPrintingOptions" fcoPackageId="org.sblim.wbemsmt.samba.bl.fco"/>
 			<dcg:field name="CupsOptions" dataType="STRING" userDefined="false" uiType="TEXTFIELD" fcoFieldName="Linux_SambaPrinterPrintingOptions.get_CupsOptions" description="" readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="cupsOptions" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="cupsOptions" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="DefaultDevMode" dataType="BOOLEAN" userDefined="false" uiType="CHECKBOX" fcoFieldName="Linux_SambaPrinterPrintingOptions.get_DefaultDevMode" description="" readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="defaultDevMode" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="defaultDevMode" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="MaxPrintjobs" dataType="UNSIGNED_INT64" userDefined="false" uiType="TEXTFIELD" fcoFieldName="Linux_SambaPrinterPrintingOptions.get_MaxPrintjobs" description="" readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="maxPrintjobs" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="maxPrintjobs" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="MaxReportedPrintjobs" dataType="UNSIGNED_INT64" userDefined="false" uiType="TEXTFIELD" fcoFieldName="Linux_SambaPrinterPrintingOptions.get_MaxReportedPrintjobs" description="" readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="maxReportedPrintjobs" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="maxReportedPrintjobs" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="PrintCommand" dataType="STRING" userDefined="false" uiType="TEXTFIELD" fcoFieldName="Linux_SambaPrinterPrintingOptions.get_PrintCommand" description="" readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="printCommand" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="printCommand" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="UseClientDriver" dataType="BOOLEAN" userDefined="false" uiType="CHECKBOX" fcoFieldName="Linux_SambaPrinterPrintingOptions.get_UseClientDriver" description="" readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="useClientDriver" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="useClientDriver" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 		</dcg:container>
 		<dcg:container name="PrinterAllowHostSecurityDataContainer" packageId="printerContainerPackage" implPackageId="printerContainerImpl" adapterId="sambaAdapter" description="Container for AllowHosts within a printer" canCreate="false" canModify="true" canDelete="false" isWizard="false" customLayouter="false">
@@ -598,29 +600,29 @@
 		<dcg:container name="UserInPrinterACLDataContainer" packageId="printerContainerPackage" implPackageId="printerContainerImpl" adapterId="sambaAdapter" description="" canCreate="false" canModify="true" canDelete="false" isWizard="false">
 			<dcg:fcoRelation fcoName="Linux_SambaUser" fcoPackageId="org.sblim.wbemsmt.samba.bl.fco" description=""/>
 			<dcg:field name="currentForceUser" dataType="STRING" userDefined="true" uiType="LABEL" fcoFieldName="userdefined" description="" readOnly="true">
-				<cmd:option long="currentForceUser" required="false" usedForSelection="false" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option long="currentForceUser" required="false" usedForSelection="false" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="newForceUser" dataType="UNSIGNED_INT16" userDefined="true" uiType="COMBOBOX" fcoFieldName="userdefined" description="" readOnly="false">
-				<cmd:option long="newForceUser" required="false" usedForSelection="false" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option long="newForceUser" required="false" usedForSelection="false" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:link linkedContainer="UserACLItemDataContainerForPrinter" linkedPackage="printerContainerPackage" occurrence="LIST" role="users" description=""/>
 		</dcg:container>
 		<dcg:container name="HostDataContainer" packageId="hostContainerPackage" implPackageId="hostContainerImpl" adapterId="sambaAdapter" canCreate="false" canDelete="true" canModify="true" isWizard="false" description="Container for a samba host" customLayouter="false">
 			<dcg:fcoRelation fcoName="Linux_SambaHost" fcoPackageId="org.sblim.wbemsmt.samba.bl.fco"/>
 			<dcg:field name="Name" dataType="STRING" userDefined="false" uiType="TEXTFIELD" fcoFieldName="Linux_SambaHost.get_Name" description="" readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="host" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="host" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 		</dcg:container>
 		<dcg:container name="UserDataContainer" packageId="userContainerPackage" implPackageId="userContainerImpl" adapterId="sambaAdapter" canCreate="false" canDelete="true" canModify="true" isWizard="false" description="Container for a user's data" customLayouter="false">
 			<dcg:fcoRelation fcoName="Linux_SambaUser" fcoPackageId="org.sblim.wbemsmt.samba.bl.fco"/>
 			<dcg:field name="SambaUserName" dataType="STRING" userDefined="false" uiType="LABEL" fcoFieldName="Linux_SambaUser.get_SambaUserName" description="" readOnly="true">
-				<cmd:option required="false" usedForSelection="true" long="sambaUserName" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="true" long="sambaUserName" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="SystemUserName" dataType="STRING" userDefined="false" uiType="LABEL" fcoFieldName="Linux_SambaUser.get_SystemUserName" description="" readOnly="true">
-				<cmd:option required="false" usedForSelection="false" long="systemUserName" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="systemUserName" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="isGuest" dataType="BOOLEAN" userDefined="true" uiType="CHECKBOX" fcoFieldName="userdefined" description="" readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="isGuest" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="isGuest" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 		</dcg:container>
 		<dcg:container name="PrinterInUserACLDataContainer" packageId="userContainerPackage" implPackageId="userContainerImpl" adapterId="sambaAdapter" description="Container for the printer-related acl within a user" canCreate="false" canModify="true" canDelete="false" isWizard="false" customLayouter="false">
@@ -631,76 +633,76 @@
 		</dcg:container>
 		<dcg:container name="PrinterWizardPage1" packageId="wizardContainerPackage" implPackageId="wizardContainerImpl" adapterId="sambaAdapter" description="" canCreate="false" canModify="false" canDelete="false" isWizard="true" customLayouter="true">
 			<dcg:field name="allOrOne" dataType="UNSIGNED_INT16" userDefined="true" uiType="RADIOBUTTON" fcoFieldName="userdefined" description="" readOnly="false">
-				<cmd:option required="true" usedForSelection="false" long="allOrOne" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="true" usedForSelection="false" long="allOrOne" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 		</dcg:container>
 		<dcg:container name="PrinterWizardPage2" packageId="wizardContainerPackage" implPackageId="wizardContainerImpl" adapterId="sambaAdapter" description="" canCreate="false" canModify="false" canDelete="false" isWizard="true">
 			<dcg:fcoRelation fcoName="Linux_SambaPrinterOptions" fcoPackageId="org.sblim.wbemsmt.samba.bl.fco"/>
 			<dcg:field name="SambaPrinterName" dataType="STRING" userDefined="false" uiType="TEXTFIELD" fcoFieldName="Linux_SambaPrinterOptions.get_Name" description="" readOnly="false" required="true">
-				<cmd:option required="true" usedForSelection="false" long="sambaPrinterName" comment="" defaultValue="noDefaultValue" duplicateOK="false"/>
+				<cmd:option required="true" usedForSelection="false" long="sambaPrinterName" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER" duplicateOK="false"/>
 			</dcg:field>
 			<dcg:field name="SystemPrinterName" dataType="UNSIGNED_INT16" userDefined="true" uiType="COMBOBOX" fcoFieldName="userdefined" description="maps to Linux_SambaPrinterOptions.get_SystemPrinterName" readOnly="false" required="true">
-				<cmd:option required="true" usedForSelection="false" long="systemPrintername" comment="" defaultValue="noDefaultValue" duplicateOK="false"/>
+				<cmd:option required="true" usedForSelection="false" long="systemPrintername" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER" duplicateOK="false"/>
 			</dcg:field>
 			<dcg:field name="Path" dataType="STRING" userDefined="false" uiType="TEXTFIELD" fcoFieldName="Linux_SambaPrinterOptions.get_Path" description="" readOnly="false" required="true">
-				<cmd:option required="true" usedForSelection="false" long="path" comment="" defaultValue="noDefaultValue" duplicateOK="false"/>
+				<cmd:option required="true" usedForSelection="false" long="path" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER" duplicateOK="false"/>
 			</dcg:field>
 			<dcg:field name="Comment" dataType="STRING" userDefined="false" uiType="TEXTFIELD" fcoFieldName="Linux_SambaPrinterOptions.get_Comment" description="" readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="comment" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="comment" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 		</dcg:container>
 		<dcg:container name="PrinterWizardPage3" packageId="wizardContainerPackage" implPackageId="wizardContainerImpl" adapterId="sambaAdapter" description="" canCreate="false" canModify="false" canDelete="false" isWizard="true">
 			<dcg:field name="seenByEverybody" dataType="BOOLEAN" userDefined="true" uiType="CHECKBOX" fcoFieldName="userdefined" description="" readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="seenByEverybody" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="seenByEverybody" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="enableGuest" dataType="BOOLEAN" userDefined="true" uiType="CHECKBOX" fcoFieldName="userdefined" description="" readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="enableGuest" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="enableGuest" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="enableAllUsers" dataType="BOOLEAN" userDefined="true" uiType="CHECKBOX_WITH_CLICKEVENT" fcoFieldName="userdefined" description="" readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="enableAllUsers" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="enableAllUsers" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="forceUser" dataType="UNSIGNED_INT16" userDefined="true" uiType="COMBOBOX" fcoFieldName="userdefined" description="" readOnly="false">
-				<cmd:option long="forceUser" required="false" usedForSelection="false" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option long="forceUser" required="false" usedForSelection="false" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:link linkedContainer="UserInPrinterWizardACLItemDataContainer" linkedPackage="wizardContainerPackage" occurrence="LIST" role="users" description=""/>
 		</dcg:container>
 		<dcg:container name="PrinterWizardPage4" packageId="wizardContainerPackage" implPackageId="wizardContainerImpl" adapterId="sambaAdapter" description="" canCreate="false" canModify="false" canDelete="false" isWizard="true">
 			<dcg:fcoRelation fcoName="Linux_SambaPrinterPrintingOptions" fcoPackageId="org.sblim.wbemsmt.samba.bl.fco"/>
 			<dcg:field name="CupsOptions" dataType="STRING" userDefined="false" uiType="TEXTFIELD" fcoFieldName="Linux_SambaPrinterPrintingOptions.get_CupsOptions" description="" readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="cupsOptions" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="cupsOptions" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="PrintCommand" dataType="STRING" userDefined="false" uiType="TEXTFIELD" fcoFieldName="Linux_SambaPrinterPrintingOptions.get_PrintCommand" description="" readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="printCommand" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="printCommand" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 		</dcg:container>
 		<dcg:container name="PrinterWizardPage5" packageId="wizardContainerPackage" implPackageId="wizardContainerImpl" adapterId="sambaAdapter" description="" canCreate="true" canModify="false" canDelete="false" isWizard="true">
 			<dcg:fcoRelation fcoName="Linux_SambaPrinterOptions" fcoPackageId="org.sblim.wbemsmt.samba.bl.fco" description=""/>
 			<dcg:field name="allOrOne" dataType="UNSIGNED_INT16" userDefined="true" uiType="RADIOBUTTON" fcoFieldName="userdefined" description="" readOnly="true">
-				<cmd:option required="true" usedForSelection="false" long="allOrOne" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="true" usedForSelection="false" long="allOrOne" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="SambaPrinterName" dataType="STRING" userDefined="false" uiType="LABEL" fcoFieldName="Linux_SambaPrinterOptions.get_Name" description="" readOnly="true" orientation="LEFT" required="false">
-				<cmd:option required="false" usedForSelection="false" long="sambaPrinterName" comment="" defaultValue="noDefaultValue" duplicateOK="false"/>
+				<cmd:option required="false" usedForSelection="false" long="sambaPrinterName" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER" duplicateOK="false"/>
 			</dcg:field>
 			<dcg:field name="SystemPrinterName" dataType="UNSIGNED_INT16" userDefined="true" uiType="COMBOBOX" fcoFieldName="userdefined" description="maps to Linux_SambaPrinterOptions.get_SystemPrinterName" readOnly="true">
-				<cmd:option required="false" usedForSelection="false" long="systemPrintername" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="systemPrintername" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="Path" dataType="STRING" userDefined="false" uiType="LABEL" fcoFieldName="Linux_SambaPrinterOptions.get_Path" description="" readOnly="true" orientation="LEFT" required="false">
-				<cmd:option required="false" usedForSelection="false" long="path" comment="" defaultValue="noDefaultValue" duplicateOK="false"/>
+				<cmd:option required="false" usedForSelection="false" long="path" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER" duplicateOK="false"/>
 			</dcg:field>
 			<dcg:field name="Comment" dataType="STRING" userDefined="false" uiType="LABEL" fcoFieldName="Linux_SambaPrinterOptions.get_Comment" description="" readOnly="true" orientation="LEFT" required="false">
-				<cmd:option required="false" usedForSelection="false" long="comment" comment="" defaultValue="noDefaultValue" duplicateOK="false"/>
+				<cmd:option required="false" usedForSelection="false" long="comment" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER" duplicateOK="false"/>
 			</dcg:field>
 			<dcg:field name="seenByEverybody" dataType="BOOLEAN" userDefined="true" uiType="CHECKBOX" fcoFieldName="userdefined" description="" readOnly="true">
-				<cmd:option required="false" usedForSelection="false" long="seenByEverybody" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="seenByEverybody" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="enableGuest" dataType="BOOLEAN" userDefined="true" uiType="CHECKBOX" fcoFieldName="userdefined" description="" readOnly="true">
-				<cmd:option required="false" usedForSelection="false" long="enableGuest" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="enableGuest" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="CupsOptions" dataType="STRING" userDefined="false" uiType="LABEL" fcoFieldName="Linux_SambaPrinterPrintingOptions.get_CupsOptions" description="" readOnly="true" orientation="LEFT" required="false">
-				<cmd:option required="false" usedForSelection="false" long="cupsOptions" comment="" defaultValue="noDefaultValue" duplicateOK="false"/>
+				<cmd:option required="false" usedForSelection="false" long="cupsOptions" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER" duplicateOK="false"/>
 			</dcg:field>
 			<dcg:field name="PrintCommand" dataType="STRING" userDefined="false" uiType="LABEL" fcoFieldName="Linux_SambaPrinterPrintingOptions.get_PrintCommand" description="" readOnly="true" orientation="LEFT" required="false">
-				<cmd:option required="false" usedForSelection="false" long="printCommand" comment="" defaultValue="noDefaultValue" duplicateOK="false"/>
+				<cmd:option required="false" usedForSelection="false" long="printCommand" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER" duplicateOK="false"/>
 			</dcg:field>
 			<dcg:field name="forceUser" dataType="STRING" userDefined="true" uiType="LABEL" fcoFieldName="userdefined" description="" readOnly="true" orientation="LEFT" required="false"/>
 			<dcg:link linkedContainer="UserInPrinterWizardACLItemDataContainer" linkedPackage="wizardContainerPackage" occurrence="LIST" role="users" description=""/>
@@ -708,37 +710,37 @@
 		<dcg:container name="UserWizardPage1" packageId="wizardContainerPackage" implPackageId="wizardContainerImpl" adapterId="sambaAdapter" description="" canCreate="false" canModify="false" canDelete="false" isWizard="true">
 			<dcg:fcoRelation fcoName="Linux_SambaUser" fcoPackageId="org.sblim.wbemsmt.samba.bl.fco"/>
 			<dcg:field name="SambaUserName" dataType="STRING" userDefined="false" uiType="TEXTFIELD" fcoFieldName="Linux_SambaUser.get_SambaUserName" description="" readOnly="false" required="true">
-				<cmd:option required="true" usedForSelection="false" long="username" comment="" defaultValue="noDefaultValue" duplicateOK="false"/>
+				<cmd:option required="true" usedForSelection="false" long="username" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER" duplicateOK="false"/>
 			</dcg:field>
 			<dcg:field name="SystemUserName" dataType="UNSIGNED_INT16" userDefined="false" uiType="LIST" fcoFieldName="Linux_SambaUser.get_SystemUserName" description="" readOnly="false" required="true" orientation="LEFT">
-				<cmd:option required="true" usedForSelection="false" long="systemUser" comment="" defaultValue="noDefaultValue" duplicateOK="true"/>
+				<cmd:option required="true" usedForSelection="false" long="systemUser" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER" duplicateOK="true"/>
 			</dcg:field>
 			<dcg:field name="SambaUserPassword" dataType="STRING" userDefined="false" uiType="PASSWORD" fcoFieldName="Linux_SambaUser.get_SambaUserPassword" description="" readOnly="false" required="true">
-				<cmd:option required="true" usedForSelection="false" long="userPassword" comment="" defaultValue="noDefaultValue" duplicateOK="false"/>
+				<cmd:option required="true" usedForSelection="false" long="userPassword" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER" duplicateOK="false"/>
 			</dcg:field>
 			<dcg:field name="SambaUserPassword2" dataType="STRING" userDefined="false" uiType="PASSWORD" fcoFieldName="Linux_SambaUser.get_SambaUserPassword" description="" readOnly="false" required="true">
-				<cmd:option required="true" usedForSelection="false" long="userPasswordVerify" comment="" defaultValue="noDefaultValue" duplicateOK="false"/>
+				<cmd:option required="true" usedForSelection="false" long="userPasswordVerify" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER" duplicateOK="false"/>
 			</dcg:field>
 			<dcg:field name="isGuest" dataType="BOOLEAN" userDefined="true" uiType="CHECKBOX" fcoFieldName="userdefined" description="" readOnly="false">
-				<cmd:option required="true" usedForSelection="false" long="isGuest" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="true" usedForSelection="false" long="isGuest" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 		</dcg:container>
 		<dcg:container implPackageId="wizardContainerImpl" name="UserWizardPage2" packageId="wizardContainerPackage" adapterId="sambaAdapter" description="" canCreate="false" canModify="false" canDelete="false" isWizard="true">
 			<dcg:field name="accessToAll" dataType="BOOLEAN" userDefined="true" uiType="CHECKBOX_WITH_CLICKEVENT" fcoFieldName="userdefined" description="" readOnly="false">
-				<cmd:option required="true" usedForSelection="false" long="accessToAll" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="true" usedForSelection="false" long="accessToAll" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:link linkedContainer="ShareInUserWizardACLItemDataContainer" linkedPackage="wizardContainerPackage" occurrence="LIST" role="shares" description=""/>
 			<dcg:link linkedContainer="PrinterInUserWizardACLItemDataContainer" linkedPackage="wizardContainerPackage" occurrence="LIST" role="printers" description=""/>
 		</dcg:container>
 		<dcg:container implPackageId="wizardContainerImpl" name="UserWizardPage3" packageId="wizardContainerPackage" adapterId="sambaAdapter" description="" canCreate="true" canModify="false" canDelete="false" isWizard="true">
 			<dcg:field name="SambaUserName" dataType="STRING" userDefined="false" uiType="LABEL" fcoFieldName="Linux_SambaUser.get_SambaUserName" description="" readOnly="true" orientation="LEFT" required="false">
-				<cmd:option required="false" usedForSelection="false" long="username" comment="" defaultValue="noDefaultValue" duplicateOK="false"/>
+				<cmd:option required="false" usedForSelection="false" long="username" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER" duplicateOK="false"/>
 			</dcg:field>
 			<dcg:field name="SystemUserName" dataType="STRING" userDefined="false" uiType="LABEL" fcoFieldName="Linux_SambaUser.get_SystemUserName" description="" readOnly="false" orientation="LEFT" required="false">
-				<cmd:option required="false" usedForSelection="false" long="systemUser" comment="" defaultValue="noDefaultValue" duplicateOK="true"/>
+				<cmd:option required="false" usedForSelection="false" long="systemUser" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER" duplicateOK="true"/>
 			</dcg:field>
 			<dcg:field name="isGuest" dataType="BOOLEAN" userDefined="true" uiType="CHECKBOX" fcoFieldName="userdefined" description="" readOnly="true">
-				<cmd:option required="false" usedForSelection="false" long="isGuest" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="isGuest" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:link linkedContainer="ShareInUserWizardACLItemDataContainer" linkedPackage="wizardContainerPackage" occurrence="LIST" role="shares" description=""/>
 			<dcg:link linkedContainer="PrinterInUserWizardACLItemDataContainer" linkedPackage="wizardContainerPackage" occurrence="LIST" role="printers" description=""/>
@@ -746,28 +748,28 @@
 		<dcg:container name="ShareWizardPage1" packageId="wizardContainerPackage" implPackageId="wizardContainerImpl" adapterId="sambaAdapter" description="" canCreate="false" canModify="false" canDelete="false" isWizard="true">
 			<dcg:fcoRelation fcoName="Linux_SambaShareOptions" fcoPackageId="org.sblim.wbemsmt.samba.bl.fco"/>
 			<dcg:field name="Name" dataType="STRING" userDefined="false" uiType="TEXTFIELD" fcoFieldName="Linux_SambaShareOptions.get_Name" description="" readOnly="false" required="true">
-				<cmd:option required="true" usedForSelection="false" long="sharename" comment="" defaultValue="noDefaultValue" duplicateOK="false"/>
+				<cmd:option required="true" usedForSelection="false" long="sharename" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER" duplicateOK="false"/>
 			</dcg:field>
 			<dcg:field name="Path" dataType="STRING" userDefined="false" uiType="TEXTFIELD" fcoFieldName="Linux_SambaShareOptions.get_Path" description="" readOnly="false" required="true">
-				<cmd:option required="true" usedForSelection="false" long="path" comment="" defaultValue="noDefaultValue" duplicateOK="false"/>
+				<cmd:option required="true" usedForSelection="false" long="path" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER" duplicateOK="false"/>
 			</dcg:field>
 			<dcg:field name="Comment" dataType="STRING" userDefined="false" uiType="TEXTFIELD" fcoFieldName="Linux_SambaShareOptions.get_Comment" description="" readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="comment" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="comment" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 		</dcg:container>
 		<dcg:container name="ShareWizardPage2" packageId="wizardContainerPackage" implPackageId="wizardContainerImpl" adapterId="sambaAdapter" description="" canCreate="false" canModify="false" canDelete="false" isWizard="true">
 			<dcg:fcoRelation fcoName="Linux_SambaShareOptions" fcoPackageId="org.sblim.wbemsmt.samba.bl.fco"/>
 			<dcg:field name="seenByEverybody" dataType="BOOLEAN" userDefined="true" uiType="CHECKBOX" fcoFieldName="userdefined" description="" readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="seenByEverybody" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="seenByEverybody" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="forceUser" dataType="UNSIGNED_INT16" userDefined="true" uiType="COMBOBOX" fcoFieldName="userdefined" description="" readOnly="false">
-				<cmd:option long="forceUser" required="false" usedForSelection="false" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option long="forceUser" required="false" usedForSelection="false" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="enableGuest" dataType="BOOLEAN" userDefined="true" uiType="CHECKBOX" fcoFieldName="userdefined" description="" readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="enableGuest" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="enableGuest" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="enableAllUsers" dataType="BOOLEAN" userDefined="true" uiType="CHECKBOX_WITH_CLICKEVENT" fcoFieldName="userdefined" description="" readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="enableAllUsers" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="enableAllUsers" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:link linkedContainer="UserInShareWizardACLItemDataContainer" linkedPackage="wizardContainerPackage" occurrence="LIST" role="users" description=""/>
 		</dcg:container>
@@ -818,31 +820,31 @@
 			<dcg:field name="Comment" dataType="STRING" userDefined="false" uiType="LABEL" fcoFieldName="Linux_SambaShareOptions.get_Comment" description="" readOnly="true" orientation="LEFT" required="false">
 			</dcg:field>
 			<dcg:field name="seenByEverybody" dataType="BOOLEAN" userDefined="true" uiType="CHECKBOX" fcoFieldName="userdefined" description="" readOnly="true">
-				<cmd:option required="false" usedForSelection="false" long="seenByEverybody" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="seenByEverybody" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="enableGuest" dataType="BOOLEAN" userDefined="true" uiType="CHECKBOX" fcoFieldName="userdefined" description="" readOnly="true">
-				<cmd:option required="false" usedForSelection="false" long="enableGuest" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="enableGuest" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="CreateMask" dataType="STRING" userDefined="false" uiType="LABEL" fcoFieldName="Linux_SambaShareSecurityOptions.get_CreateMask" description="the Default Create Mask" readOnly="true" orientation="LEFT" required="false">
-				<cmd:option required="false" usedForSelection="false" long="createMask" comment="the Default Create Mask" defaultValue="noDefaultValue" duplicateOK="false"/>
+				<cmd:option required="false" usedForSelection="false" long="createMask" comment="the Default Create Mask" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER" duplicateOK="false"/>
 			</dcg:field>
 			<dcg:field name="DirectoryMask" dataType="STRING" userDefined="false" uiType="LABEL" fcoFieldName="Linux_SambaShareSecurityOptions.get_DirectoryMask" description="The directory Mask" readOnly="true" orientation="LEFT" required="false">
-				<cmd:option required="false" usedForSelection="false" long="directoryMask" comment="The directory Mask" defaultValue="noDefaultValue" duplicateOK="false"/>
+				<cmd:option required="false" usedForSelection="false" long="directoryMask" comment="The directory Mask" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER" duplicateOK="false"/>
 			</dcg:field>
 			<dcg:field name="DirectorySecurityMask" dataType="STRING" userDefined="false" uiType="LABEL" fcoFieldName="Linux_SambaShareSecurityOptions.get_DirectorySecurityMask" description="" readOnly="true" orientation="LEFT" required="false">
-				<cmd:option required="false" usedForSelection="false" long="directorySecurityMask" comment="" defaultValue="noDefaultValue" duplicateOK="false"/>
+				<cmd:option required="false" usedForSelection="false" long="directorySecurityMask" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER" duplicateOK="false"/>
 			</dcg:field>
 			<dcg:field name="forceUser" dataType="STRING" userDefined="true" uiType="LABEL" fcoFieldName="userdefined" description="" readOnly="true" orientation="LEFT" required="false"/>
 			<dcg:link linkedContainer="UserInShareWizardACLItemDataContainer" linkedPackage="wizardContainerPackage" occurrence="LIST" role="users" description=""/>
 		</dcg:container>
 		<dcg:container name="HostWizardPage1" packageId="wizardContainerPackage" implPackageId="wizardContainerImpl" adapterId="sambaAdapter" description="" canCreate="false" canModify="false" canDelete="false" isWizard="true">
 			<dcg:field name="Name" dataType="STRING" userDefined="false" uiType="TEXTFIELD" fcoFieldName="Linux_SambaShareOptions.get_Name" description="" readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="name" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="name" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 		</dcg:container>
 		<dcg:container name="HostWizardPage2" packageId="wizardContainerPackage" implPackageId="wizardContainerImpl" adapterId="sambaAdapter" description="" canCreate="true" canModify="false" canDelete="false" isWizard="true">
 			<dcg:field name="Name" dataType="STRING" userDefined="false" uiType="LABEL" fcoFieldName="Linux_SambaShareOptions.get_Name" description="" readOnly="true" orientation="LEFT" required="false">
-				<cmd:option required="false" usedForSelection="false" long="name" comment="" defaultValue="noDefaultValue" duplicateOK="false"/>
+				<cmd:option required="false" usedForSelection="false" long="name" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER" duplicateOK="false"/>
 			</dcg:field>
 		</dcg:container>
 		<dcg:container implPackageId="wizardContainerImpl" name="PrinterInUserWizardACLItemDataContainer" packageId="wizardContainerPackage" adapterId="sambaAdapter" description="Defines a printer-related acl within the user wizard" canCreate="false" canModify="false" canDelete="false" isWizard="true" customLayouter="false">
@@ -859,22 +861,22 @@
 		</dcg:container>
 		<dcg:container implPackageId="wizardContainerImpl" name="ShareWizardPage3CMD" packageId="wizardContainerPackage" adapterId="sambaAdapter" description="page 3 of the share wizard for the CLI" canCreate="false" canModify="false" canDelete="false" isWizard="true" customLayouter="false">
 			<dcg:field name="CreateMask" dataType="UNSIGNED_INT16" userDefined="false" uiType="TEXTFIELD" fcoFieldName="Linux_SambaShareSecurityOptions.get_CreateMask" description="the Default Create Mask" readOnly="false">
-				<cmd:option required="true" usedForSelection="false" long="createMask" comment="the Default Create Mask" defaultValue="noDefaultValue"/>
+				<cmd:option required="true" usedForSelection="false" long="createMask" comment="the Default Create Mask" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="DirectoryMask" dataType="UNSIGNED_INT16" userDefined="false" uiType="TEXTFIELD" fcoFieldName="Linux_SambaShareSecurityOptions.get_DirectoryMask" description="The directory Mask" readOnly="false">
-				<cmd:option required="true" usedForSelection="false" long="directoryMask" comment="The directory Mask" defaultValue="noDefaultValue"/>
+				<cmd:option required="true" usedForSelection="false" long="directoryMask" comment="The directory Mask" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="DirectorySecurityMask" dataType="UNSIGNED_INT16" userDefined="false" uiType="TEXTFIELD" fcoFieldName="Linux_SambaShareSecurityOptions.get_DirectorySecurityMask" description="" readOnly="false">
-				<cmd:option required="true" usedForSelection="false" long="directorySecurityMask" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="true" usedForSelection="false" long="directorySecurityMask" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 		</dcg:container>
 		<dcg:container implPackageId="globalContainerImpl" name="UserIsAdminItem" packageId="globalContainerPackage" adapterId="sambaAdapter" description="Container for defining user as admin" canCreate="false" canModify="true" canDelete="false" isWizard="false" customLayouter="false">
 			<dcg:fcoRelation fcoName="Linux_SambaUser" fcoPackageId="org.sblim.wbemsmt.samba.bl.fco"/>
 			<dcg:field name="SambaUserName" dataType="STRING" userDefined="true" uiType="LABEL" fcoFieldName="Linux_SambaUser.get_SambaUserName" description="" readOnly="true">
-				<cmd:option required="true" usedForSelection="true" long="sambaUsername" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="true" usedForSelection="true" long="sambaUsername" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 			<dcg:field name="admin" dataType="BOOLEAN" userDefined="true" uiType="CHECKBOX" fcoFieldName="userdefined" description="relates to Linux_SambaAdminUsersForShare" readOnly="false">
-				<cmd:option required="false" usedForSelection="false" long="admin" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option required="false" usedForSelection="false" long="admin" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
 			</dcg:field>
 		</dcg:container>
 		<dcg:container implPackageId="globalContainerImpl" name="AdminUsersInPrinterGlobals" packageId="globalContainerPackage" adapterId="sambaAdapter" description="container for admin Users in global printer settings" canCreate="false" canModify="true" canDelete="false" isWizard="false" customLayouter="false">
@@ -950,6 +952,8 @@
 				<pl:swingPackage dir="../wbemsmt-samba/java/" id="swingWizards" name="org.sblim.wbemsmt.jswing.samba.wizard"/>
 				<pl:cmdPackage dir="../wbemsmt-samba/java" id="cmdWizards" name="org.sblim.wbemsmt.cli.samba.wizard"/>
 			</pl:wizardImplPackage>
+			<pl:commandsPackage id="commands" dir="../wbemsmt-samba/java/" name="org.sblim.wbemsmt.cli.samba"/>
+			<pl:usmiCommandsPackage id="usmiCommands" dir="../org.sblim.wbemsmt.samba.usmi/java/" name="org.sblim.wbemsmt.samba.usmi"/>
 		</pl:environment>
 		<pl:createAction id="createShare" traceContainerContainerId="ShareOptionsDataContainer" traceContainerPackageId="shareContainerPackage">
 			<pl:actionListener>
@@ -1052,7 +1056,7 @@
 			<pl:editPanel>
 				<pl:childEditPanel caption="editShareCmdPanel" linkedContainer="CMDShareFileAttributes" linkedPackage="shareContainerPackage">
 					<cmd:command commandName="EditSambaShareFileAttributes">
-						<cmd:option long="sambaSharename" required="true" usedForSelection="true" comment="" defaultValue="noDefaultValue"/>
+						<cmd:option long="sambaSharename" required="true" usedForSelection="true" comment="" defaultValue="noDefaultValue" scope="LOCAL_ACTION"/>
 					</cmd:command>
 				</pl:childEditPanel>
 			</pl:editPanel>
@@ -1123,7 +1127,7 @@
 					</pl:childEditPanel>
 					<pl:childEditPanel caption="editPrintingOptions" linkedContainer="PrintingOptionsDataContainer" linkedPackage="printerContainerPackage">
 						<cmd:command commandName="EditSambaPrintingOptions">
-							<cmd:option long="sambaPrintername" required="true" usedForSelection="true" comment="" defaultValue="noDefaultValue"/>
+							<cmd:option long="sambaPrintername" required="true" usedForSelection="true" comment="" defaultValue="noDefaultValue" scope="LOCAL_ACTION"/>
 						</cmd:command>
 					</pl:childEditPanel>
 				</pl:tab>
@@ -1161,12 +1165,12 @@
 			<pl:editPanel>
 				<pl:childEditPanel caption="editPanel3" linkedContainer="ShareACLItemDataContainer" linkedPackage="shareContainerPackage">
 					<cmd:command commandName="EditSambaShareAclOfUser">
-						<cmd:option required="true" usedForSelection="true" long="sambaUsername" comment="" defaultValue="noDefaultValue"/>
+						<cmd:option required="true" usedForSelection="true" long="sambaUsername" comment="" defaultValue="noDefaultValue" scope="LOCAL_ACTION"/>
 					</cmd:command>
 				</pl:childEditPanel>
 				<pl:childEditPanel caption="editPanel4" linkedContainer="PrinterACLItemDataContainer" linkedPackage="shareContainerPackage">
 					<cmd:command commandName="EditSambaPrinterAclOfUser">
-						<cmd:option required="true" usedForSelection="true" long="sambaUsername" comment="username to change acl of" defaultValue="noDefaultValue"/>
+						<cmd:option required="true" usedForSelection="true" long="sambaUsername" comment="username to change acl of" defaultValue="noDefaultValue" scope="LOCAL_ACTION"/>
 					</cmd:command>
 				</pl:childEditPanel>
 				<pl:childEditPanel caption="editPanel5" linkedContainer="UserACLItemDataContainerForService" linkedPackage="serviceContainerPackage">
@@ -1205,61 +1209,74 @@
 				<pl:actionListenerClassDefinition name="DeleteHostListener" packageId="implPackage1"/>
 			</pl:actionListener>
 			<cmd:command commandName="DeleteSambaHost">
-				<cmd:option long="sambaHostname" required="true" usedForSelection="true" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option long="sambaHostname" required="true" usedForSelection="true" comment="" defaultValue="noDefaultValue" scope="LOCAL_ACTION"/>
 			</cmd:command>
 		</pl:deleteAction>
 		<pl:listAction id="ListSambaShares" linkedContainer="ShareListDataContainer" linkedPackage="shareContainerPackage">
 			<pl:actionListener>
 				<pl:actionListenerClassDefinition name="Ignore" packageId="implPackage1"/>
 			</pl:actionListener>
-			<cmd:command commandName="ListSambaShares" listType="INSTANCE_WITH_CHILDS" traceOnlyChilds="true"/>
+			<cmd:command commandName="ListSambaShares" listType="INSTANCE_WITH_CHILDS" traceOnlyChilds="true">
+				<cmd:option long="list" required="false" usedForSelection="true" duplicateOK="false" comment="" scope="LOCAL_ACTION" defaultValue="INSTANCE_WITH_CHILDS"/>
+			</cmd:command>
 		</pl:listAction>
 		<pl:listAction id="ListSambaShareDetails" linkedContainer="ShareOptionsDataContainer" linkedPackage="shareContainerPackage">
 			<pl:actionListener>
 				<pl:actionListenerClassDefinition name="Ignore" packageId="implPackage1"/>
 			</pl:actionListener>
-			<cmd:command commandName="ListSambaShareDetails" listType="INSTANCE_WITH_CHILDS" traceOnlyChilds="false"/>
+			<cmd:command commandName="ListSambaShareDetails" listType="INSTANCE_WITH_CHILDS" traceOnlyChilds="false">
+				<cmd:option long="list" required="false" usedForSelection="true" duplicateOK="false" comment="" scope="LOCAL_ACTION" defaultValue="INSTANCE_WITH_CHILDS"/>
+			</cmd:command>
 		</pl:listAction>
 		<pl:listAction id="ListSambaShareFileAttributes" linkedContainer="CMDShareFileAttributes" linkedPackage="shareContainerPackage">
 			<pl:actionListener>
 				<pl:actionListenerClassDefinition name="Ignore" packageId="implPackage1"/>
 			</pl:actionListener>
 			<cmd:command commandName="ListSambaShareFileAttributes" listType="INSTANCE_WITH_CHILDS" traceOnlyChilds="false">
-				<cmd:option long="sharename" required="true" usedForSelection="true" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option long="sharename" required="true" usedForSelection="true" comment="" defaultValue="noDefaultValue" scope="LOCAL_ACTION"/>
+				<cmd:option long="list" required="false" usedForSelection="true" duplicateOK="false" comment="" scope="LOCAL_ACTION" defaultValue="INSTANCE_WITH_CHILDS"/>
 			</cmd:command>
 		</pl:listAction>
 		<pl:listAction id="ListSambaPrinters" linkedContainer="PrinterListDataContainer" linkedPackage="printerContainerPackage">
 			<pl:actionListener>
 				<pl:actionListenerClassDefinition name="Ignore" packageId="implPackage1"/>
 			</pl:actionListener>
-			<cmd:command commandName="ListSambaPrinters" listType="INSTANCE_WITH_CHILDS" traceOnlyChilds="true"/>
+			<cmd:command commandName="ListSambaPrinters" listType="INSTANCE_WITH_CHILDS" traceOnlyChilds="true">
+				<cmd:option long="list" required="false" usedForSelection="true" duplicateOK="false" comment="" scope="LOCAL_ACTION" defaultValue="INSTANCE_WITH_CHILDS"/>
+			</cmd:command>
 		</pl:listAction>
 		<pl:listAction id="ListSambaPrinterDetails" linkedContainer="PrinterOptionsDataContainer" linkedPackage="printerContainerPackage">
 			<pl:actionListener>
 				<pl:actionListenerClassDefinition name="Ignore" packageId="implPackage1"/>
 			</pl:actionListener>
-			<cmd:command commandName="ListSambaPrinterDetails" listType="INSTANCE_WITH_CHILDS" traceOnlyChilds="false"/>
+			<cmd:command commandName="ListSambaPrinterDetails" listType="INSTANCE_WITH_CHILDS" traceOnlyChilds="false">
+				<cmd:option long="list" required="false" usedForSelection="true" duplicateOK="false" comment="" scope="LOCAL_ACTION" defaultValue="INSTANCE_WITH_CHILDS"/>
+			</cmd:command>
 		</pl:listAction>
 		<pl:listAction id="ListSambaPrintingOptions" linkedContainer="PrintingOptionsDataContainer" linkedPackage="printerContainerPackage">
 			<pl:actionListener>
 				<pl:actionListenerClassDefinition name="Ignore" packageId="implPackage1"/>
 			</pl:actionListener>
 			<cmd:command commandName="ListSambaPrintingOptions" listType="INSTANCE_WITH_CHILDS" traceOnlyChilds="false">
-				<cmd:option long="sambaPrintername" required="true" usedForSelection="true" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option long="sambaPrintername" required="true" usedForSelection="true" comment="" defaultValue="noDefaultValue" scope="LOCAL_ACTION"/>
+				<cmd:option long="list" required="false" usedForSelection="true" duplicateOK="false" comment="" scope="LOCAL_ACTION" defaultValue="INSTANCE_WITH_CHILDS"/>
 			</cmd:command>
 		</pl:listAction>
 		<pl:listAction id="ListSambaUsers" linkedContainer="UserListDataContainer" linkedPackage="userContainerPackage">
 			<pl:actionListener>
 				<pl:actionListenerClassDefinition name="Ignore" packageId="implPackage1"/>
 			</pl:actionListener>
-			<cmd:command commandName="ListSambaUsers" listType="INSTANCE_WITH_CHILDS" traceOnlyChilds="true"/>
+			<cmd:command commandName="ListSambaUsers" listType="INSTANCE_WITH_CHILDS" traceOnlyChilds="true">
+				<cmd:option long="list" required="false" usedForSelection="true" duplicateOK="false" comment="" scope="LOCAL_ACTION" defaultValue="INSTANCE_WITH_CHILDS"/>
+			</cmd:command>
 		</pl:listAction>
 		<pl:listAction id="ListSambaPrinterAclOfUser" linkedContainer="PrinterACLItemDataContainer" linkedPackage="shareContainerPackage">
 			<pl:actionListener>
 				<pl:actionListenerClassDefinition name="Ignore" packageId="implPackage1"/>
 			</pl:actionListener>
 			<cmd:command commandName="ListSambaPrinterAclOfUser" listType="INSTANCE_WITH_CHILDS" traceOnlyChilds="false">
-				<cmd:option long="sambaUsername" required="true" usedForSelection="true" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option long="sambaUsername" required="true" usedForSelection="true" comment="" defaultValue="noDefaultValue" scope="LOCAL_ACTION"/>
+				<cmd:option long="list" required="false" usedForSelection="true" duplicateOK="false" comment="" scope="LOCAL_ACTION" defaultValue="INSTANCE_WITH_CHILDS"/>
 			</cmd:command>
 		</pl:listAction>
 		<pl:listAction id="ListSambaShareAclOfUser" linkedContainer="ShareACLItemDataContainer" linkedPackage="shareContainerPackage">
@@ -1267,18 +1284,103 @@
 				<pl:actionListenerClassDefinition name="Ignore" packageId="implPackage1"/>
 			</pl:actionListener>
 			<cmd:command commandName="ListSambaShareAclOfUser" listType="INSTANCE_WITH_CHILDS" traceOnlyChilds="false">
-				<cmd:option long="sambaUsername" required="true" usedForSelection="true" comment="" defaultValue="noDefaultValue"/>
+				<cmd:option long="sambaUsername" required="true" usedForSelection="true" comment="" defaultValue="noDefaultValue" scope="LOCAL_ACTION"/>
+				<cmd:option long="list" required="false" usedForSelection="true" duplicateOK="false" comment="" scope="LOCAL_ACTION" defaultValue="INSTANCE_WITH_CHILDS"/>
 			</cmd:command>
 		</pl:listAction>
-		<pl:listAction id="ListSambaServiceOptions" linkedContainer="ServiceOptionsDataContainer" linkedPackage="serviceContainerPackage"><pl:actionListener><pl:actionListenerClassDefinition name="Ignore" packageId="implPackage1"/></pl:actionListener><cmd:command commandName="ListSambaServiceOptions" listType="INSTANCE_WITH_CHILDS" traceOnlyChilds="false"/></pl:listAction><pl:listAction id="ListSambaGlobalSecurity" linkedContainer="ServiceGlobalSecurityOptionsDataContainer" linkedPackage="serviceContainerPackage"><pl:actionListener><pl:actionListenerClassDefinition name="ListActionListener" packageId="implPackage1"/></pl:actionListener><cmd:command commandName="ListSambaGlobalSecurity" listType="INSTANCE_WITH_CHILDS" traceOnlyChilds="false"/></pl:listAction><pl:listAction id="ListSambaServiceUserSecurity" linkedContainer="ServiceUserSecurityOptionsDataContainer" linkedPackage="serviceContainerPackage"><pl:actionListener><pl:actionListenerClassDefinition name="Ignore" packageId="implPackage1"/></pl:actionListener><cmd:command commandName="ListSambaServiceUserSecurity" listType="INSTANCE_WITH_CHILDS" traceOnlyChilds="false"/></pl:listAction><pl:listAction id="ListSambaService" linkedContainer="ServiceOperationsDataContainer" linkedPackage="serviceContainerPackage"><pl:actionListener><pl:actionListenerClassDefinition name="Ignore" packageId="implPackage1"/></pl:actionListener><cmd:command commandName="ListSambaService" listType="INSTANCE_WITH_CHILDS" traceOnlyChilds="false"/></pl:listAction><pl:listAction id="ListSambaPrinterGlobals" linkedContainer="PrintingGlobalsDataContainer" linkedPackage="globalContainerPackage"><pl:actionListener><pl:actionListenerClassDefinition name="Ignore" packageId="implPackage1"/></pl:actionListener><cmd:command commandName="ListSambaPrinterGlobals" listType="INSTANCE_WITH_CHILDS" traceOnlyChilds="false"/></pl:listAction><pl:listAction id="ListSambaShareGlobals" linkedContainer="CMDShareGlobalsDataContainer" linkedPackage="globalContainerPackage"><pl:actionListener><pl:actionListenerClassDefinition name="ListActionListener" packageId="implPackage1"/></pl:actionListener><cmd:command commandName="ListSambaShareGlobals" listType="" traceOnlyChilds="false"/></pl:listAction><pl:listAction id="ListSambaUserAclInService" linkedContainer="UserACLItemDataContainerForService" linkedPackage="serviceContainerPackage"><pl:actionListener><pl:actionListenerClassDefinition name="Ignore" packageId="implPackage1"/></pl:actionListener><cmd:command commandName="ListSambaUserAclInService" listType="INSTANCE_WITH_CHILDS" traceOnlyChilds="false"/></pl:listAction><pl:listAction id="ListSambaGlobalPrinterAdmin" linkedContainer="AdminUsersInPrinterGlobals" linkedPackage="globalContainerPackage"><pl:actionListener><pl:actionListenerClassDefinition name="Ignore" packageId="implPackage1"/></pl:actionListener><cmd:command commandName="ListSambaGlobalPrinterAdmin" listType="INSTANCE_WITH_CHILDS" traceOnlyChilds="false"/></pl:listAction><pl:listAction id="ListSambaGlobalShareAdmin" linkedContainer="AdminUsersInShareGlobals" linkedPackage="globalContainerPackage"><pl:actionListener><pl:actionListenerClassDefinition name="Ignore" packageId="implPackage1"/></pl:actionListener><cmd:command commandName="ListSambaGlobalShareAdmin" listType="INSTANCE_WITH_CHILDS" traceOnlyChilds="false"/></pl:listAction><cmd:commands packageId="implPackage1">
-			<cmd:option long="hostname" required="true" global="true" usedForSelection="false" duplicateOK="false" comment="" defaultValue="noDefaultValue"/>
-			<cmd:option long="port" required="false" global="true" usedForSelection="false" duplicateOK="false" defaultValue="5988" comment=""/>
-			<cmd:option long="namespace" required="false" global="true" usedForSelection="false" duplicateOK="false" defaultValue="/root/cimv2" comment=""/>
-			<cmd:option long="user" required="true" global="true" usedForSelection="false" duplicateOK="false" defaultValue="noDefaultValue" comment=""/>
-			<cmd:option long="password" required="true" global="true" usedForSelection="false" duplicateOK="false" defaultValue="noDefaultValue" comment=""/>
-			<cmd:option long="publickeyfile" required="false" global="true" usedForSelection="false" duplicateOK="false" defaultValue="none" comment=""/>
-			<cmd:option long="privatekeyfile" required="false" global="true" usedForSelection="false" duplicateOK="false" defaultValue="none" comment=""/>
-			<cmd:option long="serviceName" required="true" global="true" usedForSelection="true" comment="" defaultValue="noDefaultValue"/>
+		<pl:listAction id="ListSambaServiceOptions" linkedContainer="ServiceOptionsDataContainer" linkedPackage="serviceContainerPackage">
+			<pl:actionListener>
+				<pl:actionListenerClassDefinition name="Ignore" packageId="implPackage1"/>
+			</pl:actionListener>
+			<cmd:command commandName="ListSambaServiceOptions" listType="INSTANCE_WITH_CHILDS" traceOnlyChilds="false">
+				<cmd:option long="list" required="false" usedForSelection="true" duplicateOK="false" comment="" scope="LOCAL_ACTION" defaultValue="INSTANCE_WITH_CHILDS"/>
+			</cmd:command>
+		</pl:listAction>
+		<pl:listAction id="ListSambaGlobalSecurity" linkedContainer="ServiceGlobalSecurityOptionsDataContainer" linkedPackage="serviceContainerPackage">
+			<pl:actionListener>
+				<pl:actionListenerClassDefinition name="ListActionListener" packageId="implPackage1"/>
+			</pl:actionListener>
+			<cmd:command commandName="ListSambaGlobalSecurity" listType="INSTANCE_WITH_CHILDS" traceOnlyChilds="false">
+				<cmd:option long="list" required="false" usedForSelection="true" duplicateOK="false" comment="" scope="LOCAL_ACTION" defaultValue="INSTANCE_WITH_CHILDS"/>
+			</cmd:command>
+		</pl:listAction>
+		<pl:listAction id="ListSambaServiceUserSecurity" linkedContainer="ServiceUserSecurityOptionsDataContainer" linkedPackage="serviceContainerPackage">
+			<pl:actionListener>
+				<pl:actionListenerClassDefinition name="Ignore" packageId="implPackage1"/>
+			</pl:actionListener>
+			<cmd:command commandName="ListSambaServiceUserSecurity" listType="INSTANCE_WITH_CHILDS" traceOnlyChilds="false">
+				<cmd:option long="list" required="false" usedForSelection="true" duplicateOK="false" comment="" scope="LOCAL_ACTION" defaultValue="INSTANCE_WITH_CHILDS"/>
+			</cmd:command>
+		</pl:listAction>
+		<pl:listAction id="ListSambaService" linkedContainer="ServiceOperationsDataContainer" linkedPackage="serviceContainerPackage">
+			<pl:actionListener>
+				<pl:actionListenerClassDefinition name="Ignore" packageId="implPackage1"/>
+			</pl:actionListener>
+			<cmd:command commandName="ListSambaService" listType="INSTANCE_WITH_CHILDS" traceOnlyChilds="false">
+				<cmd:option long="list" required="false" usedForSelection="true" duplicateOK="false" comment="" scope="LOCAL_ACTION" defaultValue="INSTANCE_WITH_CHILDS"/>
+			</cmd:command>
+		</pl:listAction>
+		<pl:listAction id="ListSambaPrinterGlobals" linkedContainer="PrintingGlobalsDataContainer" linkedPackage="globalContainerPackage">
+			<pl:actionListener>
+				<pl:actionListenerClassDefinition name="Ignore" packageId="implPackage1"/>
+			</pl:actionListener>
+			<cmd:command commandName="ListSambaPrinterGlobals" listType="INSTANCE_WITH_CHILDS" traceOnlyChilds="false">
+				<cmd:option long="list" required="false" usedForSelection="true" duplicateOK="false" comment="" scope="LOCAL_ACTION" defaultValue="INSTANCE_WITH_CHILDS"/>
+			</cmd:command>
+		</pl:listAction>
+		<pl:listAction id="ListSambaShareGlobals" linkedContainer="CMDShareGlobalsDataContainer" linkedPackage="globalContainerPackage">
+			<pl:actionListener>
+				<pl:actionListenerClassDefinition name="ListActionListener" packageId="implPackage1"/>
+			</pl:actionListener>
+			<cmd:command commandName="ListSambaShareGlobals" listType="" traceOnlyChilds="false">
+				<cmd:option long="list" required="false" usedForSelection="true" duplicateOK="false" comment="" scope="LOCAL_ACTION" defaultValue="INSTANCE_WITH_CHILDS"/>
+			</cmd:command>
+		</pl:listAction>
+		<pl:listAction id="ListSambaUserAclInService" linkedContainer="UserACLItemDataContainerForService" linkedPackage="serviceContainerPackage">
+			<pl:actionListener>
+				<pl:actionListenerClassDefinition name="Ignore" packageId="implPackage1"/>
+			</pl:actionListener>
+			<cmd:command commandName="ListSambaUserAclInService" listType="INSTANCE_WITH_CHILDS" traceOnlyChilds="false">
+				<cmd:option long="list" required="false" usedForSelection="true" duplicateOK="false" comment="" scope="LOCAL_ACTION" defaultValue="INSTANCE_WITH_CHILDS"/>
+			</cmd:command>
+		</pl:listAction>
+		<pl:listAction id="ListSambaGlobalPrinterAdmin" linkedContainer="AdminUsersInPrinterGlobals" linkedPackage="globalContainerPackage">
+			<pl:actionListener>
+				<pl:actionListenerClassDefinition name="Ignore" packageId="implPackage1"/>
+			</pl:actionListener>
+			<cmd:command commandName="ListSambaGlobalPrinterAdmin" listType="INSTANCE_WITH_CHILDS" traceOnlyChilds="false">
+				<cmd:option long="list" required="false" usedForSelection="true" duplicateOK="false" comment="" scope="LOCAL_ACTION" defaultValue="INSTANCE_WITH_CHILDS"/>
+			</cmd:command>
+		</pl:listAction>
+		<pl:listAction id="ListSambaGlobalShareAdmin" linkedContainer="AdminUsersInShareGlobals" linkedPackage="globalContainerPackage">
+			<pl:actionListener>
+				<pl:actionListenerClassDefinition name="Ignore" packageId="implPackage1"/>
+			</pl:actionListener>
+			<cmd:command commandName="ListSambaGlobalShareAdmin" listType="INSTANCE_WITH_CHILDS" traceOnlyChilds="false">
+				<cmd:option long="list" required="false" usedForSelection="true" duplicateOK="false" comment="" scope="LOCAL_ACTION" defaultValue="INSTANCE_WITH_CHILDS"/>
+			</cmd:command>
+		</pl:listAction>
+		<cmd:commands>
+			<cmd:option long="serviceName" required="true" usedForSelection="true" comment="" defaultValue="noDefaultValue" scope="GLOBAL_TASK"/>
+			<cmd:option long="hostname" required="false" usedForSelection="false" duplicateOK="false" comment="" scope="GLOBAL_WBEMSMT_COMMUNICATION"/>
+			<cmd:option long="port" required="false" usedForSelection="false" duplicateOK="false" defaultValue="5988" comment="" scope="GLOBAL_WBEMSMT_COMMUNICATION"/>
+			<cmd:option long="namespace" required="false" usedForSelection="false" duplicateOK="false" defaultValue="/root/cimv2" comment="" scope="GLOBAL_WBEMSMT_COMMUNICATION"/>
+			<cmd:option long="user" required="false" usedForSelection="false" duplicateOK="false" comment="" scope="GLOBAL_WBEMSMT_COMMUNICATION"/>
+			<cmd:option long="password" required="false" usedForSelection="false" duplicateOK="false" comment="" scope="GLOBAL_WBEMSMT_COMMUNICATION"/>
+			<cmd:option long="publickeyfile" required="false" usedForSelection="false" duplicateOK="false" comment="" scope="GLOBAL_WBEMSMT_COMMUNICATION"/>
+			<cmd:option long="privatekeyfile" required="false" usedForSelection="false" duplicateOK="false" comment="" scope="GLOBAL_WBEMSMT_COMMUNICATION"/>
+			<cmd:option long="locale" required="false" usedForSelection="false" duplicateOK="false" short="L" comment="" defaultValue="en" scope="GLOBAL_WBEMSMT_COMMON"/>
+			<cmd:option required="false" usedForSelection="false" duplicateOK="false" short="h" comment="" scope="GLOBAL_WBEMSMT_COMMON" hasArgument="false"/>
+			<cmd:option required="false" usedForSelection="false" duplicateOK="false" short="?" comment="" scope="GLOBAL_WBEMSMT_COMMON" hasArgument="false"/>
+			<cmd:option long="help" required="false" usedForSelection="false" duplicateOK="false" short="h" comment="" scope="GLOBAL_WBEMSMT_COMMON" hasArgument="false"/>
+			<cmd:option long="type" required="false" usedForSelection="false" duplicateOK="false" short="t" comment="" scope="GLOBAL_USMI"/>
+			<cmd:option long="names" required="false" usedForSelection="false" duplicateOK="false" short="n" comment="" scope="GLOBAL_USMI"/>
+			<cmd:option long="groups" required="false" usedForSelection="false" duplicateOK="false" short="N" comment="" scope="GLOBAL_USMI"/>
+			<cmd:option long="ipaddress" required="false" usedForSelection="false" duplicateOK="false" short="i" comment="" scope="GLOBAL_USMI"/>
+			<cmd:option long="tasks" required="false" usedForSelection="false" duplicateOK="false" short="T" comment="" scope="GLOBAL_USMI"/>
+			<cmd:option long="where" required="false" usedForSelection="false" duplicateOK="false" short="w" comment="" scope="GLOBAL_USMI"/>
+			<cmd:option long="file" required="false" usedForSelection="false" duplicateOK="false" short="f" comment="" scope="GLOBAL_USMI"/>
+			<cmd:option long="format" required="false" usedForSelection="false" duplicateOK="false" short="F" comment="" scope="GLOBAL_USMI"/>
 		</cmd:commands>
 	</pl:presentationLayer>
 </cli:clientConfig>

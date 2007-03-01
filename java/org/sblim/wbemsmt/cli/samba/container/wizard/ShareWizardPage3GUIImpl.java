@@ -27,11 +27,6 @@ package org.sblim.wbemsmt.cli.samba.container.wizard;
 import java.util.*;
 
 import org.sblim.wbemsmt.bl.adapter.*;
-//import org.sblim.wbemsmt.tools.converter.*;
-//import org.sblim.wbemsmt.tools.converter.test.*;
-//import org.sblim.wbemsmt.tools.input.*;
-//import org.sblim.wbemsmt.tools.input.test.*;
-import org.sblim.wbemsmt.tools.resources.*;
 import org.sblim.wbemsmt.exception.*;
 
 
@@ -41,8 +36,6 @@ import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
 
 public class ShareWizardPage3GUIImpl extends BaseDataContainer implements org.sblim.wbemsmt.samba.bl.container.wizard.ShareWizardPage3GUI {
-
-	protected static WbemSmtResourceBundle bundle = ResourceBundleManager.getResourceBundle(new String[]{"messages","messagesSamba"},Locale.getDefault());
 
 			private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_usr_Create_u;
     		private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_usr_Create_g;
@@ -98,7 +91,7 @@ public class ShareWizardPage3GUIImpl extends BaseDataContainer implements org.sb
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_Create_u() {
     		if (ic_usr_Create_u == null)
     		{
-				String label = bundle.getString("ShareWizardPage3GUI.create_u");
+				String label = getAdapter().getBundle().getString("ShareWizardPage3GUI.create_u");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
     			ic_usr_Create_u = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -114,7 +107,7 @@ public class ShareWizardPage3GUIImpl extends BaseDataContainer implements org.sb
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_Create_g() {
     		if (ic_usr_Create_g == null)
     		{
-				String label = bundle.getString("ShareWizardPage3GUI.create_g");
+				String label = getAdapter().getBundle().getString("ShareWizardPage3GUI.create_g");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
     			ic_usr_Create_g = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -130,7 +123,7 @@ public class ShareWizardPage3GUIImpl extends BaseDataContainer implements org.sb
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_Create_s() {
     		if (ic_usr_Create_s == null)
     		{
-				String label = bundle.getString("ShareWizardPage3GUI.create_s");
+				String label = getAdapter().getBundle().getString("ShareWizardPage3GUI.create_s");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
     			ic_usr_Create_s = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -146,7 +139,7 @@ public class ShareWizardPage3GUIImpl extends BaseDataContainer implements org.sb
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_Create_user_r() {
     		if (ic_usr_Create_user_r == null)
     		{
-				String label = bundle.getString("ShareWizardPage3GUI.create_user_r");
+				String label = getAdapter().getBundle().getString("ShareWizardPage3GUI.create_user_r");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
     			ic_usr_Create_user_r = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -162,7 +155,7 @@ public class ShareWizardPage3GUIImpl extends BaseDataContainer implements org.sb
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_Create_user_w() {
     		if (ic_usr_Create_user_w == null)
     		{
-				String label = bundle.getString("ShareWizardPage3GUI.create_user_w");
+				String label = getAdapter().getBundle().getString("ShareWizardPage3GUI.create_user_w");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
     			ic_usr_Create_user_w = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -178,7 +171,7 @@ public class ShareWizardPage3GUIImpl extends BaseDataContainer implements org.sb
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_Create_user_x() {
     		if (ic_usr_Create_user_x == null)
     		{
-				String label = bundle.getString("ShareWizardPage3GUI.create_user_x");
+				String label = getAdapter().getBundle().getString("ShareWizardPage3GUI.create_user_x");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
     			ic_usr_Create_user_x = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -194,7 +187,7 @@ public class ShareWizardPage3GUIImpl extends BaseDataContainer implements org.sb
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_Create_group_r() {
     		if (ic_usr_Create_group_r == null)
     		{
-				String label = bundle.getString("ShareWizardPage3GUI.create_group_r");
+				String label = getAdapter().getBundle().getString("ShareWizardPage3GUI.create_group_r");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
     			ic_usr_Create_group_r = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -210,7 +203,7 @@ public class ShareWizardPage3GUIImpl extends BaseDataContainer implements org.sb
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_Create_group_w() {
     		if (ic_usr_Create_group_w == null)
     		{
-				String label = bundle.getString("ShareWizardPage3GUI.create_group_w");
+				String label = getAdapter().getBundle().getString("ShareWizardPage3GUI.create_group_w");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
     			ic_usr_Create_group_w = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -226,7 +219,7 @@ public class ShareWizardPage3GUIImpl extends BaseDataContainer implements org.sb
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_Create_group_x() {
     		if (ic_usr_Create_group_x == null)
     		{
-				String label = bundle.getString("ShareWizardPage3GUI.create_group_x");
+				String label = getAdapter().getBundle().getString("ShareWizardPage3GUI.create_group_x");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
     			ic_usr_Create_group_x = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -242,7 +235,7 @@ public class ShareWizardPage3GUIImpl extends BaseDataContainer implements org.sb
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_Create_other_r() {
     		if (ic_usr_Create_other_r == null)
     		{
-				String label = bundle.getString("ShareWizardPage3GUI.create_other_r");
+				String label = getAdapter().getBundle().getString("ShareWizardPage3GUI.create_other_r");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
     			ic_usr_Create_other_r = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -258,7 +251,7 @@ public class ShareWizardPage3GUIImpl extends BaseDataContainer implements org.sb
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_Create_other_w() {
     		if (ic_usr_Create_other_w == null)
     		{
-				String label = bundle.getString("ShareWizardPage3GUI.create_other_w");
+				String label = getAdapter().getBundle().getString("ShareWizardPage3GUI.create_other_w");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
     			ic_usr_Create_other_w = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -274,7 +267,7 @@ public class ShareWizardPage3GUIImpl extends BaseDataContainer implements org.sb
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_Create_other_x() {
     		if (ic_usr_Create_other_x == null)
     		{
-				String label = bundle.getString("ShareWizardPage3GUI.create_other_x");
+				String label = getAdapter().getBundle().getString("ShareWizardPage3GUI.create_other_x");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
     			ic_usr_Create_other_x = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -290,7 +283,7 @@ public class ShareWizardPage3GUIImpl extends BaseDataContainer implements org.sb
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_Directory_u() {
     		if (ic_usr_Directory_u == null)
     		{
-				String label = bundle.getString("ShareWizardPage3GUI.directory_u");
+				String label = getAdapter().getBundle().getString("ShareWizardPage3GUI.directory_u");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
     			ic_usr_Directory_u = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -306,7 +299,7 @@ public class ShareWizardPage3GUIImpl extends BaseDataContainer implements org.sb
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_Directory_g() {
     		if (ic_usr_Directory_g == null)
     		{
-				String label = bundle.getString("ShareWizardPage3GUI.directory_g");
+				String label = getAdapter().getBundle().getString("ShareWizardPage3GUI.directory_g");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
     			ic_usr_Directory_g = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -322,7 +315,7 @@ public class ShareWizardPage3GUIImpl extends BaseDataContainer implements org.sb
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_Directory_s() {
     		if (ic_usr_Directory_s == null)
     		{
-				String label = bundle.getString("ShareWizardPage3GUI.directory_s");
+				String label = getAdapter().getBundle().getString("ShareWizardPage3GUI.directory_s");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
     			ic_usr_Directory_s = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -338,7 +331,7 @@ public class ShareWizardPage3GUIImpl extends BaseDataContainer implements org.sb
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_Directory_user_r() {
     		if (ic_usr_Directory_user_r == null)
     		{
-				String label = bundle.getString("ShareWizardPage3GUI.directory_user_r");
+				String label = getAdapter().getBundle().getString("ShareWizardPage3GUI.directory_user_r");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
     			ic_usr_Directory_user_r = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -354,7 +347,7 @@ public class ShareWizardPage3GUIImpl extends BaseDataContainer implements org.sb
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_Directory_user_w() {
     		if (ic_usr_Directory_user_w == null)
     		{
-				String label = bundle.getString("ShareWizardPage3GUI.directory_user_w");
+				String label = getAdapter().getBundle().getString("ShareWizardPage3GUI.directory_user_w");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
     			ic_usr_Directory_user_w = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -370,7 +363,7 @@ public class ShareWizardPage3GUIImpl extends BaseDataContainer implements org.sb
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_Directory_user_x() {
     		if (ic_usr_Directory_user_x == null)
     		{
-				String label = bundle.getString("ShareWizardPage3GUI.directory_user_x");
+				String label = getAdapter().getBundle().getString("ShareWizardPage3GUI.directory_user_x");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
     			ic_usr_Directory_user_x = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -386,7 +379,7 @@ public class ShareWizardPage3GUIImpl extends BaseDataContainer implements org.sb
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_Directory_group_r() {
     		if (ic_usr_Directory_group_r == null)
     		{
-				String label = bundle.getString("ShareWizardPage3GUI.directory_group_r");
+				String label = getAdapter().getBundle().getString("ShareWizardPage3GUI.directory_group_r");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
     			ic_usr_Directory_group_r = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -402,7 +395,7 @@ public class ShareWizardPage3GUIImpl extends BaseDataContainer implements org.sb
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_Directory_group_w() {
     		if (ic_usr_Directory_group_w == null)
     		{
-				String label = bundle.getString("ShareWizardPage3GUI.directory_group_w");
+				String label = getAdapter().getBundle().getString("ShareWizardPage3GUI.directory_group_w");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
     			ic_usr_Directory_group_w = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -418,7 +411,7 @@ public class ShareWizardPage3GUIImpl extends BaseDataContainer implements org.sb
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_Directory_group_x() {
     		if (ic_usr_Directory_group_x == null)
     		{
-				String label = bundle.getString("ShareWizardPage3GUI.directory_group_x");
+				String label = getAdapter().getBundle().getString("ShareWizardPage3GUI.directory_group_x");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
     			ic_usr_Directory_group_x = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -434,7 +427,7 @@ public class ShareWizardPage3GUIImpl extends BaseDataContainer implements org.sb
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_Directory_other_r() {
     		if (ic_usr_Directory_other_r == null)
     		{
-				String label = bundle.getString("ShareWizardPage3GUI.directory_other_r");
+				String label = getAdapter().getBundle().getString("ShareWizardPage3GUI.directory_other_r");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
     			ic_usr_Directory_other_r = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -450,7 +443,7 @@ public class ShareWizardPage3GUIImpl extends BaseDataContainer implements org.sb
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_Directory_other_w() {
     		if (ic_usr_Directory_other_w == null)
     		{
-				String label = bundle.getString("ShareWizardPage3GUI.directory_other_w");
+				String label = getAdapter().getBundle().getString("ShareWizardPage3GUI.directory_other_w");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
     			ic_usr_Directory_other_w = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -466,7 +459,7 @@ public class ShareWizardPage3GUIImpl extends BaseDataContainer implements org.sb
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_Directory_other_x() {
     		if (ic_usr_Directory_other_x == null)
     		{
-				String label = bundle.getString("ShareWizardPage3GUI.directory_other_x");
+				String label = getAdapter().getBundle().getString("ShareWizardPage3GUI.directory_other_x");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
     			ic_usr_Directory_other_x = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -482,7 +475,7 @@ public class ShareWizardPage3GUIImpl extends BaseDataContainer implements org.sb
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_Directory_security_u() {
     		if (ic_usr_Directory_security_u == null)
     		{
-				String label = bundle.getString("ShareWizardPage3GUI.directory_security_u");
+				String label = getAdapter().getBundle().getString("ShareWizardPage3GUI.directory_security_u");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
     			ic_usr_Directory_security_u = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -498,7 +491,7 @@ public class ShareWizardPage3GUIImpl extends BaseDataContainer implements org.sb
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_Directory_security_g() {
     		if (ic_usr_Directory_security_g == null)
     		{
-				String label = bundle.getString("ShareWizardPage3GUI.directory_security_g");
+				String label = getAdapter().getBundle().getString("ShareWizardPage3GUI.directory_security_g");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
     			ic_usr_Directory_security_g = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -514,7 +507,7 @@ public class ShareWizardPage3GUIImpl extends BaseDataContainer implements org.sb
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_Directory_security_s() {
     		if (ic_usr_Directory_security_s == null)
     		{
-				String label = bundle.getString("ShareWizardPage3GUI.directory_security_s");
+				String label = getAdapter().getBundle().getString("ShareWizardPage3GUI.directory_security_s");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
     			ic_usr_Directory_security_s = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -530,7 +523,7 @@ public class ShareWizardPage3GUIImpl extends BaseDataContainer implements org.sb
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_Directory_security_user_r() {
     		if (ic_usr_Directory_security_user_r == null)
     		{
-				String label = bundle.getString("ShareWizardPage3GUI.directory_security_user_r");
+				String label = getAdapter().getBundle().getString("ShareWizardPage3GUI.directory_security_user_r");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
     			ic_usr_Directory_security_user_r = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -546,7 +539,7 @@ public class ShareWizardPage3GUIImpl extends BaseDataContainer implements org.sb
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_Directory_security_user_w() {
     		if (ic_usr_Directory_security_user_w == null)
     		{
-				String label = bundle.getString("ShareWizardPage3GUI.directory_security_user_w");
+				String label = getAdapter().getBundle().getString("ShareWizardPage3GUI.directory_security_user_w");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
     			ic_usr_Directory_security_user_w = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -562,7 +555,7 @@ public class ShareWizardPage3GUIImpl extends BaseDataContainer implements org.sb
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_Directory_security_user_x() {
     		if (ic_usr_Directory_security_user_x == null)
     		{
-				String label = bundle.getString("ShareWizardPage3GUI.directory_security_user_x");
+				String label = getAdapter().getBundle().getString("ShareWizardPage3GUI.directory_security_user_x");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
     			ic_usr_Directory_security_user_x = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -578,7 +571,7 @@ public class ShareWizardPage3GUIImpl extends BaseDataContainer implements org.sb
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_Directory_security_group_r() {
     		if (ic_usr_Directory_security_group_r == null)
     		{
-				String label = bundle.getString("ShareWizardPage3GUI.directory_security_group_r");
+				String label = getAdapter().getBundle().getString("ShareWizardPage3GUI.directory_security_group_r");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
     			ic_usr_Directory_security_group_r = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -594,7 +587,7 @@ public class ShareWizardPage3GUIImpl extends BaseDataContainer implements org.sb
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_Directory_security_group_w() {
     		if (ic_usr_Directory_security_group_w == null)
     		{
-				String label = bundle.getString("ShareWizardPage3GUI.directory_security_group_w");
+				String label = getAdapter().getBundle().getString("ShareWizardPage3GUI.directory_security_group_w");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
     			ic_usr_Directory_security_group_w = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -610,7 +603,7 @@ public class ShareWizardPage3GUIImpl extends BaseDataContainer implements org.sb
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_Directory_security_group_x() {
     		if (ic_usr_Directory_security_group_x == null)
     		{
-				String label = bundle.getString("ShareWizardPage3GUI.directory_security_group_x");
+				String label = getAdapter().getBundle().getString("ShareWizardPage3GUI.directory_security_group_x");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
     			ic_usr_Directory_security_group_x = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -626,7 +619,7 @@ public class ShareWizardPage3GUIImpl extends BaseDataContainer implements org.sb
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_Directory_security_other_r() {
     		if (ic_usr_Directory_security_other_r == null)
     		{
-				String label = bundle.getString("ShareWizardPage3GUI.directory_security_other_r");
+				String label = getAdapter().getBundle().getString("ShareWizardPage3GUI.directory_security_other_r");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
     			ic_usr_Directory_security_other_r = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -642,7 +635,7 @@ public class ShareWizardPage3GUIImpl extends BaseDataContainer implements org.sb
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_Directory_security_other_w() {
     		if (ic_usr_Directory_security_other_w == null)
     		{
-				String label = bundle.getString("ShareWizardPage3GUI.directory_security_other_w");
+				String label = getAdapter().getBundle().getString("ShareWizardPage3GUI.directory_security_other_w");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
     			ic_usr_Directory_security_other_w = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -658,7 +651,7 @@ public class ShareWizardPage3GUIImpl extends BaseDataContainer implements org.sb
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_Directory_security_other_x() {
     		if (ic_usr_Directory_security_other_x == null)
     		{
-				String label = bundle.getString("ShareWizardPage3GUI.directory_security_other_x");
+				String label = getAdapter().getBundle().getString("ShareWizardPage3GUI.directory_security_other_x");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
     			ic_usr_Directory_security_other_x = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -667,11 +660,11 @@ public class ShareWizardPage3GUIImpl extends BaseDataContainer implements org.sb
 		
 	
 		
-	public void trace(java.io.PrintStream printStream, String listOptions, boolean title)
+	public void trace(java.io.PrintWriter 	printStream, String listOptions, boolean title)
 	{
 		if (title)
 		{
-			printStream.println(bundle.getString("ShareWizardPage3GUI.caption"));
+			printStream.println(getAdapter().getBundle().getString("ShareWizardPage3GUI.caption"));
 		}
 		
 		if (showKey(listOptions))
@@ -870,7 +863,7 @@ public class ShareWizardPage3GUIImpl extends BaseDataContainer implements org.sb
 		}
 	}
 	
-	public void traceChilds(java.io.PrintStream printStream, String listOptions, boolean title)
+	public void traceChilds(java.io.PrintWriter printStream, String listOptions, boolean title)
 	{
     			
 			

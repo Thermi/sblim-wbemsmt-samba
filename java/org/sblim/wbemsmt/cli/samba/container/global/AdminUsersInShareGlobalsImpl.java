@@ -27,11 +27,6 @@ package org.sblim.wbemsmt.cli.samba.container.global;
 import java.util.*;
 
 import org.sblim.wbemsmt.bl.adapter.*;
-//import org.sblim.wbemsmt.tools.converter.*;
-//import org.sblim.wbemsmt.tools.converter.test.*;
-//import org.sblim.wbemsmt.tools.input.*;
-//import org.sblim.wbemsmt.tools.input.test.*;
-import org.sblim.wbemsmt.tools.resources.*;
 import org.sblim.wbemsmt.exception.*;
 
 
@@ -41,8 +36,6 @@ import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
 
 public class AdminUsersInShareGlobalsImpl extends BaseDataContainer implements org.sblim.wbemsmt.samba.bl.container.global.AdminUsersInShareGlobals {
-
-	protected static WbemSmtResourceBundle bundle = ResourceBundleManager.getResourceBundle(new String[]{"messages","messagesSamba"},Locale.getDefault());
 
 			private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_usr_SambaUserName;
     		private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_usr_Admin;
@@ -64,7 +57,7 @@ public class AdminUsersInShareGlobalsImpl extends BaseDataContainer implements o
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_SambaUserName() {
     		if (ic_usr_SambaUserName == null)
     		{
-				String label = bundle.getString("AdminUsersInShareGlobals.SambaUserName");
+				String label = getAdapter().getBundle().getString("AdminUsersInShareGlobals.SambaUserName");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
     			ic_usr_SambaUserName = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -80,7 +73,7 @@ public class AdminUsersInShareGlobalsImpl extends BaseDataContainer implements o
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_Admin() {
     		if (ic_usr_Admin == null)
     		{
-				String label = bundle.getString("AdminUsersInShareGlobals.admin");
+				String label = getAdapter().getBundle().getString("AdminUsersInShareGlobals.admin");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
     			ic_usr_Admin = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -89,11 +82,11 @@ public class AdminUsersInShareGlobalsImpl extends BaseDataContainer implements o
 		
 	
 		
-	public void trace(java.io.PrintStream printStream, String listOptions, boolean title)
+	public void trace(java.io.PrintWriter 	printStream, String listOptions, boolean title)
 	{
 		if (title)
 		{
-			printStream.println(bundle.getString("AdminUsersInShareGlobals.caption"));
+			printStream.println(getAdapter().getBundle().getString("AdminUsersInShareGlobals.caption"));
 		}
 		
 		if (showKey(listOptions))
@@ -122,7 +115,7 @@ public class AdminUsersInShareGlobalsImpl extends BaseDataContainer implements o
 		}
 	}
 	
-	public void traceChilds(java.io.PrintStream printStream, String listOptions, boolean title)
+	public void traceChilds(java.io.PrintWriter printStream, String listOptions, boolean title)
 	{
     			
 			

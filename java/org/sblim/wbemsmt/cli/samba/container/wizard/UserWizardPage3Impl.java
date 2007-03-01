@@ -27,11 +27,6 @@ package org.sblim.wbemsmt.cli.samba.container.wizard;
 import java.util.*;
 
 import org.sblim.wbemsmt.bl.adapter.*;
-//import org.sblim.wbemsmt.tools.converter.*;
-//import org.sblim.wbemsmt.tools.converter.test.*;
-//import org.sblim.wbemsmt.tools.input.*;
-//import org.sblim.wbemsmt.tools.input.test.*;
-import org.sblim.wbemsmt.tools.resources.*;
 import org.sblim.wbemsmt.exception.*;
 
 
@@ -41,8 +36,6 @@ import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
 
 public class UserWizardPage3Impl extends BaseDataContainer implements org.sblim.wbemsmt.samba.bl.container.wizard.UserWizardPage3 {
-
-	protected static WbemSmtResourceBundle bundle = ResourceBundleManager.getResourceBundle(new String[]{"messages","messagesSamba"},Locale.getDefault());
 
 			private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_SambaUserName;
     		private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_SystemUserName;
@@ -67,7 +60,7 @@ public class UserWizardPage3Impl extends BaseDataContainer implements org.sblim.
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_SambaUserName() {
     		if (ic_SambaUserName == null)
     		{
-				String label = bundle.getString("UserWizardPage3.SambaUserName");
+				String label = getAdapter().getBundle().getString("UserWizardPage3.SambaUserName");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
     			ic_SambaUserName = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -83,7 +76,7 @@ public class UserWizardPage3Impl extends BaseDataContainer implements org.sblim.
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_SystemUserName() {
     		if (ic_SystemUserName == null)
     		{
-				String label = bundle.getString("UserWizardPage3.SystemUserName");
+				String label = getAdapter().getBundle().getString("UserWizardPage3.SystemUserName");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
     			ic_SystemUserName = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -99,7 +92,7 @@ public class UserWizardPage3Impl extends BaseDataContainer implements org.sblim.
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_IsGuest() {
     		if (ic_usr_IsGuest == null)
     		{
-				String label = bundle.getString("UserWizardPage3.isGuest");
+				String label = getAdapter().getBundle().getString("UserWizardPage3.isGuest");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
     			ic_usr_IsGuest = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -128,11 +121,11 @@ public class UserWizardPage3Impl extends BaseDataContainer implements org.sblim.
 
 	
 		
-	public void trace(java.io.PrintStream printStream, String listOptions, boolean title)
+	public void trace(java.io.PrintWriter 	printStream, String listOptions, boolean title)
 	{
 		if (title)
 		{
-			printStream.println(bundle.getString("UserWizardPage3.caption"));
+			printStream.println(getAdapter().getBundle().getString("UserWizardPage3.caption"));
 		}
 		
 		if (showKey(listOptions))
@@ -166,24 +159,24 @@ public class UserWizardPage3Impl extends BaseDataContainer implements org.sblim.
 		}
 	}
 	
-	public void traceChilds(java.io.PrintStream printStream, String listOptions, boolean title)
+	public void traceChilds(java.io.PrintWriter printStream, String listOptions, boolean title)
 	{
     		        		printStream.println();
-        		printStream.println(bundle.getString("UserWizardPage3.role.shares"));
+        		printStream.println(getAdapter().getBundle().getString("UserWizardPage3.role.shares"));
         		List listshares = getShares();
         		for (int i = 0; i < listshares.size(); i++) {
         			BaseDataContainer child = (BaseDataContainer)listshares.get(i);
         			printStream.println();
-        			printStream.println(bundle.getString("item") + ": " + (i+1) + " " + bundle.getString("of") + " " + listshares.size());
+        			printStream.println(getAdapter().getBundle().getString("item") + ": " + (i+1) + " " + getAdapter().getBundle().getString("of") + " " + listshares.size());
         			child.trace(printStream,listOptions,false);
         		}
     		        		printStream.println();
-        		printStream.println(bundle.getString("UserWizardPage3.role.printers"));
+        		printStream.println(getAdapter().getBundle().getString("UserWizardPage3.role.printers"));
         		List listprinters = getPrinters();
         		for (int i = 0; i < listprinters.size(); i++) {
         			BaseDataContainer child = (BaseDataContainer)listprinters.get(i);
         			printStream.println();
-        			printStream.println(bundle.getString("item") + ": " + (i+1) + " " + bundle.getString("of") + " " + listprinters.size());
+        			printStream.println(getAdapter().getBundle().getString("item") + ": " + (i+1) + " " + getAdapter().getBundle().getString("of") + " " + listprinters.size());
         			child.trace(printStream,listOptions,false);
         		}
     			

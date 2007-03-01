@@ -57,21 +57,18 @@ public class DuplicateSambaServiceValidator extends Validator {
 		Share share = sambaCimAdapter.getSelectedService().getShares().getShareByName(name);
 		if (share != null)
 		{
-			String msg = adapter.getBundle().getString(SambaErrCodes.MSG_SHARE_EXISTS, "validator.shareExists",new Object[]{shareOrPrinterName.getLabelText(), name});
-			result.addMessage(new Message(SambaErrCodes.MSG_SHARE_EXISTS,Message.ERROR,msg,shareOrPrinterName));
+			result.addMessage(Message.create(SambaErrCodes.MSG_SHARE_EXISTS,Message.ERROR,adapter.getBundle(),"validator.shareExists",new Object[]{shareOrPrinterName.getLabelText(), name}));
 		}
 		
 		Printer printer = sambaCimAdapter.getSelectedService().getPrinters().getPrinterByName(name);
 		if (printer != null)
 		{
-			String msg = adapter.getBundle().getString(SambaErrCodes.MSG_PRINTER_EXISTS, "validator.printerExists",new Object[]{shareOrPrinterName.getLabelText(), name});
-			result.addMessage(new Message(SambaErrCodes.MSG_PRINTER_EXISTS,Message.ERROR,msg,shareOrPrinterName));
+			result.addMessage(Message.create(SambaErrCodes.MSG_PRINTER_EXISTS,Message.ERROR,adapter.getBundle(),"validator.printerExists",new Object[]{shareOrPrinterName.getLabelText(), name}));
 		}
 		
 		if (name.equalsIgnoreCase("global"))
 		{
-			String msg = adapter.getBundle().getString(SambaErrCodes.MSG_GLOBAL_EXISTS,"validator.globalExists", new Object[]{shareOrPrinterName.getLabelText()});
-			result.addMessage(new Message(SambaErrCodes.MSG_PRINTER_EXISTS,Message.ERROR,msg,shareOrPrinterName));
+			result.addMessage(Message.create(SambaErrCodes.MSG_PRINTER_EXISTS,Message.ERROR,adapter.getBundle(),"validator.globalExists", new Object[]{shareOrPrinterName.getLabelText()}));
 		}
 
 	}

@@ -33,72 +33,110 @@ import org.sblim.wbemsmt.tools.cli.*;
 
 public class EditSambaPrintingOptions extends CimCommand {
 
-			/**
-		 * 
-		 */
-		public static final OptionDefinition KEY_GLOBAL_hostname = new OptionDefinition("hostname",null,"EditSambaPrintingOptions.hostname.argValue",true,false,"EditSambaPrintingOptions.hostname.argDescription");
-			/**
-		 * 
-		 */
-		public static final OptionDefinition KEY_GLOBAL_port = new OptionDefinition("port","5988","EditSambaPrintingOptions.port.argValue",false,false,"EditSambaPrintingOptions.port.argDescription");
-			/**
-		 * 
-		 */
-		public static final OptionDefinition KEY_GLOBAL_namespace = new OptionDefinition("namespace","/root/cimv2","EditSambaPrintingOptions.namespace.argValue",false,false,"EditSambaPrintingOptions.namespace.argDescription");
-			/**
-		 * 
-		 */
-		public static final OptionDefinition KEY_GLOBAL_user = new OptionDefinition("user",null,"EditSambaPrintingOptions.user.argValue",true,false,"EditSambaPrintingOptions.user.argDescription");
-			/**
-		 * 
-		 */
-		public static final OptionDefinition KEY_GLOBAL_password = new OptionDefinition("password",null,"EditSambaPrintingOptions.password.argValue",true,false,"EditSambaPrintingOptions.password.argDescription");
-			/**
-		 * 
-		 */
-		public static final OptionDefinition KEY_GLOBAL_publickeyfile = new OptionDefinition("publickeyfile","none","EditSambaPrintingOptions.publickeyfile.argValue",false,false,"EditSambaPrintingOptions.publickeyfile.argDescription");
-			/**
-		 * 
-		 */
-		public static final OptionDefinition KEY_GLOBAL_privatekeyfile = new OptionDefinition("privatekeyfile","none","EditSambaPrintingOptions.privatekeyfile.argValue",false,false,"EditSambaPrintingOptions.privatekeyfile.argDescription");
-			/**
-		 * 
-		 */
-		public static final OptionDefinition KEY_GLOBAL_serviceName = new OptionDefinition("serviceName",null,"EditSambaPrintingOptions.serviceName.argValue",true,false,"EditSambaPrintingOptions.serviceName.argDescription");
-			/**
-		 * 
-		 */
-		public static final OptionDefinition KEY_sambaPrintername = new OptionDefinition("sambaPrintername",null,"EditSambaPrintingOptions.sambaPrintername.argValue",true,false,"EditSambaPrintingOptions.sambaPrintername.argDescription");
 	
+ 
+ 
+	//All Options that are local and defined for this command
 			/**
 		 * 
 		 */
-		public static final OptionDefinition KEY_cupsOptions = new OptionDefinition("cupsOptions",null,"PrintingOptionsDataContainer.CupsOptions.argValue",false,false,"PrintingOptionsDataContainer.CupsOptions.argDescription");
+		public static final OptionDefinition KEY_sambaPrintername = new OptionDefinition(null,"sambaPrintername","noDefaultValue","EditSambaPrintingOptions.sambaPrintername.argValue",true,false,"EditSambaPrintingOptions.sambaPrintername.argDescription");
 			/**
 		 * 
 		 */
-		public static final OptionDefinition KEY_defaultDevMode = new OptionDefinition("defaultDevMode",null,"PrintingOptionsDataContainer.DefaultDevMode.argValue",false,false,"PrintingOptionsDataContainer.DefaultDevMode.argDescription");
+		public static final OptionDefinition KEY_cupsOptions = new OptionDefinition(null,"cupsOptions","noDefaultValue","PrintingOptionsDataContainer.CupsOptions.argValue",false,false,"PrintingOptionsDataContainer.CupsOptions.argDescription");
 			/**
 		 * 
 		 */
-		public static final OptionDefinition KEY_maxPrintjobs = new OptionDefinition("maxPrintjobs",null,"PrintingOptionsDataContainer.MaxPrintjobs.argValue",false,false,"PrintingOptionsDataContainer.MaxPrintjobs.argDescription");
+		public static final OptionDefinition KEY_defaultDevMode = new OptionDefinition(null,"defaultDevMode","noDefaultValue","PrintingOptionsDataContainer.DefaultDevMode.argValue",false,false,"PrintingOptionsDataContainer.DefaultDevMode.argDescription");
 			/**
 		 * 
 		 */
-		public static final OptionDefinition KEY_maxReportedPrintjobs = new OptionDefinition("maxReportedPrintjobs",null,"PrintingOptionsDataContainer.MaxReportedPrintjobs.argValue",false,false,"PrintingOptionsDataContainer.MaxReportedPrintjobs.argDescription");
+		public static final OptionDefinition KEY_maxPrintjobs = new OptionDefinition(null,"maxPrintjobs","noDefaultValue","PrintingOptionsDataContainer.MaxPrintjobs.argValue",false,false,"PrintingOptionsDataContainer.MaxPrintjobs.argDescription");
 			/**
 		 * 
 		 */
-		public static final OptionDefinition KEY_printCommand = new OptionDefinition("printCommand",null,"PrintingOptionsDataContainer.PrintCommand.argValue",false,false,"PrintingOptionsDataContainer.PrintCommand.argDescription");
+		public static final OptionDefinition KEY_maxReportedPrintjobs = new OptionDefinition(null,"maxReportedPrintjobs","noDefaultValue","PrintingOptionsDataContainer.MaxReportedPrintjobs.argValue",false,false,"PrintingOptionsDataContainer.MaxReportedPrintjobs.argDescription");
 			/**
 		 * 
 		 */
-		public static final OptionDefinition KEY_useClientDriver = new OptionDefinition("useClientDriver",null,"PrintingOptionsDataContainer.UseClientDriver.argValue",false,false,"PrintingOptionsDataContainer.UseClientDriver.argDescription");
+		public static final OptionDefinition KEY_printCommand = new OptionDefinition(null,"printCommand","noDefaultValue","PrintingOptionsDataContainer.PrintCommand.argValue",false,false,"PrintingOptionsDataContainer.PrintCommand.argDescription");
+			/**
+		 * 
+		 */
+		public static final OptionDefinition KEY_useClientDriver = new OptionDefinition(null,"useClientDriver","noDefaultValue","PrintingOptionsDataContainer.UseClientDriver.argValue",false,false,"PrintingOptionsDataContainer.UseClientDriver.argDescription");
 		
-public static final OptionDefinition KEY_locale = new OptionDefinition("locale","en","locale",false,false,"locale");	
+	//All Options that are global and task-related
+			/**
+		 * 
+		 */
+		public static final OptionDefinition KEY_GLOBAL_serviceName = new OptionDefinition(null,"serviceName","noDefaultValue","serviceName.argValue",true,false,"serviceName.argDescription");
+	
+	// Global Communication Options
+			/**
+		 * 
+		 */
+		public static final OptionDefinition KEY_GLOBAL_hostname = new OptionDefinition(null,"hostname",null,"hostname.argValue",false,false,"hostname.argDescription");
+			/**
+		 * 
+		 */
+		public static final OptionDefinition KEY_GLOBAL_port = new OptionDefinition(null,"port","5988","port.argValue",false,false,"port.argDescription");
+			/**
+		 * 
+		 */
+		public static final OptionDefinition KEY_GLOBAL_namespace = new OptionDefinition(null,"namespace","/root/cimv2","namespace.argValue",false,false,"namespace.argDescription");
+			/**
+		 * 
+		 */
+		public static final OptionDefinition KEY_GLOBAL_user = new OptionDefinition(null,"user",null,"user.argValue",false,false,"user.argDescription");
+			/**
+		 * 
+		 */
+		public static final OptionDefinition KEY_GLOBAL_password = new OptionDefinition(null,"password",null,"password.argValue",false,false,"password.argDescription");
+			/**
+		 * 
+		 */
+		public static final OptionDefinition KEY_GLOBAL_publickeyfile = new OptionDefinition(null,"publickeyfile",null,"publickeyfile.argValue",false,false,"publickeyfile.argDescription");
+			/**
+		 * 
+		 */
+		public static final OptionDefinition KEY_GLOBAL_privatekeyfile = new OptionDefinition(null,"privatekeyfile",null,"privatekeyfile.argValue",false,false,"privatekeyfile.argDescription");
+	
+	// Global Common Options
+			/**
+		 * 
+		 */
+		public static final OptionDefinition KEY_GLOBAL_locale = new OptionDefinition("L","locale","en","locale.argValue",false,false,"locale.argDescription");
+			/**
+		 * 
+		 */
+		public static final OptionDefinition KEY_GLOBAL_h = new OptionDefinition("h",null,null,null,false,false,"h.argDescription");
+			/**
+		 * 
+		 */
+		public static final OptionDefinition KEY_GLOBAL_QUESTION_MARK_ = new OptionDefinition("?",null,null,null,false,false,"?.argDescription");
+			/**
+		 * 
+		 */
+		public static final OptionDefinition KEY_GLOBAL_help = new OptionDefinition("h","help",null,null,false,false,"help.argDescription");
+	
+	private static final OptionDefinition[] LOCAL_OPTIONS = new OptionDefinition []
+	{
+    	    	KEY_sambaPrintername,
+    	    	KEY_cupsOptions,
+    	    	KEY_defaultDevMode,
+    	    	KEY_maxPrintjobs,
+    	    	KEY_maxReportedPrintjobs,
+    	    	KEY_printCommand,
+    	    	KEY_useClientDriver,
+    		};
 
+	private static final OptionDefinition[] GLOBAL_TASK_OPTIONS = new OptionDefinition []
+	{
+    	    	KEY_GLOBAL_serviceName,
+    		};
 
-	private static final OptionDefinition[] OPTIONS = new OptionDefinition []
+	private static final OptionDefinition[] GLOBAL_WBEMSMT_COMMUNICATION_OPTIONS = new OptionDefinition []
 	{
     	    	KEY_GLOBAL_hostname,
     	    	KEY_GLOBAL_port,
@@ -107,16 +145,15 @@ public static final OptionDefinition KEY_locale = new OptionDefinition("locale",
     	    	KEY_GLOBAL_password,
     	    	KEY_GLOBAL_publickeyfile,
     	    	KEY_GLOBAL_privatekeyfile,
-    	    	KEY_GLOBAL_serviceName,
-    	    	KEY_sambaPrintername,
-    	    	    	KEY_cupsOptions,
-    	    	KEY_defaultDevMode,
-    	    	KEY_maxPrintjobs,
-    	    	KEY_maxReportedPrintjobs,
-    	    	KEY_printCommand,
-    	    	KEY_useClientDriver,
-    			KEY_locale,
-	};
+    		};
+
+	private static final OptionDefinition[] GLOBAL_WBEMSMT_COMMON_OPTIONS = new OptionDefinition []
+	{
+    	    	KEY_GLOBAL_locale,
+    	    	KEY_GLOBAL_h,
+    	    	KEY_GLOBAL_QUESTION_MARK_,
+    	    	KEY_GLOBAL_help,
+    		};
 
 		
  
@@ -129,44 +166,50 @@ public static final OptionDefinition KEY_locale = new OptionDefinition("locale",
 		super("EditSambaPrintingOptions", new String[]{"messages","messagesSamba"},locale);
 	}
 	
-	public void execute(String[] args) throws WbemSmtException {
-		
-	    Options options = createOptions(OPTIONS, bundle);
-
-		if (args.length == 1 && (args[0].equalsIgnoreCase("--help") || args[0].equalsIgnoreCase("-h") ))
-		{
-			showUsage(options);
-			return;
-		}
+	public void execute(CimCommandValues values) throws WbemSmtException {
 		
 		//do the real processing
-		System.out.println("\n" + bundle.getString("editing",new Object[]{bundle.getString("PrintingOptionsDataContainer.caption")}));
 		try {
 			
  
+			commandValues = values;
+			cmd = values.getCommandLine();
+
+			Options options = values.getOptions();
 			
-			CommandLineParser parser = new GnuParser();
+			//first handle the help options and then the parseException
+			//if the user wants help parsing the args will fail (due to missing required args)
+			//and so the helpOptions should be handled first
 			
-			//check if the password is the only argument that is missing and query the user if thats the case
-			args = super.checkPassword(parser,options,args,KEY_GLOBAL_hostname,KEY_GLOBAL_user,KEY_GLOBAL_password);
-			
-			cmd = parser.parse( options, args);
+    		if (   hasOption(values.getArgs(), "-" + KEY_GLOBAL_QUESTION_MARK_.getShortKey())
+			    || hasOption(values.getArgs(), "-" + KEY_GLOBAL_h.getShortKey()) )
+    		{
+    			showUsage(values.getOut(), options);
+    			return;
+    		}			
+    		else if ( hasOption(values.getArgs(), "--" + KEY_GLOBAL_help.getLongKey()) )
+    		{
+				//TODO add extendedHelp by loading a manpage or sth else
+    			showUsage(values.getOut(), options);
+    			return;
+    		}			
+
+			else if (values.getParseException() != null)
+			{
+				handleParseException(values,KEY_GLOBAL_password);
+				return;
+			}
 			adapter = 
 					(org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter)CimAdapterFactory.getInstance()
 					.getAdapter(org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter.class,this);
 			adapter.setBundle(bundle);
-			adapter.setCimClient(getCimClient(cmd, 
-				KEY_GLOBAL_hostname,
-				KEY_GLOBAL_port,
-				KEY_GLOBAL_namespace,
-				KEY_GLOBAL_user,
-				KEY_GLOBAL_password,
-				KEY_GLOBAL_publickeyfile,
-				KEY_GLOBAL_privatekeyfile));
+			adapter.setCimClient(values.getCimClient());
 				
 			adapter.loadInitial(adapter.getCimClient());
 			
-			CliDataLoader loader = new EditSambaPrintingOptionsLoader();
+			values.getOut().println("\n" + bundle.getString("editing",new Object[]{bundle.getString("PrintingOptionsDataContainer.caption")}));
+
+        	CliDataLoader loader = new EditSambaPrintingOptionsLoader();
 			loader.load(bundle,adapter, cmd);
 			
 			org.sblim.wbemsmt.cli.samba.container.printer.PrintingOptionsDataContainerImpl dc = new org.sblim.wbemsmt.cli.samba.container.printer.PrintingOptionsDataContainerImpl(adapter);
@@ -177,8 +220,8 @@ public static final OptionDefinition KEY_locale = new OptionDefinition("locale",
 			adapter.updateControls(dc);
 			adapter.setActiveModule(AbstractBaseCimAdapter.ACTIVE_EDIT);
 			
-			System.out.println("\n" + bundle.getString("before.edit"));
-			dc.trace(System.out);
+			values.getOut().println("\n" + bundle.getString("before.edit"));
+			dc.trace(values.getOut());
 
 			setValues(cmd,adapter,dc);
 			
@@ -221,17 +264,17 @@ public static final OptionDefinition KEY_locale = new OptionDefinition("locale",
 					traceErrors("validation.error",result);
 					return;
 			}
-			System.out.println("\n" + bundle.getString("edited", new Object[]{bundle.getString("PrintingOptionsDataContainer.caption")}));
+			values.getOut().println("\n" + bundle.getString("edited", new Object[]{bundle.getString("PrintingOptionsDataContainer.caption")}));
 
 			adapter.updateControls(dc);
 
-			System.out.println("\n" + bundle.getString("after.edit"));
-			dc.trace(System.out);
+			values.getOut().println("\n" + bundle.getString("after.edit"));
+			dc.trace(values.getOut());
 		
 		}
 		catch (Exception e)
 		{
-			super.handleException(e,args,options,KEY_GLOBAL_password);
+			super.handleException(e,values.getArgs(),values.getOptions(),KEY_GLOBAL_password);
 		}
 	}
 	
@@ -239,19 +282,60 @@ public static final OptionDefinition KEY_locale = new OptionDefinition("locale",
 	 * Set all Values that are needed for selecting the right objects. This fields are used even if they are read-only
 	 **/
 	private void setKeyValues(CommandLine cmd,AbstractBaseCimAdapter adapter, org.sblim.wbemsmt.samba.bl.container.printer.PrintingOptionsDataContainer dc) throws WbemSmtException {
-    	    				    				    				    				    				    					}	
+    		}	
 	
 	/**
 	 * Set all Values that are not read-Only
 	 **/
 	private void setValues(CommandLine cmd,AbstractBaseCimAdapter adapter, org.sblim.wbemsmt.samba.bl.container.printer.PrintingOptionsDataContainer dc) throws WbemSmtException {
-    										setValue(cmd,dc.get_CupsOptions(),KEY_cupsOptions);
-																									setCheckboxValue(cmd,dc.get_DefaultDevMode(),KEY_defaultDevMode);
-																			setValue(cmd,dc.get_MaxPrintjobs(),KEY_maxPrintjobs);
-																						setValue(cmd,dc.get_MaxReportedPrintjobs(),KEY_maxReportedPrintjobs);
-																						setValue(cmd,dc.get_PrintCommand(),KEY_printCommand);
-																									setCheckboxValue(cmd,dc.get_UseClientDriver(),KEY_useClientDriver);
-												
+    			
 		//The Buttons
-    																																																								}	
+    		}	
+	
+	
+ 
+			
+	protected LoginOptionValues getLoginOptions() {
+		return new LoginOptionValues(KEY_GLOBAL_hostname,KEY_GLOBAL_user,KEY_GLOBAL_password);
+	}
+
+	protected CimClientOptionValues getCimClientOptions() {
+		
+		return new CimClientOptionValues(KEY_GLOBAL_hostname,
+				KEY_GLOBAL_port,
+				KEY_GLOBAL_namespace,
+				KEY_GLOBAL_user,
+				KEY_GLOBAL_password,
+				KEY_GLOBAL_publickeyfile,
+				KEY_GLOBAL_privatekeyfile);
+	}
+	
+	public Options getOptions() throws WbemSmtException {
+		Options options = super.createOptions(LOCAL_OPTIONS, bundle);
+		super.createOptions(options, GLOBAL_TASK_OPTIONS, bundle);
+		super.createOptions(options, GLOBAL_WBEMSMT_COMMON_OPTIONS, bundle);
+		super.createOptions(options, GLOBAL_WBEMSMT_COMMUNICATION_OPTIONS, bundle);
+		return options;
+	}
+	
+	public Options getLocalOptions() throws WbemSmtException {
+		Options options = super.createOptions(LOCAL_OPTIONS, bundle);
+		return options;
+	}
+
+	public Options getGlobalWbemsmtCommonOptions() throws WbemSmtException {
+		Options options = super.createOptions(GLOBAL_WBEMSMT_COMMON_OPTIONS, bundle);
+		return options;
+	}
+
+	public Options getGlobalWbemsmtCommunicationOptions() throws WbemSmtException {
+		Options options = super.createOptions(GLOBAL_WBEMSMT_COMMUNICATION_OPTIONS, bundle);
+		return options;
+	}
+
+	public Options getGlobalTaskOptions() throws WbemSmtException {
+		Options options = super.createOptions(GLOBAL_TASK_OPTIONS, bundle);
+		return options;
+	}
+	
 }
