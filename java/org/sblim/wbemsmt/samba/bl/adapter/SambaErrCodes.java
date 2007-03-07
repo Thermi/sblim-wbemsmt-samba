@@ -40,4 +40,6 @@ public class SambaErrCodes {
 	public static final MessageNumber MSG_USER_EXISTS = new MessageNumber(ErrCodes.COMPONENT,SUBSYS_SMB,3);
 	public static final MessageNumber MSG_GLOBAL_EXISTS = new MessageNumber(ErrCodes.COMPONENT,SUBSYS_SMB,4);
 
+	public static final MessageNumber MSG_CANNOT_SELECT_SERVICE = new MessageNumber(ErrCodes.COMPONENT,SUBSYS_SMB,5);
+
 }

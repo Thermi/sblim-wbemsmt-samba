@@ -27,8 +27,7 @@ package org.sblim.wbemsmt.jsf.samba.listener;
 import javax.faces.context.FacesContext;
 
 import org.sblim.wbemsmt.tasklauncher.event.TaskLauncherContextMenuEventListenerImpl;
-import org.sblim.wbemsmt.bl.adapter.CimAdapterFactory;
-import org.sblim.wbemsmt.bl.adapter.TaskLauncherTreeNodeSelector;
+import org.sblim.wbemsmt.bl.adapter.*;
 import org.sblim.wbemsmt.bl.tree.ITaskLauncherTreeNode;
 import org.sblim.wbemsmt.bl.tree.TaskLauncherTreeNodeEvent;
 import org.sblim.wbemsmt.tools.beans.BeanNameConstants;
@@ -51,17 +50,34 @@ public class CreatePrinterListener extends TaskLauncherContextMenuEventListenerI
 
 		org.sblim.wbem.client.CIMClient cimClient = treeNode.getCimClient();
 		
-		org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter adapter = 
-			(org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter)CimAdapterFactory.getInstance()
-			.getAdapter(org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter.class,FacesContext.getCurrentInstance(),cimClient);
+		org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter adapter = null;
+		if (cimClient != null)
+		{
+			adapter = 
+				(org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter)CimAdapterFactory.getInstance()
+				.getAdapter(org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter.class,FacesContext.getCurrentInstance(),cimClient);
+		}
 
-		TaskLauncherTreeNodeSelector selector = new org.sblim.wbemsmt.bl.tree.CurrentTaskLauncherTreeNodeSelector();
+		
+
+		TaskLauncherTreeNodeSelectorForCreate selector = new org.sblim.wbemsmt.samba.listener.CreatePrinterListenerSelector();
 		selector.select(treeNode,adapter,"createPrinter");
 
-		org.sblim.wbemsmt.jsf.samba.wizard.PrinterWizard wizard = new org.sblim.wbemsmt.jsf.samba.wizard.PrinterWizard(adapter);
-		wizard.startWizard();
-		wizardController.setCurrentWizard(wizard);
+		if (selector.execute())
+		{
+			adapter = (org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter)selector.getAdapter();
+			
 		
-		return "wizardPage";
+			org.sblim.wbemsmt.jsf.samba.wizard.PrinterWizard wizard = new org.sblim.wbemsmt.jsf.samba.wizard.PrinterWizard(adapter);
+			wizard.startWizard();
+			wizardController.setCurrentWizard(wizard);
+			
+			return "wizardPage";
+		}
+		else
+		{
+			return "";
+		}	
+
 	}
 }

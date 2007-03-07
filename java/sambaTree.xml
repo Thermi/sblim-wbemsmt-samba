@@ -1,6 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Michael Bauschert (private) -->
-<tlc:customtreeconfig version="VERSION_2_0" xmlns:tlc="http://sblim.org/wbemsmt/tasklauncher/customtreeconfig" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://sblim.org/wbemsmt/tasklauncher/customtreeconfig ../../wbemsmt-commons/commons-bl/conf/customtreeconfig.xsd">
+<tlc:customtreeconfig version="VERSION_3_0" xmlns:tlc="http://sblim.org/wbemsmt/tasklauncher/customtreeconfig" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://sblim.org/wbemsmt/tasklauncher/customtreeconfig ../../wbemsmt-commons/commons-bl/conf/customtreeconfig.xsd">
+	<tlc:contextmenu>
+		<tlc:menuitem>
+			<tlc:description>tree.menu.createShare</tlc:description>
+			<tlc:eventListener>
+				<tlc:classname>org.sblim.wbemsmt.samba.listener.CreateShareListener</tlc:classname>
+			</tlc:eventListener>
+		</tlc:menuitem>
+		<tlc:menuitem>
+			<tlc:description>tree.menu.createPrinter</tlc:description>
+			<tlc:eventListener>
+				<tlc:classname>org.sblim.wbemsmt.samba.listener.CreatePrinterListener</tlc:classname>
+			</tlc:eventListener>
+		</tlc:menuitem>	
+		<tlc:menuitem>
+			<tlc:description>tree.menu.createUser</tlc:description>
+			<tlc:eventListener>
+				<tlc:classname>org.sblim.wbemsmt.samba.listener.CreateUserListener</tlc:classname>
+			</tlc:eventListener>
+		</tlc:menuitem>
+	</tlc:contextmenu>
 	<tlc:treenode>
 		<tlc:description>root</tlc:description>
 		<tlc:treenode>
@@ -44,14 +64,6 @@
 								</tlc:instanceSubnodes>
 								<tlc:instanceNamingKey>Name</tlc:instanceNamingKey>
 							</tlc:cimclass>
-							<tlc:contextmenu>
-								<tlc:menuitem>
-									<tlc:description>tree.menu.createShare</tlc:description>
-									<tlc:eventListener>
-										<tlc:classname>org.sblim.wbemsmt.samba.listener.CreateShareListener</tlc:classname>
-									</tlc:eventListener>
-								</tlc:menuitem>
-							</tlc:contextmenu>
 						</tlc:treenode>
 						<tlc:treenode>
 							<tlc:description>tree.printers</tlc:description>
@@ -76,14 +88,6 @@
 								</tlc:instanceSubnodes>
 								<tlc:instanceNamingKey>Name</tlc:instanceNamingKey>
 							</tlc:cimclass>
-							<tlc:contextmenu>
-								<tlc:menuitem>
-									<tlc:description>tree.menu.createPrinter</tlc:description>
-									<tlc:eventListener>
-										<tlc:classname>org.sblim.wbemsmt.samba.listener.CreatePrinterListener</tlc:classname>
-									</tlc:eventListener>
-								</tlc:menuitem>
-							</tlc:contextmenu>
 						</tlc:treenode>
 						<tlc:treenode>
 							<tlc:description>tree.users</tlc:description>
@@ -105,50 +109,7 @@
 								</tlc:instanceSubnodes>
 								<tlc:instanceNamingKey>SambaUserName</tlc:instanceNamingKey>
 							</tlc:cimclass>
-							<tlc:contextmenu>
-								<tlc:menuitem>
-									<tlc:description>tree.menu.createUser</tlc:description>
-									<tlc:eventListener>
-										<tlc:classname>org.sblim.wbemsmt.samba.listener.CreateUserListener</tlc:classname>
-									</tlc:eventListener>
-								</tlc:menuitem>
-							</tlc:contextmenu>
 						</tlc:treenode>
-						<!-- 
-						<tlc:treenode>
-							<tlc:description>tree.hosts</tlc:description>
-							<tlc:cimclass>
-								<tlc:classname>Linux_SambaHostsForService</tlc:classname>
-								<tlc:association 
-									sourceReferenceName="GroupComponent"
-									targetReferenceName="PartComponent"
-									targetClassName="Linux_SambaHost"
-								/>
-								<tlc:instanceSubnodes>
-									<tlc:eventListener>
-										<tlc:classname>org.sblim.wbemsmt.samba.listener.EditHostListener</tlc:classname>
-									</tlc:eventListener>
-									<tlc:contextmenu>
-										<tlc:menuitem>
-											<tlc:description>tree.menu.deleteHost</tlc:description>
-											<tlc:eventListener>
-												<tlc:classname>org.sblim.wbemsmt.samba.listener.DeleteHostListener</tlc:classname>
-											</tlc:eventListener>
-										</tlc:menuitem>
-									</tlc:contextmenu>
-								</tlc:instanceSubnodes>
-								<tlc:instanceNamingKey>Name</tlc:instanceNamingKey>
-							</tlc:cimclass>
-							<tlc:contextmenu>
-								<tlc:menuitem>
-									<tlc:description>tree.menu.createHost</tlc:description>
-									<tlc:eventListener>
-										<tlc:classname>org.sblim.wbemsmt.samba.listener.CreateHostListener</tlc:classname>
-									</tlc:eventListener>
-								</tlc:menuitem>
-							</tlc:contextmenu>
-						</tlc:treenode>
-						 -->
 						<tlc:eventListener>
 							<tlc:classname>org.sblim.wbemsmt.samba.listener.EditServiceListener</tlc:classname>
 						</tlc:eventListener>
