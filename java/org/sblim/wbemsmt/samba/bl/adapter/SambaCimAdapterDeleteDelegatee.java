@@ -39,7 +39,7 @@ public class SambaCimAdapterDeleteDelegatee extends SambaDelegatee implements Sa
 			throws ObjectDeletionException {
 		
 		try {
-			FcoHelper.delete(fco,adapter.getCimClient());
+			adapter.getSelectedShare().delete(fco);
 			adapter.setMarkedForReload();
 		} catch (Exception e) {
 			throw new ObjectDeletionException(fco,e);

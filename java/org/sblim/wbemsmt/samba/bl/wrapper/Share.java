@@ -36,6 +36,7 @@ import org.sblim.wbemsmt.bl.adapter.MessageList;
 import org.sblim.wbemsmt.bl.fco.FcoHelper;
 import org.sblim.wbemsmt.exception.ModelLoadException;
 import org.sblim.wbemsmt.exception.ModelUpdateException;
+import org.sblim.wbemsmt.exception.ObjectDeletionException;
 import org.sblim.wbemsmt.exception.ObjectRevertException;
 import org.sblim.wbemsmt.exception.ObjectSaveException;
 import org.sblim.wbemsmt.exception.UpdateControlsException;
@@ -632,6 +633,19 @@ public class Share extends SambaObject
 	public MessageList revert(ShareFileAttributes container) {
 		shareSecurityOptions = null;
 		return null;
+	}
+
+	public void delete(Linux_SambaShareOptions fco) throws ObjectDeletionException {
+		
+		if (share.getCimObjectPath().equals(fco.getCimObjectPath()))
+		{
+			FcoHelper.delete(fco,adapter.getCimClient());
+		}
+		else
+		{
+			throw new ObjectDeletionException("Cannot delete object - wrong share selected");
+		}
+		
 	}
 	
 }
