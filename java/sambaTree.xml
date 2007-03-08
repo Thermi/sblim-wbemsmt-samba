@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Michael Bauschert (private) -->
-<tlc:customtreeconfig version="VERSION_3_0" xmlns:tlc="http://sblim.org/wbemsmt/tasklauncher/customtreeconfig" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://sblim.org/wbemsmt/tasklauncher/customtreeconfig ../../wbemsmt-commons/commons-bl/conf/customtreeconfig.xsd">
+<tlc:customtreeconfig version="VERSION_2_1" xmlns:tlc="http://sblim.org/wbemsmt/tasklauncher/customtreeconfig" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://sblim.org/wbemsmt/tasklauncher/customtreeconfig ../../wbemsmt-commons/commons-bl/conf/customtreeconfig.xsd">
 	<tlc:contextmenu>
 		<tlc:menuitem>
 			<tlc:description>tree.menu.createShare</tlc:description>
