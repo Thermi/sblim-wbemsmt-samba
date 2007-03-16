@@ -50,7 +50,7 @@
 {panel:title=globalContainerPackage.CMDShareGlobalsDataContainer|titleBGColor=#CCE5FF| bgColor=#FFFFFF}
 
 | *Description* | Container with CLI-extension for global share settings \\ |
-| *Related FCO*\\ | org.sblim.wbemsmt.samba.bl.fco.Linux_SambaShareSecurityOptions |
+| *Related FCO*\\ |  ---  |
 | *Adapter* \\ | sambaAdapter |
 | *Package* \\ | Interface: org.sblim.wbemsmt.samba.bl.container.global |
 | *Actions* | MODIFY \\ |
@@ -393,8 +393,8 @@
 | *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
 | allowedHosts | UNSIGNED_INT16 | LIST | userdefined \\ | Userdefined | -allowedHosts, Optional,Default is noDefaultValue |
 | hostsToAllow | UNSIGNED_INT16 | LIST | userdefined \\ | Userdefined | -hostsToAllow, Optional,Default is noDefaultValue |
-| addHost | STRING | BUTTON | userdefined \\ | Userdefined | -addHost, Optional,Default is noDefaultValue |
-| removeHost | BOOLEAN | BUTTON | userdefined \\ | Userdefined | -removeHost, Optional,Default is noDefaultValue |
+| addHost | ACTION | BUTTON | userdefined \\ | Userdefined | -addHost, Optional,no default |
+| removeHost | ACTION | BUTTON | userdefined \\ | Userdefined | -removeHost, Optional,no default |
 
 {panel}
 
@@ -414,8 +414,8 @@
 | *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
 | deniedHosts | UNSIGNED_INT16 | LIST | userdefined \\ | Userdefined | -allowedHosts, Optional,Default is noDefaultValue |
 | hostsToDeny | UNSIGNED_INT16 | LIST | userdefined \\ | Userdefined | -hostsToAllow, Optional,Default is noDefaultValue |
-| addHost | STRING | BUTTON | userdefined \\ | Userdefined | -addHost, Optional,Default is noDefaultValue |
-| removeHost | STRING | BUTTON | userdefined \\ | Userdefined | -removeHost, Optional,Default is noDefaultValue |
+| addHost | ACTION | BUTTON | userdefined \\ | Userdefined | -addHost, Optional,no default |
+| removeHost | ACTION | BUTTON | userdefined \\ | Userdefined | -removeHost, Optional,no default |
 
 {panel}
 
@@ -491,9 +491,9 @@
 *Fields:*
 | *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
 | Started | BOOLEAN | CHECKBOX | Linux_SambaService.get_Started \\ | Readonly | Not used for Commandline |
-| startService | UNSIGNED_INT32 | BUTTON | Linux_SambaService.invoke_startService \\ | --- | -start, Optional,Default is noDefaultValue |
-| stopService | UNSIGNED_INT32 | BUTTON | Linux_SambaService.invoke_stopService \\ | --- | -stop, Optional,Default is noDefaultValue |
-| restartService | UNSIGNED_INT8 | BUTTON | userdefined \\ | Userdefined | -restart, Optional,Default is noDefaultValue |
+| startService | ACTION | BUTTON | Linux_SambaService.invoke_startService \\ | --- | -start, Optional,no default |
+| stopService | ACTION | BUTTON | Linux_SambaService.invoke_stopService \\ | --- | -stop, Optional,no default |
+| restartService | ACTION | BUTTON | userdefined \\ | Userdefined | -restart, Optional,no default |
 
 {panel}
 
@@ -619,7 +619,7 @@
 {panel:title=shareContainerPackage.CMDShareFileAttributes|titleBGColor=#CCE5FF| bgColor=#FFFFFF}
 
 | *Description* | CLI extensions for FileAttributres for a share \\ |
-| *Related FCO*\\ | org.sblim.wbemsmt.samba.bl.fco.Linux_SambaShareSecurityOptions |
+| *Related FCO*\\ |  ---  |
 | *Adapter* \\ | sambaAdapter |
 | *Package* \\ | Interface: org.sblim.wbemsmt.samba.bl.container.share |
 | *Actions* | MODIFY \\ |

@@ -106,7 +106,7 @@ public class ServiceAllowHostSecurityDataContainerImpl extends org.sblim.wbemsmt
     	}
 			/**
 		* 
-		* DataType STRING
+		* DataType ACTION
 		* UIType BUTTON
 		* ReadOnly false
 		*/
@@ -129,7 +129,7 @@ public class ServiceAllowHostSecurityDataContainerImpl extends org.sblim.wbemsmt
     	}
 			/**
 		* 
-		* DataType BOOLEAN
+		* DataType ACTION
 		* UIType BUTTON
 		* ReadOnly false
 		*/

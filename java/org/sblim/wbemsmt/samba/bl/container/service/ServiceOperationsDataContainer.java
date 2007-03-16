@@ -49,7 +49,7 @@ public interface ServiceOperationsDataContainer extends org.sblim.wbemsmt.bl.ada
 			
 		/**
 		* <br>
-		* DataType UNSIGNED_INT32<br>
+		* DataType ACTION<br>
 		* UIType BUTTON<br>
 		* Relation to FCO: Linux_SambaService.invoke_startService<br>
 		*/
@@ -57,7 +57,7 @@ public interface ServiceOperationsDataContainer extends org.sblim.wbemsmt.bl.ada
 			
 		/**
 		* <br>
-		* DataType UNSIGNED_INT32<br>
+		* DataType ACTION<br>
 		* UIType BUTTON<br>
 		* Relation to FCO: Linux_SambaService.invoke_stopService<br>
 		*/
@@ -65,7 +65,7 @@ public interface ServiceOperationsDataContainer extends org.sblim.wbemsmt.bl.ada
 			
 		/**
 		* <br>
-		* DataType UNSIGNED_INT8<br>
+		* DataType ACTION<br>
 		* UIType BUTTON<br>
 		* Relation to FCO: userdefined<br>
 		*/

@@ -106,7 +106,7 @@ public class ServiceDenyHostDataContainerImpl extends org.sblim.wbemsmt.tools.js
     	}
 			/**
 		* 
-		* DataType STRING
+		* DataType ACTION
 		* UIType BUTTON
 		* ReadOnly false
 		*/
@@ -129,7 +129,7 @@ public class ServiceDenyHostDataContainerImpl extends org.sblim.wbemsmt.tools.js
     	}
 			/**
 		* 
-		* DataType STRING
+		* DataType ACTION
 		* UIType BUTTON
 		* ReadOnly false
 		*/

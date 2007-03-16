@@ -67,7 +67,7 @@ public class ServiceOperationsDataContainerImpl extends BaseDataContainer implem
     	}
 			/**
 		* 
-		* DataType UNSIGNED_INT32
+		* DataType ACTION
 		* UIType BUTTON
 		* ReadOnly false
 		*/
@@ -83,7 +83,7 @@ public class ServiceOperationsDataContainerImpl extends BaseDataContainer implem
     	}
 			/**
 		* 
-		* DataType UNSIGNED_INT32
+		* DataType ACTION
 		* UIType BUTTON
 		* ReadOnly false
 		*/
@@ -99,7 +99,7 @@ public class ServiceOperationsDataContainerImpl extends BaseDataContainer implem
     	}
 			/**
 		* 
-		* DataType UNSIGNED_INT8
+		* DataType ACTION
 		* UIType BUTTON
 		* ReadOnly false
 		*/

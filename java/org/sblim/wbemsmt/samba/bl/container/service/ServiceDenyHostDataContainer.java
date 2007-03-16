@@ -57,7 +57,7 @@ public interface ServiceDenyHostDataContainer extends org.sblim.wbemsmt.bl.adapt
 			
 		/**
 		* <br>
-		* DataType STRING<br>
+		* DataType ACTION<br>
 		* UIType BUTTON<br>
 		* Relation to FCO: userdefined<br>
 		*/
@@ -65,7 +65,7 @@ public interface ServiceDenyHostDataContainer extends org.sblim.wbemsmt.bl.adapt
 			
 		/**
 		* <br>
-		* DataType STRING<br>
+		* DataType ACTION<br>
 		* UIType BUTTON<br>
 		* Relation to FCO: userdefined<br>
 		*/

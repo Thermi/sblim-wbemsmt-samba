@@ -83,7 +83,7 @@ public class ShareAllowHostSecurityDataContainerImpl extends BaseDataContainer i
     	}
 			/**
 		* 
-		* DataType STRING
+		* DataType ACTION
 		* UIType BUTTON
 		* ReadOnly false
 		*/
@@ -99,7 +99,7 @@ public class ShareAllowHostSecurityDataContainerImpl extends BaseDataContainer i
     	}
 			/**
 		* 
-		* DataType BOOLEAN
+		* DataType ACTION
 		* UIType BUTTON
 		* ReadOnly false
 		*/

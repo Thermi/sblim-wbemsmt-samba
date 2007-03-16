@@ -16,7 +16,7 @@
  *
  * Contributors: 
  */-->
-<cli:clientConfig version="VERSION_2_0" xsi:schemaLocation="http://sblim.org/wbemsmt/clientconfig ../../wbemsmt-tools/tools-dcg/conf/clientConfig.xsd" xmlns:cmd="http://sblim.org/wbemsmt/cmd" xmlns:cli="http://sblim.org/wbemsmt/clientconfig" xmlns:cd="http://sblim.org/wbemsmt/dcg" xmlns:pkg="http://sblim.org/wbemsmt/pkg" xmlns:pl="http://sblim.org/wbemsmt/pl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<cli:clientConfig version="VERSION_2_1" xsi:schemaLocation="http://sblim.org/wbemsmt/clientconfig ../../wbemsmt-tools/tools-dcg/conf/clientConfig.xsd" xmlns:cmd="http://sblim.org/wbemsmt/cmd" xmlns:cli="http://sblim.org/wbemsmt/clientconfig" xmlns:cd="http://sblim.org/wbemsmt/dcg" xmlns:pkg="http://sblim.org/wbemsmt/pkg" xmlns:pl="http://sblim.org/wbemsmt/pl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <cli:environment application="SAMBA" documentationDirectory="../wbemsmt-samba/doc" helpDirectory="../wbemsmt-samba/help">
         <cli:adapterPackage dir="../wbemsmt-samba/java/" id="adapterPackage" name="org.sblim.wbemsmt.samba.bl.adapter"/>
         <cli:wizardPackage dir="../wbemsmt-samba/java" id="wizardPackage" name="org.sblim.wbemsmt.samba.wizard"/>
@@ -59,7 +59,6 @@
         </dcg:container>
         <dcg:container name="CMDShareGlobalsDataContainer" packageId="globalContainerPackage" implPackageId="globalContainerImpl" adapterId="sambaAdapter" description="Container with CLI-extension for global share settings" canCreate="false" canModify="true" canDelete="false" isWizard="false" customLayouter="false">
             <dcg:extends container="ShareGlobalsDataContainer" packageId="globalContainerPackage"/>
-            <dcg:fcoRelation fcoName="Linux_SambaShareSecurityOptions" fcoPackageId="org.sblim.wbemsmt.samba.bl.fco"/>
             <dcg:field name="CreateMask" dataType="UNSIGNED_INT16" userDefined="false" uiType="TEXTFIELD" fcoFieldName="Linux_SambaShareSecurityOptions.get_CreateMask" description="the Default Create Mask" readOnly="false">
                 <cmd:option required="false" usedForSelection="false" long="createMask" comment="the Default Create Mask" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
             </dcg:field>
@@ -141,14 +140,14 @@
         <dcg:container name="ServiceOperationsDataContainer" packageId="serviceContainerPackage" implPackageId="serviceContainerImpl" canCreate="false" canDelete="false" canModify="true" isWizard="false" adapterId="sambaAdapter" description="Container for Operations on the Service Object" customLayouter="false">
             <dcg:fcoRelation fcoName="Linux_SambaService" fcoPackageId="org.sblim.wbemsmt.samba.bl.fco"/>
             <dcg:field name="Started" dataType="BOOLEAN" userDefined="false" uiType="CHECKBOX" fcoFieldName="Linux_SambaService.get_Started" description="" readOnly="true"/>
-            <dcg:field name="startService" dataType="UNSIGNED_INT32" userDefined="false" uiType="BUTTON" fcoFieldName="Linux_SambaService.invoke_startService" description="" readOnly="false">
-                <cmd:option required="false" usedForSelection="false" long="start" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
+            <dcg:field name="startService" dataType="ACTION" userDefined="false" uiType="BUTTON" fcoFieldName="Linux_SambaService.invoke_startService" description="" readOnly="false" orientation="LEFT" required="false">
+                <cmd:option required="false" usedForSelection="false" long="start" comment="" scope="LOCAL_CONTAINER" duplicateOK="false"/>
             </dcg:field>
-            <dcg:field name="stopService" dataType="UNSIGNED_INT32" userDefined="false" uiType="BUTTON" fcoFieldName="Linux_SambaService.invoke_stopService" description="" readOnly="false">
-                <cmd:option required="false" usedForSelection="false" long="stop" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
+            <dcg:field name="stopService" dataType="ACTION" userDefined="false" uiType="BUTTON" fcoFieldName="Linux_SambaService.invoke_stopService" description="" readOnly="false" orientation="LEFT" required="false">
+                <cmd:option required="false" usedForSelection="false" long="stop" comment="" scope="LOCAL_CONTAINER" duplicateOK="false"/>
             </dcg:field>
-            <dcg:field name="restartService" dataType="UNSIGNED_INT8" userDefined="true" uiType="BUTTON" fcoFieldName="userdefined" description="" readOnly="false">
-                <cmd:option required="false" usedForSelection="false" long="restart" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
+            <dcg:field name="restartService" dataType="ACTION" userDefined="true" uiType="BUTTON" fcoFieldName="userdefined" description="" readOnly="false" orientation="LEFT" required="false">
+                <cmd:option required="false" usedForSelection="false" long="restart" comment="" scope="LOCAL_CONTAINER" duplicateOK="false"/>
             </dcg:field>
         </dcg:container>
         <dcg:container name="ServiceOptionsDataContainer" packageId="serviceContainerPackage" implPackageId="serviceContainerImpl" adapterId="sambaAdapter" canCreate="false" canDelete="false" canModify="true" isWizard="false" description="Container for Setting Options on the Samba Service" customLayouter="false">
@@ -269,11 +268,11 @@
             <dcg:field name="hostsToAllow" dataType="UNSIGNED_INT16" userDefined="true" uiType="LIST" fcoFieldName="userdefined" description="" readOnly="false">
                 <cmd:option required="false" usedForSelection="false" long="hostsToAllow" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
             </dcg:field>
-            <dcg:field name="addHost" dataType="STRING" userDefined="true" uiType="BUTTON" fcoFieldName="userdefined" description="" readOnly="false">
-                <cmd:option required="false" usedForSelection="false" long="addHost" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
+            <dcg:field name="addHost" dataType="ACTION" userDefined="true" uiType="BUTTON" fcoFieldName="userdefined" description="" readOnly="false" orientation="LEFT" required="false">
+                <cmd:option required="false" usedForSelection="false" long="addHost" comment="" scope="LOCAL_CONTAINER" duplicateOK="false"/>
             </dcg:field>
-            <dcg:field name="removeHost" dataType="BOOLEAN" userDefined="true" uiType="BUTTON" fcoFieldName="userdefined" description="" readOnly="false">
-                <cmd:option required="false" usedForSelection="false" long="removeHost" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
+            <dcg:field name="removeHost" dataType="ACTION" userDefined="true" uiType="BUTTON" fcoFieldName="userdefined" description="" readOnly="false" orientation="LEFT" required="false">
+                <cmd:option required="false" usedForSelection="false" long="removeHost" comment="" scope="LOCAL_CONTAINER" duplicateOK="false"/>
             </dcg:field>
         </dcg:container>
         <dcg:container name="ServiceDenyHostDataContainer" packageId="serviceContainerPackage" implPackageId="serviceContainerImpl" adapterId="sambaAdapter" description="Container to define DenyHosts" canCreate="false" canModify="true" canDelete="false" isWizard="false" customLayouter="false">
@@ -283,11 +282,11 @@
             <dcg:field name="hostsToDeny" dataType="UNSIGNED_INT16" userDefined="true" uiType="LIST" fcoFieldName="userdefined" description="" readOnly="false">
                 <cmd:option required="false" usedForSelection="false" long="hostsToAllow" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
             </dcg:field>
-            <dcg:field name="addHost" dataType="STRING" userDefined="true" uiType="BUTTON" fcoFieldName="userdefined" description="" readOnly="false">
-                <cmd:option required="false" usedForSelection="false" long="addHost" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
+            <dcg:field name="addHost" dataType="ACTION" userDefined="true" uiType="BUTTON" fcoFieldName="userdefined" description="" readOnly="false" orientation="LEFT" required="false">
+                <cmd:option required="false" usedForSelection="false" long="addHost" comment="" scope="LOCAL_CONTAINER" duplicateOK="false"/>
             </dcg:field>
-            <dcg:field name="removeHost" dataType="STRING" userDefined="true" uiType="BUTTON" fcoFieldName="userdefined" description="" readOnly="false">
-                <cmd:option required="false" usedForSelection="false" long="removeHost" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
+            <dcg:field name="removeHost" dataType="ACTION" userDefined="true" uiType="BUTTON" fcoFieldName="userdefined" description="" readOnly="false" orientation="LEFT" required="false">
+                <cmd:option required="false" usedForSelection="false" long="removeHost" comment="" scope="LOCAL_CONTAINER" duplicateOK="false"/>
             </dcg:field>
         </dcg:container>
         <dcg:container name="ServiceScriptingDataContainer" packageId="serviceContainerPackage" implPackageId="serviceContainerImpl" adapterId="sambaAdapter" canCreate="false" canDelete="false" canModify="true" isWizard="false" description="Container to Scripting Options" customLayouter="false">
@@ -445,7 +444,6 @@
         </dcg:container>
         <dcg:container name="CMDShareFileAttributes" packageId="shareContainerPackage" implPackageId="shareContainerImpl" adapterId="sambaAdapter" description="CLI extensions for FileAttributres for a share" canCreate="false" canModify="true" canDelete="false" isWizard="false" customLayouter="false">
             <dcg:extends container="ShareFileAttributes" packageId="shareContainerPackage"/>
-            <dcg:fcoRelation fcoName="Linux_SambaShareSecurityOptions" fcoPackageId="org.sblim.wbemsmt.samba.bl.fco"/>
             <dcg:field name="CreateMask" dataType="UNSIGNED_INT16" userDefined="false" uiType="TEXTFIELD" fcoFieldName="Linux_SambaShareSecurityOptions.get_CreateMask" description="the Default Create Mask" readOnly="false">
                 <cmd:option required="true" usedForSelection="false" long="createMask" comment="the Default Create Mask" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
             </dcg:field>
@@ -1372,6 +1370,7 @@
             <cmd:option long="privatekeyfile" required="false" usedForSelection="false" duplicateOK="false" comment="" scope="GLOBAL_WBEMSMT_COMMUNICATION"/>
             <cmd:option required="false" usedForSelection="false" duplicateOK="false" short="?" comment="" scope="GLOBAL_WBEMSMT_COMMON" hasArgument="false"/>
             <cmd:option long="help" required="false" usedForSelection="false" duplicateOK="false" short="h" comment="" scope="GLOBAL_WBEMSMT_COMMON" hasArgument="false"/>
+            <cmd:option long="locale" required="false" usedForSelection="false" duplicateOK="false" short="L" comment="" defaultValue="en" scope="GLOBAL_WBEMSMT_COMMON"/>
             <cmd:option long="type" required="false" usedForSelection="false" duplicateOK="false" short="t" comment="" scope="GLOBAL_USMI"/>
             <cmd:option long="names" required="false" usedForSelection="false" duplicateOK="false" short="n" comment="" scope="GLOBAL_USMI"/>
             <cmd:option long="groups" required="false" usedForSelection="false" duplicateOK="false" short="N" comment="" scope="GLOBAL_USMI"/>

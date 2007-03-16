@@ -40,15 +40,15 @@ public class EditSambaService extends CimCommand {
 			/**
 		 * 
 		 */
-		public static final OptionDefinition KEY_start = new OptionDefinition(null,"start","noDefaultValue","ServiceOperationsDataContainer.startService.argValue",false,false,"ServiceOperationsDataContainer.startService.argDescription");
+		public static final OptionDefinition KEY_start = new OptionDefinition(null,"start",null,"ServiceOperationsDataContainer.startService.argValue",false,false,"ServiceOperationsDataContainer.startService.argDescription");
 			/**
 		 * 
 		 */
-		public static final OptionDefinition KEY_stop = new OptionDefinition(null,"stop","noDefaultValue","ServiceOperationsDataContainer.stopService.argValue",false,false,"ServiceOperationsDataContainer.stopService.argDescription");
+		public static final OptionDefinition KEY_stop = new OptionDefinition(null,"stop",null,"ServiceOperationsDataContainer.stopService.argValue",false,false,"ServiceOperationsDataContainer.stopService.argDescription");
 			/**
 		 * 
 		 */
-		public static final OptionDefinition KEY_restart = new OptionDefinition(null,"restart","noDefaultValue","ServiceOperationsDataContainer.restartService.argValue",false,false,"ServiceOperationsDataContainer.restartService.argDescription");
+		public static final OptionDefinition KEY_restart = new OptionDefinition(null,"restart",null,"ServiceOperationsDataContainer.restartService.argValue",false,false,"ServiceOperationsDataContainer.restartService.argDescription");
 		
 	//All Options that are global and task-related
 			/**
@@ -95,6 +95,10 @@ public class EditSambaService extends CimCommand {
 		 * 
 		 */
 		public static final OptionDefinition KEY_GLOBAL_help = new OptionDefinition("h","help",null,null,false,false,"help.argDescription");
+			/**
+		 * 
+		 */
+		public static final OptionDefinition KEY_GLOBAL_locale = new OptionDefinition("L","locale","en","locale.argValue",false,false,"locale.argDescription");
 	
 	private static final OptionDefinition[] LOCAL_OPTIONS = new OptionDefinition []
 	{
@@ -123,6 +127,7 @@ public class EditSambaService extends CimCommand {
 	{
     	    	KEY_GLOBAL_QUESTION_MARK_,
     	    	KEY_GLOBAL_help,
+    	    	KEY_GLOBAL_locale,
     		};
 
 		

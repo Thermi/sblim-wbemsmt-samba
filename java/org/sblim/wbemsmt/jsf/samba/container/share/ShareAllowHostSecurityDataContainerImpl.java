@@ -106,7 +106,7 @@ public class ShareAllowHostSecurityDataContainerImpl extends org.sblim.wbemsmt.t
     	}
 			/**
 		* 
-		* DataType STRING
+		* DataType ACTION
 		* UIType BUTTON
 		* ReadOnly false
 		*/
@@ -129,7 +129,7 @@ public class ShareAllowHostSecurityDataContainerImpl extends org.sblim.wbemsmt.t
     	}
 			/**
 		* 
-		* DataType BOOLEAN
+		* DataType ACTION
 		* UIType BUTTON
 		* ReadOnly false
 		*/

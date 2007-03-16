@@ -83,7 +83,7 @@ public class PrinterDenyHostSecurityDataContainerImpl extends BaseDataContainer 
     	}
 			/**
 		* 
-		* DataType STRING
+		* DataType ACTION
 		* UIType BUTTON
 		* ReadOnly false
 		*/
@@ -99,7 +99,7 @@ public class PrinterDenyHostSecurityDataContainerImpl extends BaseDataContainer 
     	}
 			/**
 		* 
-		* DataType STRING
+		* DataType ACTION
 		* UIType BUTTON
 		* ReadOnly false
 		*/

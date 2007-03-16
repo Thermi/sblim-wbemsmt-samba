@@ -57,7 +57,7 @@ public interface ServiceAllowHostSecurityDataContainer extends org.sblim.wbemsmt
 			
 		/**
 		* <br>
-		* DataType STRING<br>
+		* DataType ACTION<br>
 		* UIType BUTTON<br>
 		* Relation to FCO: userdefined<br>
 		*/
@@ -65,7 +65,7 @@ public interface ServiceAllowHostSecurityDataContainer extends org.sblim.wbemsmt
 			
 		/**
 		* <br>
-		* DataType BOOLEAN<br>
+		* DataType ACTION<br>
 		* UIType BUTTON<br>
 		* Relation to FCO: userdefined<br>
 		*/

@@ -83,7 +83,7 @@ public class ServiceDenyHostDataContainerImpl extends BaseDataContainer implemen
     	}
 			/**
 		* 
-		* DataType STRING
+		* DataType ACTION
 		* UIType BUTTON
 		* ReadOnly false
 		*/
@@ -99,7 +99,7 @@ public class ServiceDenyHostDataContainerImpl extends BaseDataContainer implemen
     	}
 			/**
 		* 
-		* DataType STRING
+		* DataType ACTION
 		* UIType BUTTON
 		* ReadOnly false
 		*/

@@ -127,6 +127,10 @@ public class EditSambaPrinter extends CimCommand {
 		 * 
 		 */
 		public static final OptionDefinition KEY_GLOBAL_help = new OptionDefinition("h","help",null,null,false,false,"help.argDescription");
+			/**
+		 * 
+		 */
+		public static final OptionDefinition KEY_GLOBAL_locale = new OptionDefinition("L","locale","en","locale.argValue",false,false,"locale.argDescription");
 	
 	private static final OptionDefinition[] LOCAL_OPTIONS = new OptionDefinition []
 	{
@@ -163,6 +167,7 @@ public class EditSambaPrinter extends CimCommand {
 	{
     	    	KEY_GLOBAL_QUESTION_MARK_,
     	    	KEY_GLOBAL_help,
+    	    	KEY_GLOBAL_locale,
     		};
 
 		
