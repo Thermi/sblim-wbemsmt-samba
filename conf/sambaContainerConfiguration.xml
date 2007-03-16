@@ -34,6 +34,7 @@
             <dcg:containerInterfacePkg dir="../wbemsmt-samba/java/" id="hostContainerPackage" name="org.sblim.wbemsmt.samba.bl.container.host"/>
             <dcg:containerInterfacePkg dir="../wbemsmt-samba/java/" id="userContainerPackage" name="org.sblim.wbemsmt.samba.bl.container.user"/>
             <dcg:containerInterfacePkg dir="../wbemsmt-samba/java/" id="wizardContainerPackage" name="org.sblim.wbemsmt.samba.bl.container.wizard"/>
+            <dcg:containerInterfacePkg dir="../wbemsmt-samba/java/" id="welcomeContainerPackage" name="org.sblim.wbemsmt.samba.bl.container.welcome"/>
         </dcg:environment>
         <dcg:container name="ShareGlobalsDataContainer" packageId="globalContainerPackage" implPackageId="globalContainerImpl" adapterId="sambaAdapter" description="Container for Global share settings" canCreate="false" canModify="true" canDelete="false" isWizard="false" customLayouter="false">
             <dcg:fcoRelation fcoName="Linux_SambaGlobalFileNameHandlingOptions" fcoPackageId="org.sblim.wbemsmt.samba.bl.fco"/>
@@ -139,7 +140,7 @@
         </dcg:container>
         <dcg:container name="ServiceOperationsDataContainer" packageId="serviceContainerPackage" implPackageId="serviceContainerImpl" canCreate="false" canDelete="false" canModify="true" isWizard="false" adapterId="sambaAdapter" description="Container for Operations on the Service Object" customLayouter="false">
             <dcg:fcoRelation fcoName="Linux_SambaService" fcoPackageId="org.sblim.wbemsmt.samba.bl.fco"/>
-            <dcg:field name="Started" dataType="BOOLEAN" userDefined="false" uiType="CHECKBOX" fcoFieldName="Linux_SambaService.get_Started" description="" readOnly="true"></dcg:field>
+            <dcg:field name="Started" dataType="BOOLEAN" userDefined="false" uiType="CHECKBOX" fcoFieldName="Linux_SambaService.get_Started" description="" readOnly="true"/>
             <dcg:field name="startService" dataType="UNSIGNED_INT32" userDefined="false" uiType="BUTTON" fcoFieldName="Linux_SambaService.invoke_startService" description="" readOnly="false">
                 <cmd:option required="false" usedForSelection="false" long="start" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
             </dcg:field>
@@ -810,9 +811,9 @@
         </dcg:container>
         <dcg:container name="ShareWizardPage4" packageId="wizardContainerPackage" implPackageId="wizardContainerImpl" adapterId="sambaAdapter" description="" canCreate="true" canModify="false" canDelete="false" isWizard="true">
             <dcg:fcoRelation fcoName="Linux_SambaShareOptions" fcoPackageId="org.sblim.wbemsmt.samba.bl.fco"/>
-            <dcg:field name="Name" dataType="STRING" userDefined="false" uiType="LABEL" fcoFieldName="Linux_SambaShareOptions.get_Name" description="" readOnly="true" orientation="LEFT" required="false"></dcg:field>
-            <dcg:field name="Path" dataType="STRING" userDefined="false" uiType="LABEL" fcoFieldName="Linux_SambaShareOptions.get_Path" description="" readOnly="true" orientation="LEFT" required="false"></dcg:field>
-            <dcg:field name="Comment" dataType="STRING" userDefined="false" uiType="LABEL" fcoFieldName="Linux_SambaShareOptions.get_Comment" description="" readOnly="true" orientation="LEFT" required="false"></dcg:field>
+            <dcg:field name="Name" dataType="STRING" userDefined="false" uiType="LABEL" fcoFieldName="Linux_SambaShareOptions.get_Name" description="" readOnly="true" orientation="LEFT" required="false"/>
+            <dcg:field name="Path" dataType="STRING" userDefined="false" uiType="LABEL" fcoFieldName="Linux_SambaShareOptions.get_Path" description="" readOnly="true" orientation="LEFT" required="false"/>
+            <dcg:field name="Comment" dataType="STRING" userDefined="false" uiType="LABEL" fcoFieldName="Linux_SambaShareOptions.get_Comment" description="" readOnly="true" orientation="LEFT" required="false"/>
             <dcg:field name="seenByEverybody" dataType="BOOLEAN" userDefined="true" uiType="CHECKBOX" fcoFieldName="userdefined" description="" readOnly="true">
                 <cmd:option required="false" usedForSelection="false" long="seenByEverybody" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
             </dcg:field>
@@ -897,9 +898,12 @@
         <dcg:container implPackageId="userContainerImpl" name="UserListItemDataContainer" packageId="userContainerPackage" adapterId="sambaAdapter" description="user within a list of users" canCreate="false" canModify="false" canDelete="false" isWizard="false" customLayouter="false">
             <dcg:extends container="UserDataContainer" packageId="userContainerPackage"/>
         </dcg:container>
+        <dcg:container implPackageId="welcomeContainerImpl" name="WelcomeDataContainer" packageId="welcomeContainerPackage" adapterId="sambaAdapter" description="" canCreate="false" canModify="false" canDelete="false" isWizard="false" customLayouter="false" dynamic="false">
+            <dcg:field name="welcomeText" dataType="STRING" userDefined="true" uiType="LABEL" fcoFieldName="userdefined" description="" orientation="LEFT" readOnly="true" required="false"/>
+        </dcg:container>
     </dcg:container-definitions>
     <pl:presentationLayer>
-        <pl:environment taskLauncherConfig="../wbemsmt-samba/java/sambaTree.xml/" doJSF="true" doSwing="false" doCmd="true">
+        <pl:environment treeConfig="../wbemsmt-samba/java/sambaTree.xml" taskConfig="../wbemsmt-samba/conf/samba-task-config.xml" doJSF="true" doSwing="false" doCmd="true">
             <pl:listenerPackage packageId="implPackage1">
                 <pl:delegationPackage dir="../wbemsmt-samba/java/" id="listenerDelegatee" name="org.sblim.wbemsmt.samba.listener"/>
                 <pl:jsfPackage dir="../wbemsmt-samba/java/" id="listenerJsf" name="org.sblim.wbemsmt.jsf.samba.listener"/>
@@ -941,6 +945,11 @@
                 <pl:swingPackage dir="../wbemsmt-samba/java/" id="swingContainer" name="org.sblim.wbemsmt.jswing.samba.container.wizard"/>
                 <pl:cmdPackage dir="../wbemsmt-samba/java/" id="cmdContainer" name="org.sblim.wbemsmt.cli.samba.container.wizard"/>
             </pl:containerImplPackage>
+            <pl:containerImplPackage packageId="welcomeContainerImpl">
+                <pl:jsfPackage dir="../wbemsmt-samba/java/" id="jsf" name="org.sblim.wbemsmt.jsf.samba.container.welcome"/>
+                <pl:swingPackage dir="../wbemsmt-samba/java/" id="swing" name="org.sblim.wbemsmt.jswing.samba.container.welcome"/>
+                <pl:cmdPackage dir="../wbemsmt-samba/java/" id="cmd" name="org.sblim.wbemsmt.cli.samba.container.welcome"/>
+            </pl:containerImplPackage>
             <pl:wizardImplPackage packageId="wizardImpl">
                 <pl:jsfPackage dir="../wbemsmt-samba/java" id="jsfWizards" name="org.sblim.wbemsmt.jsf.samba.wizard"/>
                 <pl:swingPackage dir="../wbemsmt-samba/java/" id="swingWizards" name="org.sblim.wbemsmt.jswing.samba.wizard"/>
@@ -964,7 +973,7 @@
                 <pl:wizardPanel id="page2" isFirst="false" isLast="false" linkedContainer="ShareWizardPage2" linkedPackage="wizardContainerPackage"/>
                 <pl:wizardPanel id="page4" isFirst="false" isLast="true" linkedContainer="ShareWizardPage4" linkedPackage="wizardContainerPackage"/>
             </pl:wizard>
-            <cmd:command commandName="CreateSambaShare"></cmd:command>
+            <cmd:command commandName="CreateSambaShare"/>
         </pl:createAction>
         <pl:createAction id="createPrinter" traceContainerContainerId="PrinterWizardPage5" traceContainerPackageId="wizardContainerPackage">
             <pl:actionListener>
@@ -1028,7 +1037,7 @@
                         <cmd:command commandName="EditSambaShare"/>
                     </pl:childEditPanel>
                     <pl:childEditPanel caption="editShareFileAttributes" linkedContainer="GUIShareFileAttributes" linkedPackage="shareContainerPackage">
-                        <cmd:command commandName="Ignore"></cmd:command>
+                        <cmd:command commandName="Ignore"/>
                     </pl:childEditPanel>
                 </pl:tab>
                 <pl:tab caption="shareAcl">
@@ -1189,7 +1198,7 @@
             <pl:actionListener>
                 <pl:actionListenerClassDefinition name="DeleteUserListener" packageId="implPackage1"/>
             </pl:actionListener>
-            <cmd:command commandName="DeleteSambaUser"></cmd:command>
+            <cmd:command commandName="DeleteSambaUser"/>
         </pl:deleteAction>
         <pl:deleteAction id="deleteHost" linkedContainer="HostDataContainer" linkedPackage="hostContainerPackage">
             <pl:actionListener>
@@ -1347,6 +1356,11 @@
                 <cmd:option long="list" required="false" usedForSelection="true" duplicateOK="false" comment="" scope="LOCAL_ACTION" defaultValue="INSTANCE_WITH_CHILDS"/>
             </cmd:command>
         </pl:listAction>
+        <pl:welcomeAction linkedContainer="WelcomeDataContainer" linkedPackage="welcomeContainerPackage">
+            <pl:actionListener>
+                <pl:actionListenerClassDefinition name="WelcomeListener" packageId="implPackage1"/>
+            </pl:actionListener>
+        </pl:welcomeAction>
         <cmd:commands>
             <cmd:option long="serviceName" required="true" usedForSelection="true" comment="" defaultValue="noDefaultValue" scope="GLOBAL_TASK"/>
             <cmd:option long="hostname" required="false" usedForSelection="false" duplicateOK="false" comment="" scope="GLOBAL_WBEMSMT_COMMUNICATION"/>
@@ -1356,8 +1370,6 @@
             <cmd:option long="password" required="false" usedForSelection="false" duplicateOK="false" comment="" scope="GLOBAL_WBEMSMT_COMMUNICATION"/>
             <cmd:option long="publickeyfile" required="false" usedForSelection="false" duplicateOK="false" comment="" scope="GLOBAL_WBEMSMT_COMMUNICATION"/>
             <cmd:option long="privatekeyfile" required="false" usedForSelection="false" duplicateOK="false" comment="" scope="GLOBAL_WBEMSMT_COMMUNICATION"/>
-            <cmd:option long="locale" required="false" usedForSelection="false" duplicateOK="false" short="L" comment="" defaultValue="en" scope="GLOBAL_WBEMSMT_COMMON"/>
-            <cmd:option required="false" usedForSelection="false" duplicateOK="false" short="h" comment="" scope="GLOBAL_WBEMSMT_COMMON" hasArgument="false"/>
             <cmd:option required="false" usedForSelection="false" duplicateOK="false" short="?" comment="" scope="GLOBAL_WBEMSMT_COMMON" hasArgument="false"/>
             <cmd:option long="help" required="false" usedForSelection="false" duplicateOK="false" short="h" comment="" scope="GLOBAL_WBEMSMT_COMMON" hasArgument="false"/>
             <cmd:option long="type" required="false" usedForSelection="false" duplicateOK="false" short="t" comment="" scope="GLOBAL_USMI"/>

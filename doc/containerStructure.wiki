@@ -6,6 +6,7 @@
 | *hostContainerPackage* |  	[#hostContainerPackage.HostDataContainer] \\  |
 | *userContainerPackage* |  	[#userContainerPackage.PrinterInUserACLDataContainer] \\  	[#userContainerPackage.ShareInUserACLDataContainer] \\  	[#userContainerPackage.UserDataContainer] \\  	[#userContainerPackage.UserListDataContainer] \\  	[#userContainerPackage.UserListItemDataContainer] \\  |
 | *wizardContainerPackage* |  	[#wizardContainerPackage.HostWizardPage1] \\  	[#wizardContainerPackage.HostWizardPage2] \\  	[#wizardContainerPackage.PrinterInUserWizardACLItemDataContainer] \\  	[#wizardContainerPackage.PrinterWizardPage1] \\  	[#wizardContainerPackage.PrinterWizardPage2] \\  	[#wizardContainerPackage.PrinterWizardPage3] \\  	[#wizardContainerPackage.PrinterWizardPage4] \\  	[#wizardContainerPackage.PrinterWizardPage5] \\  	[#wizardContainerPackage.ShareInUserWizardACLItemDataContainer] \\  	[#wizardContainerPackage.ShareWizardPage1] \\  	[#wizardContainerPackage.ShareWizardPage2] \\  	[#wizardContainerPackage.ShareWizardPage3CMD] \\  	[#wizardContainerPackage.ShareWizardPage3GUI] \\  	[#wizardContainerPackage.ShareWizardPage4] \\  	[#wizardContainerPackage.UserInPrinterWizardACLItemDataContainer] \\  	[#wizardContainerPackage.UserInShareWizardACLItemDataContainer] \\  	[#wizardContainerPackage.UserWizardPage1] \\  	[#wizardContainerPackage.UserWizardPage2] \\  	[#wizardContainerPackage.UserWizardPage3] \\  |
+| *welcomeContainerPackage* |  	[#welcomeContainerPackage.WelcomeDataContainer] \\  |
 
 
 [#Index]
@@ -987,6 +988,24 @@
 *Relations*
 | *RelationType&nbsp;* | *&nbsp;related DataContainer* \\ | *&nbsp;Additional Information* \\ |
 | Extends | [#userContainerPackage.UserDataContainer] \\ | |
+{panel}
+
+	
+
+[#Index]
+{anchor:welcomeContainerPackage.WelcomeDataContainer}
+{panel:title=welcomeContainerPackage.WelcomeDataContainer|titleBGColor=#CCE5FF| bgColor=#FFFFFF}
+
+| *Description* |  \\ |
+| *Related FCO*\\ |  ---  |
+| *Adapter* \\ | sambaAdapter |
+| *Package* \\ | Interface: org.sblim.wbemsmt.samba.bl.container.welcome |
+| *Actions* | --- \\ |
+| *CustomLayouter* \\ | --- |
+*Fields:*
+| *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
+| welcomeText | STRING | LABEL | userdefined \\ | Readonly, Userdefined | Not used for Commandline |
+
 {panel}
 
 	

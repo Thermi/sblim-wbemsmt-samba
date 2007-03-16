@@ -66,7 +66,6 @@ public class CreateUserListener extends TaskLauncherContextMenuEventListenerImpl
 		if (selector.execute())
 		{
 			adapter = (org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter)selector.getAdapter();
-			
 		
 			org.sblim.wbemsmt.jsf.samba.wizard.UserWizard wizard = new org.sblim.wbemsmt.jsf.samba.wizard.UserWizard(adapter);
 			wizard.startWizard();

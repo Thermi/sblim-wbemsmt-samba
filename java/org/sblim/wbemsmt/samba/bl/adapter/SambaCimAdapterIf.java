@@ -233,6 +233,7 @@ public interface SambaCimAdapterIf extends SambaCimAdapterCountIf, SambaCimAdapt
 	public void updateControlsImpl(org.sblim.wbemsmt.samba.bl.container.wizard.UserWizardPage1 container) throws org.sblim.wbemsmt.exception.UpdateControlsException;
 	public void updateControlsImpl(org.sblim.wbemsmt.samba.bl.container.wizard.UserWizardPage2 container) throws org.sblim.wbemsmt.exception.UpdateControlsException;
 	public void updateControlsImpl(org.sblim.wbemsmt.samba.bl.container.wizard.UserWizardPage3 container) throws org.sblim.wbemsmt.exception.UpdateControlsException;
+	public void updateControlsImpl(org.sblim.wbemsmt.samba.bl.container.welcome.WelcomeDataContainer container) throws org.sblim.wbemsmt.exception.UpdateControlsException;
 	
 	public void updateControlsImpl(org.sblim.wbemsmt.samba.bl.container.global.AdminUsersInPrinterGlobals container, org.sblim.wbemsmt.samba.bl.fco.Linux_SambaUser fco)  throws org.sblim.wbemsmt.exception.UpdateControlsException;
 	public void updateControlsImpl(org.sblim.wbemsmt.samba.bl.container.global.AdminUsersInShareGlobals container, org.sblim.wbemsmt.samba.bl.fco.Linux_SambaUser fco)  throws org.sblim.wbemsmt.exception.UpdateControlsException;
@@ -340,5 +341,6 @@ public interface SambaCimAdapterIf extends SambaCimAdapterCountIf, SambaCimAdapt
 	public void installValidatorsImpl(org.sblim.wbemsmt.samba.bl.container.wizard.UserWizardPage1 container);
 	public void installValidatorsImpl(org.sblim.wbemsmt.samba.bl.container.wizard.UserWizardPage2 container);
 	public void installValidatorsImpl(org.sblim.wbemsmt.samba.bl.container.wizard.UserWizardPage3 container);
+	public void installValidatorsImpl(org.sblim.wbemsmt.samba.bl.container.welcome.WelcomeDataContainer container);
 			
 }

@@ -63,6 +63,7 @@ import org.sblim.wbemsmt.samba.bl.container.user.ShareInUserACLDataContainer;
 import org.sblim.wbemsmt.samba.bl.container.user.UserDataContainer;
 import org.sblim.wbemsmt.samba.bl.container.user.UserListDataContainer;
 import org.sblim.wbemsmt.samba.bl.container.user.UserListItemDataContainer;
+import org.sblim.wbemsmt.samba.bl.container.welcome.WelcomeDataContainer;
 import org.sblim.wbemsmt.samba.bl.container.wizard.HostWizardPage1;
 import org.sblim.wbemsmt.samba.bl.container.wizard.HostWizardPage2;
 import org.sblim.wbemsmt.samba.bl.container.wizard.PrinterInUserWizardACLItemDataContainer;
@@ -651,6 +652,11 @@ public class SambaCimAdapterInitContainerDelegatee implements
 	 */
 	public void initContainerImpl(UserWizardPage3 container)
 			throws InitContainerException {
+		
+	}
+
+	public void initContainerImpl(WelcomeDataContainer container) throws InitContainerException {
+		// TODO Auto-generated method stub
 		
 	}
 

@@ -66,7 +66,6 @@ public class CreatePrinterListener extends TaskLauncherContextMenuEventListenerI
 		if (selector.execute())
 		{
 			adapter = (org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter)selector.getAdapter();
-			
 		
 			org.sblim.wbemsmt.jsf.samba.wizard.PrinterWizard wizard = new org.sblim.wbemsmt.jsf.samba.wizard.PrinterWizard(adapter);
 			wizard.startWizard();

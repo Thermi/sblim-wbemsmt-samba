@@ -98,4 +98,5 @@ public interface SambaCimAdapterInitContainerIf extends InitContainerDelegatee
 	public void initContainerImpl(org.sblim.wbemsmt.samba.bl.container.wizard.UserWizardPage1 container) throws org.sblim.wbemsmt.exception.InitContainerException;
 	public void initContainerImpl(org.sblim.wbemsmt.samba.bl.container.wizard.UserWizardPage2 container) throws org.sblim.wbemsmt.exception.InitContainerException;
 	public void initContainerImpl(org.sblim.wbemsmt.samba.bl.container.wizard.UserWizardPage3 container) throws org.sblim.wbemsmt.exception.InitContainerException;
+	public void initContainerImpl(org.sblim.wbemsmt.samba.bl.container.welcome.WelcomeDataContainer container) throws org.sblim.wbemsmt.exception.InitContainerException;
 	}

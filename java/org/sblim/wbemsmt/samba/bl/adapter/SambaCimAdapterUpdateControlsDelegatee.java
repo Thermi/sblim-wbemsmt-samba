@@ -63,6 +63,7 @@ import org.sblim.wbemsmt.samba.bl.container.user.ShareInUserACLDataContainer;
 import org.sblim.wbemsmt.samba.bl.container.user.UserDataContainer;
 import org.sblim.wbemsmt.samba.bl.container.user.UserListDataContainer;
 import org.sblim.wbemsmt.samba.bl.container.user.UserListItemDataContainer;
+import org.sblim.wbemsmt.samba.bl.container.welcome.WelcomeDataContainer;
 import org.sblim.wbemsmt.samba.bl.container.wizard.HostWizardPage1;
 import org.sblim.wbemsmt.samba.bl.container.wizard.HostWizardPage2;
 import org.sblim.wbemsmt.samba.bl.container.wizard.PrinterInUserWizardACLItemDataContainer;
@@ -515,6 +516,12 @@ public class SambaCimAdapterUpdateControlsDelegatee extends SambaDelegatee imple
 
 	public void updateControlsImpl(UserListItemDataContainer container, Linux_SambaUser fco) throws UpdateControlsException {
 		adapter.getSelectedService().getUsers().getUserByName(fco.get_SambaUserName()).updateControls(container);
+	}
+
+	public void updateControlsImpl(WelcomeDataContainer container) throws UpdateControlsException {
+		
+		container.get_usr_WelcomeText().setControlValue("SAMBA-INFO");
+		
 	}
 	
 }

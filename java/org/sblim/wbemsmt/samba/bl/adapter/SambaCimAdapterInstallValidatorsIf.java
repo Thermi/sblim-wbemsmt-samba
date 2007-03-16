@@ -100,5 +100,6 @@ public interface SambaCimAdapterInstallValidatorsIf extends InstallValidatorsDel
 	public void installValidatorsImpl(org.sblim.wbemsmt.samba.bl.container.wizard.UserWizardPage1 container);
 	public void installValidatorsImpl(org.sblim.wbemsmt.samba.bl.container.wizard.UserWizardPage2 container);
 	public void installValidatorsImpl(org.sblim.wbemsmt.samba.bl.container.wizard.UserWizardPage3 container);
+	public void installValidatorsImpl(org.sblim.wbemsmt.samba.bl.container.welcome.WelcomeDataContainer container);
 			
 }
