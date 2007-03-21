@@ -216,52 +216,52 @@ public class ServiceLoggingDataContainerImpl extends BaseDataContainer implement
 	
 		if (showInstance(listOptions))
 		{
-						if (get_SysLog().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_SysLog()).getValue();
-				printStream.println(get_SysLog().getLabelText() + ": " + value);
-			}
-						if (get_SysLogOnly().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_SysLogOnly()).getValue();
-				printStream.println(get_SysLogOnly().getLabelText() + ": " + value);
-			}
-						if (get_MaxLogSize().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_MaxLogSize()).getValue();
-				printStream.println(get_MaxLogSize().getLabelText() + ": " + value);
-			}
-						if (get_DebugHiresTimestamp().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_DebugHiresTimestamp()).getValue();
-				printStream.println(get_DebugHiresTimestamp().getLabelText() + ": " + value);
-			}
-						if (get_DebugPID().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_DebugPID()).getValue();
-				printStream.println(get_DebugPID().getLabelText() + ": " + value);
-			}
-						if (get_DebugTimestamp().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_DebugTimestamp()).getValue();
-				printStream.println(get_DebugTimestamp().getLabelText() + ": " + value);
-			}
-						if (get_DebugUID().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_DebugUID()).getValue();
-				printStream.println(get_DebugUID().getLabelText() + ": " + value);
-			}
-						if (get_LogFile().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_LogFile()).getValue();
-				printStream.println(get_LogFile().getLabelText() + ": " + value);
-			}
-						if (get_LogLevel().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_LogLevel()).getValue();
-				printStream.println(get_LogLevel().getLabelText() + ": " + value);
-			}
-					}
+			   			   			if (get_SysLog().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_SysLog()).getValue();
+        				printStream.println(get_SysLog().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_SysLogOnly().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_SysLogOnly()).getValue();
+        				printStream.println(get_SysLogOnly().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_MaxLogSize().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_MaxLogSize()).getValue();
+        				printStream.println(get_MaxLogSize().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_DebugHiresTimestamp().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_DebugHiresTimestamp()).getValue();
+        				printStream.println(get_DebugHiresTimestamp().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_DebugPID().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_DebugPID()).getValue();
+        				printStream.println(get_DebugPID().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_DebugTimestamp().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_DebugTimestamp()).getValue();
+        				printStream.println(get_DebugTimestamp().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_DebugUID().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_DebugUID()).getValue();
+        				printStream.println(get_DebugUID().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_LogFile().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_LogFile()).getValue();
+        				printStream.println(get_LogFile().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_LogLevel().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_LogLevel()).getValue();
+        				printStream.println(get_LogLevel().getLabelText() + ": " + value);
+   			}
+   					}
 
 		if (showChilds(listOptions))
 		{

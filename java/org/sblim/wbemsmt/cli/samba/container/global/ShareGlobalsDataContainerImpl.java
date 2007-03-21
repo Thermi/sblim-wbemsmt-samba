@@ -165,37 +165,37 @@ public class ShareGlobalsDataContainerImpl extends BaseDataContainer implements 
 	
 		if (showInstance(listOptions))
 		{
-						if (get_CaseSensitive().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_CaseSensitive()).getValue();
-				printStream.println(get_CaseSensitive().getLabelText() + ": " + value);
-			}
-						if (get_DosFiletimes().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_DosFiletimes()).getValue();
-				printStream.println(get_DosFiletimes().getLabelText() + ": " + value);
-			}
-						if (get_HideDotFiles().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_HideDotFiles()).getValue();
-				printStream.println(get_HideDotFiles().getLabelText() + ": " + value);
-			}
-						if (get_AclCompatibility().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_AclCompatibility()).getValue();
-				printStream.println(get_AclCompatibility().getLabelText() + ": " + value);
-			}
-						if (get_EASupport().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_EASupport()).getValue();
-				printStream.println(get_EASupport().getLabelText() + ": " + value);
-			}
-						if (get_NTACLSupport().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_NTACLSupport()).getValue();
-				printStream.println(get_NTACLSupport().getLabelText() + ": " + value);
-			}
-					}
+			   			   			if (get_CaseSensitive().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_CaseSensitive()).getValue();
+        				printStream.println(get_CaseSensitive().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_DosFiletimes().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_DosFiletimes()).getValue();
+        				printStream.println(get_DosFiletimes().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_HideDotFiles().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_HideDotFiles()).getValue();
+        				printStream.println(get_HideDotFiles().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_AclCompatibility().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_AclCompatibility()).getValue();
+        				printStream.println(get_AclCompatibility().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_EASupport().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_EASupport()).getValue();
+        				printStream.println(get_EASupport().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_NTACLSupport().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_NTACLSupport()).getValue();
+        				printStream.println(get_NTACLSupport().getLabelText() + ": " + value);
+   			}
+   					}
 
 		if (showChilds(listOptions))
 		{

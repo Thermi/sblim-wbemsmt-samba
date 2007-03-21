@@ -136,22 +136,22 @@ public class UserWizardPage3Impl extends BaseDataContainer implements org.sblim.
 	
 		if (showInstance(listOptions))
 		{
-						if (get_SambaUserName().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_SambaUserName()).getValue();
-				printStream.println(get_SambaUserName().getLabelText() + ": " + value);
-			}
-						if (get_SystemUserName().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_SystemUserName()).getValue();
-				printStream.println(get_SystemUserName().getLabelText() + ": " + value);
-			}
-						if (get_usr_IsGuest().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_IsGuest()).getValue();
-				printStream.println(get_usr_IsGuest().getLabelText() + ": " + value);
-			}
-					}
+			   			   			if (get_SambaUserName().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_SambaUserName()).getValue();
+        				printStream.println(get_SambaUserName().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_SystemUserName().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_SystemUserName()).getValue();
+        				printStream.println(get_SystemUserName().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_usr_IsGuest().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_IsGuest()).getValue();
+        				printStream.println(get_usr_IsGuest().getLabelText() + ": " + value);
+   			}
+   					}
 
 		if (showChilds(listOptions))
 		{
@@ -161,18 +161,18 @@ public class UserWizardPage3Impl extends BaseDataContainer implements org.sblim.
 	
 	public void traceChilds(java.io.PrintWriter printStream, String listOptions, boolean title)
 	{
-    		        		printStream.println();
-        		printStream.println(getAdapter().getBundle().getString("UserWizardPage3.role.shares"));
-        		List listshares = getShares();
+    		        		List listshares = getShares();
+        		printStream.println();
+        		printStream.println(getAdapter().getBundle().getString("UserWizardPage3.role.shares") + " " + getAdapter().getBundle().getString("items.found", new Object[]{new Integer(listshares.size())}));
         		for (int i = 0; i < listshares.size(); i++) {
         			BaseDataContainer child = (BaseDataContainer)listshares.get(i);
         			printStream.println();
         			printStream.println(getAdapter().getBundle().getString("item") + ": " + (i+1) + " " + getAdapter().getBundle().getString("of") + " " + listshares.size());
         			child.trace(printStream,listOptions,false);
         		}
-    		        		printStream.println();
-        		printStream.println(getAdapter().getBundle().getString("UserWizardPage3.role.printers"));
-        		List listprinters = getPrinters();
+    		        		List listprinters = getPrinters();
+        		printStream.println();
+        		printStream.println(getAdapter().getBundle().getString("UserWizardPage3.role.printers") + " " + getAdapter().getBundle().getString("items.found", new Object[]{new Integer(listprinters.size())}));
         		for (int i = 0; i < listprinters.size(); i++) {
         			BaseDataContainer child = (BaseDataContainer)listprinters.get(i);
         			printStream.println();

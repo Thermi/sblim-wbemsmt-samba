@@ -38,6 +38,12 @@ import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 public class WelcomeDataContainerImpl extends BaseDataContainer implements org.sblim.wbemsmt.samba.bl.container.welcome.WelcomeDataContainer {
 
 			private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_usr_WelcomeText;
+    		private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_usr_SharePicture;
+    		private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_usr_LinkCreateShare;
+    		private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_usr_Memo;
+    		private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_usr_LinkCreatePrinter;
+    		private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_usr_LinkCreateUser;
+    		private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_usr_Actions;
     	
 		
 	public WelcomeDataContainerImpl(AbstractBaseCimAdapter adapter) throws InitContainerException {
@@ -62,6 +68,102 @@ public class WelcomeDataContainerImpl extends BaseDataContainer implements org.s
     		}
     		return ic_usr_WelcomeText;
     	}
+			/**
+		* 
+		* DataType PICTUREDATA
+		* UIType PICTURE
+		* ReadOnly false
+		*/
+
+		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_SharePicture() {
+    		if (ic_usr_SharePicture == null)
+    		{
+				String label = getAdapter().getBundle().getString("WelcomeDataContainer.sharePicture");
+				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.cli.NotSupportedConverter();
+    			ic_usr_SharePicture = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
+    		}
+    		return ic_usr_SharePicture;
+    	}
+			/**
+		* 
+		* DataType LINKDATA
+		* UIType LINK
+		* ReadOnly false
+		*/
+
+		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_LinkCreateShare() {
+    		if (ic_usr_LinkCreateShare == null)
+    		{
+				String label = getAdapter().getBundle().getString("WelcomeDataContainer.linkCreateShare");
+				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.cli.NotSupportedConverter();
+    			ic_usr_LinkCreateShare = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
+    		}
+    		return ic_usr_LinkCreateShare;
+    	}
+			/**
+		* 
+		* DataType MEMODATA
+		* UIType MEMO
+		* ReadOnly false
+		*/
+
+		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_Memo() {
+    		if (ic_usr_Memo == null)
+    		{
+				String label = getAdapter().getBundle().getString("WelcomeDataContainer.memo");
+				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.cli.MemoDataConverter();
+    			ic_usr_Memo = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
+    		}
+    		return ic_usr_Memo;
+    	}
+			/**
+		* 
+		* DataType LINKDATA
+		* UIType LINK
+		* ReadOnly false
+		*/
+
+		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_LinkCreatePrinter() {
+    		if (ic_usr_LinkCreatePrinter == null)
+    		{
+				String label = getAdapter().getBundle().getString("WelcomeDataContainer.linkCreatePrinter");
+				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.cli.NotSupportedConverter();
+    			ic_usr_LinkCreatePrinter = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
+    		}
+    		return ic_usr_LinkCreatePrinter;
+    	}
+			/**
+		* 
+		* DataType LINKDATA
+		* UIType LINK
+		* ReadOnly false
+		*/
+
+		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_LinkCreateUser() {
+    		if (ic_usr_LinkCreateUser == null)
+    		{
+				String label = getAdapter().getBundle().getString("WelcomeDataContainer.linkCreateUser");
+				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.cli.NotSupportedConverter();
+    			ic_usr_LinkCreateUser = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
+    		}
+    		return ic_usr_LinkCreateUser;
+    	}
+			/**
+		* 
+		* DataType STRING
+		* UIType LABEL
+		* ReadOnly false
+		*/
+
+		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_Actions() {
+    		if (ic_usr_Actions == null)
+    		{
+				String label = getAdapter().getBundle().getString("WelcomeDataContainer.actions");
+				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
+    			ic_usr_Actions = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
+    		}
+    		return ic_usr_Actions;
+    	}
 		
 	
 		
@@ -80,12 +182,26 @@ public class WelcomeDataContainerImpl extends BaseDataContainer implements org.s
 	
 		if (showInstance(listOptions))
 		{
-						if (get_usr_WelcomeText().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_WelcomeText()).getValue();
-				printStream.println(get_usr_WelcomeText().getLabelText() + ": " + value);
-			}
-					}
+			   			   			if (get_usr_WelcomeText().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_WelcomeText()).getValue();
+        				printStream.println(get_usr_WelcomeText().getLabelText() + ": " + value);
+   			}
+   			   			   				//Field _usr_SharePicture not supported for cli
+   			   			   				//Field _usr_LinkCreateShare not supported for cli
+   			   			   			if (get_usr_Memo().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_Memo()).getValue();
+        				printStream.println(get_usr_Memo().getLabelText() + ": " + value);
+   			}
+   			   			   				//Field _usr_LinkCreatePrinter not supported for cli
+   			   			   				//Field _usr_LinkCreateUser not supported for cli
+   			   			   			if (get_usr_Actions().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_Actions()).getValue();
+        				printStream.println(get_usr_Actions().getLabelText() + ": " + value);
+   			}
+   					}
 
 		if (showChilds(listOptions))
 		{
@@ -109,6 +225,12 @@ public class WelcomeDataContainerImpl extends BaseDataContainer implements org.s
 	{
 		List fields = new ArrayList();
     				fields.add(get_usr_WelcomeText());
+    				fields.add(get_usr_SharePicture());
+    				fields.add(get_usr_LinkCreateShare());
+    				fields.add(get_usr_Memo());
+    				fields.add(get_usr_LinkCreatePrinter());
+    				fields.add(get_usr_LinkCreateUser());
+    				fields.add(get_usr_Actions());
     			return fields;
 	}
 
@@ -128,6 +250,12 @@ public class WelcomeDataContainerImpl extends BaseDataContainer implements org.s
 		WelcomeDataContainerImpl source = (WelcomeDataContainerImpl)sourceContainer;
 	
     	    		get_usr_WelcomeText().setValue(source.get_usr_WelcomeText().getValue());
+		    		get_usr_SharePicture().setValue(source.get_usr_SharePicture().getValue());
+		    		get_usr_LinkCreateShare().setValue(source.get_usr_LinkCreateShare().getValue());
+		    		get_usr_Memo().setValue(source.get_usr_Memo().getValue());
+		    		get_usr_LinkCreatePrinter().setValue(source.get_usr_LinkCreatePrinter().getValue());
+		    		get_usr_LinkCreateUser().setValue(source.get_usr_LinkCreateUser().getValue());
+		    		get_usr_Actions().setValue(source.get_usr_Actions().getValue());
 				
     	    		}
 	

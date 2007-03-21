@@ -114,22 +114,22 @@ public class ShareWizardPage1Impl extends BaseDataContainer implements org.sblim
 	
 		if (showInstance(listOptions))
 		{
-						if (get_Name().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_Name()).getValue();
-				printStream.println(get_Name().getLabelText() + ": " + value);
-			}
-						if (get_Path().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_Path()).getValue();
-				printStream.println(get_Path().getLabelText() + ": " + value);
-			}
-						if (get_Comment().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_Comment()).getValue();
-				printStream.println(get_Comment().getLabelText() + ": " + value);
-			}
-					}
+			   			   			if (get_Name().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_Name()).getValue();
+        				printStream.println(get_Name().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_Path().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_Path()).getValue();
+        				printStream.println(get_Path().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_Comment().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_Comment()).getValue();
+        				printStream.println(get_Comment().getLabelText() + ": " + value);
+   			}
+   					}
 
 		if (showChilds(listOptions))
 		{

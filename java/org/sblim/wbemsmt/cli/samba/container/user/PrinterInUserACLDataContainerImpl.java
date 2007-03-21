@@ -84,9 +84,9 @@ public class PrinterInUserACLDataContainerImpl extends BaseDataContainer impleme
 	
 	public void traceChilds(java.io.PrintWriter printStream, String listOptions, boolean title)
 	{
-    		        		printStream.println();
-        		printStream.println(getAdapter().getBundle().getString("PrinterInUserACLDataContainer.role.printers"));
-        		List listprinters = getPrinters();
+    		        		List listprinters = getPrinters();
+        		printStream.println();
+        		printStream.println(getAdapter().getBundle().getString("PrinterInUserACLDataContainer.role.printers") + " " + getAdapter().getBundle().getString("items.found", new Object[]{new Integer(listprinters.size())}));
         		for (int i = 0; i < listprinters.size(); i++) {
         			BaseDataContainer child = (BaseDataContainer)listprinters.get(i);
         			printStream.println();

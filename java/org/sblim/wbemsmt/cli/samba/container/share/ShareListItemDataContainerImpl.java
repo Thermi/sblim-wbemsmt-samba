@@ -233,57 +233,57 @@ public class ShareListItemDataContainerImpl extends BaseDataContainer implements
 	
 		if (showInstance(listOptions))
 		{
-						if (get_Name().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_Name()).getValue();
-				printStream.println(get_Name().getLabelText() + ": " + value);
-			}
-						if (get_Available().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_Available()).getValue();
-				printStream.println(get_Available().getLabelText() + ": " + value);
-			}
-						if (get_Comment().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_Comment()).getValue();
-				printStream.println(get_Comment().getLabelText() + ": " + value);
-			}
-						if (get_Path().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_Path()).getValue();
-				printStream.println(get_Path().getLabelText() + ": " + value);
-			}
-						if (get_Browsable().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_Browsable()).getValue();
-				printStream.println(get_Browsable().getLabelText() + ": " + value);
-			}
-						if (get_GuestOK().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_GuestOK()).getValue();
-				printStream.println(get_GuestOK().getLabelText() + ": " + value);
-			}
-						if (get_GuestOnly().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_GuestOnly()).getValue();
-				printStream.println(get_GuestOnly().getLabelText() + ": " + value);
-			}
-						if (get_HostsAllow().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_HostsAllow()).getValue();
-				printStream.println(get_HostsAllow().getLabelText() + ": " + value);
-			}
-						if (get_HostsDeny().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_HostsDeny()).getValue();
-				printStream.println(get_HostsDeny().getLabelText() + ": " + value);
-			}
-						if (get_ReadOnly().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_ReadOnly()).getValue();
-				printStream.println(get_ReadOnly().getLabelText() + ": " + value);
-			}
-					}
+			   			   			if (get_Name().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_Name()).getValue();
+        				printStream.println(get_Name().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_Available().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_Available()).getValue();
+        				printStream.println(get_Available().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_Comment().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_Comment()).getValue();
+        				printStream.println(get_Comment().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_Path().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_Path()).getValue();
+        				printStream.println(get_Path().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_Browsable().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_Browsable()).getValue();
+        				printStream.println(get_Browsable().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_GuestOK().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_GuestOK()).getValue();
+        				printStream.println(get_GuestOK().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_GuestOnly().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_GuestOnly()).getValue();
+        				printStream.println(get_GuestOnly().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_HostsAllow().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_HostsAllow()).getValue();
+        				printStream.println(get_HostsAllow().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_HostsDeny().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_HostsDeny()).getValue();
+        				printStream.println(get_HostsDeny().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_ReadOnly().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_ReadOnly()).getValue();
+        				printStream.println(get_ReadOnly().getLabelText() + ": " + value);
+   			}
+   					}
 
 		if (showChilds(listOptions))
 		{

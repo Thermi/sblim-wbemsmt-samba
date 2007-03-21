@@ -131,27 +131,27 @@ public class ShareInUserWizardACLItemDataContainerImpl extends BaseDataContainer
 	
 		if (showInstance(listOptions))
 		{
-						if (get_ShareName().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_ShareName()).getValue();
-				printStream.println(get_ShareName().getLabelText() + ": " + value);
-			}
-						if (get_usr_AccessTypeVI().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_AccessTypeVI()).getValue();
-				printStream.println(get_usr_AccessTypeVI().getLabelText() + ": " + value);
-			}
-						if (get_usr_AccessTypeRW().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_AccessTypeRW()).getValue();
-				printStream.println(get_usr_AccessTypeRW().getLabelText() + ": " + value);
-			}
-						if (get_usr_Admin().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_Admin()).getValue();
-				printStream.println(get_usr_Admin().getLabelText() + ": " + value);
-			}
-					}
+			   			   			if (get_ShareName().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_ShareName()).getValue();
+        				printStream.println(get_ShareName().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_usr_AccessTypeVI().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_AccessTypeVI()).getValue();
+        				printStream.println(get_usr_AccessTypeVI().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_usr_AccessTypeRW().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_AccessTypeRW()).getValue();
+        				printStream.println(get_usr_AccessTypeRW().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_usr_Admin().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_Admin()).getValue();
+        				printStream.println(get_usr_Admin().getLabelText() + ": " + value);
+   			}
+   					}
 
 		if (showChilds(listOptions))
 		{

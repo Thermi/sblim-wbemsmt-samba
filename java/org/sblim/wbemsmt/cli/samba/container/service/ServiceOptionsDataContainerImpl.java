@@ -182,42 +182,42 @@ public class ServiceOptionsDataContainerImpl extends BaseDataContainer implement
 	
 		if (showInstance(listOptions))
 		{
-						if (get_BindInterfacesOnly().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_BindInterfacesOnly()).getValue();
-				printStream.println(get_BindInterfacesOnly().getLabelText() + ": " + value);
-			}
-						if (get_Interfaces().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_Interfaces()).getValue();
-				printStream.println(get_Interfaces().getLabelText() + ": " + value);
-			}
-						if (get_NetbiosAlias().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_NetbiosAlias()).getValue();
-				printStream.println(get_NetbiosAlias().getLabelText() + ": " + value);
-			}
-						if (get_NetbiosName().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_NetbiosName()).getValue();
-				printStream.println(get_NetbiosName().getLabelText() + ": " + value);
-			}
-						if (get_ServerString().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_ServerString()).getValue();
-				printStream.println(get_ServerString().getLabelText() + ": " + value);
-			}
-						if (get_Workgroup().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_Workgroup()).getValue();
-				printStream.println(get_Workgroup().getLabelText() + ": " + value);
-			}
-						if (get_ConfigurationFile().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_ConfigurationFile()).getValue();
-				printStream.println(get_ConfigurationFile().getLabelText() + ": " + value);
-			}
-					}
+			   			   			if (get_BindInterfacesOnly().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_BindInterfacesOnly()).getValue();
+        				printStream.println(get_BindInterfacesOnly().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_Interfaces().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_Interfaces()).getValue();
+        				printStream.println(get_Interfaces().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_NetbiosAlias().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_NetbiosAlias()).getValue();
+        				printStream.println(get_NetbiosAlias().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_NetbiosName().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_NetbiosName()).getValue();
+        				printStream.println(get_NetbiosName().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_ServerString().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_ServerString()).getValue();
+        				printStream.println(get_ServerString().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_Workgroup().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_Workgroup()).getValue();
+        				printStream.println(get_Workgroup().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_ConfigurationFile().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_ConfigurationFile()).getValue();
+        				printStream.println(get_ConfigurationFile().getLabelText() + ": " + value);
+   			}
+   					}
 
 		if (showChilds(listOptions))
 		{

@@ -210,47 +210,47 @@ public class PrintingGlobalsDataContainerImpl extends BaseDataContainer implemen
 	
 		if (showInstance(listOptions))
 		{
-						if (get_PrintcapCacheTime().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_PrintcapCacheTime()).getValue();
-				printStream.println(get_PrintcapCacheTime().getLabelText() + ": " + value);
-			}
-						if (get_usr_SystemPrinterName().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_SystemPrinterName()).getValue();
-				printStream.println(get_usr_SystemPrinterName().getLabelText() + ": " + value);
-			}
-						if (get_CupsOptions().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_CupsOptions()).getValue();
-				printStream.println(get_CupsOptions().getLabelText() + ": " + value);
-			}
-						if (get_DefaultDevMode().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_DefaultDevMode()).getValue();
-				printStream.println(get_DefaultDevMode().getLabelText() + ": " + value);
-			}
-						if (get_MaxPrintjobs().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_MaxPrintjobs()).getValue();
-				printStream.println(get_MaxPrintjobs().getLabelText() + ": " + value);
-			}
-						if (get_MaxReportedPrintjobs().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_MaxReportedPrintjobs()).getValue();
-				printStream.println(get_MaxReportedPrintjobs().getLabelText() + ": " + value);
-			}
-						if (get_PrintCommand().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_PrintCommand()).getValue();
-				printStream.println(get_PrintCommand().getLabelText() + ": " + value);
-			}
-						if (get_UseClientDriver().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_UseClientDriver()).getValue();
-				printStream.println(get_UseClientDriver().getLabelText() + ": " + value);
-			}
-					}
+			   			   			if (get_PrintcapCacheTime().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_PrintcapCacheTime()).getValue();
+        				printStream.println(get_PrintcapCacheTime().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_usr_SystemPrinterName().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_SystemPrinterName()).getValue();
+        				printStream.println(get_usr_SystemPrinterName().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_CupsOptions().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_CupsOptions()).getValue();
+        				printStream.println(get_CupsOptions().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_DefaultDevMode().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_DefaultDevMode()).getValue();
+        				printStream.println(get_DefaultDevMode().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_MaxPrintjobs().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_MaxPrintjobs()).getValue();
+        				printStream.println(get_MaxPrintjobs().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_MaxReportedPrintjobs().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_MaxReportedPrintjobs()).getValue();
+        				printStream.println(get_MaxReportedPrintjobs().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_PrintCommand().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_PrintCommand()).getValue();
+        				printStream.println(get_PrintCommand().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_UseClientDriver().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_UseClientDriver()).getValue();
+        				printStream.println(get_UseClientDriver().getLabelText() + ": " + value);
+   			}
+   					}
 
 		if (showChilds(listOptions))
 		{
@@ -260,9 +260,9 @@ public class PrintingGlobalsDataContainerImpl extends BaseDataContainer implemen
 	
 	public void traceChilds(java.io.PrintWriter printStream, String listOptions, boolean title)
 	{
-    		        		printStream.println();
-        		printStream.println(getAdapter().getBundle().getString("PrintingGlobalsDataContainer.role.users"));
-        		List listusers = getUsers();
+    		        		List listusers = getUsers();
+        		printStream.println();
+        		printStream.println(getAdapter().getBundle().getString("PrintingGlobalsDataContainer.role.users") + " " + getAdapter().getBundle().getString("items.found", new Object[]{new Integer(listusers.size())}));
         		for (int i = 0; i < listusers.size(); i++) {
         			BaseDataContainer child = (BaseDataContainer)listusers.get(i);
         			printStream.println();

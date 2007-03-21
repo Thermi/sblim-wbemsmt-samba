@@ -227,52 +227,52 @@ public class ShareWizardPage4Impl extends BaseDataContainer implements org.sblim
 	
 		if (showInstance(listOptions))
 		{
-						if (get_Name().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_Name()).getValue();
-				printStream.println(get_Name().getLabelText() + ": " + value);
-			}
-						if (get_Path().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_Path()).getValue();
-				printStream.println(get_Path().getLabelText() + ": " + value);
-			}
-						if (get_Comment().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_Comment()).getValue();
-				printStream.println(get_Comment().getLabelText() + ": " + value);
-			}
-						if (get_usr_SeenByEverybody().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_SeenByEverybody()).getValue();
-				printStream.println(get_usr_SeenByEverybody().getLabelText() + ": " + value);
-			}
-						if (get_usr_EnableGuest().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_EnableGuest()).getValue();
-				printStream.println(get_usr_EnableGuest().getLabelText() + ": " + value);
-			}
-						if (get_CreateMask().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_CreateMask()).getValue();
-				printStream.println(get_CreateMask().getLabelText() + ": " + value);
-			}
-						if (get_DirectoryMask().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_DirectoryMask()).getValue();
-				printStream.println(get_DirectoryMask().getLabelText() + ": " + value);
-			}
-						if (get_DirectorySecurityMask().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_DirectorySecurityMask()).getValue();
-				printStream.println(get_DirectorySecurityMask().getLabelText() + ": " + value);
-			}
-						if (get_usr_ForceUser().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_ForceUser()).getValue();
-				printStream.println(get_usr_ForceUser().getLabelText() + ": " + value);
-			}
-					}
+			   			   			if (get_Name().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_Name()).getValue();
+        				printStream.println(get_Name().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_Path().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_Path()).getValue();
+        				printStream.println(get_Path().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_Comment().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_Comment()).getValue();
+        				printStream.println(get_Comment().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_usr_SeenByEverybody().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_SeenByEverybody()).getValue();
+        				printStream.println(get_usr_SeenByEverybody().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_usr_EnableGuest().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_EnableGuest()).getValue();
+        				printStream.println(get_usr_EnableGuest().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_CreateMask().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_CreateMask()).getValue();
+        				printStream.println(get_CreateMask().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_DirectoryMask().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_DirectoryMask()).getValue();
+        				printStream.println(get_DirectoryMask().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_DirectorySecurityMask().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_DirectorySecurityMask()).getValue();
+        				printStream.println(get_DirectorySecurityMask().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_usr_ForceUser().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_ForceUser()).getValue();
+        				printStream.println(get_usr_ForceUser().getLabelText() + ": " + value);
+   			}
+   					}
 
 		if (showChilds(listOptions))
 		{
@@ -282,9 +282,9 @@ public class ShareWizardPage4Impl extends BaseDataContainer implements org.sblim
 	
 	public void traceChilds(java.io.PrintWriter printStream, String listOptions, boolean title)
 	{
-    		        		printStream.println();
-        		printStream.println(getAdapter().getBundle().getString("ShareWizardPage4.role.users"));
-        		List listusers = getUsers();
+    		        		List listusers = getUsers();
+        		printStream.println();
+        		printStream.println(getAdapter().getBundle().getString("ShareWizardPage4.role.users") + " " + getAdapter().getBundle().getString("items.found", new Object[]{new Integer(listusers.size())}));
         		for (int i = 0; i < listusers.size(); i++) {
         			BaseDataContainer child = (BaseDataContainer)listusers.get(i);
         			printStream.println();

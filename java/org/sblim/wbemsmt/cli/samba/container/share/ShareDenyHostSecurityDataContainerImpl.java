@@ -131,17 +131,17 @@ public class ShareDenyHostSecurityDataContainerImpl extends BaseDataContainer im
 	
 		if (showInstance(listOptions))
 		{
-						if (get_usr_DeniedHosts().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_DeniedHosts()).getValue();
-				printStream.println(get_usr_DeniedHosts().getLabelText() + ": " + value);
-			}
-						if (get_usr_HostsToDeny().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_HostsToDeny()).getValue();
-				printStream.println(get_usr_HostsToDeny().getLabelText() + ": " + value);
-			}
-					}
+			   			   			if (get_usr_DeniedHosts().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_DeniedHosts()).getValue();
+        				printStream.println(get_usr_DeniedHosts().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_usr_HostsToDeny().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_HostsToDeny()).getValue();
+        				printStream.println(get_usr_HostsToDeny().getLabelText() + ": " + value);
+   			}
+   					}
 
 		if (showChilds(listOptions))
 		{

@@ -19,6 +19,9 @@
   */
 package org.sblim.wbemsmt.samba.bl.adapter;
 
+import org.sblim.wbemsmt.bl.fielddata.LinkData;
+import org.sblim.wbemsmt.bl.fielddata.MemoData;
+import org.sblim.wbemsmt.bl.fielddata.PictureData;
 import org.sblim.wbemsmt.exception.UpdateControlsException;
 import org.sblim.wbemsmt.samba.bl.container.global.AdminUsersInPrinterGlobals;
 import org.sblim.wbemsmt.samba.bl.container.global.AdminUsersInShareGlobals;
@@ -92,6 +95,9 @@ import org.sblim.wbemsmt.samba.bl.wrapper.Service;
 import org.sblim.wbemsmt.samba.bl.wrapper.Share;
 import org.sblim.wbemsmt.samba.bl.wrapper.ShareGlobals;
 import org.sblim.wbemsmt.samba.bl.wrapper.User;
+import org.sblim.wbemsmt.samba.listener.CreatePrinterListener;
+import org.sblim.wbemsmt.samba.listener.CreateShareListener;
+import org.sblim.wbemsmt.samba.listener.CreateUserListener;
 
 public class SambaCimAdapterUpdateControlsDelegatee extends SambaDelegatee implements
 		SambaCimAdapterUpdateControlsIf {
@@ -520,7 +526,13 @@ public class SambaCimAdapterUpdateControlsDelegatee extends SambaDelegatee imple
 
 	public void updateControlsImpl(WelcomeDataContainer container) throws UpdateControlsException {
 		
-		container.get_usr_WelcomeText().setControlValue("SAMBA-INFO");
+		container.get_usr_WelcomeText().setControlValue(container.getAdapter().getBundle().getString("samba.welcome.objects"));
+		container.get_usr_SharePicture().setControlValue(new PictureData("/org/sblim/wbemsmt/samba/images/share.gif"));
+		container.get_usr_LinkCreateShare().setControlValue(new LinkData(new CreateShareListener(),container.getAdapter().getBundle().getString("tree.menu.createShare")));
+		container.get_usr_LinkCreatePrinter().setControlValue(new LinkData(new CreatePrinterListener(),container.getAdapter().getBundle().getString("tree.menu.createPrinter")));
+		container.get_usr_LinkCreateUser().setControlValue(new LinkData(new CreateUserListener(),container.getAdapter().getBundle().getString("tree.menu.createUser")));
+		container.get_usr_Memo().setControlValue(new MemoData(container.getAdapter().getBundle().getString("samba.welcome.additional.info")));
+		
 		
 	}
 	

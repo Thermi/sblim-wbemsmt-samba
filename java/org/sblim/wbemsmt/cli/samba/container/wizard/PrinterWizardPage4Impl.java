@@ -97,17 +97,17 @@ public class PrinterWizardPage4Impl extends BaseDataContainer implements org.sbl
 	
 		if (showInstance(listOptions))
 		{
-						if (get_CupsOptions().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_CupsOptions()).getValue();
-				printStream.println(get_CupsOptions().getLabelText() + ": " + value);
-			}
-						if (get_PrintCommand().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_PrintCommand()).getValue();
-				printStream.println(get_PrintCommand().getLabelText() + ": " + value);
-			}
-					}
+			   			   			if (get_CupsOptions().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_CupsOptions()).getValue();
+        				printStream.println(get_CupsOptions().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_PrintCommand().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_PrintCommand()).getValue();
+        				printStream.println(get_PrintCommand().getLabelText() + ": " + value);
+   			}
+   					}
 
 		if (showChilds(listOptions))
 		{

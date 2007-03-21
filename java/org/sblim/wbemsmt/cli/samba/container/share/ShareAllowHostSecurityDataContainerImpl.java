@@ -131,17 +131,17 @@ public class ShareAllowHostSecurityDataContainerImpl extends BaseDataContainer i
 	
 		if (showInstance(listOptions))
 		{
-						if (get_usr_AllowedHosts().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_AllowedHosts()).getValue();
-				printStream.println(get_usr_AllowedHosts().getLabelText() + ": " + value);
-			}
-						if (get_usr_HostsToAllow().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_HostsToAllow()).getValue();
-				printStream.println(get_usr_HostsToAllow().getLabelText() + ": " + value);
-			}
-					}
+			   			   			if (get_usr_AllowedHosts().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_AllowedHosts()).getValue();
+        				printStream.println(get_usr_AllowedHosts().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_usr_HostsToAllow().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_HostsToAllow()).getValue();
+        				printStream.println(get_usr_HostsToAllow().getLabelText() + ": " + value);
+   			}
+   					}
 
 		if (showChilds(listOptions))
 		{

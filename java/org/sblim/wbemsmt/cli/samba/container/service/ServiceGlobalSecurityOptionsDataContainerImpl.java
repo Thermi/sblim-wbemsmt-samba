@@ -301,77 +301,77 @@ public class ServiceGlobalSecurityOptionsDataContainerImpl extends BaseDataConta
 	
 		if (showInstance(listOptions))
 		{
-						if (get_AuthMethods().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_AuthMethods()).getValue();
-				printStream.println(get_AuthMethods().getLabelText() + ": " + value);
-			}
-						if (get_EncryptPasswords().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_EncryptPasswords()).getValue();
-				printStream.println(get_EncryptPasswords().getLabelText() + ": " + value);
-			}
-						if (get_MinPasswordLength().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_MinPasswordLength()).getValue();
-				printStream.println(get_MinPasswordLength().getLabelText() + ": " + value);
-			}
-						if (get_NullPasswords().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_NullPasswords()).getValue();
-				printStream.println(get_NullPasswords().getLabelText() + ": " + value);
-			}
-						if (get_usr_PassdbBackend().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_PassdbBackend()).getValue();
-				printStream.println(get_usr_PassdbBackend().getLabelText() + ": " + value);
-			}
-						if (get_SMBPasswdFile().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_SMBPasswdFile()).getValue();
-				printStream.println(get_SMBPasswdFile().getLabelText() + ": " + value);
-			}
-						if (get_Security().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_Security()).getValue();
-				printStream.println(get_Security().getLabelText() + ": " + value);
-			}
-						if (get_GuestOK().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_GuestOK()).getValue();
-				printStream.println(get_GuestOK().getLabelText() + ": " + value);
-			}
-						if (get_GuestOnly().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_GuestOnly()).getValue();
-				printStream.println(get_GuestOnly().getLabelText() + ": " + value);
-			}
-						if (get_HostsAllow().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_HostsAllow()).getValue();
-				printStream.println(get_HostsAllow().getLabelText() + ": " + value);
-			}
-						if (get_HostsDeny().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_HostsDeny()).getValue();
-				printStream.println(get_HostsDeny().getLabelText() + ": " + value);
-			}
-						if (get_ReadOnly().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_ReadOnly()).getValue();
-				printStream.println(get_ReadOnly().getLabelText() + ": " + value);
-			}
-						if (get_DomainMaster().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_DomainMaster()).getValue();
-				printStream.println(get_DomainMaster().getLabelText() + ": " + value);
-			}
-						if (get_Browsable().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_Browsable()).getValue();
-				printStream.println(get_Browsable().getLabelText() + ": " + value);
-			}
-					}
+			   			   			if (get_AuthMethods().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_AuthMethods()).getValue();
+        				printStream.println(get_AuthMethods().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_EncryptPasswords().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_EncryptPasswords()).getValue();
+        				printStream.println(get_EncryptPasswords().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_MinPasswordLength().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_MinPasswordLength()).getValue();
+        				printStream.println(get_MinPasswordLength().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_NullPasswords().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_NullPasswords()).getValue();
+        				printStream.println(get_NullPasswords().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_usr_PassdbBackend().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_PassdbBackend()).getValue();
+        				printStream.println(get_usr_PassdbBackend().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_SMBPasswdFile().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_SMBPasswdFile()).getValue();
+        				printStream.println(get_SMBPasswdFile().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_Security().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_Security()).getValue();
+        				printStream.println(get_Security().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_GuestOK().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_GuestOK()).getValue();
+        				printStream.println(get_GuestOK().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_GuestOnly().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_GuestOnly()).getValue();
+        				printStream.println(get_GuestOnly().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_HostsAllow().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_HostsAllow()).getValue();
+        				printStream.println(get_HostsAllow().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_HostsDeny().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_HostsDeny()).getValue();
+        				printStream.println(get_HostsDeny().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_ReadOnly().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_ReadOnly()).getValue();
+        				printStream.println(get_ReadOnly().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_DomainMaster().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_DomainMaster()).getValue();
+        				printStream.println(get_DomainMaster().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_Browsable().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_Browsable()).getValue();
+        				printStream.println(get_Browsable().getLabelText() + ": " + value);
+   			}
+   					}
 
 		if (showChilds(listOptions))
 		{

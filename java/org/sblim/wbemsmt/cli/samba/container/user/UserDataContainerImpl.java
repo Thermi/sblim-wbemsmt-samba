@@ -114,22 +114,22 @@ public class UserDataContainerImpl extends BaseDataContainer implements org.sbli
 	
 		if (showInstance(listOptions))
 		{
-						if (get_SambaUserName().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_SambaUserName()).getValue();
-				printStream.println(get_SambaUserName().getLabelText() + ": " + value);
-			}
-						if (get_SystemUserName().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_SystemUserName()).getValue();
-				printStream.println(get_SystemUserName().getLabelText() + ": " + value);
-			}
-						if (get_usr_IsGuest().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_IsGuest()).getValue();
-				printStream.println(get_usr_IsGuest().getLabelText() + ": " + value);
-			}
-					}
+			   			   			if (get_SambaUserName().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_SambaUserName()).getValue();
+        				printStream.println(get_SambaUserName().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_SystemUserName().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_SystemUserName()).getValue();
+        				printStream.println(get_SystemUserName().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_usr_IsGuest().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_IsGuest()).getValue();
+        				printStream.println(get_usr_IsGuest().getLabelText() + ": " + value);
+   			}
+   					}
 
 		if (showChilds(listOptions))
 		{

@@ -84,9 +84,9 @@ public class UserListDataContainerImpl extends BaseDataContainer implements org.
 	
 	public void traceChilds(java.io.PrintWriter printStream, String listOptions, boolean title)
 	{
-    		        		printStream.println();
-        		printStream.println(getAdapter().getBundle().getString("UserListDataContainer.role.users"));
-        		List listusers = getUsers();
+    		        		List listusers = getUsers();
+        		printStream.println();
+        		printStream.println(getAdapter().getBundle().getString("UserListDataContainer.role.users") + " " + getAdapter().getBundle().getString("items.found", new Object[]{new Integer(listusers.size())}));
         		for (int i = 0; i < listusers.size(); i++) {
         			BaseDataContainer child = (BaseDataContainer)listusers.get(i);
         			printStream.println();

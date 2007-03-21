@@ -148,32 +148,32 @@ public class UserWizardPage1Impl extends BaseDataContainer implements org.sblim.
 	
 		if (showInstance(listOptions))
 		{
-						if (get_SambaUserName().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_SambaUserName()).getValue();
-				printStream.println(get_SambaUserName().getLabelText() + ": " + value);
-			}
-						if (get_SystemUserName().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_SystemUserName()).getValue();
-				printStream.println(get_SystemUserName().getLabelText() + ": " + value);
-			}
-						if (get_SambaUserPassword().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_SambaUserPassword()).getValue();
-				printStream.println(get_SambaUserPassword().getLabelText() + ": " + value);
-			}
-						if (get_SambaUserPassword2().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_SambaUserPassword2()).getValue();
-				printStream.println(get_SambaUserPassword2().getLabelText() + ": " + value);
-			}
-						if (get_usr_IsGuest().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_IsGuest()).getValue();
-				printStream.println(get_usr_IsGuest().getLabelText() + ": " + value);
-			}
-					}
+			   			   			if (get_SambaUserName().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_SambaUserName()).getValue();
+        				printStream.println(get_SambaUserName().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_SystemUserName().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_SystemUserName()).getValue();
+        				printStream.println(get_SystemUserName().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_SambaUserPassword().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_SambaUserPassword()).getValue();
+        				printStream.println(get_SambaUserPassword().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_SambaUserPassword2().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_SambaUserPassword2()).getValue();
+        				printStream.println(get_SambaUserPassword2().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_usr_IsGuest().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_IsGuest()).getValue();
+        				printStream.println(get_usr_IsGuest().getLabelText() + ": " + value);
+   			}
+   					}
 
 		if (showChilds(listOptions))
 		{

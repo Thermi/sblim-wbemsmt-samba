@@ -148,32 +148,32 @@ public class ServiceWinsDataContainerImpl extends BaseDataContainer implements o
 	
 		if (showInstance(listOptions))
 		{
-						if (get_DNS_Proxy().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_DNS_Proxy()).getValue();
-				printStream.println(get_DNS_Proxy().getLabelText() + ": " + value);
-			}
-						if (get_WINSHook().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_WINSHook()).getValue();
-				printStream.println(get_WINSHook().getLabelText() + ": " + value);
-			}
-						if (get_WINSProxy().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_WINSProxy()).getValue();
-				printStream.println(get_WINSProxy().getLabelText() + ": " + value);
-			}
-						if (get_WINSServer().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_WINSServer()).getValue();
-				printStream.println(get_WINSServer().getLabelText() + ": " + value);
-			}
-						if (get_WINSSupport().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_WINSSupport()).getValue();
-				printStream.println(get_WINSSupport().getLabelText() + ": " + value);
-			}
-					}
+			   			   			if (get_DNS_Proxy().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_DNS_Proxy()).getValue();
+        				printStream.println(get_DNS_Proxy().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_WINSHook().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_WINSHook()).getValue();
+        				printStream.println(get_WINSHook().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_WINSProxy().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_WINSProxy()).getValue();
+        				printStream.println(get_WINSProxy().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_WINSServer().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_WINSServer()).getValue();
+        				printStream.println(get_WINSServer().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_WINSSupport().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_WINSSupport()).getValue();
+        				printStream.println(get_WINSSupport().getLabelText() + ": " + value);
+   			}
+   					}
 
 		if (showChilds(listOptions))
 		{

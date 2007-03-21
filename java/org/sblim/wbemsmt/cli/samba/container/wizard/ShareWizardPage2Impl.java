@@ -142,27 +142,27 @@ public class ShareWizardPage2Impl extends BaseDataContainer implements org.sblim
 	
 		if (showInstance(listOptions))
 		{
-						if (get_usr_SeenByEverybody().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_SeenByEverybody()).getValue();
-				printStream.println(get_usr_SeenByEverybody().getLabelText() + ": " + value);
-			}
-						if (get_usr_ForceUser().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_ForceUser()).getValue();
-				printStream.println(get_usr_ForceUser().getLabelText() + ": " + value);
-			}
-						if (get_usr_EnableGuest().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_EnableGuest()).getValue();
-				printStream.println(get_usr_EnableGuest().getLabelText() + ": " + value);
-			}
-						if (get_usr_EnableAllUsers().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_EnableAllUsers()).getValue();
-				printStream.println(get_usr_EnableAllUsers().getLabelText() + ": " + value);
-			}
-					}
+			   			   			if (get_usr_SeenByEverybody().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_SeenByEverybody()).getValue();
+        				printStream.println(get_usr_SeenByEverybody().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_usr_ForceUser().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_ForceUser()).getValue();
+        				printStream.println(get_usr_ForceUser().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_usr_EnableGuest().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_EnableGuest()).getValue();
+        				printStream.println(get_usr_EnableGuest().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_usr_EnableAllUsers().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_EnableAllUsers()).getValue();
+        				printStream.println(get_usr_EnableAllUsers().getLabelText() + ": " + value);
+   			}
+   					}
 
 		if (showChilds(listOptions))
 		{
@@ -172,9 +172,9 @@ public class ShareWizardPage2Impl extends BaseDataContainer implements org.sblim
 	
 	public void traceChilds(java.io.PrintWriter printStream, String listOptions, boolean title)
 	{
-    		        		printStream.println();
-        		printStream.println(getAdapter().getBundle().getString("ShareWizardPage2.role.users"));
-        		List listusers = getUsers();
+    		        		List listusers = getUsers();
+        		printStream.println();
+        		printStream.println(getAdapter().getBundle().getString("ShareWizardPage2.role.users") + " " + getAdapter().getBundle().getString("items.found", new Object[]{new Integer(listusers.size())}));
         		for (int i = 0; i < listusers.size(); i++) {
         			BaseDataContainer child = (BaseDataContainer)listusers.get(i);
         			printStream.println();

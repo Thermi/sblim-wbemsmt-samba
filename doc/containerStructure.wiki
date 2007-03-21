@@ -1001,10 +1001,16 @@
 | *Adapter* \\ | sambaAdapter |
 | *Package* \\ | Interface: org.sblim.wbemsmt.samba.bl.container.welcome |
 | *Actions* | --- \\ |
-| *CustomLayouter* \\ | --- |
+| *CustomLayouter* \\ | X |
 *Fields:*
 | *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
 | welcomeText | STRING | LABEL | userdefined \\ | Readonly, Userdefined | Not used for Commandline |
+| sharePicture | PICTUREDATA | PICTURE | userdefined \\ | Userdefined | Not used for Commandline |
+| linkCreateShare | LINKDATA | LINK | userdefined \\ | Userdefined | Not used for Commandline |
+| memo | MEMODATA | MEMO | userdefined \\ | Userdefined | Not used for Commandline |
+| linkCreatePrinter | LINKDATA | LINK | userdefined \\ | Userdefined | Not used for Commandline |
+| linkCreateUser | LINKDATA | LINK | userdefined \\ | Userdefined | Not used for Commandline |
+| actions | STRING | LABEL | userdefined \\ | Userdefined | Not used for Commandline |
 
 {panel}
 

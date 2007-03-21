@@ -16,7 +16,7 @@
  *
  * Contributors: 
  */-->
-<cli:clientConfig version="VERSION_2_1" xsi:schemaLocation="http://sblim.org/wbemsmt/clientconfig ../../wbemsmt-tools/tools-dcg/conf/clientConfig.xsd" xmlns:cmd="http://sblim.org/wbemsmt/cmd" xmlns:cli="http://sblim.org/wbemsmt/clientconfig" xmlns:cd="http://sblim.org/wbemsmt/dcg" xmlns:pkg="http://sblim.org/wbemsmt/pkg" xmlns:pl="http://sblim.org/wbemsmt/pl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<cli:clientConfig version="VERSION_2_2" xsi:schemaLocation="http://sblim.org/wbemsmt/clientconfig ../../wbemsmt-tools/tools-dcg/conf/clientConfig.xsd" xmlns:cmd="http://sblim.org/wbemsmt/cmd" xmlns:cli="http://sblim.org/wbemsmt/clientconfig" xmlns:cd="http://sblim.org/wbemsmt/dcg" xmlns:pkg="http://sblim.org/wbemsmt/pkg" xmlns:pl="http://sblim.org/wbemsmt/pl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <cli:environment application="SAMBA" documentationDirectory="../wbemsmt-samba/doc" helpDirectory="../wbemsmt-samba/help">
         <cli:adapterPackage dir="../wbemsmt-samba/java/" id="adapterPackage" name="org.sblim.wbemsmt.samba.bl.adapter"/>
         <cli:wizardPackage dir="../wbemsmt-samba/java" id="wizardPackage" name="org.sblim.wbemsmt.samba.wizard"/>
@@ -896,8 +896,14 @@
         <dcg:container implPackageId="userContainerImpl" name="UserListItemDataContainer" packageId="userContainerPackage" adapterId="sambaAdapter" description="user within a list of users" canCreate="false" canModify="false" canDelete="false" isWizard="false" customLayouter="false">
             <dcg:extends container="UserDataContainer" packageId="userContainerPackage"/>
         </dcg:container>
-        <dcg:container implPackageId="welcomeContainerImpl" name="WelcomeDataContainer" packageId="welcomeContainerPackage" adapterId="sambaAdapter" description="" canCreate="false" canModify="false" canDelete="false" isWizard="false" customLayouter="false" dynamic="false">
+        <dcg:container implPackageId="welcomeContainerImpl" name="WelcomeDataContainer" packageId="welcomeContainerPackage" adapterId="sambaAdapter" description="" canCreate="false" canModify="false" canDelete="false" isWizard="false" customLayouter="true" dynamic="false">
             <dcg:field name="welcomeText" dataType="STRING" userDefined="true" uiType="LABEL" fcoFieldName="userdefined" description="" orientation="LEFT" readOnly="true" required="false"/>
+            <dcg:field name="sharePicture" dataType="PICTUREDATA" userDefined="true" uiType="PICTURE" fcoFieldName="userdefined" description="" orientation="LEFT" readOnly="false" required="false"/>
+            <dcg:field name="linkCreateShare" dataType="LINKDATA" userDefined="true" uiType="LINK" fcoFieldName="userdefined" description="" orientation="LEFT" readOnly="false" required="false"/>
+            <dcg:field name="memo" dataType="MEMODATA" userDefined="true" uiType="MEMO" fcoFieldName="userdefined" description="" orientation="LEFT" readOnly="false" required="false"/>
+            <dcg:field name="linkCreatePrinter" dataType="LINKDATA" userDefined="true" uiType="LINK" fcoFieldName="userdefined" description="" orientation="LEFT" readOnly="false" required="false"/>
+            <dcg:field name="linkCreateUser" dataType="LINKDATA" userDefined="true" uiType="LINK" fcoFieldName="userdefined" description="" orientation="LEFT" readOnly="false" required="false"/>
+            <dcg:field name="actions" dataType="STRING" userDefined="true" uiType="LABEL" fcoFieldName="userdefined" description="" orientation="LEFT" readOnly="false" required="false"/>
         </dcg:container>
     </dcg:container-definitions>
     <pl:presentationLayer>
@@ -1292,7 +1298,7 @@
         </pl:listAction>
         <pl:listAction id="ListSambaGlobalSecurity" linkedContainer="ServiceGlobalSecurityOptionsDataContainer" linkedPackage="serviceContainerPackage">
             <pl:actionListener>
-                <pl:actionListenerClassDefinition name="ListActionListener" packageId="implPackage1"/>
+                <pl:actionListenerClassDefinition name="Ignore" packageId="implPackage1" useCurrentTreeNodeForSelection="true"/>
             </pl:actionListener>
             <cmd:command commandName="ListSambaGlobalSecurity" listType="INSTANCE_WITH_CHILDS" traceOnlyChilds="false">
                 <cmd:option long="list" required="false" usedForSelection="true" duplicateOK="false" comment="" scope="LOCAL_ACTION" defaultValue="INSTANCE_WITH_CHILDS"/>

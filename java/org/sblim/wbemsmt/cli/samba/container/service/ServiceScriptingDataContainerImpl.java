@@ -216,52 +216,52 @@ public class ServiceScriptingDataContainerImpl extends BaseDataContainer impleme
 	
 		if (showInstance(listOptions))
 		{
-						if (get_AddGroupScript().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_AddGroupScript()).getValue();
-				printStream.println(get_AddGroupScript().getLabelText() + ": " + value);
-			}
-						if (get_AddPrinterCommand().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_AddPrinterCommand()).getValue();
-				printStream.println(get_AddPrinterCommand().getLabelText() + ": " + value);
-			}
-						if (get_AddShareCommand().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_AddShareCommand()).getValue();
-				printStream.println(get_AddShareCommand().getLabelText() + ": " + value);
-			}
-						if (get_AddUserScript().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_AddUserScript()).getValue();
-				printStream.println(get_AddUserScript().getLabelText() + ": " + value);
-			}
-						if (get_AddUsertoGroupScript().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_AddUsertoGroupScript()).getValue();
-				printStream.println(get_AddUsertoGroupScript().getLabelText() + ": " + value);
-			}
-						if (get_DeleteGroupScript().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_DeleteGroupScript()).getValue();
-				printStream.println(get_DeleteGroupScript().getLabelText() + ": " + value);
-			}
-						if (get_DeleteUserScript().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_DeleteUserScript()).getValue();
-				printStream.println(get_DeleteUserScript().getLabelText() + ": " + value);
-			}
-						if (get_DeleteUserfromGroupScript().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_DeleteUserfromGroupScript()).getValue();
-				printStream.println(get_DeleteUserfromGroupScript().getLabelText() + ": " + value);
-			}
-						if (get_SetPrimaryGroupScript().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_SetPrimaryGroupScript()).getValue();
-				printStream.println(get_SetPrimaryGroupScript().getLabelText() + ": " + value);
-			}
-					}
+			   			   			if (get_AddGroupScript().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_AddGroupScript()).getValue();
+        				printStream.println(get_AddGroupScript().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_AddPrinterCommand().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_AddPrinterCommand()).getValue();
+        				printStream.println(get_AddPrinterCommand().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_AddShareCommand().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_AddShareCommand()).getValue();
+        				printStream.println(get_AddShareCommand().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_AddUserScript().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_AddUserScript()).getValue();
+        				printStream.println(get_AddUserScript().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_AddUsertoGroupScript().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_AddUsertoGroupScript()).getValue();
+        				printStream.println(get_AddUsertoGroupScript().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_DeleteGroupScript().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_DeleteGroupScript()).getValue();
+        				printStream.println(get_DeleteGroupScript().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_DeleteUserScript().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_DeleteUserScript()).getValue();
+        				printStream.println(get_DeleteUserScript().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_DeleteUserfromGroupScript().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_DeleteUserfromGroupScript()).getValue();
+        				printStream.println(get_DeleteUserfromGroupScript().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_SetPrimaryGroupScript().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_SetPrimaryGroupScript()).getValue();
+        				printStream.println(get_SetPrimaryGroupScript().getLabelText() + ": " + value);
+   			}
+   					}
 
 		if (showChilds(listOptions))
 		{

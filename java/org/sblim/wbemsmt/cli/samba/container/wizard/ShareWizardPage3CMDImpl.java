@@ -114,22 +114,22 @@ public class ShareWizardPage3CMDImpl extends BaseDataContainer implements org.sb
 	
 		if (showInstance(listOptions))
 		{
-						if (get_CreateMask().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_CreateMask()).getValue();
-				printStream.println(get_CreateMask().getLabelText() + ": " + value);
-			}
-						if (get_DirectoryMask().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_DirectoryMask()).getValue();
-				printStream.println(get_DirectoryMask().getLabelText() + ": " + value);
-			}
-						if (get_DirectorySecurityMask().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_DirectorySecurityMask()).getValue();
-				printStream.println(get_DirectorySecurityMask().getLabelText() + ": " + value);
-			}
-					}
+			   			   			if (get_CreateMask().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_CreateMask()).getValue();
+        				printStream.println(get_CreateMask().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_DirectoryMask().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_DirectoryMask()).getValue();
+        				printStream.println(get_DirectoryMask().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_DirectorySecurityMask().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_DirectorySecurityMask()).getValue();
+        				printStream.println(get_DirectorySecurityMask().getLabelText() + ": " + value);
+   			}
+   					}
 
 		if (showChilds(listOptions))
 		{

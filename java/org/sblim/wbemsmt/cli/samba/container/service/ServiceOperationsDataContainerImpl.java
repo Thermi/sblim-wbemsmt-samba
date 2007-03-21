@@ -131,12 +131,12 @@ public class ServiceOperationsDataContainerImpl extends BaseDataContainer implem
 	
 		if (showInstance(listOptions))
 		{
-						if (get_Started().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_Started()).getValue();
-				printStream.println(get_Started().getLabelText() + ": " + value);
-			}
-					}
+			   			   			if (get_Started().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_Started()).getValue();
+        				printStream.println(get_Started().getLabelText() + ": " + value);
+   			}
+   					}
 
 		if (showChilds(listOptions))
 		{

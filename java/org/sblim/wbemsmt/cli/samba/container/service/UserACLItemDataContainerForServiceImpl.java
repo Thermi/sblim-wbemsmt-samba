@@ -114,22 +114,22 @@ public class UserACLItemDataContainerForServiceImpl extends BaseDataContainer im
 	
 		if (showInstance(listOptions))
 		{
-						if (get_SambaUserName().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_SambaUserName()).getValue();
-				printStream.println(get_SambaUserName().getLabelText() + ": " + value);
-			}
-						if (get_usr_AccessTypeVI().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_AccessTypeVI()).getValue();
-				printStream.println(get_usr_AccessTypeVI().getLabelText() + ": " + value);
-			}
-						if (get_usr_AccessTypeRW().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_AccessTypeRW()).getValue();
-				printStream.println(get_usr_AccessTypeRW().getLabelText() + ": " + value);
-			}
-					}
+			   			   			if (get_SambaUserName().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_SambaUserName()).getValue();
+        				printStream.println(get_SambaUserName().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_usr_AccessTypeVI().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_AccessTypeVI()).getValue();
+        				printStream.println(get_usr_AccessTypeVI().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_usr_AccessTypeRW().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_AccessTypeRW()).getValue();
+        				printStream.println(get_usr_AccessTypeRW().getLabelText() + ": " + value);
+   			}
+   					}
 
 		if (showChilds(listOptions))
 		{

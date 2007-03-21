@@ -84,9 +84,9 @@ public class ShareListDataContainerImpl extends BaseDataContainer implements org
 	
 	public void traceChilds(java.io.PrintWriter printStream, String listOptions, boolean title)
 	{
-    		        		printStream.println();
-        		printStream.println(getAdapter().getBundle().getString("ShareListDataContainer.role.shares"));
-        		List listshares = getShares();
+    		        		List listshares = getShares();
+        		printStream.println();
+        		printStream.println(getAdapter().getBundle().getString("ShareListDataContainer.role.shares") + " " + getAdapter().getBundle().getString("items.found", new Object[]{new Integer(listshares.size())}));
         		for (int i = 0; i < listshares.size(); i++) {
         			BaseDataContainer child = (BaseDataContainer)listshares.get(i);
         			printStream.println();

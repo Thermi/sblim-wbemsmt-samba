@@ -125,22 +125,22 @@ public class ServiceUserSecurityOptionsDataContainerImpl extends BaseDataContain
 	
 		if (showInstance(listOptions))
 		{
-						if (get_usr_GuestUser().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_GuestUser()).getValue();
-				printStream.println(get_usr_GuestUser().getLabelText() + ": " + value);
-			}
-						if (get_usr_CurrentForceUser().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_CurrentForceUser()).getValue();
-				printStream.println(get_usr_CurrentForceUser().getLabelText() + ": " + value);
-			}
-						if (get_usr_NewForceUser().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_NewForceUser()).getValue();
-				printStream.println(get_usr_NewForceUser().getLabelText() + ": " + value);
-			}
-					}
+			   			   			if (get_usr_GuestUser().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_GuestUser()).getValue();
+        				printStream.println(get_usr_GuestUser().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_usr_CurrentForceUser().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_CurrentForceUser()).getValue();
+        				printStream.println(get_usr_CurrentForceUser().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_usr_NewForceUser().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_NewForceUser()).getValue();
+        				printStream.println(get_usr_NewForceUser().getLabelText() + ": " + value);
+   			}
+   					}
 
 		if (showChilds(listOptions))
 		{
@@ -150,9 +150,9 @@ public class ServiceUserSecurityOptionsDataContainerImpl extends BaseDataContain
 	
 	public void traceChilds(java.io.PrintWriter printStream, String listOptions, boolean title)
 	{
-    		        		printStream.println();
-        		printStream.println(getAdapter().getBundle().getString("ServiceUserSecurityOptionsDataContainer.role.userRights"));
-        		List listuserRights = getUserRights();
+    		        		List listuserRights = getUserRights();
+        		printStream.println();
+        		printStream.println(getAdapter().getBundle().getString("ServiceUserSecurityOptionsDataContainer.role.userRights") + " " + getAdapter().getBundle().getString("items.found", new Object[]{new Integer(listuserRights.size())}));
         		for (int i = 0; i < listuserRights.size(); i++) {
         			BaseDataContainer child = (BaseDataContainer)listuserRights.get(i);
         			printStream.println();

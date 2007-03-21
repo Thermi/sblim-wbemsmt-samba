@@ -244,57 +244,57 @@ public class PrinterWizardPage5Impl extends BaseDataContainer implements org.sbl
 	
 		if (showInstance(listOptions))
 		{
-						if (get_usr_AllOrOne().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_AllOrOne()).getValue();
-				printStream.println(get_usr_AllOrOne().getLabelText() + ": " + value);
-			}
-						if (get_SambaPrinterName().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_SambaPrinterName()).getValue();
-				printStream.println(get_SambaPrinterName().getLabelText() + ": " + value);
-			}
-						if (get_usr_SystemPrinterName().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_SystemPrinterName()).getValue();
-				printStream.println(get_usr_SystemPrinterName().getLabelText() + ": " + value);
-			}
-						if (get_Path().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_Path()).getValue();
-				printStream.println(get_Path().getLabelText() + ": " + value);
-			}
-						if (get_Comment().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_Comment()).getValue();
-				printStream.println(get_Comment().getLabelText() + ": " + value);
-			}
-						if (get_usr_SeenByEverybody().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_SeenByEverybody()).getValue();
-				printStream.println(get_usr_SeenByEverybody().getLabelText() + ": " + value);
-			}
-						if (get_usr_EnableGuest().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_EnableGuest()).getValue();
-				printStream.println(get_usr_EnableGuest().getLabelText() + ": " + value);
-			}
-						if (get_CupsOptions().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_CupsOptions()).getValue();
-				printStream.println(get_CupsOptions().getLabelText() + ": " + value);
-			}
-						if (get_PrintCommand().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_PrintCommand()).getValue();
-				printStream.println(get_PrintCommand().getLabelText() + ": " + value);
-			}
-						if (get_usr_ForceUser().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_ForceUser()).getValue();
-				printStream.println(get_usr_ForceUser().getLabelText() + ": " + value);
-			}
-					}
+			   			   			if (get_usr_AllOrOne().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_AllOrOne()).getValue();
+        				printStream.println(get_usr_AllOrOne().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_SambaPrinterName().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_SambaPrinterName()).getValue();
+        				printStream.println(get_SambaPrinterName().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_usr_SystemPrinterName().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_SystemPrinterName()).getValue();
+        				printStream.println(get_usr_SystemPrinterName().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_Path().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_Path()).getValue();
+        				printStream.println(get_Path().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_Comment().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_Comment()).getValue();
+        				printStream.println(get_Comment().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_usr_SeenByEverybody().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_SeenByEverybody()).getValue();
+        				printStream.println(get_usr_SeenByEverybody().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_usr_EnableGuest().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_EnableGuest()).getValue();
+        				printStream.println(get_usr_EnableGuest().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_CupsOptions().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_CupsOptions()).getValue();
+        				printStream.println(get_CupsOptions().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_PrintCommand().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_PrintCommand()).getValue();
+        				printStream.println(get_PrintCommand().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_usr_ForceUser().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_ForceUser()).getValue();
+        				printStream.println(get_usr_ForceUser().getLabelText() + ": " + value);
+   			}
+   					}
 
 		if (showChilds(listOptions))
 		{
@@ -304,9 +304,9 @@ public class PrinterWizardPage5Impl extends BaseDataContainer implements org.sbl
 	
 	public void traceChilds(java.io.PrintWriter printStream, String listOptions, boolean title)
 	{
-    		        		printStream.println();
-        		printStream.println(getAdapter().getBundle().getString("PrinterWizardPage5.role.users"));
-        		List listusers = getUsers();
+    		        		List listusers = getUsers();
+        		printStream.println();
+        		printStream.println(getAdapter().getBundle().getString("PrinterWizardPage5.role.users") + " " + getAdapter().getBundle().getString("items.found", new Object[]{new Integer(listusers.size())}));
         		for (int i = 0; i < listusers.size(); i++) {
         			BaseDataContainer child = (BaseDataContainer)listusers.get(i);
         			printStream.println();

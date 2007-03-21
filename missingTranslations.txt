@@ -1,0 +1,4 @@
+commanddescription.ListWelcome=ListWelcome
+WelcomeDataContainer.linkCreateShare=linkCreateShare
+WelcomeDataContainer.linkCreatePrinter=linkCreatePrinter
+WelcomeDataContainer.linkCreateUser=linkCreateUser

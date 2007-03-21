@@ -108,17 +108,17 @@ public class UserInShareACLDataContainerImpl extends BaseDataContainer implement
 	
 		if (showInstance(listOptions))
 		{
-						if (get_usr_NewForceUser().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_NewForceUser()).getValue();
-				printStream.println(get_usr_NewForceUser().getLabelText() + ": " + value);
-			}
-						if (get_usr_CurrentForceUser().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_CurrentForceUser()).getValue();
-				printStream.println(get_usr_CurrentForceUser().getLabelText() + ": " + value);
-			}
-					}
+			   			   			if (get_usr_NewForceUser().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_NewForceUser()).getValue();
+        				printStream.println(get_usr_NewForceUser().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_usr_CurrentForceUser().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_CurrentForceUser()).getValue();
+        				printStream.println(get_usr_CurrentForceUser().getLabelText() + ": " + value);
+   			}
+   					}
 
 		if (showChilds(listOptions))
 		{
@@ -128,9 +128,9 @@ public class UserInShareACLDataContainerImpl extends BaseDataContainer implement
 	
 	public void traceChilds(java.io.PrintWriter printStream, String listOptions, boolean title)
 	{
-    		        		printStream.println();
-        		printStream.println(getAdapter().getBundle().getString("UserInShareACLDataContainer.role.users"));
-        		List listusers = getUsers();
+    		        		List listusers = getUsers();
+        		printStream.println();
+        		printStream.println(getAdapter().getBundle().getString("UserInShareACLDataContainer.role.users") + " " + getAdapter().getBundle().getString("items.found", new Object[]{new Integer(listusers.size())}));
         		for (int i = 0; i < listusers.size(); i++) {
         			BaseDataContainer child = (BaseDataContainer)listusers.get(i);
         			printStream.println();

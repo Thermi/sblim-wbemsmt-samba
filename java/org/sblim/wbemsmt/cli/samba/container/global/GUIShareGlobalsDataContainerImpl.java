@@ -788,217 +788,217 @@ public class GUIShareGlobalsDataContainerImpl extends BaseDataContainer implemen
 	
 		if (showInstance(listOptions))
 		{
-						if (get_CaseSensitive().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_CaseSensitive()).getValue();
-				printStream.println(get_CaseSensitive().getLabelText() + ": " + value);
-			}
-						if (get_DosFiletimes().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_DosFiletimes()).getValue();
-				printStream.println(get_DosFiletimes().getLabelText() + ": " + value);
-			}
-						if (get_HideDotFiles().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_HideDotFiles()).getValue();
-				printStream.println(get_HideDotFiles().getLabelText() + ": " + value);
-			}
-						if (get_AclCompatibility().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_AclCompatibility()).getValue();
-				printStream.println(get_AclCompatibility().getLabelText() + ": " + value);
-			}
-						if (get_EASupport().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_EASupport()).getValue();
-				printStream.println(get_EASupport().getLabelText() + ": " + value);
-			}
-						if (get_NTACLSupport().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_NTACLSupport()).getValue();
-				printStream.println(get_NTACLSupport().getLabelText() + ": " + value);
-			}
-						if (get_usr_Create_u().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_Create_u()).getValue();
-				printStream.println(get_usr_Create_u().getLabelText() + ": " + value);
-			}
-						if (get_usr_Create_g().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_Create_g()).getValue();
-				printStream.println(get_usr_Create_g().getLabelText() + ": " + value);
-			}
-						if (get_usr_Create_s().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_Create_s()).getValue();
-				printStream.println(get_usr_Create_s().getLabelText() + ": " + value);
-			}
-						if (get_usr_Create_user_r().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_Create_user_r()).getValue();
-				printStream.println(get_usr_Create_user_r().getLabelText() + ": " + value);
-			}
-						if (get_usr_Create_user_w().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_Create_user_w()).getValue();
-				printStream.println(get_usr_Create_user_w().getLabelText() + ": " + value);
-			}
-						if (get_usr_Create_user_x().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_Create_user_x()).getValue();
-				printStream.println(get_usr_Create_user_x().getLabelText() + ": " + value);
-			}
-						if (get_usr_Create_group_r().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_Create_group_r()).getValue();
-				printStream.println(get_usr_Create_group_r().getLabelText() + ": " + value);
-			}
-						if (get_usr_Create_group_w().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_Create_group_w()).getValue();
-				printStream.println(get_usr_Create_group_w().getLabelText() + ": " + value);
-			}
-						if (get_usr_Create_group_x().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_Create_group_x()).getValue();
-				printStream.println(get_usr_Create_group_x().getLabelText() + ": " + value);
-			}
-						if (get_usr_Create_other_r().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_Create_other_r()).getValue();
-				printStream.println(get_usr_Create_other_r().getLabelText() + ": " + value);
-			}
-						if (get_usr_Create_other_w().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_Create_other_w()).getValue();
-				printStream.println(get_usr_Create_other_w().getLabelText() + ": " + value);
-			}
-						if (get_usr_Create_other_x().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_Create_other_x()).getValue();
-				printStream.println(get_usr_Create_other_x().getLabelText() + ": " + value);
-			}
-						if (get_usr_Directory_u().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_Directory_u()).getValue();
-				printStream.println(get_usr_Directory_u().getLabelText() + ": " + value);
-			}
-						if (get_usr_Directory_g().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_Directory_g()).getValue();
-				printStream.println(get_usr_Directory_g().getLabelText() + ": " + value);
-			}
-						if (get_usr_Directory_s().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_Directory_s()).getValue();
-				printStream.println(get_usr_Directory_s().getLabelText() + ": " + value);
-			}
-						if (get_usr_Directory_user_r().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_Directory_user_r()).getValue();
-				printStream.println(get_usr_Directory_user_r().getLabelText() + ": " + value);
-			}
-						if (get_usr_Directory_user_w().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_Directory_user_w()).getValue();
-				printStream.println(get_usr_Directory_user_w().getLabelText() + ": " + value);
-			}
-						if (get_usr_Directory_user_x().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_Directory_user_x()).getValue();
-				printStream.println(get_usr_Directory_user_x().getLabelText() + ": " + value);
-			}
-						if (get_usr_Directory_group_r().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_Directory_group_r()).getValue();
-				printStream.println(get_usr_Directory_group_r().getLabelText() + ": " + value);
-			}
-						if (get_usr_Directory_group_w().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_Directory_group_w()).getValue();
-				printStream.println(get_usr_Directory_group_w().getLabelText() + ": " + value);
-			}
-						if (get_usr_Directory_group_x().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_Directory_group_x()).getValue();
-				printStream.println(get_usr_Directory_group_x().getLabelText() + ": " + value);
-			}
-						if (get_usr_Directory_other_r().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_Directory_other_r()).getValue();
-				printStream.println(get_usr_Directory_other_r().getLabelText() + ": " + value);
-			}
-						if (get_usr_Directory_other_w().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_Directory_other_w()).getValue();
-				printStream.println(get_usr_Directory_other_w().getLabelText() + ": " + value);
-			}
-						if (get_usr_Directory_other_x().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_Directory_other_x()).getValue();
-				printStream.println(get_usr_Directory_other_x().getLabelText() + ": " + value);
-			}
-						if (get_usr_Directory_security_u().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_Directory_security_u()).getValue();
-				printStream.println(get_usr_Directory_security_u().getLabelText() + ": " + value);
-			}
-						if (get_usr_Directory_security_g().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_Directory_security_g()).getValue();
-				printStream.println(get_usr_Directory_security_g().getLabelText() + ": " + value);
-			}
-						if (get_usr_Directory_security_s().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_Directory_security_s()).getValue();
-				printStream.println(get_usr_Directory_security_s().getLabelText() + ": " + value);
-			}
-						if (get_usr_Directory_security_user_r().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_Directory_security_user_r()).getValue();
-				printStream.println(get_usr_Directory_security_user_r().getLabelText() + ": " + value);
-			}
-						if (get_usr_Directory_security_user_w().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_Directory_security_user_w()).getValue();
-				printStream.println(get_usr_Directory_security_user_w().getLabelText() + ": " + value);
-			}
-						if (get_usr_Directory_security_user_x().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_Directory_security_user_x()).getValue();
-				printStream.println(get_usr_Directory_security_user_x().getLabelText() + ": " + value);
-			}
-						if (get_usr_Directory_security_group_r().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_Directory_security_group_r()).getValue();
-				printStream.println(get_usr_Directory_security_group_r().getLabelText() + ": " + value);
-			}
-						if (get_usr_Directory_security_group_w().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_Directory_security_group_w()).getValue();
-				printStream.println(get_usr_Directory_security_group_w().getLabelText() + ": " + value);
-			}
-						if (get_usr_Directory_security_group_x().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_Directory_security_group_x()).getValue();
-				printStream.println(get_usr_Directory_security_group_x().getLabelText() + ": " + value);
-			}
-						if (get_usr_Directory_security_other_r().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_Directory_security_other_r()).getValue();
-				printStream.println(get_usr_Directory_security_other_r().getLabelText() + ": " + value);
-			}
-						if (get_usr_Directory_security_other_w().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_Directory_security_other_w()).getValue();
-				printStream.println(get_usr_Directory_security_other_w().getLabelText() + ": " + value);
-			}
-						if (get_usr_Directory_security_other_x().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_Directory_security_other_x()).getValue();
-				printStream.println(get_usr_Directory_security_other_x().getLabelText() + ": " + value);
-			}
-					}
+			   			   			if (get_CaseSensitive().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_CaseSensitive()).getValue();
+        				printStream.println(get_CaseSensitive().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_DosFiletimes().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_DosFiletimes()).getValue();
+        				printStream.println(get_DosFiletimes().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_HideDotFiles().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_HideDotFiles()).getValue();
+        				printStream.println(get_HideDotFiles().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_AclCompatibility().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_AclCompatibility()).getValue();
+        				printStream.println(get_AclCompatibility().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_EASupport().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_EASupport()).getValue();
+        				printStream.println(get_EASupport().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_NTACLSupport().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_NTACLSupport()).getValue();
+        				printStream.println(get_NTACLSupport().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_usr_Create_u().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_Create_u()).getValue();
+        				printStream.println(get_usr_Create_u().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_usr_Create_g().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_Create_g()).getValue();
+        				printStream.println(get_usr_Create_g().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_usr_Create_s().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_Create_s()).getValue();
+        				printStream.println(get_usr_Create_s().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_usr_Create_user_r().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_Create_user_r()).getValue();
+        				printStream.println(get_usr_Create_user_r().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_usr_Create_user_w().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_Create_user_w()).getValue();
+        				printStream.println(get_usr_Create_user_w().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_usr_Create_user_x().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_Create_user_x()).getValue();
+        				printStream.println(get_usr_Create_user_x().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_usr_Create_group_r().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_Create_group_r()).getValue();
+        				printStream.println(get_usr_Create_group_r().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_usr_Create_group_w().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_Create_group_w()).getValue();
+        				printStream.println(get_usr_Create_group_w().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_usr_Create_group_x().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_Create_group_x()).getValue();
+        				printStream.println(get_usr_Create_group_x().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_usr_Create_other_r().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_Create_other_r()).getValue();
+        				printStream.println(get_usr_Create_other_r().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_usr_Create_other_w().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_Create_other_w()).getValue();
+        				printStream.println(get_usr_Create_other_w().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_usr_Create_other_x().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_Create_other_x()).getValue();
+        				printStream.println(get_usr_Create_other_x().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_usr_Directory_u().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_Directory_u()).getValue();
+        				printStream.println(get_usr_Directory_u().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_usr_Directory_g().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_Directory_g()).getValue();
+        				printStream.println(get_usr_Directory_g().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_usr_Directory_s().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_Directory_s()).getValue();
+        				printStream.println(get_usr_Directory_s().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_usr_Directory_user_r().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_Directory_user_r()).getValue();
+        				printStream.println(get_usr_Directory_user_r().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_usr_Directory_user_w().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_Directory_user_w()).getValue();
+        				printStream.println(get_usr_Directory_user_w().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_usr_Directory_user_x().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_Directory_user_x()).getValue();
+        				printStream.println(get_usr_Directory_user_x().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_usr_Directory_group_r().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_Directory_group_r()).getValue();
+        				printStream.println(get_usr_Directory_group_r().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_usr_Directory_group_w().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_Directory_group_w()).getValue();
+        				printStream.println(get_usr_Directory_group_w().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_usr_Directory_group_x().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_Directory_group_x()).getValue();
+        				printStream.println(get_usr_Directory_group_x().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_usr_Directory_other_r().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_Directory_other_r()).getValue();
+        				printStream.println(get_usr_Directory_other_r().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_usr_Directory_other_w().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_Directory_other_w()).getValue();
+        				printStream.println(get_usr_Directory_other_w().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_usr_Directory_other_x().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_Directory_other_x()).getValue();
+        				printStream.println(get_usr_Directory_other_x().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_usr_Directory_security_u().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_Directory_security_u()).getValue();
+        				printStream.println(get_usr_Directory_security_u().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_usr_Directory_security_g().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_Directory_security_g()).getValue();
+        				printStream.println(get_usr_Directory_security_g().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_usr_Directory_security_s().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_Directory_security_s()).getValue();
+        				printStream.println(get_usr_Directory_security_s().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_usr_Directory_security_user_r().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_Directory_security_user_r()).getValue();
+        				printStream.println(get_usr_Directory_security_user_r().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_usr_Directory_security_user_w().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_Directory_security_user_w()).getValue();
+        				printStream.println(get_usr_Directory_security_user_w().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_usr_Directory_security_user_x().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_Directory_security_user_x()).getValue();
+        				printStream.println(get_usr_Directory_security_user_x().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_usr_Directory_security_group_r().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_Directory_security_group_r()).getValue();
+        				printStream.println(get_usr_Directory_security_group_r().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_usr_Directory_security_group_w().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_Directory_security_group_w()).getValue();
+        				printStream.println(get_usr_Directory_security_group_w().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_usr_Directory_security_group_x().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_Directory_security_group_x()).getValue();
+        				printStream.println(get_usr_Directory_security_group_x().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_usr_Directory_security_other_r().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_Directory_security_other_r()).getValue();
+        				printStream.println(get_usr_Directory_security_other_r().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_usr_Directory_security_other_w().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_Directory_security_other_w()).getValue();
+        				printStream.println(get_usr_Directory_security_other_w().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_usr_Directory_security_other_x().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_Directory_security_other_x()).getValue();
+        				printStream.println(get_usr_Directory_security_other_x().getLabelText() + ": " + value);
+   			}
+   					}
 
 		if (showChilds(listOptions))
 		{
@@ -1008,9 +1008,9 @@ public class GUIShareGlobalsDataContainerImpl extends BaseDataContainer implemen
 	
 	public void traceChilds(java.io.PrintWriter printStream, String listOptions, boolean title)
 	{
-    		        		printStream.println();
-        		printStream.println(getAdapter().getBundle().getString("GUIShareGlobalsDataContainer.role.users"));
-        		List listusers = getUsers();
+    		        		List listusers = getUsers();
+        		printStream.println();
+        		printStream.println(getAdapter().getBundle().getString("GUIShareGlobalsDataContainer.role.users") + " " + getAdapter().getBundle().getString("items.found", new Object[]{new Integer(listusers.size())}));
         		for (int i = 0; i < listusers.size(); i++) {
         			BaseDataContainer child = (BaseDataContainer)listusers.get(i);
         			printStream.println();

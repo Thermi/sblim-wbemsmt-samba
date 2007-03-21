@@ -131,27 +131,27 @@ public class PrinterWizardPage2Impl extends BaseDataContainer implements org.sbl
 	
 		if (showInstance(listOptions))
 		{
-						if (get_SambaPrinterName().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_SambaPrinterName()).getValue();
-				printStream.println(get_SambaPrinterName().getLabelText() + ": " + value);
-			}
-						if (get_usr_SystemPrinterName().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_SystemPrinterName()).getValue();
-				printStream.println(get_usr_SystemPrinterName().getLabelText() + ": " + value);
-			}
-						if (get_Path().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_Path()).getValue();
-				printStream.println(get_Path().getLabelText() + ": " + value);
-			}
-						if (get_Comment().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_Comment()).getValue();
-				printStream.println(get_Comment().getLabelText() + ": " + value);
-			}
-					}
+			   			   			if (get_SambaPrinterName().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_SambaPrinterName()).getValue();
+        				printStream.println(get_SambaPrinterName().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_usr_SystemPrinterName().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_SystemPrinterName()).getValue();
+        				printStream.println(get_usr_SystemPrinterName().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_Path().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_Path()).getValue();
+        				printStream.println(get_Path().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_Comment().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_Comment()).getValue();
+        				printStream.println(get_Comment().getLabelText() + ": " + value);
+   			}
+   					}
 
 		if (showChilds(listOptions))
 		{

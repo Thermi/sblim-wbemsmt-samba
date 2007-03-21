@@ -97,17 +97,17 @@ public class UserIsAdminItemImpl extends BaseDataContainer implements org.sblim.
 	
 		if (showInstance(listOptions))
 		{
-						if (get_usr_SambaUserName().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_SambaUserName()).getValue();
-				printStream.println(get_usr_SambaUserName().getLabelText() + ": " + value);
-			}
-						if (get_usr_Admin().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_Admin()).getValue();
-				printStream.println(get_usr_Admin().getLabelText() + ": " + value);
-			}
-					}
+			   			   			if (get_usr_SambaUserName().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_SambaUserName()).getValue();
+        				printStream.println(get_usr_SambaUserName().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_usr_Admin().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_Admin()).getValue();
+        				printStream.println(get_usr_Admin().getLabelText() + ": " + value);
+   			}
+   					}
 
 		if (showChilds(listOptions))
 		{
