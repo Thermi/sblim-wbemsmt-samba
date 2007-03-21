@@ -1330,7 +1330,7 @@
         </pl:listAction>
         <pl:listAction id="ListSambaShareGlobals" linkedContainer="CMDShareGlobalsDataContainer" linkedPackage="globalContainerPackage">
             <pl:actionListener>
-                <pl:actionListenerClassDefinition name="ListActionListener" packageId="implPackage1"/>
+                <pl:actionListenerClassDefinition name="Ignore" packageId="implPackage1" useCurrentTreeNodeForSelection="true"/>
             </pl:actionListener>
             <cmd:command commandName="ListSambaShareGlobals" listType="" traceOnlyChilds="false">
                 <cmd:option long="list" required="false" usedForSelection="true" duplicateOK="false" comment="" scope="LOCAL_ACTION" defaultValue="INSTANCE_WITH_CHILDS"/>
