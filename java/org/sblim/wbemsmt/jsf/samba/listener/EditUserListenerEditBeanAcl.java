@@ -162,8 +162,7 @@ public class EditUserListenerEditBeanAcl extends EditBean {
 		
 			String bindingPrefix = null;
 			HtmlPanelGrid childEditFields = null;
-						int count = 0;
-						panel = (HtmlPanelGrid) FacesContext.getCurrentInstance().getApplication().createComponent(HtmlPanelGrid.COMPONENT_TYPE);			
+			panel = (HtmlPanelGrid) FacesContext.getCurrentInstance().getApplication().createComponent(HtmlPanelGrid.COMPONENT_TYPE);			
 			panel.setWidth("100%");
 			panel.setCellspacing("0");
 			panel.setCellpadding("0");
@@ -207,17 +206,19 @@ public class EditUserListenerEditBeanAcl extends EditBean {
     			
 				//update the child objects
 								
-            	    			count = adapter1.count(org.sblim.wbemsmt.samba.bl.container.share.ShareACLItemDataContainer.class);
-    			currentEditContainer1.getShares().clear();
-    			for (int i=0; i < count; i++) {
-    				HtmlPanelGrid grid = i==0 ? null :((MultiLineBasePanel)currentEditContainer1.getShares().get(0)).getInputFieldContainer();
-    				org.sblim.wbemsmt.jsf.samba.container.share.ShareACLItemDataContainer_AsShares_InShareInUserACLDataContainerImpl child = new org.sblim.wbemsmt.jsf.samba.container.share.ShareACLItemDataContainer_AsShares_InShareInUserACLDataContainerImpl(adapter1,bindingPrefix, i,grid);
-    				currentEditContainer1.getShares().add(child);
-					((MultiLineBasePanel)child).setFirst((MultiLineBasePanel)currentEditContainer1.getShares().get(0));
-    			}
-    			if (count > 0) {
-					((MultiLineBasePanel)currentEditContainer1.getShares().get(0)).setList(currentEditContainer1.getShares());
-					((MultiLineBasePanel)currentEditContainer1.getShares().get(0)).updateRows();
+            					{
+	    			int count = adapter1.count(org.sblim.wbemsmt.samba.bl.container.share.ShareACLItemDataContainer.class);
+	    			currentEditContainer1.getShares().clear();
+	    			for (int i=0; i < count; i++) {
+	    				HtmlPanelGrid grid = i==0 ? null :((MultiLineBasePanel)currentEditContainer1.getShares().get(0)).getInputFieldContainer();
+	    				org.sblim.wbemsmt.jsf.samba.container.share.ShareACLItemDataContainer_AsShares_InShareInUserACLDataContainerImpl child = new org.sblim.wbemsmt.jsf.samba.container.share.ShareACLItemDataContainer_AsShares_InShareInUserACLDataContainerImpl(adapter1,bindingPrefix, i,grid);
+	    				currentEditContainer1.getShares().add(child);
+						((MultiLineBasePanel)child).setFirst((MultiLineBasePanel)currentEditContainer1.getShares().get(0));
+	    			}
+	    			if (count > 0) {
+						((MultiLineBasePanel)currentEditContainer1.getShares().get(0)).setList(currentEditContainer1.getShares());
+						((MultiLineBasePanel)currentEditContainer1.getShares().get(0)).updateRows();
+					}
 				}
             	    			
 				
@@ -278,17 +279,19 @@ public class EditUserListenerEditBeanAcl extends EditBean {
     			
 				//update the child objects
 								
-            	    			count = adapter2.count(org.sblim.wbemsmt.samba.bl.container.share.PrinterACLItemDataContainer.class);
-    			currentEditContainer2.getPrinters().clear();
-    			for (int i=0; i < count; i++) {
-    				HtmlPanelGrid grid = i==0 ? null :((MultiLineBasePanel)currentEditContainer2.getPrinters().get(0)).getInputFieldContainer();
-    				org.sblim.wbemsmt.jsf.samba.container.share.PrinterACLItemDataContainer_AsPrinters_InPrinterInUserACLDataContainerImpl child = new org.sblim.wbemsmt.jsf.samba.container.share.PrinterACLItemDataContainer_AsPrinters_InPrinterInUserACLDataContainerImpl(adapter2,bindingPrefix, i,grid);
-    				currentEditContainer2.getPrinters().add(child);
-					((MultiLineBasePanel)child).setFirst((MultiLineBasePanel)currentEditContainer2.getPrinters().get(0));
-    			}
-    			if (count > 0) {
-					((MultiLineBasePanel)currentEditContainer2.getPrinters().get(0)).setList(currentEditContainer2.getPrinters());
-					((MultiLineBasePanel)currentEditContainer2.getPrinters().get(0)).updateRows();
+            					{
+	    			int count = adapter2.count(org.sblim.wbemsmt.samba.bl.container.share.PrinterACLItemDataContainer.class);
+	    			currentEditContainer2.getPrinters().clear();
+	    			for (int i=0; i < count; i++) {
+	    				HtmlPanelGrid grid = i==0 ? null :((MultiLineBasePanel)currentEditContainer2.getPrinters().get(0)).getInputFieldContainer();
+	    				org.sblim.wbemsmt.jsf.samba.container.share.PrinterACLItemDataContainer_AsPrinters_InPrinterInUserACLDataContainerImpl child = new org.sblim.wbemsmt.jsf.samba.container.share.PrinterACLItemDataContainer_AsPrinters_InPrinterInUserACLDataContainerImpl(adapter2,bindingPrefix, i,grid);
+	    				currentEditContainer2.getPrinters().add(child);
+						((MultiLineBasePanel)child).setFirst((MultiLineBasePanel)currentEditContainer2.getPrinters().get(0));
+	    			}
+	    			if (count > 0) {
+						((MultiLineBasePanel)currentEditContainer2.getPrinters().get(0)).setList(currentEditContainer2.getPrinters());
+						((MultiLineBasePanel)currentEditContainer2.getPrinters().get(0)).updateRows();
+					}
 				}
             	    			
 				

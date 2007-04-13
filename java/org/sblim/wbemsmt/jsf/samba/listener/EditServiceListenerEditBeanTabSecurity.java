@@ -147,8 +147,7 @@ public class EditServiceListenerEditBeanTabSecurity extends EditBean {
 		
 			String bindingPrefix = null;
 			HtmlPanelGrid childEditFields = null;
-						int count = 0;
-						panel = (HtmlPanelGrid) FacesContext.getCurrentInstance().getApplication().createComponent(HtmlPanelGrid.COMPONENT_TYPE);			
+			panel = (HtmlPanelGrid) FacesContext.getCurrentInstance().getApplication().createComponent(HtmlPanelGrid.COMPONENT_TYPE);			
 			panel.setWidth("100%");
 			panel.setCellspacing("0");
 			panel.setCellpadding("0");
@@ -245,17 +244,19 @@ public class EditServiceListenerEditBeanTabSecurity extends EditBean {
     			
 				//update the child objects
 								
-            	    			count = adapter2.count(org.sblim.wbemsmt.samba.bl.container.service.UserACLItemDataContainerForService.class);
-    			currentEditContainer2.getUserRights().clear();
-    			for (int i=0; i < count; i++) {
-    				HtmlPanelGrid grid = i==0 ? null :((MultiLineBasePanel)currentEditContainer2.getUserRights().get(0)).getInputFieldContainer();
-    				org.sblim.wbemsmt.jsf.samba.container.service.UserACLItemDataContainerForService_AsUserRights_InServiceUserSecurityOptionsDataContainerImpl child = new org.sblim.wbemsmt.jsf.samba.container.service.UserACLItemDataContainerForService_AsUserRights_InServiceUserSecurityOptionsDataContainerImpl(adapter2,bindingPrefix, i,grid);
-    				currentEditContainer2.getUserRights().add(child);
-					((MultiLineBasePanel)child).setFirst((MultiLineBasePanel)currentEditContainer2.getUserRights().get(0));
-    			}
-    			if (count > 0) {
-					((MultiLineBasePanel)currentEditContainer2.getUserRights().get(0)).setList(currentEditContainer2.getUserRights());
-					((MultiLineBasePanel)currentEditContainer2.getUserRights().get(0)).updateRows();
+            					{
+	    			int count = adapter2.count(org.sblim.wbemsmt.samba.bl.container.service.UserACLItemDataContainerForService.class);
+	    			currentEditContainer2.getUserRights().clear();
+	    			for (int i=0; i < count; i++) {
+	    				HtmlPanelGrid grid = i==0 ? null :((MultiLineBasePanel)currentEditContainer2.getUserRights().get(0)).getInputFieldContainer();
+	    				org.sblim.wbemsmt.jsf.samba.container.service.UserACLItemDataContainerForService_AsUserRights_InServiceUserSecurityOptionsDataContainerImpl child = new org.sblim.wbemsmt.jsf.samba.container.service.UserACLItemDataContainerForService_AsUserRights_InServiceUserSecurityOptionsDataContainerImpl(adapter2,bindingPrefix, i,grid);
+	    				currentEditContainer2.getUserRights().add(child);
+						((MultiLineBasePanel)child).setFirst((MultiLineBasePanel)currentEditContainer2.getUserRights().get(0));
+	    			}
+	    			if (count > 0) {
+						((MultiLineBasePanel)currentEditContainer2.getUserRights().get(0)).setList(currentEditContainer2.getUserRights());
+						((MultiLineBasePanel)currentEditContainer2.getUserRights().get(0)).updateRows();
+					}
 				}
             	    			
 				
