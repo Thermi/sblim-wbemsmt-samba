@@ -68,10 +68,17 @@ public class CreateHostListener extends TaskLauncherContextMenuEventListenerImpl
 			adapter = (org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter)selector.getAdapter();
 		
 			org.sblim.wbemsmt.jsf.samba.wizard.HostWizard wizard = new org.sblim.wbemsmt.jsf.samba.wizard.HostWizard(adapter);
-			wizard.startWizard();
-			wizardController.setCurrentWizard(wizard);
-			
-			return "wizardPage";
+
+			if (wizard.canBeExecuted())
+			{
+				wizard.startWizard();
+				wizardController.setCurrentWizard(wizard);
+				return "wizardPage";
+			}
+			else
+			{
+				return "";		
+			}
 		}
 		else
 		{

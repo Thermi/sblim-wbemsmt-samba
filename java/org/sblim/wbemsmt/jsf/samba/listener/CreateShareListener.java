@@ -68,10 +68,17 @@ public class CreateShareListener extends TaskLauncherContextMenuEventListenerImp
 			adapter = (org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter)selector.getAdapter();
 		
 			org.sblim.wbemsmt.jsf.samba.wizard.ShareWizard wizard = new org.sblim.wbemsmt.jsf.samba.wizard.ShareWizard(adapter);
-			wizard.startWizard();
-			wizardController.setCurrentWizard(wizard);
-			
-			return "wizardPage";
+
+			if (wizard.canBeExecuted())
+			{
+				wizard.startWizard();
+				wizardController.setCurrentWizard(wizard);
+				return "wizardPage";
+			}
+			else
+			{
+				return "";		
+			}
 		}
 		else
 		{

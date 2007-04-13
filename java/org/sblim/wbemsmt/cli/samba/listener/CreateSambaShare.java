@@ -208,6 +208,11 @@ public class CreateSambaShare extends CimCommand implements ContainerUpdater {
 			loader.load(bundle,adapter, cmd );
 			
 			org.sblim.wbemsmt.cli.samba.wizard.ShareWizard wizard = new org.sblim.wbemsmt.cli.samba.wizard.ShareWizard((org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter) adapter);
+			if (!wizard.canBeExecuted())
+			{
+				traceErrors("error.while.execution",wizard.getMessageList());
+				return;
+			}
 			wizard.startWizard();
 			
 			while (!wizard.getContainer().isLast(wizard.getContainer().getCurrentPageName()))
