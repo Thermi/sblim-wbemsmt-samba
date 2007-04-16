@@ -25,6 +25,7 @@
 package org.sblim.wbemsmt.cli.samba.listener;
 
 import org.apache.commons.cli.*;
+import org.sblim.wbemsmt.bl.ErrCodes;
 import org.sblim.wbemsmt.bl.adapter.*;
 import org.sblim.wbemsmt.exception.*;
 import org.sblim.wbemsmt.tools.cli.*;
@@ -227,8 +228,19 @@ public class CreateSambaHost extends CimCommand implements ContainerUpdater {
 			}			
 			
 			BaseDataContainer lastPanel = wizard.getCurrentPanel();
-			wizard.finish();
-
+			
+			MessageList result = wizard.finish();
+			String wizardName = wizard.getClass().getSimpleName();
+			if (result != null && result.hasErrors())
+			{
+				result.addMessage(new Message(ErrCodes.MSG_CREATE_FAILED,Message.ERROR,bundle.getString(wizardName + ".create.failed")));        
+			}
+			else
+			{
+				result.addMessage(new Message(ErrCodes.MSG_CREATE_SUCCESS,Message.SUCCESS,bundle.getString(wizardName + ".create.success")));        
+			}
+			traceErrors(result);
+			
 			if (true == false);
 						else if (lastPanel instanceof org.sblim.wbemsmt.samba.bl.container.wizard.HostWizardPage2) ((CreateSambaHostLoader)loader).loadTracingObject(bundle,adapter,(org.sblim.wbemsmt.samba.bl.container.wizard.HostWizardPage2)lastPanel);
 						else {
