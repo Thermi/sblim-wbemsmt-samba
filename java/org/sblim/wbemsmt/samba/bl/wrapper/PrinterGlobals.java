@@ -1,7 +1,7 @@
  /** 
   * PrinterGlobals.java
   *
-  * © Copyright IBM Corp. 2005
+  * ï¿½ Copyright IBM Corp. 2005
   *
   * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
@@ -31,7 +31,6 @@ import org.sblim.wbem.cim.CIMValue;
 import org.sblim.wbem.cim.UnsignedInt16;
 import org.sblim.wbem.cim.UnsignedInt64;
 import org.sblim.wbem.client.CIMClient;
-import org.sblim.wbemsmt.bl.adapter.AbstractBaseCimAdapter;
 import org.sblim.wbemsmt.bl.adapter.CimObjectKey;
 import org.sblim.wbemsmt.bl.adapter.MessageList;
 import org.sblim.wbemsmt.bl.fco.FcoHelper;
@@ -41,6 +40,7 @@ import org.sblim.wbemsmt.exception.ObjectDeletionException;
 import org.sblim.wbemsmt.exception.ObjectRevertException;
 import org.sblim.wbemsmt.exception.ObjectSaveException;
 import org.sblim.wbemsmt.exception.UpdateControlsException;
+import org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter;
 import org.sblim.wbemsmt.samba.bl.adapter.SambaObject;
 import org.sblim.wbemsmt.samba.bl.container.global.AdminUsersInPrinterGlobals;
 import org.sblim.wbemsmt.samba.bl.container.global.PrintingGlobalsDataContainer;
@@ -55,11 +55,10 @@ public class PrinterGlobals extends SambaObject {
 	private final Service service;
 	private Linux_SambaGlobalPrintingOptions globalPrintingOptions1;
 	private Set adminsBySambaUserName;
-	private AbstractBaseCimAdapter adapter;
 
-	public PrinterGlobals(Service service, AbstractBaseCimAdapter adapter) throws ModelLoadException {
+	public PrinterGlobals(Service service, SambaCimAdapter adapter) throws ModelLoadException {
+		super(adapter);
 		this.service = service;
-		this.adapter = adapter;
 		loadGlobalPrinterAdmins(adapter.getCimClient());
 	}
 
@@ -77,11 +76,10 @@ public class PrinterGlobals extends SambaObject {
 		{
 			globalPrintingOptions1 = (Linux_SambaGlobalPrintingOptions) 
 			getFirstChild(
-					cimClient,
 					Linux_SambaGlobalPrintingOptions.class
 					,service.
 						getGlobalOptions(cimClient).
-						getAssociated_Linux_SambaGlobalPrintingOptions_Linux_SambaGlobalPrintingForGlobal_Names(cimClient,false), false, adapter);
+						getAssociated_Linux_SambaGlobalPrintingOptions_Linux_SambaGlobalPrintingForGlobal_Names(cimClient,false), false);
 		}
 		return globalPrintingOptions1;
 	}

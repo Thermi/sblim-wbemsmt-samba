@@ -1,7 +1,7 @@
  /** 
   * User.java
   *
-  * © Copyright IBM Corp. 2005
+  * ï¿½ Copyright IBM Corp. 2005
   *
   * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
@@ -36,6 +36,7 @@ import org.sblim.wbemsmt.exception.ModelLoadException;
 import org.sblim.wbemsmt.exception.ObjectRevertException;
 import org.sblim.wbemsmt.exception.ObjectSaveException;
 import org.sblim.wbemsmt.exception.UpdateControlsException;
+import org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter;
 import org.sblim.wbemsmt.samba.bl.adapter.SambaObject;
 import org.sblim.wbemsmt.samba.bl.container.share.PrinterACLItemDataContainer;
 import org.sblim.wbemsmt.samba.bl.container.share.ShareACLItemDataContainer;
@@ -87,10 +88,11 @@ public class User extends SambaObject {
 	private boolean reloadShareInUser = false;
 
 	
-	public User(Service service, Linux_SambaUser userFco, CIMClient cimClient) throws ModelLoadException {
+	public User(Service service, Linux_SambaUser userFco, SambaCimAdapter adapter) throws ModelLoadException {
+		super(adapter);
 		this.service = service;
 		user = userFco;
-		isGuestOnServer = isGuestWorkingCopy = service.isGuest(cimClient,user);
+		isGuestOnServer = isGuestWorkingCopy = service.isGuest(adapter.getCimClient(),user);
 	}
 
 	public void resetAcl() {

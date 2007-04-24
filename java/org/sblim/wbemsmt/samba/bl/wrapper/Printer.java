@@ -1,7 +1,7 @@
  /** 
   * Printer.java
   *
-  * © Copyright IBM Corp. 2005
+  * ï¿½ Copyright IBM Corp. 2005
   *
   * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
@@ -31,7 +31,6 @@ import org.sblim.wbem.cim.CIMValue;
 import org.sblim.wbem.cim.UnsignedInt16;
 import org.sblim.wbem.cim.UnsignedInt64;
 import org.sblim.wbem.client.CIMClient;
-import org.sblim.wbemsmt.bl.adapter.AbstractBaseCimAdapter;
 import org.sblim.wbemsmt.bl.adapter.CimObjectKey;
 import org.sblim.wbemsmt.bl.adapter.MessageList;
 import org.sblim.wbemsmt.bl.fco.CIMPropertyBuilder;
@@ -42,6 +41,7 @@ import org.sblim.wbemsmt.exception.ObjectRevertException;
 import org.sblim.wbemsmt.exception.ObjectSaveException;
 import org.sblim.wbemsmt.exception.UpdateControlsException;
 import org.sblim.wbemsmt.exception.WbemSmtException;
+import org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter;
 import org.sblim.wbemsmt.samba.bl.adapter.SambaObject;
 import org.sblim.wbemsmt.samba.bl.container.printer.PrinterAllowHostSecurityDataContainer;
 import org.sblim.wbemsmt.samba.bl.container.printer.PrinterDenyHostSecurityDataContainer;
@@ -87,12 +87,10 @@ public class Printer extends SambaObject {
 	private boolean reloadPrinterUsers;
 	private String[] systemPrinterNames;
 	private Linux_SambaUser forceUser;
-	private AbstractBaseCimAdapter adapter;
-
 	
-	public Printer(Service service, Linux_SambaPrinterOptions printerFco, AbstractBaseCimAdapter adapter) throws ModelLoadException {
+	public Printer(Service service, Linux_SambaPrinterOptions printerFco, SambaCimAdapter adapter) throws ModelLoadException {
+		super(adapter);
 		this.service = service;
-		this.adapter = adapter;
 		printer = printerFco;
 		getAdminUsers(adapter.getCimClient());
 	}
@@ -191,7 +189,7 @@ public class Printer extends SambaObject {
 		
 		if (commonSecurity == null || reloadChilds)
 		{
-			commonSecurity = (Linux_SambaCommonSecurityOptions)getFirstChild(cimClient,Linux_SambaCommonSecurityOptions.class,printer.getAssociated_Linux_SambaCommonSecurityOptions_Linux_SambaCommonSecurityForPrinter_Names(cimClient, false), false, adapter);
+			commonSecurity = (Linux_SambaCommonSecurityOptions)getFirstChild(Linux_SambaCommonSecurityOptions.class,printer.getAssociated_Linux_SambaCommonSecurityOptions_Linux_SambaCommonSecurityForPrinter_Names(cimClient, false), false);
 		}
 		return commonSecurity;
 		
@@ -204,7 +202,7 @@ public class Printer extends SambaObject {
 	private Linux_SambaPrinterPrintingOptions getPrintingOptions(CIMClient cimClient) throws ModelLoadException {
 		if (printingOptions == null || reloadChilds)
 		{
-			printingOptions = (Linux_SambaPrinterPrintingOptions)getFirstChild(cimClient,Linux_SambaPrinterPrintingOptions.class,printer.getAssociated_Linux_SambaPrinterPrintingOptions_Linux_SambaPrinterPrintingForPrinter_Names(cimClient, false), false, adapter);
+			printingOptions = (Linux_SambaPrinterPrintingOptions)getFirstChild(Linux_SambaPrinterPrintingOptions.class,printer.getAssociated_Linux_SambaPrinterPrintingOptions_Linux_SambaPrinterPrintingForPrinter_Names(cimClient, false), false);
 		}
 		return printingOptions;
 	}
@@ -212,7 +210,7 @@ public class Printer extends SambaObject {
 	private Linux_SambaPrinterBrowseOptions getBrowseOptions(CIMClient cimClient) throws ModelLoadException {
 		if (browseOptions == null || reloadChilds)
 		{
-			browseOptions = (Linux_SambaPrinterBrowseOptions)getFirstChild(cimClient,Linux_SambaPrinterBrowseOptions.class,printer.getAssociated_Linux_SambaPrinterBrowseOptions_Linux_SambaPrinterBrowseForPrinter_Names(cimClient, false), false, adapter);
+			browseOptions = (Linux_SambaPrinterBrowseOptions)getFirstChild(Linux_SambaPrinterBrowseOptions.class,printer.getAssociated_Linux_SambaPrinterBrowseOptions_Linux_SambaPrinterBrowseForPrinter_Names(cimClient, false), false);
 		}
 		return browseOptions;
 	}
@@ -460,7 +458,7 @@ public class Printer extends SambaObject {
 		if (forceUser == null || reloadChilds)
 		{
 			List list = printer.getAssociated_Linux_SambaUser_Linux_SambaForceUserForPrinters(cimClient,false,false,null); 
-			forceUser = (Linux_SambaUser)getFirstChild(cimClient, Linux_SambaUser.class, list , true, adapter);
+			forceUser = (Linux_SambaUser)getFirstChild(Linux_SambaUser.class, list , true);
 		}
 		return forceUser;
 	}

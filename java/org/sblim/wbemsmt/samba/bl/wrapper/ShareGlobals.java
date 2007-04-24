@@ -1,7 +1,7 @@
  /** 
   * ShareGlobals.java
   *
-  * © Copyright IBM Corp. 2005
+  * ï¿½ Copyright IBM Corp. 2005
   *
   * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
@@ -30,7 +30,6 @@ import org.sblim.wbem.cim.CIMProperty;
 import org.sblim.wbem.cim.CIMValue;
 import org.sblim.wbem.cim.UnsignedInt8;
 import org.sblim.wbem.client.CIMClient;
-import org.sblim.wbemsmt.bl.adapter.AbstractBaseCimAdapter;
 import org.sblim.wbemsmt.bl.adapter.CimObjectKey;
 import org.sblim.wbemsmt.bl.adapter.MessageList;
 import org.sblim.wbemsmt.bl.fco.FcoHelper;
@@ -39,6 +38,7 @@ import org.sblim.wbemsmt.exception.ObjectDeletionException;
 import org.sblim.wbemsmt.exception.ObjectRevertException;
 import org.sblim.wbemsmt.exception.ObjectSaveException;
 import org.sblim.wbemsmt.exception.UpdateControlsException;
+import org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter;
 import org.sblim.wbemsmt.samba.bl.adapter.SambaObject;
 import org.sblim.wbemsmt.samba.bl.container.global.AdminUsersInShareGlobals;
 import org.sblim.wbemsmt.samba.bl.container.global.CMDShareGlobalsDataContainer;
@@ -58,11 +58,10 @@ public class ShareGlobals extends SambaObject {
 	private Linux_SambaGlobalProtocolOptions protocolOptions1;
 	private Linux_SambaShareSecurityOptions shareSecurityOptions1;
 	private Set adminsBySambaUserName;
-	private final AbstractBaseCimAdapter adapter;
 
-	public ShareGlobals(Service service, AbstractBaseCimAdapter adapter) throws ModelLoadException {
+	public ShareGlobals(Service service, SambaCimAdapter adapter) throws ModelLoadException {
+		super(adapter);
 		this.service = service;
-		this.adapter = adapter;
 		loadGlobalShareAdmins(adapter.getCimClient());
 	}
 
@@ -92,7 +91,7 @@ public class ShareGlobals extends SambaObject {
 	private Linux_SambaGlobalFileNameHandlingOptions getFileNameHandlingOptions(CIMClient cimClient) throws ModelLoadException {
 		if (filenameHandlingOptions1 == null || reloadChilds)
 		{
-			filenameHandlingOptions1 = (Linux_SambaGlobalFileNameHandlingOptions)getFirstChild(cimClient,Linux_SambaGlobalFileNameHandlingOptions.class,service.getGlobalOptions(cimClient).getAssociated_Linux_SambaGlobalFileNameHandlingOptions_Linux_SambaGlobalFileNameHandlingForGlobal_Names(cimClient,false), false, adapter);
+			filenameHandlingOptions1 = (Linux_SambaGlobalFileNameHandlingOptions)getFirstChild(Linux_SambaGlobalFileNameHandlingOptions.class,service.getGlobalOptions(cimClient).getAssociated_Linux_SambaGlobalFileNameHandlingOptions_Linux_SambaGlobalFileNameHandlingForGlobal_Names(cimClient,false), false);
 		}
 		return filenameHandlingOptions1;
 	}
@@ -100,7 +99,7 @@ public class ShareGlobals extends SambaObject {
 	private Linux_SambaGlobalProtocolOptions getProtocolOptions(CIMClient cimClient) throws ModelLoadException {
 		if (protocolOptions1 == null || reloadChilds)
 		{
-			protocolOptions1 = (Linux_SambaGlobalProtocolOptions)getFirstChild(cimClient,Linux_SambaGlobalProtocolOptions.class,service.getGlobalOptions(cimClient).getAssociated_Linux_SambaGlobalProtocolOptions_Linux_SambaGlobalProtocolForGlobal_Names(cimClient,false), false, adapter);
+			protocolOptions1 = (Linux_SambaGlobalProtocolOptions)getFirstChild(Linux_SambaGlobalProtocolOptions.class,service.getGlobalOptions(cimClient).getAssociated_Linux_SambaGlobalProtocolOptions_Linux_SambaGlobalProtocolForGlobal_Names(cimClient,false), false);
 		}
 		return protocolOptions1;
 	}
@@ -108,7 +107,7 @@ public class ShareGlobals extends SambaObject {
 	private Linux_SambaShareSecurityOptions getShareSecurityOptions(CIMClient cimClient) throws ModelLoadException {
 		if (shareSecurityOptions1 == null || reloadChilds)
 		{
-			shareSecurityOptions1 = (Linux_SambaShareSecurityOptions)getFirstChild(cimClient,Linux_SambaShareSecurityOptions.class,service.getGlobalOptions(cimClient).getAssociated_Linux_SambaShareSecurityOptions_Linux_SambaShareSecurityForGlobal_Names(cimClient,false), false, adapter);
+			shareSecurityOptions1 = (Linux_SambaShareSecurityOptions)getFirstChild(Linux_SambaShareSecurityOptions.class,service.getGlobalOptions(cimClient).getAssociated_Linux_SambaShareSecurityOptions_Linux_SambaShareSecurityForGlobal_Names(cimClient,false), false);
 		}
 		return shareSecurityOptions1;
 	}

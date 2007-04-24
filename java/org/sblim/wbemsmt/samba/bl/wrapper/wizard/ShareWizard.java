@@ -1,7 +1,7 @@
  /** 
   * ShareWizard.java
   *
-  * © Copyright IBM Corp. 2005
+  * ï¿½ Copyright IBM Corp. 2005
   *
   * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
@@ -158,7 +158,7 @@ public class ShareWizard   extends SambaWizard{
 	private void createFilenameHandlingOpts(Linux_SambaShareOptions share, CIMClient cc) throws ObjectSaveException {
 		try {
 			Linux_SambaShareFileNameHandlingOptions child = 
-				(Linux_SambaShareFileNameHandlingOptions) getFirstChild(cc,Linux_SambaShareFileNameHandlingOptions.class,share.getAssociated_Linux_SambaShareFileNameHandlingOptions_Linux_SambaShareFileNameHandlingForShare_Names(cc,false),false, adapter);
+				(Linux_SambaShareFileNameHandlingOptions) getFirstChild(Linux_SambaShareFileNameHandlingOptions.class,share.getAssociated_Linux_SambaShareFileNameHandlingOptions_Linux_SambaShareFileNameHandlingForShare_Names(cc,false),false);
 			FcoHelper.save(child,cc);
 		} catch (ModelLoadException e) {
 			throw new ObjectSaveException(e);
@@ -168,7 +168,7 @@ public class ShareWizard   extends SambaWizard{
 	private void createProtocolOpts(Linux_SambaShareOptions share, CIMClient cc) throws ObjectSaveException {
 		try {
 			Linux_SambaShareProtocolOptions child = 
-				(Linux_SambaShareProtocolOptions) getFirstChild(cc,Linux_SambaShareProtocolOptions.class,share.getAssociated_Linux_SambaShareProtocolOptions_Linux_SambaShareProtocolForShare_Names(cc,false),false, adapter);
+				(Linux_SambaShareProtocolOptions) getFirstChild(Linux_SambaShareProtocolOptions.class,share.getAssociated_Linux_SambaShareProtocolOptions_Linux_SambaShareProtocolForShare_Names(cc,false),false);
 			FcoHelper.save(child,cc);
 		} catch (ModelLoadException e) {
 			throw new ObjectSaveException(e);
@@ -178,7 +178,7 @@ public class ShareWizard   extends SambaWizard{
 	private void createCommonSec(Linux_SambaShareOptions share, CIMClient cc, boolean enableGuest) throws ObjectSaveException {
 		try {
 			Linux_SambaCommonSecurityOptions child = 
-				(Linux_SambaCommonSecurityOptions) getFirstChild(cc,Linux_SambaCommonSecurityOptions.class,share.getAssociated_Linux_SambaCommonSecurityOptions_Linux_SambaCommonSecurityForShare_Names(cc,false),false, adapter);
+				(Linux_SambaCommonSecurityOptions) getFirstChild(Linux_SambaCommonSecurityOptions.class,share.getAssociated_Linux_SambaCommonSecurityOptions_Linux_SambaCommonSecurityForShare_Names(cc,false),false);
 			child.set_GuestOK(new Boolean(enableGuest));
 			FcoHelper.save(child,cc);
 		} catch (ModelLoadException e) {
@@ -204,7 +204,7 @@ public class ShareWizard   extends SambaWizard{
 	private void createBrowseOpts(Linux_SambaShareOptions share, CIMClient cc, boolean publicShare) throws ObjectSaveException {
 		try {
 			Linux_SambaShareBrowseOptions child = 
-				(Linux_SambaShareBrowseOptions) getFirstChild(cc,Linux_SambaShareBrowseOptions.class,share.getAssociated_Linux_SambaShareBrowseOptions_Linux_SambaShareBrowseForShare_Names(cc,false),false, adapter);
+				(Linux_SambaShareBrowseOptions) getFirstChild(Linux_SambaShareBrowseOptions.class,share.getAssociated_Linux_SambaShareBrowseOptions_Linux_SambaShareBrowseForShare_Names(cc,false),false);
 
 			child.set_Browsable(new Boolean(publicShare));
 			FcoHelper.save(child,cc);

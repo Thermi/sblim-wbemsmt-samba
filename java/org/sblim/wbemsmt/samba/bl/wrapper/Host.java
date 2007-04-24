@@ -1,7 +1,7 @@
  /** 
   * Host.java
   *
-  * © Copyright IBM Corp. 2005
+  * ï¿½ Copyright IBM Corp. 2005
   *
   * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
@@ -22,6 +22,7 @@ package org.sblim.wbemsmt.samba.bl.wrapper;
 import org.sblim.wbem.client.CIMClient;
 import org.sblim.wbemsmt.bl.adapter.CimObjectKey;
 import org.sblim.wbemsmt.exception.ModelLoadException;
+import org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter;
 import org.sblim.wbemsmt.samba.bl.adapter.SambaObject;
 import org.sblim.wbemsmt.samba.bl.fco.Linux_SambaHost;
 
@@ -29,8 +30,8 @@ public class Host extends SambaObject {
 
 	private Linux_SambaHost host;
 
-	public Host(Service service, Linux_SambaHost hostFco, CIMClient cimClient) {
-		
+	public Host(Service service, Linux_SambaHost hostFco, SambaCimAdapter adapter) {
+		super(adapter);
 	}
 
 	/* (non-Javadoc)

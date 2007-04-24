@@ -1,7 +1,7 @@
  /** 
   * Service.java
   *
-  * © Copyright IBM Corp. 2005
+  * ï¿½ Copyright IBM Corp. 2005
   *
   * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
@@ -34,7 +34,6 @@ import org.sblim.wbem.cim.UnsignedInt16;
 import org.sblim.wbem.cim.UnsignedInt32;
 import org.sblim.wbem.cim.UnsignedInt8;
 import org.sblim.wbem.client.CIMClient;
-import org.sblim.wbemsmt.bl.adapter.AbstractBaseCimAdapter;
 import org.sblim.wbemsmt.bl.adapter.CimObjectKey;
 import org.sblim.wbemsmt.bl.adapter.MessageList;
 import org.sblim.wbemsmt.bl.fco.FcoHelper;
@@ -130,7 +129,6 @@ public class Service extends SambaObject {
 	private PrinterGlobals printerGlobals = null;
 	private SystemPrinterList systemPrinters;
 	private SystemUserList systemUsers;
-	private final AbstractBaseCimAdapter adapter;
 	private boolean foundSystemPrinters;
 	private boolean foundSystemUsers;
 	private String[] valuesPassDbBackend;
@@ -138,9 +136,9 @@ public class Service extends SambaObject {
 	private String[] valuesSecurity;
 	private Linux_SambaUser forceUser;
 	
-	public Service(AbstractBaseCimAdapter adapter, Linux_SambaService service, CIMClient cimClient) throws ModelLoadException
+	public Service(SambaCimAdapter adapter, Linux_SambaService service) throws ModelLoadException
 	{
-		this.adapter = adapter;
+		super(adapter);
 		this.service = service;
 		shareGlobals = new ShareGlobals(this,adapter);
 		printerGlobals = new PrinterGlobals(this,adapter);
@@ -174,7 +172,7 @@ public class Service extends SambaObject {
 	private Linux_SambaLoggingOptions getLoggingOptions(CIMClient cimClient) throws ModelLoadException {
 		if (loggingOptions1 == null || reloadChilds)
 		{
-			loggingOptions1 = (Linux_SambaLoggingOptions)getFirstChild(cimClient, Linux_SambaLoggingOptions.class, getGlobalOptions(cimClient).getAssociated_Linux_SambaLoggingOptions_Linux_SambaLoggingForGlobals(cimClient,false,false,null), true, adapter);
+			loggingOptions1 = (Linux_SambaLoggingOptions)getFirstChild(Linux_SambaLoggingOptions.class, getGlobalOptions(cimClient).getAssociated_Linux_SambaLoggingOptions_Linux_SambaLoggingForGlobals(cimClient,false,false,null), true);
 			if (SambaCimAdapter.DUMMY_MODE)
 			{
 				if (loggingOptions1 == null)
@@ -190,7 +188,7 @@ public class Service extends SambaObject {
 	private Linux_SambaGlobalSecurityOptions getGlobalSecurityOptions(CIMClient cimClient) throws ModelLoadException {
 		if (globalSecurityOptions1 == null || reloadChilds)
 		{
-			globalSecurityOptions1 = (Linux_SambaGlobalSecurityOptions)getFirstChild(cimClient, Linux_SambaGlobalSecurityOptions.class, getGlobalOptions(cimClient).getAssociated_Linux_SambaGlobalSecurityOptions_Linux_SambaGlobalSecurityForGlobals(cimClient, false, false, null), false, adapter);
+			globalSecurityOptions1 = (Linux_SambaGlobalSecurityOptions)getFirstChild(Linux_SambaGlobalSecurityOptions.class, getGlobalOptions(cimClient).getAssociated_Linux_SambaGlobalSecurityOptions_Linux_SambaGlobalSecurityForGlobals(cimClient, false, false, null), false);
 		}
 		return globalSecurityOptions1;
 	}
@@ -198,7 +196,7 @@ public class Service extends SambaObject {
 	public Linux_SambaGlobalOptions getGlobalOptions(CIMClient cimClient) throws ModelLoadException {
 		if (globalOptions1 == null || reloadChilds)
 		{
-			globalOptions1 = (Linux_SambaGlobalOptions)getFirstChild(cimClient,Linux_SambaGlobalOptions.class, service.getAssociated_Linux_SambaGlobalOptions_Linux_SambaGlobalForServices(cimClient,false,false,null), false, adapter);
+			globalOptions1 = (Linux_SambaGlobalOptions)getFirstChild(Linux_SambaGlobalOptions.class, service.getAssociated_Linux_SambaGlobalOptions_Linux_SambaGlobalForServices(cimClient,false,false,null), false);
 		}
 		return globalOptions1;
 	}
@@ -206,7 +204,7 @@ public class Service extends SambaObject {
 	private Linux_SambaServiceConfiguration getServiceConfig(CIMClient cimClient) throws ModelLoadException {
 		if (serviceConfig1 == null || reloadChilds)
 		{
-			serviceConfig1 = (Linux_SambaServiceConfiguration)getFirstChild(cimClient, Linux_SambaServiceConfiguration.class, service.getAssociated_Linux_SambaServiceConfiguration_Linux_SambaServiceConfigurationForServices(cimClient,false,false,null), false, adapter);
+			serviceConfig1 = (Linux_SambaServiceConfiguration)getFirstChild(Linux_SambaServiceConfiguration.class, service.getAssociated_Linux_SambaServiceConfiguration_Linux_SambaServiceConfigurationForServices(cimClient,false,false,null), false);
 		}
 		return serviceConfig1;
 	}
@@ -214,7 +212,7 @@ public class Service extends SambaObject {
 	private Linux_SambaScriptingOptions getScriptingOptions(CIMClient cimClient) throws ModelLoadException {
 		if (scriptingOptions1 == null || reloadChilds)
 		{
-			scriptingOptions1 = (Linux_SambaScriptingOptions)getFirstChild(cimClient, Linux_SambaScriptingOptions.class, getGlobalOptions(cimClient).getAssociated_Linux_SambaScriptingOptions_Linux_SambaScriptingForGlobal_Names(cimClient,false), false, adapter);			
+			scriptingOptions1 = (Linux_SambaScriptingOptions)getFirstChild(Linux_SambaScriptingOptions.class, getGlobalOptions(cimClient).getAssociated_Linux_SambaScriptingOptions_Linux_SambaScriptingForGlobal_Names(cimClient,false), false);			
 		}
 		return scriptingOptions1;
 	}
@@ -222,7 +220,7 @@ public class Service extends SambaObject {
 	private Linux_SambaGlobalBrowseOptions getBrowseOptions(CIMClient cimClient) throws ModelLoadException {
 		if (browseOptions1 == null || reloadChilds)
 		{
-			browseOptions1 = (Linux_SambaGlobalBrowseOptions)getFirstChild(cimClient, Linux_SambaGlobalBrowseOptions.class, getGlobalOptions(cimClient).getAssociated_Linux_SambaGlobalBrowseOptions_Linux_SambaGlobalBrowseForGlobal_Names(cimClient,false), false, adapter);
+			browseOptions1 = (Linux_SambaGlobalBrowseOptions)getFirstChild(Linux_SambaGlobalBrowseOptions.class, getGlobalOptions(cimClient).getAssociated_Linux_SambaGlobalBrowseOptions_Linux_SambaGlobalBrowseForGlobal_Names(cimClient,false), false);
 		}
 		return browseOptions1;
 	}
@@ -230,7 +228,7 @@ public class Service extends SambaObject {
 	private Linux_SambaCommonSecurityOptions getCommonSecurity(CIMClient cimClient) throws ModelLoadException {
 		if (commonSecurityOptions1 == null || reloadChilds)
 		{
-			commonSecurityOptions1 = (Linux_SambaCommonSecurityOptions)getFirstChild(cimClient, Linux_SambaCommonSecurityOptions.class, getGlobalOptions(cimClient).getAssociated_Linux_SambaCommonSecurityOptions_Linux_SambaCommonSecurityForGlobal_Names(cimClient,false), false, adapter);
+			commonSecurityOptions1 = (Linux_SambaCommonSecurityOptions)getFirstChild(Linux_SambaCommonSecurityOptions.class, getGlobalOptions(cimClient).getAssociated_Linux_SambaCommonSecurityOptions_Linux_SambaCommonSecurityForGlobal_Names(cimClient,false), false);
 			allowHostsFromServer = commonSecurityOptions1.get_HostsAllow();
 			denyHostsFromServer = commonSecurityOptions1.get_HostsDeny();
 		}
@@ -240,7 +238,7 @@ public class Service extends SambaObject {
 	private Linux_SambaWinsOptions getWinsOptions(CIMClient cimClient) throws ModelLoadException {
 		if (winsOptions1 == null || reloadChilds)
 		{
-			winsOptions1 = (Linux_SambaWinsOptions)getFirstChild(cimClient, Linux_SambaWinsOptions.class, getGlobalOptions(cimClient).getAssociated_Linux_SambaWinsOptions_Linux_SambaWinsForGlobal_Names(cimClient,false),true, adapter);
+			winsOptions1 = (Linux_SambaWinsOptions)getFirstChild(Linux_SambaWinsOptions.class, getGlobalOptions(cimClient).getAssociated_Linux_SambaWinsOptions_Linux_SambaWinsForGlobal_Names(cimClient,false),true);
 			if (SambaCimAdapter.DUMMY_MODE)
 			{
 				if (winsOptions1 == null)
@@ -255,7 +253,7 @@ public class Service extends SambaObject {
 	private Linux_SambaWinbindOptions getWindBindOptions(CIMClient cimClient) throws ModelLoadException {
 		if (winbindOptions1 == null || reloadChilds)
 		{
-			winbindOptions1 = (Linux_SambaWinbindOptions)getFirstChild(cimClient, Linux_SambaWinbindOptions.class, getGlobalOptions(cimClient).getAssociated_Linux_SambaWinbindOptions_Linux_SambaWinbindForGlobal_Names(cimClient,false), true, adapter);
+			winbindOptions1 = (Linux_SambaWinbindOptions)getFirstChild(Linux_SambaWinbindOptions.class, getGlobalOptions(cimClient).getAssociated_Linux_SambaWinbindOptions_Linux_SambaWinbindForGlobal_Names(cimClient,false), true);
 			if (SambaCimAdapter.DUMMY_MODE)
 			{
 				if (winbindOptions1 == null)
@@ -270,7 +268,7 @@ public class Service extends SambaObject {
 	public Linux_SambaUser getGuestAccount(CIMClient cimClient) throws ModelLoadException {
 		if (guestAccount == null || reloadChilds)
 		{
-			guestAccount = (Linux_SambaUser)getFirstChild(cimClient, Linux_SambaUser.class, getGlobalOptions(cimClient).getAssociated_Linux_SambaUser_Linux_SambaGuestAccountForGlobal_Names(cimClient,false), true, adapter);
+			guestAccount = (Linux_SambaUser)getFirstChild(Linux_SambaUser.class, getGlobalOptions(cimClient).getAssociated_Linux_SambaUser_Linux_SambaGuestAccountForGlobal_Names(cimClient,false), true);
 		}
 		return guestAccount;
 	}
@@ -1011,7 +1009,7 @@ public class Service extends SambaObject {
 		ArrayList list = service.getAssociated_Linux_SambaUser_Linux_SambaUsersForServices(cimClient,false,false,null);
 		for (Iterator iter = list.iterator(); iter.hasNext();) {
 			fco = (Linux_SambaUser) iter.next();
-			users.addUser(new User(this,fco,cimClient));
+			users.addUser(new User(this,fco,adapter));
 		}
 	}
 
@@ -1042,7 +1040,7 @@ public class Service extends SambaObject {
 		while (iterator.hasNext())
 		{
 			Linux_SambaHost host = (Linux_SambaHost) iterator.next();
-			hosts.addHost(new Host(this,host,cimClient));
+			hosts.addHost(new Host(this,host,adapter));
 		}
 	}
 	
@@ -1050,7 +1048,7 @@ public class Service extends SambaObject {
 		if (forceUser == null || reloadChilds)
 		{
 			List list = getGlobalOptions(cimClient).getAssociated_Linux_SambaUser_Linux_SambaForceUserForGlobals(cimClient,false,false,null); 
-			forceUser = (Linux_SambaUser)getFirstChild(cimClient, Linux_SambaUser.class, list , true, adapter);
+			forceUser = (Linux_SambaUser)getFirstChild(Linux_SambaUser.class, list , true);
 		}
 		return forceUser;
 	}

@@ -1,7 +1,7 @@
  /** 
   * SambaCimAdapter.java
   *
-  * © Copyright IBM Corp. 2005
+  * ï¿½ Copyright IBM Corp. 2005
   *
   * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
@@ -144,7 +144,7 @@ public class SambaCimAdapter extends AbstractBaseCimAdapter {
 		
 		for (Iterator iter = list.iterator(); iter.hasNext();) {
 			Linux_SambaService serviceFco = (Linux_SambaService) iter.next();
-			Service service = new Service(this,serviceFco, cimClient);
+			Service service = new Service(this,serviceFco);
 
 			ShareList shares = new ShareList();
 			ArrayList associated_Linux_SambaShareOptions = serviceFco.getAssociated_Linux_SambaShareOptions_Linux_SambaShareForServices(cimClient,false,false,null);
@@ -166,7 +166,7 @@ public class SambaCimAdapter extends AbstractBaseCimAdapter {
 			ArrayList associated_Linux_SambaUsers = serviceFco.getAssociated_Linux_SambaUser_Linux_SambaUsersForServices(cimClient,false,false,null);
 			for (Iterator iter2 = associated_Linux_SambaUsers.iterator(); iter2.hasNext();) {
 				Linux_SambaUser userFco = (Linux_SambaUser) iter2.next();
-				users.addUser(new User(service,userFco,cimClient));
+				users.addUser(new User(service,userFco,this));
 			}
 			service.setUsers(users);
 
@@ -174,7 +174,7 @@ public class SambaCimAdapter extends AbstractBaseCimAdapter {
 			ArrayList associated_Linux_SambaHosts = serviceFco.getAssociated_Linux_SambaHost_Linux_SambaHostsForServices(cimClient,false,false,null);
 			for (Iterator iter2 = associated_Linux_SambaHosts.iterator(); iter2.hasNext();) {
 				Linux_SambaHost hostFco = (Linux_SambaHost) iter2.next();
-				hosts.addHost(new Host(service,hostFco,cimClient));
+				hosts.addHost(new Host(service,hostFco,this));
 			}
 			service.setHosts(hosts);
 			
@@ -203,7 +203,7 @@ public class SambaCimAdapter extends AbstractBaseCimAdapter {
 
 				Linux_SambaService serviceFco = new Linux_SambaService(serviceNode.getCimInstance().getObjectPath(),serviceNode.getCimInstance());
 				
-				Service service = new Service(this,serviceFco, cimClient);
+				Service service = new Service(this,serviceFco);
 				
 				System.err.println("Service");
 				
@@ -234,7 +234,7 @@ public class SambaCimAdapter extends AbstractBaseCimAdapter {
 				for (Iterator iter = userNodes.iterator(); iter.hasNext();) {
 					ICIMInstanceNode shareNode = (ICIMInstanceNode) iter.next();
 					Linux_SambaUser userFco = new Linux_SambaUser(shareNode.getCimInstance().getObjectPath(),shareNode.getCimInstance());
-					users.addUser(new User(service,userFco,cimClient));
+					users.addUser(new User(service,userFco,this));
 				}
 				service.setUsers(users);
 				System.err.println("users");
@@ -244,7 +244,7 @@ public class SambaCimAdapter extends AbstractBaseCimAdapter {
 				for (Iterator iter = hostNodes.iterator(); iter.hasNext();) {
 					ICIMInstanceNode shareNode = (ICIMInstanceNode) iter.next();
 					Linux_SambaHost hostFco = new Linux_SambaHost(shareNode.getCimInstance().getObjectPath(),shareNode.getCimInstance());
-					hosts.addHost(new Host(service,hostFco,cimClient));
+					hosts.addHost(new Host(service,hostFco,this));
 				}
 				service.setHosts(hosts);
 				System.err.println("hosts");
@@ -308,7 +308,7 @@ public class SambaCimAdapter extends AbstractBaseCimAdapter {
 				Linux_SambaService fco = Linux_SambaServiceHelper.getInstance(cimClient,key.getObjectPath());
 				if (fco != null)
 				{
-					service = new Service(this,fco,cimClient);
+					service = new Service(this,fco);
 					service.loadUserList(cimClient);
 					service.loadPrinterList(cimClient);
 					service.loadShareList(cimClient);
@@ -407,7 +407,7 @@ public class SambaCimAdapter extends AbstractBaseCimAdapter {
 			Linux_SambaUser fco = Linux_SambaUserHelper.getInstance(cimClient,key.getObjectPath());
 			if (fco != null)
 			{
-				usr = new User(service,fco,cimClient);
+				usr = new User(service,fco,this);
 				users.addUser(usr);
 				sambaSelectionHierarchy.add(usr);
 				return true;

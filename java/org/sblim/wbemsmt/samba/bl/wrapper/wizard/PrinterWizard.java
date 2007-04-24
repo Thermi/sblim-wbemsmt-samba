@@ -1,7 +1,7 @@
  /** 
   * PrinterWizard.java
   *
-  * © Copyright IBM Corp. 2005
+  * ï¿½ Copyright IBM Corp. 2005
   *
   * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
@@ -213,7 +213,7 @@ public class PrinterWizard  extends SambaWizard {
 		
 		try {
 			Linux_SambaPrinterPrintingOptions printingOptions = 
-				(Linux_SambaPrinterPrintingOptions) getFirstChild(cc,Linux_SambaPrinterPrintingOptions.class,printer.getAssociated_Linux_SambaPrinterPrintingOptions_Linux_SambaPrinterPrintingForPrinter_Names(cc,false),false, adapter);
+				(Linux_SambaPrinterPrintingOptions) getFirstChild(Linux_SambaPrinterPrintingOptions.class,printer.getAssociated_Linux_SambaPrinterPrintingOptions_Linux_SambaPrinterPrintingForPrinter_Names(cc,false),false);
 			
 			printingOptions.set_CupsOptions((String) page4.get_CupsOptions().getConvertedControlValue());
 			printingOptions.set_PrintCommand((String) page4.get_PrintCommand().getConvertedControlValue());
@@ -233,7 +233,7 @@ public class PrinterWizard  extends SambaWizard {
 	private void createBrowseOpts(Linux_SambaPrinterOptions printer, CIMClient cc, boolean publicPrinter) throws ObjectSaveException {
 		try {
 			Linux_SambaPrinterBrowseOptions child = 
-				(Linux_SambaPrinterBrowseOptions) getFirstChild(cc,Linux_SambaPrinterBrowseOptions.class,printer.getAssociated_Linux_SambaPrinterBrowseOptions_Linux_SambaPrinterBrowseForPrinter_Names(cc,false),false, adapter);
+				(Linux_SambaPrinterBrowseOptions) getFirstChild(Linux_SambaPrinterBrowseOptions.class,printer.getAssociated_Linux_SambaPrinterBrowseOptions_Linux_SambaPrinterBrowseForPrinter_Names(cc,false),false);
 			child.set_Browsable(new Boolean(publicPrinter));
 			FcoHelper.save(child,cc);
 		} catch (ModelLoadException e) {
@@ -244,7 +244,7 @@ public class PrinterWizard  extends SambaWizard {
 	private void createCommonSec(Linux_SambaPrinterOptions printer, CIMClient cc, boolean enableGuest) throws ObjectSaveException {
 		try {
 			Linux_SambaCommonSecurityOptions child = 
-				(Linux_SambaCommonSecurityOptions) getFirstChild(cc,Linux_SambaCommonSecurityOptions.class,printer.getAssociated_Linux_SambaCommonSecurityOptions_Linux_SambaCommonSecurityForPrinter_Names(cc,false),false, adapter);
+				(Linux_SambaCommonSecurityOptions) getFirstChild(Linux_SambaCommonSecurityOptions.class,printer.getAssociated_Linux_SambaCommonSecurityOptions_Linux_SambaCommonSecurityForPrinter_Names(cc,false),false);
 			child.set_GuestOK(new Boolean(enableGuest));
 			FcoHelper.save(child,cc);
 		} catch (ModelLoadException e) {

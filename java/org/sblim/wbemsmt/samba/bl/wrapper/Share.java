@@ -1,7 +1,7 @@
  /** 
   * Share.java
   *
-  * © Copyright IBM Corp. 2005
+  * ï¿½ Copyright IBM Corp. 2005
   *
   * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
@@ -30,7 +30,6 @@ import org.sblim.wbem.cim.CIMProperty;
 import org.sblim.wbem.cim.CIMValue;
 import org.sblim.wbem.cim.UnsignedInt16;
 import org.sblim.wbem.client.CIMClient;
-import org.sblim.wbemsmt.bl.adapter.AbstractBaseCimAdapter;
 import org.sblim.wbemsmt.bl.adapter.CimObjectKey;
 import org.sblim.wbemsmt.bl.adapter.MessageList;
 import org.sblim.wbemsmt.bl.fco.FcoHelper;
@@ -41,6 +40,7 @@ import org.sblim.wbemsmt.exception.ObjectRevertException;
 import org.sblim.wbemsmt.exception.ObjectSaveException;
 import org.sblim.wbemsmt.exception.UpdateControlsException;
 import org.sblim.wbemsmt.exception.WbemSmtException;
+import org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter;
 import org.sblim.wbemsmt.samba.bl.adapter.SambaObject;
 import org.sblim.wbemsmt.samba.bl.container.share.CMDShareFileAttributes;
 import org.sblim.wbemsmt.samba.bl.container.share.GUIShareFileAttributes;
@@ -92,11 +92,10 @@ public class Share extends SambaObject
 	private ArrayList listHostsToDeny;
 	private boolean reloadShareUsers;
 	private Linux_SambaUser forceUser;
-	private final AbstractBaseCimAdapter adapter;
-	public Share(Service service, Linux_SambaShareOptions share, AbstractBaseCimAdapter adapter) throws ModelLoadException {
+	public Share(Service service, Linux_SambaShareOptions share, SambaCimAdapter adapter) throws ModelLoadException {
+		super(adapter);
 		this.service = service;
 		this.share = share;
-		this.adapter = adapter;
 	}
 
 	public void loadChilds(CIMClient cimClient) throws ModelLoadException {
@@ -202,7 +201,7 @@ public class Share extends SambaObject
 	private Linux_SambaShareSecurityOptions getShareSecurityOptions(CIMClient cimClient) throws ModelLoadException {
 		if (shareSecurityOptions == null || reloadChilds)
 		{
-			shareSecurityOptions = (Linux_SambaShareSecurityOptions) getFirstChild(cimClient,Linux_SambaShareSecurityOptions.class,share.getAssociated_Linux_SambaShareSecurityOptions_Linux_SambaShareSecurityForShare_Names(cimClient,false), false, adapter);
+			shareSecurityOptions = (Linux_SambaShareSecurityOptions) getFirstChild(Linux_SambaShareSecurityOptions.class,share.getAssociated_Linux_SambaShareSecurityOptions_Linux_SambaShareSecurityForShare_Names(cimClient,false), false);
 		}
 		return shareSecurityOptions;
 	}
@@ -210,7 +209,7 @@ public class Share extends SambaObject
 	private Linux_SambaShareProtocolOptions getProtocolOptions(CIMClient cimClient) throws ModelLoadException {
 		if (protocolOptions == null || reloadChilds)
 		{
-			protocolOptions = (Linux_SambaShareProtocolOptions) getFirstChild(cimClient,Linux_SambaShareProtocolOptions.class,share.getAssociated_Linux_SambaShareProtocolOptions_Linux_SambaShareProtocolForShare_Names(cimClient,false), false, adapter);
+			protocolOptions = (Linux_SambaShareProtocolOptions) getFirstChild(Linux_SambaShareProtocolOptions.class,share.getAssociated_Linux_SambaShareProtocolOptions_Linux_SambaShareProtocolForShare_Names(cimClient,false), false);
 		}
 		return protocolOptions;
 	}
@@ -218,7 +217,7 @@ public class Share extends SambaObject
 	private Linux_SambaShareFileNameHandlingOptions getFilenameHandlingOptions(CIMClient cimClient) throws ModelLoadException {
 		if (fileNameHandlingOptions == null || reloadChilds)
 		{
-			fileNameHandlingOptions = (Linux_SambaShareFileNameHandlingOptions) getFirstChild(cimClient,Linux_SambaShareFileNameHandlingOptions.class,share.getAssociated_Linux_SambaShareFileNameHandlingOptions_Linux_SambaShareFileNameHandlingForShare_Names(cimClient,false), false, adapter);
+			fileNameHandlingOptions = (Linux_SambaShareFileNameHandlingOptions) getFirstChild(Linux_SambaShareFileNameHandlingOptions.class,share.getAssociated_Linux_SambaShareFileNameHandlingOptions_Linux_SambaShareFileNameHandlingForShare_Names(cimClient,false), false);
 		}
 		return fileNameHandlingOptions;
 	}
@@ -226,7 +225,7 @@ public class Share extends SambaObject
 	private Linux_SambaCommonSecurityOptions getCommonSecurityOptions(CIMClient cimClient) throws ModelLoadException {
 		if (shareCommonSecurityOptions == null || reloadChilds)
 		{
-			shareCommonSecurityOptions = (Linux_SambaCommonSecurityOptions) getFirstChild(cimClient,Linux_SambaCommonSecurityOptions.class,share.getAssociated_Linux_SambaCommonSecurityOptions_Linux_SambaCommonSecurityForShare_Names(cimClient,false), false, adapter);
+			shareCommonSecurityOptions = (Linux_SambaCommonSecurityOptions) getFirstChild(Linux_SambaCommonSecurityOptions.class,share.getAssociated_Linux_SambaCommonSecurityOptions_Linux_SambaCommonSecurityForShare_Names(cimClient,false), false);
 		}
 		return shareCommonSecurityOptions;
 	}
@@ -238,7 +237,7 @@ public class Share extends SambaObject
 	private Linux_SambaShareBrowseOptions getBrowseOptions(CIMClient cimClient) throws ModelLoadException {
 		if (shareBrowseOptions == null || reloadChilds)
 		{
-			shareBrowseOptions = (Linux_SambaShareBrowseOptions) getFirstChild(cimClient,Linux_SambaShareBrowseOptions.class,share.getAssociated_Linux_SambaShareBrowseOptions_Linux_SambaShareBrowseForShare_Names(cimClient,false), false, adapter);
+			shareBrowseOptions = (Linux_SambaShareBrowseOptions) getFirstChild(Linux_SambaShareBrowseOptions.class,share.getAssociated_Linux_SambaShareBrowseOptions_Linux_SambaShareBrowseForShare_Names(cimClient,false), false);
 		}
 		return shareBrowseOptions;
 	}
@@ -362,7 +361,7 @@ public class Share extends SambaObject
 		if (forceUser == null || reloadChilds)
 		{
 			List list = share.getAssociated_Linux_SambaUser_Linux_SambaForceUserForShares(cimClient,false,false,null); 
-			forceUser = (Linux_SambaUser)getFirstChild(cimClient, Linux_SambaUser.class, list , true, adapter);
+			forceUser = (Linux_SambaUser)getFirstChild(Linux_SambaUser.class, list , true);
 		}
 		return forceUser;
 	}

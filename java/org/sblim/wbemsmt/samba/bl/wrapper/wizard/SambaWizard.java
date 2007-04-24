@@ -1,7 +1,7 @@
  /** 
   * SambaWizard.java
   *
-  * © Copyright IBM Corp. 2005
+  * ï¿½ Copyright IBM Corp. 2005
   *
   * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
@@ -41,10 +41,8 @@ import org.sblim.wbemsmt.util.StringUtil;
 
 public class SambaWizard extends SambaObject {
 
-	protected final SambaCimAdapter adapter;
-
 	public SambaWizard(SambaCimAdapter adapter) {
-		this.adapter = adapter;
+		super(adapter);
 	}
 
 	public void loadChilds(CIMClient cimClient) throws ModelLoadException {

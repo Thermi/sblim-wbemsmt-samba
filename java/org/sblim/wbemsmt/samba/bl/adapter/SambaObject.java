@@ -1,7 +1,7 @@
  /** 
   * SambaObject.java
   *
-  * © Copyright IBM Corp. 2005
+  * ï¿½ Copyright IBM Corp. 2005
   *
   * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
@@ -20,7 +20,6 @@
 package org.sblim.wbemsmt.samba.bl.adapter;
 
 import java.lang.reflect.Constructor;
-import java.lang.reflect.Method;
 import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.util.ArrayList;
@@ -35,6 +34,7 @@ import java.util.logging.Logger;
 import org.sblim.wbem.cim.CIMObjectPath;
 import org.sblim.wbem.cim.UnsignedInt16;
 import org.sblim.wbem.client.CIMClient;
+import org.sblim.wbemsmt.bl.WbemsmtBusinessObject;
 import org.sblim.wbemsmt.bl.adapter.AbstractBaseCimAdapter;
 import org.sblim.wbemsmt.bl.adapter.CimObjectKey;
 import org.sblim.wbemsmt.bl.adapter.DataContainer;
@@ -61,7 +61,14 @@ import org.sblim.wbemsmt.tools.resources.WbemSmtResourceBundle;
 import org.sblim.wbemsmt.tools.runtime.RuntimeUtil;
 import org.sblim.wbemsmt.util.StringUtil;
 
-public abstract class SambaObject {
+public abstract class SambaObject extends WbemsmtBusinessObject {
+
+	protected final SambaCimAdapter adapter;
+
+	protected SambaObject(SambaCimAdapter adapter) {
+		super(adapter);
+		this.adapter = adapter;
+	}
 
 	protected static final int USR_ACL_IDX_READ = 0;
 	protected static final int USR_ACL_IDX_WRITE = 1;
@@ -108,55 +115,6 @@ public abstract class SambaObject {
 			String name = (String) path.getKey("Name").getValue().getValue();
 			map.add(name);
 		}
-	}
-
-	protected Object getFirstChild(CIMClient cc, Class mustReturnThis, List list, boolean silent, AbstractBaseCimAdapter adapter) throws ModelLoadException
-	{
-		if (!silent && list.size() != 1)
-		{
-			logger.severe("Cannot get Element of Type " + mustReturnThis.getName() + " beause not exact one element was found in List. Found: " + list.size());
-			throw new ModelLoadException("Cannot load data model");
-		}
-		
-		if (!silent && list.get(0) == null)
-		{
-			logger.severe("Cannot get Element of Type " + mustReturnThis.getName() + " beause first element was null");
-			throw new ModelLoadException("Cannot load data model");
-		}
-
-		if (!silent && !list.get(0).getClass().equals(mustReturnThis) && !(list.get(0) instanceof CIMObjectPath) )
-		{
-			logger.severe("Cannot get Element of Type " + mustReturnThis.getName() + " beause first element is not from type " + mustReturnThis.getName() + " is of type " + list.get(0).getClass());
-			throw new ModelLoadException("Cannot load data model");
-		}
-		
-		if (silent && list.size() == 0)
-		{
-			return null;
-		}
-		else
-		{
-			Object o = list.get(0);
-			if (o instanceof CIMObjectPath)
-			{
-				CIMObjectPath path = (CIMObjectPath) o;
-				String helper = mustReturnThis.getName() + "Helper";
-				CIM_ManagedElement fco = null;
-				try {
-					Class clsHelper = Class.forName(helper);
-					Method method = clsHelper.getMethod("getInstance",new Class[]{CIMClient.class,CIMObjectPath.class});
-					fco = (CIM_ManagedElement) method.invoke(null,new Object[]{cc,path});
-					return fco;
-				} catch (Exception e) {
-					throw new ModelLoadException(fco, e);
-				}
-			}
-			else
-			{
-				return o;
-			}
-		}
-	
 	}
 
 	protected void updateMaskControls(LabeledBaseInputComponentIf field_r, LabeledBaseInputComponentIf field_w, LabeledBaseInputComponentIf field_x, UnsignedInt16 mask, int position)
