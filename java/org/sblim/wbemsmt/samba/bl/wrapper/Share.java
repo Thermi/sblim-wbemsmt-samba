@@ -1,7 +1,7 @@
  /** 
   * Share.java
   *
-  * � Copyright IBM Corp. 2005
+  * ï¿½ Copyright IBM Corp. 2005
   *
   * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
@@ -30,7 +30,6 @@ import org.sblim.wbem.cim.CIMProperty;
 import org.sblim.wbem.cim.CIMValue;
 import org.sblim.wbem.cim.UnsignedInt16;
 import org.sblim.wbem.client.CIMClient;
-import org.sblim.wbemsmt.bl.adapter.AbstractBaseCimAdapter;
 import org.sblim.wbemsmt.bl.adapter.CimObjectKey;
 import org.sblim.wbemsmt.bl.adapter.MessageList;
 import org.sblim.wbemsmt.bl.fco.FcoHelper;
