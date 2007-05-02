@@ -33,7 +33,6 @@ import org.sblim.wbem.cim.UnsignedInt64;
 import org.sblim.wbem.client.CIMClient;
 import org.sblim.wbemsmt.bl.adapter.CimObjectKey;
 import org.sblim.wbemsmt.bl.adapter.MessageList;
-import org.sblim.wbemsmt.bl.fco.FcoHelper;
 import org.sblim.wbemsmt.exception.ModelLoadException;
 import org.sblim.wbemsmt.exception.ModelUpdateException;
 import org.sblim.wbemsmt.exception.ObjectDeletionException;
@@ -152,7 +151,7 @@ public class PrinterGlobals extends SambaObject {
 				getGlobalPrintingOptions(cc).set_SystemPrinterName(service.getSystemPrinters(cc).getNameArray()[index.intValue()]);
 			}
 			getGlobalPrintingOptions(cc).set_UseClientDriver((Boolean) container.get_UseClientDriver().getConvertedControlValue());
-			FcoHelper.save(getGlobalPrintingOptions(cc),cc);
+			adapter.getFcoHelper().save(getGlobalPrintingOptions(cc),cc);
 
 			container.getAdapter().save(container.getUsers(),service.getUsers().getFCOs());
 			
@@ -195,7 +194,7 @@ public class PrinterGlobals extends SambaObject {
 				
 				vKeyProperties.add(propertyUser);
 				vKeyProperties.add(propertyGlobals);
-				FcoHelper.delete(Linux_SambaPrinterAdminForGlobal.class,vKeyProperties,cc);
+				adapter.getFcoHelper().delete(Linux_SambaPrinterAdminForGlobal.class,vKeyProperties,cc);
 				loadGlobalPrinterAdmins(cc);
 			}
 			else if (checked && !adminsBySambaUserName.contains(userName))
@@ -203,7 +202,7 @@ public class PrinterGlobals extends SambaObject {
 				Linux_SambaPrinterAdminForGlobal assoc = new Linux_SambaPrinterAdminForGlobal();
 				assoc.set_Linux_SambaGlobalOptions(service.getGlobalOptions(cc));
 				assoc.set_Linux_SambaUser(fco);
-				FcoHelper.create(assoc,cc);
+				adapter.getFcoHelper().create(assoc,cc);
 				loadGlobalPrinterAdmins(cc);
 			}
 		} catch (ModelLoadException e) {

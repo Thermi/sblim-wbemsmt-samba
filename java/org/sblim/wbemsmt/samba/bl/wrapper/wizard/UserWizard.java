@@ -28,7 +28,6 @@ import org.sblim.wbem.cim.CIMValue;
 import org.sblim.wbem.cim.UnsignedInt16;
 import org.sblim.wbem.client.CIMClient;
 import org.sblim.wbemsmt.bl.adapter.DataContainer;
-import org.sblim.wbemsmt.bl.fco.FcoHelper;
 import org.sblim.wbemsmt.exception.ModelLoadException;
 import org.sblim.wbemsmt.exception.ObjectCreationException;
 import org.sblim.wbemsmt.exception.ObjectSaveException;
@@ -195,7 +194,7 @@ public class UserWizard extends SambaWizard {
 			user.set_SambaUserName((String) page1.get_SambaUserName().getConvertedControlValue());
 			user.set_SambaUserPassword((String) page1.get_SambaUserPassword().getConvertedControlValue());
 			user.set_SystemUserName(getSysUserName(cc));
-			user = (Linux_SambaUser) FcoHelper.create(user,cc);
+			user = (Linux_SambaUser) adapter.getFcoHelper().create(user,cc);
 			
 			createShareAcl(cc, user);
 			createPrinterAcl(cc, user);

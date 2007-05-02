@@ -31,7 +31,6 @@ import org.sblim.wbem.client.CIMClient;
 import org.sblim.wbemsmt.bl.adapter.CimObjectKey;
 import org.sblim.wbemsmt.bl.adapter.DataContainer;
 import org.sblim.wbemsmt.bl.adapter.MessageList;
-import org.sblim.wbemsmt.bl.fco.FcoHelper;
 import org.sblim.wbemsmt.exception.ModelLoadException;
 import org.sblim.wbemsmt.exception.ObjectRevertException;
 import org.sblim.wbemsmt.exception.ObjectSaveException;
@@ -207,7 +206,7 @@ public class User extends SambaObject {
 				reloadShareInUser  = false;
 				reloadPrinterInUser = false;
 			} catch (ModelLoadException e) {
-				throw new ObjectSaveException(user,e);
+				throw new ObjectSaveException(adapter.getFcoHelper().getCIM_ObjectCreator().createUnhecked(user),e);
 			}
 			
 			//force reload
@@ -226,7 +225,7 @@ public class User extends SambaObject {
 				loadPrinterAcl(container.getAdapter().getCimClient());
 				reloadPrinterInUser  = false;
 			} catch (ModelLoadException e) {
-				throw new ObjectSaveException(user,e);
+				throw new ObjectSaveException(adapter.getFcoHelper().getCIM_ObjectCreator().createUnhecked(user),e);
 			}
 		}
 		return list;
@@ -562,7 +561,7 @@ public class User extends SambaObject {
 
 	public MessageList revert(UserDataContainer container) throws ObjectRevertException {
 		try {
-			user = (Linux_SambaUser) FcoHelper.reload(user, container.getAdapter().getCimClient());
+			user = (Linux_SambaUser) adapter.getFcoHelper().reload(user, container.getAdapter().getCimClient());
 			isGuestWorkingCopy = isGuestOnServer;
 		} catch (ModelLoadException e) {
 			throw new ObjectRevertException(e);

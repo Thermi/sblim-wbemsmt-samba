@@ -34,7 +34,6 @@ import org.sblim.wbem.client.CIMClient;
 import org.sblim.wbemsmt.bl.adapter.CimObjectKey;
 import org.sblim.wbemsmt.bl.adapter.MessageList;
 import org.sblim.wbemsmt.bl.fco.CIMPropertyBuilder;
-import org.sblim.wbemsmt.bl.fco.FcoHelper;
 import org.sblim.wbemsmt.exception.ModelLoadException;
 import org.sblim.wbemsmt.exception.ModelUpdateException;
 import org.sblim.wbemsmt.exception.ObjectRevertException;
@@ -354,7 +353,7 @@ public class Printer extends SambaObject {
 			getPrintingOptions(cc).set_MaxReportedPrintjobs((UnsignedInt64) container.get_MaxReportedPrintjobs().getConvertedControlValue());
 			getPrintingOptions(cc).set_PrintCommand((String) container.get_PrintCommand().getConvertedControlValue());
 			getPrintingOptions(cc).set_UseClientDriver((Boolean) container.get_UseClientDriver().getConvertedControlValue());
-			FcoHelper.save(getPrintingOptions(cc),cc);
+			adapter.getFcoHelper().save(getPrintingOptions(cc),cc);
 			//force a reload
 			printingOptions = null;
 			return null;
@@ -394,11 +393,11 @@ public class Printer extends SambaObject {
 				printer.set_SystemPrinterName(systemPrinterNames[index.intValue()]);
 			}
 			
-			FcoHelper.save(printer,cc);
-			FcoHelper.save(getCommonSecurity(cc),cc);
-			FcoHelper.save(getBrowseOptions(cc),cc);
+			adapter.getFcoHelper().save(printer,cc);
+			adapter.getFcoHelper().save(getCommonSecurity(cc),cc);
+			adapter.getFcoHelper().save(getBrowseOptions(cc),cc);
 			
-			printer = (Linux_SambaPrinterOptions)FcoHelper.reload(printer,cc);
+			printer = (Linux_SambaPrinterOptions)adapter.getFcoHelper().reload(printer,cc);
 			//fore reload
 			commonSecurity = null;
 			browseOptions = null;
@@ -480,7 +479,7 @@ public class Printer extends SambaObject {
 				Vector keys = new Vector();
 				keys.add(new CIMProperty(Linux_SambaForceUserForPrinter.CIM_PROPERTY_LINUX_SAMBAPRINTEROPTIONS, new CIMValue(printer.getCimObjectPath(), new CIMDataType(Linux_SambaGlobalOptions.CIM_CLASS_NAME))));
 				keys.add(new CIMProperty(Linux_SambaForceUserForPrinter.CIM_PROPERTY_LINUX_SAMBAUSER, new CIMValue(oldForceUser.getCimObjectPath(), new CIMDataType(Linux_SambaUser.CIM_CLASS_NAME))));
-				FcoHelper.delete(Linux_SambaForceUserForPrinter.class,keys,cc);
+				adapter.getFcoHelper().delete(Linux_SambaForceUserForPrinter.class,keys,cc);
 			}
 			//create new Guest
 			if (newForceUser != null)
@@ -489,18 +488,18 @@ public class Printer extends SambaObject {
 				Linux_SambaForceUserForPrinter newForceUserAssoc = new Linux_SambaForceUserForPrinter();
 				newForceUserAssoc.set_Linux_SambaPrinterOptions(printer);
 				newForceUserAssoc.set_Linux_SambaUser(newForceUser);
-				FcoHelper.create(newForceUserAssoc,cc);
+				adapter.getFcoHelper().create(newForceUserAssoc,cc);
 			}
 			//force a reload if needed next time
 			this.forceUser = null;
 		} catch (WbemSmtException e) {
-			throw new ObjectSaveException(newForceUser,e);
+			throw new ObjectSaveException(adapter.getFcoHelper().getCIM_ObjectCreator().createUnhecked(newForceUser),e);
 		}
 	}
 
 	public MessageList revert(PrinterOptionsDataContainer container) throws ObjectRevertException {
 		try {
-			printer = (Linux_SambaPrinterOptions) FcoHelper.reload(printer, container.getAdapter().getCimClient());
+			printer = (Linux_SambaPrinterOptions) adapter.getFcoHelper().reload(printer, container.getAdapter().getCimClient());
 		} catch (ModelLoadException e) {
 			throw new ObjectRevertException(e);
 		}

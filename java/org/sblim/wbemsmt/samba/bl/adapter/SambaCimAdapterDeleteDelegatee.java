@@ -19,7 +19,6 @@
   */
 package org.sblim.wbemsmt.samba.bl.adapter;
 
-import org.sblim.wbemsmt.bl.fco.FcoHelper;
 import org.sblim.wbemsmt.exception.ObjectDeletionException;
 import org.sblim.wbemsmt.samba.bl.fco.Linux_SambaHost;
 import org.sblim.wbemsmt.samba.bl.fco.Linux_SambaPrinterOptions;
@@ -42,7 +41,7 @@ public class SambaCimAdapterDeleteDelegatee extends SambaDelegatee implements Sa
 			adapter.getSelectedShare().delete(fco);
 			adapter.setMarkedForReload();
 		} catch (Exception e) {
-			throw new ObjectDeletionException(fco,e);
+			throw new ObjectDeletionException(adapter.getFcoHelper().getCIM_ObjectCreator().createUnhecked(fco),e);
 		}
 			
 
@@ -50,28 +49,28 @@ public class SambaCimAdapterDeleteDelegatee extends SambaDelegatee implements Sa
 
 	public void deleteImpl(Linux_SambaHost fco) throws ObjectDeletionException {
 		try {
-			FcoHelper.delete(fco,adapter.getCimClient());
+			adapter.getFcoHelper().delete(fco,adapter.getCimClient());
 			adapter.setMarkedForReload();
 		} catch (Exception e) {
-			throw new ObjectDeletionException(fco,e);
+			throw new ObjectDeletionException(adapter.getFcoHelper().getCIM_ObjectCreator().createUnhecked(fco),e);
 		}
 	}
 
 	public void deleteImpl(Linux_SambaPrinterOptions fco) throws ObjectDeletionException {
 		try {
-			FcoHelper.delete(fco,adapter.getCimClient());
+			adapter.getFcoHelper().delete(fco,adapter.getCimClient());
 			adapter.setMarkedForReload();
 		} catch (Exception e) {
-			throw new ObjectDeletionException(fco,e);
+			throw new ObjectDeletionException(adapter.getFcoHelper().getCIM_ObjectCreator().createUnhecked(fco),e);
 		}
 	}
 
 	public void deleteImpl(Linux_SambaUser fco) throws ObjectDeletionException {
 		try {
-			FcoHelper.delete(fco,adapter.getCimClient());
+			adapter.getFcoHelper().delete(fco,adapter.getCimClient());
 			adapter.setMarkedForReload();
 		} catch (Exception e) {
-			throw new ObjectDeletionException(fco,e);
+			throw new ObjectDeletionException(adapter.getFcoHelper().getCIM_ObjectCreator().createUnhecked(fco),e);
 		}
 	}
 

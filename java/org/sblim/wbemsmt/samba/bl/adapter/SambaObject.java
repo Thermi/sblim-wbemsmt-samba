@@ -38,7 +38,6 @@ import org.sblim.wbemsmt.bl.WbemsmtBusinessObject;
 import org.sblim.wbemsmt.bl.adapter.AbstractBaseCimAdapter;
 import org.sblim.wbemsmt.bl.adapter.CimObjectKey;
 import org.sblim.wbemsmt.bl.adapter.DataContainer;
-import org.sblim.wbemsmt.bl.fco.FcoHelper;
 import org.sblim.wbemsmt.exception.ModelLoadException;
 import org.sblim.wbemsmt.exception.ObjectCreationException;
 import org.sblim.wbemsmt.exception.ObjectDeletionException;
@@ -161,7 +160,7 @@ public abstract class SambaObject extends WbemsmtBusinessObject {
 		try {
 			return new UnsignedInt16(DF_MASK_STRING.parse(result).intValue());
 		} catch (ParseException e) {
-			throw new ObjectSaveException(result + "is no number",element, e);
+			throw new ObjectSaveException(result + "is no number",adapter.getFcoHelper().getCIM_ObjectCreator().createUnhecked(element), e);
 		}
 	}
 
@@ -557,7 +556,7 @@ public abstract class SambaObject extends WbemsmtBusinessObject {
 					Constructor constructor = fcoClass.getConstructor(new Class[]{Vector.class});
 					constructor.setAccessible(true);
 					o = constructor.newInstance(new Object[]{keyProperties});
-					FcoHelper.create(o,cc);
+					adapter.getFcoHelper().create(o,cc);
 				}
 			}
 			else
@@ -565,7 +564,7 @@ public abstract class SambaObject extends WbemsmtBusinessObject {
 				if (set.contains(key))
 				{
 					reload = true;
-					FcoHelper.delete(fcoClass,keyProperties,cc);
+					adapter.getFcoHelper().delete(fcoClass,keyProperties,cc);
 				}
 			}
 			return reload;
@@ -577,9 +576,9 @@ public abstract class SambaObject extends WbemsmtBusinessObject {
 		
 		catch (Exception e) {
 			if (o instanceof CIM_ManagedElement) {
-				throw new ObjectSaveException((CIM_ManagedElement)o,e);
+				throw new ObjectSaveException(adapter.getFcoHelper().getCIM_ObjectCreator().createUnhecked(o),e);
 			} else if (o instanceof CIM_Component) {
-				throw new ObjectSaveException((CIM_Component)o,e);
+				throw new ObjectSaveException(adapter.getFcoHelper().getCIM_ObjectCreator().createUnhecked(o),e);
 			}
 			throw new ObjectSaveException(e);
 		}

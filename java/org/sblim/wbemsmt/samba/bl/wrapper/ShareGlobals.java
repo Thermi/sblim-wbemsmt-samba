@@ -32,7 +32,6 @@ import org.sblim.wbem.cim.UnsignedInt8;
 import org.sblim.wbem.client.CIMClient;
 import org.sblim.wbemsmt.bl.adapter.CimObjectKey;
 import org.sblim.wbemsmt.bl.adapter.MessageList;
-import org.sblim.wbemsmt.bl.fco.FcoHelper;
 import org.sblim.wbemsmt.exception.ModelLoadException;
 import org.sblim.wbemsmt.exception.ObjectDeletionException;
 import org.sblim.wbemsmt.exception.ObjectRevertException;
@@ -191,7 +190,7 @@ public class ShareGlobals extends SambaObject {
 //			getShareSecurityOptions(cc).set_CreateMask((UnsignedInt16) container.get_CreateMask().getConvertedControlValue());
 			reloadChilds = true;
 			reloadChilds(container.getAdapter().getCimClient());
-//			FcoHelper.save(getShareSecurityOptions(cc),cc);
+//			adapter.getFcoHelper().save(getShareSecurityOptions(cc),cc);
 //			shareSecurityOptions1 = null;
 
 			resetShareAcl(service);
@@ -231,7 +230,7 @@ public class ShareGlobals extends SambaObject {
 			//container.getAdapter().save(container.getUsers(),service.getUsers().getFCOs());
 			
 			
-//			FcoHelper.save(getShareSecurityOptions(cc),cc);
+//			adapter.getFcoHelper().save(getShareSecurityOptions(cc),cc);
 //			shareSecurityOptions1 = null;
 		
 			container.getAdapter().save(container.getUsers(),service.getUsers().getFCOs());
@@ -263,8 +262,8 @@ public class ShareGlobals extends SambaObject {
 			getFileNameHandlingOptions(cc).set_HideDotFiles((Boolean) container.get_HideDotFiles().getConvertedControlValue());
 			getProtocolOptions(cc).set_NTACLSupport((Boolean) container.get_NTACLSupport().getConvertedControlValue());
 			
-			FcoHelper.save(getProtocolOptions(cc),cc);
-			FcoHelper.save(getFileNameHandlingOptions(cc),cc);
+			adapter.getFcoHelper().save(getProtocolOptions(cc),cc);
+			adapter.getFcoHelper().save(getFileNameHandlingOptions(cc),cc);
 			
 			//force a reload next time
 			protocolOptions1 = null;
@@ -307,7 +306,7 @@ public class ShareGlobals extends SambaObject {
 				
 				vKeyProperties.add(propertyUser);
 				vKeyProperties.add(propertyGlobals);
-				FcoHelper.delete(Linux_SambaAdminUsersForGlobal.class,vKeyProperties,cc);
+				adapter.getFcoHelper().delete(Linux_SambaAdminUsersForGlobal.class,vKeyProperties,cc);
 				loadGlobalShareAdmins(cc);
 			}
 			else if (checked && !adminsBySambaUserName.contains(userName))
@@ -315,7 +314,7 @@ public class ShareGlobals extends SambaObject {
 				Linux_SambaAdminUsersForGlobal assoc = new Linux_SambaAdminUsersForGlobal();
 				assoc.set_Linux_SambaGlobalOptions(service.getGlobalOptions(cc));
 				assoc.set_Linux_SambaUser(fco);
-				FcoHelper.create(assoc,cc);
+				adapter.getFcoHelper().create(assoc,cc);
 				loadGlobalShareAdmins(cc);
 			}
 		} catch (ModelLoadException e) {

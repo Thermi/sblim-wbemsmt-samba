@@ -69,6 +69,7 @@ import org.sblim.wbemsmt.samba.bl.wrapper.wizard.HostWizard;
 import org.sblim.wbemsmt.samba.bl.wrapper.wizard.PrinterWizard;
 import org.sblim.wbemsmt.samba.bl.wrapper.wizard.ShareWizard;
 import org.sblim.wbemsmt.samba.bl.wrapper.wizard.UserWizard;
+import org.sblim.wbemsmt.schema.cim29.tools.FcoHelper;
 import org.sblim.wbemsmt.tools.resources.ResourceBundleManager;
 
 public class SambaCimAdapter extends AbstractBaseCimAdapter {
@@ -108,7 +109,7 @@ public class SambaCimAdapter extends AbstractBaseCimAdapter {
 	public SambaCimAdapter(Locale locale) {
 		super();
 		
-		init(ResourceBundleManager.getResourceBundle(RESOURCE_BUNDLE_NAMES,locale),sambaSelectionHierarchy);
+		init(ResourceBundleManager.getResourceBundle(RESOURCE_BUNDLE_NAMES,locale),sambaSelectionHierarchy, new FcoHelper());
 		sambaSelectionHierarchy.setAdapter(this);
 		sambaCimAdapterCreateDelegatee = new SambaCimAdapterCreateDelegatee(this);
 		sambaCimAdapterUpdateControlsDelegatee = new SambaCimAdapterUpdateControlsDelegatee(this);

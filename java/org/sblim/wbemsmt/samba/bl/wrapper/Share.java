@@ -32,7 +32,6 @@ import org.sblim.wbem.cim.UnsignedInt16;
 import org.sblim.wbem.client.CIMClient;
 import org.sblim.wbemsmt.bl.adapter.CimObjectKey;
 import org.sblim.wbemsmt.bl.adapter.MessageList;
-import org.sblim.wbemsmt.bl.fco.FcoHelper;
 import org.sblim.wbemsmt.exception.ModelLoadException;
 import org.sblim.wbemsmt.exception.ModelUpdateException;
 import org.sblim.wbemsmt.exception.ObjectDeletionException;
@@ -383,7 +382,7 @@ public class Share extends SambaObject
 				Vector keys = new Vector();
 				keys.add(new CIMProperty(Linux_SambaForceUserForShare.CIM_PROPERTY_LINUX_SAMBASHAREOPTIONS, new CIMValue(share.getCimObjectPath(), new CIMDataType(Linux_SambaGlobalOptions.CIM_CLASS_NAME))));
 				keys.add(new CIMProperty(Linux_SambaForceUserForShare.CIM_PROPERTY_LINUX_SAMBAUSER, new CIMValue(oldForceUser.getCimObjectPath(), new CIMDataType(Linux_SambaUser.CIM_CLASS_NAME))));
-				FcoHelper.delete(Linux_SambaForceUserForShare.class,keys,cc);
+				adapter.getFcoHelper().delete(Linux_SambaForceUserForShare.class,keys,cc);
 			}
 			//create new Guest
 			if (newForceUser != null)
@@ -392,7 +391,7 @@ public class Share extends SambaObject
 				Linux_SambaForceUserForShare newForceUserAssoc = new Linux_SambaForceUserForShare();
 				newForceUserAssoc.set_Linux_SambaShareOptions(share);
 				newForceUserAssoc.set_Linux_SambaUser(newForceUser);
-				FcoHelper.create(newForceUserAssoc,cc);
+				adapter.getFcoHelper().create(newForceUserAssoc,cc);
 			}
 			//force a reload if needed next time
 			this.forceUser = null;
@@ -429,7 +428,7 @@ public class Share extends SambaObject
 //			getShareSecurityOptions(cc).set_DirectoryMask((UnsignedInt16) container.get_DirectoryMask().getConvertedControlValue());
 //			getShareSecurityOptions(cc).set_DirectorySecurityMask((UnsignedInt16) container.get_DirectorySecurityMask().getConvertedControlValue());
 //			getShareSecurityOptions(cc).set_CreateMask((UnsignedInt16) container.get_CreateMask().getConvertedControlValue());
-//			FcoHelper.save(getShareSecurityOptions(cc),cc);
+//			adapter.getFcoHelper().save(getShareSecurityOptions(cc),cc);
 //			shareSecurityOptions = null;
 //		} catch (ModelLoadException e) {
 //			throw new ObjectSaveException(e);
@@ -459,7 +458,7 @@ public class Share extends SambaObject
 //							container.get_usr_Directory_security_group_r(),container.get_usr_Directory_security_group_w(),container.get_usr_Directory_security_group_x(),
 //							container.get_usr_Directory_security_other_r(),container.get_usr_Directory_security_other_w(),container.get_usr_Directory_security_other_x()));
 //		
-//		FcoHelper.save(getShareSecurityOptions(cc),cc);
+//		adapter.getFcoHelper().save(getShareSecurityOptions(cc),cc);
 //		
 //		shareSecurityOptions = null;
 			
@@ -479,8 +478,8 @@ public class Share extends SambaObject
 //			getFilenameHandlingOptions(cc).set_HideDotFiles((Boolean) container.get_HideDotFiles().getConvertedControlValue());
 //			getProtocolOptions(cc).set_NTACLSupport((Boolean) container.get_NTACLSupport().getConvertedControlValue());
 //			
-//			FcoHelper.save(getProtocolOptions(cc),cc);
-//			FcoHelper.save(getFilenameHandlingOptions(cc),cc);
+//			adapter.getFcoHelper().save(getProtocolOptions(cc),cc);
+//			adapter.getFcoHelper().save(getFilenameHandlingOptions(cc),cc);
 //			
 //			protocolOptions = null;
 //			fileNameHandlingOptions = null;
@@ -504,11 +503,11 @@ public class Share extends SambaObject
 			share.set_Path((String) container.get_Path().getConvertedControlValue());
 			getCommonSecurityOptions(cc).set_ReadOnly((Boolean) container.get_ReadOnly().getConvertedControlValue());
 			
-			FcoHelper.save(share,cc);
-			FcoHelper.save(getCommonSecurityOptions(cc),cc);
-			FcoHelper.save(getBrowseOptions(cc),cc);
+			adapter.getFcoHelper().save(share,cc);
+			adapter.getFcoHelper().save(getCommonSecurityOptions(cc),cc);
+			adapter.getFcoHelper().save(getBrowseOptions(cc),cc);
 			
-			share = (Linux_SambaShareOptions)FcoHelper.reload(share,cc);
+			share = (Linux_SambaShareOptions)adapter.getFcoHelper().reload(share,cc);
 			//fore reload
 			shareCommonSecurityOptions = null;
 			shareBrowseOptions = null;
@@ -516,7 +515,7 @@ public class Share extends SambaObject
 			MessageList list = MessageList.init(container);
 			return list;
 		} catch (ModelLoadException e) {
-			throw new ObjectSaveException(share,e);
+			throw new ObjectSaveException(adapter.getFcoHelper().getCIM_ObjectCreator().createUnhecked(share),e);
 		}
 	}
 
@@ -602,7 +601,7 @@ public class Share extends SambaObject
 		shareCommonSecurityOptions = null;
 		shareSecurityOptions = null;
 		try {
-			share = (Linux_SambaShareOptions) FcoHelper.reload(share, container.getAdapter().getCimClient());
+			share = (Linux_SambaShareOptions) adapter.getFcoHelper().reload(share, container.getAdapter().getCimClient());
 		} catch (ModelLoadException e) {
 			throw new ObjectRevertException(e);
 		}
@@ -638,7 +637,7 @@ public class Share extends SambaObject
 		
 		if (share.getCimObjectPath().equals(fco.getCimObjectPath()))
 		{
-			FcoHelper.delete(fco,adapter.getCimClient());
+			adapter.getFcoHelper().delete(fco,adapter.getCimClient());
 		}
 		else
 		{

@@ -32,7 +32,6 @@ import org.sblim.wbem.cim.UnsignedInt64;
 import org.sblim.wbem.client.CIMClient;
 import org.sblim.wbemsmt.bl.adapter.CimObjectKey;
 import org.sblim.wbemsmt.bl.adapter.DataContainer;
-import org.sblim.wbemsmt.bl.fco.FcoHelper;
 import org.sblim.wbemsmt.exception.ModelLoadException;
 import org.sblim.wbemsmt.exception.ObjectCreationException;
 import org.sblim.wbemsmt.exception.ObjectSaveException;
@@ -141,7 +140,7 @@ public class PrinterWizard  extends SambaWizard {
 			printer.set_Printable(new Boolean(true));
 			printer.set_SystemPrinterName(systemPrinter.getName());
 			setInstanceId(printer);
-			printer = (Linux_SambaPrinterOptions) FcoHelper.create(printer,cc);
+			printer = (Linux_SambaPrinterOptions) adapter.getFcoHelper().create(printer,cc);
 			page5.setKey(new CimObjectKey(printer));
 			
 			boolean enableGuest  = ((Boolean)page3.get_usr_EnableGuest().getConvertedControlValue()).booleanValue();
@@ -173,7 +172,7 @@ public class PrinterWizard  extends SambaWizard {
 			Linux_SambaForceUserForPrinter newForceUserAssoc = new Linux_SambaForceUserForPrinter();
 			newForceUserAssoc.set_Linux_SambaPrinterOptions(printer);
 			newForceUserAssoc.set_Linux_SambaUser(user);
-			FcoHelper.create(newForceUserAssoc,cc);
+			adapter.getFcoHelper().create(newForceUserAssoc,cc);
 		}
 	}
 	
@@ -222,7 +221,7 @@ public class PrinterWizard  extends SambaWizard {
 			printingOptions.set_MaxPrintjobs(new UnsignedInt64(100));
 			printingOptions.set_MaxReportedPrintjobs(new UnsignedInt64(100));
 			printingOptions.set_UseClientDriver(new Boolean(true));
-			FcoHelper.save(printingOptions,cc);
+			adapter.getFcoHelper().save(printingOptions,cc);
 		} catch (ModelLoadException e) {
 			throw new ObjectSaveException(e);
 		}
@@ -235,7 +234,7 @@ public class PrinterWizard  extends SambaWizard {
 			Linux_SambaPrinterBrowseOptions child = 
 				(Linux_SambaPrinterBrowseOptions) getFirstChild(Linux_SambaPrinterBrowseOptions.class,printer.getAssociated_Linux_SambaPrinterBrowseOptions_Linux_SambaPrinterBrowseForPrinter_Names(cc,false),false);
 			child.set_Browsable(new Boolean(publicPrinter));
-			FcoHelper.save(child,cc);
+			adapter.getFcoHelper().save(child,cc);
 		} catch (ModelLoadException e) {
 			throw new ObjectSaveException(e);
 		}
@@ -246,7 +245,7 @@ public class PrinterWizard  extends SambaWizard {
 			Linux_SambaCommonSecurityOptions child = 
 				(Linux_SambaCommonSecurityOptions) getFirstChild(Linux_SambaCommonSecurityOptions.class,printer.getAssociated_Linux_SambaCommonSecurityOptions_Linux_SambaCommonSecurityForPrinter_Names(cc,false),false);
 			child.set_GuestOK(new Boolean(enableGuest));
-			FcoHelper.save(child,cc);
+			adapter.getFcoHelper().save(child,cc);
 		} catch (ModelLoadException e) {
 			throw new ObjectSaveException(e);
 		}

@@ -36,7 +36,6 @@ import org.sblim.wbem.cim.UnsignedInt8;
 import org.sblim.wbem.client.CIMClient;
 import org.sblim.wbemsmt.bl.adapter.CimObjectKey;
 import org.sblim.wbemsmt.bl.adapter.MessageList;
-import org.sblim.wbemsmt.bl.fco.FcoHelper;
 import org.sblim.wbemsmt.exception.ModelLoadException;
 import org.sblim.wbemsmt.exception.ModelUpdateException;
 import org.sblim.wbemsmt.exception.ObjectCreationException;
@@ -700,8 +699,8 @@ public class Service extends SambaObject {
 			getGlobalOptions(cc).set_NetbiosName((String) container.get_NetbiosName().getConvertedControlValue());
 			getGlobalOptions(cc).set_ServerString((String) container.get_ServerString().getConvertedControlValue());
 			getGlobalOptions(cc).set_Workgroup((String) container.get_Workgroup().getConvertedControlValue());
-			FcoHelper.save(getGlobalOptions(cc),cc);
-			FcoHelper.save(getServiceConfig(cc),cc);
+			adapter.getFcoHelper().save(getGlobalOptions(cc),cc);
+			adapter.getFcoHelper().save(getServiceConfig(cc),cc);
 			
 			globalOptions1 = null;
 			serviceConfig1 = null;
@@ -723,7 +722,7 @@ public class Service extends SambaObject {
 			getWinsOptions(cc).set_WINSSupport((Boolean) container.get_WINSSupport().getConvertedControlValue());
 			if (!SambaCimAdapter.DUMMY_MODE)
 			{
-				FcoHelper.save(getWinsOptions(cc),cc);
+				adapter.getFcoHelper().save(getWinsOptions(cc),cc);
 				winsOptions1 = null;
 				getWinsOptions(cc);
 			}
@@ -745,7 +744,7 @@ public class Service extends SambaObject {
 			getScriptingOptions(cc).set_DeleteUserfromGroupScript((String) container.get_DeleteUserfromGroupScript().getConvertedControlValue());
 			getScriptingOptions(cc).set_DeleteUserScript((String) container.get_DeleteUserScript().getConvertedControlValue());
 			getScriptingOptions(cc).set_SetPrimaryGroupScript((String) container.get_SetPrimaryGroupScript().getConvertedControlValue());
-			FcoHelper.save(getScriptingOptions(cc),cc);
+			adapter.getFcoHelper().save(getScriptingOptions(cc),cc);
 			scriptingOptions1 = null;
 			getScriptingOptions(cc);
 		} catch (ModelLoadException e) {
@@ -817,9 +816,9 @@ public class Service extends SambaObject {
 			getCommonSecurity(cc).set_ReadOnly((Boolean) container.get_ReadOnly().getConvertedControlValue());
 			getGlobalSecurityOptions(cc).set_Security((UnsignedInt8) container.get_Security().getConvertedControlValue());
 			getGlobalSecurityOptions(cc).set_SMBPasswdFile((String) container.get_SMBPasswdFile().getConvertedControlValue());
-			FcoHelper.save(getGlobalSecurityOptions(cc),cc);
-			FcoHelper.save(getBrowseOptions(cc),cc);
-			FcoHelper.save(getCommonSecurity(cc),cc);
+			adapter.getFcoHelper().save(getGlobalSecurityOptions(cc),cc);
+			adapter.getFcoHelper().save(getBrowseOptions(cc),cc);
+			adapter.getFcoHelper().save(getCommonSecurity(cc),cc);
 
 			//force reload of objects
 			if (!getCommonSecurity(cc).get_HostsAllow().equals(allowHostsFromServer)
@@ -859,16 +858,16 @@ public class Service extends SambaObject {
 			getLoggingOptions(cc).set_SysLogOnly((Boolean) container.get_SysLogOnly().getConvertedControlValue());
 			if (getLoggingOptions(cc).isValidCimInstance())
 			{
-				FcoHelper.save(getLoggingOptions(cc),cc);
+				adapter.getFcoHelper().save(getLoggingOptions(cc),cc);
 			}
 			else
 			{
 				getLoggingOptions(cc).set_Name(service.get_Name());
-				loggingOptions1 = (Linux_SambaLoggingOptions) FcoHelper.create(getLoggingOptions(cc),cc);
+				loggingOptions1 = (Linux_SambaLoggingOptions) adapter.getFcoHelper().create(getLoggingOptions(cc),cc);
 				Vector vKeyProperties = new Vector();
 				vKeyProperties.add(new CIMProperty(Linux_SambaLoggingForGlobal.CIM_PROPERTY_LINUX_SAMBALOGGINGOPTIONS, new CIMValue(getLoggingOptions(cc).getCimObjectPath(), new CIMDataType(Linux_SambaUser.CIM_CLASS_NAME))));
 				vKeyProperties.add(new CIMProperty(Linux_SambaLoggingForGlobal.CIM_PROPERTY_LINUX_SAMBAGLOBALOPTIONS, new CIMValue(getGlobalOptions(cc).getCimObjectPath(), new CIMDataType(Linux_SambaGlobalOptions.CIM_CLASS_NAME))));
-				FcoHelper.create(Linux_SambaLoggingForGlobal.class,cc,vKeyProperties);
+				adapter.getFcoHelper().create(Linux_SambaLoggingForGlobal.class,cc,vKeyProperties);
 			}
 			getLoggingOptions(cc);
 		} catch (ObjectCreationException e) {
@@ -920,7 +919,7 @@ public class Service extends SambaObject {
 			logger.severe("User " + username + " was not found.");
 			Linux_SambaUser user = new Linux_SambaUser();
 			user.set_SambaUserName(username);
-			throw new UpdateControlsException(new ObjectNotFoundException(user));
+			throw new UpdateControlsException(new ObjectNotFoundException(adapter.getFcoHelper().getCIM_ObjectCreator().createUnhecked(user)));
 		}
 		Linux_SambaUser fco = userByName.getUser();
 		updateControls(container,fco);
@@ -943,7 +942,7 @@ public class Service extends SambaObject {
 				Vector keys = new Vector();
 				keys.add(new CIMProperty(Linux_SambaGuestAccountForGlobal.CIM_PROPERTY_LINUX_SAMBAGLOBALOPTIONS, new CIMValue(getGlobalOptions(cc).getCimObjectPath(), new CIMDataType(Linux_SambaGlobalOptions.CIM_CLASS_NAME))));
 				keys.add(new CIMProperty(Linux_SambaGuestAccountForGlobal.CIM_PROPERTY_LINUX_SAMBAUSER, new CIMValue(oldGuest.getCimObjectPath(), new CIMDataType(Linux_SambaUser.CIM_CLASS_NAME))));
-				FcoHelper.delete(Linux_SambaGuestAccountForGlobal.class,keys,cc);
+				adapter.getFcoHelper().delete(Linux_SambaGuestAccountForGlobal.class,keys,cc);
 			}
 			//create new Guest
 			if (newGuestAccount != null)
@@ -951,7 +950,7 @@ public class Service extends SambaObject {
 				logger.info("Set as Guest " + newGuestAccount.get_SambaUserName());				Linux_SambaGuestAccountForGlobal guestAcc = new Linux_SambaGuestAccountForGlobal();
 				guestAcc.set_Linux_SambaGlobalOptions(getGlobalOptions(cc));
 				guestAcc.set_Linux_SambaUser(newGuestAccount);
-				FcoHelper.create(guestAcc,cc);
+				adapter.getFcoHelper().create(guestAcc,cc);
 			}
 			//force a reload if needed next time
 			this.guestAccount = null;
@@ -974,7 +973,7 @@ public class Service extends SambaObject {
 				Linux_SambaGuestAccountForGlobal guestAcc = (Linux_SambaGuestAccountForGlobal) iter.next();
 				if (guestAcc.get_Linux_SambaUser().equals(guestToRemove.getCimObjectPath()))
 				{
-					FcoHelper.delete(guestAcc,cc);
+					adapter.getFcoHelper().delete(guestAcc,cc);
 				}
 			}
 		} catch (ObjectDeletionException e) {
@@ -1070,7 +1069,7 @@ public class Service extends SambaObject {
 				Vector keys = new Vector();
 				keys.add(new CIMProperty(Linux_SambaForceUserForGlobal.CIM_PROPERTY_LINUX_SAMBAGLOBALOPTIONS, new CIMValue(getGlobalOptions(cc).getCimObjectPath(), new CIMDataType(Linux_SambaGlobalOptions.CIM_CLASS_NAME))));
 				keys.add(new CIMProperty(Linux_SambaForceUserForGlobal.CIM_PROPERTY_LINUX_SAMBAUSER, new CIMValue(oldForceUser.getCimObjectPath(), new CIMDataType(Linux_SambaUser.CIM_CLASS_NAME))));
-				FcoHelper.delete(Linux_SambaForceUserForGlobal.class,keys,cc);
+				adapter.getFcoHelper().delete(Linux_SambaForceUserForGlobal.class,keys,cc);
 			}
 			//create new Guest
 			if (newForceUser != null)
@@ -1079,7 +1078,7 @@ public class Service extends SambaObject {
 				Linux_SambaForceUserForGlobal newForceUserAssoc = new Linux_SambaForceUserForGlobal();
 				newForceUserAssoc.set_Linux_SambaGlobalOptions(getGlobalOptions(cc));
 				newForceUserAssoc.set_Linux_SambaUser(newForceUser);
-				FcoHelper.create(newForceUserAssoc,cc);
+				adapter.getFcoHelper().create(newForceUserAssoc,cc);
 			}
 			//force a reload if needed next time
 			this.forceUser = null;

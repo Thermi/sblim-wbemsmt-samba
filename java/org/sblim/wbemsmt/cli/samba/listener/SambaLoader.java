@@ -25,7 +25,6 @@ import org.apache.commons.cli.CommandLine;
 import org.sblim.wbem.cim.CIMObjectPath;
 import org.sblim.wbemsmt.bl.adapter.AbstractBaseCimAdapter;
 import org.sblim.wbemsmt.bl.adapter.CimObjectKey;
-import org.sblim.wbemsmt.bl.fco.FcoHelper;
 import org.sblim.wbemsmt.exception.ModelLoadException;
 import org.sblim.wbemsmt.exception.ObjectNotFoundException;
 import org.sblim.wbemsmt.samba.bl.fco.Linux_SambaService;
@@ -61,7 +60,7 @@ public class SambaLoader {
 	protected void selectUser(WbemSmtResourceBundle bundle, AbstractBaseCimAdapter adapter, String serviceName, String username) throws ObjectNotFoundException {
 		try {
 			CIMObjectPath pathService = getPathOfService(adapter, serviceName);
-			Linux_SambaService service = (Linux_SambaService) FcoHelper.reload(Linux_SambaServiceHelper.class,pathService,adapter.getCimClient());
+			Linux_SambaService service = (Linux_SambaService) adapter.getFcoHelper().reload(Linux_SambaServiceHelper.class,pathService,adapter.getCimClient());
 			CIMObjectPath pathUser = getPathOfUser(adapter, service,username);
 
 			CimObjectKey keyService = new CimObjectKey(pathService);
@@ -78,7 +77,7 @@ public class SambaLoader {
 	protected void selectShare(WbemSmtResourceBundle bundle, AbstractBaseCimAdapter adapter, String serviceName, String shareName) throws ObjectNotFoundException {
 		try {
 			CIMObjectPath pathService = getPathOfService(adapter, serviceName);
-			Linux_SambaService service = (Linux_SambaService) FcoHelper.reload(Linux_SambaServiceHelper.class,pathService,adapter.getCimClient());
+			Linux_SambaService service = (Linux_SambaService) adapter.getFcoHelper().reload(Linux_SambaServiceHelper.class,pathService,adapter.getCimClient());
 			CIMObjectPath pathShare = getPathOfShare(adapter, service,shareName);
 
 			CimObjectKey keyService = new CimObjectKey(pathService);
@@ -95,7 +94,7 @@ public class SambaLoader {
 	protected void selectPrinter(WbemSmtResourceBundle bundle, AbstractBaseCimAdapter adapter, String serviceName, String printerName) throws ObjectNotFoundException {
 		try {
 			CIMObjectPath pathService = getPathOfService(adapter, serviceName);
-			Linux_SambaService service = (Linux_SambaService) FcoHelper.reload(Linux_SambaServiceHelper.class,pathService,adapter.getCimClient());
+			Linux_SambaService service = (Linux_SambaService) adapter.getFcoHelper().reload(Linux_SambaServiceHelper.class,pathService,adapter.getCimClient());
 			CIMObjectPath pathPrinter = getPathOfPrinter(adapter, service,printerName);
 
 			CimObjectKey keyService = new CimObjectKey(pathService);
@@ -112,7 +111,7 @@ public class SambaLoader {
 	protected void selectHost(WbemSmtResourceBundle bundle, AbstractBaseCimAdapter adapter, String serviceName, String hostName) throws ObjectNotFoundException {
 		try {
 			CIMObjectPath pathService = getPathOfService(adapter, serviceName);
-			Linux_SambaService service = (Linux_SambaService) FcoHelper.reload(Linux_SambaServiceHelper.class,pathService,adapter.getCimClient());
+			Linux_SambaService service = (Linux_SambaService) adapter.getFcoHelper().reload(Linux_SambaServiceHelper.class,pathService,adapter.getCimClient());
 			CIMObjectPath pathHost = getPathOfHost(adapter, service,hostName);
 	
 			CimObjectKey keyService = new CimObjectKey(pathService);
@@ -128,27 +127,27 @@ public class SambaLoader {
 
 	protected CIMObjectPath getPathOfService(AbstractBaseCimAdapter adapter, String serviceName) throws ObjectNotFoundException {
 
-		return FcoHelper.getPath(Linux_SambaService.class,"Name",serviceName,adapter.getCimClient());
+		return adapter.getFcoHelper().getPath(Linux_SambaService.class,"Name",serviceName,adapter.getCimClient());
 	}
 
 	protected CIMObjectPath getPathOfHost(AbstractBaseCimAdapter adapter, Linux_SambaService service, String hostName) throws ObjectNotFoundException {
 		ArrayList hostNames = service.getAssociated_Linux_SambaHost_Linux_SambaHostsForService_Names(adapter.getCimClient(),false);
-		return FcoHelper.getPath(hostNames,"Name",hostName);
+		return adapter.getFcoHelper().getPath(hostNames,"Name",hostName);
 	}
 
 	protected CIMObjectPath getPathOfPrinter(AbstractBaseCimAdapter adapter, Linux_SambaService service, String printerName) throws ObjectNotFoundException {
 		ArrayList printerNames = service.getAssociated_Linux_SambaPrinterOptions_Linux_SambaPrinterForService_Names(adapter.getCimClient(),false);
-		return FcoHelper.getPath(printerNames,"Name",printerName);
+		return adapter.getFcoHelper().getPath(printerNames,"Name",printerName);
 	}
 
 	protected CIMObjectPath getPathOfShare(AbstractBaseCimAdapter adapter, Linux_SambaService service, String shareName) throws ObjectNotFoundException {
 		ArrayList shareNames = service.getAssociated_Linux_SambaShareOptions_Linux_SambaShareForService_Names(adapter.getCimClient(),false);
-		return FcoHelper.getPath(shareNames,"Name",shareName);
+		return adapter.getFcoHelper().getPath(shareNames,"Name",shareName);
 	}
 
 	protected CIMObjectPath getPathOfUser(AbstractBaseCimAdapter adapter, Linux_SambaService service, String sambaUserName) throws ObjectNotFoundException {
 		ArrayList userNames = service.getAssociated_Linux_SambaUser_Linux_SambaUsersForService_Names(adapter.getCimClient(),false);
-		return FcoHelper.getPath(userNames,"SambaUserName",sambaUserName);
+		return adapter.getFcoHelper().getPath(userNames,"SambaUserName",sambaUserName);
 	}
 
 }

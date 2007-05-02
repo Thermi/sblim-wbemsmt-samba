@@ -32,7 +32,6 @@ import org.sblim.wbem.client.CIMClient;
 import org.sblim.wbemsmt.bl.adapter.CimObjectKey;
 import org.sblim.wbemsmt.bl.adapter.DataContainer;
 import org.sblim.wbemsmt.bl.adapter.MessageList;
-import org.sblim.wbemsmt.bl.fco.FcoHelper;
 import org.sblim.wbemsmt.exception.ModelLoadException;
 import org.sblim.wbemsmt.exception.ObjectCreationException;
 import org.sblim.wbemsmt.exception.ObjectSaveException;
@@ -82,7 +81,7 @@ public class ShareWizard   extends SambaWizard{
 			share.set_Path((String) page1.get_Path().getConvertedControlValue());
 			share.set_Comment((String) page1.get_Comment().getConvertedControlValue());
 			setInstanceId(share);
-			share = (Linux_SambaShareOptions) FcoHelper.create(share,cc);
+			share = (Linux_SambaShareOptions) adapter.getFcoHelper().create(share,cc);
 			container.setKey(new CimObjectKey(share));
 			
 			boolean enableGuest  = ((Boolean)page2.get_usr_EnableGuest().getConvertedControlValue()).booleanValue();
@@ -119,7 +118,7 @@ public class ShareWizard   extends SambaWizard{
 			Linux_SambaForceUserForShare newForceUserAssoc = new Linux_SambaForceUserForShare();
 			newForceUserAssoc.set_Linux_SambaShareOptions(share);
 			newForceUserAssoc.set_Linux_SambaUser(user);
-			FcoHelper.create(newForceUserAssoc,cc);
+			adapter.getFcoHelper().create(newForceUserAssoc,cc);
 			
 		}
 	}
@@ -159,7 +158,7 @@ public class ShareWizard   extends SambaWizard{
 		try {
 			Linux_SambaShareFileNameHandlingOptions child = 
 				(Linux_SambaShareFileNameHandlingOptions) getFirstChild(Linux_SambaShareFileNameHandlingOptions.class,share.getAssociated_Linux_SambaShareFileNameHandlingOptions_Linux_SambaShareFileNameHandlingForShare_Names(cc,false),false);
-			FcoHelper.save(child,cc);
+			adapter.getFcoHelper().save(child,cc);
 		} catch (ModelLoadException e) {
 			throw new ObjectSaveException(e);
 		}
@@ -169,7 +168,7 @@ public class ShareWizard   extends SambaWizard{
 		try {
 			Linux_SambaShareProtocolOptions child = 
 				(Linux_SambaShareProtocolOptions) getFirstChild(Linux_SambaShareProtocolOptions.class,share.getAssociated_Linux_SambaShareProtocolOptions_Linux_SambaShareProtocolForShare_Names(cc,false),false);
-			FcoHelper.save(child,cc);
+			adapter.getFcoHelper().save(child,cc);
 		} catch (ModelLoadException e) {
 			throw new ObjectSaveException(e);
 		}
@@ -180,7 +179,7 @@ public class ShareWizard   extends SambaWizard{
 			Linux_SambaCommonSecurityOptions child = 
 				(Linux_SambaCommonSecurityOptions) getFirstChild(Linux_SambaCommonSecurityOptions.class,share.getAssociated_Linux_SambaCommonSecurityOptions_Linux_SambaCommonSecurityForShare_Names(cc,false),false);
 			child.set_GuestOK(new Boolean(enableGuest));
-			FcoHelper.save(child,cc);
+			adapter.getFcoHelper().save(child,cc);
 		} catch (ModelLoadException e) {
 			throw new ObjectSaveException(e);
 		}
@@ -197,7 +196,7 @@ public class ShareWizard   extends SambaWizard{
 //		child.set_CreateMask(new UnsignedInt16(Integer.parseInt((String) page4.get_CreateMask().getConvertedControlValue())));
 //		child.set_DirectoryMask(new UnsignedInt16(Integer.parseInt((String) page4.get_DirectoryMask().getConvertedControlValue())));
 //		child.set_DirectorySecurityMask(new UnsignedInt16(Integer.parseInt((String) page4.get_DirectorySecurityMask().getConvertedControlValue())));
-//		FcoHelper.save(child,cc);
+//		adapter.getFcoHelper().save(child,cc);
 		
 	}
 
@@ -207,7 +206,7 @@ public class ShareWizard   extends SambaWizard{
 				(Linux_SambaShareBrowseOptions) getFirstChild(Linux_SambaShareBrowseOptions.class,share.getAssociated_Linux_SambaShareBrowseOptions_Linux_SambaShareBrowseForShare_Names(cc,false),false);
 
 			child.set_Browsable(new Boolean(publicShare));
-			FcoHelper.save(child,cc);
+			adapter.getFcoHelper().save(child,cc);
 		} catch (ModelLoadException e) {
 			throw new ObjectSaveException(e);
 		}
