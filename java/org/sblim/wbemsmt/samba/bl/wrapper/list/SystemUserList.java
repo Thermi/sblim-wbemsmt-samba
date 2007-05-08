@@ -71,7 +71,7 @@ public class SystemUserList extends ObjectList {
 		return (SystemUser)getList().get(i);
 	}
 
-	protected String getKey(Object value) {
+	protected Object getKey(Object value) {
 		SystemUser user = (SystemUser) value;
 		return user.getName();
 	}

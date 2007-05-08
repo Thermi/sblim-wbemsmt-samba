@@ -49,7 +49,7 @@ public class PrinterList extends ObjectList  {
 		objectsByCimObjectKey.put(printer.getCimObjectKey(),printer);
 	}
 
-	protected String getKey(Object value) {
+	protected Object getKey(Object value) {
 		Printer printer = (Printer) value;
 		return printer.getPrinter().get_Name();
 	}

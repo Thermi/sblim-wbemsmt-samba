@@ -52,7 +52,7 @@ public class ShareList extends ObjectList  {
 		objectsByCimObjectKey.put(share.getCimObjectKey(),share);
 	}
 	
-	protected String getKey(Object value) {
+	protected Object getKey(Object value) {
 		Share share = (Share) value;
 		return share.getShare().get_Name();
 	}

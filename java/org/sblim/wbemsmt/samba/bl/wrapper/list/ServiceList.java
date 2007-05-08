@@ -51,7 +51,7 @@ public class ServiceList extends ObjectList {
 		objectsByCimObjectKey.put(service.getCimObjectKey(),service);
 	}
 
-	protected String getKey(Object value) {
+	protected Object getKey(Object value) {
 		Service service = (Service) value;
 		return service.getService().get_Name();
 	}

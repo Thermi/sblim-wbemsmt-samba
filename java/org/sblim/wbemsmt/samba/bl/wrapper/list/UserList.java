@@ -71,7 +71,7 @@ public class UserList extends ObjectList {
 		return (User)getList().get(i);
 	}
 
-	protected String getKey(Object value) {
+	protected Object getKey(Object value) {
 		User user = (User) value;
 		return user.getUser().get_SambaUserName();
 	}

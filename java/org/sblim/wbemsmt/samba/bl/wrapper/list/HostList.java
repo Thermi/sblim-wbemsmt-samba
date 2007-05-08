@@ -49,7 +49,7 @@ public class HostList extends ObjectList {
 		objectsByCimObjectKey.put(host.getCimObjectKey(),host);
 	}
 	
-	protected String getKey(Object value) {
+	protected Object getKey(Object value) {
 		Host host = (Host) value;
 		return host.getHost().get_Name();
 	}

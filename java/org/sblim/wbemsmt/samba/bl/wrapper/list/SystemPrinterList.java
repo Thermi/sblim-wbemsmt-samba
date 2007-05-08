@@ -78,7 +78,7 @@ public class SystemPrinterList extends ObjectList {
 		return (SystemPrinter)getList().get(i);
 	}
 
-	protected String getKey(Object value) {
+	protected Object getKey(Object value) {
 		SystemPrinter printer = (SystemPrinter) value;
 		return printer.getName();
 	}
