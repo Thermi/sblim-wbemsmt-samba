@@ -3,7 +3,7 @@
   *
 
  
- * © Copyright IBM Corp. 2005
+  * © Copyright IBM Corp. 2005
   *
   * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
@@ -13,7 +13,7 @@
   * http://www.opensource.org/licenses/cpl1.0.php
   *
   * @author: org.sblim.wbemsmt.dcg.generator.jsf.JSFPresentationLayerGenerator
-  * @template: ./tools-dcg/templates/jsf/containerImpl.vm
+  * @template: org/sblim/wbemsmt/dcg/templates/jsf/containerImpl.vm
   *
   * Contributors: 
   * 
@@ -26,6 +26,12 @@ package org.sblim.wbemsmt.jsf.samba.container.global;
 
 import org.sblim.wbemsmt.exception.*;
 import java.util.*;
+
+//imports for that field of a linked container with occurence = MANY
+import org.sblim.wbemsmt.tools.jsf.MultiLinePanel;
+import org.sblim.wbemsmt.bl.adapter.AbstractBaseCimAdapter;
+import org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent;
+import org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf;
 
 
 
@@ -42,7 +48,14 @@ public class PrintingGlobalsDataContainerImpl extends org.sblim.wbemsmt.tools.js
     		private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_MaxReportedPrintjobs;
     		private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_PrintCommand;
     		private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_UseClientDriver;
-    			private java.util.List icUsers = new java.util.ArrayList();
+    			
+				private java.util.List icUsers = new java.util.ArrayList();
+		
+		private MultiLinePanel usersPanel;
+
+				private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf icUsers_usr_SambaUserNameHeader;
+				private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf icUsers_usr_AdminHeader;
+				
 	
 		
 	
@@ -253,6 +266,7 @@ public class PrintingGlobalsDataContainerImpl extends org.sblim.wbemsmt.tools.js
     	}
 		
 			
+				
 		/**
 		* 
 		* linked container AdminUsersInPrinterGlobals
@@ -261,7 +275,97 @@ public class PrintingGlobalsDataContainerImpl extends org.sblim.wbemsmt.tools.js
 		{
 						return icUsers;
 		}
+		
+		public MultiLinePanel getUsersPanel()
+		{
+			if (usersPanel == null)
+			{
+  			   usersPanel = new UsersPanel(adapter,bindingPrefix, // the prefix for binding values
+							  "#{" +  bindingPrefix + "usersPanel", // binding for Title
+							  "AdminUsersInPrinterGlobals_AsUsers_InPrintingGlobalsDataContainer.caption", //Key for title
+							  org.sblim.wbemsmt.jsf.samba.container.global.AdminUsersInPrinterGlobals_AsUsers_InPrintingGlobalsDataContainerImpl.COLS);
+			}		
+			
+			return usersPanel;
+		}
 
+		static class UsersPanel extends MultiLinePanel
+		{
+			public UsersPanel(AbstractBaseCimAdapter adapter, String bindingPrefix, String bindigForTitle, String keyForTitle, int cols) {
+				super(adapter, bindingPrefix, bindigForTitle, keyForTitle, cols);
+			}
+	
+			protected String getOrientationOfColumnAsCss(int column) {
+				return org.sblim.wbemsmt.jsf.samba.container.global.AdminUsersInPrinterGlobals_AsUsers_InPrintingGlobalsDataContainerImpl.orientationOfColumnAsCss[column];
+			}
+		}
+
+	public void addUsers(org.sblim.wbemsmt.jsf.samba.container.global.AdminUsersInPrinterGlobals_AsUsers_InPrintingGlobalsDataContainerImpl child) {
+
+		getUsers().add(child);
+		getUsersPanel().addComponents(child.getComponents());
+		
+					((LabeledJSFInputComponent)getUsers_usr_SambaUserNameHeader()).getDependentChildFields().add(child.get_usr_SambaUserName());
+					((LabeledJSFInputComponent)getUsers_usr_AdminHeader()).getDependentChildFields().add(child.get_usr_Admin());
+		
+		
+	}
+
+	public void clearUsers() {
+		getUsers().clear();
+		getUsersPanel().getInputFieldContainer().getChildren().clear();
+					((LabeledJSFInputComponent)getUsers_usr_SambaUserNameHeader()).getDependentChildFields().clear();
+					((LabeledJSFInputComponent)getUsers_usr_AdminHeader()).getDependentChildFields().clear();
+			}
+
+	public void addUsersHeader() {
+		getUsersPanel().setHeader(getUsersHeaderComponents());
+	}
+	
+	private LabeledJSFInputComponent[] getUsersHeaderComponents() {
+		return new LabeledJSFInputComponent[]{
+							(LabeledJSFInputComponent)getUsers_usr_SambaUserNameHeader(),
+							(LabeledJSFInputComponent)getUsers_usr_AdminHeader(),
+						};
+	}
+
+			/**
+   		 * Header for field SambaUserName
+		 */
+		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf getUsers_usr_SambaUserNameHeader() {
+    		if (icUsers_usr_SambaUserNameHeader == null)
+    		{
+				String label = bundle.getString("AdminUsersInPrinterGlobals.SambaUserName");
+				String binding = bindingPrefix + "users_usr_SambaUserNameHeader.item";
+				logger.fine("Using binding " + binding);
+				org.sblim.wbemsmt.bl.adapter.DataContainer parent = this;
+				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
+				boolean readOnly = true;
+    			icUsers_usr_SambaUserNameHeader = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent(parent,label,binding,converter, readOnly);
+				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent)icUsers_usr_SambaUserNameHeader).setOrientation( LabeledBaseInputComponentIf.LEFT );    		}
+				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent)icUsers_usr_SambaUserNameHeader).setHeader(true);
+			
+    		return icUsers_usr_SambaUserNameHeader;
+    	}
+			/**
+   		 * Header for field admin
+		 */
+		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf getUsers_usr_AdminHeader() {
+    		if (icUsers_usr_AdminHeader == null)
+    		{
+				String label = bundle.getString("AdminUsersInPrinterGlobals.admin");
+				String binding = bindingPrefix + "users_usr_AdminHeader.item";
+				logger.fine("Using binding " + binding);
+				org.sblim.wbemsmt.bl.adapter.DataContainer parent = this;
+				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
+				boolean readOnly = false;
+    			icUsers_usr_AdminHeader = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
+				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent)icUsers_usr_AdminHeader).setOrientation( LabeledBaseInputComponentIf.LEFT );    		}
+				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent)icUsers_usr_AdminHeader).setHeader(true);
+			
+    		return icUsers_usr_AdminHeader;
+    	}
+	
 	
 		
 	public void reload()

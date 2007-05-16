@@ -3,7 +3,7 @@
   *
 
  
- * © Copyright IBM Corp. 2005
+  * © Copyright IBM Corp. 2005
   *
   * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
@@ -13,7 +13,7 @@
   * http://www.opensource.org/licenses/cpl1.0.php
   *
   * @author: org.sblim.wbemsmt.dcg.generator.cmd.CMDPresentationLayerGenerator
-  * @template: ./tools-dcg/templates/cmd/createCommand.vm
+  * @template: org/sblim/wbemsmt/dcg/templates/cmd/createCommand.vm
   *
   * Contributors: 
   * 
@@ -39,77 +39,77 @@ public class CreateSambaUser extends CimCommand implements ContainerUpdater {
  
 	//All Options that are local and defined for this command
 			/**
-		 * 
+   		 * required,  --username, default: noDefaultValue
 		 */
 		public static final OptionDefinition KEY_username = new OptionDefinition(null,"username","noDefaultValue","UserWizardPage1.SambaUserName.argValue",true,false,"UserWizardPage1.SambaUserName.argDescription");
 			/**
-		 * 
+   		 * required,  --userPassword, default: noDefaultValue
 		 */
 		public static final OptionDefinition KEY_userPassword = new OptionDefinition(null,"userPassword","noDefaultValue","UserWizardPage1.SambaUserPassword.argValue",true,false,"UserWizardPage1.SambaUserPassword.argDescription");
 			/**
-		 * 
+   		 * required,  --userPasswordVerify, default: noDefaultValue
 		 */
 		public static final OptionDefinition KEY_userPasswordVerify = new OptionDefinition(null,"userPasswordVerify","noDefaultValue","UserWizardPage1.SambaUserPassword2.argValue",true,false,"UserWizardPage1.SambaUserPassword2.argDescription");
 			/**
-		 * 
+   		 * required,  --isGuest, default: noDefaultValue
 		 */
 		public static final OptionDefinition KEY_isGuest = new OptionDefinition(null,"isGuest","noDefaultValue","UserWizardPage1.isGuest.argValue",true,false,"UserWizardPage1.isGuest.argDescription");
 			/**
-		 * 
+   		 * required,  --accessToAll, default: noDefaultValue
 		 */
 		public static final OptionDefinition KEY_accessToAll = new OptionDefinition(null,"accessToAll","noDefaultValue","UserWizardPage2.accessToAll.argValue",true,false,"UserWizardPage2.accessToAll.argDescription");
 			/**
-		 * 
+   		 *  --systemUser, default: noDefaultValue
 		 */
 		public static final OptionDefinition KEY_systemUser = new OptionDefinition(null,"systemUser","noDefaultValue","UserWizardPage3.SystemUserName.argValue",false,false,"UserWizardPage3.SystemUserName.argDescription");
 		
 	//All Options that are global and task-related
 			/**
-		 * 
+   		 * required, used for selection:  --serviceName, default: noDefaultValue
 		 */
 		public static final OptionDefinition KEY_GLOBAL_serviceName = new OptionDefinition(null,"serviceName","noDefaultValue","serviceName.argValue",true,false,"serviceName.argDescription");
 	
 	// Global Communication Options
 			/**
-		 * 
+   		 *  --hostname
 		 */
 		public static final OptionDefinition KEY_GLOBAL_hostname = new OptionDefinition(null,"hostname",null,"hostname.argValue",false,false,"hostname.argDescription");
 			/**
-		 * 
+   		 *  --port, default: 5988
 		 */
 		public static final OptionDefinition KEY_GLOBAL_port = new OptionDefinition(null,"port","5988","port.argValue",false,false,"port.argDescription");
 			/**
-		 * 
+   		 *  --namespace, default: /root/cimv2
 		 */
 		public static final OptionDefinition KEY_GLOBAL_namespace = new OptionDefinition(null,"namespace","/root/cimv2","namespace.argValue",false,false,"namespace.argDescription");
 			/**
-		 * 
+   		 *  --user
 		 */
 		public static final OptionDefinition KEY_GLOBAL_user = new OptionDefinition(null,"user",null,"user.argValue",false,false,"user.argDescription");
 			/**
-		 * 
+   		 *  --password
 		 */
 		public static final OptionDefinition KEY_GLOBAL_password = new OptionDefinition(null,"password",null,"password.argValue",false,false,"password.argDescription");
 			/**
-		 * 
+   		 *  --publickeyfile
 		 */
 		public static final OptionDefinition KEY_GLOBAL_publickeyfile = new OptionDefinition(null,"publickeyfile",null,"publickeyfile.argValue",false,false,"publickeyfile.argDescription");
 			/**
-		 * 
+   		 *  --privatekeyfile
 		 */
 		public static final OptionDefinition KEY_GLOBAL_privatekeyfile = new OptionDefinition(null,"privatekeyfile",null,"privatekeyfile.argValue",false,false,"privatekeyfile.argDescription");
 	
 	// Global Common Options
 			/**
-		 * 
+   		 *  -?
 		 */
 		public static final OptionDefinition KEY_GLOBAL_QUESTION_MARK_ = new OptionDefinition("?",null,null,null,false,false,"?.argDescription");
 			/**
-		 * 
+   		 *  -h --help
 		 */
 		public static final OptionDefinition KEY_GLOBAL_help = new OptionDefinition("h","help",null,null,false,false,"help.argDescription");
 			/**
-		 * 
+   		 *  -L --locale, default: en
 		 */
 		public static final OptionDefinition KEY_GLOBAL_locale = new OptionDefinition("L","locale","en","locale.argValue",false,false,"locale.argDescription");
 	
@@ -199,7 +199,7 @@ public class CreateSambaUser extends CimCommand implements ContainerUpdater {
 				
 			adapter.loadInitial(adapter.getCimClient());
 			
-			values.getOut().println("\n" + bundle.getString("creating", new Object[]{bundle.getString("userWizard.caption")}));
+			values.getOut().println("\n" + bundle.getString("userWizard.create.start"));
 			
 			CliDataLoader loader = new CreateSambaUserLoader();
 			loader.load(bundle,adapter, cmd );
@@ -283,7 +283,7 @@ public class CreateSambaUser extends CimCommand implements ContainerUpdater {
 			values.getOut().println("\n" + bundle.getString("createdObject") + ":\n");
 			dc.trace(values.getOut());
 			
-		values.getOut().println("\n" + bundle.getString("created", new Object[]{bundle.getString("userWizard.caption")}));
+   		    //values.getOut().println("\n" + bundle.getString("userWizard.create.success"));
 		
 		}
 		catch (Exception e)

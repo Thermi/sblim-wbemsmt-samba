@@ -3,7 +3,7 @@
   *
 
  
- * © Copyright IBM Corp. 2005
+  * © Copyright IBM Corp. 2005
   *
   * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
@@ -13,7 +13,7 @@
   * http://www.opensource.org/licenses/cpl1.0.php
   *
   * @author: org.sblim.wbemsmt.dcg.generator.jsf.JSFPresentationLayerGenerator
-  * @template: ./tools-dcg/templates/jsf/containerImplMultiLine.vm
+  * @template: org/sblim/wbemsmt/dcg/templates/jsf/containerImplMultiLine.vm
   *
   * Contributors: 
   * 
@@ -23,8 +23,6 @@
   */
 
 package org.sblim.wbemsmt.jsf.samba.container.user;
-
-import javax.faces.component.html.HtmlPanelGrid;
 
 import java.util.*;
 import org.sblim.wbemsmt.tools.input.jsf.*;
@@ -38,13 +36,15 @@ import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
 
 	
-public class UserListItemDataContainer_AsUsers_InUserListDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel implements org.sblim.wbemsmt.samba.bl.container.user.UserListItemDataContainer {
+public class UserListItemDataContainer_AsUsers_InUserListDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel2 implements org.sblim.wbemsmt.samba.bl.container.user.UserListItemDataContainer {
 
 			private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_SambaUserName;
 			private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_SystemUserName;
 			private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_usr_IsGuest;
 		
-	private static String[] orientationOfColumnAsCss = new String[]{
+	public static final int COLS = 3;
+	
+	public static String[] orientationOfColumnAsCss = new String[]{
     				"left",
     				"left",
     				"left",
@@ -53,34 +53,8 @@ public class UserListItemDataContainer_AsUsers_InUserListDataContainerImpl exten
 	
 	
 	
-	private final int index;
-	
-//	public UserListItemDataContainer_AsUsers_InUserListDataContainerImpl(String bindingPrefix, org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter adapter,int index) throws InitContainerException {
-//		this(adapter,bindingPrefix,index, null);
-//	}
-	
-	public UserListItemDataContainer_AsUsers_InUserListDataContainerImpl(org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter adapter,String bindingPrefix,int index, HtmlPanelGrid grid) throws InitContainerException {
-	    super(adapter,
-			  bindingPrefix, // the prefix for binding values
-			  "#{" +  bindingPrefix + "users["+ index +"]", // binding for Title
-			  "UserListItemDataContainer_AsUsers_InUserListDataContainer.caption", //Key for title
-			  3,grid);
-		this.index = index;
-		addComponents(new LabeledJSFInputComponent[]{
-					(LabeledJSFInputComponent)get_SambaUserName(),
-			
-					(LabeledJSFInputComponent)get_SystemUserName(),
-			
-					(LabeledJSFInputComponent)get_usr_IsGuest(),
-			
-				});
-		if (first)
-		{
-			//setFooter(getInputFieldContainer(),"#{localeManager.bundle['SAMBA'].UserListItemDataContainer_AsUsers_InUserListDataContainerImpl_footerText}","UserListItemDataContainer_AsUsers_InUserListDataContainerImpl.footerText");
-			//setFooter(getInputFieldContainer(),"UserListItemDataContainer_AsUsers_InUserListDataContainerImpl.footerText");
-			String binding = "#{" +  bindingPrefix + "users["+ index +"].footerText}";
-			setFooter(getOuterPanel(),"UserListItemDataContainer_AsUsers_InUserListDataContainer.footerText",binding);
-		}
+	public UserListItemDataContainer_AsUsers_InUserListDataContainerImpl(org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter adapter,String bindingPrefix,int index) throws InitContainerException {
+	    super(adapter,bindingPrefix,index);
 		adapter.initContainer(this);
 	}
 	
@@ -161,6 +135,19 @@ public class UserListItemDataContainer_AsUsers_InUserListDataContainerImpl exten
     		return ic_usr_IsGuest;
     	}
 		
+
+	/**
+	 * @return all the Components
+	 */
+	public LabeledJSFInputComponent[] getComponents() {
+		return new LabeledJSFInputComponent[]{
+						(LabeledJSFInputComponent)get_SambaUserName(),
+						(LabeledJSFInputComponent)get_SystemUserName(),
+						(LabeledJSFInputComponent)get_usr_IsGuest(),
+					};
+	}
+	
+	
 	
 		
 	public void reload()

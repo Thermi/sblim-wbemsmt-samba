@@ -3,7 +3,7 @@
   *
 
  
- * © Copyright IBM Corp. 2005
+  * © Copyright IBM Corp. 2005
   *
   * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
@@ -13,7 +13,7 @@
   * http://www.opensource.org/licenses/cpl1.0.php
   *
   * @author: org.sblim.wbemsmt.dcg.generator.cmd.CMDPresentationLayerGenerator
-  * @template: ./tools-dcg/templates/cmd/editCommand.vm
+  * @template: org/sblim/wbemsmt/dcg/templates/cmd/editCommand.vm
   *
   * Contributors: 
   * 
@@ -38,93 +38,93 @@ public class EditSambaShare extends CimCommand {
  
 	//All Options that are local and defined for this command
 			/**
-		 * 
+   		 * required, used for selection:  --sharename, default: noDefaultValue
 		 */
 		public static final OptionDefinition KEY_sharename = new OptionDefinition(null,"sharename","noDefaultValue","ShareOptionsDataContainer.Name.argValue",true,true,"ShareOptionsDataContainer.Name.argDescription");
 			/**
-		 * 
+   		 *  --available, default: noDefaultValue
 		 */
 		public static final OptionDefinition KEY_available = new OptionDefinition(null,"available","noDefaultValue","ShareOptionsDataContainer.Available.argValue",false,false,"ShareOptionsDataContainer.Available.argDescription");
 			/**
-		 * 
+   		 *  --comment, default: noDefaultValue
 		 */
 		public static final OptionDefinition KEY_comment = new OptionDefinition(null,"comment","noDefaultValue","ShareOptionsDataContainer.Comment.argValue",false,false,"ShareOptionsDataContainer.Comment.argDescription");
 			/**
-		 * 
+   		 *  --path, default: noDefaultValue
 		 */
 		public static final OptionDefinition KEY_path = new OptionDefinition(null,"path","noDefaultValue","ShareOptionsDataContainer.Path.argValue",false,false,"ShareOptionsDataContainer.Path.argDescription");
 			/**
-		 * 
+   		 *  --browsable, default: noDefaultValue
 		 */
 		public static final OptionDefinition KEY_browsable = new OptionDefinition(null,"browsable","noDefaultValue","ShareOptionsDataContainer.Browsable.argValue",false,false,"ShareOptionsDataContainer.Browsable.argDescription");
 			/**
-		 * 
+   		 *  --guestok, default: noDefaultValue
 		 */
 		public static final OptionDefinition KEY_guestok = new OptionDefinition(null,"guestok","noDefaultValue","ShareOptionsDataContainer.GuestOK.argValue",false,false,"ShareOptionsDataContainer.GuestOK.argDescription");
 			/**
-		 * 
+   		 *  --guestOnly, default: noDefaultValue
 		 */
 		public static final OptionDefinition KEY_guestOnly = new OptionDefinition(null,"guestOnly","noDefaultValue","ShareOptionsDataContainer.GuestOnly.argValue",false,false,"ShareOptionsDataContainer.GuestOnly.argDescription");
 			/**
-		 * 
+   		 *  --hostsAllow, default: noDefaultValue
 		 */
 		public static final OptionDefinition KEY_hostsAllow = new OptionDefinition(null,"hostsAllow","noDefaultValue","ShareOptionsDataContainer.HostsAllow.argValue",false,false,"ShareOptionsDataContainer.HostsAllow.argDescription");
 			/**
-		 * 
+   		 *  --hostsDeny, default: noDefaultValue
 		 */
 		public static final OptionDefinition KEY_hostsDeny = new OptionDefinition(null,"hostsDeny","noDefaultValue","ShareOptionsDataContainer.HostsDeny.argValue",false,false,"ShareOptionsDataContainer.HostsDeny.argDescription");
 			/**
-		 * 
+   		 *  --readOnly, default: noDefaultValue
 		 */
 		public static final OptionDefinition KEY_readOnly = new OptionDefinition(null,"readOnly","noDefaultValue","ShareOptionsDataContainer.ReadOnly.argValue",false,false,"ShareOptionsDataContainer.ReadOnly.argDescription");
 		
 	//All Options that are global and task-related
 			/**
-		 * 
+   		 * required, used for selection:  --serviceName, default: noDefaultValue
 		 */
 		public static final OptionDefinition KEY_GLOBAL_serviceName = new OptionDefinition(null,"serviceName","noDefaultValue","serviceName.argValue",true,false,"serviceName.argDescription");
 	
 	// Global Communication Options
 			/**
-		 * 
+   		 *  --hostname
 		 */
 		public static final OptionDefinition KEY_GLOBAL_hostname = new OptionDefinition(null,"hostname",null,"hostname.argValue",false,false,"hostname.argDescription");
 			/**
-		 * 
+   		 *  --port, default: 5988
 		 */
 		public static final OptionDefinition KEY_GLOBAL_port = new OptionDefinition(null,"port","5988","port.argValue",false,false,"port.argDescription");
 			/**
-		 * 
+   		 *  --namespace, default: /root/cimv2
 		 */
 		public static final OptionDefinition KEY_GLOBAL_namespace = new OptionDefinition(null,"namespace","/root/cimv2","namespace.argValue",false,false,"namespace.argDescription");
 			/**
-		 * 
+   		 *  --user
 		 */
 		public static final OptionDefinition KEY_GLOBAL_user = new OptionDefinition(null,"user",null,"user.argValue",false,false,"user.argDescription");
 			/**
-		 * 
+   		 *  --password
 		 */
 		public static final OptionDefinition KEY_GLOBAL_password = new OptionDefinition(null,"password",null,"password.argValue",false,false,"password.argDescription");
 			/**
-		 * 
+   		 *  --publickeyfile
 		 */
 		public static final OptionDefinition KEY_GLOBAL_publickeyfile = new OptionDefinition(null,"publickeyfile",null,"publickeyfile.argValue",false,false,"publickeyfile.argDescription");
 			/**
-		 * 
+   		 *  --privatekeyfile
 		 */
 		public static final OptionDefinition KEY_GLOBAL_privatekeyfile = new OptionDefinition(null,"privatekeyfile",null,"privatekeyfile.argValue",false,false,"privatekeyfile.argDescription");
 	
 	// Global Common Options
 			/**
-		 * 
+   		 *  -?
 		 */
 		public static final OptionDefinition KEY_GLOBAL_QUESTION_MARK_ = new OptionDefinition("?",null,null,null,false,false,"?.argDescription");
 			/**
-		 * 
+   		 *  -h --help
 		 */
 		public static final OptionDefinition KEY_GLOBAL_help = new OptionDefinition("h","help",null,null,false,false,"help.argDescription");
 			/**
-		 * 
+   		 *  -L --locale, default: en
 		 */
 		public static final OptionDefinition KEY_GLOBAL_locale = new OptionDefinition("L","locale","en","locale.argValue",false,false,"locale.argDescription");
 	

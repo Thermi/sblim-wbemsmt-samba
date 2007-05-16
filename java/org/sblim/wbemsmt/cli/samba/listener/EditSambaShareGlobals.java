@@ -3,7 +3,7 @@
   *
 
  
- * © Copyright IBM Corp. 2005
+  * © Copyright IBM Corp. 2005
   *
   * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
@@ -13,7 +13,7 @@
   * http://www.opensource.org/licenses/cpl1.0.php
   *
   * @author: org.sblim.wbemsmt.dcg.generator.cmd.CMDPresentationLayerGenerator
-  * @template: ./tools-dcg/templates/cmd/editCommand.vm
+  * @template: org/sblim/wbemsmt/dcg/templates/cmd/editCommand.vm
   *
   * Contributors: 
   * 
@@ -38,89 +38,89 @@ public class EditSambaShareGlobals extends CimCommand {
  
 	//All Options that are local and defined for this command
 			/**
-		 * the Default Create Mask
+   		 * the Default Create Mask  --createMask, default: noDefaultValue
 		 */
 		public static final OptionDefinition KEY_createMask = new OptionDefinition(null,"createMask","noDefaultValue","CMDShareGlobalsDataContainer.CreateMask.argValue",false,false,"CMDShareGlobalsDataContainer.CreateMask.argDescription");
 			/**
-		 * The directory Mask
+   		 * The directory Mask  --directoryMask, default: noDefaultValue
 		 */
 		public static final OptionDefinition KEY_directoryMask = new OptionDefinition(null,"directoryMask","noDefaultValue","CMDShareGlobalsDataContainer.DirectoryMask.argValue",false,false,"CMDShareGlobalsDataContainer.DirectoryMask.argDescription");
 			/**
-		 * 
+   		 *  --directorySecurityMask, default: noDefaultValue
 		 */
 		public static final OptionDefinition KEY_directorySecurityMask = new OptionDefinition(null,"directorySecurityMask","noDefaultValue","CMDShareGlobalsDataContainer.DirectorySecurityMask.argValue",false,false,"CMDShareGlobalsDataContainer.DirectorySecurityMask.argDescription");
 			/**
-		 * 
+   		 *  --caseSensitive, default: noDefaultValue
 		 */
 		public static final OptionDefinition KEY_caseSensitive = new OptionDefinition(null,"caseSensitive","noDefaultValue","ShareGlobalsDataContainer.CaseSensitive.argValue",false,false,"ShareGlobalsDataContainer.CaseSensitive.argDescription");
 			/**
-		 * 
+   		 *  --dosFiletimes, default: noDefaultValue
 		 */
 		public static final OptionDefinition KEY_dosFiletimes = new OptionDefinition(null,"dosFiletimes","noDefaultValue","ShareGlobalsDataContainer.DosFiletimes.argValue",false,false,"ShareGlobalsDataContainer.DosFiletimes.argDescription");
 			/**
-		 * 
+   		 *  --hideDotFiles, default: noDefaultValue
 		 */
 		public static final OptionDefinition KEY_hideDotFiles = new OptionDefinition(null,"hideDotFiles","noDefaultValue","ShareGlobalsDataContainer.HideDotFiles.argValue",false,false,"ShareGlobalsDataContainer.HideDotFiles.argDescription");
 			/**
-		 * 
+   		 *  --aclCompatibility, default: noDefaultValue
 		 */
 		public static final OptionDefinition KEY_aclCompatibility = new OptionDefinition(null,"aclCompatibility","noDefaultValue","ShareGlobalsDataContainer.AclCompatibility.argValue",false,false,"ShareGlobalsDataContainer.AclCompatibility.argDescription");
 			/**
-		 * 
+   		 *  --eaSupport, default: noDefaultValue
 		 */
 		public static final OptionDefinition KEY_eaSupport = new OptionDefinition(null,"eaSupport","noDefaultValue","ShareGlobalsDataContainer.EASupport.argValue",false,false,"ShareGlobalsDataContainer.EASupport.argDescription");
 			/**
-		 * 
+   		 *  --ntaclSupport, default: noDefaultValue
 		 */
 		public static final OptionDefinition KEY_ntaclSupport = new OptionDefinition(null,"ntaclSupport","noDefaultValue","ShareGlobalsDataContainer.NTACLSupport.argValue",false,false,"ShareGlobalsDataContainer.NTACLSupport.argDescription");
 		
 	//All Options that are global and task-related
 			/**
-		 * 
+   		 * required, used for selection:  --serviceName, default: noDefaultValue
 		 */
 		public static final OptionDefinition KEY_GLOBAL_serviceName = new OptionDefinition(null,"serviceName","noDefaultValue","serviceName.argValue",true,false,"serviceName.argDescription");
 	
 	// Global Communication Options
 			/**
-		 * 
+   		 *  --hostname
 		 */
 		public static final OptionDefinition KEY_GLOBAL_hostname = new OptionDefinition(null,"hostname",null,"hostname.argValue",false,false,"hostname.argDescription");
 			/**
-		 * 
+   		 *  --port, default: 5988
 		 */
 		public static final OptionDefinition KEY_GLOBAL_port = new OptionDefinition(null,"port","5988","port.argValue",false,false,"port.argDescription");
 			/**
-		 * 
+   		 *  --namespace, default: /root/cimv2
 		 */
 		public static final OptionDefinition KEY_GLOBAL_namespace = new OptionDefinition(null,"namespace","/root/cimv2","namespace.argValue",false,false,"namespace.argDescription");
 			/**
-		 * 
+   		 *  --user
 		 */
 		public static final OptionDefinition KEY_GLOBAL_user = new OptionDefinition(null,"user",null,"user.argValue",false,false,"user.argDescription");
 			/**
-		 * 
+   		 *  --password
 		 */
 		public static final OptionDefinition KEY_GLOBAL_password = new OptionDefinition(null,"password",null,"password.argValue",false,false,"password.argDescription");
 			/**
-		 * 
+   		 *  --publickeyfile
 		 */
 		public static final OptionDefinition KEY_GLOBAL_publickeyfile = new OptionDefinition(null,"publickeyfile",null,"publickeyfile.argValue",false,false,"publickeyfile.argDescription");
 			/**
-		 * 
+   		 *  --privatekeyfile
 		 */
 		public static final OptionDefinition KEY_GLOBAL_privatekeyfile = new OptionDefinition(null,"privatekeyfile",null,"privatekeyfile.argValue",false,false,"privatekeyfile.argDescription");
 	
 	// Global Common Options
 			/**
-		 * 
+   		 *  -?
 		 */
 		public static final OptionDefinition KEY_GLOBAL_QUESTION_MARK_ = new OptionDefinition("?",null,null,null,false,false,"?.argDescription");
 			/**
-		 * 
+   		 *  -h --help
 		 */
 		public static final OptionDefinition KEY_GLOBAL_help = new OptionDefinition("h","help",null,null,false,false,"help.argDescription");
 			/**
-		 * 
+   		 *  -L --locale, default: en
 		 */
 		public static final OptionDefinition KEY_GLOBAL_locale = new OptionDefinition("L","locale","en","locale.argValue",false,false,"locale.argDescription");
 	

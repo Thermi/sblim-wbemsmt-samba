@@ -3,7 +3,7 @@
   *
 
  
- * © Copyright IBM Corp. 2005
+  * © Copyright IBM Corp. 2005
   *
   * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
@@ -13,7 +13,7 @@
   * http://www.opensource.org/licenses/cpl1.0.php
   *
   * @author: org.sblim.wbemsmt.dcg.generator.jsf.JSFPresentationLayerGenerator
-  * @template: ./tools-dcg/templates/jsf/containerImplMultiLine.vm
+  * @template: org/sblim/wbemsmt/dcg/templates/jsf/containerImplMultiLine.vm
   *
   * Contributors: 
   * 
@@ -23,8 +23,6 @@
   */
 
 package org.sblim.wbemsmt.jsf.samba.container.service;
-
-import javax.faces.component.html.HtmlPanelGrid;
 
 import java.util.*;
 import org.sblim.wbemsmt.tools.input.jsf.*;
@@ -38,13 +36,15 @@ import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
 
 	
-public class UserACLItemDataContainerForService_AsUserRights_InServiceUserSecurityOptionsDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel implements org.sblim.wbemsmt.samba.bl.container.service.UserACLItemDataContainerForService {
+public class UserACLItemDataContainerForService_AsUserRights_InServiceUserSecurityOptionsDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel2 implements org.sblim.wbemsmt.samba.bl.container.service.UserACLItemDataContainerForService {
 
 			private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_SambaUserName;
 			private org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf ic_usr_AccessTypeVI;
 			private org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf ic_usr_AccessTypeRW;
 		
-	private static String[] orientationOfColumnAsCss = new String[]{
+	public static final int COLS = 3;
+	
+	public static String[] orientationOfColumnAsCss = new String[]{
     				"left",
     				"left",
     				"left",
@@ -53,34 +53,8 @@ public class UserACLItemDataContainerForService_AsUserRights_InServiceUserSecuri
 	
 	
 	
-	private final int index;
-	
-//	public UserACLItemDataContainerForService_AsUserRights_InServiceUserSecurityOptionsDataContainerImpl(String bindingPrefix, org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter adapter,int index) throws InitContainerException {
-//		this(adapter,bindingPrefix,index, null);
-//	}
-	
-	public UserACLItemDataContainerForService_AsUserRights_InServiceUserSecurityOptionsDataContainerImpl(org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter adapter,String bindingPrefix,int index, HtmlPanelGrid grid) throws InitContainerException {
-	    super(adapter,
-			  bindingPrefix, // the prefix for binding values
-			  "#{" +  bindingPrefix + "userRights["+ index +"]", // binding for Title
-			  "UserACLItemDataContainerForService_AsUserRights_InServiceUserSecurityOptionsDataContainer.caption", //Key for title
-			  3,grid);
-		this.index = index;
-		addComponents(new LabeledJSFInputComponent[]{
-					(LabeledJSFInputComponent)get_SambaUserName(),
-			
-					(LabeledJSFInputComponent)get_usr_AccessTypeVI(),
-			
-					(LabeledJSFInputComponent)get_usr_AccessTypeRW(),
-			
-				});
-		if (first)
-		{
-			//setFooter(getInputFieldContainer(),"#{localeManager.bundle['SAMBA'].UserACLItemDataContainerForService_AsUserRights_InServiceUserSecurityOptionsDataContainerImpl_footerText}","UserACLItemDataContainerForService_AsUserRights_InServiceUserSecurityOptionsDataContainerImpl.footerText");
-			//setFooter(getInputFieldContainer(),"UserACLItemDataContainerForService_AsUserRights_InServiceUserSecurityOptionsDataContainerImpl.footerText");
-			String binding = "#{" +  bindingPrefix + "userRights["+ index +"].footerText}";
-			setFooter(getOuterPanel(),"UserACLItemDataContainerForService_AsUserRights_InServiceUserSecurityOptionsDataContainer.footerText",binding);
-		}
+	public UserACLItemDataContainerForService_AsUserRights_InServiceUserSecurityOptionsDataContainerImpl(org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter adapter,String bindingPrefix,int index) throws InitContainerException {
+	    super(adapter,bindingPrefix,index);
 		adapter.initContainer(this);
 	}
 	
@@ -161,6 +135,19 @@ public class UserACLItemDataContainerForService_AsUserRights_InServiceUserSecuri
     		return ic_usr_AccessTypeRW;
     	}
 		
+
+	/**
+	 * @return all the Components
+	 */
+	public LabeledJSFInputComponent[] getComponents() {
+		return new LabeledJSFInputComponent[]{
+						(LabeledJSFInputComponent)get_SambaUserName(),
+						(LabeledJSFInputComponent)get_usr_AccessTypeVI(),
+						(LabeledJSFInputComponent)get_usr_AccessTypeRW(),
+					};
+	}
+	
+	
 	
 		
 	public void reload()

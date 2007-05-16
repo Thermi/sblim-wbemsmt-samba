@@ -3,7 +3,7 @@
   *
 
  
- * © Copyright IBM Corp. 2005
+  * © Copyright IBM Corp. 2005
   *
   * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
@@ -13,7 +13,7 @@
   * http://www.opensource.org/licenses/cpl1.0.php
   *
   * @author: org.sblim.wbemsmt.dcg.generator.jsf.JSFPresentationLayerGenerator
-  * @template: ./tools-dcg/templates/jsf/containerImplMultiLine.vm
+  * @template: org/sblim/wbemsmt/dcg/templates/jsf/containerImplMultiLine.vm
   *
   * Contributors: 
   * 
@@ -23,8 +23,6 @@
   */
 
 package org.sblim.wbemsmt.jsf.samba.container.global;
-
-import javax.faces.component.html.HtmlPanelGrid;
 
 import java.util.*;
 import org.sblim.wbemsmt.tools.input.jsf.*;
@@ -38,12 +36,14 @@ import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
 
 	
-public class AdminUsersInPrinterGlobals_AsUsers_InPrintingGlobalsDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel implements org.sblim.wbemsmt.samba.bl.container.global.AdminUsersInPrinterGlobals {
+public class AdminUsersInPrinterGlobals_AsUsers_InPrintingGlobalsDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel2 implements org.sblim.wbemsmt.samba.bl.container.global.AdminUsersInPrinterGlobals {
 
 			private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_usr_SambaUserName;
 			private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_usr_Admin;
 		
-	private static String[] orientationOfColumnAsCss = new String[]{
+	public static final int COLS = 2;
+	
+	public static String[] orientationOfColumnAsCss = new String[]{
     				"left",
     				"left",
     		
@@ -51,32 +51,8 @@ public class AdminUsersInPrinterGlobals_AsUsers_InPrintingGlobalsDataContainerIm
 	
 	
 	
-	private final int index;
-	
-//	public AdminUsersInPrinterGlobals_AsUsers_InPrintingGlobalsDataContainerImpl(String bindingPrefix, org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter adapter,int index) throws InitContainerException {
-//		this(adapter,bindingPrefix,index, null);
-//	}
-	
-	public AdminUsersInPrinterGlobals_AsUsers_InPrintingGlobalsDataContainerImpl(org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter adapter,String bindingPrefix,int index, HtmlPanelGrid grid) throws InitContainerException {
-	    super(adapter,
-			  bindingPrefix, // the prefix for binding values
-			  "#{" +  bindingPrefix + "users["+ index +"]", // binding for Title
-			  "AdminUsersInPrinterGlobals_AsUsers_InPrintingGlobalsDataContainer.caption", //Key for title
-			  2,grid);
-		this.index = index;
-		addComponents(new LabeledJSFInputComponent[]{
-					(LabeledJSFInputComponent)get_usr_SambaUserName(),
-			
-					(LabeledJSFInputComponent)get_usr_Admin(),
-			
-				});
-		if (first)
-		{
-			//setFooter(getInputFieldContainer(),"#{localeManager.bundle['SAMBA'].AdminUsersInPrinterGlobals_AsUsers_InPrintingGlobalsDataContainerImpl_footerText}","AdminUsersInPrinterGlobals_AsUsers_InPrintingGlobalsDataContainerImpl.footerText");
-			//setFooter(getInputFieldContainer(),"AdminUsersInPrinterGlobals_AsUsers_InPrintingGlobalsDataContainerImpl.footerText");
-			String binding = "#{" +  bindingPrefix + "users["+ index +"].footerText}";
-			setFooter(getOuterPanel(),"AdminUsersInPrinterGlobals_AsUsers_InPrintingGlobalsDataContainer.footerText",binding);
-		}
+	public AdminUsersInPrinterGlobals_AsUsers_InPrintingGlobalsDataContainerImpl(org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter adapter,String bindingPrefix,int index) throws InitContainerException {
+	    super(adapter,bindingPrefix,index);
 		adapter.initContainer(this);
 	}
 	
@@ -132,6 +108,18 @@ public class AdminUsersInPrinterGlobals_AsUsers_InPrintingGlobalsDataContainerIm
     		return ic_usr_Admin;
     	}
 		
+
+	/**
+	 * @return all the Components
+	 */
+	public LabeledJSFInputComponent[] getComponents() {
+		return new LabeledJSFInputComponent[]{
+						(LabeledJSFInputComponent)get_usr_SambaUserName(),
+						(LabeledJSFInputComponent)get_usr_Admin(),
+					};
+	}
+	
+	
 	
 		
 	public void reload()

@@ -3,7 +3,7 @@
   *
 
  
- * © Copyright IBM Corp. 2005
+  * © Copyright IBM Corp. 2005
   *
   * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
@@ -13,7 +13,7 @@
   * http://www.opensource.org/licenses/cpl1.0.php
   *
   * @author: org.sblim.wbemsmt.dcg.generator.jsf.JSFPresentationLayerGenerator
-  * @template: ./tools-dcg/templates/jsf/containerImplMultiLine.vm
+  * @template: org/sblim/wbemsmt/dcg/templates/jsf/containerImplMultiLine.vm
   *
   * Contributors: 
   * 
@@ -23,8 +23,6 @@
   */
 
 package org.sblim.wbemsmt.jsf.samba.container.share;
-
-import javax.faces.component.html.HtmlPanelGrid;
 
 import java.util.*;
 import org.sblim.wbemsmt.tools.input.jsf.*;
@@ -38,7 +36,7 @@ import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
 
 	
-public class PrinterListItemDataContainer_AsPrinters_InPrinterListDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel implements org.sblim.wbemsmt.samba.bl.container.printer.PrinterListItemDataContainer {
+public class PrinterListItemDataContainer_AsPrinters_InPrinterListDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel2 implements org.sblim.wbemsmt.samba.bl.container.printer.PrinterListItemDataContainer {
 
 			private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_Name;
 			private org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf ic_usr_SystemPrinterName;
@@ -52,7 +50,9 @@ public class PrinterListItemDataContainer_AsPrinters_InPrinterListDataContainerI
 			private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_ReadOnly;
 			private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_Browsable;
 		
-	private static String[] orientationOfColumnAsCss = new String[]{
+	public static final int COLS = 11;
+	
+	public static String[] orientationOfColumnAsCss = new String[]{
     				"left",
     				"left",
     				"left",
@@ -69,50 +69,8 @@ public class PrinterListItemDataContainer_AsPrinters_InPrinterListDataContainerI
 	
 	
 	
-	private final int index;
-	
-//	public PrinterListItemDataContainer_AsPrinters_InPrinterListDataContainerImpl(String bindingPrefix, org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter adapter,int index) throws InitContainerException {
-//		this(adapter,bindingPrefix,index, null);
-//	}
-	
-	public PrinterListItemDataContainer_AsPrinters_InPrinterListDataContainerImpl(org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter adapter,String bindingPrefix,int index, HtmlPanelGrid grid) throws InitContainerException {
-	    super(adapter,
-			  bindingPrefix, // the prefix for binding values
-			  "#{" +  bindingPrefix + "printers["+ index +"]", // binding for Title
-			  "PrinterListItemDataContainer_AsPrinters_InPrinterListDataContainer.caption", //Key for title
-			  11,grid);
-		this.index = index;
-		addComponents(new LabeledJSFInputComponent[]{
-					(LabeledJSFInputComponent)get_Name(),
-			
-					(LabeledJSFInputComponent)get_usr_SystemPrinterName(),
-			
-					(LabeledJSFInputComponent)get_Path(),
-			
-					(LabeledJSFInputComponent)get_Comment(),
-			
-					(LabeledJSFInputComponent)get_Available(),
-			
-					(LabeledJSFInputComponent)get_GuestOK(),
-			
-					(LabeledJSFInputComponent)get_GuestOnly(),
-			
-					(LabeledJSFInputComponent)get_HostsAllow(),
-			
-					(LabeledJSFInputComponent)get_HostsDeny(),
-			
-					(LabeledJSFInputComponent)get_ReadOnly(),
-			
-					(LabeledJSFInputComponent)get_Browsable(),
-			
-				});
-		if (first)
-		{
-			//setFooter(getInputFieldContainer(),"#{localeManager.bundle['SAMBA'].PrinterListItemDataContainer_AsPrinters_InPrinterListDataContainerImpl_footerText}","PrinterListItemDataContainer_AsPrinters_InPrinterListDataContainerImpl.footerText");
-			//setFooter(getInputFieldContainer(),"PrinterListItemDataContainer_AsPrinters_InPrinterListDataContainerImpl.footerText");
-			String binding = "#{" +  bindingPrefix + "printers["+ index +"].footerText}";
-			setFooter(getOuterPanel(),"PrinterListItemDataContainer_AsPrinters_InPrinterListDataContainer.footerText",binding);
-		}
+	public PrinterListItemDataContainer_AsPrinters_InPrinterListDataContainerImpl(org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter adapter,String bindingPrefix,int index) throws InitContainerException {
+	    super(adapter,bindingPrefix,index);
 		adapter.initContainer(this);
 	}
 	
@@ -393,6 +351,27 @@ public class PrinterListItemDataContainer_AsPrinters_InPrinterListDataContainerI
     		return ic_Browsable;
     	}
 		
+
+	/**
+	 * @return all the Components
+	 */
+	public LabeledJSFInputComponent[] getComponents() {
+		return new LabeledJSFInputComponent[]{
+						(LabeledJSFInputComponent)get_Name(),
+						(LabeledJSFInputComponent)get_usr_SystemPrinterName(),
+						(LabeledJSFInputComponent)get_Path(),
+						(LabeledJSFInputComponent)get_Comment(),
+						(LabeledJSFInputComponent)get_Available(),
+						(LabeledJSFInputComponent)get_GuestOK(),
+						(LabeledJSFInputComponent)get_GuestOnly(),
+						(LabeledJSFInputComponent)get_HostsAllow(),
+						(LabeledJSFInputComponent)get_HostsDeny(),
+						(LabeledJSFInputComponent)get_ReadOnly(),
+						(LabeledJSFInputComponent)get_Browsable(),
+					};
+	}
+	
+	
 	
 		
 	public void reload()

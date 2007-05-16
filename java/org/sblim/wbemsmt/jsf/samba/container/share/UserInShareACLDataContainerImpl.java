@@ -3,7 +3,7 @@
   *
 
  
- * © Copyright IBM Corp. 2005
+  * © Copyright IBM Corp. 2005
   *
   * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
@@ -13,7 +13,7 @@
   * http://www.opensource.org/licenses/cpl1.0.php
   *
   * @author: org.sblim.wbemsmt.dcg.generator.jsf.JSFPresentationLayerGenerator
-  * @template: ./tools-dcg/templates/jsf/containerImpl.vm
+  * @template: org/sblim/wbemsmt/dcg/templates/jsf/containerImpl.vm
   *
   * Contributors: 
   * 
@@ -27,6 +27,12 @@ package org.sblim.wbemsmt.jsf.samba.container.share;
 import org.sblim.wbemsmt.exception.*;
 import java.util.*;
 
+//imports for that field of a linked container with occurence = MANY
+import org.sblim.wbemsmt.tools.jsf.MultiLinePanel;
+import org.sblim.wbemsmt.bl.adapter.AbstractBaseCimAdapter;
+import org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent;
+import org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf;
+
 
 
 import org.sblim.wbemsmt.bl.adapter.DataContainer;
@@ -36,7 +42,16 @@ public class UserInShareACLDataContainerImpl extends org.sblim.wbemsmt.tools.jsf
 
 			private org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf ic_usr_NewForceUser;
     		private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_usr_CurrentForceUser;
-    			private java.util.List icUsers = new java.util.ArrayList();
+    			
+				private java.util.List icUsers = new java.util.ArrayList();
+		
+		private MultiLinePanel usersPanel;
+
+				private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf icUsers_SambaUserNameHeader;
+				private org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf icUsers_usr_AccessTypeVIHeader;
+				private org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf icUsers_usr_AccessTypeRWHeader;
+				private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf icUsers_usr_AdminHeader;
+				
 	
 		
 	
@@ -103,6 +118,7 @@ public class UserInShareACLDataContainerImpl extends org.sblim.wbemsmt.tools.jsf
     	}
 		
 			
+				
 		/**
 		* 
 		* linked container UserACLItemDataContainerForShare
@@ -111,7 +127,139 @@ public class UserInShareACLDataContainerImpl extends org.sblim.wbemsmt.tools.jsf
 		{
 						return icUsers;
 		}
+		
+		public MultiLinePanel getUsersPanel()
+		{
+			if (usersPanel == null)
+			{
+  			   usersPanel = new UsersPanel(adapter,bindingPrefix, // the prefix for binding values
+							  "#{" +  bindingPrefix + "usersPanel", // binding for Title
+							  "UserACLItemDataContainerForShare_AsUsers_InUserInShareACLDataContainer.caption", //Key for title
+							  org.sblim.wbemsmt.jsf.samba.container.share.UserACLItemDataContainerForShare_AsUsers_InUserInShareACLDataContainerImpl.COLS);
+			}		
+			
+			return usersPanel;
+		}
 
+		static class UsersPanel extends MultiLinePanel
+		{
+			public UsersPanel(AbstractBaseCimAdapter adapter, String bindingPrefix, String bindigForTitle, String keyForTitle, int cols) {
+				super(adapter, bindingPrefix, bindigForTitle, keyForTitle, cols);
+			}
+	
+			protected String getOrientationOfColumnAsCss(int column) {
+				return org.sblim.wbemsmt.jsf.samba.container.share.UserACLItemDataContainerForShare_AsUsers_InUserInShareACLDataContainerImpl.orientationOfColumnAsCss[column];
+			}
+		}
+
+	public void addUsers(org.sblim.wbemsmt.jsf.samba.container.share.UserACLItemDataContainerForShare_AsUsers_InUserInShareACLDataContainerImpl child) {
+
+		getUsers().add(child);
+		getUsersPanel().addComponents(child.getComponents());
+		
+					((LabeledJSFInputComponent)getUsers_SambaUserNameHeader()).getDependentChildFields().add(child.get_SambaUserName());
+					((LabeledJSFInputComponent)getUsers_usr_AccessTypeVIHeader()).getDependentChildFields().add(child.get_usr_AccessTypeVI());
+					((LabeledJSFInputComponent)getUsers_usr_AccessTypeRWHeader()).getDependentChildFields().add(child.get_usr_AccessTypeRW());
+					((LabeledJSFInputComponent)getUsers_usr_AdminHeader()).getDependentChildFields().add(child.get_usr_Admin());
+		
+		
+	}
+
+	public void clearUsers() {
+		getUsers().clear();
+		getUsersPanel().getInputFieldContainer().getChildren().clear();
+					((LabeledJSFInputComponent)getUsers_SambaUserNameHeader()).getDependentChildFields().clear();
+					((LabeledJSFInputComponent)getUsers_usr_AccessTypeVIHeader()).getDependentChildFields().clear();
+					((LabeledJSFInputComponent)getUsers_usr_AccessTypeRWHeader()).getDependentChildFields().clear();
+					((LabeledJSFInputComponent)getUsers_usr_AdminHeader()).getDependentChildFields().clear();
+			}
+
+	public void addUsersHeader() {
+		getUsersPanel().setHeader(getUsersHeaderComponents());
+	}
+	
+	private LabeledJSFInputComponent[] getUsersHeaderComponents() {
+		return new LabeledJSFInputComponent[]{
+							(LabeledJSFInputComponent)getUsers_SambaUserNameHeader(),
+							(LabeledJSFInputComponent)getUsers_usr_AccessTypeVIHeader(),
+							(LabeledJSFInputComponent)getUsers_usr_AccessTypeRWHeader(),
+							(LabeledJSFInputComponent)getUsers_usr_AdminHeader(),
+						};
+	}
+
+			/**
+   		 * Header for field SambaUserName
+		 */
+		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf getUsers_SambaUserNameHeader() {
+    		if (icUsers_SambaUserNameHeader == null)
+    		{
+				String label = bundle.getString("UserACLItemDataContainerForShare.SambaUserName");
+				String binding = bindingPrefix + "users_SambaUserNameHeader.item";
+				logger.fine("Using binding " + binding);
+				org.sblim.wbemsmt.bl.adapter.DataContainer parent = this;
+				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
+				boolean readOnly = true;
+    			icUsers_SambaUserNameHeader = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent(parent,label,binding,converter, readOnly);
+				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent)icUsers_SambaUserNameHeader).setOrientation( LabeledBaseInputComponentIf.LEFT );    		}
+				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent)icUsers_SambaUserNameHeader).setHeader(true);
+			
+    		return icUsers_SambaUserNameHeader;
+    	}
+			/**
+   		 * Header for field accessTypeVI
+		 */
+		public org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf getUsers_usr_AccessTypeVIHeader() {
+    		if (icUsers_usr_AccessTypeVIHeader == null)
+    		{
+				String label = bundle.getString("UserACLItemDataContainerForShare.accessTypeVI");
+				String binding = bindingPrefix + "users_usr_AccessTypeVIHeader.item";
+				logger.fine("Using binding " + binding);
+				org.sblim.wbemsmt.bl.adapter.DataContainer parent = this;
+				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.UnsignedInt16StringConverter();
+				boolean readOnly = false;
+    			icUsers_usr_AccessTypeVIHeader = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFRadioButtonComponent(parent,label,binding,converter, readOnly);
+				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFRadioButtonComponent)icUsers_usr_AccessTypeVIHeader).setOrientation( LabeledBaseInputComponentIf.LEFT );    		}
+				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFRadioButtonComponent)icUsers_usr_AccessTypeVIHeader).setHeader(true);
+			
+    		return icUsers_usr_AccessTypeVIHeader;
+    	}
+			/**
+   		 * Header for field accessTypeRW
+		 */
+		public org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf getUsers_usr_AccessTypeRWHeader() {
+    		if (icUsers_usr_AccessTypeRWHeader == null)
+    		{
+				String label = bundle.getString("UserACLItemDataContainerForShare.accessTypeRW");
+				String binding = bindingPrefix + "users_usr_AccessTypeRWHeader.item";
+				logger.fine("Using binding " + binding);
+				org.sblim.wbemsmt.bl.adapter.DataContainer parent = this;
+				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.UnsignedInt16StringConverter();
+				boolean readOnly = false;
+    			icUsers_usr_AccessTypeRWHeader = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFRadioButtonComponent(parent,label,binding,converter, readOnly);
+				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFRadioButtonComponent)icUsers_usr_AccessTypeRWHeader).setOrientation( LabeledBaseInputComponentIf.LEFT );    		}
+				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFRadioButtonComponent)icUsers_usr_AccessTypeRWHeader).setHeader(true);
+			
+    		return icUsers_usr_AccessTypeRWHeader;
+    	}
+			/**
+   		 * Header for field admin
+		 */
+		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf getUsers_usr_AdminHeader() {
+    		if (icUsers_usr_AdminHeader == null)
+    		{
+				String label = bundle.getString("UserACLItemDataContainerForShare.admin");
+				String binding = bindingPrefix + "users_usr_AdminHeader.item";
+				logger.fine("Using binding " + binding);
+				org.sblim.wbemsmt.bl.adapter.DataContainer parent = this;
+				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
+				boolean readOnly = false;
+    			icUsers_usr_AdminHeader = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
+				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent)icUsers_usr_AdminHeader).setOrientation( LabeledBaseInputComponentIf.LEFT );    		}
+				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent)icUsers_usr_AdminHeader).setHeader(true);
+			
+    		return icUsers_usr_AdminHeader;
+    	}
+	
 	
 		
 	public void reload()

@@ -3,7 +3,7 @@
   *
 
  
- * © Copyright IBM Corp. 2005
+  * © Copyright IBM Corp. 2005
   *
   * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
@@ -13,7 +13,7 @@
   * http://www.opensource.org/licenses/cpl1.0.php
   *
   * @author: org.sblim.wbemsmt.dcg.generator.jsf.JSFPresentationLayerGenerator
-  * @template: ./tools-dcg/templates/jsf/containerImpl.vm
+  * @template: org/sblim/wbemsmt/dcg/templates/jsf/containerImpl.vm
   *
   * Contributors: 
   * 
@@ -26,6 +26,7 @@ package org.sblim.wbemsmt.jsf.samba.container.wizard;
 
 import org.sblim.wbemsmt.exception.*;
 import java.util.*;
+
 
 
 
@@ -51,7 +52,8 @@ public class PrinterWizardPage1Impl extends org.sblim.wbemsmt.tools.wizard.jsf.W
 				
 				
     			
-    				layouter = new PrinterWizardPage1ImplLayouter();//.layout(getPanelForCustomLayout(),this,bundle);
+    				layouter = new PrinterWizardPage1ImplLayouter();
+			layouter.layout(getPanelForCustomLayout(),this,bundle);
 				
 		setFooter(getPanelForCustomLayout(),"PrinterWizardPage1.footerText");
 		adapter.initContainer(this);

@@ -3,7 +3,7 @@
   *
 
  
- * © Copyright IBM Corp. 2005
+  * © Copyright IBM Corp. 2005
   *
   * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
@@ -13,7 +13,7 @@
   * http://www.opensource.org/licenses/cpl1.0.php
   *
   * @author: org.sblim.wbemsmt.dcg.generator.jsf.JSFPresentationLayerGenerator
-  * @template: ./tools-dcg/templates/jsf/containerImplMultiLine.vm
+  * @template: org/sblim/wbemsmt/dcg/templates/jsf/containerImplMultiLine.vm
   *
   * Contributors: 
   * 
@@ -23,8 +23,6 @@
   */
 
 package org.sblim.wbemsmt.jsf.samba.container.wizard;
-
-import javax.faces.component.html.HtmlPanelGrid;
 
 import java.util.*;
 import org.sblim.wbemsmt.tools.input.jsf.*;
@@ -38,14 +36,16 @@ import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
 
 	
-public class PrinterInUserWizardACLItemDataContainer_AsPrinters_InUserWizardPage3Impl extends org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel implements org.sblim.wbemsmt.samba.bl.container.wizard.PrinterInUserWizardACLItemDataContainer {
+public class PrinterInUserWizardACLItemDataContainer_AsPrinters_InUserWizardPage3Impl extends org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel2 implements org.sblim.wbemsmt.samba.bl.container.wizard.PrinterInUserWizardACLItemDataContainer {
 
 			private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_PrinterName;
 			private org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf ic_usr_AccessTypeVI;
 			private org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf ic_usr_AccessTypeRW;
 			private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_usr_Admin;
 		
-	private static String[] orientationOfColumnAsCss = new String[]{
+	public static final int COLS = 4;
+	
+	public static String[] orientationOfColumnAsCss = new String[]{
     				"left",
     				"left",
     				"left",
@@ -55,36 +55,8 @@ public class PrinterInUserWizardACLItemDataContainer_AsPrinters_InUserWizardPage
 	
 	
 	
-	private final int index;
-	
-//	public PrinterInUserWizardACLItemDataContainer_AsPrinters_InUserWizardPage3Impl(String bindingPrefix, org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter adapter,int index) throws InitContainerException {
-//		this(adapter,bindingPrefix,index, null);
-//	}
-	
-	public PrinterInUserWizardACLItemDataContainer_AsPrinters_InUserWizardPage3Impl(org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter adapter,String bindingPrefix,int index, HtmlPanelGrid grid) throws InitContainerException {
-	    super(adapter,
-			  bindingPrefix, // the prefix for binding values
-			  "#{" +  bindingPrefix + "printers["+ index +"]", // binding for Title
-			  "PrinterInUserWizardACLItemDataContainer_AsPrinters_InUserWizardPage3.caption", //Key for title
-			  4,grid);
-		this.index = index;
-		addComponents(new LabeledJSFInputComponent[]{
-					(LabeledJSFInputComponent)get_PrinterName(),
-			
-					(LabeledJSFInputComponent)get_usr_AccessTypeVI(),
-			
-					(LabeledJSFInputComponent)get_usr_AccessTypeRW(),
-			
-					(LabeledJSFInputComponent)get_usr_Admin(),
-			
-				});
-		if (first)
-		{
-			//setFooter(getInputFieldContainer(),"#{localeManager.bundle['SAMBA'].PrinterInUserWizardACLItemDataContainer_AsPrinters_InUserWizardPage3Impl_footerText}","PrinterInUserWizardACLItemDataContainer_AsPrinters_InUserWizardPage3Impl.footerText");
-			//setFooter(getInputFieldContainer(),"PrinterInUserWizardACLItemDataContainer_AsPrinters_InUserWizardPage3Impl.footerText");
-			String binding = "#{" +  bindingPrefix + "printers["+ index +"].footerText}";
-			setFooter(getOuterPanel(),"PrinterInUserWizardACLItemDataContainer_AsPrinters_InUserWizardPage3.footerText",binding);
-		}
+	public PrinterInUserWizardACLItemDataContainer_AsPrinters_InUserWizardPage3Impl(org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter adapter,String bindingPrefix,int index) throws InitContainerException {
+	    super(adapter,bindingPrefix,index);
 		adapter.initContainer(this);
 	}
 	
@@ -190,6 +162,20 @@ public class PrinterInUserWizardACLItemDataContainer_AsPrinters_InUserWizardPage
     		return ic_usr_Admin;
     	}
 		
+
+	/**
+	 * @return all the Components
+	 */
+	public LabeledJSFInputComponent[] getComponents() {
+		return new LabeledJSFInputComponent[]{
+						(LabeledJSFInputComponent)get_PrinterName(),
+						(LabeledJSFInputComponent)get_usr_AccessTypeVI(),
+						(LabeledJSFInputComponent)get_usr_AccessTypeRW(),
+						(LabeledJSFInputComponent)get_usr_Admin(),
+					};
+	}
+	
+	
 	
 		
 	public void reload()

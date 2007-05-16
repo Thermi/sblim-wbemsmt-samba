@@ -3,7 +3,7 @@
   *
 
  
- * © Copyright IBM Corp. 2005
+  * © Copyright IBM Corp. 2005
   *
   * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
@@ -13,7 +13,7 @@
   * http://www.opensource.org/licenses/cpl1.0.php
   *
   * @author: org.sblim.wbemsmt.dcg.generator.jsf.JSFPresentationLayerGenerator
-  * @template: ./tools-dcg/templates/jsf/containerImplMultiLine.vm
+  * @template: org/sblim/wbemsmt/dcg/templates/jsf/containerImplMultiLine.vm
   *
   * Contributors: 
   * 
@@ -23,8 +23,6 @@
   */
 
 package org.sblim.wbemsmt.jsf.samba.container.share;
-
-import javax.faces.component.html.HtmlPanelGrid;
 
 import java.util.*;
 import org.sblim.wbemsmt.tools.input.jsf.*;
@@ -38,7 +36,7 @@ import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
 
 	
-public class ShareListItemDataContainer_AsShares_InShareListDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel implements org.sblim.wbemsmt.samba.bl.container.share.ShareListItemDataContainer {
+public class ShareListItemDataContainer_AsShares_InShareListDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel2 implements org.sblim.wbemsmt.samba.bl.container.share.ShareListItemDataContainer {
 
 			private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_Name;
 			private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_Available;
@@ -51,7 +49,9 @@ public class ShareListItemDataContainer_AsShares_InShareListDataContainerImpl ex
 			private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_HostsDeny;
 			private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_ReadOnly;
 		
-	private static String[] orientationOfColumnAsCss = new String[]{
+	public static final int COLS = 10;
+	
+	public static String[] orientationOfColumnAsCss = new String[]{
     				"left",
     				"left",
     				"left",
@@ -67,48 +67,8 @@ public class ShareListItemDataContainer_AsShares_InShareListDataContainerImpl ex
 	
 	
 	
-	private final int index;
-	
-//	public ShareListItemDataContainer_AsShares_InShareListDataContainerImpl(String bindingPrefix, org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter adapter,int index) throws InitContainerException {
-//		this(adapter,bindingPrefix,index, null);
-//	}
-	
-	public ShareListItemDataContainer_AsShares_InShareListDataContainerImpl(org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter adapter,String bindingPrefix,int index, HtmlPanelGrid grid) throws InitContainerException {
-	    super(adapter,
-			  bindingPrefix, // the prefix for binding values
-			  "#{" +  bindingPrefix + "shares["+ index +"]", // binding for Title
-			  "ShareListItemDataContainer_AsShares_InShareListDataContainer.caption", //Key for title
-			  10,grid);
-		this.index = index;
-		addComponents(new LabeledJSFInputComponent[]{
-					(LabeledJSFInputComponent)get_Name(),
-			
-					(LabeledJSFInputComponent)get_Available(),
-			
-					(LabeledJSFInputComponent)get_Comment(),
-			
-					(LabeledJSFInputComponent)get_Path(),
-			
-					(LabeledJSFInputComponent)get_Browsable(),
-			
-					(LabeledJSFInputComponent)get_GuestOK(),
-			
-					(LabeledJSFInputComponent)get_GuestOnly(),
-			
-					(LabeledJSFInputComponent)get_HostsAllow(),
-			
-					(LabeledJSFInputComponent)get_HostsDeny(),
-			
-					(LabeledJSFInputComponent)get_ReadOnly(),
-			
-				});
-		if (first)
-		{
-			//setFooter(getInputFieldContainer(),"#{localeManager.bundle['SAMBA'].ShareListItemDataContainer_AsShares_InShareListDataContainerImpl_footerText}","ShareListItemDataContainer_AsShares_InShareListDataContainerImpl.footerText");
-			//setFooter(getInputFieldContainer(),"ShareListItemDataContainer_AsShares_InShareListDataContainerImpl.footerText");
-			String binding = "#{" +  bindingPrefix + "shares["+ index +"].footerText}";
-			setFooter(getOuterPanel(),"ShareListItemDataContainer_AsShares_InShareListDataContainer.footerText",binding);
-		}
+	public ShareListItemDataContainer_AsShares_InShareListDataContainerImpl(org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter adapter,String bindingPrefix,int index) throws InitContainerException {
+	    super(adapter,bindingPrefix,index);
 		adapter.initContainer(this);
 	}
 	
@@ -364,6 +324,26 @@ public class ShareListItemDataContainer_AsShares_InShareListDataContainerImpl ex
     		return ic_ReadOnly;
     	}
 		
+
+	/**
+	 * @return all the Components
+	 */
+	public LabeledJSFInputComponent[] getComponents() {
+		return new LabeledJSFInputComponent[]{
+						(LabeledJSFInputComponent)get_Name(),
+						(LabeledJSFInputComponent)get_Available(),
+						(LabeledJSFInputComponent)get_Comment(),
+						(LabeledJSFInputComponent)get_Path(),
+						(LabeledJSFInputComponent)get_Browsable(),
+						(LabeledJSFInputComponent)get_GuestOK(),
+						(LabeledJSFInputComponent)get_GuestOnly(),
+						(LabeledJSFInputComponent)get_HostsAllow(),
+						(LabeledJSFInputComponent)get_HostsDeny(),
+						(LabeledJSFInputComponent)get_ReadOnly(),
+					};
+	}
+	
+	
 	
 		
 	public void reload()

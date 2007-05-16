@@ -3,7 +3,7 @@
   *
 
  
- * © Copyright IBM Corp. 2005
+  * © Copyright IBM Corp. 2005
   *
   * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
@@ -13,7 +13,7 @@
   * http://www.opensource.org/licenses/cpl1.0.php
   *
   * @author: org.sblim.wbemsmt.dcg.generator.cmd.CMDPresentationLayerGenerator
-  * @template: ./tools-dcg/templates/cmd/editCommand.vm
+  * @template: org/sblim/wbemsmt/dcg/templates/cmd/editCommand.vm
   *
   * Contributors: 
   * 
@@ -38,81 +38,81 @@ public class EditSambaPrintingOptions extends CimCommand {
  
 	//All Options that are local and defined for this command
 			/**
-		 * 
+   		 * required, used for selection:  --sambaPrintername, default: noDefaultValue
 		 */
 		public static final OptionDefinition KEY_sambaPrintername = new OptionDefinition(null,"sambaPrintername","noDefaultValue","EditSambaPrintingOptions.sambaPrintername.argValue",true,false,"EditSambaPrintingOptions.sambaPrintername.argDescription");
 			/**
-		 * 
+   		 *  --cupsOptions, default: noDefaultValue
 		 */
 		public static final OptionDefinition KEY_cupsOptions = new OptionDefinition(null,"cupsOptions","noDefaultValue","PrintingOptionsDataContainer.CupsOptions.argValue",false,false,"PrintingOptionsDataContainer.CupsOptions.argDescription");
 			/**
-		 * 
+   		 *  --defaultDevMode, default: noDefaultValue
 		 */
 		public static final OptionDefinition KEY_defaultDevMode = new OptionDefinition(null,"defaultDevMode","noDefaultValue","PrintingOptionsDataContainer.DefaultDevMode.argValue",false,false,"PrintingOptionsDataContainer.DefaultDevMode.argDescription");
 			/**
-		 * 
+   		 *  --maxPrintjobs, default: noDefaultValue
 		 */
 		public static final OptionDefinition KEY_maxPrintjobs = new OptionDefinition(null,"maxPrintjobs","noDefaultValue","PrintingOptionsDataContainer.MaxPrintjobs.argValue",false,false,"PrintingOptionsDataContainer.MaxPrintjobs.argDescription");
 			/**
-		 * 
+   		 *  --maxReportedPrintjobs, default: noDefaultValue
 		 */
 		public static final OptionDefinition KEY_maxReportedPrintjobs = new OptionDefinition(null,"maxReportedPrintjobs","noDefaultValue","PrintingOptionsDataContainer.MaxReportedPrintjobs.argValue",false,false,"PrintingOptionsDataContainer.MaxReportedPrintjobs.argDescription");
 			/**
-		 * 
+   		 *  --printCommand, default: noDefaultValue
 		 */
 		public static final OptionDefinition KEY_printCommand = new OptionDefinition(null,"printCommand","noDefaultValue","PrintingOptionsDataContainer.PrintCommand.argValue",false,false,"PrintingOptionsDataContainer.PrintCommand.argDescription");
 			/**
-		 * 
+   		 *  --useClientDriver, default: noDefaultValue
 		 */
 		public static final OptionDefinition KEY_useClientDriver = new OptionDefinition(null,"useClientDriver","noDefaultValue","PrintingOptionsDataContainer.UseClientDriver.argValue",false,false,"PrintingOptionsDataContainer.UseClientDriver.argDescription");
 		
 	//All Options that are global and task-related
 			/**
-		 * 
+   		 * required, used for selection:  --serviceName, default: noDefaultValue
 		 */
 		public static final OptionDefinition KEY_GLOBAL_serviceName = new OptionDefinition(null,"serviceName","noDefaultValue","serviceName.argValue",true,false,"serviceName.argDescription");
 	
 	// Global Communication Options
 			/**
-		 * 
+   		 *  --hostname
 		 */
 		public static final OptionDefinition KEY_GLOBAL_hostname = new OptionDefinition(null,"hostname",null,"hostname.argValue",false,false,"hostname.argDescription");
 			/**
-		 * 
+   		 *  --port, default: 5988
 		 */
 		public static final OptionDefinition KEY_GLOBAL_port = new OptionDefinition(null,"port","5988","port.argValue",false,false,"port.argDescription");
 			/**
-		 * 
+   		 *  --namespace, default: /root/cimv2
 		 */
 		public static final OptionDefinition KEY_GLOBAL_namespace = new OptionDefinition(null,"namespace","/root/cimv2","namespace.argValue",false,false,"namespace.argDescription");
 			/**
-		 * 
+   		 *  --user
 		 */
 		public static final OptionDefinition KEY_GLOBAL_user = new OptionDefinition(null,"user",null,"user.argValue",false,false,"user.argDescription");
 			/**
-		 * 
+   		 *  --password
 		 */
 		public static final OptionDefinition KEY_GLOBAL_password = new OptionDefinition(null,"password",null,"password.argValue",false,false,"password.argDescription");
 			/**
-		 * 
+   		 *  --publickeyfile
 		 */
 		public static final OptionDefinition KEY_GLOBAL_publickeyfile = new OptionDefinition(null,"publickeyfile",null,"publickeyfile.argValue",false,false,"publickeyfile.argDescription");
 			/**
-		 * 
+   		 *  --privatekeyfile
 		 */
 		public static final OptionDefinition KEY_GLOBAL_privatekeyfile = new OptionDefinition(null,"privatekeyfile",null,"privatekeyfile.argValue",false,false,"privatekeyfile.argDescription");
 	
 	// Global Common Options
 			/**
-		 * 
+   		 *  -?
 		 */
 		public static final OptionDefinition KEY_GLOBAL_QUESTION_MARK_ = new OptionDefinition("?",null,null,null,false,false,"?.argDescription");
 			/**
-		 * 
+   		 *  -h --help
 		 */
 		public static final OptionDefinition KEY_GLOBAL_help = new OptionDefinition("h","help",null,null,false,false,"help.argDescription");
 			/**
-		 * 
+   		 *  -L --locale, default: en
 		 */
 		public static final OptionDefinition KEY_GLOBAL_locale = new OptionDefinition("L","locale","en","locale.argValue",false,false,"locale.argDescription");
 	

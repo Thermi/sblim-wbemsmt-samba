@@ -3,7 +3,7 @@
   *
 
  
- * © Copyright IBM Corp. 2005
+  * © Copyright IBM Corp. 2005
   *
   * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
@@ -13,7 +13,7 @@
   * http://www.opensource.org/licenses/cpl1.0.php
   *
   * @author: org.sblim.wbemsmt.dcg.generator.cmd.CMDPresentationLayerGenerator
-  * @template: ./tools-dcg/templates/cmd/createCommand.vm
+  * @template: org/sblim/wbemsmt/dcg/templates/cmd/createCommand.vm
   *
   * Contributors: 
   * 
@@ -39,97 +39,97 @@ public class CreateSambaPrinter extends CimCommand implements ContainerUpdater {
  
 	//All Options that are local and defined for this command
 			/**
-		 * 
+   		 * required,  --allOrOne, default: noDefaultValue
 		 */
 		public static final OptionDefinition KEY_allOrOne = new OptionDefinition(null,"allOrOne","noDefaultValue","PrinterWizardPage1.allOrOne.argValue",true,false,"PrinterWizardPage1.allOrOne.argDescription");
 			/**
-		 * 
+   		 * required,  --sambaPrinterName, default: noDefaultValue
 		 */
 		public static final OptionDefinition KEY_sambaPrinterName = new OptionDefinition(null,"sambaPrinterName","noDefaultValue","PrinterWizardPage2.SambaPrinterName.argValue",true,false,"PrinterWizardPage2.SambaPrinterName.argDescription");
 			/**
-		 * 
+   		 * required,  --systemPrintername, default: noDefaultValue
 		 */
 		public static final OptionDefinition KEY_systemPrintername = new OptionDefinition(null,"systemPrintername","noDefaultValue","PrinterWizardPage2.SystemPrinterName.argValue",true,false,"PrinterWizardPage2.SystemPrinterName.argDescription");
 			/**
-		 * 
+   		 * required,  --path, default: noDefaultValue
 		 */
 		public static final OptionDefinition KEY_path = new OptionDefinition(null,"path","noDefaultValue","PrinterWizardPage2.Path.argValue",true,false,"PrinterWizardPage2.Path.argDescription");
 			/**
-		 * 
+   		 *  --comment, default: noDefaultValue
 		 */
 		public static final OptionDefinition KEY_comment = new OptionDefinition(null,"comment","noDefaultValue","PrinterWizardPage2.Comment.argValue",false,false,"PrinterWizardPage2.Comment.argDescription");
 			/**
-		 * 
+   		 *  --seenByEverybody, default: noDefaultValue
 		 */
 		public static final OptionDefinition KEY_seenByEverybody = new OptionDefinition(null,"seenByEverybody","noDefaultValue","PrinterWizardPage3.seenByEverybody.argValue",false,false,"PrinterWizardPage3.seenByEverybody.argDescription");
 			/**
-		 * 
+   		 *  --enableGuest, default: noDefaultValue
 		 */
 		public static final OptionDefinition KEY_enableGuest = new OptionDefinition(null,"enableGuest","noDefaultValue","PrinterWizardPage3.enableGuest.argValue",false,false,"PrinterWizardPage3.enableGuest.argDescription");
 			/**
-		 * 
+   		 *  --enableAllUsers, default: noDefaultValue
 		 */
 		public static final OptionDefinition KEY_enableAllUsers = new OptionDefinition(null,"enableAllUsers","noDefaultValue","PrinterWizardPage3.enableAllUsers.argValue",false,false,"PrinterWizardPage3.enableAllUsers.argDescription");
 			/**
-		 * 
+   		 *  --forceUser, default: noDefaultValue
 		 */
 		public static final OptionDefinition KEY_forceUser = new OptionDefinition(null,"forceUser","noDefaultValue","PrinterWizardPage3.forceUser.argValue",false,false,"PrinterWizardPage3.forceUser.argDescription");
 			/**
-		 * 
+   		 *  --cupsOptions, default: noDefaultValue
 		 */
 		public static final OptionDefinition KEY_cupsOptions = new OptionDefinition(null,"cupsOptions","noDefaultValue","PrinterWizardPage4.CupsOptions.argValue",false,false,"PrinterWizardPage4.CupsOptions.argDescription");
 			/**
-		 * 
+   		 *  --printCommand, default: noDefaultValue
 		 */
 		public static final OptionDefinition KEY_printCommand = new OptionDefinition(null,"printCommand","noDefaultValue","PrinterWizardPage4.PrintCommand.argValue",false,false,"PrinterWizardPage4.PrintCommand.argDescription");
 		
 	//All Options that are global and task-related
 			/**
-		 * 
+   		 * required, used for selection:  --serviceName, default: noDefaultValue
 		 */
 		public static final OptionDefinition KEY_GLOBAL_serviceName = new OptionDefinition(null,"serviceName","noDefaultValue","serviceName.argValue",true,false,"serviceName.argDescription");
 	
 	// Global Communication Options
 			/**
-		 * 
+   		 *  --hostname
 		 */
 		public static final OptionDefinition KEY_GLOBAL_hostname = new OptionDefinition(null,"hostname",null,"hostname.argValue",false,false,"hostname.argDescription");
 			/**
-		 * 
+   		 *  --port, default: 5988
 		 */
 		public static final OptionDefinition KEY_GLOBAL_port = new OptionDefinition(null,"port","5988","port.argValue",false,false,"port.argDescription");
 			/**
-		 * 
+   		 *  --namespace, default: /root/cimv2
 		 */
 		public static final OptionDefinition KEY_GLOBAL_namespace = new OptionDefinition(null,"namespace","/root/cimv2","namespace.argValue",false,false,"namespace.argDescription");
 			/**
-		 * 
+   		 *  --user
 		 */
 		public static final OptionDefinition KEY_GLOBAL_user = new OptionDefinition(null,"user",null,"user.argValue",false,false,"user.argDescription");
 			/**
-		 * 
+   		 *  --password
 		 */
 		public static final OptionDefinition KEY_GLOBAL_password = new OptionDefinition(null,"password",null,"password.argValue",false,false,"password.argDescription");
 			/**
-		 * 
+   		 *  --publickeyfile
 		 */
 		public static final OptionDefinition KEY_GLOBAL_publickeyfile = new OptionDefinition(null,"publickeyfile",null,"publickeyfile.argValue",false,false,"publickeyfile.argDescription");
 			/**
-		 * 
+   		 *  --privatekeyfile
 		 */
 		public static final OptionDefinition KEY_GLOBAL_privatekeyfile = new OptionDefinition(null,"privatekeyfile",null,"privatekeyfile.argValue",false,false,"privatekeyfile.argDescription");
 	
 	// Global Common Options
 			/**
-		 * 
+   		 *  -?
 		 */
 		public static final OptionDefinition KEY_GLOBAL_QUESTION_MARK_ = new OptionDefinition("?",null,null,null,false,false,"?.argDescription");
 			/**
-		 * 
+   		 *  -h --help
 		 */
 		public static final OptionDefinition KEY_GLOBAL_help = new OptionDefinition("h","help",null,null,false,false,"help.argDescription");
 			/**
-		 * 
+   		 *  -L --locale, default: en
 		 */
 		public static final OptionDefinition KEY_GLOBAL_locale = new OptionDefinition("L","locale","en","locale.argValue",false,false,"locale.argDescription");
 	
@@ -224,7 +224,7 @@ public class CreateSambaPrinter extends CimCommand implements ContainerUpdater {
 				
 			adapter.loadInitial(adapter.getCimClient());
 			
-			values.getOut().println("\n" + bundle.getString("creating", new Object[]{bundle.getString("printerWizard.caption")}));
+			values.getOut().println("\n" + bundle.getString("printerWizard.create.start"));
 			
 			CliDataLoader loader = new CreateSambaPrinterLoader();
 			loader.load(bundle,adapter, cmd );
@@ -318,7 +318,7 @@ public class CreateSambaPrinter extends CimCommand implements ContainerUpdater {
 			values.getOut().println("\n" + bundle.getString("createdObject") + ":\n");
 			dc.trace(values.getOut());
 			
-		values.getOut().println("\n" + bundle.getString("created", new Object[]{bundle.getString("printerWizard.caption")}));
+   		    //values.getOut().println("\n" + bundle.getString("printerWizard.create.success"));
 		
 		}
 		catch (Exception e)
