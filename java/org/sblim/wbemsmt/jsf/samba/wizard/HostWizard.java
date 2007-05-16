@@ -27,8 +27,6 @@ package org.sblim.wbemsmt.jsf.samba.wizard;
 import javax.faces.component.html.HtmlPanelGrid;
 import javax.faces.context.FacesContext;
 
-//import org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent;
-//import org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel;
 import org.sblim.wbemsmt.tools.resources.LocaleManager;
 import org.sblim.wbemsmt.tools.resources.ResourceBundleManager;
 import org.sblim.wbemsmt.tools.wizard.adapter.IPageWizardAdapter;
@@ -67,7 +65,7 @@ public class HostWizard extends JSFWizardBase implements IPageWizardAdapter {
 						try
 						{
 							    						panel1= new org.sblim.wbemsmt.jsf.samba.container.wizard.HostWizardPage1Impl(adapter,binding);
-                                					
+                            
     						HtmlPanelGrid childEditFields = (HtmlPanelGrid) FacesContext.getCurrentInstance().getApplication().createComponent(HtmlPanelGrid.COMPONENT_TYPE);
             				childEditFields.setStyleClass("childTable");
                 			
@@ -99,7 +97,7 @@ public class HostWizard extends JSFWizardBase implements IPageWizardAdapter {
 						try
 						{
 							    						panel2= new org.sblim.wbemsmt.jsf.samba.container.wizard.HostWizardPage2Impl(adapter,binding);
-                                					
+                            
     						HtmlPanelGrid childEditFields = (HtmlPanelGrid) FacesContext.getCurrentInstance().getApplication().createComponent(HtmlPanelGrid.COMPONENT_TYPE);
             				childEditFields.setStyleClass("childTable");
                 			
@@ -169,7 +167,8 @@ public class HostWizard extends JSFWizardBase implements IPageWizardAdapter {
         										try
 						{
 							
-                                					
+                            							adapter.updateControls(panel1);
+    					
     						HtmlPanelGrid childEditFields = (HtmlPanelGrid) FacesContext.getCurrentInstance().getApplication().createComponent(HtmlPanelGrid.COMPONENT_TYPE);
             				childEditFields.setStyleClass("childTable");
                 			
@@ -188,7 +187,8 @@ public class HostWizard extends JSFWizardBase implements IPageWizardAdapter {
         										try
 						{
 							
-                                					
+                            							adapter.updateControls(panel2);
+    					
     						HtmlPanelGrid childEditFields = (HtmlPanelGrid) FacesContext.getCurrentInstance().getApplication().createComponent(HtmlPanelGrid.COMPONENT_TYPE);
             				childEditFields.setStyleClass("childTable");
                 			

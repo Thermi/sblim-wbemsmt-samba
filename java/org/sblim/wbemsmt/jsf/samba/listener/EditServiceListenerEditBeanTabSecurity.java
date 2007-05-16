@@ -271,10 +271,11 @@ public class EditServiceListenerEditBeanTabSecurity extends EditBean {
 				//add the single childs
 								
 				//add the childs with occurence list
-            						
+            						{
 					HtmlPanelGrid childPanel = currentEditContainer2.getUserRightsPanel().getOuterPanel();
 					childPanel.setId(org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent.asJsfId("editUserSecurityPanelChild_userRights"));
     				childEditFields.getChildren().add(childPanel); 	
+    				}
     							
 				containerPanel.getChildren().add(childEditFields);
 

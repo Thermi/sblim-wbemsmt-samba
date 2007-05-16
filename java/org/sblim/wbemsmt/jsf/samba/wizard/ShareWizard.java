@@ -27,8 +27,6 @@ package org.sblim.wbemsmt.jsf.samba.wizard;
 import javax.faces.component.html.HtmlPanelGrid;
 import javax.faces.context.FacesContext;
 
-//import org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent;
-//import org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel;
 import org.sblim.wbemsmt.tools.resources.LocaleManager;
 import org.sblim.wbemsmt.tools.resources.ResourceBundleManager;
 import org.sblim.wbemsmt.tools.wizard.adapter.IPageWizardAdapter;
@@ -68,7 +66,7 @@ public class ShareWizard extends JSFWizardBase implements IPageWizardAdapter {
 						try
 						{
 							    						panel1= new org.sblim.wbemsmt.jsf.samba.container.wizard.ShareWizardPage1Impl(adapter,binding);
-                                					
+                            
     						HtmlPanelGrid childEditFields = (HtmlPanelGrid) FacesContext.getCurrentInstance().getApplication().createComponent(HtmlPanelGrid.COMPONENT_TYPE);
             				childEditFields.setStyleClass("childTable");
                 			
@@ -101,21 +99,18 @@ public class ShareWizard extends JSFWizardBase implements IPageWizardAdapter {
 						{
 														int count = 0;
 							    						panel2= new org.sblim.wbemsmt.jsf.samba.container.wizard.ShareWizardPage2Impl(adapter,binding);
-                                                            count = adapter.count(org.sblim.wbemsmt.samba.bl.container.wizard.UserInShareWizardACLItemDataContainer.class);
-                                panel2.getUsers().clear();
-                                for (int i=0; i < count; i++) {
-                                	HtmlPanelGrid grid = i==0 ? null :((org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel)panel2.getUsers().get(0)).getInputFieldContainer();
-                                	org.sblim.wbemsmt.jsf.samba.container.wizard.UserInShareWizardACLItemDataContainer_AsUsers_InShareWizardPage2Impl child = new org.sblim.wbemsmt.jsf.samba.container.wizard.UserInShareWizardACLItemDataContainer_AsUsers_InShareWizardPage2Impl(adapter,binding, i,grid);
-                                	panel2.getUsers().add(child);
-									((org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel)child).setFirst((org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel)panel2.getUsers().get(0));									
-                                }
-                                if (count > 0)
-                                {
-                                	((org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel)panel2.getUsers().get(0)).setList(panel2.getUsers());
-                                	((org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel)panel2.getUsers().get(0)).updateRows();
-                                }
+                            								
+								count = adapter.count(org.sblim.wbemsmt.samba.bl.container.wizard.UserInShareWizardACLItemDataContainer.class);
 								
-                                					
+                    			panel2.clearUsers();
+                    			panel2.addUsersHeader();
+
+                                for (int i=0; i < count; i++) {
+                                    panel2.addUsers(new org.sblim.wbemsmt.jsf.samba.container.wizard.UserInShareWizardACLItemDataContainer_AsUsers_InShareWizardPage2Impl(adapter,binding, i));
+									
+                                }
+                    			panel2.getUsersPanel().setList(panel2.getUsers());
+                            
     						HtmlPanelGrid childEditFields = (HtmlPanelGrid) FacesContext.getCurrentInstance().getApplication().createComponent(HtmlPanelGrid.COMPONENT_TYPE);
             				childEditFields.setStyleClass("childTable");
                 			
@@ -123,13 +118,13 @@ public class ShareWizard extends JSFWizardBase implements IPageWizardAdapter {
             				//add the single childs
             				            				
             				//add the childs with occurence list
-                        	            					
-                			if (panel2.getUsers().size() > 0) {
-                				HtmlPanelGrid childPanel = ((org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel)panel2.getUsers().get(0)).getOuterPanel();
-            					childPanel.setId(org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent.asJsfId("page2Child_users"));
-                				childEditFields.getChildren().add(childPanel); 	
-                			}
-                			            				panel2.getChildPanel().getChildren().add(childEditFields);
+                        	                        	    {
+                        	    
+								HtmlPanelGrid childPanel = panel2.getUsersPanel().getOuterPanel();
+								childPanel.setId(org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent.asJsfId("page2Child_users"));
+			    				childEditFields.getChildren().add(childPanel); 	
+                				}
+							            				panel2.getChildPanel().getChildren().add(childEditFields);
 							
 							
         					return panel2;
@@ -154,21 +149,18 @@ public class ShareWizard extends JSFWizardBase implements IPageWizardAdapter {
 						{
 														int count = 0;
 							    						panel3= new org.sblim.wbemsmt.jsf.samba.container.wizard.ShareWizardPage4Impl(adapter,binding);
-                                                            count = adapter.count(org.sblim.wbemsmt.samba.bl.container.wizard.UserInShareWizardACLItemDataContainer.class);
-                                panel3.getUsers().clear();
-                                for (int i=0; i < count; i++) {
-                                	HtmlPanelGrid grid = i==0 ? null :((org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel)panel3.getUsers().get(0)).getInputFieldContainer();
-                                	org.sblim.wbemsmt.jsf.samba.container.wizard.UserInShareWizardACLItemDataContainer_AsUsers_InShareWizardPage4Impl child = new org.sblim.wbemsmt.jsf.samba.container.wizard.UserInShareWizardACLItemDataContainer_AsUsers_InShareWizardPage4Impl(adapter,binding, i,grid);
-                                	panel3.getUsers().add(child);
-									((org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel)child).setFirst((org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel)panel3.getUsers().get(0));									
-                                }
-                                if (count > 0)
-                                {
-                                	((org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel)panel3.getUsers().get(0)).setList(panel3.getUsers());
-                                	((org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel)panel3.getUsers().get(0)).updateRows();
-                                }
+                            								
+								count = adapter.count(org.sblim.wbemsmt.samba.bl.container.wizard.UserInShareWizardACLItemDataContainer.class);
 								
-                                					
+                    			panel3.clearUsers();
+                    			panel3.addUsersHeader();
+
+                                for (int i=0; i < count; i++) {
+                                    panel3.addUsers(new org.sblim.wbemsmt.jsf.samba.container.wizard.UserInShareWizardACLItemDataContainer_AsUsers_InShareWizardPage4Impl(adapter,binding, i));
+									
+                                }
+                    			panel3.getUsersPanel().setList(panel3.getUsers());
+                            
     						HtmlPanelGrid childEditFields = (HtmlPanelGrid) FacesContext.getCurrentInstance().getApplication().createComponent(HtmlPanelGrid.COMPONENT_TYPE);
             				childEditFields.setStyleClass("childTable");
                 			
@@ -176,13 +168,13 @@ public class ShareWizard extends JSFWizardBase implements IPageWizardAdapter {
             				//add the single childs
             				            				
             				//add the childs with occurence list
-                        	            					
-                			if (panel3.getUsers().size() > 0) {
-                				HtmlPanelGrid childPanel = ((org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel)panel3.getUsers().get(0)).getOuterPanel();
-            					childPanel.setId(org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent.asJsfId("page4Child_users"));
-                				childEditFields.getChildren().add(childPanel); 	
-                			}
-                			            				panel3.getChildPanel().getChildren().add(childEditFields);
+                        	                        	    {
+                        	    
+								HtmlPanelGrid childPanel = panel3.getUsersPanel().getOuterPanel();
+								childPanel.setId(org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent.asJsfId("page4Child_users"));
+			    				childEditFields.getChildren().add(childPanel); 	
+                				}
+							            				panel3.getChildPanel().getChildren().add(childEditFields);
 							
 							
         					return panel3;
@@ -244,7 +236,8 @@ public class ShareWizard extends JSFWizardBase implements IPageWizardAdapter {
         										try
 						{
 							
-                                					
+                            							adapter.updateControls(panel1);
+    					
     						HtmlPanelGrid childEditFields = (HtmlPanelGrid) FacesContext.getCurrentInstance().getApplication().createComponent(HtmlPanelGrid.COMPONENT_TYPE);
             				childEditFields.setStyleClass("childTable");
                 			
@@ -265,33 +258,28 @@ public class ShareWizard extends JSFWizardBase implements IPageWizardAdapter {
 														int count = 0;
 							
                             								
-                                count = adapter.count(org.sblim.wbemsmt.samba.bl.container.wizard.UserInShareWizardACLItemDataContainer.class);
-                                panel2.getUsers().clear();
+								count = adapter.count(org.sblim.wbemsmt.samba.bl.container.wizard.UserInShareWizardACLItemDataContainer.class);
+
+                    			panel2.clearUsers();
+                    			panel2.addUsersHeader();
+
                                 for (int i=0; i < count; i++) {
-                                	HtmlPanelGrid grid = i==0 ? null :((org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel)panel2.getUsers().get(0)).getInputFieldContainer();
-                                	org.sblim.wbemsmt.jsf.samba.container.wizard.UserInShareWizardACLItemDataContainer_AsUsers_InShareWizardPage2Impl child = new org.sblim.wbemsmt.jsf.samba.container.wizard.UserInShareWizardACLItemDataContainer_AsUsers_InShareWizardPage2Impl(adapter,binding, i,grid);
-                                	panel2.getUsers().add(child);
-									((org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel)child).setFirst((org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel)panel2.getUsers().get(0));
+                                    panel2.addUsers(new org.sblim.wbemsmt.jsf.samba.container.wizard.UserInShareWizardACLItemDataContainer_AsUsers_InShareWizardPage2Impl(adapter,binding, i));
 									
                                 }
-								
-                                if (count > 0)
-                                {
-                                	((org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel)panel2.getUsers().get(0)).setList(panel2.getUsers());
-                                	((org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel)panel2.getUsers().get(0)).updateRows();
-                                }
-								
-                                					
+                    			panel2.getUsersPanel().setList(panel2.getUsers());
+                            							adapter.updateControls(panel2);
+    					
     						HtmlPanelGrid childEditFields = (HtmlPanelGrid) FacesContext.getCurrentInstance().getApplication().createComponent(HtmlPanelGrid.COMPONENT_TYPE);
             				childEditFields.setStyleClass("childTable");
                 			
             				//add the childs with occurence list
-                        	            					
-                			if (panel2.getUsers().size() > 0) {
-                				HtmlPanelGrid childPanel = ((org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel)panel2.getUsers().get(0)).getOuterPanel();
-            					childPanel.setId(org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent.asJsfId("page2Child_users"));
-                				childEditFields.getChildren().add(childPanel); 	
-                			}
+                        	                        	    {
+                        	    
+								HtmlPanelGrid childPanel = panel2.getUsersPanel().getOuterPanel();
+								childPanel.setId(org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent.asJsfId("page2Child_users"));
+			    				childEditFields.getChildren().add(childPanel); 	
+                				}
 														panel2.getChildPanel().getChildren().clear();
             				panel2.getChildPanel().getChildren().add(childEditFields);
 						}
@@ -308,33 +296,28 @@ public class ShareWizard extends JSFWizardBase implements IPageWizardAdapter {
 														int count = 0;
 							
                             								
-                                count = adapter.count(org.sblim.wbemsmt.samba.bl.container.wizard.UserInShareWizardACLItemDataContainer.class);
-                                panel3.getUsers().clear();
+								count = adapter.count(org.sblim.wbemsmt.samba.bl.container.wizard.UserInShareWizardACLItemDataContainer.class);
+
+                    			panel3.clearUsers();
+                    			panel3.addUsersHeader();
+
                                 for (int i=0; i < count; i++) {
-                                	HtmlPanelGrid grid = i==0 ? null :((org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel)panel3.getUsers().get(0)).getInputFieldContainer();
-                                	org.sblim.wbemsmt.jsf.samba.container.wizard.UserInShareWizardACLItemDataContainer_AsUsers_InShareWizardPage4Impl child = new org.sblim.wbemsmt.jsf.samba.container.wizard.UserInShareWizardACLItemDataContainer_AsUsers_InShareWizardPage4Impl(adapter,binding, i,grid);
-                                	panel3.getUsers().add(child);
-									((org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel)child).setFirst((org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel)panel3.getUsers().get(0));
+                                    panel3.addUsers(new org.sblim.wbemsmt.jsf.samba.container.wizard.UserInShareWizardACLItemDataContainer_AsUsers_InShareWizardPage4Impl(adapter,binding, i));
 									
                                 }
-								
-                                if (count > 0)
-                                {
-                                	((org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel)panel3.getUsers().get(0)).setList(panel3.getUsers());
-                                	((org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel)panel3.getUsers().get(0)).updateRows();
-                                }
-								
-                                					
+                    			panel3.getUsersPanel().setList(panel3.getUsers());
+                            							adapter.updateControls(panel3);
+    					
     						HtmlPanelGrid childEditFields = (HtmlPanelGrid) FacesContext.getCurrentInstance().getApplication().createComponent(HtmlPanelGrid.COMPONENT_TYPE);
             				childEditFields.setStyleClass("childTable");
                 			
             				//add the childs with occurence list
-                        	            					
-                			if (panel3.getUsers().size() > 0) {
-                				HtmlPanelGrid childPanel = ((org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel)panel3.getUsers().get(0)).getOuterPanel();
-            					childPanel.setId(org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent.asJsfId("page4Child_users"));
-                				childEditFields.getChildren().add(childPanel); 	
-                			}
+                        	                        	    {
+                        	    
+								HtmlPanelGrid childPanel = panel3.getUsersPanel().getOuterPanel();
+								childPanel.setId(org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent.asJsfId("page4Child_users"));
+			    				childEditFields.getChildren().add(childPanel); 	
+                				}
 														panel3.getChildPanel().getChildren().clear();
             				panel3.getChildPanel().getChildren().add(childEditFields);
 						}

@@ -233,10 +233,11 @@ public class EditUserListenerEditBeanAcl extends EditBean {
 				//add the single childs
 								
 				//add the childs with occurence list
-            						
+            						{
 					HtmlPanelGrid childPanel = currentEditContainer1.getSharesPanel().getOuterPanel();
 					childPanel.setId(org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent.asJsfId("shareACLChild_shares"));
     				childEditFields.getChildren().add(childPanel); 	
+    				}
     							
 				containerPanel.getChildren().add(childEditFields);
 
@@ -303,10 +304,11 @@ public class EditUserListenerEditBeanAcl extends EditBean {
 				//add the single childs
 								
 				//add the childs with occurence list
-            						
+            						{
 					HtmlPanelGrid childPanel = currentEditContainer2.getPrintersPanel().getOuterPanel();
 					childPanel.setId(org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent.asJsfId("printerACLChild_printers"));
     				childEditFields.getChildren().add(childPanel); 	
+    				}
     							
 				containerPanel.getChildren().add(childEditFields);
 
