@@ -141,7 +141,7 @@ public class PrinterWizard  extends SambaWizard {
 			printer.set_SystemPrinterName(systemPrinter.getName());
 			setInstanceId(printer);
 			printer = (Linux_SambaPrinterOptions) adapter.getFcoHelper().create(printer,cc);
-			page5.setKey(new CimObjectKey(printer));
+			page5.setKey(new CimObjectKey(printer.getCimObjectPath()));
 			
 			boolean enableGuest  = ((Boolean)page3.get_usr_EnableGuest().getConvertedControlValue()).booleanValue();
 			boolean publicPrinter = ((Boolean)page3.get_usr_SeenByEverybody().getConvertedControlValue()).booleanValue();

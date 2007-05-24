@@ -82,7 +82,7 @@ public class ShareWizard   extends SambaWizard{
 			share.set_Comment((String) page1.get_Comment().getConvertedControlValue());
 			setInstanceId(share);
 			share = (Linux_SambaShareOptions) adapter.getFcoHelper().create(share,cc);
-			container.setKey(new CimObjectKey(share));
+			container.setKey(new CimObjectKey(share.getCimObjectPath()));
 			
 			boolean enableGuest  = ((Boolean)page2.get_usr_EnableGuest().getConvertedControlValue()).booleanValue();
 			boolean publicShare = ((Boolean)page2.get_usr_SeenByEverybody().getConvertedControlValue()).booleanValue();

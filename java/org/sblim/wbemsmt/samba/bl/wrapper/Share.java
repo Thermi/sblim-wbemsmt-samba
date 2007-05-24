@@ -263,7 +263,7 @@ public class Share extends SambaObject
 			container.get_Name().setControlValue(share.get_Name());
 			container.get_Path().setControlValue(share.get_Path());
 			container.get_ReadOnly().setControlValue(getCommonSecurityOptions(cc).get_ReadOnly());
-			container.setKey(new CimObjectKey(share));
+			container.setKey(new CimObjectKey(share.getCimObjectPath()));
 		} catch (ModelLoadException e) {
 			throw new UpdateControlsException(e);
 		}
