@@ -36,6 +36,9 @@ import org.sblim.wbemsmt.tools.resources.*;
 //import org.sblim.wbemsmt.tools.input.jsf.*;
 import org.sblim.wbemsmt.bl.adapter.*;
 
+import org.apache.myfaces.custom.div.Div;
+
+
 public class EditUserListenerEditBeanAcl extends EditBean {
 	
 	    
@@ -165,6 +168,7 @@ public class EditUserListenerEditBeanAcl extends EditBean {
 		
 			String bindingPrefix = null;
 			HtmlPanelGrid childEditFields = null;
+			Div div = null;
 			panel = (HtmlPanelGrid) FacesContext.getCurrentInstance().getApplication().createComponent(HtmlPanelGrid.COMPONENT_TYPE);			
 			panel.setWidth("100%");
 			panel.setCellspacing("0");
@@ -229,7 +233,6 @@ public class EditUserListenerEditBeanAcl extends EditBean {
     			childEditFields = (HtmlPanelGrid) FacesContext.getCurrentInstance().getApplication().createComponent(HtmlPanelGrid.COMPONENT_TYPE);
 				childEditFields.setStyleClass("childTable");
     			
-
 				//add the single childs
 								
 				//add the childs with occurence list
@@ -238,8 +241,13 @@ public class EditUserListenerEditBeanAcl extends EditBean {
 					childPanel.setId(org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent.asJsfId("shareACLChild_shares"));
     				childEditFields.getChildren().add(childPanel); 	
     				}
-    							
-				containerPanel.getChildren().add(childEditFields);
+    			    			
+
+				div = (Div) FacesContext.getCurrentInstance().getApplication().createComponent(Div.COMPONENT_TYPE);
+				div.setStyleClass("divWrappingChildTable");
+				div.getChildren().add(childEditFields);
+				
+				containerPanel.getChildren().add(div);
 
 									panelToAdd = containerPanel;
 								
@@ -300,7 +308,6 @@ public class EditUserListenerEditBeanAcl extends EditBean {
     			childEditFields = (HtmlPanelGrid) FacesContext.getCurrentInstance().getApplication().createComponent(HtmlPanelGrid.COMPONENT_TYPE);
 				childEditFields.setStyleClass("childTable");
     			
-
 				//add the single childs
 								
 				//add the childs with occurence list
@@ -309,8 +316,13 @@ public class EditUserListenerEditBeanAcl extends EditBean {
 					childPanel.setId(org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent.asJsfId("printerACLChild_printers"));
     				childEditFields.getChildren().add(childPanel); 	
     				}
-    							
-				containerPanel.getChildren().add(childEditFields);
+    			    			
+
+				div = (Div) FacesContext.getCurrentInstance().getApplication().createComponent(Div.COMPONENT_TYPE);
+				div.setStyleClass("divWrappingChildTable");
+				div.getChildren().add(childEditFields);
+				
+				containerPanel.getChildren().add(div);
 
 									panelToAdd = containerPanel;
 								
@@ -322,7 +334,6 @@ public class EditUserListenerEditBeanAcl extends EditBean {
 				addFooter(panel,"objectActionController.editBeans['acl'].");
 				
 			
-						
 						//Creating no OK/Cancel-Button because saving single Tabs is disabled (EditAction.saveSinglePanels)
 						
 		}
