@@ -49,6 +49,8 @@ public class ServiceWinsDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.Ed
 				super(adapter,bindingPrefix, "ServiceWinsDataContainer.caption",false);
 				
 				
+		
+				
     			
     	    		        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_DNS_Proxy());
         	        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_WINSHook());

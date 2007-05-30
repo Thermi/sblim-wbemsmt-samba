@@ -65,6 +65,8 @@ public class ShareListDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.Edit
 				super(adapter,bindingPrefix, "ShareListDataContainer.caption",false);
 				
 				
+		
+				
     			
     	    						
 		setFooter(getPanelForCustomLayout(),"ShareListDataContainer.footerText");

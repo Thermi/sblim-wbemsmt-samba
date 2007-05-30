@@ -46,6 +46,8 @@ public class UserIsAdminItemImpl extends org.sblim.wbemsmt.tools.jsf.EditBasePan
 				super(adapter,bindingPrefix, "UserIsAdminItem.caption",false);
 				
 				
+		
+				
     			
     	    		        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_usr_SambaUserName());
         	        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_usr_Admin());

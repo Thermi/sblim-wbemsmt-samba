@@ -46,6 +46,8 @@ public class AdminUsersInPrinterGlobalsImpl extends org.sblim.wbemsmt.tools.jsf.
 				super(adapter,bindingPrefix, "AdminUsersInPrinterGlobals.caption",false);
 				
 				
+		
+				
     			
     	    		        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_usr_SambaUserName());
         	        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_usr_Admin());

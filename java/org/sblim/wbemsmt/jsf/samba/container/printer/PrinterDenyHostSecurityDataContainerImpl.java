@@ -48,6 +48,8 @@ public class PrinterDenyHostSecurityDataContainerImpl extends org.sblim.wbemsmt.
 				super(adapter,bindingPrefix, "PrinterDenyHostSecurityDataContainer.caption",false);
 				
 				
+		
+				
     			
     	    		        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_usr_DeniedHosts());
         	        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_usr_HostsToDeny());

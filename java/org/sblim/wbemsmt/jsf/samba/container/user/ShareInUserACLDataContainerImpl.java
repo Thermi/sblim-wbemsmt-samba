@@ -59,6 +59,8 @@ public class ShareInUserACLDataContainerImpl extends org.sblim.wbemsmt.tools.jsf
 				super(adapter,bindingPrefix, "ShareInUserACLDataContainer.caption",false);
 				
 				
+		
+				
     			
     	    						
 		setFooter(getPanelForCustomLayout(),"ShareInUserACLDataContainer.footerText");

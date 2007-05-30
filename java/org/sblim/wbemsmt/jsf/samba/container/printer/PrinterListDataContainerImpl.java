@@ -66,6 +66,8 @@ public class PrinterListDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.Ed
 				super(adapter,bindingPrefix, "PrinterListDataContainer.caption",false);
 				
 				
+		
+				
     			
     	    						
 		setFooter(getPanelForCustomLayout(),"PrinterListDataContainer.footerText");

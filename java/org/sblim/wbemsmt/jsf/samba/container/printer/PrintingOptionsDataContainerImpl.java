@@ -50,6 +50,8 @@ public class PrintingOptionsDataContainerImpl extends org.sblim.wbemsmt.tools.js
 				super(adapter,bindingPrefix, "PrintingOptionsDataContainer.caption",false);
 				
 				
+		
+				
     			
     	    		        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_CupsOptions());
         	        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_DefaultDevMode());

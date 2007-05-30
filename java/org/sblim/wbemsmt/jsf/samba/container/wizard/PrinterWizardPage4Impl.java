@@ -46,6 +46,8 @@ public class PrinterWizardPage4Impl extends org.sblim.wbemsmt.tools.wizard.jsf.W
 				super(adapter,bindingPrefix, "PrinterWizardPage4.caption","PrinterWizardPage4.subTitle",false);
 				
 				
+		
+				
     			
     	    		        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_CupsOptions());
         	        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_PrintCommand());

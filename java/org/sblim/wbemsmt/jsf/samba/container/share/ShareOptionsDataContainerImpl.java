@@ -54,6 +54,8 @@ public class ShareOptionsDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.E
 				super(adapter,bindingPrefix, "ShareOptionsDataContainer.caption",false);
 				
 				
+		
+				
     			
     	    		        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_Name());
         	        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_Available());

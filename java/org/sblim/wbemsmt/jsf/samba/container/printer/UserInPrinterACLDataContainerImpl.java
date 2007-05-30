@@ -61,6 +61,8 @@ public class UserInPrinterACLDataContainerImpl extends org.sblim.wbemsmt.tools.j
 				super(adapter,bindingPrefix, "UserInPrinterACLDataContainer.caption",false);
 				
 				
+		
+				
     			
     	    		        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_usr_CurrentForceUser());
         	        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_usr_NewForceUser());

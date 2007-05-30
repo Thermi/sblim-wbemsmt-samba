@@ -70,6 +70,8 @@ public class UserWizardPage2Impl extends org.sblim.wbemsmt.tools.wizard.jsf.Wiza
 				super(adapter,bindingPrefix, "UserWizardPage2.caption","UserWizardPage2.subTitle",false);
 				
 				
+		
+				
     			
     	    		        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_usr_AccessToAll());
         					

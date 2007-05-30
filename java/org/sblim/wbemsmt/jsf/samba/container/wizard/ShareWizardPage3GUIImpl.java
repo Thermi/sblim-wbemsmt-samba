@@ -86,9 +86,12 @@ public class ShareWizardPage3GUIImpl extends org.sblim.wbemsmt.tools.wizard.jsf.
 				super(adapter,bindingPrefix, "ShareWizardPage3GUI.caption","ShareWizardPage3GUI.subTitle",false);
 				
 				
+		
+				
     			
     				layouter = new ShareWizardPage3GUIImplLayouter();
-			layouter.layout(getPanelForCustomLayout(),this,bundle);
+			//layout is done in the edit-method of the Editbean
+			//layouter.layout(getPanelForCustomLayout(),this,bundle);
 				
 		setFooter(getPanelForCustomLayout(),"ShareWizardPage3GUI.footerText");
 		adapter.initContainer(this);

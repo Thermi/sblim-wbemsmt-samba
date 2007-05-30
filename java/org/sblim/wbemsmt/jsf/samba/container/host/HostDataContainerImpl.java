@@ -45,6 +45,8 @@ public class HostDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.EditBaseP
 				super(adapter,bindingPrefix, "HostDataContainer.caption",false);
 				
 				
+		
+				
     			
     	    		        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_Name());
         					

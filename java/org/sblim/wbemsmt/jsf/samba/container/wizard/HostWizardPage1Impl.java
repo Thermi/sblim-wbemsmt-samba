@@ -45,6 +45,8 @@ public class HostWizardPage1Impl extends org.sblim.wbemsmt.tools.wizard.jsf.Wiza
 				super(adapter,bindingPrefix, "HostWizardPage1.caption","HostWizardPage1.subTitle",false);
 				
 				
+		
+				
     			
     	    		        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_Name());
         					

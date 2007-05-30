@@ -105,9 +105,12 @@ public class GUIShareGlobalsDataContainerImpl extends org.sblim.wbemsmt.tools.js
 				super(adapter,bindingPrefix, "GUIShareGlobalsDataContainer.caption",false);
 				
 				
+		
+				
     			
     				layouter = new GUIShareGlobalsDataContainerImplLayouter();
-			layouter.layout(getPanelForCustomLayout(),this,bundle);
+			//layout is done in the edit-method of the Editbean
+			//layouter.layout(getPanelForCustomLayout(),this,bundle);
 				
 		setFooter(getPanelForCustomLayout(),"GUIShareGlobalsDataContainer.footerText");
 		adapter.initContainer(this);

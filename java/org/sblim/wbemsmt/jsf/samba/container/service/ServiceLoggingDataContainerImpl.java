@@ -53,6 +53,8 @@ public class ServiceLoggingDataContainerImpl extends org.sblim.wbemsmt.tools.jsf
 				super(adapter,bindingPrefix, "ServiceLoggingDataContainer.caption",false);
 				
 				
+		
+				
     			
     	    		        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_SysLog());
         	        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_SysLogOnly());

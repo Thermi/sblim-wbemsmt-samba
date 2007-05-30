@@ -48,6 +48,8 @@ public class ServiceOperationsDataContainerImpl extends org.sblim.wbemsmt.tools.
 				super(adapter,bindingPrefix, "ServiceOperationsDataContainer.caption",false);
 				
 				
+		
+				
     			
     	    		        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_Started());
         	        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_invoke_StartService());

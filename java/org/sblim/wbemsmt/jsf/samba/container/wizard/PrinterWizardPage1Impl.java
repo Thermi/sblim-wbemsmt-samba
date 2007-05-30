@@ -51,9 +51,12 @@ public class PrinterWizardPage1Impl extends org.sblim.wbemsmt.tools.wizard.jsf.W
 				super(adapter,bindingPrefix, "PrinterWizardPage1.caption","PrinterWizardPage1.subTitle",false);
 				
 				
+		
+				
     			
     				layouter = new PrinterWizardPage1ImplLayouter();
-			layouter.layout(getPanelForCustomLayout(),this,bundle);
+			//layout is done in the edit-method of the Editbean
+			//layouter.layout(getPanelForCustomLayout(),this,bundle);
 				
 		setFooter(getPanelForCustomLayout(),"PrinterWizardPage1.footerText");
 		adapter.initContainer(this);

@@ -47,6 +47,8 @@ public class UserListItemDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.E
 				super(adapter,bindingPrefix, "UserListItemDataContainer.caption",false);
 				
 				
+		
+				
     			
     	    		        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_SambaUserName());
         	        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_SystemUserName());

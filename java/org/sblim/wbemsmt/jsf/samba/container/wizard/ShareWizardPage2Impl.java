@@ -63,6 +63,8 @@ public class ShareWizardPage2Impl extends org.sblim.wbemsmt.tools.wizard.jsf.Wiz
 				super(adapter,bindingPrefix, "ShareWizardPage2.caption","ShareWizardPage2.subTitle",false);
 				
 				
+		
+				
     			
     	    		        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_usr_SeenByEverybody());
         	        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_usr_ForceUser());

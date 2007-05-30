@@ -53,6 +53,8 @@ public class CMDShareFileAttributesImpl extends org.sblim.wbemsmt.tools.jsf.Edit
 				super(adapter,bindingPrefix, "CMDShareFileAttributes.caption",false);
 				
 				
+		
+				
     			
     	    		        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_CaseSensitive());
         	        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_HideDotFiles());

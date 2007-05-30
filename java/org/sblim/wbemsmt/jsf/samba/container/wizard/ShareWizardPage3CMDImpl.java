@@ -47,6 +47,8 @@ public class ShareWizardPage3CMDImpl extends org.sblim.wbemsmt.tools.wizard.jsf.
 				super(adapter,bindingPrefix, "ShareWizardPage3CMD.caption","ShareWizardPage3CMD.subTitle",false);
 				
 				
+		
+				
     			
     	    		        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_CreateMask());
         	        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_DirectoryMask());

@@ -65,6 +65,8 @@ public class PrintingGlobalsDataContainerImpl extends org.sblim.wbemsmt.tools.js
 				super(adapter,bindingPrefix, "PrintingGlobalsDataContainer.caption",false);
 				
 				
+		
+				
     			
     	    		        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_PrintcapCacheTime());
         	        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_usr_SystemPrinterName());

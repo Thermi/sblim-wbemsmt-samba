@@ -55,6 +55,8 @@ public class PrinterListItemDataContainerImpl extends org.sblim.wbemsmt.tools.js
 				super(adapter,bindingPrefix, "PrinterListItemDataContainer.caption",false);
 				
 				
+		
+				
     			
     	    		        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_Name());
         	        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_usr_SystemPrinterName());

@@ -63,6 +63,8 @@ public class PrinterWizardPage3Impl extends org.sblim.wbemsmt.tools.wizard.jsf.W
 				super(adapter,bindingPrefix, "PrinterWizardPage3.caption","PrinterWizardPage3.subTitle",false);
 				
 				
+		
+				
     			
     	    		        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_usr_SeenByEverybody());
         	        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_usr_EnableGuest());

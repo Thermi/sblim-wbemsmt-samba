@@ -46,6 +46,8 @@ public class AdminUsersInShareGlobalsImpl extends org.sblim.wbemsmt.tools.jsf.Ed
 				super(adapter,bindingPrefix, "AdminUsersInShareGlobals.caption",false);
 				
 				
+		
+				
     			
     	    		        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_usr_SambaUserName());
         	        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_usr_Admin());

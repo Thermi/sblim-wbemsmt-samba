@@ -48,6 +48,8 @@ public class ShareDenyHostSecurityDataContainerImpl extends org.sblim.wbemsmt.to
 				super(adapter,bindingPrefix, "ShareDenyHostSecurityDataContainer.caption",false);
 				
 				
+		
+				
     			
     	    		        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_usr_DeniedHosts());
         	        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_usr_HostsToDeny());

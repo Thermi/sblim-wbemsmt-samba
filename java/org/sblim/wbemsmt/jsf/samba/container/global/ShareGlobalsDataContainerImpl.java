@@ -50,6 +50,8 @@ public class ShareGlobalsDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.E
 				super(adapter,bindingPrefix, "ShareGlobalsDataContainer.caption",false);
 				
 				
+		
+				
     			
     	    		        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_CaseSensitive());
         	        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_DosFiletimes());

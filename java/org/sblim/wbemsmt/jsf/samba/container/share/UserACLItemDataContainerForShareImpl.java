@@ -48,6 +48,8 @@ public class UserACLItemDataContainerForShareImpl extends org.sblim.wbemsmt.tool
 				super(adapter,bindingPrefix, "UserACLItemDataContainerForShare.caption",false);
 				
 				
+		
+				
     			
     	    		        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_SambaUserName());
         	        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_usr_AccessTypeVI());

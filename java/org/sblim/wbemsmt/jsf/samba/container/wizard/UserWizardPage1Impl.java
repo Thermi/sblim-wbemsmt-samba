@@ -49,6 +49,8 @@ public class UserWizardPage1Impl extends org.sblim.wbemsmt.tools.wizard.jsf.Wiza
 				super(adapter,bindingPrefix, "UserWizardPage1.caption","UserWizardPage1.subTitle",false);
 				
 				
+		
+				
     			
     	    		        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_SambaUserName());
         	        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_SystemUserName());

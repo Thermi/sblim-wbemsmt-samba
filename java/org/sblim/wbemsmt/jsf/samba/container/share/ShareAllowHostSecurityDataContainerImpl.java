@@ -48,6 +48,8 @@ public class ShareAllowHostSecurityDataContainerImpl extends org.sblim.wbemsmt.t
 				super(adapter,bindingPrefix, "ShareAllowHostSecurityDataContainer.caption",false);
 				
 				
+		
+				
     			
     	    		        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_usr_AllowedHosts());
         	        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_usr_HostsToAllow());

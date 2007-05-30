@@ -61,6 +61,8 @@ public class UserInShareACLDataContainerImpl extends org.sblim.wbemsmt.tools.jsf
 				super(adapter,bindingPrefix, "UserInShareACLDataContainer.caption",false);
 				
 				
+		
+				
     			
     	    		        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_usr_NewForceUser());
         	        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_usr_CurrentForceUser());

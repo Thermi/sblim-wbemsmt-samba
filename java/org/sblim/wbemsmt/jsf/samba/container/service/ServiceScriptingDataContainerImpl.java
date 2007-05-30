@@ -53,6 +53,8 @@ public class ServiceScriptingDataContainerImpl extends org.sblim.wbemsmt.tools.j
 				super(adapter,bindingPrefix, "ServiceScriptingDataContainer.caption",false);
 				
 				
+		
+				
     			
     	    		        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_AddGroupScript());
         	        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_AddPrinterCommand());

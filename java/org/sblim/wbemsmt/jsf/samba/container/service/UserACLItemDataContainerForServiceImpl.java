@@ -47,6 +47,8 @@ public class UserACLItemDataContainerForServiceImpl extends org.sblim.wbemsmt.to
 				super(adapter,bindingPrefix, "UserACLItemDataContainerForService.caption",false);
 				
 				
+		
+				
     			
     	    		        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_SambaUserName());
         	        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_usr_AccessTypeVI());

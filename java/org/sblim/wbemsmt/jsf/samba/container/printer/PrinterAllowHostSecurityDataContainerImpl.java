@@ -48,6 +48,8 @@ public class PrinterAllowHostSecurityDataContainerImpl extends org.sblim.wbemsmt
 				super(adapter,bindingPrefix, "PrinterAllowHostSecurityDataContainer.caption",false);
 				
 				
+		
+				
     			
     	    		        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_usr_AllowedHosts());
         	        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_usr_HostsToAllow());

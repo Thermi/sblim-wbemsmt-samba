@@ -48,6 +48,8 @@ public class ServiceDenyHostDataContainerImpl extends org.sblim.wbemsmt.tools.js
 				super(adapter,bindingPrefix, "ServiceDenyHostDataContainer.caption",false);
 				
 				
+		
+				
     			
     	    		        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_usr_DeniedHosts());
         	        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_usr_HostsToDeny());

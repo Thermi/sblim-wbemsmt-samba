@@ -48,6 +48,8 @@ public class ShareInUserWizardACLItemDataContainerImpl extends org.sblim.wbemsmt
 				super(adapter,bindingPrefix, "ShareInUserWizardACLItemDataContainer.caption","ShareInUserWizardACLItemDataContainer.subTitle",false);
 				
 				
+		
+				
     			
     	    		        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_ShareName());
         	        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_usr_AccessTypeVI());

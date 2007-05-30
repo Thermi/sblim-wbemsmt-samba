@@ -68,6 +68,8 @@ public class ShareWizardPage4Impl extends org.sblim.wbemsmt.tools.wizard.jsf.Wiz
 				super(adapter,bindingPrefix, "ShareWizardPage4.caption","ShareWizardPage4.subTitle",false);
 				
 				
+		
+				
     			
     	    		        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_Name());
         	        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_Path());

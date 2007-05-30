@@ -59,6 +59,8 @@ public class PrinterInUserACLDataContainerImpl extends org.sblim.wbemsmt.tools.j
 				super(adapter,bindingPrefix, "PrinterInUserACLDataContainer.caption",false);
 				
 				
+		
+				
     			
     	    						
 		setFooter(getPanelForCustomLayout(),"PrinterInUserACLDataContainer.footerText");

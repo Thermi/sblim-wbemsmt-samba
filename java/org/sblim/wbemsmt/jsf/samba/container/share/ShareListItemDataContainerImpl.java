@@ -54,6 +54,8 @@ public class ShareListItemDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.
 				super(adapter,bindingPrefix, "ShareListItemDataContainer.caption",false);
 				
 				
+		
+				
     			
     	    		        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_Name());
         	        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_Available());

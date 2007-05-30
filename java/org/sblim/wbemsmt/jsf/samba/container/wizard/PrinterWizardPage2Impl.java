@@ -48,6 +48,8 @@ public class PrinterWizardPage2Impl extends org.sblim.wbemsmt.tools.wizard.jsf.W
 				super(adapter,bindingPrefix, "PrinterWizardPage2.caption","PrinterWizardPage2.subTitle",false);
 				
 				
+		
+				
     			
     	    		        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_SambaPrinterName());
         	        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_usr_SystemPrinterName());

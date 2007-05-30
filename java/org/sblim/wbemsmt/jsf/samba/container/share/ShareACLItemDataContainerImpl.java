@@ -48,6 +48,8 @@ public class ShareACLItemDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.E
 				super(adapter,bindingPrefix, "ShareACLItemDataContainer.caption",false);
 				
 				
+		
+				
     			
     	    		        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_ShareName());
         	        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_usr_AccessTypeVI());

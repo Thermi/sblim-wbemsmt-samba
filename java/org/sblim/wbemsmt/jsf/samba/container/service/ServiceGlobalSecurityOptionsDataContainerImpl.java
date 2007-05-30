@@ -58,6 +58,8 @@ public class ServiceGlobalSecurityOptionsDataContainerImpl extends org.sblim.wbe
 				super(adapter,bindingPrefix, "ServiceGlobalSecurityOptionsDataContainer.caption",false);
 				
 				
+		
+				
     			
     	    		        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_AuthMethods());
         	        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_EncryptPasswords());

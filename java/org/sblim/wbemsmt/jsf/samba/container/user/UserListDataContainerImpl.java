@@ -58,6 +58,8 @@ public class UserListDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.EditB
 				super(adapter,bindingPrefix, "UserListDataContainer.caption",false);
 				
 				
+		
+				
     			
     	    						
 		setFooter(getPanelForCustomLayout(),"UserListDataContainer.footerText");

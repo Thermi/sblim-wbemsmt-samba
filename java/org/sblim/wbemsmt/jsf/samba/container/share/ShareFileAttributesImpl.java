@@ -50,6 +50,8 @@ public class ShareFileAttributesImpl extends org.sblim.wbemsmt.tools.jsf.EditBas
 				super(adapter,bindingPrefix, "ShareFileAttributes.caption",false);
 				
 				
+		
+				
     			
     	    		        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_CaseSensitive());
         	        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_HideDotFiles());

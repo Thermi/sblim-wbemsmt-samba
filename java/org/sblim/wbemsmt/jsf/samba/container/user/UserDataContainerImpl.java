@@ -47,6 +47,8 @@ public class UserDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.EditBaseP
 				super(adapter,bindingPrefix, "UserDataContainer.caption",false);
 				
 				
+		
+				
     			
     	    		        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_SambaUserName());
         	        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_SystemUserName());

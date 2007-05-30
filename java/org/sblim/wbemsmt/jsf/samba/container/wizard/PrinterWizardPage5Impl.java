@@ -69,6 +69,8 @@ public class PrinterWizardPage5Impl extends org.sblim.wbemsmt.tools.wizard.jsf.W
 				super(adapter,bindingPrefix, "PrinterWizardPage5.caption","PrinterWizardPage5.subTitle",false);
 				
 				
+		
+				
     			
     	    		        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_usr_AllOrOne());
         	        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_SambaPrinterName());
