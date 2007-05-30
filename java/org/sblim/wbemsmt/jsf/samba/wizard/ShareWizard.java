@@ -34,6 +34,7 @@ import org.sblim.wbemsmt.tools.wizard.container.IWizardContainer;
 import org.sblim.wbemsmt.tools.wizard.jsf.JSFWizardBase;
 import org.sblim.wbemsmt.exception.*;
 import org.sblim.wbemsmt.bl.adapter.DataContainer;
+import org.apache.myfaces.custom.div.Div;
 
 public class ShareWizard extends JSFWizardBase implements IPageWizardAdapter {
 
@@ -74,8 +75,13 @@ public class ShareWizard extends JSFWizardBase implements IPageWizardAdapter {
             				//add the single childs
             				            				
             				//add the childs with occurence list
-                        	            				panel1.getChildPanel().getChildren().add(childEditFields);
+                        								
+							Div div = (Div) FacesContext.getCurrentInstance().getApplication().createComponent(Div.COMPONENT_TYPE);
+							div.setStyleClass("divWrappingChildTable");
+							div.getChildren().add(childEditFields);
 							
+							panel1.getChildPanel().getChildren().add(div);
+											
 							
         					return panel1;
 						}
@@ -124,8 +130,13 @@ public class ShareWizard extends JSFWizardBase implements IPageWizardAdapter {
 								childPanel.setId(org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent.asJsfId("page2Child_users"));
 			    				childEditFields.getChildren().add(childPanel); 	
                 				}
-							            				panel2.getChildPanel().getChildren().add(childEditFields);
+														
+							Div div = (Div) FacesContext.getCurrentInstance().getApplication().createComponent(Div.COMPONENT_TYPE);
+							div.setStyleClass("divWrappingChildTable");
+							div.getChildren().add(childEditFields);
 							
+							panel2.getChildPanel().getChildren().add(div);
+											
 							
         					return panel2;
 						}
@@ -174,8 +185,13 @@ public class ShareWizard extends JSFWizardBase implements IPageWizardAdapter {
 								childPanel.setId(org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent.asJsfId("page4Child_users"));
 			    				childEditFields.getChildren().add(childPanel); 	
                 				}
-							            				panel3.getChildPanel().getChildren().add(childEditFields);
+														
+							Div div = (Div) FacesContext.getCurrentInstance().getApplication().createComponent(Div.COMPONENT_TYPE);
+							div.setStyleClass("divWrappingChildTable");
+							div.getChildren().add(childEditFields);
 							
+							panel3.getChildPanel().getChildren().add(div);
+											
 							
         					return panel3;
 						}
@@ -243,7 +259,12 @@ public class ShareWizard extends JSFWizardBase implements IPageWizardAdapter {
                 			
             				//add the childs with occurence list
                         								panel1.getChildPanel().getChildren().clear();
-            				panel1.getChildPanel().getChildren().add(childEditFields);
+
+							Div div = (Div) FacesContext.getCurrentInstance().getApplication().createComponent(Div.COMPONENT_TYPE);
+							div.setStyleClass("divWrappingChildTable");
+							div.getChildren().add(childEditFields);
+							
+							panel1.getChildPanel().getChildren().add(div);
 						}
 						catch (Exception e)
 						{
@@ -281,7 +302,12 @@ public class ShareWizard extends JSFWizardBase implements IPageWizardAdapter {
 			    				childEditFields.getChildren().add(childPanel); 	
                 				}
 														panel2.getChildPanel().getChildren().clear();
-            				panel2.getChildPanel().getChildren().add(childEditFields);
+
+							Div div = (Div) FacesContext.getCurrentInstance().getApplication().createComponent(Div.COMPONENT_TYPE);
+							div.setStyleClass("divWrappingChildTable");
+							div.getChildren().add(childEditFields);
+							
+							panel2.getChildPanel().getChildren().add(div);
 						}
 						catch (Exception e)
 						{
@@ -319,7 +345,12 @@ public class ShareWizard extends JSFWizardBase implements IPageWizardAdapter {
 			    				childEditFields.getChildren().add(childPanel); 	
                 				}
 														panel3.getChildPanel().getChildren().clear();
-            				panel3.getChildPanel().getChildren().add(childEditFields);
+
+							Div div = (Div) FacesContext.getCurrentInstance().getApplication().createComponent(Div.COMPONENT_TYPE);
+							div.setStyleClass("divWrappingChildTable");
+							div.getChildren().add(childEditFields);
+							
+							panel3.getChildPanel().getChildren().add(div);
 						}
 						catch (Exception e)
 						{
