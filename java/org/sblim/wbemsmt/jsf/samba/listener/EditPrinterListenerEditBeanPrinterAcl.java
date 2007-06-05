@@ -55,7 +55,7 @@ public class EditPrinterListenerEditBeanPrinterAcl extends EditBean {
 			super(ResourceBundleManager.getResourceBundle(new String[]{"messages","messagesSamba"},LocaleManager.getCurrent(FacesContext.getCurrentInstance()).getCurrentLocale()));		
 		}
 
-		public String save() throws ValidationException, ObjectSaveException
+		public String save() throws ValidationException, ObjectSaveException, UpdateControlsException
 		{
 			saveResult = new MessageList();
 						MessageList result = null;
@@ -75,29 +75,8 @@ public class EditPrinterListenerEditBeanPrinterAcl extends EditBean {
         				{
         					successCount++;
             				adapter1.save(currentEditContainer1);
-    						try {
-                				//update the child objects
-                				                				
-                            	                        		
-    							String bindingPrefix = "objectActionController.editBeans['printerAcl'].containers[0].";
-                    			int count = adapter1.count(org.sblim.wbemsmt.samba.bl.container.printer.UserACLItemDataContainerForPrinter.class);
-
-                    			currentEditContainer1.clearUsers();
-                    			currentEditContainer1.addUsersHeader();
-                    			
-                    			for (int i=0; i < count; i++) {
-	                    			currentEditContainer1.addUsers(new org.sblim.wbemsmt.jsf.samba.container.printer.UserACLItemDataContainerForPrinter_AsUsers_InUserInPrinterACLDataContainerImpl(adapter1,bindingPrefix, i));
-                    			}
-
-                    			currentEditContainer1.getUsersPanel().setList(currentEditContainer1.getUsers());
-								
-                            	    							adapter1.updateControls(currentEditContainer1);
-    							
-                            		                    			currentEditContainer1.getUsersPanel().updateRows();
-								    							
-    						} catch (Exception e) {
-    							throw new ObjectSaveException("Canot update Model after saving data",e);
-    						}
+							//update the container and children objects
+							currentEditContainer1.updateControls();
             			}
         				
 						//Get the infos afte storing the values
@@ -163,23 +142,9 @@ public class EditPrinterListenerEditBeanPrinterAcl extends EditBean {
     			
 				//update the child objects
 								
-            					{
-	    		
-	    			int count = adapter1.count(org.sblim.wbemsmt.samba.bl.container.printer.UserACLItemDataContainerForPrinter.class);
-	    			
-        			currentEditContainer1.clearUsers();
-        			currentEditContainer1.addUsersHeader();
-	    			
-        			for (int i=0; i < count; i++) {
-            			currentEditContainer1.addUsers(new org.sblim.wbemsmt.jsf.samba.container.printer.UserACLItemDataContainerForPrinter_AsUsers_InUserInPrinterACLDataContainerImpl(adapter1,bindingPrefix, i));
-        			}
+				//update the container and children objects
+				currentEditContainer1.updateControls();
 
-        			currentEditContainer1.getUsersPanel().setList(currentEditContainer1.getUsers());
-				}
-            					adapter1.updateControls(currentEditContainer1);
-
-            	        			currentEditContainer1.getUsersPanel().updateRows();
-				    			
     			childEditFields = (HtmlPanelGrid) FacesContext.getCurrentInstance().getApplication().createComponent(HtmlPanelGrid.COMPONENT_TYPE);
 				childEditFields.setStyleClass("childTable");
     			

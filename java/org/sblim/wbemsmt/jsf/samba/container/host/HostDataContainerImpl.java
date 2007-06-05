@@ -94,6 +94,25 @@ public class HostDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.EditBaseP
 		return new String[]{"messages","messagesSamba"};
 	}
 
+	public void countAndCreateChildren() throws InitContainerException {
+	
+    		}
+
+
+	/**
+	 * count and create childrens
+	 * @throws UpdateControlsException
+	 */
+	public void updateControls() throws UpdateControlsException {
+		try {
+			countAndCreateChildren();
+			adapter.updateControls(this);
+		
+					} catch (InitContainerException e) {
+			throw new UpdateControlsException(e);
+		}
+	}
+
 	
  
 	/**

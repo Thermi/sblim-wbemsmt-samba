@@ -65,8 +65,9 @@ public class HostWizard extends JSFWizardBase implements IPageWizardAdapter {
 					
 						try
 						{
-							    						panel1= new org.sblim.wbemsmt.jsf.samba.container.wizard.HostWizardPage1Impl(adapter,binding);
-                            
+    						panel1= new org.sblim.wbemsmt.jsf.samba.container.wizard.HostWizardPage1Impl(adapter,binding);
+    						panel1.countAndCreateChildren();
+
     						HtmlPanelGrid childEditFields = (HtmlPanelGrid) FacesContext.getCurrentInstance().getApplication().createComponent(HtmlPanelGrid.COMPONENT_TYPE);
             				childEditFields.setStyleClass("childTable");
                 			
@@ -102,8 +103,9 @@ public class HostWizard extends JSFWizardBase implements IPageWizardAdapter {
 					
 						try
 						{
-							    						panel2= new org.sblim.wbemsmt.jsf.samba.container.wizard.HostWizardPage2Impl(adapter,binding);
-                            
+    						panel2= new org.sblim.wbemsmt.jsf.samba.container.wizard.HostWizardPage2Impl(adapter,binding);
+    						panel2.countAndCreateChildren();
+
     						HtmlPanelGrid childEditFields = (HtmlPanelGrid) FacesContext.getCurrentInstance().getApplication().createComponent(HtmlPanelGrid.COMPONENT_TYPE);
             				childEditFields.setStyleClass("childTable");
                 			
@@ -177,8 +179,7 @@ public class HostWizard extends JSFWizardBase implements IPageWizardAdapter {
         				    					//update the child objects
         										try
 						{
-							
-                            							adapter.updateControls(panel1);
+							panel1.updateControls();
     					
     						HtmlPanelGrid childEditFields = (HtmlPanelGrid) FacesContext.getCurrentInstance().getApplication().createComponent(HtmlPanelGrid.COMPONENT_TYPE);
             				childEditFields.setStyleClass("childTable");
@@ -202,8 +203,7 @@ public class HostWizard extends JSFWizardBase implements IPageWizardAdapter {
         				    					//update the child objects
         										try
 						{
-							
-                            							adapter.updateControls(panel2);
+							panel2.updateControls();
     					
     						HtmlPanelGrid childEditFields = (HtmlPanelGrid) FacesContext.getCurrentInstance().getApplication().createComponent(HtmlPanelGrid.COMPONENT_TYPE);
             				childEditFields.setStyleClass("childTable");

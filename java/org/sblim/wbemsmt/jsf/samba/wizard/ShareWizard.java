@@ -66,8 +66,9 @@ public class ShareWizard extends JSFWizardBase implements IPageWizardAdapter {
 					
 						try
 						{
-							    						panel1= new org.sblim.wbemsmt.jsf.samba.container.wizard.ShareWizardPage1Impl(adapter,binding);
-                            
+    						panel1= new org.sblim.wbemsmt.jsf.samba.container.wizard.ShareWizardPage1Impl(adapter,binding);
+    						panel1.countAndCreateChildren();
+
     						HtmlPanelGrid childEditFields = (HtmlPanelGrid) FacesContext.getCurrentInstance().getApplication().createComponent(HtmlPanelGrid.COMPONENT_TYPE);
             				childEditFields.setStyleClass("childTable");
                 			
@@ -103,20 +104,9 @@ public class ShareWizard extends JSFWizardBase implements IPageWizardAdapter {
 					
 						try
 						{
-														int count = 0;
-							    						panel2= new org.sblim.wbemsmt.jsf.samba.container.wizard.ShareWizardPage2Impl(adapter,binding);
-                            								
-								count = adapter.count(org.sblim.wbemsmt.samba.bl.container.wizard.UserInShareWizardACLItemDataContainer.class);
-								
-                    			panel2.clearUsers();
-                    			panel2.addUsersHeader();
+    						panel2= new org.sblim.wbemsmt.jsf.samba.container.wizard.ShareWizardPage2Impl(adapter,binding);
+    						panel2.countAndCreateChildren();
 
-                                for (int i=0; i < count; i++) {
-                                    panel2.addUsers(new org.sblim.wbemsmt.jsf.samba.container.wizard.UserInShareWizardACLItemDataContainer_AsUsers_InShareWizardPage2Impl(adapter,binding, i));
-									
-                                }
-                    			panel2.getUsersPanel().setList(panel2.getUsers());
-                            
     						HtmlPanelGrid childEditFields = (HtmlPanelGrid) FacesContext.getCurrentInstance().getApplication().createComponent(HtmlPanelGrid.COMPONENT_TYPE);
             				childEditFields.setStyleClass("childTable");
                 			
@@ -158,20 +148,9 @@ public class ShareWizard extends JSFWizardBase implements IPageWizardAdapter {
 					
 						try
 						{
-														int count = 0;
-							    						panel3= new org.sblim.wbemsmt.jsf.samba.container.wizard.ShareWizardPage4Impl(adapter,binding);
-                            								
-								count = adapter.count(org.sblim.wbemsmt.samba.bl.container.wizard.UserInShareWizardACLItemDataContainer.class);
-								
-                    			panel3.clearUsers();
-                    			panel3.addUsersHeader();
+    						panel3= new org.sblim.wbemsmt.jsf.samba.container.wizard.ShareWizardPage4Impl(adapter,binding);
+    						panel3.countAndCreateChildren();
 
-                                for (int i=0; i < count; i++) {
-                                    panel3.addUsers(new org.sblim.wbemsmt.jsf.samba.container.wizard.UserInShareWizardACLItemDataContainer_AsUsers_InShareWizardPage4Impl(adapter,binding, i));
-									
-                                }
-                    			panel3.getUsersPanel().setList(panel3.getUsers());
-                            
     						HtmlPanelGrid childEditFields = (HtmlPanelGrid) FacesContext.getCurrentInstance().getApplication().createComponent(HtmlPanelGrid.COMPONENT_TYPE);
             				childEditFields.setStyleClass("childTable");
                 			
@@ -251,8 +230,7 @@ public class ShareWizard extends JSFWizardBase implements IPageWizardAdapter {
         				    					//update the child objects
         										try
 						{
-							
-                            							adapter.updateControls(panel1);
+							panel1.updateControls();
     					
     						HtmlPanelGrid childEditFields = (HtmlPanelGrid) FacesContext.getCurrentInstance().getApplication().createComponent(HtmlPanelGrid.COMPONENT_TYPE);
             				childEditFields.setStyleClass("childTable");
@@ -276,20 +254,7 @@ public class ShareWizard extends JSFWizardBase implements IPageWizardAdapter {
         				    					//update the child objects
         										try
 						{
-														int count = 0;
-							
-                            								
-								count = adapter.count(org.sblim.wbemsmt.samba.bl.container.wizard.UserInShareWizardACLItemDataContainer.class);
-
-                    			panel2.clearUsers();
-                    			panel2.addUsersHeader();
-
-                                for (int i=0; i < count; i++) {
-                                    panel2.addUsers(new org.sblim.wbemsmt.jsf.samba.container.wizard.UserInShareWizardACLItemDataContainer_AsUsers_InShareWizardPage2Impl(adapter,binding, i));
-									
-                                }
-                    			panel2.getUsersPanel().setList(panel2.getUsers());
-                            							adapter.updateControls(panel2);
+							panel2.updateControls();
     					
     						HtmlPanelGrid childEditFields = (HtmlPanelGrid) FacesContext.getCurrentInstance().getApplication().createComponent(HtmlPanelGrid.COMPONENT_TYPE);
             				childEditFields.setStyleClass("childTable");
@@ -319,20 +284,7 @@ public class ShareWizard extends JSFWizardBase implements IPageWizardAdapter {
         				    					//update the child objects
         										try
 						{
-														int count = 0;
-							
-                            								
-								count = adapter.count(org.sblim.wbemsmt.samba.bl.container.wizard.UserInShareWizardACLItemDataContainer.class);
-
-                    			panel3.clearUsers();
-                    			panel3.addUsersHeader();
-
-                                for (int i=0; i < count; i++) {
-                                    panel3.addUsers(new org.sblim.wbemsmt.jsf.samba.container.wizard.UserInShareWizardACLItemDataContainer_AsUsers_InShareWizardPage4Impl(adapter,binding, i));
-									
-                                }
-                    			panel3.getUsersPanel().setList(panel3.getUsers());
-                            							adapter.updateControls(panel3);
+							panel3.updateControls();
     					
     						HtmlPanelGrid childEditFields = (HtmlPanelGrid) FacesContext.getCurrentInstance().getApplication().createComponent(HtmlPanelGrid.COMPONENT_TYPE);
             				childEditFields.setStyleClass("childTable");

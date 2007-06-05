@@ -44,6 +44,7 @@ public class PrinterInUserACLDataContainerImpl extends org.sblim.wbemsmt.tools.j
 				private java.util.List icPrinters = new java.util.ArrayList();
 		
 		private MultiLinePanel printersPanel;
+		private int printersCount;
 
 				private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf icPrinters_PrinterNameHeader;
 				private org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf icPrinters_usr_AccessTypeVIHeader;
@@ -88,6 +89,7 @@ public class PrinterInUserACLDataContainerImpl extends org.sblim.wbemsmt.tools.j
 							  "#{" +  bindingPrefix + "printersPanel", // binding for Title
 							  "PrinterACLItemDataContainer_AsPrinters_InPrinterInUserACLDataContainer.caption", //Key for title
 							  org.sblim.wbemsmt.jsf.samba.container.share.PrinterACLItemDataContainer_AsPrinters_InPrinterInUserACLDataContainerImpl.COLS);
+			  addPrintersHeader();							  
 			}		
 			
 			return printersPanel;
@@ -96,7 +98,7 @@ public class PrinterInUserACLDataContainerImpl extends org.sblim.wbemsmt.tools.j
 		static class PrintersPanel extends MultiLinePanel
 		{
 			public PrintersPanel(AbstractBaseCimAdapter adapter, String bindingPrefix, String bindigForTitle, String keyForTitle, int cols) {
-				super(adapter, bindingPrefix, bindigForTitle, keyForTitle, cols);
+				super(adapter, bindingPrefix, bindigForTitle, keyForTitle, "printers", cols);
 			}
 	
 			protected String getOrientationOfColumnAsCss(int column) {
@@ -104,30 +106,68 @@ public class PrinterInUserACLDataContainerImpl extends org.sblim.wbemsmt.tools.j
 			}
 		}
 
-	public void addPrinters(org.sblim.wbemsmt.jsf.samba.container.share.PrinterACLItemDataContainer_AsPrinters_InPrinterInUserACLDataContainerImpl child) {
+	private void addPrinters(org.sblim.wbemsmt.jsf.samba.container.share.PrinterACLItemDataContainer_AsPrinters_InPrinterInUserACLDataContainerImpl child) {
 
 		getPrinters().add(child);
 		getPrintersPanel().addComponents(child.getComponents());
 		
-					((LabeledJSFInputComponent)getPrinters_PrinterNameHeader()).getDependentChildFields().add(child.get_PrinterName());
-					((LabeledJSFInputComponent)getPrinters_usr_AccessTypeVIHeader()).getDependentChildFields().add(child.get_usr_AccessTypeVI());
-					((LabeledJSFInputComponent)getPrinters_usr_AccessTypeRWHeader()).getDependentChildFields().add(child.get_usr_AccessTypeRW());
-					((LabeledJSFInputComponent)getPrinters_usr_AdminHeader()).getDependentChildFields().add(child.get_usr_Admin());
-		
-		
+					//((LabeledJSFInputComponent)getPrinters_PrinterNameHeader()).getDependentChildFields().add(child.get_PrinterName());
+					//((LabeledJSFInputComponent)getPrinters_usr_AccessTypeVIHeader()).getDependentChildFields().add(child.get_usr_AccessTypeVI());
+					//((LabeledJSFInputComponent)getPrinters_usr_AccessTypeRWHeader()).getDependentChildFields().add(child.get_usr_AccessTypeRW());
+					//((LabeledJSFInputComponent)getPrinters_usr_AdminHeader()).getDependentChildFields().add(child.get_usr_Admin());
+			}
+	
+	private void clearPrinters() {
+		getPrinters().clear();
 	}
 
-	public void clearPrinters() {
-		getPrinters().clear();
-		getPrintersPanel().getInputFieldContainer().getChildren().clear();
-					((LabeledJSFInputComponent)getPrinters_PrinterNameHeader()).getDependentChildFields().clear();
-					((LabeledJSFInputComponent)getPrinters_usr_AccessTypeVIHeader()).getDependentChildFields().clear();
-					((LabeledJSFInputComponent)getPrinters_usr_AccessTypeRWHeader()).getDependentChildFields().clear();
-					((LabeledJSFInputComponent)getPrinters_usr_AdminHeader()).getDependentChildFields().clear();
+	/**
+	* 
+	* Get the Printers for the UI repesentation
+	*/
+	public java.util.List getPrintersForUI()
+	{
+				
+		List result = new ArrayList();
+		result.addAll(icPrinters);
+		
+		while (result.size() < MIN_TABLE_LENGTH)
+		{
+			try {
+				org.sblim.wbemsmt.jsf.samba.container.share.PrinterACLItemDataContainer_AsPrinters_InPrinterInUserACLDataContainerImpl item = new org.sblim.wbemsmt.jsf.samba.container.share.PrinterACLItemDataContainer_AsPrinters_InPrinterInUserACLDataContainerImpl((org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter)adapter,bindingPrefix, result.size());
+				result.add(item);
+			} catch (InitContainerException e) {
+				e.printStackTrace();
 			}
-
-	public void addPrintersHeader() {
-		getPrintersPanel().setHeader(getPrintersHeaderComponents());
+		}
+		
+		printersPanel.setList(result);
+		
+		return result;
+	}		
+		
+		
+	/**
+	 * manages the style for whole footer which is displayed if there are no entries in the table or if there is a custom panel in it
+	 * @return
+	 */
+	public String getPrintersFooterClass()
+	{
+		return "multiLineRowHeader center "  
+		+ (icPrinters.size() == 0 || getPrintersPanel().isHavingCustomFooter() ?  "visible " : "hidden ");
+	}
+	
+	/**
+	 * manages the style for the label which is displayed if there are no entries in the table
+	 * @return
+	 */
+	public String getPrintersAvailableFooterClass()
+	{
+		return icPrinters.size() > 0 ? " hidden " : " visible ";
+	}
+	
+	private void addPrintersHeader() {
+		getPrintersPanel().setHeader(getPrintersHeaderComponents(),getPrintersFieldNames());
 	}
 	
 	private LabeledJSFInputComponent[] getPrintersHeaderComponents() {
@@ -136,6 +176,15 @@ public class PrinterInUserACLDataContainerImpl extends org.sblim.wbemsmt.tools.j
 							(LabeledJSFInputComponent)getPrinters_usr_AccessTypeVIHeader(),
 							(LabeledJSFInputComponent)getPrinters_usr_AccessTypeRWHeader(),
 							(LabeledJSFInputComponent)getPrinters_usr_AdminHeader(),
+						};
+	}
+
+	private String[] getPrintersFieldNames() {
+		return new String[]{
+							"_PrinterName",
+							"_usr_AccessTypeVI",
+							"_usr_AccessTypeRW",
+							"_usr_Admin",
 						};
 	}
 
@@ -221,6 +270,41 @@ public class PrinterInUserACLDataContainerImpl extends org.sblim.wbemsmt.tools.j
 
 	public String[] getResourceBundleNames() {
 		return new String[]{"messages","messagesSamba"};
+	}
+
+	public void countAndCreateChildren() throws InitContainerException {
+	
+    			try
+		{
+			int count = adapter.count(org.sblim.wbemsmt.samba.bl.container.share.PrinterACLItemDataContainer.class);
+	        if (count != printersCount)
+	        {
+	           printersCount = count;
+	           clearPrinters();
+			   for (int i=0; i < count ; i++) {
+	    			addPrinters(new org.sblim.wbemsmt.jsf.samba.container.share.PrinterACLItemDataContainer_AsPrinters_InPrinterInUserACLDataContainerImpl((org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter)adapter,bindingPrefix, i));
+			   }
+	        }
+			getPrintersPanel().setList(getPrinters());				   
+		} catch (WbemSmtException e) {
+			throw new InitContainerException(e);
+		}
+    		}
+
+
+	/**
+	 * count and create childrens
+	 * @throws UpdateControlsException
+	 */
+	public void updateControls() throws UpdateControlsException {
+		try {
+			countAndCreateChildren();
+			adapter.updateControls(this);
+		
+							getPrintersPanel().updateRows();				
+					} catch (InitContainerException e) {
+			throw new UpdateControlsException(e);
+		}
 	}
 
 	

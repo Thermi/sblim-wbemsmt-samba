@@ -52,6 +52,7 @@ public class PrintingGlobalsDataContainerImpl extends org.sblim.wbemsmt.tools.js
 				private java.util.List icUsers = new java.util.ArrayList();
 		
 		private MultiLinePanel usersPanel;
+		private int usersCount;
 
 				private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf icUsers_usr_SambaUserNameHeader;
 				private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf icUsers_usr_AdminHeader;
@@ -286,6 +287,7 @@ public class PrintingGlobalsDataContainerImpl extends org.sblim.wbemsmt.tools.js
 							  "#{" +  bindingPrefix + "usersPanel", // binding for Title
 							  "AdminUsersInPrinterGlobals_AsUsers_InPrintingGlobalsDataContainer.caption", //Key for title
 							  org.sblim.wbemsmt.jsf.samba.container.global.AdminUsersInPrinterGlobals_AsUsers_InPrintingGlobalsDataContainerImpl.COLS);
+			  addUsersHeader();							  
 			}		
 			
 			return usersPanel;
@@ -294,7 +296,7 @@ public class PrintingGlobalsDataContainerImpl extends org.sblim.wbemsmt.tools.js
 		static class UsersPanel extends MultiLinePanel
 		{
 			public UsersPanel(AbstractBaseCimAdapter adapter, String bindingPrefix, String bindigForTitle, String keyForTitle, int cols) {
-				super(adapter, bindingPrefix, bindigForTitle, keyForTitle, cols);
+				super(adapter, bindingPrefix, bindigForTitle, keyForTitle, "users", cols);
 			}
 	
 			protected String getOrientationOfColumnAsCss(int column) {
@@ -302,32 +304,79 @@ public class PrintingGlobalsDataContainerImpl extends org.sblim.wbemsmt.tools.js
 			}
 		}
 
-	public void addUsers(org.sblim.wbemsmt.jsf.samba.container.global.AdminUsersInPrinterGlobals_AsUsers_InPrintingGlobalsDataContainerImpl child) {
+	private void addUsers(org.sblim.wbemsmt.jsf.samba.container.global.AdminUsersInPrinterGlobals_AsUsers_InPrintingGlobalsDataContainerImpl child) {
 
 		getUsers().add(child);
 		getUsersPanel().addComponents(child.getComponents());
 		
-					((LabeledJSFInputComponent)getUsers_usr_SambaUserNameHeader()).getDependentChildFields().add(child.get_usr_SambaUserName());
-					((LabeledJSFInputComponent)getUsers_usr_AdminHeader()).getDependentChildFields().add(child.get_usr_Admin());
-		
-		
+					//((LabeledJSFInputComponent)getUsers_usr_SambaUserNameHeader()).getDependentChildFields().add(child.get_usr_SambaUserName());
+					//((LabeledJSFInputComponent)getUsers_usr_AdminHeader()).getDependentChildFields().add(child.get_usr_Admin());
+			}
+	
+	private void clearUsers() {
+		getUsers().clear();
 	}
 
-	public void clearUsers() {
-		getUsers().clear();
-		getUsersPanel().getInputFieldContainer().getChildren().clear();
-					((LabeledJSFInputComponent)getUsers_usr_SambaUserNameHeader()).getDependentChildFields().clear();
-					((LabeledJSFInputComponent)getUsers_usr_AdminHeader()).getDependentChildFields().clear();
+	/**
+	* 
+	* Get the Users for the UI repesentation
+	*/
+	public java.util.List getUsersForUI()
+	{
+				
+		List result = new ArrayList();
+		result.addAll(icUsers);
+		
+		while (result.size() < MIN_TABLE_LENGTH)
+		{
+			try {
+				org.sblim.wbemsmt.jsf.samba.container.global.AdminUsersInPrinterGlobals_AsUsers_InPrintingGlobalsDataContainerImpl item = new org.sblim.wbemsmt.jsf.samba.container.global.AdminUsersInPrinterGlobals_AsUsers_InPrintingGlobalsDataContainerImpl((org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter)adapter,bindingPrefix, result.size());
+				result.add(item);
+			} catch (InitContainerException e) {
+				e.printStackTrace();
 			}
-
-	public void addUsersHeader() {
-		getUsersPanel().setHeader(getUsersHeaderComponents());
+		}
+		
+		usersPanel.setList(result);
+		
+		return result;
+	}		
+		
+		
+	/**
+	 * manages the style for whole footer which is displayed if there are no entries in the table or if there is a custom panel in it
+	 * @return
+	 */
+	public String getUsersFooterClass()
+	{
+		return "multiLineRowHeader center "  
+		+ (icUsers.size() == 0 || getUsersPanel().isHavingCustomFooter() ?  "visible " : "hidden ");
+	}
+	
+	/**
+	 * manages the style for the label which is displayed if there are no entries in the table
+	 * @return
+	 */
+	public String getUsersAvailableFooterClass()
+	{
+		return icUsers.size() > 0 ? " hidden " : " visible ";
+	}
+	
+	private void addUsersHeader() {
+		getUsersPanel().setHeader(getUsersHeaderComponents(),getUsersFieldNames());
 	}
 	
 	private LabeledJSFInputComponent[] getUsersHeaderComponents() {
 		return new LabeledJSFInputComponent[]{
 							(LabeledJSFInputComponent)getUsers_usr_SambaUserNameHeader(),
 							(LabeledJSFInputComponent)getUsers_usr_AdminHeader(),
+						};
+	}
+
+	private String[] getUsersFieldNames() {
+		return new String[]{
+							"_usr_SambaUserName",
+							"_usr_Admin",
 						};
 	}
 
@@ -409,6 +458,41 @@ public class PrintingGlobalsDataContainerImpl extends org.sblim.wbemsmt.tools.js
 
 	public String[] getResourceBundleNames() {
 		return new String[]{"messages","messagesSamba"};
+	}
+
+	public void countAndCreateChildren() throws InitContainerException {
+	
+    			try
+		{
+			int count = adapter.count(org.sblim.wbemsmt.samba.bl.container.global.AdminUsersInPrinterGlobals.class);
+	        if (count != usersCount)
+	        {
+	           usersCount = count;
+	           clearUsers();
+			   for (int i=0; i < count ; i++) {
+	    			addUsers(new org.sblim.wbemsmt.jsf.samba.container.global.AdminUsersInPrinterGlobals_AsUsers_InPrintingGlobalsDataContainerImpl((org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter)adapter,bindingPrefix, i));
+			   }
+	        }
+			getUsersPanel().setList(getUsers());				   
+		} catch (WbemSmtException e) {
+			throw new InitContainerException(e);
+		}
+    		}
+
+
+	/**
+	 * count and create childrens
+	 * @throws UpdateControlsException
+	 */
+	public void updateControls() throws UpdateControlsException {
+		try {
+			countAndCreateChildren();
+			adapter.updateControls(this);
+		
+							getUsersPanel().updateRows();				
+					} catch (InitContainerException e) {
+			throw new UpdateControlsException(e);
+		}
 	}
 
 	

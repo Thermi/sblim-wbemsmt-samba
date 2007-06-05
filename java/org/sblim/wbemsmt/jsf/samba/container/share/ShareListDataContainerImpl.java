@@ -44,6 +44,7 @@ public class ShareListDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.Edit
 				private java.util.List icShares = new java.util.ArrayList();
 		
 		private MultiLinePanel sharesPanel;
+		private int sharesCount;
 
 				private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf icShares_NameHeader;
 				private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf icShares_AvailableHeader;
@@ -94,6 +95,7 @@ public class ShareListDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.Edit
 							  "#{" +  bindingPrefix + "sharesPanel", // binding for Title
 							  "ShareListItemDataContainer_AsShares_InShareListDataContainer.caption", //Key for title
 							  org.sblim.wbemsmt.jsf.samba.container.share.ShareListItemDataContainer_AsShares_InShareListDataContainerImpl.COLS);
+			  addSharesHeader();							  
 			}		
 			
 			return sharesPanel;
@@ -102,7 +104,7 @@ public class ShareListDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.Edit
 		static class SharesPanel extends MultiLinePanel
 		{
 			public SharesPanel(AbstractBaseCimAdapter adapter, String bindingPrefix, String bindigForTitle, String keyForTitle, int cols) {
-				super(adapter, bindingPrefix, bindigForTitle, keyForTitle, cols);
+				super(adapter, bindingPrefix, bindigForTitle, keyForTitle, "shares", cols);
 			}
 	
 			protected String getOrientationOfColumnAsCss(int column) {
@@ -110,42 +112,74 @@ public class ShareListDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.Edit
 			}
 		}
 
-	public void addShares(org.sblim.wbemsmt.jsf.samba.container.share.ShareListItemDataContainer_AsShares_InShareListDataContainerImpl child) {
+	private void addShares(org.sblim.wbemsmt.jsf.samba.container.share.ShareListItemDataContainer_AsShares_InShareListDataContainerImpl child) {
 
 		getShares().add(child);
 		getSharesPanel().addComponents(child.getComponents());
 		
-					((LabeledJSFInputComponent)getShares_NameHeader()).getDependentChildFields().add(child.get_Name());
-					((LabeledJSFInputComponent)getShares_AvailableHeader()).getDependentChildFields().add(child.get_Available());
-					((LabeledJSFInputComponent)getShares_CommentHeader()).getDependentChildFields().add(child.get_Comment());
-					((LabeledJSFInputComponent)getShares_PathHeader()).getDependentChildFields().add(child.get_Path());
-					((LabeledJSFInputComponent)getShares_BrowsableHeader()).getDependentChildFields().add(child.get_Browsable());
-					((LabeledJSFInputComponent)getShares_GuestOKHeader()).getDependentChildFields().add(child.get_GuestOK());
-					((LabeledJSFInputComponent)getShares_GuestOnlyHeader()).getDependentChildFields().add(child.get_GuestOnly());
-					((LabeledJSFInputComponent)getShares_HostsAllowHeader()).getDependentChildFields().add(child.get_HostsAllow());
-					((LabeledJSFInputComponent)getShares_HostsDenyHeader()).getDependentChildFields().add(child.get_HostsDeny());
-					((LabeledJSFInputComponent)getShares_ReadOnlyHeader()).getDependentChildFields().add(child.get_ReadOnly());
-		
-		
+					//((LabeledJSFInputComponent)getShares_NameHeader()).getDependentChildFields().add(child.get_Name());
+					//((LabeledJSFInputComponent)getShares_AvailableHeader()).getDependentChildFields().add(child.get_Available());
+					//((LabeledJSFInputComponent)getShares_CommentHeader()).getDependentChildFields().add(child.get_Comment());
+					//((LabeledJSFInputComponent)getShares_PathHeader()).getDependentChildFields().add(child.get_Path());
+					//((LabeledJSFInputComponent)getShares_BrowsableHeader()).getDependentChildFields().add(child.get_Browsable());
+					//((LabeledJSFInputComponent)getShares_GuestOKHeader()).getDependentChildFields().add(child.get_GuestOK());
+					//((LabeledJSFInputComponent)getShares_GuestOnlyHeader()).getDependentChildFields().add(child.get_GuestOnly());
+					//((LabeledJSFInputComponent)getShares_HostsAllowHeader()).getDependentChildFields().add(child.get_HostsAllow());
+					//((LabeledJSFInputComponent)getShares_HostsDenyHeader()).getDependentChildFields().add(child.get_HostsDeny());
+					//((LabeledJSFInputComponent)getShares_ReadOnlyHeader()).getDependentChildFields().add(child.get_ReadOnly());
+			}
+	
+	private void clearShares() {
+		getShares().clear();
 	}
 
-	public void clearShares() {
-		getShares().clear();
-		getSharesPanel().getInputFieldContainer().getChildren().clear();
-					((LabeledJSFInputComponent)getShares_NameHeader()).getDependentChildFields().clear();
-					((LabeledJSFInputComponent)getShares_AvailableHeader()).getDependentChildFields().clear();
-					((LabeledJSFInputComponent)getShares_CommentHeader()).getDependentChildFields().clear();
-					((LabeledJSFInputComponent)getShares_PathHeader()).getDependentChildFields().clear();
-					((LabeledJSFInputComponent)getShares_BrowsableHeader()).getDependentChildFields().clear();
-					((LabeledJSFInputComponent)getShares_GuestOKHeader()).getDependentChildFields().clear();
-					((LabeledJSFInputComponent)getShares_GuestOnlyHeader()).getDependentChildFields().clear();
-					((LabeledJSFInputComponent)getShares_HostsAllowHeader()).getDependentChildFields().clear();
-					((LabeledJSFInputComponent)getShares_HostsDenyHeader()).getDependentChildFields().clear();
-					((LabeledJSFInputComponent)getShares_ReadOnlyHeader()).getDependentChildFields().clear();
+	/**
+	* 
+	* Get the Shares for the UI repesentation
+	*/
+	public java.util.List getSharesForUI()
+	{
+				
+		List result = new ArrayList();
+		result.addAll(icShares);
+		
+		while (result.size() < MIN_TABLE_LENGTH)
+		{
+			try {
+				org.sblim.wbemsmt.jsf.samba.container.share.ShareListItemDataContainer_AsShares_InShareListDataContainerImpl item = new org.sblim.wbemsmt.jsf.samba.container.share.ShareListItemDataContainer_AsShares_InShareListDataContainerImpl((org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter)adapter,bindingPrefix, result.size());
+				result.add(item);
+			} catch (InitContainerException e) {
+				e.printStackTrace();
 			}
-
-	public void addSharesHeader() {
-		getSharesPanel().setHeader(getSharesHeaderComponents());
+		}
+		
+		sharesPanel.setList(result);
+		
+		return result;
+	}		
+		
+		
+	/**
+	 * manages the style for whole footer which is displayed if there are no entries in the table or if there is a custom panel in it
+	 * @return
+	 */
+	public String getSharesFooterClass()
+	{
+		return "multiLineRowHeader center "  
+		+ (icShares.size() == 0 || getSharesPanel().isHavingCustomFooter() ?  "visible " : "hidden ");
+	}
+	
+	/**
+	 * manages the style for the label which is displayed if there are no entries in the table
+	 * @return
+	 */
+	public String getSharesAvailableFooterClass()
+	{
+		return icShares.size() > 0 ? " hidden " : " visible ";
+	}
+	
+	private void addSharesHeader() {
+		getSharesPanel().setHeader(getSharesHeaderComponents(),getSharesFieldNames());
 	}
 	
 	private LabeledJSFInputComponent[] getSharesHeaderComponents() {
@@ -160,6 +194,21 @@ public class ShareListDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.Edit
 							(LabeledJSFInputComponent)getShares_HostsAllowHeader(),
 							(LabeledJSFInputComponent)getShares_HostsDenyHeader(),
 							(LabeledJSFInputComponent)getShares_ReadOnlyHeader(),
+						};
+	}
+
+	private String[] getSharesFieldNames() {
+		return new String[]{
+							"_Name",
+							"_Available",
+							"_Comment",
+							"_Path",
+							"_Browsable",
+							"_GuestOK",
+							"_GuestOnly",
+							"_HostsAllow",
+							"_HostsDeny",
+							"_ReadOnly",
 						};
 	}
 
@@ -353,6 +402,41 @@ public class ShareListDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.Edit
 
 	public String[] getResourceBundleNames() {
 		return new String[]{"messages","messagesSamba"};
+	}
+
+	public void countAndCreateChildren() throws InitContainerException {
+	
+    			try
+		{
+			int count = adapter.count(org.sblim.wbemsmt.samba.bl.container.share.ShareListItemDataContainer.class);
+	        if (count != sharesCount)
+	        {
+	           sharesCount = count;
+	           clearShares();
+			   for (int i=0; i < count ; i++) {
+	    			addShares(new org.sblim.wbemsmt.jsf.samba.container.share.ShareListItemDataContainer_AsShares_InShareListDataContainerImpl((org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter)adapter,bindingPrefix, i));
+			   }
+	        }
+			getSharesPanel().setList(getShares());				   
+		} catch (WbemSmtException e) {
+			throw new InitContainerException(e);
+		}
+    		}
+
+
+	/**
+	 * count and create childrens
+	 * @throws UpdateControlsException
+	 */
+	public void updateControls() throws UpdateControlsException {
+		try {
+			countAndCreateChildren();
+			adapter.updateControls(this);
+		
+							getSharesPanel().updateRows();				
+					} catch (InitContainerException e) {
+			throw new UpdateControlsException(e);
+		}
 	}
 
 	

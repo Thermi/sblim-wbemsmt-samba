@@ -68,8 +68,9 @@ public class PrinterWizard extends JSFWizardBase implements IPageWizardAdapter {
 					
 						try
 						{
-							    						panel1= new org.sblim.wbemsmt.jsf.samba.container.wizard.PrinterWizardPage1Impl(adapter,binding);
-                            
+    						panel1= new org.sblim.wbemsmt.jsf.samba.container.wizard.PrinterWizardPage1Impl(adapter,binding);
+    						panel1.countAndCreateChildren();
+
     						HtmlPanelGrid childEditFields = (HtmlPanelGrid) FacesContext.getCurrentInstance().getApplication().createComponent(HtmlPanelGrid.COMPONENT_TYPE);
             				childEditFields.setStyleClass("childTable");
                 			
@@ -106,8 +107,9 @@ public class PrinterWizard extends JSFWizardBase implements IPageWizardAdapter {
 					
 						try
 						{
-							    						panel2= new org.sblim.wbemsmt.jsf.samba.container.wizard.PrinterWizardPage2Impl(adapter,binding);
-                            
+    						panel2= new org.sblim.wbemsmt.jsf.samba.container.wizard.PrinterWizardPage2Impl(adapter,binding);
+    						panel2.countAndCreateChildren();
+
     						HtmlPanelGrid childEditFields = (HtmlPanelGrid) FacesContext.getCurrentInstance().getApplication().createComponent(HtmlPanelGrid.COMPONENT_TYPE);
             				childEditFields.setStyleClass("childTable");
                 			
@@ -143,20 +145,9 @@ public class PrinterWizard extends JSFWizardBase implements IPageWizardAdapter {
 					
 						try
 						{
-														int count = 0;
-							    						panel3= new org.sblim.wbemsmt.jsf.samba.container.wizard.PrinterWizardPage3Impl(adapter,binding);
-                            								
-								count = adapter.count(org.sblim.wbemsmt.samba.bl.container.wizard.UserInPrinterWizardACLItemDataContainer.class);
-								
-                    			panel3.clearUsers();
-                    			panel3.addUsersHeader();
+    						panel3= new org.sblim.wbemsmt.jsf.samba.container.wizard.PrinterWizardPage3Impl(adapter,binding);
+    						panel3.countAndCreateChildren();
 
-                                for (int i=0; i < count; i++) {
-                                    panel3.addUsers(new org.sblim.wbemsmt.jsf.samba.container.wizard.UserInPrinterWizardACLItemDataContainer_AsUsers_InPrinterWizardPage3Impl(adapter,binding, i));
-									
-                                }
-                    			panel3.getUsersPanel().setList(panel3.getUsers());
-                            
     						HtmlPanelGrid childEditFields = (HtmlPanelGrid) FacesContext.getCurrentInstance().getApplication().createComponent(HtmlPanelGrid.COMPONENT_TYPE);
             				childEditFields.setStyleClass("childTable");
                 			
@@ -198,8 +189,9 @@ public class PrinterWizard extends JSFWizardBase implements IPageWizardAdapter {
 					
 						try
 						{
-							    						panel4= new org.sblim.wbemsmt.jsf.samba.container.wizard.PrinterWizardPage4Impl(adapter,binding);
-                            
+    						panel4= new org.sblim.wbemsmt.jsf.samba.container.wizard.PrinterWizardPage4Impl(adapter,binding);
+    						panel4.countAndCreateChildren();
+
     						HtmlPanelGrid childEditFields = (HtmlPanelGrid) FacesContext.getCurrentInstance().getApplication().createComponent(HtmlPanelGrid.COMPONENT_TYPE);
             				childEditFields.setStyleClass("childTable");
                 			
@@ -235,20 +227,9 @@ public class PrinterWizard extends JSFWizardBase implements IPageWizardAdapter {
 					
 						try
 						{
-														int count = 0;
-							    						panel5= new org.sblim.wbemsmt.jsf.samba.container.wizard.PrinterWizardPage5Impl(adapter,binding);
-                            								
-								count = adapter.count(org.sblim.wbemsmt.samba.bl.container.wizard.UserInPrinterWizardACLItemDataContainer.class);
-								
-                    			panel5.clearUsers();
-                    			panel5.addUsersHeader();
+    						panel5= new org.sblim.wbemsmt.jsf.samba.container.wizard.PrinterWizardPage5Impl(adapter,binding);
+    						panel5.countAndCreateChildren();
 
-                                for (int i=0; i < count; i++) {
-                                    panel5.addUsers(new org.sblim.wbemsmt.jsf.samba.container.wizard.UserInPrinterWizardACLItemDataContainer_AsUsers_InPrinterWizardPage5Impl(adapter,binding, i));
-									
-                                }
-                    			panel5.getUsersPanel().setList(panel5.getUsers());
-                            
     						HtmlPanelGrid childEditFields = (HtmlPanelGrid) FacesContext.getCurrentInstance().getApplication().createComponent(HtmlPanelGrid.COMPONENT_TYPE);
             				childEditFields.setStyleClass("childTable");
                 			
@@ -328,8 +309,7 @@ public class PrinterWizard extends JSFWizardBase implements IPageWizardAdapter {
         				    					//update the child objects
         										try
 						{
-							
-                            							adapter.updateControls(panel1);
+							panel1.updateControls();
     					
     						HtmlPanelGrid childEditFields = (HtmlPanelGrid) FacesContext.getCurrentInstance().getApplication().createComponent(HtmlPanelGrid.COMPONENT_TYPE);
             				childEditFields.setStyleClass("childTable");
@@ -353,8 +333,7 @@ public class PrinterWizard extends JSFWizardBase implements IPageWizardAdapter {
         				    					//update the child objects
         										try
 						{
-							
-                            							adapter.updateControls(panel2);
+							panel2.updateControls();
     					
     						HtmlPanelGrid childEditFields = (HtmlPanelGrid) FacesContext.getCurrentInstance().getApplication().createComponent(HtmlPanelGrid.COMPONENT_TYPE);
             				childEditFields.setStyleClass("childTable");
@@ -378,20 +357,7 @@ public class PrinterWizard extends JSFWizardBase implements IPageWizardAdapter {
         				    					//update the child objects
         										try
 						{
-														int count = 0;
-							
-                            								
-								count = adapter.count(org.sblim.wbemsmt.samba.bl.container.wizard.UserInPrinterWizardACLItemDataContainer.class);
-
-                    			panel3.clearUsers();
-                    			panel3.addUsersHeader();
-
-                                for (int i=0; i < count; i++) {
-                                    panel3.addUsers(new org.sblim.wbemsmt.jsf.samba.container.wizard.UserInPrinterWizardACLItemDataContainer_AsUsers_InPrinterWizardPage3Impl(adapter,binding, i));
-									
-                                }
-                    			panel3.getUsersPanel().setList(panel3.getUsers());
-                            							adapter.updateControls(panel3);
+							panel3.updateControls();
     					
     						HtmlPanelGrid childEditFields = (HtmlPanelGrid) FacesContext.getCurrentInstance().getApplication().createComponent(HtmlPanelGrid.COMPONENT_TYPE);
             				childEditFields.setStyleClass("childTable");
@@ -421,8 +387,7 @@ public class PrinterWizard extends JSFWizardBase implements IPageWizardAdapter {
         				    					//update the child objects
         										try
 						{
-							
-                            							adapter.updateControls(panel4);
+							panel4.updateControls();
     					
     						HtmlPanelGrid childEditFields = (HtmlPanelGrid) FacesContext.getCurrentInstance().getApplication().createComponent(HtmlPanelGrid.COMPONENT_TYPE);
             				childEditFields.setStyleClass("childTable");
@@ -446,20 +411,7 @@ public class PrinterWizard extends JSFWizardBase implements IPageWizardAdapter {
         				    					//update the child objects
         										try
 						{
-														int count = 0;
-							
-                            								
-								count = adapter.count(org.sblim.wbemsmt.samba.bl.container.wizard.UserInPrinterWizardACLItemDataContainer.class);
-
-                    			panel5.clearUsers();
-                    			panel5.addUsersHeader();
-
-                                for (int i=0; i < count; i++) {
-                                    panel5.addUsers(new org.sblim.wbemsmt.jsf.samba.container.wizard.UserInPrinterWizardACLItemDataContainer_AsUsers_InPrinterWizardPage5Impl(adapter,binding, i));
-									
-                                }
-                    			panel5.getUsersPanel().setList(panel5.getUsers());
-                            							adapter.updateControls(panel5);
+							panel5.updateControls();
     					
     						HtmlPanelGrid childEditFields = (HtmlPanelGrid) FacesContext.getCurrentInstance().getApplication().createComponent(HtmlPanelGrid.COMPONENT_TYPE);
             				childEditFields.setStyleClass("childTable");

@@ -61,7 +61,7 @@ public class EditServiceListenerEditBeanTabSecurity extends EditBean {
 			super(ResourceBundleManager.getResourceBundle(new String[]{"messages","messagesSamba"},LocaleManager.getCurrent(FacesContext.getCurrentInstance()).getCurrentLocale()));		
 		}
 
-		public String save() throws ValidationException, ObjectSaveException
+		public String save() throws ValidationException, ObjectSaveException, UpdateControlsException
 		{
 			saveResult = new MessageList();
 						MessageList result = null;
@@ -81,15 +81,8 @@ public class EditServiceListenerEditBeanTabSecurity extends EditBean {
         				{
         					successCount++;
             				adapter1.save(currentEditContainer1);
-    						try {
-                				//update the child objects
-                				                				
-                            	    							adapter1.updateControls(currentEditContainer1);
-    							
-                            	    							
-    						} catch (Exception e) {
-    							throw new ObjectSaveException("Canot update Model after saving data",e);
-    						}
+							//update the container and children objects
+							currentEditContainer1.updateControls();
             			}
         				
 						//Get the infos afte storing the values
@@ -111,29 +104,8 @@ public class EditServiceListenerEditBeanTabSecurity extends EditBean {
         				{
         					successCount++;
             				adapter2.save(currentEditContainer2);
-    						try {
-                				//update the child objects
-                				                				
-                            	                        		
-    							String bindingPrefix = "objectActionController.editBeans['tabSecurity'].containers[1].";
-                    			int count = adapter2.count(org.sblim.wbemsmt.samba.bl.container.service.UserACLItemDataContainerForService.class);
-
-                    			currentEditContainer2.clearUserRights();
-                    			currentEditContainer2.addUserRightsHeader();
-                    			
-                    			for (int i=0; i < count; i++) {
-	                    			currentEditContainer2.addUserRights(new org.sblim.wbemsmt.jsf.samba.container.service.UserACLItemDataContainerForService_AsUserRights_InServiceUserSecurityOptionsDataContainerImpl(adapter2,bindingPrefix, i));
-                    			}
-
-                    			currentEditContainer2.getUserRightsPanel().setList(currentEditContainer2.getUserRights());
-								
-                            	    							adapter2.updateControls(currentEditContainer2);
-    							
-                            		                    			currentEditContainer2.getUserRightsPanel().updateRows();
-								    							
-    						} catch (Exception e) {
-    							throw new ObjectSaveException("Canot update Model after saving data",e);
-    						}
+							//update the container and children objects
+							currentEditContainer2.updateControls();
             			}
         				
 						//Get the infos afte storing the values
@@ -199,9 +171,9 @@ public class EditServiceListenerEditBeanTabSecurity extends EditBean {
     			
 				//update the child objects
 								
-            					adapter1.updateControls(currentEditContainer1);
+				//update the container and children objects
+				currentEditContainer1.updateControls();
 
-            	    			
     			childEditFields = (HtmlPanelGrid) FacesContext.getCurrentInstance().getApplication().createComponent(HtmlPanelGrid.COMPONENT_TYPE);
 				childEditFields.setStyleClass("childTable");
     			
@@ -255,23 +227,9 @@ public class EditServiceListenerEditBeanTabSecurity extends EditBean {
     			
 				//update the child objects
 								
-            					{
-	    		
-	    			int count = adapter2.count(org.sblim.wbemsmt.samba.bl.container.service.UserACLItemDataContainerForService.class);
-	    			
-        			currentEditContainer2.clearUserRights();
-        			currentEditContainer2.addUserRightsHeader();
-	    			
-        			for (int i=0; i < count; i++) {
-            			currentEditContainer2.addUserRights(new org.sblim.wbemsmt.jsf.samba.container.service.UserACLItemDataContainerForService_AsUserRights_InServiceUserSecurityOptionsDataContainerImpl(adapter2,bindingPrefix, i));
-        			}
+				//update the container and children objects
+				currentEditContainer2.updateControls();
 
-        			currentEditContainer2.getUserRightsPanel().setList(currentEditContainer2.getUserRights());
-				}
-            					adapter2.updateControls(currentEditContainer2);
-
-            	        			currentEditContainer2.getUserRightsPanel().updateRows();
-				    			
     			childEditFields = (HtmlPanelGrid) FacesContext.getCurrentInstance().getApplication().createComponent(HtmlPanelGrid.COMPONENT_TYPE);
 				childEditFields.setStyleClass("childTable");
     			

@@ -45,6 +45,7 @@ public class UserWizardPage2Impl extends org.sblim.wbemsmt.tools.wizard.jsf.Wiza
 				private java.util.List icShares = new java.util.ArrayList();
 		
 		private MultiLinePanel sharesPanel;
+		private int sharesCount;
 
 				private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf icShares_ShareNameHeader;
 				private org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf icShares_usr_AccessTypeVIHeader;
@@ -55,6 +56,7 @@ public class UserWizardPage2Impl extends org.sblim.wbemsmt.tools.wizard.jsf.Wiza
 				private java.util.List icPrinters = new java.util.ArrayList();
 		
 		private MultiLinePanel printersPanel;
+		private int printersCount;
 
 				private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf icPrinters_PrinterNameHeader;
 				private org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf icPrinters_usr_AccessTypeVIHeader;
@@ -123,6 +125,7 @@ public class UserWizardPage2Impl extends org.sblim.wbemsmt.tools.wizard.jsf.Wiza
 							  "#{" +  bindingPrefix + "sharesPanel", // binding for Title
 							  "ShareInUserWizardACLItemDataContainer_AsShares_InUserWizardPage2.caption", //Key for title
 							  org.sblim.wbemsmt.jsf.samba.container.wizard.ShareInUserWizardACLItemDataContainer_AsShares_InUserWizardPage2Impl.COLS);
+			  addSharesHeader();							  
 			}		
 			
 			return sharesPanel;
@@ -131,7 +134,7 @@ public class UserWizardPage2Impl extends org.sblim.wbemsmt.tools.wizard.jsf.Wiza
 		static class SharesPanel extends MultiLinePanel
 		{
 			public SharesPanel(AbstractBaseCimAdapter adapter, String bindingPrefix, String bindigForTitle, String keyForTitle, int cols) {
-				super(adapter, bindingPrefix, bindigForTitle, keyForTitle, cols);
+				super(adapter, bindingPrefix, bindigForTitle, keyForTitle, "shares", cols);
 			}
 	
 			protected String getOrientationOfColumnAsCss(int column) {
@@ -139,30 +142,68 @@ public class UserWizardPage2Impl extends org.sblim.wbemsmt.tools.wizard.jsf.Wiza
 			}
 		}
 
-	public void addShares(org.sblim.wbemsmt.jsf.samba.container.wizard.ShareInUserWizardACLItemDataContainer_AsShares_InUserWizardPage2Impl child) {
+	private void addShares(org.sblim.wbemsmt.jsf.samba.container.wizard.ShareInUserWizardACLItemDataContainer_AsShares_InUserWizardPage2Impl child) {
 
 		getShares().add(child);
 		getSharesPanel().addComponents(child.getComponents());
 		
-					((LabeledJSFInputComponent)getShares_ShareNameHeader()).getDependentChildFields().add(child.get_ShareName());
-					((LabeledJSFInputComponent)getShares_usr_AccessTypeVIHeader()).getDependentChildFields().add(child.get_usr_AccessTypeVI());
-					((LabeledJSFInputComponent)getShares_usr_AccessTypeRWHeader()).getDependentChildFields().add(child.get_usr_AccessTypeRW());
-					((LabeledJSFInputComponent)getShares_usr_AdminHeader()).getDependentChildFields().add(child.get_usr_Admin());
-		
-		
+					//((LabeledJSFInputComponent)getShares_ShareNameHeader()).getDependentChildFields().add(child.get_ShareName());
+					//((LabeledJSFInputComponent)getShares_usr_AccessTypeVIHeader()).getDependentChildFields().add(child.get_usr_AccessTypeVI());
+					//((LabeledJSFInputComponent)getShares_usr_AccessTypeRWHeader()).getDependentChildFields().add(child.get_usr_AccessTypeRW());
+					//((LabeledJSFInputComponent)getShares_usr_AdminHeader()).getDependentChildFields().add(child.get_usr_Admin());
+			}
+	
+	private void clearShares() {
+		getShares().clear();
 	}
 
-	public void clearShares() {
-		getShares().clear();
-		getSharesPanel().getInputFieldContainer().getChildren().clear();
-					((LabeledJSFInputComponent)getShares_ShareNameHeader()).getDependentChildFields().clear();
-					((LabeledJSFInputComponent)getShares_usr_AccessTypeVIHeader()).getDependentChildFields().clear();
-					((LabeledJSFInputComponent)getShares_usr_AccessTypeRWHeader()).getDependentChildFields().clear();
-					((LabeledJSFInputComponent)getShares_usr_AdminHeader()).getDependentChildFields().clear();
+	/**
+	* 
+	* Get the Shares for the UI repesentation
+	*/
+	public java.util.List getSharesForUI()
+	{
+				
+		List result = new ArrayList();
+		result.addAll(icShares);
+		
+		while (result.size() < MIN_TABLE_LENGTH)
+		{
+			try {
+				org.sblim.wbemsmt.jsf.samba.container.wizard.ShareInUserWizardACLItemDataContainer_AsShares_InUserWizardPage2Impl item = new org.sblim.wbemsmt.jsf.samba.container.wizard.ShareInUserWizardACLItemDataContainer_AsShares_InUserWizardPage2Impl((org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter)adapter,bindingPrefix, result.size());
+				result.add(item);
+			} catch (InitContainerException e) {
+				e.printStackTrace();
 			}
-
-	public void addSharesHeader() {
-		getSharesPanel().setHeader(getSharesHeaderComponents());
+		}
+		
+		sharesPanel.setList(result);
+		
+		return result;
+	}		
+		
+		
+	/**
+	 * manages the style for whole footer which is displayed if there are no entries in the table or if there is a custom panel in it
+	 * @return
+	 */
+	public String getSharesFooterClass()
+	{
+		return "multiLineRowHeader center "  
+		+ (icShares.size() == 0 || getSharesPanel().isHavingCustomFooter() ?  "visible " : "hidden ");
+	}
+	
+	/**
+	 * manages the style for the label which is displayed if there are no entries in the table
+	 * @return
+	 */
+	public String getSharesAvailableFooterClass()
+	{
+		return icShares.size() > 0 ? " hidden " : " visible ";
+	}
+	
+	private void addSharesHeader() {
+		getSharesPanel().setHeader(getSharesHeaderComponents(),getSharesFieldNames());
 	}
 	
 	private LabeledJSFInputComponent[] getSharesHeaderComponents() {
@@ -171,6 +212,15 @@ public class UserWizardPage2Impl extends org.sblim.wbemsmt.tools.wizard.jsf.Wiza
 							(LabeledJSFInputComponent)getShares_usr_AccessTypeVIHeader(),
 							(LabeledJSFInputComponent)getShares_usr_AccessTypeRWHeader(),
 							(LabeledJSFInputComponent)getShares_usr_AdminHeader(),
+						};
+	}
+
+	private String[] getSharesFieldNames() {
+		return new String[]{
+							"_ShareName",
+							"_usr_AccessTypeVI",
+							"_usr_AccessTypeRW",
+							"_usr_Admin",
 						};
 	}
 
@@ -266,6 +316,7 @@ public class UserWizardPage2Impl extends org.sblim.wbemsmt.tools.wizard.jsf.Wiza
 							  "#{" +  bindingPrefix + "printersPanel", // binding for Title
 							  "PrinterInUserWizardACLItemDataContainer_AsPrinters_InUserWizardPage2.caption", //Key for title
 							  org.sblim.wbemsmt.jsf.samba.container.wizard.PrinterInUserWizardACLItemDataContainer_AsPrinters_InUserWizardPage2Impl.COLS);
+			  addPrintersHeader();							  
 			}		
 			
 			return printersPanel;
@@ -274,7 +325,7 @@ public class UserWizardPage2Impl extends org.sblim.wbemsmt.tools.wizard.jsf.Wiza
 		static class PrintersPanel extends MultiLinePanel
 		{
 			public PrintersPanel(AbstractBaseCimAdapter adapter, String bindingPrefix, String bindigForTitle, String keyForTitle, int cols) {
-				super(adapter, bindingPrefix, bindigForTitle, keyForTitle, cols);
+				super(adapter, bindingPrefix, bindigForTitle, keyForTitle, "printers", cols);
 			}
 	
 			protected String getOrientationOfColumnAsCss(int column) {
@@ -282,30 +333,68 @@ public class UserWizardPage2Impl extends org.sblim.wbemsmt.tools.wizard.jsf.Wiza
 			}
 		}
 
-	public void addPrinters(org.sblim.wbemsmt.jsf.samba.container.wizard.PrinterInUserWizardACLItemDataContainer_AsPrinters_InUserWizardPage2Impl child) {
+	private void addPrinters(org.sblim.wbemsmt.jsf.samba.container.wizard.PrinterInUserWizardACLItemDataContainer_AsPrinters_InUserWizardPage2Impl child) {
 
 		getPrinters().add(child);
 		getPrintersPanel().addComponents(child.getComponents());
 		
-					((LabeledJSFInputComponent)getPrinters_PrinterNameHeader()).getDependentChildFields().add(child.get_PrinterName());
-					((LabeledJSFInputComponent)getPrinters_usr_AccessTypeVIHeader()).getDependentChildFields().add(child.get_usr_AccessTypeVI());
-					((LabeledJSFInputComponent)getPrinters_usr_AccessTypeRWHeader()).getDependentChildFields().add(child.get_usr_AccessTypeRW());
-					((LabeledJSFInputComponent)getPrinters_usr_AdminHeader()).getDependentChildFields().add(child.get_usr_Admin());
-		
-		
+					//((LabeledJSFInputComponent)getPrinters_PrinterNameHeader()).getDependentChildFields().add(child.get_PrinterName());
+					//((LabeledJSFInputComponent)getPrinters_usr_AccessTypeVIHeader()).getDependentChildFields().add(child.get_usr_AccessTypeVI());
+					//((LabeledJSFInputComponent)getPrinters_usr_AccessTypeRWHeader()).getDependentChildFields().add(child.get_usr_AccessTypeRW());
+					//((LabeledJSFInputComponent)getPrinters_usr_AdminHeader()).getDependentChildFields().add(child.get_usr_Admin());
+			}
+	
+	private void clearPrinters() {
+		getPrinters().clear();
 	}
 
-	public void clearPrinters() {
-		getPrinters().clear();
-		getPrintersPanel().getInputFieldContainer().getChildren().clear();
-					((LabeledJSFInputComponent)getPrinters_PrinterNameHeader()).getDependentChildFields().clear();
-					((LabeledJSFInputComponent)getPrinters_usr_AccessTypeVIHeader()).getDependentChildFields().clear();
-					((LabeledJSFInputComponent)getPrinters_usr_AccessTypeRWHeader()).getDependentChildFields().clear();
-					((LabeledJSFInputComponent)getPrinters_usr_AdminHeader()).getDependentChildFields().clear();
+	/**
+	* 
+	* Get the Printers for the UI repesentation
+	*/
+	public java.util.List getPrintersForUI()
+	{
+				
+		List result = new ArrayList();
+		result.addAll(icPrinters);
+		
+		while (result.size() < MIN_TABLE_LENGTH)
+		{
+			try {
+				org.sblim.wbemsmt.jsf.samba.container.wizard.PrinterInUserWizardACLItemDataContainer_AsPrinters_InUserWizardPage2Impl item = new org.sblim.wbemsmt.jsf.samba.container.wizard.PrinterInUserWizardACLItemDataContainer_AsPrinters_InUserWizardPage2Impl((org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter)adapter,bindingPrefix, result.size());
+				result.add(item);
+			} catch (InitContainerException e) {
+				e.printStackTrace();
 			}
-
-	public void addPrintersHeader() {
-		getPrintersPanel().setHeader(getPrintersHeaderComponents());
+		}
+		
+		printersPanel.setList(result);
+		
+		return result;
+	}		
+		
+		
+	/**
+	 * manages the style for whole footer which is displayed if there are no entries in the table or if there is a custom panel in it
+	 * @return
+	 */
+	public String getPrintersFooterClass()
+	{
+		return "multiLineRowHeader center "  
+		+ (icPrinters.size() == 0 || getPrintersPanel().isHavingCustomFooter() ?  "visible " : "hidden ");
+	}
+	
+	/**
+	 * manages the style for the label which is displayed if there are no entries in the table
+	 * @return
+	 */
+	public String getPrintersAvailableFooterClass()
+	{
+		return icPrinters.size() > 0 ? " hidden " : " visible ";
+	}
+	
+	private void addPrintersHeader() {
+		getPrintersPanel().setHeader(getPrintersHeaderComponents(),getPrintersFieldNames());
 	}
 	
 	private LabeledJSFInputComponent[] getPrintersHeaderComponents() {
@@ -314,6 +403,15 @@ public class UserWizardPage2Impl extends org.sblim.wbemsmt.tools.wizard.jsf.Wiza
 							(LabeledJSFInputComponent)getPrinters_usr_AccessTypeVIHeader(),
 							(LabeledJSFInputComponent)getPrinters_usr_AccessTypeRWHeader(),
 							(LabeledJSFInputComponent)getPrinters_usr_AdminHeader(),
+						};
+	}
+
+	private String[] getPrintersFieldNames() {
+		return new String[]{
+							"_PrinterName",
+							"_usr_AccessTypeVI",
+							"_usr_AccessTypeRW",
+							"_usr_Admin",
 						};
 	}
 
@@ -403,6 +501,57 @@ public class UserWizardPage2Impl extends org.sblim.wbemsmt.tools.wizard.jsf.Wiza
 
 	public String[] getResourceBundleNames() {
 		return new String[]{"messages","messagesSamba"};
+	}
+
+	public void countAndCreateChildren() throws InitContainerException {
+	
+    			try
+		{
+			int count = adapter.count(org.sblim.wbemsmt.samba.bl.container.wizard.ShareInUserWizardACLItemDataContainer.class);
+	        if (count != sharesCount)
+	        {
+	           sharesCount = count;
+	           clearShares();
+			   for (int i=0; i < count ; i++) {
+	    			addShares(new org.sblim.wbemsmt.jsf.samba.container.wizard.ShareInUserWizardACLItemDataContainer_AsShares_InUserWizardPage2Impl((org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter)adapter,bindingPrefix, i));
+			   }
+	        }
+			getSharesPanel().setList(getShares());				   
+		} catch (WbemSmtException e) {
+			throw new InitContainerException(e);
+		}
+    			try
+		{
+			int count = adapter.count(org.sblim.wbemsmt.samba.bl.container.wizard.PrinterInUserWizardACLItemDataContainer.class);
+	        if (count != printersCount)
+	        {
+	           printersCount = count;
+	           clearPrinters();
+			   for (int i=0; i < count ; i++) {
+	    			addPrinters(new org.sblim.wbemsmt.jsf.samba.container.wizard.PrinterInUserWizardACLItemDataContainer_AsPrinters_InUserWizardPage2Impl((org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter)adapter,bindingPrefix, i));
+			   }
+	        }
+			getPrintersPanel().setList(getPrinters());				   
+		} catch (WbemSmtException e) {
+			throw new InitContainerException(e);
+		}
+    		}
+
+
+	/**
+	 * count and create childrens
+	 * @throws UpdateControlsException
+	 */
+	public void updateControls() throws UpdateControlsException {
+		try {
+			countAndCreateChildren();
+			adapter.updateControls(this);
+		
+							getSharesPanel().updateRows();				
+							getPrintersPanel().updateRows();				
+					} catch (InitContainerException e) {
+			throw new UpdateControlsException(e);
+		}
 	}
 
 	

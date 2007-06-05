@@ -47,6 +47,7 @@ public class ServiceUserSecurityOptionsDataContainerImpl extends org.sblim.wbems
 				private java.util.List icUserRights = new java.util.ArrayList();
 		
 		private MultiLinePanel userRightsPanel;
+		private int userRightsCount;
 
 				private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf icUserRights_SambaUserNameHeader;
 				private org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf icUserRights_usr_AccessTypeVIHeader;
@@ -162,6 +163,7 @@ public class ServiceUserSecurityOptionsDataContainerImpl extends org.sblim.wbems
 							  "#{" +  bindingPrefix + "userRightsPanel", // binding for Title
 							  "UserACLItemDataContainerForService_AsUserRights_InServiceUserSecurityOptionsDataContainer.caption", //Key for title
 							  org.sblim.wbemsmt.jsf.samba.container.service.UserACLItemDataContainerForService_AsUserRights_InServiceUserSecurityOptionsDataContainerImpl.COLS);
+			  addUserRightsHeader();							  
 			}		
 			
 			return userRightsPanel;
@@ -170,7 +172,7 @@ public class ServiceUserSecurityOptionsDataContainerImpl extends org.sblim.wbems
 		static class UserRightsPanel extends MultiLinePanel
 		{
 			public UserRightsPanel(AbstractBaseCimAdapter adapter, String bindingPrefix, String bindigForTitle, String keyForTitle, int cols) {
-				super(adapter, bindingPrefix, bindigForTitle, keyForTitle, cols);
+				super(adapter, bindingPrefix, bindigForTitle, keyForTitle, "userRights", cols);
 			}
 	
 			protected String getOrientationOfColumnAsCss(int column) {
@@ -178,28 +180,67 @@ public class ServiceUserSecurityOptionsDataContainerImpl extends org.sblim.wbems
 			}
 		}
 
-	public void addUserRights(org.sblim.wbemsmt.jsf.samba.container.service.UserACLItemDataContainerForService_AsUserRights_InServiceUserSecurityOptionsDataContainerImpl child) {
+	private void addUserRights(org.sblim.wbemsmt.jsf.samba.container.service.UserACLItemDataContainerForService_AsUserRights_InServiceUserSecurityOptionsDataContainerImpl child) {
 
 		getUserRights().add(child);
 		getUserRightsPanel().addComponents(child.getComponents());
 		
-					((LabeledJSFInputComponent)getUserRights_SambaUserNameHeader()).getDependentChildFields().add(child.get_SambaUserName());
-					((LabeledJSFInputComponent)getUserRights_usr_AccessTypeVIHeader()).getDependentChildFields().add(child.get_usr_AccessTypeVI());
-					((LabeledJSFInputComponent)getUserRights_usr_AccessTypeRWHeader()).getDependentChildFields().add(child.get_usr_AccessTypeRW());
-		
-		
+					//((LabeledJSFInputComponent)getUserRights_SambaUserNameHeader()).getDependentChildFields().add(child.get_SambaUserName());
+					//((LabeledJSFInputComponent)getUserRights_usr_AccessTypeVIHeader()).getDependentChildFields().add(child.get_usr_AccessTypeVI());
+					//((LabeledJSFInputComponent)getUserRights_usr_AccessTypeRWHeader()).getDependentChildFields().add(child.get_usr_AccessTypeRW());
+			}
+	
+	private void clearUserRights() {
+		getUserRights().clear();
 	}
 
-	public void clearUserRights() {
-		getUserRights().clear();
-		getUserRightsPanel().getInputFieldContainer().getChildren().clear();
-					((LabeledJSFInputComponent)getUserRights_SambaUserNameHeader()).getDependentChildFields().clear();
-					((LabeledJSFInputComponent)getUserRights_usr_AccessTypeVIHeader()).getDependentChildFields().clear();
-					((LabeledJSFInputComponent)getUserRights_usr_AccessTypeRWHeader()).getDependentChildFields().clear();
+	/**
+	* 
+	* Get the UserRights for the UI repesentation
+	*/
+	public java.util.List getUserRightsForUI()
+	{
+				
+		List result = new ArrayList();
+		result.addAll(icUserRights);
+		
+		while (result.size() < MIN_TABLE_LENGTH)
+		{
+			try {
+				org.sblim.wbemsmt.jsf.samba.container.service.UserACLItemDataContainerForService_AsUserRights_InServiceUserSecurityOptionsDataContainerImpl item = new org.sblim.wbemsmt.jsf.samba.container.service.UserACLItemDataContainerForService_AsUserRights_InServiceUserSecurityOptionsDataContainerImpl((org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter)adapter,bindingPrefix, result.size());
+				result.add(item);
+			} catch (InitContainerException e) {
+				e.printStackTrace();
 			}
-
-	public void addUserRightsHeader() {
-		getUserRightsPanel().setHeader(getUserRightsHeaderComponents());
+		}
+		
+		userRightsPanel.setList(result);
+		
+		return result;
+	}		
+		
+		
+	/**
+	 * manages the style for whole footer which is displayed if there are no entries in the table or if there is a custom panel in it
+	 * @return
+	 */
+	public String getUserRightsFooterClass()
+	{
+		return "multiLineRowHeader center "  
+		+ (icUserRights.size() == 0 || getUserRightsPanel().isHavingCustomFooter() ?  "visible " : "hidden ");
+	}
+	
+	/**
+	 * manages the style for the label which is displayed if there are no entries in the table
+	 * @return
+	 */
+	public String getUserRightsAvailableFooterClass()
+	{
+		return icUserRights.size() > 0 ? " hidden " : " visible ";
+	}
+	
+	private void addUserRightsHeader() {
+		getUserRightsPanel().setHeader(getUserRightsHeaderComponents(),getUserRightsFieldNames());
 	}
 	
 	private LabeledJSFInputComponent[] getUserRightsHeaderComponents() {
@@ -207,6 +248,14 @@ public class ServiceUserSecurityOptionsDataContainerImpl extends org.sblim.wbems
 							(LabeledJSFInputComponent)getUserRights_SambaUserNameHeader(),
 							(LabeledJSFInputComponent)getUserRights_usr_AccessTypeVIHeader(),
 							(LabeledJSFInputComponent)getUserRights_usr_AccessTypeRWHeader(),
+						};
+	}
+
+	private String[] getUserRightsFieldNames() {
+		return new String[]{
+							"_SambaUserName",
+							"_usr_AccessTypeVI",
+							"_usr_AccessTypeRW",
 						};
 	}
 
@@ -286,6 +335,41 @@ public class ServiceUserSecurityOptionsDataContainerImpl extends org.sblim.wbems
 
 	public String[] getResourceBundleNames() {
 		return new String[]{"messages","messagesSamba"};
+	}
+
+	public void countAndCreateChildren() throws InitContainerException {
+	
+    			try
+		{
+			int count = adapter.count(org.sblim.wbemsmt.samba.bl.container.service.UserACLItemDataContainerForService.class);
+	        if (count != userRightsCount)
+	        {
+	           userRightsCount = count;
+	           clearUserRights();
+			   for (int i=0; i < count ; i++) {
+	    			addUserRights(new org.sblim.wbemsmt.jsf.samba.container.service.UserACLItemDataContainerForService_AsUserRights_InServiceUserSecurityOptionsDataContainerImpl((org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter)adapter,bindingPrefix, i));
+			   }
+	        }
+			getUserRightsPanel().setList(getUserRights());				   
+		} catch (WbemSmtException e) {
+			throw new InitContainerException(e);
+		}
+    		}
+
+
+	/**
+	 * count and create childrens
+	 * @throws UpdateControlsException
+	 */
+	public void updateControls() throws UpdateControlsException {
+		try {
+			countAndCreateChildren();
+			adapter.updateControls(this);
+		
+							getUserRightsPanel().updateRows();				
+					} catch (InitContainerException e) {
+			throw new UpdateControlsException(e);
+		}
 	}
 
 	

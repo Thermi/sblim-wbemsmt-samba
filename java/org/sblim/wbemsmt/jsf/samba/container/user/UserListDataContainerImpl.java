@@ -44,6 +44,7 @@ public class UserListDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.EditB
 				private java.util.List icUsers = new java.util.ArrayList();
 		
 		private MultiLinePanel usersPanel;
+		private int usersCount;
 
 				private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf icUsers_SambaUserNameHeader;
 				private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf icUsers_SystemUserNameHeader;
@@ -87,6 +88,7 @@ public class UserListDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.EditB
 							  "#{" +  bindingPrefix + "usersPanel", // binding for Title
 							  "UserListItemDataContainer_AsUsers_InUserListDataContainer.caption", //Key for title
 							  org.sblim.wbemsmt.jsf.samba.container.user.UserListItemDataContainer_AsUsers_InUserListDataContainerImpl.COLS);
+			  addUsersHeader();							  
 			}		
 			
 			return usersPanel;
@@ -95,7 +97,7 @@ public class UserListDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.EditB
 		static class UsersPanel extends MultiLinePanel
 		{
 			public UsersPanel(AbstractBaseCimAdapter adapter, String bindingPrefix, String bindigForTitle, String keyForTitle, int cols) {
-				super(adapter, bindingPrefix, bindigForTitle, keyForTitle, cols);
+				super(adapter, bindingPrefix, bindigForTitle, keyForTitle, "users", cols);
 			}
 	
 			protected String getOrientationOfColumnAsCss(int column) {
@@ -103,28 +105,67 @@ public class UserListDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.EditB
 			}
 		}
 
-	public void addUsers(org.sblim.wbemsmt.jsf.samba.container.user.UserListItemDataContainer_AsUsers_InUserListDataContainerImpl child) {
+	private void addUsers(org.sblim.wbemsmt.jsf.samba.container.user.UserListItemDataContainer_AsUsers_InUserListDataContainerImpl child) {
 
 		getUsers().add(child);
 		getUsersPanel().addComponents(child.getComponents());
 		
-					((LabeledJSFInputComponent)getUsers_SambaUserNameHeader()).getDependentChildFields().add(child.get_SambaUserName());
-					((LabeledJSFInputComponent)getUsers_SystemUserNameHeader()).getDependentChildFields().add(child.get_SystemUserName());
-					((LabeledJSFInputComponent)getUsers_usr_IsGuestHeader()).getDependentChildFields().add(child.get_usr_IsGuest());
-		
-		
+					//((LabeledJSFInputComponent)getUsers_SambaUserNameHeader()).getDependentChildFields().add(child.get_SambaUserName());
+					//((LabeledJSFInputComponent)getUsers_SystemUserNameHeader()).getDependentChildFields().add(child.get_SystemUserName());
+					//((LabeledJSFInputComponent)getUsers_usr_IsGuestHeader()).getDependentChildFields().add(child.get_usr_IsGuest());
+			}
+	
+	private void clearUsers() {
+		getUsers().clear();
 	}
 
-	public void clearUsers() {
-		getUsers().clear();
-		getUsersPanel().getInputFieldContainer().getChildren().clear();
-					((LabeledJSFInputComponent)getUsers_SambaUserNameHeader()).getDependentChildFields().clear();
-					((LabeledJSFInputComponent)getUsers_SystemUserNameHeader()).getDependentChildFields().clear();
-					((LabeledJSFInputComponent)getUsers_usr_IsGuestHeader()).getDependentChildFields().clear();
+	/**
+	* 
+	* Get the Users for the UI repesentation
+	*/
+	public java.util.List getUsersForUI()
+	{
+				
+		List result = new ArrayList();
+		result.addAll(icUsers);
+		
+		while (result.size() < MIN_TABLE_LENGTH)
+		{
+			try {
+				org.sblim.wbemsmt.jsf.samba.container.user.UserListItemDataContainer_AsUsers_InUserListDataContainerImpl item = new org.sblim.wbemsmt.jsf.samba.container.user.UserListItemDataContainer_AsUsers_InUserListDataContainerImpl((org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter)adapter,bindingPrefix, result.size());
+				result.add(item);
+			} catch (InitContainerException e) {
+				e.printStackTrace();
 			}
-
-	public void addUsersHeader() {
-		getUsersPanel().setHeader(getUsersHeaderComponents());
+		}
+		
+		usersPanel.setList(result);
+		
+		return result;
+	}		
+		
+		
+	/**
+	 * manages the style for whole footer which is displayed if there are no entries in the table or if there is a custom panel in it
+	 * @return
+	 */
+	public String getUsersFooterClass()
+	{
+		return "multiLineRowHeader center "  
+		+ (icUsers.size() == 0 || getUsersPanel().isHavingCustomFooter() ?  "visible " : "hidden ");
+	}
+	
+	/**
+	 * manages the style for the label which is displayed if there are no entries in the table
+	 * @return
+	 */
+	public String getUsersAvailableFooterClass()
+	{
+		return icUsers.size() > 0 ? " hidden " : " visible ";
+	}
+	
+	private void addUsersHeader() {
+		getUsersPanel().setHeader(getUsersHeaderComponents(),getUsersFieldNames());
 	}
 	
 	private LabeledJSFInputComponent[] getUsersHeaderComponents() {
@@ -132,6 +173,14 @@ public class UserListDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.EditB
 							(LabeledJSFInputComponent)getUsers_SambaUserNameHeader(),
 							(LabeledJSFInputComponent)getUsers_SystemUserNameHeader(),
 							(LabeledJSFInputComponent)getUsers_usr_IsGuestHeader(),
+						};
+	}
+
+	private String[] getUsersFieldNames() {
+		return new String[]{
+							"_SambaUserName",
+							"_SystemUserName",
+							"_usr_IsGuest",
 						};
 	}
 
@@ -199,6 +248,41 @@ public class UserListDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.EditB
 
 	public String[] getResourceBundleNames() {
 		return new String[]{"messages","messagesSamba"};
+	}
+
+	public void countAndCreateChildren() throws InitContainerException {
+	
+    			try
+		{
+			int count = adapter.count(org.sblim.wbemsmt.samba.bl.container.user.UserListItemDataContainer.class);
+	        if (count != usersCount)
+	        {
+	           usersCount = count;
+	           clearUsers();
+			   for (int i=0; i < count ; i++) {
+	    			addUsers(new org.sblim.wbemsmt.jsf.samba.container.user.UserListItemDataContainer_AsUsers_InUserListDataContainerImpl((org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter)adapter,bindingPrefix, i));
+			   }
+	        }
+			getUsersPanel().setList(getUsers());				   
+		} catch (WbemSmtException e) {
+			throw new InitContainerException(e);
+		}
+    		}
+
+
+	/**
+	 * count and create childrens
+	 * @throws UpdateControlsException
+	 */
+	public void updateControls() throws UpdateControlsException {
+		try {
+			countAndCreateChildren();
+			adapter.updateControls(this);
+		
+							getUsersPanel().updateRows();				
+					} catch (InitContainerException e) {
+			throw new UpdateControlsException(e);
+		}
 	}
 
 	
