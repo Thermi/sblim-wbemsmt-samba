@@ -180,6 +180,9 @@ public class SambaCimAdapter extends AbstractBaseCimAdapter {
 			service.setHosts(hosts);
 			
 			services.addService(service);
+			
+			loaded = true;
+
 		}
 		
 	}
@@ -252,6 +255,7 @@ public class SambaCimAdapter extends AbstractBaseCimAdapter {
 				
 				services.addService(service);
 				
+				loaded = true;
 			}
 		} catch (WbemSmtException e) {
 			throw new ModelLoadException(e);
