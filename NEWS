@@ -1,15 +1,61 @@
+Changes in 0.5.0-1 :
+==============================================================================
+- 1749363  wbemsmt-samba: Upgrade FCOs to latest generator level
+- 1746585  wbemsmt-admin: namespace for application
+- 1731236  wbemsmt-jsf: childrenTables as HtmlDataTable
+- 1728151  wbemsmt-jsf: scrollable childTables
+- 1727285  wbemsmt-jsf: configurable ajax update interval
+- 1724706  wbemsmt-commons-bl: CIMObjectKey with FCOs
+- 1714724  wbemsmt-webapp: rendering of table with childContainers
+- 1720068  wbemsmt-dcg: add support for plugin modules
+- 1715061  wbemsmt: businesObjectList.getKey must return object
+- 1710995  wbemsmt-client: switchable cim schema for tasks
+- 1707399  wbemsmt: change file encoding to utf8
+- 1706397  wbemsmt: add base class for wbemsmt business objects
+- 1706393  wbemsmt-webapp: dynamicPanels & childTable for welcomePanel
+- 1705834  wbemsmt: removing java 1.5 methods
+- 1700233  wbemsmt-cli&webapp: customizable feedback msg for wizards
+- 1671504  wbemsmt-webapp: update to myfaces-core-1.1.5
+- 1700178  wbemsmt-cli&webapp: cancel wizards
+- 1699791  wbemsmt-webapp: revert changes after selecting new treenode
+- 1685388  wbemsmt-samba: add welcome page
+- 1680547  wbemsmt-webapp: welcome screens
+- 1675864  wbemsmt-webapp: common contextMenu
+- 1674186  wbemsmt-webapp: Cancel action for tabbed editActions
+- 1674057  wbemsmt: update to sblim-cimclient-1.3.2
+- 1671545  wbemsmt-common: version-attribute for treeConfig.xml
+- 1671546  wbemsmt-common: version-attribute for taskConfig.xml
+- 1671547  wbemsmt-common: version-attribute for containerConfig.xml
+- 1658315  wbemsmt-webapp help integration
+- 1648068  wbemsmt-webapp: Login for Portlet containers
+- 1648024  wbemsmt-webapp: confirmation at pending changes
+- 1645083  wbemsmt-webapp: multilineTable - row deletion
+- 1620646  wbemsmt-webapp: wait indicator / confirmation dlg
+- 1633880  wbemsmt-common: titles for Tables
+- 1633828  wbemsmt-common: remove inherited attributes from derived class
+- 1633278  wbemsmt-samba: Label instead of InputField in WizardSummary
+- 1633209  wbemsmt-webapp: legend only if necessary
+- 1633006  wbemsmt-webapp: alignment of Fields
+- 1631557  wbemsmt-webapp: remove Cancel- and add Revert-Button
+- 1619945  wbemsmt-webapp: TreeSynchronisation
+- 1619423  wbemsmt-webapp: rework ui: field indicators
+- 1618646  wbemsmt-webapp: rework ui: messages
+- 1613959  wbemsmt-webapp: rework ui: content of editPanels
+- 1615822  wbemsmt-webapp: rework ui: wizards
+- 
+
 Changes in 0.2.3-1 :
 ==============================================================================
 
-- #1609093  wbemsmt-samba: Consolidation of cvs module
+- 1609093  wbemsmt-samba: Consolidation of cvs module
 
 
 Changes in 0.2.2-1 : (Distributed packages - which are removed from CVS)
 ==============================================================================
 
-- #1576424  UserWizard: CreateAll-Checkbox causes Error
-- #1576423  PrinterWizard: CIM_ERR_ALREADY_EXISTS while creating Printer
-- #1573739  Samba: Rework of ACL UI Elements
-- #1573713  WizardPanels are vanishing
-- #1574472  Cleanup for client projects
+- 1576424  UserWizard: CreateAll-Checkbox causes Error
+- 1576423  PrinterWizard: CIM_ERR_ALREADY_EXISTS while creating Printer
+- 1573739  Samba: Rework of ACL UI Elements
+- 1573713  WizardPanels are vanishing
+- 1574472  Cleanup for client projects
 
