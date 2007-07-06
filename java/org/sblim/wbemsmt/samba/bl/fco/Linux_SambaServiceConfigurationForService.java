@@ -23,7 +23,9 @@
 package org.sblim.wbemsmt.samba.bl.fco;
 
 import java.security.InvalidParameterException;
+import java.util.HashSet;
 import java.util.Iterator;
+import java.util.Set;
 import java.util.Vector;
 
 import org.sblim.wbem.cim.CIMDataType;
@@ -55,7 +57,7 @@ public class Linux_SambaServiceConfigurationForService extends CIM_ElementConfig
 
 	public static Vector CIM_PropertyNameList	= new Vector();
 	public static Vector CIM_PropertyList 		= new Vector();
-	public static Vector Java_Package_List 		= new Vector();
+	private static Set Java_Package_List 		= new HashSet();
 	
 	static {
 		CIM_PropertyNameList.add(CIM_PROPERTY_LINUX_SAMBASERVICECONFIGURATION);
@@ -75,14 +77,12 @@ public class Linux_SambaServiceConfigurationForService extends CIM_ElementConfig
 			Linux_SambaServiceConfigurationForService.CIM_PropertyList.add(CIM_ElementConfiguration.CIM_PropertyList.elementAt(i));
 		}
 		
-		Java_Package_List.add("org.sblim.wbemsmt.samba.bl.fco");
+		addPackage("org.sblim.wbemsmt.samba.bl.fco");
 				
-		for (int i = 0; i < CIM_ElementConfiguration.Java_Package_List.size(); i++) {
-			if (((String)CIM_ElementConfiguration.Java_Package_List.elementAt(i)).equals("org.sblim.wbemsmt.samba.bl.fco")){
-				continue;
-			}
-			
-			Java_Package_List.add(CIM_ElementConfiguration.Java_Package_List.elementAt(i));
+		String[] parentClassPackageList = CIM_ElementConfiguration.getPackages();
+		
+		for (int i = 0; i < parentClassPackageList.length; i++) {
+			Java_Package_List.add(parentClassPackageList[i]);
 		}
 	};
 			
@@ -159,8 +159,8 @@ public class Linux_SambaServiceConfigurationForService extends CIM_ElementConfig
 		} else if (cimObjectPath == null){
 			throw new InvalidParameterException("The cimObjectPath parameter does not contain a valid reference.");		
 		
-		} else if (!CIM_CLASS_NAME.equals(cimInstance.getClassName())) {
-			throw new InvalidParameterException("The class of the cimInstance must be of type " + CIM_CLASS_NAME + ".");
+		} else if (!cimObjectPath.getObjectName().equals(cimInstance.getClassName())) {
+			throw new InvalidParameterException("The class name of the instance and the ObjectPath are not the same.");
 		}
 		
 		setCimInstance(cimInstance);
@@ -176,6 +176,22 @@ public class Linux_SambaServiceConfigurationForService extends CIM_ElementConfig
 	public String getClassDisplayName(){
 		return CIM_CLASS_DISPLAYNAME;
 	}
+	
+	public static void addPackage(String packagename) {
+        if (packagename != null) {
+            if (!packagename.endsWith(".")) {
+                packagename = packagename + ".";
+            }
+            Linux_SambaServiceConfigurationForService.Java_Package_List.add(packagename);
+            
+        } else {
+            throw new NullPointerException();
+        }
+    }
+
+    public static String[] getPackages() {
+        return (String[]) Linux_SambaServiceConfigurationForService.Java_Package_List.toArray(new String[Linux_SambaServiceConfigurationForService.Java_Package_List.size()]);
+    }
 	
 	//**********************************************************************
 	// Instance methods
@@ -325,7 +341,7 @@ public class Linux_SambaServiceConfigurationForService extends CIM_ElementConfig
 		if (currentProperty == null) {
 			throw new CIMException(CIMException.CIM_ERR_NO_SUCH_PROPERTY, "The property " + Linux_SambaServiceConfigurationForService.CIM_PROPERTY_LINUX_SAMBASERVICECONFIGURATION + " could not be found");
     		
-		} else if (currentProperty.getType() == null || !currentProperty.getType().getRefClassName().equals(Linux_SambaServiceConfiguration.CIM_CLASS_NAME)) {
+		} else if (currentProperty.getType() == null ) {
 			throw new CIMException(CIMException.CIM_ERR_TYPE_MISMATCH, "The property " + Linux_SambaServiceConfigurationForService.CIM_PROPERTY_LINUX_SAMBASERVICECONFIGURATION + " is not of expected type Linux_SambaServiceConfiguration.");
 		}
         
@@ -347,7 +363,7 @@ public class Linux_SambaServiceConfigurationForService extends CIM_ElementConfig
 		} else if (!Linux_SambaServiceConfigurationForServiceHelper.isValid_Linux_SambaServiceConfiguration(newValue)) {
 			throw new InvalidParameterException("The value " + newValue + " is not valid for property " + Linux_SambaServiceConfigurationForService.CIM_PROPERTY_LINUX_SAMBASERVICECONFIGURATION);
     		
-		} else if (currentProperty.getType() == null || !currentProperty.getType().getRefClassName().equals(Linux_SambaServiceConfiguration.CIM_CLASS_NAME)) {
+		} else if (currentProperty.getType() == null ) {
 			throw new CIMException(CIMException.CIM_ERR_TYPE_MISMATCH, "The property " + Linux_SambaServiceConfigurationForService.CIM_PROPERTY_LINUX_SAMBASERVICECONFIGURATION + " is not of expected type Linux_SambaServiceConfiguration.");
 		}
     	
@@ -366,7 +382,7 @@ public class Linux_SambaServiceConfigurationForService extends CIM_ElementConfig
 		if (currentProperty == null) {
 			throw new CIMException(CIMException.CIM_ERR_NO_SUCH_PROPERTY, "The property " + Linux_SambaServiceConfigurationForService.CIM_PROPERTY_LINUX_SAMBASERVICE + " could not be found");
     		
-		} else if (currentProperty.getType() == null || !currentProperty.getType().getRefClassName().equals(Linux_SambaService.CIM_CLASS_NAME)) {
+		} else if (currentProperty.getType() == null ) {
 			throw new CIMException(CIMException.CIM_ERR_TYPE_MISMATCH, "The property " + Linux_SambaServiceConfigurationForService.CIM_PROPERTY_LINUX_SAMBASERVICE + " is not of expected type Linux_SambaService.");
 		}
         
@@ -388,7 +404,7 @@ public class Linux_SambaServiceConfigurationForService extends CIM_ElementConfig
 		} else if (!Linux_SambaServiceConfigurationForServiceHelper.isValid_Linux_SambaService(newValue)) {
 			throw new InvalidParameterException("The value " + newValue + " is not valid for property " + Linux_SambaServiceConfigurationForService.CIM_PROPERTY_LINUX_SAMBASERVICE);
     		
-		} else if (currentProperty.getType() == null || !currentProperty.getType().getRefClassName().equals(Linux_SambaService.CIM_CLASS_NAME)) {
+		} else if (currentProperty.getType() == null ) {
 			throw new CIMException(CIMException.CIM_ERR_TYPE_MISMATCH, "The property " + Linux_SambaServiceConfigurationForService.CIM_PROPERTY_LINUX_SAMBASERVICE + " is not of expected type Linux_SambaService.");
 		}
     	

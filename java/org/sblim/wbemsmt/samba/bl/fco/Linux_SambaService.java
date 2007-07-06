@@ -26,7 +26,9 @@ import java.lang.reflect.Constructor;
 import java.security.InvalidParameterException;
 import java.util.ArrayList;
 import java.util.Enumeration;
+import java.util.HashSet;
 import java.util.Iterator;
+import java.util.Set;
 import java.util.Vector;
 
 import org.sblim.wbem.cim.CIMDataType;
@@ -73,7 +75,7 @@ public class Linux_SambaService extends CIM_Service  {
 
 	public static Vector CIM_PropertyNameList	= new Vector();
 	public static Vector CIM_PropertyList 		= new Vector();
-	public static Vector Java_Package_List 		= new Vector();
+	private static Set Java_Package_List 		= new HashSet();
 	
 	static {
 		CIM_PropertyNameList.add(CIM_PROPERTY_NAME);
@@ -100,14 +102,12 @@ public class Linux_SambaService extends CIM_Service  {
 			Linux_SambaService.CIM_PropertyList.add(CIM_Service.CIM_PropertyList.elementAt(i));
 		}
 		
-		Java_Package_List.add("org.sblim.wbemsmt.samba.bl.fco");
+		addPackage("org.sblim.wbemsmt.samba.bl.fco");
 				
-		for (int i = 0; i < CIM_Service.Java_Package_List.size(); i++) {
-			if (((String)CIM_Service.Java_Package_List.elementAt(i)).equals("org.sblim.wbemsmt.samba.bl.fco")){
-				continue;
-			}
-			
-			Java_Package_List.add(CIM_Service.Java_Package_List.elementAt(i));
+		String[] parentClassPackageList = CIM_Service.getPackages();
+		
+		for (int i = 0; i < parentClassPackageList.length; i++) {
+			Java_Package_List.add(parentClassPackageList[i]);
 		}
 	};
 			
@@ -184,8 +184,8 @@ public class Linux_SambaService extends CIM_Service  {
 		} else if (cimObjectPath == null){
 			throw new InvalidParameterException("The cimObjectPath parameter does not contain a valid reference.");		
 		
-		} else if (!CIM_CLASS_NAME.equals(cimInstance.getClassName())) {
-			throw new InvalidParameterException("The class of the cimInstance must be of type " + CIM_CLASS_NAME + ".");
+		} else if (!cimObjectPath.getObjectName().equals(cimInstance.getClassName())) {
+			throw new InvalidParameterException("The class name of the instance and the ObjectPath are not the same.");
 		}
 		
 		setCimInstance(cimInstance);
@@ -201,6 +201,22 @@ public class Linux_SambaService extends CIM_Service  {
 	public String getClassDisplayName(){
 		return CIM_CLASS_DISPLAYNAME;
 	}
+	
+	public static void addPackage(String packagename) {
+        if (packagename != null) {
+            if (!packagename.endsWith(".")) {
+                packagename = packagename + ".";
+            }
+            Linux_SambaService.Java_Package_List.add(packagename);
+            
+        } else {
+            throw new NullPointerException();
+        }
+    }
+
+    public static String[] getPackages() {
+        return (String[]) Linux_SambaService.Java_Package_List.toArray(new String[Linux_SambaService.Java_Package_List.size()]);
+    }
 	
 	//**********************************************************************
 	// Instance methods
@@ -367,22 +383,8 @@ public class Linux_SambaService extends CIM_Service  {
 				Object obj = enumeration.nextElement();
 				if (obj instanceof CIMInstance) {
 					CIMInstance cimInstance = (CIMInstance)obj;
-					Class clazz = null;
-					String cimClassName = cimInstance.getClassName();
-				
-					for (int i = 0; clazz == null && i < Linux_SambaService.Java_Package_List.size(); i++) {
-						if (!((String)(Linux_SambaService.Java_Package_List.get(i))).trim().equals("") && //$NON-NLS-1$
-								!((String)(Linux_SambaService.Java_Package_List.get(i))).endsWith(".")) { //$NON-NLS-1$
-							Linux_SambaService.Java_Package_List.setElementAt((String)(Linux_SambaService.Java_Package_List.get(i)) + ("."), i); //$NON-NLS-1$
-						}
-						cimClassName = (Linux_SambaService.Java_Package_List.get(i)) + cimClassName;
-
-						try {
-							clazz = Class.forName(cimClassName);
-						} catch(ClassNotFoundException e) {
-						}
-					}
-					
+                    Class clazz = Linux_SambaServiceHelper.findClass(cimClient, cimInstance);
+                    
 					if (clazz == null) {
 						System.err.println("The class " + cimInstance.getClassName() +" was not found. Constructing instance of the base class.");
 						resultArrayList.add(new Linux_SambaGlobalOptions(cimInstance.getObjectPath(), cimInstance));
@@ -494,22 +496,8 @@ public class Linux_SambaService extends CIM_Service  {
 				Object obj = enumeration.nextElement();
 				if (obj instanceof CIMInstance) {
 					CIMInstance cimInstance = (CIMInstance)obj;
-					Class clazz = null;
-					String cimClassName = cimInstance.getClassName();
-				
-					for (int i = 0; clazz == null && i < Linux_SambaService.Java_Package_List.size(); i++) {
-						if (!((String)(Linux_SambaService.Java_Package_List.get(i))).trim().equals("") && //$NON-NLS-1$
-								!((String)(Linux_SambaService.Java_Package_List.get(i))).endsWith(".")) { //$NON-NLS-1$
-							Linux_SambaService.Java_Package_List.setElementAt((String)(Linux_SambaService.Java_Package_List.get(i)) + ("."), i); //$NON-NLS-1$
-						}
-						cimClassName = (Linux_SambaService.Java_Package_List.get(i)) + cimClassName;
-
-						try {
-							clazz = Class.forName(cimClassName);
-						} catch(ClassNotFoundException e) {
-						}
-					}
-					
+                    Class clazz = Linux_SambaServiceHelper.findClass(cimClient, cimInstance);
+                    
 					if (clazz == null) {
 						System.err.println("The class " + cimInstance.getClassName() +" was not found. Constructing instance of the base class.");
 						resultArrayList.add(new Linux_SambaHost(cimInstance.getObjectPath(), cimInstance));
@@ -621,22 +609,8 @@ public class Linux_SambaService extends CIM_Service  {
 				Object obj = enumeration.nextElement();
 				if (obj instanceof CIMInstance) {
 					CIMInstance cimInstance = (CIMInstance)obj;
-					Class clazz = null;
-					String cimClassName = cimInstance.getClassName();
-				
-					for (int i = 0; clazz == null && i < Linux_SambaService.Java_Package_List.size(); i++) {
-						if (!((String)(Linux_SambaService.Java_Package_List.get(i))).trim().equals("") && //$NON-NLS-1$
-								!((String)(Linux_SambaService.Java_Package_List.get(i))).endsWith(".")) { //$NON-NLS-1$
-							Linux_SambaService.Java_Package_List.setElementAt((String)(Linux_SambaService.Java_Package_List.get(i)) + ("."), i); //$NON-NLS-1$
-						}
-						cimClassName = (Linux_SambaService.Java_Package_List.get(i)) + cimClassName;
-
-						try {
-							clazz = Class.forName(cimClassName);
-						} catch(ClassNotFoundException e) {
-						}
-					}
-					
+                    Class clazz = Linux_SambaServiceHelper.findClass(cimClient, cimInstance);
+                    
 					if (clazz == null) {
 						System.err.println("The class " + cimInstance.getClassName() +" was not found. Constructing instance of the base class.");
 						resultArrayList.add(new Linux_SambaPrinterOptions(cimInstance.getObjectPath(), cimInstance));
@@ -748,22 +722,8 @@ public class Linux_SambaService extends CIM_Service  {
 				Object obj = enumeration.nextElement();
 				if (obj instanceof CIMInstance) {
 					CIMInstance cimInstance = (CIMInstance)obj;
-					Class clazz = null;
-					String cimClassName = cimInstance.getClassName();
-				
-					for (int i = 0; clazz == null && i < Linux_SambaService.Java_Package_List.size(); i++) {
-						if (!((String)(Linux_SambaService.Java_Package_List.get(i))).trim().equals("") && //$NON-NLS-1$
-								!((String)(Linux_SambaService.Java_Package_List.get(i))).endsWith(".")) { //$NON-NLS-1$
-							Linux_SambaService.Java_Package_List.setElementAt((String)(Linux_SambaService.Java_Package_List.get(i)) + ("."), i); //$NON-NLS-1$
-						}
-						cimClassName = (Linux_SambaService.Java_Package_List.get(i)) + cimClassName;
-
-						try {
-							clazz = Class.forName(cimClassName);
-						} catch(ClassNotFoundException e) {
-						}
-					}
-					
+                    Class clazz = Linux_SambaServiceHelper.findClass(cimClient, cimInstance);
+                    
 					if (clazz == null) {
 						System.err.println("The class " + cimInstance.getClassName() +" was not found. Constructing instance of the base class.");
 						resultArrayList.add(new Linux_SambaServiceConfiguration(cimInstance.getObjectPath(), cimInstance));
@@ -875,22 +835,8 @@ public class Linux_SambaService extends CIM_Service  {
 				Object obj = enumeration.nextElement();
 				if (obj instanceof CIMInstance) {
 					CIMInstance cimInstance = (CIMInstance)obj;
-					Class clazz = null;
-					String cimClassName = cimInstance.getClassName();
-				
-					for (int i = 0; clazz == null && i < Linux_SambaService.Java_Package_List.size(); i++) {
-						if (!((String)(Linux_SambaService.Java_Package_List.get(i))).trim().equals("") && //$NON-NLS-1$
-								!((String)(Linux_SambaService.Java_Package_List.get(i))).endsWith(".")) { //$NON-NLS-1$
-							Linux_SambaService.Java_Package_List.setElementAt((String)(Linux_SambaService.Java_Package_List.get(i)) + ("."), i); //$NON-NLS-1$
-						}
-						cimClassName = (Linux_SambaService.Java_Package_List.get(i)) + cimClassName;
-
-						try {
-							clazz = Class.forName(cimClassName);
-						} catch(ClassNotFoundException e) {
-						}
-					}
-					
+                    Class clazz = Linux_SambaServiceHelper.findClass(cimClient, cimInstance);
+                    
 					if (clazz == null) {
 						System.err.println("The class " + cimInstance.getClassName() +" was not found. Constructing instance of the base class.");
 						resultArrayList.add(new Linux_SambaShareOptions(cimInstance.getObjectPath(), cimInstance));
@@ -1002,22 +948,8 @@ public class Linux_SambaService extends CIM_Service  {
 				Object obj = enumeration.nextElement();
 				if (obj instanceof CIMInstance) {
 					CIMInstance cimInstance = (CIMInstance)obj;
-					Class clazz = null;
-					String cimClassName = cimInstance.getClassName();
-				
-					for (int i = 0; clazz == null && i < Linux_SambaService.Java_Package_List.size(); i++) {
-						if (!((String)(Linux_SambaService.Java_Package_List.get(i))).trim().equals("") && //$NON-NLS-1$
-								!((String)(Linux_SambaService.Java_Package_List.get(i))).endsWith(".")) { //$NON-NLS-1$
-							Linux_SambaService.Java_Package_List.setElementAt((String)(Linux_SambaService.Java_Package_List.get(i)) + ("."), i); //$NON-NLS-1$
-						}
-						cimClassName = (Linux_SambaService.Java_Package_List.get(i)) + cimClassName;
-
-						try {
-							clazz = Class.forName(cimClassName);
-						} catch(ClassNotFoundException e) {
-						}
-					}
-					
+                    Class clazz = Linux_SambaServiceHelper.findClass(cimClient, cimInstance);
+                    
 					if (clazz == null) {
 						System.err.println("The class " + cimInstance.getClassName() +" was not found. Constructing instance of the base class.");
 						resultArrayList.add(new Linux_SambaUser(cimInstance.getObjectPath(), cimInstance));

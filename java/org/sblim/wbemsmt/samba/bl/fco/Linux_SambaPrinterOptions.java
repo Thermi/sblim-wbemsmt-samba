@@ -26,7 +26,9 @@ import java.lang.reflect.Constructor;
 import java.security.InvalidParameterException;
 import java.util.ArrayList;
 import java.util.Enumeration;
+import java.util.HashSet;
 import java.util.Iterator;
+import java.util.Set;
 import java.util.Vector;
 
 import org.sblim.wbem.cim.CIMDataType;
@@ -101,7 +103,7 @@ public class Linux_SambaPrinterOptions extends CIM_SettingData  {
 
 	public static Vector CIM_PropertyNameList	= new Vector();
 	public static Vector CIM_PropertyList 		= new Vector();
-	public static Vector Java_Package_List 		= new Vector();
+	private static Set Java_Package_List 		= new HashSet();
 	
 	static {
 		CIM_PropertyNameList.add(CIM_PROPERTY_AVAILABLE);
@@ -144,14 +146,12 @@ public class Linux_SambaPrinterOptions extends CIM_SettingData  {
 			Linux_SambaPrinterOptions.CIM_PropertyList.add(CIM_SettingData.CIM_PropertyList.elementAt(i));
 		}
 		
-		Java_Package_List.add("org.sblim.wbemsmt.samba.bl.fco");
+		addPackage("org.sblim.wbemsmt.samba.bl.fco");
 				
-		for (int i = 0; i < CIM_SettingData.Java_Package_List.size(); i++) {
-			if (((String)CIM_SettingData.Java_Package_List.elementAt(i)).equals("org.sblim.wbemsmt.samba.bl.fco")){
-				continue;
-			}
-			
-			Java_Package_List.add(CIM_SettingData.Java_Package_List.elementAt(i));
+		String[] parentClassPackageList = CIM_SettingData.getPackages();
+		
+		for (int i = 0; i < parentClassPackageList.length; i++) {
+			Java_Package_List.add(parentClassPackageList[i]);
 		}
 	};
 			
@@ -228,8 +228,8 @@ public class Linux_SambaPrinterOptions extends CIM_SettingData  {
 		} else if (cimObjectPath == null){
 			throw new InvalidParameterException("The cimObjectPath parameter does not contain a valid reference.");		
 		
-		} else if (!CIM_CLASS_NAME.equals(cimInstance.getClassName())) {
-			throw new InvalidParameterException("The class of the cimInstance must be of type " + CIM_CLASS_NAME + ".");
+		} else if (!cimObjectPath.getObjectName().equals(cimInstance.getClassName())) {
+			throw new InvalidParameterException("The class name of the instance and the ObjectPath are not the same.");
 		}
 		
 		setCimInstance(cimInstance);
@@ -245,6 +245,22 @@ public class Linux_SambaPrinterOptions extends CIM_SettingData  {
 	public String getClassDisplayName(){
 		return CIM_CLASS_DISPLAYNAME;
 	}
+	
+	public static void addPackage(String packagename) {
+        if (packagename != null) {
+            if (!packagename.endsWith(".")) {
+                packagename = packagename + ".";
+            }
+            Linux_SambaPrinterOptions.Java_Package_List.add(packagename);
+            
+        } else {
+            throw new NullPointerException();
+        }
+    }
+
+    public static String[] getPackages() {
+        return (String[]) Linux_SambaPrinterOptions.Java_Package_List.toArray(new String[Linux_SambaPrinterOptions.Java_Package_List.size()]);
+    }
 	
 	//**********************************************************************
 	// Instance methods
@@ -411,22 +427,8 @@ public class Linux_SambaPrinterOptions extends CIM_SettingData  {
 				Object obj = enumeration.nextElement();
 				if (obj instanceof CIMInstance) {
 					CIMInstance cimInstance = (CIMInstance)obj;
-					Class clazz = null;
-					String cimClassName = cimInstance.getClassName();
-				
-					for (int i = 0; clazz == null && i < Linux_SambaPrinterOptions.Java_Package_List.size(); i++) {
-						if (!((String)(Linux_SambaPrinterOptions.Java_Package_List.get(i))).trim().equals("") && //$NON-NLS-1$
-								!((String)(Linux_SambaPrinterOptions.Java_Package_List.get(i))).endsWith(".")) { //$NON-NLS-1$
-							Linux_SambaPrinterOptions.Java_Package_List.setElementAt((String)(Linux_SambaPrinterOptions.Java_Package_List.get(i)) + ("."), i); //$NON-NLS-1$
-						}
-						cimClassName = (Linux_SambaPrinterOptions.Java_Package_List.get(i)) + cimClassName;
-
-						try {
-							clazz = Class.forName(cimClassName);
-						} catch(ClassNotFoundException e) {
-						}
-					}
-					
+                    Class clazz = Linux_SambaPrinterOptionsHelper.findClass(cimClient, cimInstance);
+                    
 					if (clazz == null) {
 						System.err.println("The class " + cimInstance.getClassName() +" was not found. Constructing instance of the base class.");
 						resultArrayList.add(new Linux_SambaHost(cimInstance.getObjectPath(), cimInstance));
@@ -538,22 +540,8 @@ public class Linux_SambaPrinterOptions extends CIM_SettingData  {
 				Object obj = enumeration.nextElement();
 				if (obj instanceof CIMInstance) {
 					CIMInstance cimInstance = (CIMInstance)obj;
-					Class clazz = null;
-					String cimClassName = cimInstance.getClassName();
-				
-					for (int i = 0; clazz == null && i < Linux_SambaPrinterOptions.Java_Package_List.size(); i++) {
-						if (!((String)(Linux_SambaPrinterOptions.Java_Package_List.get(i))).trim().equals("") && //$NON-NLS-1$
-								!((String)(Linux_SambaPrinterOptions.Java_Package_List.get(i))).endsWith(".")) { //$NON-NLS-1$
-							Linux_SambaPrinterOptions.Java_Package_List.setElementAt((String)(Linux_SambaPrinterOptions.Java_Package_List.get(i)) + ("."), i); //$NON-NLS-1$
-						}
-						cimClassName = (Linux_SambaPrinterOptions.Java_Package_List.get(i)) + cimClassName;
-
-						try {
-							clazz = Class.forName(cimClassName);
-						} catch(ClassNotFoundException e) {
-						}
-					}
-					
+                    Class clazz = Linux_SambaPrinterOptionsHelper.findClass(cimClient, cimInstance);
+                    
 					if (clazz == null) {
 						System.err.println("The class " + cimInstance.getClassName() +" was not found. Constructing instance of the base class.");
 						resultArrayList.add(new Linux_SambaCommonSecurityOptions(cimInstance.getObjectPath(), cimInstance));
@@ -665,22 +653,8 @@ public class Linux_SambaPrinterOptions extends CIM_SettingData  {
 				Object obj = enumeration.nextElement();
 				if (obj instanceof CIMInstance) {
 					CIMInstance cimInstance = (CIMInstance)obj;
-					Class clazz = null;
-					String cimClassName = cimInstance.getClassName();
-				
-					for (int i = 0; clazz == null && i < Linux_SambaPrinterOptions.Java_Package_List.size(); i++) {
-						if (!((String)(Linux_SambaPrinterOptions.Java_Package_List.get(i))).trim().equals("") && //$NON-NLS-1$
-								!((String)(Linux_SambaPrinterOptions.Java_Package_List.get(i))).endsWith(".")) { //$NON-NLS-1$
-							Linux_SambaPrinterOptions.Java_Package_List.setElementAt((String)(Linux_SambaPrinterOptions.Java_Package_List.get(i)) + ("."), i); //$NON-NLS-1$
-						}
-						cimClassName = (Linux_SambaPrinterOptions.Java_Package_List.get(i)) + cimClassName;
-
-						try {
-							clazz = Class.forName(cimClassName);
-						} catch(ClassNotFoundException e) {
-						}
-					}
-					
+                    Class clazz = Linux_SambaPrinterOptionsHelper.findClass(cimClient, cimInstance);
+                    
 					if (clazz == null) {
 						System.err.println("The class " + cimInstance.getClassName() +" was not found. Constructing instance of the base class.");
 						resultArrayList.add(new Linux_SambaHost(cimInstance.getObjectPath(), cimInstance));
@@ -792,22 +766,8 @@ public class Linux_SambaPrinterOptions extends CIM_SettingData  {
 				Object obj = enumeration.nextElement();
 				if (obj instanceof CIMInstance) {
 					CIMInstance cimInstance = (CIMInstance)obj;
-					Class clazz = null;
-					String cimClassName = cimInstance.getClassName();
-				
-					for (int i = 0; clazz == null && i < Linux_SambaPrinterOptions.Java_Package_List.size(); i++) {
-						if (!((String)(Linux_SambaPrinterOptions.Java_Package_List.get(i))).trim().equals("") && //$NON-NLS-1$
-								!((String)(Linux_SambaPrinterOptions.Java_Package_List.get(i))).endsWith(".")) { //$NON-NLS-1$
-							Linux_SambaPrinterOptions.Java_Package_List.setElementAt((String)(Linux_SambaPrinterOptions.Java_Package_List.get(i)) + ("."), i); //$NON-NLS-1$
-						}
-						cimClassName = (Linux_SambaPrinterOptions.Java_Package_List.get(i)) + cimClassName;
-
-						try {
-							clazz = Class.forName(cimClassName);
-						} catch(ClassNotFoundException e) {
-						}
-					}
-					
+                    Class clazz = Linux_SambaPrinterOptionsHelper.findClass(cimClient, cimInstance);
+                    
 					if (clazz == null) {
 						System.err.println("The class " + cimInstance.getClassName() +" was not found. Constructing instance of the base class.");
 						resultArrayList.add(new Linux_SambaGroup(cimInstance.getObjectPath(), cimInstance));
@@ -919,22 +879,8 @@ public class Linux_SambaPrinterOptions extends CIM_SettingData  {
 				Object obj = enumeration.nextElement();
 				if (obj instanceof CIMInstance) {
 					CIMInstance cimInstance = (CIMInstance)obj;
-					Class clazz = null;
-					String cimClassName = cimInstance.getClassName();
-				
-					for (int i = 0; clazz == null && i < Linux_SambaPrinterOptions.Java_Package_List.size(); i++) {
-						if (!((String)(Linux_SambaPrinterOptions.Java_Package_List.get(i))).trim().equals("") && //$NON-NLS-1$
-								!((String)(Linux_SambaPrinterOptions.Java_Package_List.get(i))).endsWith(".")) { //$NON-NLS-1$
-							Linux_SambaPrinterOptions.Java_Package_List.setElementAt((String)(Linux_SambaPrinterOptions.Java_Package_List.get(i)) + ("."), i); //$NON-NLS-1$
-						}
-						cimClassName = (Linux_SambaPrinterOptions.Java_Package_List.get(i)) + cimClassName;
-
-						try {
-							clazz = Class.forName(cimClassName);
-						} catch(ClassNotFoundException e) {
-						}
-					}
-					
+                    Class clazz = Linux_SambaPrinterOptionsHelper.findClass(cimClient, cimInstance);
+                    
 					if (clazz == null) {
 						System.err.println("The class " + cimInstance.getClassName() +" was not found. Constructing instance of the base class.");
 						resultArrayList.add(new Linux_SambaUser(cimInstance.getObjectPath(), cimInstance));
@@ -1046,22 +992,8 @@ public class Linux_SambaPrinterOptions extends CIM_SettingData  {
 				Object obj = enumeration.nextElement();
 				if (obj instanceof CIMInstance) {
 					CIMInstance cimInstance = (CIMInstance)obj;
-					Class clazz = null;
-					String cimClassName = cimInstance.getClassName();
-				
-					for (int i = 0; clazz == null && i < Linux_SambaPrinterOptions.Java_Package_List.size(); i++) {
-						if (!((String)(Linux_SambaPrinterOptions.Java_Package_List.get(i))).trim().equals("") && //$NON-NLS-1$
-								!((String)(Linux_SambaPrinterOptions.Java_Package_List.get(i))).endsWith(".")) { //$NON-NLS-1$
-							Linux_SambaPrinterOptions.Java_Package_List.setElementAt((String)(Linux_SambaPrinterOptions.Java_Package_List.get(i)) + ("."), i); //$NON-NLS-1$
-						}
-						cimClassName = (Linux_SambaPrinterOptions.Java_Package_List.get(i)) + cimClassName;
-
-						try {
-							clazz = Class.forName(cimClassName);
-						} catch(ClassNotFoundException e) {
-						}
-					}
-					
+                    Class clazz = Linux_SambaPrinterOptionsHelper.findClass(cimClient, cimInstance);
+                    
 					if (clazz == null) {
 						System.err.println("The class " + cimInstance.getClassName() +" was not found. Constructing instance of the base class.");
 						resultArrayList.add(new Linux_SambaUser(cimInstance.getObjectPath(), cimInstance));
@@ -1173,22 +1105,8 @@ public class Linux_SambaPrinterOptions extends CIM_SettingData  {
 				Object obj = enumeration.nextElement();
 				if (obj instanceof CIMInstance) {
 					CIMInstance cimInstance = (CIMInstance)obj;
-					Class clazz = null;
-					String cimClassName = cimInstance.getClassName();
-				
-					for (int i = 0; clazz == null && i < Linux_SambaPrinterOptions.Java_Package_List.size(); i++) {
-						if (!((String)(Linux_SambaPrinterOptions.Java_Package_List.get(i))).trim().equals("") && //$NON-NLS-1$
-								!((String)(Linux_SambaPrinterOptions.Java_Package_List.get(i))).endsWith(".")) { //$NON-NLS-1$
-							Linux_SambaPrinterOptions.Java_Package_List.setElementAt((String)(Linux_SambaPrinterOptions.Java_Package_List.get(i)) + ("."), i); //$NON-NLS-1$
-						}
-						cimClassName = (Linux_SambaPrinterOptions.Java_Package_List.get(i)) + cimClassName;
-
-						try {
-							clazz = Class.forName(cimClassName);
-						} catch(ClassNotFoundException e) {
-						}
-					}
-					
+                    Class clazz = Linux_SambaPrinterOptionsHelper.findClass(cimClient, cimInstance);
+                    
 					if (clazz == null) {
 						System.err.println("The class " + cimInstance.getClassName() +" was not found. Constructing instance of the base class.");
 						resultArrayList.add(new Linux_SambaUser(cimInstance.getObjectPath(), cimInstance));
@@ -1300,22 +1218,8 @@ public class Linux_SambaPrinterOptions extends CIM_SettingData  {
 				Object obj = enumeration.nextElement();
 				if (obj instanceof CIMInstance) {
 					CIMInstance cimInstance = (CIMInstance)obj;
-					Class clazz = null;
-					String cimClassName = cimInstance.getClassName();
-				
-					for (int i = 0; clazz == null && i < Linux_SambaPrinterOptions.Java_Package_List.size(); i++) {
-						if (!((String)(Linux_SambaPrinterOptions.Java_Package_List.get(i))).trim().equals("") && //$NON-NLS-1$
-								!((String)(Linux_SambaPrinterOptions.Java_Package_List.get(i))).endsWith(".")) { //$NON-NLS-1$
-							Linux_SambaPrinterOptions.Java_Package_List.setElementAt((String)(Linux_SambaPrinterOptions.Java_Package_List.get(i)) + ("."), i); //$NON-NLS-1$
-						}
-						cimClassName = (Linux_SambaPrinterOptions.Java_Package_List.get(i)) + cimClassName;
-
-						try {
-							clazz = Class.forName(cimClassName);
-						} catch(ClassNotFoundException e) {
-						}
-					}
-					
+                    Class clazz = Linux_SambaPrinterOptionsHelper.findClass(cimClient, cimInstance);
+                    
 					if (clazz == null) {
 						System.err.println("The class " + cimInstance.getClassName() +" was not found. Constructing instance of the base class.");
 						resultArrayList.add(new Linux_SambaPrinterBrowseOptions(cimInstance.getObjectPath(), cimInstance));
@@ -1427,22 +1331,8 @@ public class Linux_SambaPrinterOptions extends CIM_SettingData  {
 				Object obj = enumeration.nextElement();
 				if (obj instanceof CIMInstance) {
 					CIMInstance cimInstance = (CIMInstance)obj;
-					Class clazz = null;
-					String cimClassName = cimInstance.getClassName();
-				
-					for (int i = 0; clazz == null && i < Linux_SambaPrinterOptions.Java_Package_List.size(); i++) {
-						if (!((String)(Linux_SambaPrinterOptions.Java_Package_List.get(i))).trim().equals("") && //$NON-NLS-1$
-								!((String)(Linux_SambaPrinterOptions.Java_Package_List.get(i))).endsWith(".")) { //$NON-NLS-1$
-							Linux_SambaPrinterOptions.Java_Package_List.setElementAt((String)(Linux_SambaPrinterOptions.Java_Package_List.get(i)) + ("."), i); //$NON-NLS-1$
-						}
-						cimClassName = (Linux_SambaPrinterOptions.Java_Package_List.get(i)) + cimClassName;
-
-						try {
-							clazz = Class.forName(cimClassName);
-						} catch(ClassNotFoundException e) {
-						}
-					}
-					
+                    Class clazz = Linux_SambaPrinterOptionsHelper.findClass(cimClient, cimInstance);
+                    
 					if (clazz == null) {
 						System.err.println("The class " + cimInstance.getClassName() +" was not found. Constructing instance of the base class.");
 						resultArrayList.add(new Linux_SambaService(cimInstance.getObjectPath(), cimInstance));
@@ -1554,22 +1444,8 @@ public class Linux_SambaPrinterOptions extends CIM_SettingData  {
 				Object obj = enumeration.nextElement();
 				if (obj instanceof CIMInstance) {
 					CIMInstance cimInstance = (CIMInstance)obj;
-					Class clazz = null;
-					String cimClassName = cimInstance.getClassName();
-				
-					for (int i = 0; clazz == null && i < Linux_SambaPrinterOptions.Java_Package_List.size(); i++) {
-						if (!((String)(Linux_SambaPrinterOptions.Java_Package_List.get(i))).trim().equals("") && //$NON-NLS-1$
-								!((String)(Linux_SambaPrinterOptions.Java_Package_List.get(i))).endsWith(".")) { //$NON-NLS-1$
-							Linux_SambaPrinterOptions.Java_Package_List.setElementAt((String)(Linux_SambaPrinterOptions.Java_Package_List.get(i)) + ("."), i); //$NON-NLS-1$
-						}
-						cimClassName = (Linux_SambaPrinterOptions.Java_Package_List.get(i)) + cimClassName;
-
-						try {
-							clazz = Class.forName(cimClassName);
-						} catch(ClassNotFoundException e) {
-						}
-					}
-					
+                    Class clazz = Linux_SambaPrinterOptionsHelper.findClass(cimClient, cimInstance);
+                    
 					if (clazz == null) {
 						System.err.println("The class " + cimInstance.getClassName() +" was not found. Constructing instance of the base class.");
 						resultArrayList.add(new Linux_SambaPrinterPrintingOptions(cimInstance.getObjectPath(), cimInstance));
@@ -1681,22 +1557,8 @@ public class Linux_SambaPrinterOptions extends CIM_SettingData  {
 				Object obj = enumeration.nextElement();
 				if (obj instanceof CIMInstance) {
 					CIMInstance cimInstance = (CIMInstance)obj;
-					Class clazz = null;
-					String cimClassName = cimInstance.getClassName();
-				
-					for (int i = 0; clazz == null && i < Linux_SambaPrinterOptions.Java_Package_List.size(); i++) {
-						if (!((String)(Linux_SambaPrinterOptions.Java_Package_List.get(i))).trim().equals("") && //$NON-NLS-1$
-								!((String)(Linux_SambaPrinterOptions.Java_Package_List.get(i))).endsWith(".")) { //$NON-NLS-1$
-							Linux_SambaPrinterOptions.Java_Package_List.setElementAt((String)(Linux_SambaPrinterOptions.Java_Package_List.get(i)) + ("."), i); //$NON-NLS-1$
-						}
-						cimClassName = (Linux_SambaPrinterOptions.Java_Package_List.get(i)) + cimClassName;
-
-						try {
-							clazz = Class.forName(cimClassName);
-						} catch(ClassNotFoundException e) {
-						}
-					}
-					
+                    Class clazz = Linux_SambaPrinterOptionsHelper.findClass(cimClient, cimInstance);
+                    
 					if (clazz == null) {
 						System.err.println("The class " + cimInstance.getClassName() +" was not found. Constructing instance of the base class.");
 						resultArrayList.add(new Linux_SambaPrinterSecurityOptions(cimInstance.getObjectPath(), cimInstance));
@@ -1808,22 +1670,8 @@ public class Linux_SambaPrinterOptions extends CIM_SettingData  {
 				Object obj = enumeration.nextElement();
 				if (obj instanceof CIMInstance) {
 					CIMInstance cimInstance = (CIMInstance)obj;
-					Class clazz = null;
-					String cimClassName = cimInstance.getClassName();
-				
-					for (int i = 0; clazz == null && i < Linux_SambaPrinterOptions.Java_Package_List.size(); i++) {
-						if (!((String)(Linux_SambaPrinterOptions.Java_Package_List.get(i))).trim().equals("") && //$NON-NLS-1$
-								!((String)(Linux_SambaPrinterOptions.Java_Package_List.get(i))).endsWith(".")) { //$NON-NLS-1$
-							Linux_SambaPrinterOptions.Java_Package_List.setElementAt((String)(Linux_SambaPrinterOptions.Java_Package_List.get(i)) + ("."), i); //$NON-NLS-1$
-						}
-						cimClassName = (Linux_SambaPrinterOptions.Java_Package_List.get(i)) + cimClassName;
-
-						try {
-							clazz = Class.forName(cimClassName);
-						} catch(ClassNotFoundException e) {
-						}
-					}
-					
+                    Class clazz = Linux_SambaPrinterOptionsHelper.findClass(cimClient, cimInstance);
+                    
 					if (clazz == null) {
 						System.err.println("The class " + cimInstance.getClassName() +" was not found. Constructing instance of the base class.");
 						resultArrayList.add(new Linux_SambaUser(cimInstance.getObjectPath(), cimInstance));
@@ -1935,22 +1783,8 @@ public class Linux_SambaPrinterOptions extends CIM_SettingData  {
 				Object obj = enumeration.nextElement();
 				if (obj instanceof CIMInstance) {
 					CIMInstance cimInstance = (CIMInstance)obj;
-					Class clazz = null;
-					String cimClassName = cimInstance.getClassName();
-				
-					for (int i = 0; clazz == null && i < Linux_SambaPrinterOptions.Java_Package_List.size(); i++) {
-						if (!((String)(Linux_SambaPrinterOptions.Java_Package_List.get(i))).trim().equals("") && //$NON-NLS-1$
-								!((String)(Linux_SambaPrinterOptions.Java_Package_List.get(i))).endsWith(".")) { //$NON-NLS-1$
-							Linux_SambaPrinterOptions.Java_Package_List.setElementAt((String)(Linux_SambaPrinterOptions.Java_Package_List.get(i)) + ("."), i); //$NON-NLS-1$
-						}
-						cimClassName = (Linux_SambaPrinterOptions.Java_Package_List.get(i)) + cimClassName;
-
-						try {
-							clazz = Class.forName(cimClassName);
-						} catch(ClassNotFoundException e) {
-						}
-					}
-					
+                    Class clazz = Linux_SambaPrinterOptionsHelper.findClass(cimClient, cimInstance);
+                    
 					if (clazz == null) {
 						System.err.println("The class " + cimInstance.getClassName() +" was not found. Constructing instance of the base class.");
 						resultArrayList.add(new Linux_SambaUser(cimInstance.getObjectPath(), cimInstance));
@@ -2062,22 +1896,8 @@ public class Linux_SambaPrinterOptions extends CIM_SettingData  {
 				Object obj = enumeration.nextElement();
 				if (obj instanceof CIMInstance) {
 					CIMInstance cimInstance = (CIMInstance)obj;
-					Class clazz = null;
-					String cimClassName = cimInstance.getClassName();
-				
-					for (int i = 0; clazz == null && i < Linux_SambaPrinterOptions.Java_Package_List.size(); i++) {
-						if (!((String)(Linux_SambaPrinterOptions.Java_Package_List.get(i))).trim().equals("") && //$NON-NLS-1$
-								!((String)(Linux_SambaPrinterOptions.Java_Package_List.get(i))).endsWith(".")) { //$NON-NLS-1$
-							Linux_SambaPrinterOptions.Java_Package_List.setElementAt((String)(Linux_SambaPrinterOptions.Java_Package_List.get(i)) + ("."), i); //$NON-NLS-1$
-						}
-						cimClassName = (Linux_SambaPrinterOptions.Java_Package_List.get(i)) + cimClassName;
-
-						try {
-							clazz = Class.forName(cimClassName);
-						} catch(ClassNotFoundException e) {
-						}
-					}
-					
+                    Class clazz = Linux_SambaPrinterOptionsHelper.findClass(cimClient, cimInstance);
+                    
 					if (clazz == null) {
 						System.err.println("The class " + cimInstance.getClassName() +" was not found. Constructing instance of the base class.");
 						resultArrayList.add(new Linux_SambaUser(cimInstance.getObjectPath(), cimInstance));
@@ -2427,11 +2247,10 @@ public class Linux_SambaPrinterOptions extends CIM_SettingData  {
 	
 	
 	public static String invoke_getAllSystemDefinedPrinters(CIMClient cimClient) {
-	  	
-		Vector inParameter = new Vector();
+	  	Vector inParameter = new Vector();
 	  	Vector outParameter = new Vector();
 	  	
-	  	CIMValue returnValue = cimClient.invokeMethod(new CIMObjectPath(CIM_CLASS_NAME), 
+	  	CIMValue returnValue = cimClient.invokeMethod(new CIMObjectPath(Linux_SambaPrinterOptions.CIM_CLASS_NAME), 
 				  									  CIM_METHOD_GETALLSYSTEMDEFINEDPRINTERS,
 													  inParameter,
 													  outParameter);
