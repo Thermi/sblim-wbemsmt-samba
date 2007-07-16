@@ -1,6 +1,24 @@
 // =========================================================================
 // new in version 0.5.0-1 :
 
+2007-07-16 20:02  taphorn
+
+	* NEWS, build.xml, sblim-wbemsmt-samba.spec: Fix for issue [
+	  1754941 ] wbemsmt-samba: Upgrade to build environment
+
+2007-07-12 11:15  mbauschert
+
+	* conf/.cvsignore: added cimschema to cvsignore
+
+2007-07-09 09:49  mbauschert
+
+	* .classpath: Fix [ 1750200 ] wbemsmt-client: update jar references
+
+2007-07-07 00:07  taphorn
+
+	* ChangeLog, NEWS, README, build.xml, sblim-wbemsmt-samba.spec:
+	  Preparation for 0.5.0 release
+
 2007-07-06 22:52  taphorn
 
 	* java/org/sblim/wbemsmt/samba/bl/fco/:
