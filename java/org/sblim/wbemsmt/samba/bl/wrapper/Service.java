@@ -35,6 +35,7 @@ import org.sblim.wbem.cim.UnsignedInt32;
 import org.sblim.wbem.cim.UnsignedInt8;
 import org.sblim.wbem.client.CIMClient;
 import org.sblim.wbemsmt.bl.adapter.CimObjectKey;
+import org.sblim.wbemsmt.bl.adapter.Message;
 import org.sblim.wbemsmt.bl.adapter.MessageList;
 import org.sblim.wbemsmt.exception.ModelLoadException;
 import org.sblim.wbemsmt.exception.ModelUpdateException;
@@ -46,6 +47,7 @@ import org.sblim.wbemsmt.exception.ObjectSaveException;
 import org.sblim.wbemsmt.exception.UpdateControlsException;
 import org.sblim.wbemsmt.exception.WbemSmtException;
 import org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter;
+import org.sblim.wbemsmt.samba.bl.adapter.SambaErrCodes;
 import org.sblim.wbemsmt.samba.bl.adapter.SambaObject;
 import org.sblim.wbemsmt.samba.bl.container.service.ServiceAllowHostSecurityDataContainer;
 import org.sblim.wbemsmt.samba.bl.container.service.ServiceDenyHostDataContainer;
@@ -657,18 +659,49 @@ public class Service extends SambaObject {
 		CIMClient cimClient = adapter.getCimClient();
 		if (adapter.getUpdateTrigger() == container.get_invoke_StartService())
 		{
-			service.invoke_startService(cimClient);
+			start(container,cimClient);
 		}
 		else if (adapter.getUpdateTrigger() == container.get_invoke_StopService())
 		{
-			service.invoke_stopService(cimClient);
+			stop(container,cimClient);
 		}
 		else if (adapter.getUpdateTrigger() == container.get_usr_RestartService())
 		{
-			service.invoke_stopService(cimClient);
-			service.invoke_startService(cimClient);
+			stop(container,cimClient);
+			start(container,cimClient);
 		}
-		this.service = Linux_SambaServiceHelper.getInstance(cimClient,service.getCimObjectPath()); 
+	}
+
+	private void stop(ServiceOperationsDataContainer container, CIMClient cimClient) {
+		UnsignedInt32 rc = service.invoke_stopService(cimClient);
+		this.service = Linux_SambaServiceHelper.getInstance(cimClient,service.getCimObjectPath());
+		
+		MessageList list = MessageList.init(container);
+		
+		if (rc.intValue() != 0)
+		{
+			list.addMessage(Message.create(SambaErrCodes.MSGDEF_CANNOT_STOP_RC, container.getAdapter().getBundle(),new Object[]{""+rc.intValue()}));
+		}
+		else if (service.get_Started().booleanValue() == true)
+		{
+			list.addMessage(Message.create(SambaErrCodes.MSGDEF_CANNOT_STOP_STATUS, container.getAdapter().getBundle()));
+		}
+	}
+
+	private void start(ServiceOperationsDataContainer container, CIMClient cimClient) {
+		UnsignedInt32 rc = service.invoke_startService(cimClient);
+		this.service = Linux_SambaServiceHelper.getInstance(cimClient,service.getCimObjectPath());
+		
+		MessageList list = MessageList.init(container);
+		
+		if (rc.intValue() != 0)
+		{
+			list.addMessage(Message.create(SambaErrCodes.MSGDEF_CANNOT_START_RC, container.getAdapter().getBundle(),new Object[]{""+rc.intValue()}));
+		}
+		else if (service.get_Started().booleanValue() == false)
+		{
+			list.addMessage(Message.create(SambaErrCodes.MSGDEF_CANNOT_START_STATUS, container.getAdapter().getBundle()));
+		}
 	}
 
 	public void updateModel(ServiceAllowHostSecurityDataContainer container)  throws ModelUpdateException{
