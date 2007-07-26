@@ -171,6 +171,7 @@ public class UserWizardPage2Impl extends org.sblim.wbemsmt.tools.wizard.jsf.Wiza
 		{
 			try {
 				org.sblim.wbemsmt.jsf.samba.container.wizard.ShareInUserWizardACLItemDataContainer_AsShares_InUserWizardPage2Impl item = new org.sblim.wbemsmt.jsf.samba.container.wizard.ShareInUserWizardACLItemDataContainer_AsShares_InUserWizardPage2Impl((org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter)adapter,bindingPrefix, result.size());
+				DataContainerUtil.setVisibilityOfFields(item,false);
 				result.add(item);
 			} catch (InitContainerException e) {
 				e.printStackTrace();
@@ -362,6 +363,7 @@ public class UserWizardPage2Impl extends org.sblim.wbemsmt.tools.wizard.jsf.Wiza
 		{
 			try {
 				org.sblim.wbemsmt.jsf.samba.container.wizard.PrinterInUserWizardACLItemDataContainer_AsPrinters_InUserWizardPage2Impl item = new org.sblim.wbemsmt.jsf.samba.container.wizard.PrinterInUserWizardACLItemDataContainer_AsPrinters_InUserWizardPage2Impl((org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter)adapter,bindingPrefix, result.size());
+				DataContainerUtil.setVisibilityOfFields(item,false);
 				result.add(item);
 			} catch (InitContainerException e) {
 				e.printStackTrace();

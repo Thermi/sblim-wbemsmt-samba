@@ -235,6 +235,7 @@ public class PrinterWizardPage3Impl extends org.sblim.wbemsmt.tools.wizard.jsf.W
 		{
 			try {
 				org.sblim.wbemsmt.jsf.samba.container.wizard.UserInPrinterWizardACLItemDataContainer_AsUsers_InPrinterWizardPage3Impl item = new org.sblim.wbemsmt.jsf.samba.container.wizard.UserInPrinterWizardACLItemDataContainer_AsUsers_InPrinterWizardPage3Impl((org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter)adapter,bindingPrefix, result.size());
+				DataContainerUtil.setVisibilityOfFields(item,false);
 				result.add(item);
 			} catch (InitContainerException e) {
 				e.printStackTrace();

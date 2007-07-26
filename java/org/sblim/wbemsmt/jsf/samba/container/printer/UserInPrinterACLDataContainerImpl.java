@@ -185,6 +185,7 @@ public class UserInPrinterACLDataContainerImpl extends org.sblim.wbemsmt.tools.j
 		{
 			try {
 				org.sblim.wbemsmt.jsf.samba.container.printer.UserACLItemDataContainerForPrinter_AsUsers_InUserInPrinterACLDataContainerImpl item = new org.sblim.wbemsmt.jsf.samba.container.printer.UserACLItemDataContainerForPrinter_AsUsers_InUserInPrinterACLDataContainerImpl((org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter)adapter,bindingPrefix, result.size());
+				DataContainerUtil.setVisibilityOfFields(item,false);
 				result.add(item);
 			} catch (InitContainerException e) {
 				e.printStackTrace();

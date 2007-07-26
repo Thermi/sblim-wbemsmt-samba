@@ -147,6 +147,7 @@ public class ShareListDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.Edit
 		{
 			try {
 				org.sblim.wbemsmt.jsf.samba.container.share.ShareListItemDataContainer_AsShares_InShareListDataContainerImpl item = new org.sblim.wbemsmt.jsf.samba.container.share.ShareListItemDataContainer_AsShares_InShareListDataContainerImpl((org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter)adapter,bindingPrefix, result.size());
+				DataContainerUtil.setVisibilityOfFields(item,false);
 				result.add(item);
 			} catch (InitContainerException e) {
 				e.printStackTrace();

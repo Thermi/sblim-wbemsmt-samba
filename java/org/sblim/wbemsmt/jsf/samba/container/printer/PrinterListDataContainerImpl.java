@@ -149,6 +149,7 @@ public class PrinterListDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.Ed
 		{
 			try {
 				org.sblim.wbemsmt.jsf.samba.container.share.PrinterListItemDataContainer_AsPrinters_InPrinterListDataContainerImpl item = new org.sblim.wbemsmt.jsf.samba.container.share.PrinterListItemDataContainer_AsPrinters_InPrinterListDataContainerImpl((org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter)adapter,bindingPrefix, result.size());
+				DataContainerUtil.setVisibilityOfFields(item,false);
 				result.add(item);
 			} catch (InitContainerException e) {
 				e.printStackTrace();

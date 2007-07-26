@@ -1148,6 +1148,7 @@ public class GUIShareGlobalsDataContainerImpl extends org.sblim.wbemsmt.tools.js
 		{
 			try {
 				org.sblim.wbemsmt.jsf.samba.container.global.AdminUsersInShareGlobals_AsUsers_InGUIShareGlobalsDataContainerImpl item = new org.sblim.wbemsmt.jsf.samba.container.global.AdminUsersInShareGlobals_AsUsers_InGUIShareGlobalsDataContainerImpl((org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter)adapter,bindingPrefix, result.size());
+				DataContainerUtil.setVisibilityOfFields(item,false);
 				result.add(item);
 			} catch (InitContainerException e) {
 				e.printStackTrace();
