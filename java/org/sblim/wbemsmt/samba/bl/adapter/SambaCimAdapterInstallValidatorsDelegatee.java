@@ -22,78 +22,19 @@ package org.sblim.wbemsmt.samba.bl.adapter;
 import org.sblim.wbem.cim.UnsignedInt16;
 import org.sblim.wbem.cim.UnsignedInt32;
 import org.sblim.wbemsmt.exception.ModelLoadException;
-import org.sblim.wbemsmt.samba.bl.container.global.AdminUsersInPrinterGlobals;
-import org.sblim.wbemsmt.samba.bl.container.global.AdminUsersInShareGlobals;
-import org.sblim.wbemsmt.samba.bl.container.global.CMDShareGlobalsDataContainer;
-import org.sblim.wbemsmt.samba.bl.container.global.GUIShareGlobalsDataContainer;
-import org.sblim.wbemsmt.samba.bl.container.global.PrintingGlobalsDataContainer;
-import org.sblim.wbemsmt.samba.bl.container.global.ShareGlobalsDataContainer;
-import org.sblim.wbemsmt.samba.bl.container.global.UserIsAdminItem;
+import org.sblim.wbemsmt.samba.bl.container.global.*;
 import org.sblim.wbemsmt.samba.bl.container.host.HostDataContainer;
-import org.sblim.wbemsmt.samba.bl.container.printer.PrinterAllowHostSecurityDataContainer;
-import org.sblim.wbemsmt.samba.bl.container.printer.PrinterDenyHostSecurityDataContainer;
-import org.sblim.wbemsmt.samba.bl.container.printer.PrinterListDataContainer;
-import org.sblim.wbemsmt.samba.bl.container.printer.PrinterListItemDataContainer;
-import org.sblim.wbemsmt.samba.bl.container.printer.PrinterOptionsDataContainer;
-import org.sblim.wbemsmt.samba.bl.container.printer.PrintingOptionsDataContainer;
-import org.sblim.wbemsmt.samba.bl.container.printer.UserACLItemDataContainerForPrinter;
-import org.sblim.wbemsmt.samba.bl.container.printer.UserInPrinterACLDataContainer;
-import org.sblim.wbemsmt.samba.bl.container.service.ServiceAllowHostSecurityDataContainer;
-import org.sblim.wbemsmt.samba.bl.container.service.ServiceDenyHostDataContainer;
-import org.sblim.wbemsmt.samba.bl.container.service.ServiceGlobalSecurityOptionsDataContainer;
-import org.sblim.wbemsmt.samba.bl.container.service.ServiceLoggingDataContainer;
-import org.sblim.wbemsmt.samba.bl.container.service.ServiceOperationsDataContainer;
-import org.sblim.wbemsmt.samba.bl.container.service.ServiceOptionsDataContainer;
-import org.sblim.wbemsmt.samba.bl.container.service.ServiceScriptingDataContainer;
-import org.sblim.wbemsmt.samba.bl.container.service.ServiceUserSecurityOptionsDataContainer;
-import org.sblim.wbemsmt.samba.bl.container.service.ServiceWinsDataContainer;
-import org.sblim.wbemsmt.samba.bl.container.service.UserACLItemDataContainerForService;
-import org.sblim.wbemsmt.samba.bl.container.share.CMDShareFileAttributes;
-import org.sblim.wbemsmt.samba.bl.container.share.GUIShareFileAttributes;
-import org.sblim.wbemsmt.samba.bl.container.share.PrinterACLItemDataContainer;
-import org.sblim.wbemsmt.samba.bl.container.share.ShareACLItemDataContainer;
-import org.sblim.wbemsmt.samba.bl.container.share.ShareAllowHostSecurityDataContainer;
-import org.sblim.wbemsmt.samba.bl.container.share.ShareDenyHostSecurityDataContainer;
-import org.sblim.wbemsmt.samba.bl.container.share.ShareFileAttributes;
-import org.sblim.wbemsmt.samba.bl.container.share.ShareListDataContainer;
-import org.sblim.wbemsmt.samba.bl.container.share.ShareListItemDataContainer;
-import org.sblim.wbemsmt.samba.bl.container.share.ShareOptionsDataContainer;
-import org.sblim.wbemsmt.samba.bl.container.share.UserACLItemDataContainerForShare;
-import org.sblim.wbemsmt.samba.bl.container.share.UserInShareACLDataContainer;
+import org.sblim.wbemsmt.samba.bl.container.printer.*;
+import org.sblim.wbemsmt.samba.bl.container.service.*;
+import org.sblim.wbemsmt.samba.bl.container.share.*;
 import org.sblim.wbemsmt.samba.bl.container.user.PrinterInUserACLDataContainer;
 import org.sblim.wbemsmt.samba.bl.container.user.ShareInUserACLDataContainer;
 import org.sblim.wbemsmt.samba.bl.container.user.UserDataContainer;
-import org.sblim.wbemsmt.samba.bl.container.user.UserListDataContainer;
-import org.sblim.wbemsmt.samba.bl.container.user.UserListItemDataContainer;
-import org.sblim.wbemsmt.samba.bl.container.welcome.WelcomeDataContainer;
-import org.sblim.wbemsmt.samba.bl.container.wizard.HostWizardPage1;
-import org.sblim.wbemsmt.samba.bl.container.wizard.HostWizardPage2;
-import org.sblim.wbemsmt.samba.bl.container.wizard.PrinterInUserWizardACLItemDataContainer;
-import org.sblim.wbemsmt.samba.bl.container.wizard.PrinterWizardPage1;
-import org.sblim.wbemsmt.samba.bl.container.wizard.PrinterWizardPage2;
-import org.sblim.wbemsmt.samba.bl.container.wizard.PrinterWizardPage3;
-import org.sblim.wbemsmt.samba.bl.container.wizard.PrinterWizardPage4;
-import org.sblim.wbemsmt.samba.bl.container.wizard.PrinterWizardPage5;
-import org.sblim.wbemsmt.samba.bl.container.wizard.ShareInUserWizardACLItemDataContainer;
-import org.sblim.wbemsmt.samba.bl.container.wizard.ShareWizardPage1;
-import org.sblim.wbemsmt.samba.bl.container.wizard.ShareWizardPage2;
-import org.sblim.wbemsmt.samba.bl.container.wizard.ShareWizardPage3CMD;
-import org.sblim.wbemsmt.samba.bl.container.wizard.ShareWizardPage3GUI;
-import org.sblim.wbemsmt.samba.bl.container.wizard.ShareWizardPage4;
-import org.sblim.wbemsmt.samba.bl.container.wizard.UserInPrinterWizardACLItemDataContainer;
-import org.sblim.wbemsmt.samba.bl.container.wizard.UserInShareWizardACLItemDataContainer;
-import org.sblim.wbemsmt.samba.bl.container.wizard.UserWizardPage1;
-import org.sblim.wbemsmt.samba.bl.container.wizard.UserWizardPage2;
-import org.sblim.wbemsmt.samba.bl.container.wizard.UserWizardPage3;
+import org.sblim.wbemsmt.samba.bl.container.wizard.*;
 import org.sblim.wbemsmt.samba.bl.validator.DuplicateSambaServiceValidator;
 import org.sblim.wbemsmt.samba.bl.validator.SambaUsernameValidator;
 import org.sblim.wbemsmt.samba.bl.wrapper.Service;
-import org.sblim.wbemsmt.tools.validator.NumericFieldValidator;
-import org.sblim.wbemsmt.tools.validator.OtherSelectionValidator;
-import org.sblim.wbemsmt.tools.validator.RequiredFieldValidator;
-import org.sblim.wbemsmt.tools.validator.SameContentValidator;
-import org.sblim.wbemsmt.tools.validator.ValidationOKValidator;
-import org.sblim.wbemsmt.tools.validator.Validator;
+import org.sblim.wbemsmt.tools.validator.*;
 
 public class SambaCimAdapterInstallValidatorsDelegatee extends SambaDelegatee implements
 		SambaCimAdapterInstallValidatorsIf {
@@ -102,9 +43,6 @@ public class SambaCimAdapterInstallValidatorsDelegatee extends SambaDelegatee im
 		super(adapter);
 	}
 
-
-	private void installShareFileAttributesValidators(ShareFileAttributes container) {
-	}
 
 
 	public void installValidatorsImpl(ServiceOperationsDataContainer container) {
@@ -260,6 +198,9 @@ public class SambaCimAdapterInstallValidatorsDelegatee extends SambaDelegatee im
 		installShareFileAttributesValidators(container);
 	}
 
+	private void installShareFileAttributesValidators(ShareFileAttributes container) {
+	}
+	
 
 	public void installValidatorsImpl(UserACLItemDataContainerForShare container) {
 	}
@@ -381,35 +322,4 @@ public class SambaCimAdapterInstallValidatorsDelegatee extends SambaDelegatee im
 
 	public void installValidatorsImpl(AdminUsersInShareGlobals container) {
 	}
-
-
-	public void installValidatorsImpl(ShareListDataContainer container) {
-	}
-
-
-	public void installValidatorsImpl(ShareListItemDataContainer container) {
-	}
-
-
-	public void installValidatorsImpl(PrinterListDataContainer container) {
-	}
-
-
-	public void installValidatorsImpl(PrinterListItemDataContainer container) {
-	}
-
-
-	public void installValidatorsImpl(UserListDataContainer container) {
-	}
-
-
-	public void installValidatorsImpl(UserListItemDataContainer container) {
-	}
-
-
-	public void installValidatorsImpl(WelcomeDataContainer container) {
-		// TODO Auto-generated method stub
-		
-	}
-
 }

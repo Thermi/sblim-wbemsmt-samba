@@ -293,8 +293,6 @@ public interface SambaCimAdapterIf extends SambaCimAdapterCountIf, SambaCimAdapt
 	public void installValidatorsImpl(org.sblim.wbemsmt.samba.bl.container.printer.PrinterDenyHostSecurityDataContainer container);
 	public void installValidatorsImpl(org.sblim.wbemsmt.samba.bl.container.user.PrinterInUserACLDataContainer container);
 	public void installValidatorsImpl(org.sblim.wbemsmt.samba.bl.container.wizard.PrinterInUserWizardACLItemDataContainer container);
-	public void installValidatorsImpl(org.sblim.wbemsmt.samba.bl.container.printer.PrinterListDataContainer container);
-	public void installValidatorsImpl(org.sblim.wbemsmt.samba.bl.container.printer.PrinterListItemDataContainer container);
 	public void installValidatorsImpl(org.sblim.wbemsmt.samba.bl.container.printer.PrinterOptionsDataContainer container);
 	public void installValidatorsImpl(org.sblim.wbemsmt.samba.bl.container.wizard.PrinterWizardPage1 container);
 	public void installValidatorsImpl(org.sblim.wbemsmt.samba.bl.container.wizard.PrinterWizardPage2 container);
@@ -319,8 +317,6 @@ public interface SambaCimAdapterIf extends SambaCimAdapterCountIf, SambaCimAdapt
 	public void installValidatorsImpl(org.sblim.wbemsmt.samba.bl.container.global.ShareGlobalsDataContainer container);
 	public void installValidatorsImpl(org.sblim.wbemsmt.samba.bl.container.user.ShareInUserACLDataContainer container);
 	public void installValidatorsImpl(org.sblim.wbemsmt.samba.bl.container.wizard.ShareInUserWizardACLItemDataContainer container);
-	public void installValidatorsImpl(org.sblim.wbemsmt.samba.bl.container.share.ShareListDataContainer container);
-	public void installValidatorsImpl(org.sblim.wbemsmt.samba.bl.container.share.ShareListItemDataContainer container);
 	public void installValidatorsImpl(org.sblim.wbemsmt.samba.bl.container.share.ShareOptionsDataContainer container);
 	public void installValidatorsImpl(org.sblim.wbemsmt.samba.bl.container.wizard.ShareWizardPage1 container);
 	public void installValidatorsImpl(org.sblim.wbemsmt.samba.bl.container.wizard.ShareWizardPage2 container);
@@ -336,11 +332,8 @@ public interface SambaCimAdapterIf extends SambaCimAdapterCountIf, SambaCimAdapt
 	public void installValidatorsImpl(org.sblim.wbemsmt.samba.bl.container.share.UserInShareACLDataContainer container);
 	public void installValidatorsImpl(org.sblim.wbemsmt.samba.bl.container.wizard.UserInShareWizardACLItemDataContainer container);
 	public void installValidatorsImpl(org.sblim.wbemsmt.samba.bl.container.global.UserIsAdminItem container);
-	public void installValidatorsImpl(org.sblim.wbemsmt.samba.bl.container.user.UserListDataContainer container);
-	public void installValidatorsImpl(org.sblim.wbemsmt.samba.bl.container.user.UserListItemDataContainer container);
 	public void installValidatorsImpl(org.sblim.wbemsmt.samba.bl.container.wizard.UserWizardPage1 container);
 	public void installValidatorsImpl(org.sblim.wbemsmt.samba.bl.container.wizard.UserWizardPage2 container);
 	public void installValidatorsImpl(org.sblim.wbemsmt.samba.bl.container.wizard.UserWizardPage3 container);
-	public void installValidatorsImpl(org.sblim.wbemsmt.samba.bl.container.welcome.WelcomeDataContainer container);
 			
 }
