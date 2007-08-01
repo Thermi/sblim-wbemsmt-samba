@@ -21,10 +21,10 @@ BuildArch:      noarch
 
 BuildRequires: jpackage-utils >= 0:1.5.32
 BuildRequires: ant >= 0:1.6
-BuildRequires: sblim-cim-client >= 0:1.3.3
+BuildRequires: sblim-cim-client >= 0:1.3
 BuildRequires: sblim-wbemsmt-commons => 0.5.0
-BuildRequires: jakarta-commons-cli >= 1.0
 BuildRequires: jakarta-commons-lang >= 2.0
+#BuildRequires: jakarta-commons-cli >= 1.0
 #BuildRequires:  myfaces >= 1.1.5
 #BuildRequires:  tomahawk >= 1.1.3
 #BuildRequires:  xbeans >= 2.2.0
@@ -32,11 +32,11 @@ BuildRequires: jakarta-commons-lang >= 2.0
 ###############################################################################
 
 Requires: jpackage-utils >= 0:1.5.32
-Requires: sblim-cim-client >= 0:1.3.3
+Requires: sblim-cim-client >= 0:1.3
 Requires: sblim-wbemsmt-commons => 0.5.0
 Requires: sblim-wbemsmt-webapp => 0.5.0
-Requires: jakarta-commons-cli >= 1.0
 Requires: jakarta-commons-lang >= 2.0
+#Requires: jakarta-commons-cli >= 1.0
 #Requires:  myfaces >= 1.1.5
 #Requires:  tomahawk >= 1.1.3
 
@@ -153,6 +153,9 @@ unlink $WBEMSMT_HELPDIR/plugins/org.sblim.wbemsmt.help.samba
 %changelog
 * Fri Jul 6 2007 Wolfgang Taphorn <taphorn@de.ibm.com> 0.5.0-1
   - Inclusion of fixes for the following issues:
+    o 1760852  wbemsmt-samba/dns: remove unnecessary installValidator calls
+    o 1760804  wbemsmt-jsf: child tables: controls displayed in empty row
+    o 1756653  wbemsmt-samba: check rc after start/stop service
     o 1754941  wbemsmt-samba: Upgrade to build environment
     o 1750200  wbemsmt-client: update jar references
     o 1749363  wbemsmt-samba: Upgrade FCOs to latest generator level
