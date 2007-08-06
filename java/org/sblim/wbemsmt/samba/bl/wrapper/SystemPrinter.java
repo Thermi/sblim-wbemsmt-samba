@@ -22,14 +22,16 @@
 package org.sblim.wbemsmt.samba.bl.wrapper;
 
 import org.sblim.wbem.cim.CIMObjectPath;
+import org.sblim.wbemsmt.bl.WbemsmtBusinessObject;
+import org.sblim.wbemsmt.bl.adapter.AbstractBaseCimAdapter;
 import org.sblim.wbemsmt.bl.adapter.CimObjectKey;
 
-public class SystemPrinter {
+public class SystemPrinter extends WbemsmtBusinessObject {
 
 	private final String name;
 
-	public SystemPrinter(String name) {
-		super();
+	public SystemPrinter(String name, AbstractBaseCimAdapter adapter) {
+		super(adapter);
 		this.name = name;
 	}
 
@@ -41,10 +43,10 @@ public class SystemPrinter {
 		return name;
 	}
 
-	public static SystemPrinter[] asObjects(String[] printers) {
+	public static SystemPrinter[] asObjects(String[] printers, AbstractBaseCimAdapter adapter) {
 		SystemPrinter[] result = new SystemPrinter[printers.length];
 		for (int i = 0; i < result.length; i++) {
-			result[i] = new SystemPrinter(printers[i]);
+			result[i] = new SystemPrinter(printers[i],adapter);
 		}
 		return result;
 	}

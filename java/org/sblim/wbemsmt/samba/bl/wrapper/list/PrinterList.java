@@ -31,7 +31,7 @@ public class PrinterList extends ObjectList  {
 
 	public Printer getPrinter(CimObjectKey key)
 	{
-		return (Printer)objectsByCimObjectKey.get(key);
+		return (Printer)get(key);
 	}
 	
 	public Printer getPrinter(CIMObjectPath path)
@@ -46,7 +46,7 @@ public class PrinterList extends ObjectList  {
 
 	public void addPrinter(Printer printer)
 	{
-		objectsByCimObjectKey.put(printer.getCimObjectKey(),printer);
+		put(printer);
 	}
 
 	protected Object getKey(Object value) {

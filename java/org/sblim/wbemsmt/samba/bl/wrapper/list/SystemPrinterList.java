@@ -32,7 +32,7 @@ public class SystemPrinterList extends ObjectList {
 	
 	public SystemPrinter getSystemPrinter(CimObjectKey key)
 	{
-		return (SystemPrinter)objectsByCimObjectKey.get(key);
+		return (SystemPrinter)get(key);
 	}
 	
 	public SystemPrinter getSystemPrinter(CIMObjectPath path)
@@ -47,8 +47,7 @@ public class SystemPrinterList extends ObjectList {
 
 	public void addSystemPrinter(SystemPrinter printer)
 	{
-		objectsByCimObjectKey.put(printer.getCimObjectKey(),printer);
-		if (loaded) reloadListValues();
+		put(printer);
 	}
 	
 	public void addSystemPrinters(SystemPrinter[] printers) {
@@ -65,8 +64,7 @@ public class SystemPrinterList extends ObjectList {
 
 	public void removeSystemPrinter(CimObjectKey key)
 	{
-		objectsByCimObjectKey.remove(key);
-		if (loaded) reloadListValues();
+		remove(key);
 	}
 	
 	public SystemPrinter getSystemPrinterByName(String printername) {
@@ -74,7 +72,6 @@ public class SystemPrinterList extends ObjectList {
 	}
 	
 	public SystemPrinter getSystemPrinter(int i) {
-		if (!loaded) reloadListValues();
 		return (SystemPrinter)getList().get(i);
 	}
 

@@ -31,7 +31,7 @@ public class HostList extends ObjectList {
 
 	public Host getHost(CimObjectKey key)
 	{
-		return (Host)objectsByCimObjectKey.get(key);
+		return (Host)get(key);
 	}
 	
 	public Host getHost(CIMObjectPath path)
@@ -46,7 +46,7 @@ public class HostList extends ObjectList {
 
 	public void addHost(Host host)
 	{
-		objectsByCimObjectKey.put(host.getCimObjectKey(),host);
+		put(host);
 	}
 	
 	protected Object getKey(Object value) {

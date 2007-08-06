@@ -32,7 +32,7 @@ public class UserList extends ObjectList {
 	
 	public User getUser(CimObjectKey key)
 	{
-		return (User)objectsByCimObjectKey.get(key);
+		return (User)get(key);
 	}
 	
 	public User getUser(CIMObjectPath path)
@@ -47,8 +47,7 @@ public class UserList extends ObjectList {
 
 	public void addUser(User user)
 	{
-		objectsByCimObjectKey.put(user.getCimObjectKey(),user);
-		if (loaded) reloadListValues();
+		put(user);
 	}
 	
 	public void removeUser(User user)
@@ -58,8 +57,7 @@ public class UserList extends ObjectList {
 
 	public void removeUser(CimObjectKey key)
 	{
-		objectsByCimObjectKey.remove(key);
-		if (loaded) reloadListValues();
+		remove(key);
 	}
 	
 	public User getUserByName(String username) {
@@ -67,7 +65,6 @@ public class UserList extends ObjectList {
 	}
 	
 	public User getUser(int i) {
-		if (!loaded) reloadListValues();
 		return (User)getList().get(i);
 	}
 

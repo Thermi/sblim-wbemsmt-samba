@@ -22,14 +22,16 @@
 package org.sblim.wbemsmt.samba.bl.wrapper;
 
 import org.sblim.wbem.cim.CIMObjectPath;
+import org.sblim.wbemsmt.bl.WbemsmtBusinessObject;
+import org.sblim.wbemsmt.bl.adapter.AbstractBaseCimAdapter;
 import org.sblim.wbemsmt.bl.adapter.CimObjectKey;
 
-public class SystemUser {
+public class SystemUser extends WbemsmtBusinessObject {
 
 	private final String name;
 
-	public SystemUser(String name) {
-		super();
+	public SystemUser(String name, AbstractBaseCimAdapter adapter) {
+		super(adapter);
 		this.name = name;
 	}
 
@@ -41,10 +43,10 @@ public class SystemUser {
 		return name;
 	}
 
-	public static SystemUser[] asObjects(String[] users) {
+	public static SystemUser[] asObjects(String[] users, AbstractBaseCimAdapter adapter) {
 		SystemUser[] result = new SystemUser[users.length];
 		for (int i = 0; i < result.length; i++) {
-			result[i] = new SystemUser(users[i]);
+			result[i] = new SystemUser(users[i],adapter);
 		}
 		return result;
 	}

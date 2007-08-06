@@ -32,7 +32,7 @@ public class SystemUserList extends ObjectList {
 	
 	public SystemUser getSystemUser(CimObjectKey key)
 	{
-		return (SystemUser)objectsByCimObjectKey.get(key);
+		return (SystemUser)get(key);
 	}
 	
 	public SystemUser getSystemUser(CIMObjectPath path)
@@ -47,8 +47,7 @@ public class SystemUserList extends ObjectList {
 
 	public void addSystemUser(SystemUser user)
 	{
-		objectsByCimObjectKey.put(user.getCimObjectKey(),user);
-		if (loaded) reloadListValues();
+		put(user);
 	}
 	
 	public void removeSystemUser(SystemUser user)
@@ -58,8 +57,7 @@ public class SystemUserList extends ObjectList {
 
 	public void removeSystemUser(CimObjectKey key)
 	{
-		objectsByCimObjectKey.remove(key);
-		if (loaded) reloadListValues();
+		remove(key);
 	}
 	
 	public SystemUser getSystemUserByName(String username) {
@@ -67,7 +65,6 @@ public class SystemUserList extends ObjectList {
 	}
 	
 	public SystemUser getSystemUser(int i) {
-		if (!loaded) reloadListValues();
 		return (SystemUser)getList().get(i);
 	}
 

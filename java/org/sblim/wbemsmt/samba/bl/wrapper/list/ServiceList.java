@@ -33,7 +33,7 @@ public class ServiceList extends ObjectList {
 
 	public Service getService(CimObjectKey key)
 	{
-		return (Service)objectsByCimObjectKey.get(key);
+		return (Service)get(key);
 	}
 	
 	public Service getService(CIMObjectPath path)
@@ -48,7 +48,7 @@ public class ServiceList extends ObjectList {
 
 	public void addService(Service service)
 	{
-		objectsByCimObjectKey.put(service.getCimObjectKey(),service);
+		put(service);
 	}
 
 	protected Object getKey(Object value) {

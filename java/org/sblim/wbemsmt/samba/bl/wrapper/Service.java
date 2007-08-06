@@ -390,13 +390,13 @@ public class Service extends SambaObject {
 		
 		String printerString = Linux_SambaPrinterOptions.invoke_getAllSystemDefinedPrinters(cimClient);
 		String[] printers = new org.sblim.wbemsmt.util.StringTokenizer(printerString,",").asArray(true,false);
-		systemPrinters.addSystemPrinters(SystemPrinter.asObjects(printers));
+		systemPrinters.addSystemPrinters(SystemPrinter.asObjects(printers,adapter));
 		
 		foundSystemPrinters = systemPrinters.size() > 0;
 		
 		if (!foundSystemPrinters)
 		{
-			systemPrinters.addSystemPrinter(new SystemPrinter(adapter.getBundle().getString(Service.KEY_NO_SYSTEMPRINTER_FOUND)));
+			systemPrinters.addSystemPrinter(new SystemPrinter(adapter.getBundle().getString(Service.KEY_NO_SYSTEMPRINTER_FOUND),adapter));
 		}
 		
 	}
@@ -409,13 +409,13 @@ public class Service extends SambaObject {
 		//String[] users = new org.sblim.wbemsmt.util.StringTokenizer("pegasus,root",",").asArray(true,false);
 		String userString = Linux_SambaUser.invoke_getAllSystemUsers(cimClient);
 		String[] users = new org.sblim.wbemsmt.util.StringTokenizer(userString,",").asArray(true,false);
-		systemUsers.addSystemUsers(SystemUser.asObjects(users));
+		systemUsers.addSystemUsers(SystemUser.asObjects(users,adapter));
 		
 		foundSystemUsers = systemUsers.size() > 0;
 		
 		if (!foundSystemUsers)
 		{
-			systemUsers.addSystemUser(new SystemUser(adapter.getBundle().getString(Service.KEY_NO_SYSTEMUSER_FOUND)));
+			systemUsers.addSystemUser(new SystemUser(adapter.getBundle().getString(Service.KEY_NO_SYSTEMUSER_FOUND),adapter));
 		}
 		
 	}

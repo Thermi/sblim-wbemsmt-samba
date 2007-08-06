@@ -34,7 +34,7 @@ public class ShareList extends ObjectList  {
 
 	public Share getShare(CimObjectKey key)
 	{
-		return (Share)objectsByCimObjectKey.get(key);
+		return (Share)get(key);
 	}
 	
 	public Share getShare(CIMObjectPath path)
@@ -49,7 +49,7 @@ public class ShareList extends ObjectList  {
 
 	public void addShare(Share share)
 	{
-		objectsByCimObjectKey.put(share.getCimObjectKey(),share);
+		put(share);
 	}
 	
 	protected Object getKey(Object value) {
