@@ -1,5 +1,5 @@
 %define name                    sblim-wbemsmt-samba
-%define version                 0.5.0
+%define version                 0.5.1
 %define build_release           1
 %define release                 %{build_release}jpp
 %define section                 free
@@ -151,6 +151,10 @@ unlink $WBEMSMT_HELPDIR/plugins/org.sblim.wbemsmt.help.samba
 
 ###############################################################################
 %changelog
+* Mon Aug 27 2007 Wolfgang Taphorn <taphorn@de.ibm.com> 0.5.1-1
+  - Inclusion of fixes for the following issues:
+    o 1768340  wbemsmt-samba: api changes of objectList
+
 * Fri Jul 6 2007 Wolfgang Taphorn <taphorn@de.ibm.com> 0.5.0-1
   - Inclusion of fixes for the following issues:
     o 1760852  wbemsmt-samba/dns: remove unnecessary installValidator calls

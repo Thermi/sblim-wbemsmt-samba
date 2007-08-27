@@ -1,4 +1,17 @@
 // =========================================================================
+// new in version 0.5.1-1 :
+
+2007-08-06 15:10  mbauschert
+
+	* java/org/sblim/wbemsmt/samba/bl/wrapper/: Service.java,
+	  SystemPrinter.java, SystemUser.java, list/HostList.java,
+	  list/PrinterList.java, list/ServiceList.java,
+	  list/ShareList.java, list/SystemPrinterList.java,
+	  list/SystemUserList.java, list/UserList.java: Fix [ 1768340 ]
+	  wbemsmt-samba: api changes of objectList
+
+
+// =========================================================================
 // new in version 0.5.0-1 :
 
 2007-07-26 10:42  mbauschert
