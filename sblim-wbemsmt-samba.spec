@@ -151,8 +151,9 @@ unlink $WBEMSMT_HELPDIR/plugins/org.sblim.wbemsmt.help.samba
 
 ###############################################################################
 %changelog
-* Wed Aug 29 2007 Michael Bauschert <michael.bauschert@de.ibm.com> 0.5.1-CVS
+* Mon Sep 01 2007 Michael Bauschert <michael.bauschert@de.ibm.com> 0.5.1-CVS
   - Inclusion of fixes for the following issues:
+    o 1787138  wbemsmt-samba: cleanup apidoc and todos
     o 1784058  wbemsmt-samba: define namespace per task
 
 * Mon Aug 27 2007 Wolfgang Taphorn <taphorn@de.ibm.com> 0.5.1-1

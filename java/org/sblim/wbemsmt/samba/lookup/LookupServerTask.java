@@ -14,7 +14,7 @@
   *
   * Contributors: 
   * 
-  * Description: TODO
+  * Description: Lookup class to check if the samba implementation is available on the cim server
   * 
   */
 package org.sblim.wbemsmt.samba.lookup;

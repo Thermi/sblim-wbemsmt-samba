@@ -39,17 +39,7 @@ public class PrinterWizardContainerUtil extends WizardContainerUtil {
 	 * @see org.sblim.wbemsmt.tools.wizard.WizardContainerUtil#getNextPanel(java.lang.String)
 	 */
 	public String getNextPanel(String currentPageName, Map hmPages) {
-//		TODO enable special handling if "create for all printers" is enabled again
-//		if (currentPageName.equals(PrinterWizardContainer.WIZARD_PANEL_PAGE1))
-//		{
-//			PrinterWizardPage1 page1 = (PrinterWizardPage1) hmPages.get(currentPageName);
-//			UnsignedInt16 index = (UnsignedInt16) page1.get_usr_AllOrOne().getConvertedControlValue();
-//			return index.intValue() == 0 ? PrinterWizardContainer.WIZARD_PANEL_PAGE3 : PrinterWizardContainer.WIZARD_PANEL_PAGE2;
-//		}
-//		else
-//		{
-			return getNextPanelDefault(currentPageName,panelNames);
-//		}
+		return getNextPanelDefault(currentPageName,panelNames);
 	}
 	
 	public void addInitialWizardSteps(IWizardContainer wizardContainer, WizardStepList stepList, HashMap hmPages) {

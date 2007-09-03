@@ -250,7 +250,7 @@ public class ShareWizard   extends SambaWizard{
 
 		super.setForceUserForWizardOverview(container, page2.get_usr_ForceUser(),page4.get_usr_ForceUser());
 		
-		//TODO remove if the createMask etc is enabled again
+		//remove if the createMask etc is enabled again
 		container.get_CreateMask().getProperties().setVisible(false);
 		container.get_DirectoryMask().getProperties().setVisible(false);
 		container.get_DirectorySecurityMask().getProperties().setVisible(false);

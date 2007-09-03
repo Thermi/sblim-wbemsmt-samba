@@ -14,7 +14,7 @@
   *
   * Contributors: 
   * 
-  * Description: TODO
+  * Description: Selector class for Creating a share
   * 
   */
 package org.sblim.wbemsmt.samba.listener;

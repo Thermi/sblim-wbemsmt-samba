@@ -405,8 +405,6 @@ public class Service extends SambaObject {
 
 		systemUsers = new SystemUserList();
 		
-//		TODO get the systemusers from the server
-		//String[] users = new org.sblim.wbemsmt.util.StringTokenizer("pegasus,root",",").asArray(true,false);
 		String userString = Linux_SambaUser.invoke_getAllSystemUsers(cimClient);
 		String[] users = new org.sblim.wbemsmt.util.StringTokenizer(userString,",").asArray(true,false);
 		systemUsers.addSystemUsers(SystemUser.asObjects(users,adapter));

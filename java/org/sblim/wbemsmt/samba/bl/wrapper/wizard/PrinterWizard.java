@@ -133,10 +133,8 @@ public class PrinterWizard  extends SambaWizard {
 		try {
 			printer.set_Name(name);
 			printer.set_Comment((String) page2.get_Comment().getConvertedControlValue());
-			//TODO check if available default = true is okay
 			printer.set_Available(new Boolean(true));
 			printer.set_Path((String) page2.get_Path().getConvertedControlValue());
-//			TODO check if printable default = true is okay
 			printer.set_Printable(new Boolean(true));
 			printer.set_SystemPrinterName(systemPrinter.getName());
 			setInstanceId(printer);
@@ -216,7 +214,6 @@ public class PrinterWizard  extends SambaWizard {
 			
 			printingOptions.set_CupsOptions((String) page4.get_CupsOptions().getConvertedControlValue());
 			printingOptions.set_PrintCommand((String) page4.get_PrintCommand().getConvertedControlValue());
-			//TODO check if default values are okay or do we need extra input fields
 			printingOptions.set_DefaultDevMode(new Boolean(false));
 			printingOptions.set_MaxPrintjobs(new UnsignedInt64(100));
 			printingOptions.set_MaxReportedPrintjobs(new UnsignedInt64(100));
@@ -265,7 +262,7 @@ public class PrinterWizard  extends SambaWizard {
 		UnsignedInt16 index = (UnsignedInt16) convertedControlValue;
 		if (index == null)
 		{
-			//TODO SET TO 1 if enable all is activated again
+			//SET TO 1 if enable all is activated again
 			container.get_usr_AllOrOne().setControlValue(new UnsignedInt16(0));
 		}
 	}
@@ -293,7 +290,7 @@ public class PrinterWizard  extends SambaWizard {
 		try {
 			lastcontainer = page2 = container;
 			CIMClient cc = adapter.getCimClient();
-//			TODO enable again if can create samba printers for all systemprinters
+//			enable again if can create samba printers for all systemprinters
 //			if (getDefineForAllPrinters())
 //			{
 //				container.get_usr_SystemPrinterName().getProperties().setReadOnly(true);
@@ -387,7 +384,7 @@ public class PrinterWizard  extends SambaWizard {
 	
 	private boolean getDefineForAllPrinters() {
 		UnsignedInt16 printerIdx = (UnsignedInt16) page1.get_usr_AllOrOne().getConvertedControlValue();
-		//TODO set to == 0 if enable for all is activated again
+		//set to == 0 if enable for all is activated again
 		return printerIdx != null && printerIdx.intValue() == 1;
 	}
 
