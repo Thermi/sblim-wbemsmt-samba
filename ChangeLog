@@ -1,4 +1,34 @@
 // =========================================================================
+// new in version 0.5.2-1 :
+
+2007-09-14 18:27  taphorn
+
+	* NEWS, build.xml, sblim-wbemsmt-samba.spec: Preparation of next
+	  release
+
+2007-09-03 17:14  mbauschert
+
+	*
+	  java/org/sblim/wbemsmt/samba/listener/CreatePrinterListenerSelector.java,
+	  java/org/sblim/wbemsmt/samba/listener/CreateShareListenerSelector.java,
+	  java/org/sblim/wbemsmt/samba/listener/CreateUserListenerSelector.java,
+	  NEWS, sblim-wbemsmt-samba.spec,
+	  java/org/sblim/wbemsmt/samba/bl/adapter/SambaCimAdapterInitContainerDelegatee.java,
+	  java/org/sblim/wbemsmt/samba/bl/wrapper/Service.java,
+	  java/org/sblim/wbemsmt/samba/bl/wrapper/wizard/PrinterWizard.java,
+	  java/org/sblim/wbemsmt/samba/bl/wrapper/wizard/ShareWizard.java,
+	  java/org/sblim/wbemsmt/samba/lookup/LookupServerTask.java,
+	  java/org/sblim/wbemsmt/samba/wizard/PrinterWizardContainerUtil.java:
+	  Fix [1787138] wbemsmt-samba: cleanup apidoc and todos for more
+	  see
+	  http://sourceforge.net/tracker/index.php?group_id=128809&func=detail&atid=712784&aid=1787138
+
+2007-08-29 16:19  mbauschert
+
+	* sblim-wbemsmt-samba.spec, NEWS, conf/samba-task-config.xml: Fix
+	  1784058 wbemsmt-samba: define namespace per task
+
+// =========================================================================
 // new in version 0.5.1-1 :
 
 2007-08-06 15:10  mbauschert
