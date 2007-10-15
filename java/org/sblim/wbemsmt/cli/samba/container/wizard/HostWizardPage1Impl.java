@@ -34,9 +34,8 @@ import org.sblim.wbemsmt.exception.*;
 import org.sblim.wbemsmt.bl.adapter.DataContainer;
 import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
-
-public class HostWizardPage1Impl extends BaseDataContainer implements org.sblim.wbemsmt.samba.bl.container.wizard.HostWizardPage1 {
-
+public class HostWizardPage1Impl extends BaseDataContainer implements org.sblim.wbemsmt.samba.bl.container.wizard.HostWizardPage1
+	{
 			private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_Name;
     	
 		

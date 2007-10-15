@@ -121,9 +121,8 @@ public interface ShareWizardPage4 extends org.sblim.wbemsmt.bl.adapter.DataConta
 	/** 
 	 * Linked DataContainers
 	 **/
-	 
-	
 			
+				
 		/**
 		* 
 		* linked container UserInShareWizardACLItemDataContainer
@@ -131,5 +130,13 @@ public interface ShareWizardPage4 extends org.sblim.wbemsmt.bl.adapter.DataConta
 
 		public java.util.List getUsers();
 
-	
+	   		
+	   /**
+		* Header for:
+		* 
+		* linked container UserInShareWizardACLItemDataContainer
+		*/
+		public  org.sblim.wbemsmt.samba.bl.container.wizard.UserInShareWizardACLItemDataContainerHeader getUsersHeader();
+		
+			
 }

@@ -75,7 +75,5 @@ public interface PrinterACLItemDataContainer extends org.sblim.wbemsmt.bl.adapte
 	/** 
 	 * Linked DataContainers
 	 **/
-	 
-	
 	
 }

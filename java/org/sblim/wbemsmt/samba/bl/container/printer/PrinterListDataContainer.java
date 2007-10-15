@@ -40,9 +40,8 @@ public interface PrinterListDataContainer extends org.sblim.wbemsmt.bl.adapter.D
 	/** 
 	 * Linked DataContainers
 	 **/
-	 
-	
 			
+				
 		/**
 		* 
 		* linked container PrinterListItemDataContainer
@@ -50,5 +49,13 @@ public interface PrinterListDataContainer extends org.sblim.wbemsmt.bl.adapter.D
 
 		public java.util.List getPrinters();
 
-	
+	   		
+	   /**
+		* Header for:
+		* 
+		* linked container PrinterListItemDataContainer
+		*/
+		public  org.sblim.wbemsmt.samba.bl.container.printer.PrinterListItemDataContainerHeader getPrintersHeader();
+		
+			
 }

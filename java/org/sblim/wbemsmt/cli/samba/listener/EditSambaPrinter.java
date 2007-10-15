@@ -25,9 +25,8 @@
 package org.sblim.wbemsmt.cli.samba.listener;
 
 import org.apache.commons.cli.*;
-import org.sblim.wbemsmt.bl.adapter.AbstractBaseCimAdapter;
-import org.sblim.wbemsmt.bl.adapter.CimAdapterFactory;
-import org.sblim.wbemsmt.bl.adapter.MessageList;
+import org.sblim.wbemsmt.bl.adapter.*;
+import org.sblim.wbemsmt.bl.*;
 import org.sblim.wbemsmt.exception.*;
 import org.sblim.wbemsmt.tools.cli.*;
 
@@ -225,7 +224,7 @@ public class EditSambaPrinter extends CimCommand {
 			values.getOut().println("\n" + bundle.getString("editing",new Object[]{bundle.getString("PrinterOptionsDataContainer.caption")}));
 
         	CliDataLoader loader = new EditSambaPrinterLoader();
-			loader.load(bundle,adapter, cmd);
+			loader.load(bundle,adapter, commandValues);
 			
 			org.sblim.wbemsmt.cli.samba.container.printer.PrinterOptionsDataContainerImpl dc = new org.sblim.wbemsmt.cli.samba.container.printer.PrinterOptionsDataContainerImpl(adapter);
 						
@@ -244,12 +243,14 @@ public class EditSambaPrinter extends CimCommand {
 
 			if (result.hasErrors())
 			{
-				traceErrors("save.error",result);
+				Message caption = Message.create(ErrCodes.MSG_SAVE_ERROR, Message.ERROR,bundle, "save.error");
+				traceMessages(caption,result);
 				return;
 			}
 			else
 			{
-				traceMessages("additional.messages",result);
+				Message caption = Message.create(ErrCodes.MSG_ADDITIONAL_MESSAGES, Message.ERROR,bundle, "additional.messages");
+				traceMessages(caption,result);
 				result.clear();
 			}
 							
@@ -263,20 +264,24 @@ public class EditSambaPrinter extends CimCommand {
 				result = dc.getMessagesList();
 				if (result.hasErrors())
 				{
-					traceErrors("save.error",result);
+					Message caption = Message.create(ErrCodes.MSG_SAVE_ERROR, Message.ERROR,bundle, "save.error");
+					traceMessages(caption,result);
 				}
 				else if (result.hasWarning())
 				{
-					traceErrors("save.warning",result);
+					Message caption = Message.create(ErrCodes.MSG_SAVE_WARNING, Message.ERROR,bundle, "save.warning");
+					traceMessages(caption,result);
 				}
 				else if (result.hasInfo())
 				{
-					traceErrors("save.info",result);
+					Message caption = Message.create(ErrCodes.MSG_SAVE_INFO, Message.ERROR,bundle, "save.info");
+					traceMessages(caption,result);
 				}
 			}
 			else
 			{
-					traceErrors("validation.error",result);
+					Message caption = Message.create(ErrCodes.MSG_VALIDATION_ERROR, Message.ERROR,bundle, "validation.error");
+					traceMessages(caption,result);
 					return;
 			}
 			values.getOut().println("\n" + bundle.getString("edited", new Object[]{bundle.getString("PrinterOptionsDataContainer.caption")}));
@@ -291,21 +296,36 @@ public class EditSambaPrinter extends CimCommand {
 		{
 			super.handleException(e,values.getArgs(),values.getOptions(),KEY_GLOBAL_password);
 		}
+		finally
+		{
+			if (adapter != null) adapter.cleanup();
+		}
 	}
 	
 	/**
 	 * Set all Values that are needed for selecting the right objects. This fields are used even if they are read-only
 	 **/
 	private void setKeyValues(CommandLine cmd,AbstractBaseCimAdapter adapter, org.sblim.wbemsmt.samba.bl.container.printer.PrinterOptionsDataContainer dc) throws WbemSmtException {
-    		}	
+    	    		    			    				setValue(cmd,dc.get_Name(),KEY_sambaPrintername);
+    			    			    			    				    				    				    				    				    				    				    				    				    				    					}	
 	
 	/**
 	 * Set all Values that are not read-Only
 	 **/
 	private void setValues(CommandLine cmd,AbstractBaseCimAdapter adapter, org.sblim.wbemsmt.samba.bl.container.printer.PrinterOptionsDataContainer dc) throws WbemSmtException {
-    			
+    																				setMultiValue(adapter.getBundle(),cmd,dc.get_usr_SystemPrinterName(),KEY_systemPrinterName);
+																setValue(cmd,dc.get_Path(),KEY_path);
+																						setValue(cmd,dc.get_Comment(),KEY_comment);
+																									setCheckboxValue(cmd,dc.get_Available(),KEY_available);
+																						setCheckboxValue(cmd,dc.get_GuestOK(),KEY_guestOK);
+																						setCheckboxValue(cmd,dc.get_GuestOnly(),KEY_guestOnly);
+																			setValue(cmd,dc.get_HostsAllow(),KEY_hostAllow);
+																						setValue(cmd,dc.get_HostsDeny(),KEY_hostDeny);
+																									setCheckboxValue(cmd,dc.get_ReadOnly(),KEY_readOnly);
+																						setCheckboxValue(cmd,dc.get_Browsable(),KEY_browsable);
+												
 		//The Buttons
-    		}	
+    																																																																																																}	
 	
 	
  

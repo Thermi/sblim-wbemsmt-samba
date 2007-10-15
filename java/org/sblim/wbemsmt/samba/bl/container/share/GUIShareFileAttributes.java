@@ -363,7 +363,5 @@ public interface GUIShareFileAttributes extends org.sblim.wbemsmt.samba.bl.conta
 	/** 
 	 * Linked DataContainers
 	 **/
-	 
-	
 	
 }

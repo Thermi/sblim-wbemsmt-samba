@@ -34,9 +34,9 @@ import org.sblim.wbemsmt.exception.*;
 import org.sblim.wbemsmt.bl.adapter.DataContainer;
 import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
-
-public class GUIShareGlobalsDataContainerImpl extends BaseDataContainer implements org.sblim.wbemsmt.samba.bl.container.global.GUIShareGlobalsDataContainer {
-
+public class GUIShareGlobalsDataContainerImpl extends BaseDataContainer implements org.sblim.wbemsmt.samba.bl.container.global.GUIShareGlobalsDataContainer
+			, org.sblim.wbemsmt.samba.bl.container.global.AdminUsersInShareGlobalsHeader		
+	{
 			private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_CaseSensitive;
     		private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_DosFiletimes;
     		private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_HideDotFiles;
@@ -79,7 +79,13 @@ public class GUIShareGlobalsDataContainerImpl extends BaseDataContainer implemen
     		private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_usr_Directory_security_other_r;
     		private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_usr_Directory_security_other_w;
     		private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_usr_Directory_security_other_x;
-    			private java.util.List icUsers = new java.util.ArrayList();
+    			
+		
+		private java.util.List icUsers = new java.util.ArrayList();
+
+				private org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf icUsersHeader_usr_SambaUserName;
+				private org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf icUsersHeader_usr_Admin;
+		
 	
 		
 	public GUIShareGlobalsDataContainerImpl(AbstractBaseCimAdapter adapter) throws InitContainerException {
@@ -762,6 +768,7 @@ public class GUIShareGlobalsDataContainerImpl extends BaseDataContainer implemen
     	}
 		
 			
+		
 		/**
 		* 
 		* linked container AdminUsersInShareGlobals
@@ -770,6 +777,42 @@ public class GUIShareGlobalsDataContainerImpl extends BaseDataContainer implemen
 		{
 			return icUsers;
 		}
+
+   	       /**
+		* Header for:
+		* 
+		* linked container AdminUsersInShareGlobals
+		*/
+		public org.sblim.wbemsmt.samba.bl.container.global.AdminUsersInShareGlobalsHeader getUsersHeader()
+		{
+			return this;
+		}
+
+				/**
+   		 * Header for field SambaUserName
+		 */
+		public org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf getUsersHeader_usr_SambaUserName() {
+    		if (icUsersHeader_usr_SambaUserName == null)
+    		{
+    			String label = getAdapter().getBundle().getString("AdminUsersInShareGlobals.SambaUserName");
+			    org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
+    			icUsersHeader_usr_SambaUserName = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
+			}
+    		return icUsersHeader_usr_SambaUserName;
+    	    }
+				/**
+   		 * Header for field admin
+		 */
+		public org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf getUsersHeader_usr_Admin() {
+    		if (icUsersHeader_usr_Admin == null)
+    		{
+    			String label = getAdapter().getBundle().getString("AdminUsersInShareGlobals.admin");
+			    org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
+    			icUsersHeader_usr_Admin = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
+			}
+    		return icUsersHeader_usr_Admin;
+    	    }
+		
 
 	
 		

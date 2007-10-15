@@ -179,7 +179,7 @@ public class ListSambaShareFileAttributes extends CimCommand {
 			values.getOut().println("\n" + bundle.getString("listing", new Object[]{bundle.getString("CMDShareFileAttributes.caption")}));
 			
 			CliDataLoader loader = new ListSambaShareFileAttributesLoader();
-			loader.load(bundle,adapter, cmd);
+			loader.load(bundle,adapter, commandValues);
 			
 			org.sblim.wbemsmt.cli.samba.container.share.CMDShareFileAttributesImpl dc = new org.sblim.wbemsmt.cli.samba.container.share.CMDShareFileAttributesImpl(adapter);
 			
@@ -206,13 +206,17 @@ public class ListSambaShareFileAttributes extends CimCommand {
 		{
 			super.handleException(e,values.getArgs(),values.getOptions(),KEY_GLOBAL_password);
 		}
+		finally
+		{
+			if (adapter != null) adapter.cleanup();
+		}
 	}
 	
 	/**
 	 * Set all Values that are needed for selecting the right objects. This fields are used even if they are read-only
 	 **/
 	private void setKeyValues(CommandLine cmd,AbstractBaseCimAdapter adapter, org.sblim.wbemsmt.samba.bl.container.share.CMDShareFileAttributes dc) throws WbemSmtException {
-    		}	
+    	    				    				    				    				    				    				    				    				    					}	
 	
 	
  

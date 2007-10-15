@@ -38,18 +38,19 @@ import org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf;
 import org.sblim.wbemsmt.bl.adapter.DataContainer;
 import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
-public class PrinterInUserACLDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.EditBasePanel implements org.sblim.wbemsmt.samba.bl.container.user.PrinterInUserACLDataContainer {
-
+public class PrinterInUserACLDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.EditBasePanel implements org.sblim.wbemsmt.samba.bl.container.user.PrinterInUserACLDataContainer
+			, org.sblim.wbemsmt.samba.bl.container.share.PrinterACLItemDataContainerHeader		
+	{
 				
 				private java.util.List icPrinters = new java.util.ArrayList();
 		
 		private MultiLinePanel printersPanel;
 		private int printersCount;
 
-				private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf icPrinters_PrinterNameHeader;
-				private org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf icPrinters_usr_AccessTypeVIHeader;
-				private org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf icPrinters_usr_AccessTypeRWHeader;
-				private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf icPrinters_usr_AdminHeader;
+				private org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf icPrintersHeader_PrinterName;
+				private org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf icPrintersHeader_usr_AccessTypeVI;
+				private org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf icPrintersHeader_usr_AccessTypeRW;
+				private org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf icPrintersHeader_usr_Admin;
 				
 	
 		
@@ -173,10 +174,10 @@ public class PrinterInUserACLDataContainerImpl extends org.sblim.wbemsmt.tools.j
 	
 	private LabeledJSFInputComponent[] getPrintersHeaderComponents() {
 		return new LabeledJSFInputComponent[]{
-							(LabeledJSFInputComponent)getPrinters_PrinterNameHeader(),
-							(LabeledJSFInputComponent)getPrinters_usr_AccessTypeVIHeader(),
-							(LabeledJSFInputComponent)getPrinters_usr_AccessTypeRWHeader(),
-							(LabeledJSFInputComponent)getPrinters_usr_AdminHeader(),
+							(LabeledJSFInputComponent)getPrintersHeader_PrinterName(),
+							(LabeledJSFInputComponent)getPrintersHeader_usr_AccessTypeVI(),
+							(LabeledJSFInputComponent)getPrintersHeader_usr_AccessTypeRW(),
+							(LabeledJSFInputComponent)getPrintersHeader_usr_Admin(),
 						};
 	}
 
@@ -189,79 +190,89 @@ public class PrinterInUserACLDataContainerImpl extends org.sblim.wbemsmt.tools.j
 						};
 	}
 
-			/**
+	   /**
+		* Header for:
+		* 
+		* linked container PrinterACLItemDataContainer
+		*/
+		public org.sblim.wbemsmt.samba.bl.container.share.PrinterACLItemDataContainerHeader getPrintersHeader()
+		{
+			return this;
+		}
+		
+				/**
    		 * Header for field PrinterName
 		 */
-		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf getPrinters_PrinterNameHeader() {
-    		if (icPrinters_PrinterNameHeader == null)
+		public org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf getPrintersHeader_PrinterName() {
+    		if (icPrintersHeader_PrinterName == null)
     		{
 				String label = bundle.getString("PrinterACLItemDataContainer.PrinterName");
-				String binding = bindingPrefix + "printers_PrinterNameHeader.item";
+				String binding = bindingPrefix + "printersHeader_PrinterName.item";
 				logger.fine("Using binding " + binding);
 				org.sblim.wbemsmt.bl.adapter.DataContainer parent = this;
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = true;
-    			icPrinters_PrinterNameHeader = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent(parent,label,binding,converter, readOnly);
-				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent)icPrinters_PrinterNameHeader).setOrientation( LabeledBaseInputComponentIf.LEFT );    		}
-				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent)icPrinters_PrinterNameHeader).setHeader(true);
+    			icPrintersHeader_PrinterName = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent(parent,label,binding,converter, readOnly);
+				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent)icPrintersHeader_PrinterName).setOrientation( LabeledBaseInputComponentIf.LEFT );    		}
+				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent)icPrintersHeader_PrinterName).setHeader(true);
 			
-    		return icPrinters_PrinterNameHeader;
+    		return icPrintersHeader_PrinterName;
     	}
-			/**
+				/**
    		 * Header for field accessTypeVI
 		 */
-		public org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf getPrinters_usr_AccessTypeVIHeader() {
-    		if (icPrinters_usr_AccessTypeVIHeader == null)
+		public org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf getPrintersHeader_usr_AccessTypeVI() {
+    		if (icPrintersHeader_usr_AccessTypeVI == null)
     		{
 				String label = bundle.getString("PrinterACLItemDataContainer.accessTypeVI");
-				String binding = bindingPrefix + "printers_usr_AccessTypeVIHeader.item";
+				String binding = bindingPrefix + "printersHeader_usr_AccessTypeVI.item";
 				logger.fine("Using binding " + binding);
 				org.sblim.wbemsmt.bl.adapter.DataContainer parent = this;
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.UnsignedInt16StringConverter();
 				boolean readOnly = false;
-    			icPrinters_usr_AccessTypeVIHeader = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFRadioButtonComponent(parent,label,binding,converter, readOnly);
-				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFRadioButtonComponent)icPrinters_usr_AccessTypeVIHeader).setOrientation( LabeledBaseInputComponentIf.LEFT );    		}
-				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFRadioButtonComponent)icPrinters_usr_AccessTypeVIHeader).setHeader(true);
+    			icPrintersHeader_usr_AccessTypeVI = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFRadioButtonComponent(parent,label,binding,converter, readOnly);
+				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFRadioButtonComponent)icPrintersHeader_usr_AccessTypeVI).setOrientation( LabeledBaseInputComponentIf.LEFT );    		}
+				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFRadioButtonComponent)icPrintersHeader_usr_AccessTypeVI).setHeader(true);
 			
-    		return icPrinters_usr_AccessTypeVIHeader;
+    		return icPrintersHeader_usr_AccessTypeVI;
     	}
-			/**
+				/**
    		 * Header for field accessTypeRW
 		 */
-		public org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf getPrinters_usr_AccessTypeRWHeader() {
-    		if (icPrinters_usr_AccessTypeRWHeader == null)
+		public org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf getPrintersHeader_usr_AccessTypeRW() {
+    		if (icPrintersHeader_usr_AccessTypeRW == null)
     		{
 				String label = bundle.getString("PrinterACLItemDataContainer.accessTypeRW");
-				String binding = bindingPrefix + "printers_usr_AccessTypeRWHeader.item";
+				String binding = bindingPrefix + "printersHeader_usr_AccessTypeRW.item";
 				logger.fine("Using binding " + binding);
 				org.sblim.wbemsmt.bl.adapter.DataContainer parent = this;
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.UnsignedInt16StringConverter();
 				boolean readOnly = false;
-    			icPrinters_usr_AccessTypeRWHeader = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFRadioButtonComponent(parent,label,binding,converter, readOnly);
-				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFRadioButtonComponent)icPrinters_usr_AccessTypeRWHeader).setOrientation( LabeledBaseInputComponentIf.LEFT );    		}
-				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFRadioButtonComponent)icPrinters_usr_AccessTypeRWHeader).setHeader(true);
+    			icPrintersHeader_usr_AccessTypeRW = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFRadioButtonComponent(parent,label,binding,converter, readOnly);
+				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFRadioButtonComponent)icPrintersHeader_usr_AccessTypeRW).setOrientation( LabeledBaseInputComponentIf.LEFT );    		}
+				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFRadioButtonComponent)icPrintersHeader_usr_AccessTypeRW).setHeader(true);
 			
-    		return icPrinters_usr_AccessTypeRWHeader;
+    		return icPrintersHeader_usr_AccessTypeRW;
     	}
-			/**
+				/**
    		 * Header for field admin
 		 */
-		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf getPrinters_usr_AdminHeader() {
-    		if (icPrinters_usr_AdminHeader == null)
+		public org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf getPrintersHeader_usr_Admin() {
+    		if (icPrintersHeader_usr_Admin == null)
     		{
 				String label = bundle.getString("PrinterACLItemDataContainer.admin");
-				String binding = bindingPrefix + "printers_usr_AdminHeader.item";
+				String binding = bindingPrefix + "printersHeader_usr_Admin.item";
 				logger.fine("Using binding " + binding);
 				org.sblim.wbemsmt.bl.adapter.DataContainer parent = this;
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = false;
-    			icPrinters_usr_AdminHeader = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
-				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent)icPrinters_usr_AdminHeader).setOrientation( LabeledBaseInputComponentIf.LEFT );    		}
-				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent)icPrinters_usr_AdminHeader).setHeader(true);
+    			icPrintersHeader_usr_Admin = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
+				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent)icPrintersHeader_usr_Admin).setOrientation( LabeledBaseInputComponentIf.LEFT );    		}
+				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent)icPrintersHeader_usr_Admin).setHeader(true);
 			
-    		return icPrinters_usr_AdminHeader;
+    		return icPrintersHeader_usr_Admin;
     	}
-	
+		
 	
 		
 	public void reload()

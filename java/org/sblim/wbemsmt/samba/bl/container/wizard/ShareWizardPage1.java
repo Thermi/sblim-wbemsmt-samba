@@ -66,7 +66,5 @@ public interface ShareWizardPage1 extends org.sblim.wbemsmt.bl.adapter.DataConta
 	/** 
 	 * Linked DataContainers
 	 **/
-	 
-	
 	
 }

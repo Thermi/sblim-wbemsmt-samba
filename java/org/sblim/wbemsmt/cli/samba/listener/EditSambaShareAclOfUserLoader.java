@@ -19,9 +19,9 @@
   */
 package org.sblim.wbemsmt.cli.samba.listener;
 
-import org.apache.commons.cli.CommandLine;
 import org.sblim.wbemsmt.bl.adapter.AbstractBaseCimAdapter;
 import org.sblim.wbemsmt.exception.ObjectNotFoundException;
+import org.sblim.wbemsmt.tools.cli.CimCommandValues;
 import org.sblim.wbemsmt.tools.cli.CliDataLoader;
 import org.sblim.wbemsmt.tools.cli.CliUtil;
 import org.sblim.wbemsmt.tools.resources.WbemSmtResourceBundle;
@@ -32,10 +32,10 @@ public class EditSambaShareAclOfUserLoader extends SambaLoader implements CliDat
 	 * @see org.sblim.wbemsmt.tools.cli.CommandletDataLoader#load(org.sblim.wbemsmt.tools.resources.WbemSmtResourceBundle, org.sblim.wbemsmt.bl.adapter.AbstractBaseCimAdapter, org.apache.commons.cli.CommandLine)
 	 */
 	public void load(WbemSmtResourceBundle bundle,
-			AbstractBaseCimAdapter adapter, CommandLine cmd)
+			AbstractBaseCimAdapter adapter, CimCommandValues commandValues)
 			throws ObjectNotFoundException {
-		String serviceName = CliUtil.getOption(cmd,EditSambaShareAclOfUser.KEY_GLOBAL_serviceName);
-		String username = CliUtil.getOption(cmd,EditSambaShareAclOfUser.KEY_sambaUsername);
+		String serviceName = CliUtil.getOption(commandValues,EditSambaShareAclOfUser.KEY_GLOBAL_serviceName);
+		String username = CliUtil.getOption(commandValues,EditSambaShareAclOfUser.KEY_sambaUsername);
 		selectUser(bundle, adapter, serviceName, username);
 	}
 

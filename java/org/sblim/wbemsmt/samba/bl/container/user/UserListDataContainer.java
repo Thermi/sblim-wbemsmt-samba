@@ -40,9 +40,8 @@ public interface UserListDataContainer extends org.sblim.wbemsmt.bl.adapter.Data
 	/** 
 	 * Linked DataContainers
 	 **/
-	 
-	
 			
+				
 		/**
 		* 
 		* linked container UserListItemDataContainer
@@ -50,5 +49,13 @@ public interface UserListDataContainer extends org.sblim.wbemsmt.bl.adapter.Data
 
 		public java.util.List getUsers();
 
-	
+	   		
+	   /**
+		* Header for:
+		* 
+		* linked container UserListItemDataContainer
+		*/
+		public  org.sblim.wbemsmt.samba.bl.container.user.UserListItemDataContainerHeader getUsersHeader();
+		
+			
 }

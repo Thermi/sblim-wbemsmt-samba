@@ -1,6 +1,6 @@
 %define name                    sblim-wbemsmt-samba
 %define version                 0.5.2
-%define build_release           1
+%define build_release           CVS
 %define release                 %{build_release}jpp
 %define section                 free
 
@@ -151,6 +151,10 @@ unlink $WBEMSMT_HELPDIR/plugins/org.sblim.wbemsmt.help.samba
 
 ###############################################################################
 %changelog
+* Mon Oct 15 2007 Michael Bauschert <michael.bauschert@de.ibm.com> 0.5.2-CVS
+  - Inclusion of fixes for the following issues:
+    o 1813934  wbemsmt-samba: cliDataLoader uses CIMCommandValues
+
 * Mon Sep 01 2007 Michael Bauschert <michael.bauschert@de.ibm.com> 0.5.2-1
   - Inclusion of fixes for the following issues:
     o 1787138  wbemsmt-samba: cleanup apidoc and todos

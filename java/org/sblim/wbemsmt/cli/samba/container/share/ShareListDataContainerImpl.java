@@ -34,10 +34,24 @@ import org.sblim.wbemsmt.exception.*;
 import org.sblim.wbemsmt.bl.adapter.DataContainer;
 import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
+public class ShareListDataContainerImpl extends BaseDataContainer implements org.sblim.wbemsmt.samba.bl.container.share.ShareListDataContainer
+			, org.sblim.wbemsmt.samba.bl.container.share.ShareListItemDataContainerHeader		
+	{
+				
+		
+		private java.util.List icShares = new java.util.ArrayList();
 
-public class ShareListDataContainerImpl extends BaseDataContainer implements org.sblim.wbemsmt.samba.bl.container.share.ShareListDataContainer {
-
-				private java.util.List icShares = new java.util.ArrayList();
+				private org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf icSharesHeader_Name;
+				private org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf icSharesHeader_Available;
+				private org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf icSharesHeader_Comment;
+				private org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf icSharesHeader_Path;
+				private org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf icSharesHeader_Browsable;
+				private org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf icSharesHeader_GuestOK;
+				private org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf icSharesHeader_GuestOnly;
+				private org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf icSharesHeader_HostsAllow;
+				private org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf icSharesHeader_HostsDeny;
+				private org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf icSharesHeader_ReadOnly;
+		
 	
 		
 	public ShareListDataContainerImpl(AbstractBaseCimAdapter adapter) throws InitContainerException {
@@ -48,6 +62,7 @@ public class ShareListDataContainerImpl extends BaseDataContainer implements org
 
 		
 			
+		
 		/**
 		* 
 		* linked container ShareListItemDataContainer
@@ -56,6 +71,138 @@ public class ShareListDataContainerImpl extends BaseDataContainer implements org
 		{
 			return icShares;
 		}
+
+   	       /**
+		* Header for:
+		* 
+		* linked container ShareListItemDataContainer
+		*/
+		public org.sblim.wbemsmt.samba.bl.container.share.ShareListItemDataContainerHeader getSharesHeader()
+		{
+			return this;
+		}
+
+				/**
+   		 * Header for field Name
+		 */
+		public org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf getSharesHeader_Name() {
+    		if (icSharesHeader_Name == null)
+    		{
+    			String label = getAdapter().getBundle().getString("ShareListItemDataContainer.Name");
+			    org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
+    			icSharesHeader_Name = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
+			}
+    		return icSharesHeader_Name;
+    	    }
+				/**
+   		 * Header for field Available
+		 */
+		public org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf getSharesHeader_Available() {
+    		if (icSharesHeader_Available == null)
+    		{
+    			String label = getAdapter().getBundle().getString("ShareListItemDataContainer.Available");
+			    org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
+    			icSharesHeader_Available = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
+			}
+    		return icSharesHeader_Available;
+    	    }
+				/**
+   		 * Header for field Comment
+		 */
+		public org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf getSharesHeader_Comment() {
+    		if (icSharesHeader_Comment == null)
+    		{
+    			String label = getAdapter().getBundle().getString("ShareListItemDataContainer.Comment");
+			    org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
+    			icSharesHeader_Comment = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
+			}
+    		return icSharesHeader_Comment;
+    	    }
+				/**
+   		 * Header for field Path
+		 */
+		public org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf getSharesHeader_Path() {
+    		if (icSharesHeader_Path == null)
+    		{
+    			String label = getAdapter().getBundle().getString("ShareListItemDataContainer.Path");
+			    org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
+    			icSharesHeader_Path = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
+			}
+    		return icSharesHeader_Path;
+    	    }
+				/**
+   		 * Header for field Browsable
+		 */
+		public org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf getSharesHeader_Browsable() {
+    		if (icSharesHeader_Browsable == null)
+    		{
+    			String label = getAdapter().getBundle().getString("ShareListItemDataContainer.Browsable");
+			    org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
+    			icSharesHeader_Browsable = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
+			}
+    		return icSharesHeader_Browsable;
+    	    }
+				/**
+   		 * Header for field GuestOK
+		 */
+		public org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf getSharesHeader_GuestOK() {
+    		if (icSharesHeader_GuestOK == null)
+    		{
+    			String label = getAdapter().getBundle().getString("ShareListItemDataContainer.GuestOK");
+			    org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
+    			icSharesHeader_GuestOK = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
+			}
+    		return icSharesHeader_GuestOK;
+    	    }
+				/**
+   		 * Header for field GuestOnly
+		 */
+		public org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf getSharesHeader_GuestOnly() {
+    		if (icSharesHeader_GuestOnly == null)
+    		{
+    			String label = getAdapter().getBundle().getString("ShareListItemDataContainer.GuestOnly");
+			    org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
+    			icSharesHeader_GuestOnly = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
+			}
+    		return icSharesHeader_GuestOnly;
+    	    }
+				/**
+   		 * Header for field HostsAllow
+		 */
+		public org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf getSharesHeader_HostsAllow() {
+    		if (icSharesHeader_HostsAllow == null)
+    		{
+    			String label = getAdapter().getBundle().getString("ShareListItemDataContainer.HostsAllow");
+			    org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
+    			icSharesHeader_HostsAllow = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
+			}
+    		return icSharesHeader_HostsAllow;
+    	    }
+				/**
+   		 * Header for field HostsDeny
+		 */
+		public org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf getSharesHeader_HostsDeny() {
+    		if (icSharesHeader_HostsDeny == null)
+    		{
+    			String label = getAdapter().getBundle().getString("ShareListItemDataContainer.HostsDeny");
+			    org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
+    			icSharesHeader_HostsDeny = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
+			}
+    		return icSharesHeader_HostsDeny;
+    	    }
+				/**
+   		 * Header for field ReadOnly
+		 */
+		public org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf getSharesHeader_ReadOnly() {
+    		if (icSharesHeader_ReadOnly == null)
+    		{
+    			String label = getAdapter().getBundle().getString("ShareListItemDataContainer.ReadOnly");
+			    org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
+    			icSharesHeader_ReadOnly = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
+			}
+    		return icSharesHeader_ReadOnly;
+    	    }
+		
 
 	
 		

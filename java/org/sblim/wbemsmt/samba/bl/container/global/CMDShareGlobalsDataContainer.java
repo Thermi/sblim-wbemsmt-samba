@@ -66,7 +66,5 @@ public interface CMDShareGlobalsDataContainer extends org.sblim.wbemsmt.samba.bl
 	/** 
 	 * Linked DataContainers
 	 **/
-	 
-	
 	
 }

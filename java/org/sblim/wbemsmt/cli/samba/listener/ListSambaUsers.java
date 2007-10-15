@@ -174,7 +174,7 @@ public class ListSambaUsers extends CimCommand {
 			values.getOut().println("\n" + bundle.getString("listing", new Object[]{bundle.getString("UserListDataContainer.caption")}));
 			
 			CliDataLoader loader = new ListSambaUsersLoader();
-			loader.load(bundle,adapter, cmd);
+			loader.load(bundle,adapter, commandValues);
 			
 			org.sblim.wbemsmt.cli.samba.container.user.UserListDataContainerImpl dc = new org.sblim.wbemsmt.cli.samba.container.user.UserListDataContainerImpl(adapter);
 			
@@ -207,6 +207,10 @@ public class ListSambaUsers extends CimCommand {
 		catch (Exception e)
 		{
 			super.handleException(e,values.getArgs(),values.getOptions(),KEY_GLOBAL_password);
+		}
+		finally
+		{
+			if (adapter != null) adapter.cleanup();
 		}
 	}
 	

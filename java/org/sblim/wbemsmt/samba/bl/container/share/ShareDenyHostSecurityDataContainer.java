@@ -39,7 +39,5 @@ public interface ShareDenyHostSecurityDataContainer extends org.sblim.wbemsmt.sa
 	/** 
 	 * Linked DataContainers
 	 **/
-	 
-	
 	
 }

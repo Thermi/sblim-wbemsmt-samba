@@ -112,9 +112,8 @@ public interface PrintingGlobalsDataContainer extends org.sblim.wbemsmt.bl.adapt
 	/** 
 	 * Linked DataContainers
 	 **/
-	 
-	
 			
+				
 		/**
 		* 
 		* linked container AdminUsersInPrinterGlobals
@@ -122,5 +121,13 @@ public interface PrintingGlobalsDataContainer extends org.sblim.wbemsmt.bl.adapt
 
 		public java.util.List getUsers();
 
-	
+	   		
+	   /**
+		* Header for:
+		* 
+		* linked container AdminUsersInPrinterGlobals
+		*/
+		public  org.sblim.wbemsmt.samba.bl.container.global.AdminUsersInPrinterGlobalsHeader getUsersHeader();
+		
+			
 }

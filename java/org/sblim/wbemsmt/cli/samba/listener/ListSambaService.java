@@ -174,7 +174,7 @@ public class ListSambaService extends CimCommand {
 			values.getOut().println("\n" + bundle.getString("listing", new Object[]{bundle.getString("ServiceOperationsDataContainer.caption")}));
 			
 			CliDataLoader loader = new ListSambaServiceLoader();
-			loader.load(bundle,adapter, cmd);
+			loader.load(bundle,adapter, commandValues);
 			
 			org.sblim.wbemsmt.cli.samba.container.service.ServiceOperationsDataContainerImpl dc = new org.sblim.wbemsmt.cli.samba.container.service.ServiceOperationsDataContainerImpl(adapter);
 			
@@ -201,13 +201,17 @@ public class ListSambaService extends CimCommand {
 		{
 			super.handleException(e,values.getArgs(),values.getOptions(),KEY_GLOBAL_password);
 		}
+		finally
+		{
+			if (adapter != null) adapter.cleanup();
+		}
 	}
 	
 	/**
 	 * Set all Values that are needed for selecting the right objects. This fields are used even if they are read-only
 	 **/
 	private void setKeyValues(CommandLine cmd,AbstractBaseCimAdapter adapter, org.sblim.wbemsmt.samba.bl.container.service.ServiceOperationsDataContainer dc) throws WbemSmtException {
-    		}	
+    	    				    				    					}	
 	
 	
  

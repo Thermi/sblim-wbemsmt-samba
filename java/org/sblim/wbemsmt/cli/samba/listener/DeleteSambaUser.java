@@ -175,7 +175,7 @@ public class DeleteSambaUser extends CimCommand {
 			values.getOut().println("\n" + bundle.getString("deleting",new Object[]{bundle.getString("UserDataContainer.caption")}));
 			
 			CliDataLoader loader = new DeleteSambaUserLoader();
-			loader.load(bundle,adapter, cmd);
+			loader.load(bundle,adapter, commandValues);
 			
 			org.sblim.wbemsmt.cli.samba.container.user.UserDataContainerImpl dc = new org.sblim.wbemsmt.cli.samba.container.user.UserDataContainerImpl(adapter);
 			
@@ -200,6 +200,10 @@ public class DeleteSambaUser extends CimCommand {
 		catch (Exception e)
 		{
 			super.handleException(e,values.getArgs(),values.getOptions(),KEY_GLOBAL_password);
+		}
+		finally
+		{
+			if (adapter != null) adapter.cleanup();
 		}
 	}
 	

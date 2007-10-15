@@ -75,7 +75,5 @@ public interface ServiceOperationsDataContainer extends org.sblim.wbemsmt.bl.ada
 	/** 
 	 * Linked DataContainers
 	 **/
-	 
-	
 	
 }

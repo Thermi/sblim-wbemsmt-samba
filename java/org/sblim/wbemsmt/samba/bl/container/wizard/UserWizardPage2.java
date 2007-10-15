@@ -50,9 +50,8 @@ public interface UserWizardPage2 extends org.sblim.wbemsmt.bl.adapter.DataContai
 	/** 
 	 * Linked DataContainers
 	 **/
-	 
-	
 			
+				
 		/**
 		* 
 		* linked container ShareInUserWizardACLItemDataContainer
@@ -60,7 +59,16 @@ public interface UserWizardPage2 extends org.sblim.wbemsmt.bl.adapter.DataContai
 
 		public java.util.List getShares();
 
-			
+	   		
+	   /**
+		* Header for:
+		* 
+		* linked container ShareInUserWizardACLItemDataContainer
+		*/
+		public  org.sblim.wbemsmt.samba.bl.container.wizard.ShareInUserWizardACLItemDataContainerHeader getSharesHeader();
+		
+					
+				
 		/**
 		* 
 		* linked container PrinterInUserWizardACLItemDataContainer
@@ -68,5 +76,13 @@ public interface UserWizardPage2 extends org.sblim.wbemsmt.bl.adapter.DataContai
 
 		public java.util.List getPrinters();
 
-	
+	   		
+	   /**
+		* Header for:
+		* 
+		* linked container PrinterInUserWizardACLItemDataContainer
+		*/
+		public  org.sblim.wbemsmt.samba.bl.container.wizard.PrinterInUserWizardACLItemDataContainerHeader getPrintersHeader();
+		
+			
 }

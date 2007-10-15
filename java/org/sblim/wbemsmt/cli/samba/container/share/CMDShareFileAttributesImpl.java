@@ -34,9 +34,8 @@ import org.sblim.wbemsmt.exception.*;
 import org.sblim.wbemsmt.bl.adapter.DataContainer;
 import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
-
-public class CMDShareFileAttributesImpl extends BaseDataContainer implements org.sblim.wbemsmt.samba.bl.container.share.CMDShareFileAttributes {
-
+public class CMDShareFileAttributesImpl extends BaseDataContainer implements org.sblim.wbemsmt.samba.bl.container.share.CMDShareFileAttributes
+	{
 			private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_CaseSensitive;
     		private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_HideDotFiles;
     		private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_DosFiletimes;

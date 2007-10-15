@@ -34,13 +34,20 @@ import org.sblim.wbemsmt.exception.*;
 import org.sblim.wbemsmt.bl.adapter.DataContainer;
 import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
-
-public class ServiceUserSecurityOptionsDataContainerImpl extends BaseDataContainer implements org.sblim.wbemsmt.samba.bl.container.service.ServiceUserSecurityOptionsDataContainer {
-
+public class ServiceUserSecurityOptionsDataContainerImpl extends BaseDataContainer implements org.sblim.wbemsmt.samba.bl.container.service.ServiceUserSecurityOptionsDataContainer
+			, org.sblim.wbemsmt.samba.bl.container.service.UserACLItemDataContainerForServiceHeader		
+	{
 			private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_usr_GuestUser;
     		private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_usr_CurrentForceUser;
     		private org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf ic_usr_NewForceUser;
-    			private java.util.List icUserRights = new java.util.ArrayList();
+    			
+		
+		private java.util.List icUserRights = new java.util.ArrayList();
+
+				private org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf icUserRightsHeader_SambaUserName;
+				private org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf icUserRightsHeader_usr_AccessTypeVI;
+				private org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf icUserRightsHeader_usr_AccessTypeRW;
+		
 	
 		
 	public ServiceUserSecurityOptionsDataContainerImpl(AbstractBaseCimAdapter adapter) throws InitContainerException {
@@ -99,6 +106,7 @@ public class ServiceUserSecurityOptionsDataContainerImpl extends BaseDataContain
     	}
 		
 			
+		
 		/**
 		* 
 		* linked container UserACLItemDataContainerForService
@@ -107,6 +115,54 @@ public class ServiceUserSecurityOptionsDataContainerImpl extends BaseDataContain
 		{
 			return icUserRights;
 		}
+
+   	       /**
+		* Header for:
+		* 
+		* linked container UserACLItemDataContainerForService
+		*/
+		public org.sblim.wbemsmt.samba.bl.container.service.UserACLItemDataContainerForServiceHeader getUserRightsHeader()
+		{
+			return this;
+		}
+
+				/**
+   		 * Header for field SambaUserName
+		 */
+		public org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf getUserRightsHeader_SambaUserName() {
+    		if (icUserRightsHeader_SambaUserName == null)
+    		{
+    			String label = getAdapter().getBundle().getString("UserACLItemDataContainerForService.SambaUserName");
+			    org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
+    			icUserRightsHeader_SambaUserName = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
+			}
+    		return icUserRightsHeader_SambaUserName;
+    	    }
+				/**
+   		 * Header for field accessTypeVI
+		 */
+		public org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf getUserRightsHeader_usr_AccessTypeVI() {
+    		if (icUserRightsHeader_usr_AccessTypeVI == null)
+    		{
+    			String label = getAdapter().getBundle().getString("UserACLItemDataContainerForService.accessTypeVI");
+			    org.sblim.wbemsmt.tools.converter.StringArrayConverter converter = new org.sblim.wbemsmt.tools.converter.UnsignedInt16StringArrayConverter();
+    			icUserRightsHeader_usr_AccessTypeVI = new org.sblim.wbemsmt.tools.input.test.LabeledTestStringArrayComponent(this,label,"",converter);
+			}
+    		return icUserRightsHeader_usr_AccessTypeVI;
+    	    }
+				/**
+   		 * Header for field accessTypeRW
+		 */
+		public org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf getUserRightsHeader_usr_AccessTypeRW() {
+    		if (icUserRightsHeader_usr_AccessTypeRW == null)
+    		{
+    			String label = getAdapter().getBundle().getString("UserACLItemDataContainerForService.accessTypeRW");
+			    org.sblim.wbemsmt.tools.converter.StringArrayConverter converter = new org.sblim.wbemsmt.tools.converter.UnsignedInt16StringArrayConverter();
+    			icUserRightsHeader_usr_AccessTypeRW = new org.sblim.wbemsmt.tools.input.test.LabeledTestStringArrayComponent(this,label,"",converter);
+			}
+    		return icUserRightsHeader_usr_AccessTypeRW;
+    	    }
+		
 
 	
 		

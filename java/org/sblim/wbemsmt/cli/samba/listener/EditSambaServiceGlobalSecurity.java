@@ -25,9 +25,8 @@
 package org.sblim.wbemsmt.cli.samba.listener;
 
 import org.apache.commons.cli.*;
-import org.sblim.wbemsmt.bl.adapter.AbstractBaseCimAdapter;
-import org.sblim.wbemsmt.bl.adapter.CimAdapterFactory;
-import org.sblim.wbemsmt.bl.adapter.MessageList;
+import org.sblim.wbemsmt.bl.adapter.*;
+import org.sblim.wbemsmt.bl.*;
 import org.sblim.wbemsmt.exception.*;
 import org.sblim.wbemsmt.tools.cli.*;
 
@@ -240,7 +239,7 @@ public class EditSambaServiceGlobalSecurity extends CimCommand {
 			values.getOut().println("\n" + bundle.getString("editing",new Object[]{bundle.getString("ServiceGlobalSecurityOptionsDataContainer.caption")}));
 
         	CliDataLoader loader = new EditSambaServiceGlobalSecurityLoader();
-			loader.load(bundle,adapter, cmd);
+			loader.load(bundle,adapter, commandValues);
 			
 			org.sblim.wbemsmt.cli.samba.container.service.ServiceGlobalSecurityOptionsDataContainerImpl dc = new org.sblim.wbemsmt.cli.samba.container.service.ServiceGlobalSecurityOptionsDataContainerImpl(adapter);
 						
@@ -259,12 +258,14 @@ public class EditSambaServiceGlobalSecurity extends CimCommand {
 
 			if (result.hasErrors())
 			{
-				traceErrors("save.error",result);
+				Message caption = Message.create(ErrCodes.MSG_SAVE_ERROR, Message.ERROR,bundle, "save.error");
+				traceMessages(caption,result);
 				return;
 			}
 			else
 			{
-				traceMessages("additional.messages",result);
+				Message caption = Message.create(ErrCodes.MSG_ADDITIONAL_MESSAGES, Message.ERROR,bundle, "additional.messages");
+				traceMessages(caption,result);
 				result.clear();
 			}
 							
@@ -278,20 +279,24 @@ public class EditSambaServiceGlobalSecurity extends CimCommand {
 				result = dc.getMessagesList();
 				if (result.hasErrors())
 				{
-					traceErrors("save.error",result);
+					Message caption = Message.create(ErrCodes.MSG_SAVE_ERROR, Message.ERROR,bundle, "save.error");
+					traceMessages(caption,result);
 				}
 				else if (result.hasWarning())
 				{
-					traceErrors("save.warning",result);
+					Message caption = Message.create(ErrCodes.MSG_SAVE_WARNING, Message.ERROR,bundle, "save.warning");
+					traceMessages(caption,result);
 				}
 				else if (result.hasInfo())
 				{
-					traceErrors("save.info",result);
+					Message caption = Message.create(ErrCodes.MSG_SAVE_INFO, Message.ERROR,bundle, "save.info");
+					traceMessages(caption,result);
 				}
 			}
 			else
 			{
-					traceErrors("validation.error",result);
+					Message caption = Message.create(ErrCodes.MSG_VALIDATION_ERROR, Message.ERROR,bundle, "validation.error");
+					traceMessages(caption,result);
 					return;
 			}
 			values.getOut().println("\n" + bundle.getString("edited", new Object[]{bundle.getString("ServiceGlobalSecurityOptionsDataContainer.caption")}));
@@ -306,21 +311,39 @@ public class EditSambaServiceGlobalSecurity extends CimCommand {
 		{
 			super.handleException(e,values.getArgs(),values.getOptions(),KEY_GLOBAL_password);
 		}
+		finally
+		{
+			if (adapter != null) adapter.cleanup();
+		}
 	}
 	
 	/**
 	 * Set all Values that are needed for selecting the right objects. This fields are used even if they are read-only
 	 **/
 	private void setKeyValues(CommandLine cmd,AbstractBaseCimAdapter adapter, org.sblim.wbemsmt.samba.bl.container.service.ServiceGlobalSecurityOptionsDataContainer dc) throws WbemSmtException {
-    		}	
+    	    				    				    				    				    				    				    				    				    				    				    				    				    				    					}	
 	
 	/**
 	 * Set all Values that are not read-Only
 	 **/
 	private void setValues(CommandLine cmd,AbstractBaseCimAdapter adapter, org.sblim.wbemsmt.samba.bl.container.service.ServiceGlobalSecurityOptionsDataContainer dc) throws WbemSmtException {
-    			
+    										setValue(cmd,dc.get_AuthMethods(),KEY_authMethods);
+																									setCheckboxValue(cmd,dc.get_EncryptPasswords(),KEY_encryptPasswords);
+																			setValue(cmd,dc.get_MinPasswordLength(),KEY_minLength);
+																									setCheckboxValue(cmd,dc.get_NullPasswords(),KEY_nullPasswords);
+																									setMultiValue(adapter.getBundle(),cmd,dc.get_usr_PassdbBackend(),KEY_passdbBackend);
+																setValue(cmd,dc.get_SMBPasswdFile(),KEY_smbPasswdFile);
+																												setMultiValue(adapter.getBundle(),cmd,dc.get_Security(),KEY_security);
+																			setCheckboxValue(cmd,dc.get_GuestOK(),KEY_guestOK);
+																						setCheckboxValue(cmd,dc.get_GuestOnly(),KEY_guestOnly);
+																			setValue(cmd,dc.get_HostsAllow(),KEY_hostAllow);
+																						setValue(cmd,dc.get_HostsDeny(),KEY_hostDeny);
+																									setCheckboxValue(cmd,dc.get_ReadOnly(),KEY_readOnly);
+																									setMultiValue(adapter.getBundle(),cmd,dc.get_DomainMaster(),KEY_domainMaster);
+																			setCheckboxValue(cmd,dc.get_Browsable(),KEY_browsable);
+												
 		//The Buttons
-    		}	
+    																																																																																																																																}	
 	
 	
  

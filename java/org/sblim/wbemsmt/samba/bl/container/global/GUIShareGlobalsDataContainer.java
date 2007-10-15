@@ -364,9 +364,8 @@ public interface GUIShareGlobalsDataContainer extends org.sblim.wbemsmt.samba.bl
 	/** 
 	 * Linked DataContainers
 	 **/
-	 
-	
 			
+				
 		/**
 		* 
 		* linked container AdminUsersInShareGlobals
@@ -374,5 +373,13 @@ public interface GUIShareGlobalsDataContainer extends org.sblim.wbemsmt.samba.bl
 
 		public java.util.List getUsers();
 
-	
+	   		
+	   /**
+		* Header for:
+		* 
+		* linked container AdminUsersInShareGlobals
+		*/
+		public  org.sblim.wbemsmt.samba.bl.container.global.AdminUsersInShareGlobalsHeader getUsersHeader();
+		
+			
 }

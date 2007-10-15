@@ -174,7 +174,7 @@ public class ListSambaPrinters extends CimCommand {
 			values.getOut().println("\n" + bundle.getString("listing", new Object[]{bundle.getString("PrinterListDataContainer.caption")}));
 			
 			CliDataLoader loader = new ListSambaPrintersLoader();
-			loader.load(bundle,adapter, cmd);
+			loader.load(bundle,adapter, commandValues);
 			
 			org.sblim.wbemsmt.cli.samba.container.printer.PrinterListDataContainerImpl dc = new org.sblim.wbemsmt.cli.samba.container.printer.PrinterListDataContainerImpl(adapter);
 			
@@ -207,6 +207,10 @@ public class ListSambaPrinters extends CimCommand {
 		catch (Exception e)
 		{
 			super.handleException(e,values.getArgs(),values.getOptions(),KEY_GLOBAL_password);
+		}
+		finally
+		{
+			if (adapter != null) adapter.cleanup();
 		}
 	}
 	

@@ -93,7 +93,5 @@ public interface ShareFileAttributes extends org.sblim.wbemsmt.bl.adapter.DataCo
 	/** 
 	 * Linked DataContainers
 	 **/
-	 
-	
 	
 }

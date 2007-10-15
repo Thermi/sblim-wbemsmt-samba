@@ -34,9 +34,9 @@ import org.sblim.wbemsmt.exception.*;
 import org.sblim.wbemsmt.bl.adapter.DataContainer;
 import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
-
-public class ShareWizardPage4Impl extends BaseDataContainer implements org.sblim.wbemsmt.samba.bl.container.wizard.ShareWizardPage4 {
-
+public class ShareWizardPage4Impl extends BaseDataContainer implements org.sblim.wbemsmt.samba.bl.container.wizard.ShareWizardPage4
+			, org.sblim.wbemsmt.samba.bl.container.wizard.UserInShareWizardACLItemDataContainerHeader		
+	{
 			private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_Name;
     		private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_Path;
     		private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_Comment;
@@ -46,7 +46,15 @@ public class ShareWizardPage4Impl extends BaseDataContainer implements org.sblim
     		private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_DirectoryMask;
     		private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_DirectorySecurityMask;
     		private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_usr_ForceUser;
-    			private java.util.List icUsers = new java.util.ArrayList();
+    			
+		
+		private java.util.List icUsers = new java.util.ArrayList();
+
+				private org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf icUsersHeader_SambaUserName;
+				private org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf icUsersHeader_usr_AccessTypeVI;
+				private org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf icUsersHeader_usr_AccessTypeRW;
+				private org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf icUsersHeader_usr_Admin;
+		
 	
 		
 	public ShareWizardPage4Impl(AbstractBaseCimAdapter adapter) throws InitContainerException {
@@ -201,6 +209,7 @@ public class ShareWizardPage4Impl extends BaseDataContainer implements org.sblim
     	}
 		
 			
+		
 		/**
 		* 
 		* linked container UserInShareWizardACLItemDataContainer
@@ -209,6 +218,66 @@ public class ShareWizardPage4Impl extends BaseDataContainer implements org.sblim
 		{
 			return icUsers;
 		}
+
+   	       /**
+		* Header for:
+		* 
+		* linked container UserInShareWizardACLItemDataContainer
+		*/
+		public org.sblim.wbemsmt.samba.bl.container.wizard.UserInShareWizardACLItemDataContainerHeader getUsersHeader()
+		{
+			return this;
+		}
+
+				/**
+   		 * Header for field SambaUserName
+		 */
+		public org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf getUsersHeader_SambaUserName() {
+    		if (icUsersHeader_SambaUserName == null)
+    		{
+    			String label = getAdapter().getBundle().getString("UserInShareWizardACLItemDataContainer.SambaUserName");
+			    org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
+    			icUsersHeader_SambaUserName = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
+			}
+    		return icUsersHeader_SambaUserName;
+    	    }
+				/**
+   		 * Header for field accessTypeVI
+		 */
+		public org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf getUsersHeader_usr_AccessTypeVI() {
+    		if (icUsersHeader_usr_AccessTypeVI == null)
+    		{
+    			String label = getAdapter().getBundle().getString("UserInShareWizardACLItemDataContainer.accessTypeVI");
+			    org.sblim.wbemsmt.tools.converter.StringArrayConverter converter = new org.sblim.wbemsmt.tools.converter.UnsignedInt16StringArrayConverter();
+    			icUsersHeader_usr_AccessTypeVI = new org.sblim.wbemsmt.tools.input.test.LabeledTestStringArrayComponent(this,label,"",converter);
+			}
+    		return icUsersHeader_usr_AccessTypeVI;
+    	    }
+				/**
+   		 * Header for field accessTypeRW
+		 */
+		public org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf getUsersHeader_usr_AccessTypeRW() {
+    		if (icUsersHeader_usr_AccessTypeRW == null)
+    		{
+    			String label = getAdapter().getBundle().getString("UserInShareWizardACLItemDataContainer.accessTypeRW");
+			    org.sblim.wbemsmt.tools.converter.StringArrayConverter converter = new org.sblim.wbemsmt.tools.converter.UnsignedInt16StringArrayConverter();
+    			icUsersHeader_usr_AccessTypeRW = new org.sblim.wbemsmt.tools.input.test.LabeledTestStringArrayComponent(this,label,"",converter);
+			}
+    		return icUsersHeader_usr_AccessTypeRW;
+    	    }
+				/**
+   		 * Header for field admin
+		 */
+		public org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf getUsersHeader_usr_Admin() {
+    		if (icUsersHeader_usr_Admin == null)
+    		{
+    			String label = getAdapter().getBundle().getString("UserInShareWizardACLItemDataContainer.admin");
+			    org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
+    			icUsersHeader_usr_Admin = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
+			}
+    		return icUsersHeader_usr_Admin;
+    	    }
+		
 
 	
 		

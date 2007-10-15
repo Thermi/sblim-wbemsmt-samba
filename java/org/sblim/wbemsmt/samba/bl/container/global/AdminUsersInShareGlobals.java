@@ -39,7 +39,5 @@ public interface AdminUsersInShareGlobals extends org.sblim.wbemsmt.samba.bl.con
 	/** 
 	 * Linked DataContainers
 	 **/
-	 
-	
 	
 }

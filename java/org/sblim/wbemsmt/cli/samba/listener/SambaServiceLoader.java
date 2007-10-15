@@ -22,29 +22,29 @@ package org.sblim.wbemsmt.cli.samba.listener;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-import org.apache.commons.cli.CommandLine;
 import org.sblim.wbem.cim.CIMObjectPath;
 import org.sblim.wbemsmt.bl.adapter.AbstractBaseCimAdapter;
 import org.sblim.wbemsmt.bl.adapter.CimObjectKey;
 import org.sblim.wbemsmt.exception.ObjectNotFoundException;
 import org.sblim.wbemsmt.samba.bl.fco.Linux_SambaServiceHelper;
+import org.sblim.wbemsmt.tools.cli.CimCommandValues;
 import org.sblim.wbemsmt.tools.cli.CliUtil;
 import org.sblim.wbemsmt.tools.cli.OptionDefinition;
 import org.sblim.wbemsmt.tools.resources.WbemSmtResourceBundle;
 
 public abstract class SambaServiceLoader extends SambaLoader {
 
-	protected CommandLine cmd;
+	protected CimCommandValues commandValues;
 
 	public SambaServiceLoader() {
 		super();
 	}
 
 	public void load(WbemSmtResourceBundle bundle,
-			AbstractBaseCimAdapter adapter, CommandLine cmd)
+			AbstractBaseCimAdapter adapter, CimCommandValues commandValues)
 			throws ObjectNotFoundException {
-		this.cmd = cmd;
-		String serviceName = CliUtil.getOption(cmd,getServiceNameKey());
+		this.commandValues = commandValues;
+		String serviceName = CliUtil.getOption(commandValues,getServiceNameKey());
 		selectService(bundle, adapter, serviceName);
 	}
 	

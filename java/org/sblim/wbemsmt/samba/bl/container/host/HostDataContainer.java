@@ -48,7 +48,5 @@ public interface HostDataContainer extends org.sblim.wbemsmt.bl.adapter.DataCont
 	/** 
 	 * Linked DataContainers
 	 **/
-	 
-	
 	
 }

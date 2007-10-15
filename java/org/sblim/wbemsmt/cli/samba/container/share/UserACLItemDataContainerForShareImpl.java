@@ -34,9 +34,8 @@ import org.sblim.wbemsmt.exception.*;
 import org.sblim.wbemsmt.bl.adapter.DataContainer;
 import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
-
-public class UserACLItemDataContainerForShareImpl extends BaseDataContainer implements org.sblim.wbemsmt.samba.bl.container.share.UserACLItemDataContainerForShare {
-
+public class UserACLItemDataContainerForShareImpl extends BaseDataContainer implements org.sblim.wbemsmt.samba.bl.container.share.UserACLItemDataContainerForShare
+	{
 			private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_SambaUserName;
     		private org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf ic_usr_AccessTypeVI;
     		private org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf ic_usr_AccessTypeRW;

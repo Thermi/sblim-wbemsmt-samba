@@ -39,7 +39,5 @@ public interface ShareInUserWizardACLItemDataContainer extends org.sblim.wbemsmt
 	/** 
 	 * Linked DataContainers
 	 **/
-	 
-	
 	
 }

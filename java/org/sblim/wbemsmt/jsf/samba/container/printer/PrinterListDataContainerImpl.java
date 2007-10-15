@@ -38,25 +38,26 @@ import org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf;
 import org.sblim.wbemsmt.bl.adapter.DataContainer;
 import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
-public class PrinterListDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.EditBasePanel implements org.sblim.wbemsmt.samba.bl.container.printer.PrinterListDataContainer {
-
+public class PrinterListDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.EditBasePanel implements org.sblim.wbemsmt.samba.bl.container.printer.PrinterListDataContainer
+			, org.sblim.wbemsmt.samba.bl.container.printer.PrinterListItemDataContainerHeader		
+	{
 				
 				private java.util.List icPrinters = new java.util.ArrayList();
 		
 		private MultiLinePanel printersPanel;
 		private int printersCount;
 
-				private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf icPrinters_NameHeader;
-				private org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf icPrinters_usr_SystemPrinterNameHeader;
-				private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf icPrinters_PathHeader;
-				private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf icPrinters_CommentHeader;
-				private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf icPrinters_AvailableHeader;
-				private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf icPrinters_GuestOKHeader;
-				private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf icPrinters_GuestOnlyHeader;
-				private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf icPrinters_HostsAllowHeader;
-				private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf icPrinters_HostsDenyHeader;
-				private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf icPrinters_ReadOnlyHeader;
-				private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf icPrinters_BrowsableHeader;
+				private org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf icPrintersHeader_Name;
+				private org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf icPrintersHeader_usr_SystemPrinterName;
+				private org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf icPrintersHeader_Path;
+				private org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf icPrintersHeader_Comment;
+				private org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf icPrintersHeader_Available;
+				private org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf icPrintersHeader_GuestOK;
+				private org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf icPrintersHeader_GuestOnly;
+				private org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf icPrintersHeader_HostsAllow;
+				private org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf icPrintersHeader_HostsDeny;
+				private org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf icPrintersHeader_ReadOnly;
+				private org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf icPrintersHeader_Browsable;
 				
 	
 		
@@ -187,17 +188,17 @@ public class PrinterListDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.Ed
 	
 	private LabeledJSFInputComponent[] getPrintersHeaderComponents() {
 		return new LabeledJSFInputComponent[]{
-							(LabeledJSFInputComponent)getPrinters_NameHeader(),
-							(LabeledJSFInputComponent)getPrinters_usr_SystemPrinterNameHeader(),
-							(LabeledJSFInputComponent)getPrinters_PathHeader(),
-							(LabeledJSFInputComponent)getPrinters_CommentHeader(),
-							(LabeledJSFInputComponent)getPrinters_AvailableHeader(),
-							(LabeledJSFInputComponent)getPrinters_GuestOKHeader(),
-							(LabeledJSFInputComponent)getPrinters_GuestOnlyHeader(),
-							(LabeledJSFInputComponent)getPrinters_HostsAllowHeader(),
-							(LabeledJSFInputComponent)getPrinters_HostsDenyHeader(),
-							(LabeledJSFInputComponent)getPrinters_ReadOnlyHeader(),
-							(LabeledJSFInputComponent)getPrinters_BrowsableHeader(),
+							(LabeledJSFInputComponent)getPrintersHeader_Name(),
+							(LabeledJSFInputComponent)getPrintersHeader_usr_SystemPrinterName(),
+							(LabeledJSFInputComponent)getPrintersHeader_Path(),
+							(LabeledJSFInputComponent)getPrintersHeader_Comment(),
+							(LabeledJSFInputComponent)getPrintersHeader_Available(),
+							(LabeledJSFInputComponent)getPrintersHeader_GuestOK(),
+							(LabeledJSFInputComponent)getPrintersHeader_GuestOnly(),
+							(LabeledJSFInputComponent)getPrintersHeader_HostsAllow(),
+							(LabeledJSFInputComponent)getPrintersHeader_HostsDeny(),
+							(LabeledJSFInputComponent)getPrintersHeader_ReadOnly(),
+							(LabeledJSFInputComponent)getPrintersHeader_Browsable(),
 						};
 	}
 
@@ -217,205 +218,215 @@ public class PrinterListDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.Ed
 						};
 	}
 
-			/**
+	   /**
+		* Header for:
+		* 
+		* linked container PrinterListItemDataContainer
+		*/
+		public org.sblim.wbemsmt.samba.bl.container.printer.PrinterListItemDataContainerHeader getPrintersHeader()
+		{
+			return this;
+		}
+		
+				/**
    		 * Header for field Name
 		 */
-		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf getPrinters_NameHeader() {
-    		if (icPrinters_NameHeader == null)
+		public org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf getPrintersHeader_Name() {
+    		if (icPrintersHeader_Name == null)
     		{
 				String label = bundle.getString("PrinterListItemDataContainer.Name");
-				String binding = bindingPrefix + "printers_NameHeader.item";
+				String binding = bindingPrefix + "printersHeader_Name.item";
 				logger.fine("Using binding " + binding);
 				org.sblim.wbemsmt.bl.adapter.DataContainer parent = this;
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = true;
-    			icPrinters_NameHeader = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent(parent,label,binding,converter, readOnly);
-				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent)icPrinters_NameHeader).setOrientation( LabeledBaseInputComponentIf.LEFT );    		}
-				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent)icPrinters_NameHeader).setHeader(true);
+    			icPrintersHeader_Name = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent(parent,label,binding,converter, readOnly);
+				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent)icPrintersHeader_Name).setOrientation( LabeledBaseInputComponentIf.LEFT );    		}
+				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent)icPrintersHeader_Name).setHeader(true);
 			
-    		return icPrinters_NameHeader;
+    		return icPrintersHeader_Name;
     	}
-			/**
+				/**
    		 * Header for field SystemPrinterName
 		 */
-		public org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf getPrinters_usr_SystemPrinterNameHeader() {
-    		if (icPrinters_usr_SystemPrinterNameHeader == null)
+		public org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf getPrintersHeader_usr_SystemPrinterName() {
+    		if (icPrintersHeader_usr_SystemPrinterName == null)
     		{
 				String label = bundle.getString("PrinterListItemDataContainer.SystemPrinterName");
-				String binding = bindingPrefix + "printers_usr_SystemPrinterNameHeader.item";
+				String binding = bindingPrefix + "printersHeader_usr_SystemPrinterName.item";
 				logger.fine("Using binding " + binding);
 				org.sblim.wbemsmt.bl.adapter.DataContainer parent = this;
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.UnsignedInt16StringConverter();
 				boolean readOnly = false;
-    			icPrinters_usr_SystemPrinterNameHeader = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFComboBoxComponent(parent,label,binding,converter, readOnly);
-				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFComboBoxComponent)icPrinters_usr_SystemPrinterNameHeader).setOrientation( LabeledBaseInputComponentIf.LEFT );    		}
-				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFComboBoxComponent)icPrinters_usr_SystemPrinterNameHeader).setHeader(true);
+    			icPrintersHeader_usr_SystemPrinterName = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFComboBoxComponent(parent,label,binding,converter, readOnly);
+				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFComboBoxComponent)icPrintersHeader_usr_SystemPrinterName).setOrientation( LabeledBaseInputComponentIf.LEFT );    		}
+				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFComboBoxComponent)icPrintersHeader_usr_SystemPrinterName).setHeader(true);
 			
-    		return icPrinters_usr_SystemPrinterNameHeader;
+    		return icPrintersHeader_usr_SystemPrinterName;
     	}
-			/**
+				/**
    		 * Header for field Path
 		 */
-		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf getPrinters_PathHeader() {
-    		if (icPrinters_PathHeader == null)
+		public org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf getPrintersHeader_Path() {
+    		if (icPrintersHeader_Path == null)
     		{
 				String label = bundle.getString("PrinterListItemDataContainer.Path");
-				String binding = bindingPrefix + "printers_PathHeader.item";
+				String binding = bindingPrefix + "printersHeader_Path.item";
 				logger.fine("Using binding " + binding);
 				org.sblim.wbemsmt.bl.adapter.DataContainer parent = this;
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = false;
-    			icPrinters_PathHeader = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
-				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent)icPrinters_PathHeader).setOrientation( LabeledBaseInputComponentIf.LEFT );    		}
-				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent)icPrinters_PathHeader).setHeader(true);
+    			icPrintersHeader_Path = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
+				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent)icPrintersHeader_Path).setOrientation( LabeledBaseInputComponentIf.LEFT );    		}
+				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent)icPrintersHeader_Path).setHeader(true);
 			
-    		return icPrinters_PathHeader;
+    		return icPrintersHeader_Path;
     	}
-			/**
+				/**
    		 * Header for field Comment
 		 */
-		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf getPrinters_CommentHeader() {
-    		if (icPrinters_CommentHeader == null)
+		public org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf getPrintersHeader_Comment() {
+    		if (icPrintersHeader_Comment == null)
     		{
 				String label = bundle.getString("PrinterListItemDataContainer.Comment");
-				String binding = bindingPrefix + "printers_CommentHeader.item";
+				String binding = bindingPrefix + "printersHeader_Comment.item";
 				logger.fine("Using binding " + binding);
 				org.sblim.wbemsmt.bl.adapter.DataContainer parent = this;
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = false;
-    			icPrinters_CommentHeader = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
-				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent)icPrinters_CommentHeader).setOrientation( LabeledBaseInputComponentIf.LEFT );    		}
-				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent)icPrinters_CommentHeader).setHeader(true);
+    			icPrintersHeader_Comment = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
+				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent)icPrintersHeader_Comment).setOrientation( LabeledBaseInputComponentIf.LEFT );    		}
+				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent)icPrintersHeader_Comment).setHeader(true);
 			
-    		return icPrinters_CommentHeader;
+    		return icPrintersHeader_Comment;
     	}
-			/**
+				/**
    		 * Header for field Available
 		 */
-		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf getPrinters_AvailableHeader() {
-    		if (icPrinters_AvailableHeader == null)
+		public org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf getPrintersHeader_Available() {
+    		if (icPrintersHeader_Available == null)
     		{
 				String label = bundle.getString("PrinterListItemDataContainer.Available");
-				String binding = bindingPrefix + "printers_AvailableHeader.item";
+				String binding = bindingPrefix + "printersHeader_Available.item";
 				logger.fine("Using binding " + binding);
 				org.sblim.wbemsmt.bl.adapter.DataContainer parent = this;
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = false;
-    			icPrinters_AvailableHeader = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
-				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent)icPrinters_AvailableHeader).setOrientation( LabeledBaseInputComponentIf.LEFT );    		}
-				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent)icPrinters_AvailableHeader).setHeader(true);
+    			icPrintersHeader_Available = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
+				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent)icPrintersHeader_Available).setOrientation( LabeledBaseInputComponentIf.LEFT );    		}
+				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent)icPrintersHeader_Available).setHeader(true);
 			
-    		return icPrinters_AvailableHeader;
+    		return icPrintersHeader_Available;
     	}
-			/**
+				/**
    		 * Header for field GuestOK
 		 */
-		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf getPrinters_GuestOKHeader() {
-    		if (icPrinters_GuestOKHeader == null)
+		public org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf getPrintersHeader_GuestOK() {
+    		if (icPrintersHeader_GuestOK == null)
     		{
 				String label = bundle.getString("PrinterListItemDataContainer.GuestOK");
-				String binding = bindingPrefix + "printers_GuestOKHeader.item";
+				String binding = bindingPrefix + "printersHeader_GuestOK.item";
 				logger.fine("Using binding " + binding);
 				org.sblim.wbemsmt.bl.adapter.DataContainer parent = this;
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = false;
-    			icPrinters_GuestOKHeader = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
-				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent)icPrinters_GuestOKHeader).setOrientation( LabeledBaseInputComponentIf.LEFT );    		}
-				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent)icPrinters_GuestOKHeader).setHeader(true);
+    			icPrintersHeader_GuestOK = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
+				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent)icPrintersHeader_GuestOK).setOrientation( LabeledBaseInputComponentIf.LEFT );    		}
+				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent)icPrintersHeader_GuestOK).setHeader(true);
 			
-    		return icPrinters_GuestOKHeader;
+    		return icPrintersHeader_GuestOK;
     	}
-			/**
+				/**
    		 * Header for field GuestOnly
 		 */
-		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf getPrinters_GuestOnlyHeader() {
-    		if (icPrinters_GuestOnlyHeader == null)
+		public org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf getPrintersHeader_GuestOnly() {
+    		if (icPrintersHeader_GuestOnly == null)
     		{
 				String label = bundle.getString("PrinterListItemDataContainer.GuestOnly");
-				String binding = bindingPrefix + "printers_GuestOnlyHeader.item";
+				String binding = bindingPrefix + "printersHeader_GuestOnly.item";
 				logger.fine("Using binding " + binding);
 				org.sblim.wbemsmt.bl.adapter.DataContainer parent = this;
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = false;
-    			icPrinters_GuestOnlyHeader = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
-				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent)icPrinters_GuestOnlyHeader).setOrientation( LabeledBaseInputComponentIf.LEFT );    		}
-				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent)icPrinters_GuestOnlyHeader).setHeader(true);
+    			icPrintersHeader_GuestOnly = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
+				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent)icPrintersHeader_GuestOnly).setOrientation( LabeledBaseInputComponentIf.LEFT );    		}
+				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent)icPrintersHeader_GuestOnly).setHeader(true);
 			
-    		return icPrinters_GuestOnlyHeader;
+    		return icPrintersHeader_GuestOnly;
     	}
-			/**
+				/**
    		 * Header for field HostsAllow
 		 */
-		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf getPrinters_HostsAllowHeader() {
-    		if (icPrinters_HostsAllowHeader == null)
+		public org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf getPrintersHeader_HostsAllow() {
+    		if (icPrintersHeader_HostsAllow == null)
     		{
 				String label = bundle.getString("PrinterListItemDataContainer.HostsAllow");
-				String binding = bindingPrefix + "printers_HostsAllowHeader.item";
+				String binding = bindingPrefix + "printersHeader_HostsAllow.item";
 				logger.fine("Using binding " + binding);
 				org.sblim.wbemsmt.bl.adapter.DataContainer parent = this;
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = false;
-    			icPrinters_HostsAllowHeader = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
-				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent)icPrinters_HostsAllowHeader).setOrientation( LabeledBaseInputComponentIf.LEFT );    		}
-				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent)icPrinters_HostsAllowHeader).setHeader(true);
+    			icPrintersHeader_HostsAllow = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
+				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent)icPrintersHeader_HostsAllow).setOrientation( LabeledBaseInputComponentIf.LEFT );    		}
+				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent)icPrintersHeader_HostsAllow).setHeader(true);
 			
-    		return icPrinters_HostsAllowHeader;
+    		return icPrintersHeader_HostsAllow;
     	}
-			/**
+				/**
    		 * Header for field HostsDeny
 		 */
-		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf getPrinters_HostsDenyHeader() {
-    		if (icPrinters_HostsDenyHeader == null)
+		public org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf getPrintersHeader_HostsDeny() {
+    		if (icPrintersHeader_HostsDeny == null)
     		{
 				String label = bundle.getString("PrinterListItemDataContainer.HostsDeny");
-				String binding = bindingPrefix + "printers_HostsDenyHeader.item";
+				String binding = bindingPrefix + "printersHeader_HostsDeny.item";
 				logger.fine("Using binding " + binding);
 				org.sblim.wbemsmt.bl.adapter.DataContainer parent = this;
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = false;
-    			icPrinters_HostsDenyHeader = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
-				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent)icPrinters_HostsDenyHeader).setOrientation( LabeledBaseInputComponentIf.LEFT );    		}
-				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent)icPrinters_HostsDenyHeader).setHeader(true);
+    			icPrintersHeader_HostsDeny = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
+				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent)icPrintersHeader_HostsDeny).setOrientation( LabeledBaseInputComponentIf.LEFT );    		}
+				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent)icPrintersHeader_HostsDeny).setHeader(true);
 			
-    		return icPrinters_HostsDenyHeader;
+    		return icPrintersHeader_HostsDeny;
     	}
-			/**
+				/**
    		 * Header for field ReadOnly
 		 */
-		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf getPrinters_ReadOnlyHeader() {
-    		if (icPrinters_ReadOnlyHeader == null)
+		public org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf getPrintersHeader_ReadOnly() {
+    		if (icPrintersHeader_ReadOnly == null)
     		{
 				String label = bundle.getString("PrinterListItemDataContainer.ReadOnly");
-				String binding = bindingPrefix + "printers_ReadOnlyHeader.item";
+				String binding = bindingPrefix + "printersHeader_ReadOnly.item";
 				logger.fine("Using binding " + binding);
 				org.sblim.wbemsmt.bl.adapter.DataContainer parent = this;
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = false;
-    			icPrinters_ReadOnlyHeader = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
-				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent)icPrinters_ReadOnlyHeader).setOrientation( LabeledBaseInputComponentIf.LEFT );    		}
-				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent)icPrinters_ReadOnlyHeader).setHeader(true);
+    			icPrintersHeader_ReadOnly = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
+				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent)icPrintersHeader_ReadOnly).setOrientation( LabeledBaseInputComponentIf.LEFT );    		}
+				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent)icPrintersHeader_ReadOnly).setHeader(true);
 			
-    		return icPrinters_ReadOnlyHeader;
+    		return icPrintersHeader_ReadOnly;
     	}
-			/**
+				/**
    		 * Header for field Browsable
 		 */
-		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf getPrinters_BrowsableHeader() {
-    		if (icPrinters_BrowsableHeader == null)
+		public org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf getPrintersHeader_Browsable() {
+    		if (icPrintersHeader_Browsable == null)
     		{
 				String label = bundle.getString("PrinterListItemDataContainer.Browsable");
-				String binding = bindingPrefix + "printers_BrowsableHeader.item";
+				String binding = bindingPrefix + "printersHeader_Browsable.item";
 				logger.fine("Using binding " + binding);
 				org.sblim.wbemsmt.bl.adapter.DataContainer parent = this;
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = false;
-    			icPrinters_BrowsableHeader = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
-				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent)icPrinters_BrowsableHeader).setOrientation( LabeledBaseInputComponentIf.LEFT );    		}
-				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent)icPrinters_BrowsableHeader).setHeader(true);
+    			icPrintersHeader_Browsable = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
+				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent)icPrintersHeader_Browsable).setOrientation( LabeledBaseInputComponentIf.LEFT );    		}
+				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent)icPrintersHeader_Browsable).setHeader(true);
 			
-    		return icPrinters_BrowsableHeader;
+    		return icPrintersHeader_Browsable;
     	}
-	
+		
 	
 		
 	public void reload()

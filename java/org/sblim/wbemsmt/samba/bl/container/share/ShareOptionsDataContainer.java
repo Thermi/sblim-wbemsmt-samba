@@ -129,7 +129,5 @@ public interface ShareOptionsDataContainer extends org.sblim.wbemsmt.bl.adapter.
 	/** 
 	 * Linked DataContainers
 	 **/
-	 
-	
 	
 }

@@ -34,9 +34,8 @@ import org.sblim.wbemsmt.exception.*;
 import org.sblim.wbemsmt.bl.adapter.DataContainer;
 import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
-
-public class AdminUsersInShareGlobalsImpl extends BaseDataContainer implements org.sblim.wbemsmt.samba.bl.container.global.AdminUsersInShareGlobals {
-
+public class AdminUsersInShareGlobalsImpl extends BaseDataContainer implements org.sblim.wbemsmt.samba.bl.container.global.AdminUsersInShareGlobals
+	{
 			private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_usr_SambaUserName;
     		private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_usr_Admin;
     	

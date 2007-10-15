@@ -66,7 +66,5 @@ public interface UserACLItemDataContainerForService extends org.sblim.wbemsmt.bl
 	/** 
 	 * Linked DataContainers
 	 **/
-	 
-	
 	
 }

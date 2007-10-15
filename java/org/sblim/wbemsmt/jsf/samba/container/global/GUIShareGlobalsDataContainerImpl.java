@@ -38,8 +38,9 @@ import org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf;
 import org.sblim.wbemsmt.bl.adapter.DataContainer;
 import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
-public class GUIShareGlobalsDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.EditBasePanel implements org.sblim.wbemsmt.samba.bl.container.global.GUIShareGlobalsDataContainer {
-
+public class GUIShareGlobalsDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.EditBasePanel implements org.sblim.wbemsmt.samba.bl.container.global.GUIShareGlobalsDataContainer
+			, org.sblim.wbemsmt.samba.bl.container.global.AdminUsersInShareGlobalsHeader		
+	{
 			private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_CaseSensitive;
     		private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_DosFiletimes;
     		private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_HideDotFiles;
@@ -88,8 +89,8 @@ public class GUIShareGlobalsDataContainerImpl extends org.sblim.wbemsmt.tools.js
 		private MultiLinePanel usersPanel;
 		private int usersCount;
 
-				private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf icUsers_usr_SambaUserNameHeader;
-				private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf icUsers_usr_AdminHeader;
+				private org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf icUsersHeader_usr_SambaUserName;
+				private org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf icUsersHeader_usr_Admin;
 				
 	
 		
@@ -1186,8 +1187,8 @@ public class GUIShareGlobalsDataContainerImpl extends org.sblim.wbemsmt.tools.js
 	
 	private LabeledJSFInputComponent[] getUsersHeaderComponents() {
 		return new LabeledJSFInputComponent[]{
-							(LabeledJSFInputComponent)getUsers_usr_SambaUserNameHeader(),
-							(LabeledJSFInputComponent)getUsers_usr_AdminHeader(),
+							(LabeledJSFInputComponent)getUsersHeader_usr_SambaUserName(),
+							(LabeledJSFInputComponent)getUsersHeader_usr_Admin(),
 						};
 	}
 
@@ -1198,43 +1199,53 @@ public class GUIShareGlobalsDataContainerImpl extends org.sblim.wbemsmt.tools.js
 						};
 	}
 
-			/**
+	   /**
+		* Header for:
+		* 
+		* linked container AdminUsersInShareGlobals
+		*/
+		public org.sblim.wbemsmt.samba.bl.container.global.AdminUsersInShareGlobalsHeader getUsersHeader()
+		{
+			return this;
+		}
+		
+				/**
    		 * Header for field SambaUserName
 		 */
-		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf getUsers_usr_SambaUserNameHeader() {
-    		if (icUsers_usr_SambaUserNameHeader == null)
+		public org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf getUsersHeader_usr_SambaUserName() {
+    		if (icUsersHeader_usr_SambaUserName == null)
     		{
 				String label = bundle.getString("AdminUsersInShareGlobals.SambaUserName");
-				String binding = bindingPrefix + "users_usr_SambaUserNameHeader.item";
+				String binding = bindingPrefix + "usersHeader_usr_SambaUserName.item";
 				logger.fine("Using binding " + binding);
 				org.sblim.wbemsmt.bl.adapter.DataContainer parent = this;
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = true;
-    			icUsers_usr_SambaUserNameHeader = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent(parent,label,binding,converter, readOnly);
-				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent)icUsers_usr_SambaUserNameHeader).setOrientation( LabeledBaseInputComponentIf.LEFT );    		}
-				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent)icUsers_usr_SambaUserNameHeader).setHeader(true);
+    			icUsersHeader_usr_SambaUserName = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent(parent,label,binding,converter, readOnly);
+				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent)icUsersHeader_usr_SambaUserName).setOrientation( LabeledBaseInputComponentIf.LEFT );    		}
+				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent)icUsersHeader_usr_SambaUserName).setHeader(true);
 			
-    		return icUsers_usr_SambaUserNameHeader;
+    		return icUsersHeader_usr_SambaUserName;
     	}
-			/**
+				/**
    		 * Header for field admin
 		 */
-		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf getUsers_usr_AdminHeader() {
-    		if (icUsers_usr_AdminHeader == null)
+		public org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf getUsersHeader_usr_Admin() {
+    		if (icUsersHeader_usr_Admin == null)
     		{
 				String label = bundle.getString("AdminUsersInShareGlobals.admin");
-				String binding = bindingPrefix + "users_usr_AdminHeader.item";
+				String binding = bindingPrefix + "usersHeader_usr_Admin.item";
 				logger.fine("Using binding " + binding);
 				org.sblim.wbemsmt.bl.adapter.DataContainer parent = this;
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = false;
-    			icUsers_usr_AdminHeader = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
-				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent)icUsers_usr_AdminHeader).setOrientation( LabeledBaseInputComponentIf.LEFT );    		}
-				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent)icUsers_usr_AdminHeader).setHeader(true);
+    			icUsersHeader_usr_Admin = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
+				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent)icUsersHeader_usr_Admin).setOrientation( LabeledBaseInputComponentIf.LEFT );    		}
+				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent)icUsersHeader_usr_Admin).setHeader(true);
 			
-    		return icUsers_usr_AdminHeader;
+    		return icUsersHeader_usr_Admin;
     	}
-	
+		
 	
 		
 	public void reload()

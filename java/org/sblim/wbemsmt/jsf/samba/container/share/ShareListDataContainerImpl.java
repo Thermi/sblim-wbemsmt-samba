@@ -38,24 +38,25 @@ import org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf;
 import org.sblim.wbemsmt.bl.adapter.DataContainer;
 import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
-public class ShareListDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.EditBasePanel implements org.sblim.wbemsmt.samba.bl.container.share.ShareListDataContainer {
-
+public class ShareListDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.EditBasePanel implements org.sblim.wbemsmt.samba.bl.container.share.ShareListDataContainer
+			, org.sblim.wbemsmt.samba.bl.container.share.ShareListItemDataContainerHeader		
+	{
 				
 				private java.util.List icShares = new java.util.ArrayList();
 		
 		private MultiLinePanel sharesPanel;
 		private int sharesCount;
 
-				private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf icShares_NameHeader;
-				private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf icShares_AvailableHeader;
-				private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf icShares_CommentHeader;
-				private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf icShares_PathHeader;
-				private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf icShares_BrowsableHeader;
-				private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf icShares_GuestOKHeader;
-				private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf icShares_GuestOnlyHeader;
-				private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf icShares_HostsAllowHeader;
-				private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf icShares_HostsDenyHeader;
-				private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf icShares_ReadOnlyHeader;
+				private org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf icSharesHeader_Name;
+				private org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf icSharesHeader_Available;
+				private org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf icSharesHeader_Comment;
+				private org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf icSharesHeader_Path;
+				private org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf icSharesHeader_Browsable;
+				private org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf icSharesHeader_GuestOK;
+				private org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf icSharesHeader_GuestOnly;
+				private org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf icSharesHeader_HostsAllow;
+				private org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf icSharesHeader_HostsDeny;
+				private org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf icSharesHeader_ReadOnly;
 				
 	
 		
@@ -185,16 +186,16 @@ public class ShareListDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.Edit
 	
 	private LabeledJSFInputComponent[] getSharesHeaderComponents() {
 		return new LabeledJSFInputComponent[]{
-							(LabeledJSFInputComponent)getShares_NameHeader(),
-							(LabeledJSFInputComponent)getShares_AvailableHeader(),
-							(LabeledJSFInputComponent)getShares_CommentHeader(),
-							(LabeledJSFInputComponent)getShares_PathHeader(),
-							(LabeledJSFInputComponent)getShares_BrowsableHeader(),
-							(LabeledJSFInputComponent)getShares_GuestOKHeader(),
-							(LabeledJSFInputComponent)getShares_GuestOnlyHeader(),
-							(LabeledJSFInputComponent)getShares_HostsAllowHeader(),
-							(LabeledJSFInputComponent)getShares_HostsDenyHeader(),
-							(LabeledJSFInputComponent)getShares_ReadOnlyHeader(),
+							(LabeledJSFInputComponent)getSharesHeader_Name(),
+							(LabeledJSFInputComponent)getSharesHeader_Available(),
+							(LabeledJSFInputComponent)getSharesHeader_Comment(),
+							(LabeledJSFInputComponent)getSharesHeader_Path(),
+							(LabeledJSFInputComponent)getSharesHeader_Browsable(),
+							(LabeledJSFInputComponent)getSharesHeader_GuestOK(),
+							(LabeledJSFInputComponent)getSharesHeader_GuestOnly(),
+							(LabeledJSFInputComponent)getSharesHeader_HostsAllow(),
+							(LabeledJSFInputComponent)getSharesHeader_HostsDeny(),
+							(LabeledJSFInputComponent)getSharesHeader_ReadOnly(),
 						};
 	}
 
@@ -213,187 +214,197 @@ public class ShareListDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.Edit
 						};
 	}
 
-			/**
+	   /**
+		* Header for:
+		* 
+		* linked container ShareListItemDataContainer
+		*/
+		public org.sblim.wbemsmt.samba.bl.container.share.ShareListItemDataContainerHeader getSharesHeader()
+		{
+			return this;
+		}
+		
+				/**
    		 * Header for field Name
 		 */
-		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf getShares_NameHeader() {
-    		if (icShares_NameHeader == null)
+		public org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf getSharesHeader_Name() {
+    		if (icSharesHeader_Name == null)
     		{
 				String label = bundle.getString("ShareListItemDataContainer.Name");
-				String binding = bindingPrefix + "shares_NameHeader.item";
+				String binding = bindingPrefix + "sharesHeader_Name.item";
 				logger.fine("Using binding " + binding);
 				org.sblim.wbemsmt.bl.adapter.DataContainer parent = this;
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = true;
-    			icShares_NameHeader = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent(parent,label,binding,converter, readOnly);
-				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent)icShares_NameHeader).setOrientation( LabeledBaseInputComponentIf.LEFT );    		}
-				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent)icShares_NameHeader).setHeader(true);
+    			icSharesHeader_Name = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent(parent,label,binding,converter, readOnly);
+				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent)icSharesHeader_Name).setOrientation( LabeledBaseInputComponentIf.LEFT );    		}
+				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent)icSharesHeader_Name).setHeader(true);
 			
-    		return icShares_NameHeader;
+    		return icSharesHeader_Name;
     	}
-			/**
+				/**
    		 * Header for field Available
 		 */
-		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf getShares_AvailableHeader() {
-    		if (icShares_AvailableHeader == null)
+		public org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf getSharesHeader_Available() {
+    		if (icSharesHeader_Available == null)
     		{
 				String label = bundle.getString("ShareListItemDataContainer.Available");
-				String binding = bindingPrefix + "shares_AvailableHeader.item";
+				String binding = bindingPrefix + "sharesHeader_Available.item";
 				logger.fine("Using binding " + binding);
 				org.sblim.wbemsmt.bl.adapter.DataContainer parent = this;
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = false;
-    			icShares_AvailableHeader = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
-				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent)icShares_AvailableHeader).setOrientation( LabeledBaseInputComponentIf.LEFT );    		}
-				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent)icShares_AvailableHeader).setHeader(true);
+    			icSharesHeader_Available = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
+				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent)icSharesHeader_Available).setOrientation( LabeledBaseInputComponentIf.LEFT );    		}
+				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent)icSharesHeader_Available).setHeader(true);
 			
-    		return icShares_AvailableHeader;
+    		return icSharesHeader_Available;
     	}
-			/**
+				/**
    		 * Header for field Comment
 		 */
-		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf getShares_CommentHeader() {
-    		if (icShares_CommentHeader == null)
+		public org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf getSharesHeader_Comment() {
+    		if (icSharesHeader_Comment == null)
     		{
 				String label = bundle.getString("ShareListItemDataContainer.Comment");
-				String binding = bindingPrefix + "shares_CommentHeader.item";
+				String binding = bindingPrefix + "sharesHeader_Comment.item";
 				logger.fine("Using binding " + binding);
 				org.sblim.wbemsmt.bl.adapter.DataContainer parent = this;
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = false;
-    			icShares_CommentHeader = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
-				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent)icShares_CommentHeader).setOrientation( LabeledBaseInputComponentIf.LEFT );    		}
-				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent)icShares_CommentHeader).setHeader(true);
+    			icSharesHeader_Comment = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
+				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent)icSharesHeader_Comment).setOrientation( LabeledBaseInputComponentIf.LEFT );    		}
+				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent)icSharesHeader_Comment).setHeader(true);
 			
-    		return icShares_CommentHeader;
+    		return icSharesHeader_Comment;
     	}
-			/**
+				/**
    		 * Header for field Path
 		 */
-		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf getShares_PathHeader() {
-    		if (icShares_PathHeader == null)
+		public org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf getSharesHeader_Path() {
+    		if (icSharesHeader_Path == null)
     		{
 				String label = bundle.getString("ShareListItemDataContainer.Path");
-				String binding = bindingPrefix + "shares_PathHeader.item";
+				String binding = bindingPrefix + "sharesHeader_Path.item";
 				logger.fine("Using binding " + binding);
 				org.sblim.wbemsmt.bl.adapter.DataContainer parent = this;
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = false;
-    			icShares_PathHeader = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
-				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent)icShares_PathHeader).setOrientation( LabeledBaseInputComponentIf.LEFT );    		}
-				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent)icShares_PathHeader).setHeader(true);
+    			icSharesHeader_Path = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
+				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent)icSharesHeader_Path).setOrientation( LabeledBaseInputComponentIf.LEFT );    		}
+				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent)icSharesHeader_Path).setHeader(true);
 			
-    		return icShares_PathHeader;
+    		return icSharesHeader_Path;
     	}
-			/**
+				/**
    		 * Header for field Browsable
 		 */
-		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf getShares_BrowsableHeader() {
-    		if (icShares_BrowsableHeader == null)
+		public org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf getSharesHeader_Browsable() {
+    		if (icSharesHeader_Browsable == null)
     		{
 				String label = bundle.getString("ShareListItemDataContainer.Browsable");
-				String binding = bindingPrefix + "shares_BrowsableHeader.item";
+				String binding = bindingPrefix + "sharesHeader_Browsable.item";
 				logger.fine("Using binding " + binding);
 				org.sblim.wbemsmt.bl.adapter.DataContainer parent = this;
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = false;
-    			icShares_BrowsableHeader = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
-				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent)icShares_BrowsableHeader).setOrientation( LabeledBaseInputComponentIf.LEFT );    		}
-				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent)icShares_BrowsableHeader).setHeader(true);
+    			icSharesHeader_Browsable = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
+				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent)icSharesHeader_Browsable).setOrientation( LabeledBaseInputComponentIf.LEFT );    		}
+				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent)icSharesHeader_Browsable).setHeader(true);
 			
-    		return icShares_BrowsableHeader;
+    		return icSharesHeader_Browsable;
     	}
-			/**
+				/**
    		 * Header for field GuestOK
 		 */
-		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf getShares_GuestOKHeader() {
-    		if (icShares_GuestOKHeader == null)
+		public org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf getSharesHeader_GuestOK() {
+    		if (icSharesHeader_GuestOK == null)
     		{
 				String label = bundle.getString("ShareListItemDataContainer.GuestOK");
-				String binding = bindingPrefix + "shares_GuestOKHeader.item";
+				String binding = bindingPrefix + "sharesHeader_GuestOK.item";
 				logger.fine("Using binding " + binding);
 				org.sblim.wbemsmt.bl.adapter.DataContainer parent = this;
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = false;
-    			icShares_GuestOKHeader = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
-				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent)icShares_GuestOKHeader).setOrientation( LabeledBaseInputComponentIf.LEFT );    		}
-				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent)icShares_GuestOKHeader).setHeader(true);
+    			icSharesHeader_GuestOK = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
+				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent)icSharesHeader_GuestOK).setOrientation( LabeledBaseInputComponentIf.LEFT );    		}
+				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent)icSharesHeader_GuestOK).setHeader(true);
 			
-    		return icShares_GuestOKHeader;
+    		return icSharesHeader_GuestOK;
     	}
-			/**
+				/**
    		 * Header for field GuestOnly
 		 */
-		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf getShares_GuestOnlyHeader() {
-    		if (icShares_GuestOnlyHeader == null)
+		public org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf getSharesHeader_GuestOnly() {
+    		if (icSharesHeader_GuestOnly == null)
     		{
 				String label = bundle.getString("ShareListItemDataContainer.GuestOnly");
-				String binding = bindingPrefix + "shares_GuestOnlyHeader.item";
+				String binding = bindingPrefix + "sharesHeader_GuestOnly.item";
 				logger.fine("Using binding " + binding);
 				org.sblim.wbemsmt.bl.adapter.DataContainer parent = this;
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = false;
-    			icShares_GuestOnlyHeader = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
-				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent)icShares_GuestOnlyHeader).setOrientation( LabeledBaseInputComponentIf.LEFT );    		}
-				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent)icShares_GuestOnlyHeader).setHeader(true);
+    			icSharesHeader_GuestOnly = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
+				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent)icSharesHeader_GuestOnly).setOrientation( LabeledBaseInputComponentIf.LEFT );    		}
+				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent)icSharesHeader_GuestOnly).setHeader(true);
 			
-    		return icShares_GuestOnlyHeader;
+    		return icSharesHeader_GuestOnly;
     	}
-			/**
+				/**
    		 * Header for field HostsAllow
 		 */
-		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf getShares_HostsAllowHeader() {
-    		if (icShares_HostsAllowHeader == null)
+		public org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf getSharesHeader_HostsAllow() {
+    		if (icSharesHeader_HostsAllow == null)
     		{
 				String label = bundle.getString("ShareListItemDataContainer.HostsAllow");
-				String binding = bindingPrefix + "shares_HostsAllowHeader.item";
+				String binding = bindingPrefix + "sharesHeader_HostsAllow.item";
 				logger.fine("Using binding " + binding);
 				org.sblim.wbemsmt.bl.adapter.DataContainer parent = this;
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = false;
-    			icShares_HostsAllowHeader = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
-				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent)icShares_HostsAllowHeader).setOrientation( LabeledBaseInputComponentIf.LEFT );    		}
-				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent)icShares_HostsAllowHeader).setHeader(true);
+    			icSharesHeader_HostsAllow = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
+				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent)icSharesHeader_HostsAllow).setOrientation( LabeledBaseInputComponentIf.LEFT );    		}
+				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent)icSharesHeader_HostsAllow).setHeader(true);
 			
-    		return icShares_HostsAllowHeader;
+    		return icSharesHeader_HostsAllow;
     	}
-			/**
+				/**
    		 * Header for field HostsDeny
 		 */
-		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf getShares_HostsDenyHeader() {
-    		if (icShares_HostsDenyHeader == null)
+		public org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf getSharesHeader_HostsDeny() {
+    		if (icSharesHeader_HostsDeny == null)
     		{
 				String label = bundle.getString("ShareListItemDataContainer.HostsDeny");
-				String binding = bindingPrefix + "shares_HostsDenyHeader.item";
+				String binding = bindingPrefix + "sharesHeader_HostsDeny.item";
 				logger.fine("Using binding " + binding);
 				org.sblim.wbemsmt.bl.adapter.DataContainer parent = this;
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = false;
-    			icShares_HostsDenyHeader = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
-				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent)icShares_HostsDenyHeader).setOrientation( LabeledBaseInputComponentIf.LEFT );    		}
-				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent)icShares_HostsDenyHeader).setHeader(true);
+    			icSharesHeader_HostsDeny = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
+				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent)icSharesHeader_HostsDeny).setOrientation( LabeledBaseInputComponentIf.LEFT );    		}
+				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent)icSharesHeader_HostsDeny).setHeader(true);
 			
-    		return icShares_HostsDenyHeader;
+    		return icSharesHeader_HostsDeny;
     	}
-			/**
+				/**
    		 * Header for field ReadOnly
 		 */
-		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf getShares_ReadOnlyHeader() {
-    		if (icShares_ReadOnlyHeader == null)
+		public org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf getSharesHeader_ReadOnly() {
+    		if (icSharesHeader_ReadOnly == null)
     		{
 				String label = bundle.getString("ShareListItemDataContainer.ReadOnly");
-				String binding = bindingPrefix + "shares_ReadOnlyHeader.item";
+				String binding = bindingPrefix + "sharesHeader_ReadOnly.item";
 				logger.fine("Using binding " + binding);
 				org.sblim.wbemsmt.bl.adapter.DataContainer parent = this;
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = false;
-    			icShares_ReadOnlyHeader = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
-				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent)icShares_ReadOnlyHeader).setOrientation( LabeledBaseInputComponentIf.LEFT );    		}
-				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent)icShares_ReadOnlyHeader).setHeader(true);
+    			icSharesHeader_ReadOnly = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
+				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent)icSharesHeader_ReadOnly).setOrientation( LabeledBaseInputComponentIf.LEFT );    		}
+				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent)icSharesHeader_ReadOnly).setHeader(true);
 			
-    		return icShares_ReadOnlyHeader;
+    		return icSharesHeader_ReadOnly;
     	}
-	
+		
 	
 		
 	public void reload()

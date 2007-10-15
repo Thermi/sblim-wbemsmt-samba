@@ -179,7 +179,7 @@ public class ListSambaPrinterDetails extends CimCommand {
 			values.getOut().println("\n" + bundle.getString("listing", new Object[]{bundle.getString("PrinterOptionsDataContainer.caption")}));
 			
 			CliDataLoader loader = new ListSambaPrinterDetailsLoader();
-			loader.load(bundle,adapter, cmd);
+			loader.load(bundle,adapter, commandValues);
 			
 			org.sblim.wbemsmt.cli.samba.container.printer.PrinterOptionsDataContainerImpl dc = new org.sblim.wbemsmt.cli.samba.container.printer.PrinterOptionsDataContainerImpl(adapter);
 			
@@ -206,13 +206,18 @@ public class ListSambaPrinterDetails extends CimCommand {
 		{
 			super.handleException(e,values.getArgs(),values.getOptions(),KEY_GLOBAL_password);
 		}
+		finally
+		{
+			if (adapter != null) adapter.cleanup();
+		}
 	}
 	
 	/**
 	 * Set all Values that are needed for selecting the right objects. This fields are used even if they are read-only
 	 **/
 	private void setKeyValues(CommandLine cmd,AbstractBaseCimAdapter adapter, org.sblim.wbemsmt.samba.bl.container.printer.PrinterOptionsDataContainer dc) throws WbemSmtException {
-    		}	
+    	    		    			    				setValue(cmd,dc.get_Name(),KEY_sambaPrintername);
+    			    			    			    				    				    				    				    				    				    				    				    				    				    					}	
 	
 	
  

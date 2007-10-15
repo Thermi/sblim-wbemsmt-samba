@@ -57,7 +57,5 @@ public interface PrinterWizardPage4 extends org.sblim.wbemsmt.bl.adapter.DataCon
 	/** 
 	 * Linked DataContainers
 	 **/
-	 
-	
 	
 }

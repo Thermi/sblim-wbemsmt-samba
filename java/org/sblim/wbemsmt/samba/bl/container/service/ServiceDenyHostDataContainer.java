@@ -75,7 +75,5 @@ public interface ServiceDenyHostDataContainer extends org.sblim.wbemsmt.bl.adapt
 	/** 
 	 * Linked DataContainers
 	 **/
-	 
-	
 	
 }

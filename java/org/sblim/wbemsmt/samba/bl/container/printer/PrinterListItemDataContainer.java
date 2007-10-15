@@ -39,7 +39,5 @@ public interface PrinterListItemDataContainer extends org.sblim.wbemsmt.samba.bl
 	/** 
 	 * Linked DataContainers
 	 **/
-	 
-	
 	
 }

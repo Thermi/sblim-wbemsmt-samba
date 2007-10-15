@@ -138,7 +138,5 @@ public interface PrinterOptionsDataContainer extends org.sblim.wbemsmt.bl.adapte
 	/** 
 	 * Linked DataContainers
 	 **/
-	 
-	
 	
 }

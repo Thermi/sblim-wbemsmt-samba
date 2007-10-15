@@ -75,7 +75,5 @@ public interface ServiceAllowHostSecurityDataContainer extends org.sblim.wbemsmt
 	/** 
 	 * Linked DataContainers
 	 **/
-	 
-	
 	
 }

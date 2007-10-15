@@ -40,9 +40,8 @@ public interface ShareListDataContainer extends org.sblim.wbemsmt.bl.adapter.Dat
 	/** 
 	 * Linked DataContainers
 	 **/
-	 
-	
 			
+				
 		/**
 		* 
 		* linked container ShareListItemDataContainer
@@ -50,5 +49,13 @@ public interface ShareListDataContainer extends org.sblim.wbemsmt.bl.adapter.Dat
 
 		public java.util.List getShares();
 
-	
+	   		
+	   /**
+		* Header for:
+		* 
+		* linked container ShareListItemDataContainer
+		*/
+		public  org.sblim.wbemsmt.samba.bl.container.share.ShareListItemDataContainerHeader getSharesHeader();
+		
+			
 }

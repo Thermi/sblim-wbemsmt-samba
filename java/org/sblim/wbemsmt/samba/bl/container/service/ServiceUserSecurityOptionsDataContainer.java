@@ -67,9 +67,8 @@ public interface ServiceUserSecurityOptionsDataContainer extends org.sblim.wbems
 	/** 
 	 * Linked DataContainers
 	 **/
-	 
-	
 			
+				
 		/**
 		* 
 		* linked container UserACLItemDataContainerForService
@@ -77,5 +76,13 @@ public interface ServiceUserSecurityOptionsDataContainer extends org.sblim.wbems
 
 		public java.util.List getUserRights();
 
-	
+	   		
+	   /**
+		* Header for:
+		* 
+		* linked container UserACLItemDataContainerForService
+		*/
+		public  org.sblim.wbemsmt.samba.bl.container.service.UserACLItemDataContainerForServiceHeader getUserRightsHeader();
+		
+			
 }

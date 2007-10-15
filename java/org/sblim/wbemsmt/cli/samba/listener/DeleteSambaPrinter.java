@@ -175,7 +175,7 @@ public class DeleteSambaPrinter extends CimCommand {
 			values.getOut().println("\n" + bundle.getString("deleting",new Object[]{bundle.getString("PrinterOptionsDataContainer.caption")}));
 			
 			CliDataLoader loader = new DeleteSambaPrinterLoader();
-			loader.load(bundle,adapter, cmd);
+			loader.load(bundle,adapter, commandValues);
 			
 			org.sblim.wbemsmt.cli.samba.container.printer.PrinterOptionsDataContainerImpl dc = new org.sblim.wbemsmt.cli.samba.container.printer.PrinterOptionsDataContainerImpl(adapter);
 			
@@ -200,6 +200,10 @@ public class DeleteSambaPrinter extends CimCommand {
 		catch (Exception e)
 		{
 			super.handleException(e,values.getArgs(),values.getOptions(),KEY_GLOBAL_password);
+		}
+		finally
+		{
+			if (adapter != null) adapter.cleanup();
 		}
 	}
 	

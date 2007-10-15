@@ -39,7 +39,5 @@ public interface PrinterAllowHostSecurityDataContainer extends org.sblim.wbemsmt
 	/** 
 	 * Linked DataContainers
 	 **/
-	 
-	
 	
 }

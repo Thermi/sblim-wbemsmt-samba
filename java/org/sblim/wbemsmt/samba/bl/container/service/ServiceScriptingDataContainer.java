@@ -120,7 +120,5 @@ public interface ServiceScriptingDataContainer extends org.sblim.wbemsmt.bl.adap
 	/** 
 	 * Linked DataContainers
 	 **/
-	 
-	
 	
 }

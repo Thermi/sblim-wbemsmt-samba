@@ -36,7 +36,7 @@ public class CreateSambaPrinterLoader extends SambaServiceLoader  implements Cli
 
 	public void loadTracingObject(WbemSmtResourceBundle bundle, AbstractBaseCimAdapter adapter, PrinterWizardPage5 page5) throws ObjectNotFoundException {
 		//trace not more than an service because more than one printer can be created
-		String serviceName = CliUtil.getOption(cmd,CreateSambaShare.KEY_GLOBAL_serviceName);
+		String serviceName = CliUtil.getOption(commandValues,CreateSambaShare.KEY_GLOBAL_serviceName);
 		try {
 			selectService(bundle, adapter, serviceName);
 		} catch (ObjectNotFoundException e) {

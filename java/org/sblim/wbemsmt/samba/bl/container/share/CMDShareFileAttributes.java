@@ -66,7 +66,5 @@ public interface CMDShareFileAttributes extends org.sblim.wbemsmt.samba.bl.conta
 	/** 
 	 * Linked DataContainers
 	 **/
-	 
-	
 	
 }

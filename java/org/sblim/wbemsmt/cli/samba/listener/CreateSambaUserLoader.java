@@ -35,7 +35,7 @@ public class CreateSambaUserLoader extends SambaServiceLoader  implements CliDat
 
 
 	public void loadTracingObject(WbemSmtResourceBundle bundle, AbstractBaseCimAdapter adapter, UserWizardPage3 page3) throws ObjectNotFoundException {
-		String serviceName = CliUtil.getOption(cmd,CreateSambaShare.KEY_GLOBAL_serviceName);
+		String serviceName = CliUtil.getOption(commandValues,CreateSambaShare.KEY_GLOBAL_serviceName);
 		String name = (String) page3.get_SambaUserName().getConvertedControlValue();
 		
 		selectUser(bundle, adapter, serviceName, name);

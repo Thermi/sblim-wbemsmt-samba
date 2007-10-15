@@ -40,9 +40,8 @@ public interface ShareInUserACLDataContainer extends org.sblim.wbemsmt.bl.adapte
 	/** 
 	 * Linked DataContainers
 	 **/
-	 
-	
 			
+				
 		/**
 		* 
 		* linked container ShareACLItemDataContainer
@@ -50,5 +49,13 @@ public interface ShareInUserACLDataContainer extends org.sblim.wbemsmt.bl.adapte
 
 		public java.util.List getShares();
 
-	
+	   		
+	   /**
+		* Header for:
+		* 
+		* linked container ShareACLItemDataContainer
+		*/
+		public  org.sblim.wbemsmt.samba.bl.container.share.ShareACLItemDataContainerHeader getSharesHeader();
+		
+			
 }

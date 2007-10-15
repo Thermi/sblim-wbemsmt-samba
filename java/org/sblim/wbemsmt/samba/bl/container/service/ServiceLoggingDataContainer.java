@@ -120,7 +120,5 @@ public interface ServiceLoggingDataContainer extends org.sblim.wbemsmt.bl.adapte
 	/** 
 	 * Linked DataContainers
 	 **/
-	 
-	
 	
 }

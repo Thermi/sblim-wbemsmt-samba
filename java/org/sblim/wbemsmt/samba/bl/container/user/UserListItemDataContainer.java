@@ -39,7 +39,5 @@ public interface UserListItemDataContainer extends org.sblim.wbemsmt.samba.bl.co
 	/** 
 	 * Linked DataContainers
 	 **/
-	 
-	
 	
 }

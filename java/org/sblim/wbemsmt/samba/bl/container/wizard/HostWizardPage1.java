@@ -48,7 +48,5 @@ public interface HostWizardPage1 extends org.sblim.wbemsmt.bl.adapter.DataContai
 	/** 
 	 * Linked DataContainers
 	 **/
-	 
-	
 	
 }

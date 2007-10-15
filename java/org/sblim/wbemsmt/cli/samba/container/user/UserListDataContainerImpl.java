@@ -34,10 +34,17 @@ import org.sblim.wbemsmt.exception.*;
 import org.sblim.wbemsmt.bl.adapter.DataContainer;
 import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
+public class UserListDataContainerImpl extends BaseDataContainer implements org.sblim.wbemsmt.samba.bl.container.user.UserListDataContainer
+			, org.sblim.wbemsmt.samba.bl.container.user.UserListItemDataContainerHeader		
+	{
+				
+		
+		private java.util.List icUsers = new java.util.ArrayList();
 
-public class UserListDataContainerImpl extends BaseDataContainer implements org.sblim.wbemsmt.samba.bl.container.user.UserListDataContainer {
-
-				private java.util.List icUsers = new java.util.ArrayList();
+				private org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf icUsersHeader_SambaUserName;
+				private org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf icUsersHeader_SystemUserName;
+				private org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf icUsersHeader_usr_IsGuest;
+		
 	
 		
 	public UserListDataContainerImpl(AbstractBaseCimAdapter adapter) throws InitContainerException {
@@ -48,6 +55,7 @@ public class UserListDataContainerImpl extends BaseDataContainer implements org.
 
 		
 			
+		
 		/**
 		* 
 		* linked container UserListItemDataContainer
@@ -56,6 +64,54 @@ public class UserListDataContainerImpl extends BaseDataContainer implements org.
 		{
 			return icUsers;
 		}
+
+   	       /**
+		* Header for:
+		* 
+		* linked container UserListItemDataContainer
+		*/
+		public org.sblim.wbemsmt.samba.bl.container.user.UserListItemDataContainerHeader getUsersHeader()
+		{
+			return this;
+		}
+
+				/**
+   		 * Header for field SambaUserName
+		 */
+		public org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf getUsersHeader_SambaUserName() {
+    		if (icUsersHeader_SambaUserName == null)
+    		{
+    			String label = getAdapter().getBundle().getString("UserListItemDataContainer.SambaUserName");
+			    org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
+    			icUsersHeader_SambaUserName = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
+			}
+    		return icUsersHeader_SambaUserName;
+    	    }
+				/**
+   		 * Header for field SystemUserName
+		 */
+		public org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf getUsersHeader_SystemUserName() {
+    		if (icUsersHeader_SystemUserName == null)
+    		{
+    			String label = getAdapter().getBundle().getString("UserListItemDataContainer.SystemUserName");
+			    org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
+    			icUsersHeader_SystemUserName = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
+			}
+    		return icUsersHeader_SystemUserName;
+    	    }
+				/**
+   		 * Header for field isGuest
+		 */
+		public org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf getUsersHeader_usr_IsGuest() {
+    		if (icUsersHeader_usr_IsGuest == null)
+    		{
+    			String label = getAdapter().getBundle().getString("UserListItemDataContainer.isGuest");
+			    org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
+    			icUsersHeader_usr_IsGuest = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
+			}
+    		return icUsersHeader_usr_IsGuest;
+    	    }
+		
 
 	
 		

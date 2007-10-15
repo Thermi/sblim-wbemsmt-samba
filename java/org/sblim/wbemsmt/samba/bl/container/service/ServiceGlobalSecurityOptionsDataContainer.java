@@ -165,7 +165,5 @@ public interface ServiceGlobalSecurityOptionsDataContainer extends org.sblim.wbe
 	/** 
 	 * Linked DataContainers
 	 **/
-	 
-	
 	
 }

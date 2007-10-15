@@ -34,14 +34,31 @@ import org.sblim.wbemsmt.exception.*;
 import org.sblim.wbemsmt.bl.adapter.DataContainer;
 import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
-
-public class UserWizardPage3Impl extends BaseDataContainer implements org.sblim.wbemsmt.samba.bl.container.wizard.UserWizardPage3 {
-
+public class UserWizardPage3Impl extends BaseDataContainer implements org.sblim.wbemsmt.samba.bl.container.wizard.UserWizardPage3
+			, org.sblim.wbemsmt.samba.bl.container.wizard.ShareInUserWizardACLItemDataContainerHeader		
+			, org.sblim.wbemsmt.samba.bl.container.wizard.PrinterInUserWizardACLItemDataContainerHeader		
+	{
 			private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_SambaUserName;
     		private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_SystemUserName;
     		private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_usr_IsGuest;
-    			private java.util.List icShares = new java.util.ArrayList();
-			private java.util.List icPrinters = new java.util.ArrayList();
+    			
+		
+		private java.util.List icShares = new java.util.ArrayList();
+
+				private org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf icSharesHeader_ShareName;
+				private org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf icSharesHeader_usr_AccessTypeVI;
+				private org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf icSharesHeader_usr_AccessTypeRW;
+				private org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf icSharesHeader_usr_Admin;
+		
+			
+		
+		private java.util.List icPrinters = new java.util.ArrayList();
+
+				private org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf icPrintersHeader_PrinterName;
+				private org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf icPrintersHeader_usr_AccessTypeVI;
+				private org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf icPrintersHeader_usr_AccessTypeRW;
+				private org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf icPrintersHeader_usr_Admin;
+		
 	
 		
 	public UserWizardPage3Impl(AbstractBaseCimAdapter adapter) throws InitContainerException {
@@ -100,6 +117,7 @@ public class UserWizardPage3Impl extends BaseDataContainer implements org.sblim.
     	}
 		
 			
+		
 		/**
 		* 
 		* linked container ShareInUserWizardACLItemDataContainer
@@ -109,7 +127,68 @@ public class UserWizardPage3Impl extends BaseDataContainer implements org.sblim.
 			return icShares;
 		}
 
+   	       /**
+		* Header for:
+		* 
+		* linked container ShareInUserWizardACLItemDataContainer
+		*/
+		public org.sblim.wbemsmt.samba.bl.container.wizard.ShareInUserWizardACLItemDataContainerHeader getSharesHeader()
+		{
+			return this;
+		}
+
+				/**
+   		 * Header for field shareName
+		 */
+		public org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf getSharesHeader_ShareName() {
+    		if (icSharesHeader_ShareName == null)
+    		{
+    			String label = getAdapter().getBundle().getString("ShareInUserWizardACLItemDataContainer.shareName");
+			    org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
+    			icSharesHeader_ShareName = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
+			}
+    		return icSharesHeader_ShareName;
+    	    }
+				/**
+   		 * Header for field accessTypeVI
+		 */
+		public org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf getSharesHeader_usr_AccessTypeVI() {
+    		if (icSharesHeader_usr_AccessTypeVI == null)
+    		{
+    			String label = getAdapter().getBundle().getString("ShareInUserWizardACLItemDataContainer.accessTypeVI");
+			    org.sblim.wbemsmt.tools.converter.StringArrayConverter converter = new org.sblim.wbemsmt.tools.converter.UnsignedInt16StringArrayConverter();
+    			icSharesHeader_usr_AccessTypeVI = new org.sblim.wbemsmt.tools.input.test.LabeledTestStringArrayComponent(this,label,"",converter);
+			}
+    		return icSharesHeader_usr_AccessTypeVI;
+    	    }
+				/**
+   		 * Header for field accessTypeRW
+		 */
+		public org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf getSharesHeader_usr_AccessTypeRW() {
+    		if (icSharesHeader_usr_AccessTypeRW == null)
+    		{
+    			String label = getAdapter().getBundle().getString("ShareInUserWizardACLItemDataContainer.accessTypeRW");
+			    org.sblim.wbemsmt.tools.converter.StringArrayConverter converter = new org.sblim.wbemsmt.tools.converter.UnsignedInt16StringArrayConverter();
+    			icSharesHeader_usr_AccessTypeRW = new org.sblim.wbemsmt.tools.input.test.LabeledTestStringArrayComponent(this,label,"",converter);
+			}
+    		return icSharesHeader_usr_AccessTypeRW;
+    	    }
+				/**
+   		 * Header for field admin
+		 */
+		public org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf getSharesHeader_usr_Admin() {
+    		if (icSharesHeader_usr_Admin == null)
+    		{
+    			String label = getAdapter().getBundle().getString("ShareInUserWizardACLItemDataContainer.admin");
+			    org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
+    			icSharesHeader_usr_Admin = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
+			}
+    		return icSharesHeader_usr_Admin;
+    	    }
+		
+
 			
+		
 		/**
 		* 
 		* linked container PrinterInUserWizardACLItemDataContainer
@@ -118,6 +197,66 @@ public class UserWizardPage3Impl extends BaseDataContainer implements org.sblim.
 		{
 			return icPrinters;
 		}
+
+   	       /**
+		* Header for:
+		* 
+		* linked container PrinterInUserWizardACLItemDataContainer
+		*/
+		public org.sblim.wbemsmt.samba.bl.container.wizard.PrinterInUserWizardACLItemDataContainerHeader getPrintersHeader()
+		{
+			return this;
+		}
+
+				/**
+   		 * Header for field PrinterName
+		 */
+		public org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf getPrintersHeader_PrinterName() {
+    		if (icPrintersHeader_PrinterName == null)
+    		{
+    			String label = getAdapter().getBundle().getString("PrinterInUserWizardACLItemDataContainer.PrinterName");
+			    org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
+    			icPrintersHeader_PrinterName = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
+			}
+    		return icPrintersHeader_PrinterName;
+    	    }
+				/**
+   		 * Header for field accessTypeVI
+		 */
+		public org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf getPrintersHeader_usr_AccessTypeVI() {
+    		if (icPrintersHeader_usr_AccessTypeVI == null)
+    		{
+    			String label = getAdapter().getBundle().getString("PrinterInUserWizardACLItemDataContainer.accessTypeVI");
+			    org.sblim.wbemsmt.tools.converter.StringArrayConverter converter = new org.sblim.wbemsmt.tools.converter.UnsignedInt16StringArrayConverter();
+    			icPrintersHeader_usr_AccessTypeVI = new org.sblim.wbemsmt.tools.input.test.LabeledTestStringArrayComponent(this,label,"",converter);
+			}
+    		return icPrintersHeader_usr_AccessTypeVI;
+    	    }
+				/**
+   		 * Header for field accessTypeRW
+		 */
+		public org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf getPrintersHeader_usr_AccessTypeRW() {
+    		if (icPrintersHeader_usr_AccessTypeRW == null)
+    		{
+    			String label = getAdapter().getBundle().getString("PrinterInUserWizardACLItemDataContainer.accessTypeRW");
+			    org.sblim.wbemsmt.tools.converter.StringArrayConverter converter = new org.sblim.wbemsmt.tools.converter.UnsignedInt16StringArrayConverter();
+    			icPrintersHeader_usr_AccessTypeRW = new org.sblim.wbemsmt.tools.input.test.LabeledTestStringArrayComponent(this,label,"",converter);
+			}
+    		return icPrintersHeader_usr_AccessTypeRW;
+    	    }
+				/**
+   		 * Header for field admin
+		 */
+		public org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf getPrintersHeader_usr_Admin() {
+    		if (icPrintersHeader_usr_Admin == null)
+    		{
+    			String label = getAdapter().getBundle().getString("PrinterInUserWizardACLItemDataContainer.admin");
+			    org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
+    			icPrintersHeader_usr_Admin = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
+			}
+    		return icPrintersHeader_usr_Admin;
+    	    }
+		
 
 	
 		

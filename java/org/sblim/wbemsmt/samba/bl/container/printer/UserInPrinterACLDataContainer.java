@@ -58,9 +58,8 @@ public interface UserInPrinterACLDataContainer extends org.sblim.wbemsmt.bl.adap
 	/** 
 	 * Linked DataContainers
 	 **/
-	 
-	
 			
+				
 		/**
 		* 
 		* linked container UserACLItemDataContainerForPrinter
@@ -68,5 +67,13 @@ public interface UserInPrinterACLDataContainer extends org.sblim.wbemsmt.bl.adap
 
 		public java.util.List getUsers();
 
-	
+	   		
+	   /**
+		* Header for:
+		* 
+		* linked container UserACLItemDataContainerForPrinter
+		*/
+		public  org.sblim.wbemsmt.samba.bl.container.printer.UserACLItemDataContainerForPrinterHeader getUsersHeader();
+		
+			
 }

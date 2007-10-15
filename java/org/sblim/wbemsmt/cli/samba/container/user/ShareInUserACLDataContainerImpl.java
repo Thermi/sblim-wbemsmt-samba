@@ -34,10 +34,18 @@ import org.sblim.wbemsmt.exception.*;
 import org.sblim.wbemsmt.bl.adapter.DataContainer;
 import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
+public class ShareInUserACLDataContainerImpl extends BaseDataContainer implements org.sblim.wbemsmt.samba.bl.container.user.ShareInUserACLDataContainer
+			, org.sblim.wbemsmt.samba.bl.container.share.ShareACLItemDataContainerHeader		
+	{
+				
+		
+		private java.util.List icShares = new java.util.ArrayList();
 
-public class ShareInUserACLDataContainerImpl extends BaseDataContainer implements org.sblim.wbemsmt.samba.bl.container.user.ShareInUserACLDataContainer {
-
-				private java.util.List icShares = new java.util.ArrayList();
+				private org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf icSharesHeader_ShareName;
+				private org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf icSharesHeader_usr_AccessTypeVI;
+				private org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf icSharesHeader_usr_AccessTypeRW;
+				private org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf icSharesHeader_usr_Admin;
+		
 	
 		
 	public ShareInUserACLDataContainerImpl(AbstractBaseCimAdapter adapter) throws InitContainerException {
@@ -48,6 +56,7 @@ public class ShareInUserACLDataContainerImpl extends BaseDataContainer implement
 
 		
 			
+		
 		/**
 		* 
 		* linked container ShareACLItemDataContainer
@@ -56,6 +65,66 @@ public class ShareInUserACLDataContainerImpl extends BaseDataContainer implement
 		{
 			return icShares;
 		}
+
+   	       /**
+		* Header for:
+		* 
+		* linked container ShareACLItemDataContainer
+		*/
+		public org.sblim.wbemsmt.samba.bl.container.share.ShareACLItemDataContainerHeader getSharesHeader()
+		{
+			return this;
+		}
+
+				/**
+   		 * Header for field shareName
+		 */
+		public org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf getSharesHeader_ShareName() {
+    		if (icSharesHeader_ShareName == null)
+    		{
+    			String label = getAdapter().getBundle().getString("ShareACLItemDataContainer.shareName");
+			    org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
+    			icSharesHeader_ShareName = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
+			}
+    		return icSharesHeader_ShareName;
+    	    }
+				/**
+   		 * Header for field accessTypeVI
+		 */
+		public org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf getSharesHeader_usr_AccessTypeVI() {
+    		if (icSharesHeader_usr_AccessTypeVI == null)
+    		{
+    			String label = getAdapter().getBundle().getString("ShareACLItemDataContainer.accessTypeVI");
+			    org.sblim.wbemsmt.tools.converter.StringArrayConverter converter = new org.sblim.wbemsmt.tools.converter.UnsignedInt16StringArrayConverter();
+    			icSharesHeader_usr_AccessTypeVI = new org.sblim.wbemsmt.tools.input.test.LabeledTestStringArrayComponent(this,label,"",converter);
+			}
+    		return icSharesHeader_usr_AccessTypeVI;
+    	    }
+				/**
+   		 * Header for field accessTypeRW
+		 */
+		public org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf getSharesHeader_usr_AccessTypeRW() {
+    		if (icSharesHeader_usr_AccessTypeRW == null)
+    		{
+    			String label = getAdapter().getBundle().getString("ShareACLItemDataContainer.accessTypeRW");
+			    org.sblim.wbemsmt.tools.converter.StringArrayConverter converter = new org.sblim.wbemsmt.tools.converter.UnsignedInt16StringArrayConverter();
+    			icSharesHeader_usr_AccessTypeRW = new org.sblim.wbemsmt.tools.input.test.LabeledTestStringArrayComponent(this,label,"",converter);
+			}
+    		return icSharesHeader_usr_AccessTypeRW;
+    	    }
+				/**
+   		 * Header for field admin
+		 */
+		public org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf getSharesHeader_usr_Admin() {
+    		if (icSharesHeader_usr_Admin == null)
+    		{
+    			String label = getAdapter().getBundle().getString("ShareACLItemDataContainer.admin");
+			    org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
+    			icSharesHeader_usr_Admin = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
+			}
+    		return icSharesHeader_usr_Admin;
+    	    }
+		
 
 	
 		

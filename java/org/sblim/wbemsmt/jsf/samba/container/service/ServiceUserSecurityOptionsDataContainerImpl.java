@@ -38,8 +38,9 @@ import org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf;
 import org.sblim.wbemsmt.bl.adapter.DataContainer;
 import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
-public class ServiceUserSecurityOptionsDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.EditBasePanel implements org.sblim.wbemsmt.samba.bl.container.service.ServiceUserSecurityOptionsDataContainer {
-
+public class ServiceUserSecurityOptionsDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.EditBasePanel implements org.sblim.wbemsmt.samba.bl.container.service.ServiceUserSecurityOptionsDataContainer
+			, org.sblim.wbemsmt.samba.bl.container.service.UserACLItemDataContainerForServiceHeader		
+	{
 			private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_usr_GuestUser;
     		private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_usr_CurrentForceUser;
     		private org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf ic_usr_NewForceUser;
@@ -49,9 +50,9 @@ public class ServiceUserSecurityOptionsDataContainerImpl extends org.sblim.wbems
 		private MultiLinePanel userRightsPanel;
 		private int userRightsCount;
 
-				private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf icUserRights_SambaUserNameHeader;
-				private org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf icUserRights_usr_AccessTypeVIHeader;
-				private org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf icUserRights_usr_AccessTypeRWHeader;
+				private org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf icUserRightsHeader_SambaUserName;
+				private org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf icUserRightsHeader_usr_AccessTypeVI;
+				private org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf icUserRightsHeader_usr_AccessTypeRW;
 				
 	
 		
@@ -246,9 +247,9 @@ public class ServiceUserSecurityOptionsDataContainerImpl extends org.sblim.wbems
 	
 	private LabeledJSFInputComponent[] getUserRightsHeaderComponents() {
 		return new LabeledJSFInputComponent[]{
-							(LabeledJSFInputComponent)getUserRights_SambaUserNameHeader(),
-							(LabeledJSFInputComponent)getUserRights_usr_AccessTypeVIHeader(),
-							(LabeledJSFInputComponent)getUserRights_usr_AccessTypeRWHeader(),
+							(LabeledJSFInputComponent)getUserRightsHeader_SambaUserName(),
+							(LabeledJSFInputComponent)getUserRightsHeader_usr_AccessTypeVI(),
+							(LabeledJSFInputComponent)getUserRightsHeader_usr_AccessTypeRW(),
 						};
 	}
 
@@ -260,61 +261,71 @@ public class ServiceUserSecurityOptionsDataContainerImpl extends org.sblim.wbems
 						};
 	}
 
-			/**
+	   /**
+		* Header for:
+		* 
+		* linked container UserACLItemDataContainerForService
+		*/
+		public org.sblim.wbemsmt.samba.bl.container.service.UserACLItemDataContainerForServiceHeader getUserRightsHeader()
+		{
+			return this;
+		}
+		
+				/**
    		 * Header for field SambaUserName
 		 */
-		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf getUserRights_SambaUserNameHeader() {
-    		if (icUserRights_SambaUserNameHeader == null)
+		public org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf getUserRightsHeader_SambaUserName() {
+    		if (icUserRightsHeader_SambaUserName == null)
     		{
 				String label = bundle.getString("UserACLItemDataContainerForService.SambaUserName");
-				String binding = bindingPrefix + "userRights_SambaUserNameHeader.item";
+				String binding = bindingPrefix + "userRightsHeader_SambaUserName.item";
 				logger.fine("Using binding " + binding);
 				org.sblim.wbemsmt.bl.adapter.DataContainer parent = this;
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = true;
-    			icUserRights_SambaUserNameHeader = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent(parent,label,binding,converter, readOnly);
-				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent)icUserRights_SambaUserNameHeader).setOrientation( LabeledBaseInputComponentIf.LEFT );    		}
-				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent)icUserRights_SambaUserNameHeader).setHeader(true);
+    			icUserRightsHeader_SambaUserName = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent(parent,label,binding,converter, readOnly);
+				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent)icUserRightsHeader_SambaUserName).setOrientation( LabeledBaseInputComponentIf.LEFT );    		}
+				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent)icUserRightsHeader_SambaUserName).setHeader(true);
 			
-    		return icUserRights_SambaUserNameHeader;
+    		return icUserRightsHeader_SambaUserName;
     	}
-			/**
+				/**
    		 * Header for field accessTypeVI
 		 */
-		public org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf getUserRights_usr_AccessTypeVIHeader() {
-    		if (icUserRights_usr_AccessTypeVIHeader == null)
+		public org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf getUserRightsHeader_usr_AccessTypeVI() {
+    		if (icUserRightsHeader_usr_AccessTypeVI == null)
     		{
 				String label = bundle.getString("UserACLItemDataContainerForService.accessTypeVI");
-				String binding = bindingPrefix + "userRights_usr_AccessTypeVIHeader.item";
+				String binding = bindingPrefix + "userRightsHeader_usr_AccessTypeVI.item";
 				logger.fine("Using binding " + binding);
 				org.sblim.wbemsmt.bl.adapter.DataContainer parent = this;
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.UnsignedInt16StringConverter();
 				boolean readOnly = false;
-    			icUserRights_usr_AccessTypeVIHeader = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFRadioButtonComponent(parent,label,binding,converter, readOnly);
-				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFRadioButtonComponent)icUserRights_usr_AccessTypeVIHeader).setOrientation( LabeledBaseInputComponentIf.LEFT );    		}
-				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFRadioButtonComponent)icUserRights_usr_AccessTypeVIHeader).setHeader(true);
+    			icUserRightsHeader_usr_AccessTypeVI = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFRadioButtonComponent(parent,label,binding,converter, readOnly);
+				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFRadioButtonComponent)icUserRightsHeader_usr_AccessTypeVI).setOrientation( LabeledBaseInputComponentIf.LEFT );    		}
+				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFRadioButtonComponent)icUserRightsHeader_usr_AccessTypeVI).setHeader(true);
 			
-    		return icUserRights_usr_AccessTypeVIHeader;
+    		return icUserRightsHeader_usr_AccessTypeVI;
     	}
-			/**
+				/**
    		 * Header for field accessTypeRW
 		 */
-		public org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf getUserRights_usr_AccessTypeRWHeader() {
-    		if (icUserRights_usr_AccessTypeRWHeader == null)
+		public org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf getUserRightsHeader_usr_AccessTypeRW() {
+    		if (icUserRightsHeader_usr_AccessTypeRW == null)
     		{
 				String label = bundle.getString("UserACLItemDataContainerForService.accessTypeRW");
-				String binding = bindingPrefix + "userRights_usr_AccessTypeRWHeader.item";
+				String binding = bindingPrefix + "userRightsHeader_usr_AccessTypeRW.item";
 				logger.fine("Using binding " + binding);
 				org.sblim.wbemsmt.bl.adapter.DataContainer parent = this;
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.UnsignedInt16StringConverter();
 				boolean readOnly = false;
-    			icUserRights_usr_AccessTypeRWHeader = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFRadioButtonComponent(parent,label,binding,converter, readOnly);
-				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFRadioButtonComponent)icUserRights_usr_AccessTypeRWHeader).setOrientation( LabeledBaseInputComponentIf.LEFT );    		}
-				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFRadioButtonComponent)icUserRights_usr_AccessTypeRWHeader).setHeader(true);
+    			icUserRightsHeader_usr_AccessTypeRW = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFRadioButtonComponent(parent,label,binding,converter, readOnly);
+				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFRadioButtonComponent)icUserRightsHeader_usr_AccessTypeRW).setOrientation( LabeledBaseInputComponentIf.LEFT );    		}
+				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFRadioButtonComponent)icUserRightsHeader_usr_AccessTypeRW).setHeader(true);
 			
-    		return icUserRights_usr_AccessTypeRWHeader;
+    		return icUserRightsHeader_usr_AccessTypeRW;
     	}
-	
+		
 	
 		
 	public void reload()

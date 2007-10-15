@@ -19,18 +19,18 @@
   */
 package org.sblim.wbemsmt.cli.samba.listener;
 
-import org.apache.commons.cli.CommandLine;
 import org.sblim.wbemsmt.bl.adapter.AbstractBaseCimAdapter;
 import org.sblim.wbemsmt.exception.ObjectNotFoundException;
+import org.sblim.wbemsmt.tools.cli.CimCommandValues;
 import org.sblim.wbemsmt.tools.cli.CliDataLoader;
 import org.sblim.wbemsmt.tools.cli.CliUtil;
 import org.sblim.wbemsmt.tools.resources.WbemSmtResourceBundle;
 
 public class ListSambaPrinterAclOfUserLoader extends SambaLoader implements CliDataLoader {
 
-	public void load(WbemSmtResourceBundle bundle, AbstractBaseCimAdapter adapter, CommandLine cmd) throws ObjectNotFoundException {
-		String serviceName = CliUtil.getOption(cmd,ListSambaPrinterAclOfUser.KEY_GLOBAL_serviceName);
-		String username = CliUtil.getOption(cmd,ListSambaPrinterAclOfUser.KEY_sambaUsername);
+	public void load(WbemSmtResourceBundle bundle, AbstractBaseCimAdapter adapter, CimCommandValues commandValues) throws ObjectNotFoundException {
+		String serviceName = CliUtil.getOption(commandValues,ListSambaPrinterAclOfUser.KEY_GLOBAL_serviceName);
+		String username = CliUtil.getOption(commandValues,ListSambaPrinterAclOfUser.KEY_sambaUsername);
 
 		selectUser(bundle, adapter, serviceName, username);
 		

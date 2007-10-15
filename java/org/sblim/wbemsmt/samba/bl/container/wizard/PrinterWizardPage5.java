@@ -130,9 +130,8 @@ public interface PrinterWizardPage5 extends org.sblim.wbemsmt.bl.adapter.DataCon
 	/** 
 	 * Linked DataContainers
 	 **/
-	 
-	
 			
+				
 		/**
 		* 
 		* linked container UserInPrinterWizardACLItemDataContainer
@@ -140,5 +139,13 @@ public interface PrinterWizardPage5 extends org.sblim.wbemsmt.bl.adapter.DataCon
 
 		public java.util.List getUsers();
 
-	
+	   		
+	   /**
+		* Header for:
+		* 
+		* linked container UserInPrinterWizardACLItemDataContainer
+		*/
+		public  org.sblim.wbemsmt.samba.bl.container.wizard.UserInPrinterWizardACLItemDataContainerHeader getUsersHeader();
+		
+			
 }

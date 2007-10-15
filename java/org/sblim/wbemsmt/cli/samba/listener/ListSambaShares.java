@@ -174,7 +174,7 @@ public class ListSambaShares extends CimCommand {
 			values.getOut().println("\n" + bundle.getString("listing", new Object[]{bundle.getString("ShareListDataContainer.caption")}));
 			
 			CliDataLoader loader = new ListSambaSharesLoader();
-			loader.load(bundle,adapter, cmd);
+			loader.load(bundle,adapter, commandValues);
 			
 			org.sblim.wbemsmt.cli.samba.container.share.ShareListDataContainerImpl dc = new org.sblim.wbemsmt.cli.samba.container.share.ShareListDataContainerImpl(adapter);
 			
@@ -207,6 +207,10 @@ public class ListSambaShares extends CimCommand {
 		catch (Exception e)
 		{
 			super.handleException(e,values.getArgs(),values.getOptions(),KEY_GLOBAL_password);
+		}
+		finally
+		{
+			if (adapter != null) adapter.cleanup();
 		}
 	}
 	

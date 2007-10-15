@@ -93,7 +93,5 @@ public interface ShareGlobalsDataContainer extends org.sblim.wbemsmt.bl.adapter.
 	/** 
 	 * Linked DataContainers
 	 **/
-	 
-	
 	
 }

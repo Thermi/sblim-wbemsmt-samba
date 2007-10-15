@@ -75,7 +75,5 @@ public interface UserACLItemDataContainerForShare extends org.sblim.wbemsmt.bl.a
 	/** 
 	 * Linked DataContainers
 	 **/
-	 
-	
 	
 }

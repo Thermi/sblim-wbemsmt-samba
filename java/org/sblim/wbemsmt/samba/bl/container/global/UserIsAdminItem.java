@@ -57,7 +57,5 @@ public interface UserIsAdminItem extends org.sblim.wbemsmt.bl.adapter.DataContai
 	/** 
 	 * Linked DataContainers
 	 **/
-	 
-	
 	
 }

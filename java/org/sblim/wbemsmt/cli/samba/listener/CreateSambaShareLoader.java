@@ -36,7 +36,7 @@ public class CreateSambaShareLoader extends SambaServiceLoader  implements CliDa
 
 
 	public void loadTracingObject(WbemSmtResourceBundle bundle, AbstractBaseCimAdapter adapter, ShareWizardPage4 page4) throws ObjectNotFoundException {
-		String serviceName = CliUtil.getOption(cmd,CreateSambaShare.KEY_GLOBAL_serviceName);
+		String serviceName = CliUtil.getOption(commandValues,CreateSambaShare.KEY_GLOBAL_serviceName);
 		String shareName = (String) page4.get_Name().getConvertedControlValue();
 		
 		selectShare(bundle, adapter, serviceName, shareName);

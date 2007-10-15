@@ -102,7 +102,5 @@ public interface ServiceOptionsDataContainer extends org.sblim.wbemsmt.bl.adapte
 	/** 
 	 * Linked DataContainers
 	 **/
-	 
-	
 	
 }

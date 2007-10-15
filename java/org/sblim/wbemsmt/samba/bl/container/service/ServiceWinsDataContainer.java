@@ -84,7 +84,5 @@ public interface ServiceWinsDataContainer extends org.sblim.wbemsmt.bl.adapter.D
 	/** 
 	 * Linked DataContainers
 	 **/
-	 
-	
 	
 }

@@ -363,7 +363,5 @@ public interface ShareWizardPage3GUI extends org.sblim.wbemsmt.bl.adapter.DataCo
 	/** 
 	 * Linked DataContainers
 	 **/
-	 
-	
 	
 }

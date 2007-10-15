@@ -39,7 +39,5 @@ public interface UserInPrinterWizardACLItemDataContainer extends org.sblim.wbems
 	/** 
 	 * Linked DataContainers
 	 **/
-	 
-	
 	
 }

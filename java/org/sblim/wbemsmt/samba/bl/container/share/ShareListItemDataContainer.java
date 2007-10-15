@@ -39,7 +39,5 @@ public interface ShareListItemDataContainer extends org.sblim.wbemsmt.samba.bl.c
 	/** 
 	 * Linked DataContainers
 	 **/
-	 
-	
 	
 }

@@ -36,7 +36,7 @@ public class CreateSambaHostLoader extends SambaServiceLoader  implements CliDat
 
 	public void loadTracingObject(WbemSmtResourceBundle bundle, AbstractBaseCimAdapter adapter, HostWizardPage2 page2) throws ObjectNotFoundException {
 		//trace not more than an service because more than one printer can be created
-		String serviceName = CliUtil.getOption(cmd,CreateSambaHost.KEY_GLOBAL_serviceName);
+		String serviceName = CliUtil.getOption(commandValues,CreateSambaHost.KEY_GLOBAL_serviceName);
 		try {
 			selectService(bundle, adapter, serviceName);
 		} catch (ObjectNotFoundException e) {

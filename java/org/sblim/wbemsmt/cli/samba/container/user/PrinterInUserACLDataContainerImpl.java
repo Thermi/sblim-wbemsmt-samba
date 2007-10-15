@@ -34,10 +34,18 @@ import org.sblim.wbemsmt.exception.*;
 import org.sblim.wbemsmt.bl.adapter.DataContainer;
 import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
+public class PrinterInUserACLDataContainerImpl extends BaseDataContainer implements org.sblim.wbemsmt.samba.bl.container.user.PrinterInUserACLDataContainer
+			, org.sblim.wbemsmt.samba.bl.container.share.PrinterACLItemDataContainerHeader		
+	{
+				
+		
+		private java.util.List icPrinters = new java.util.ArrayList();
 
-public class PrinterInUserACLDataContainerImpl extends BaseDataContainer implements org.sblim.wbemsmt.samba.bl.container.user.PrinterInUserACLDataContainer {
-
-				private java.util.List icPrinters = new java.util.ArrayList();
+				private org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf icPrintersHeader_PrinterName;
+				private org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf icPrintersHeader_usr_AccessTypeVI;
+				private org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf icPrintersHeader_usr_AccessTypeRW;
+				private org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf icPrintersHeader_usr_Admin;
+		
 	
 		
 	public PrinterInUserACLDataContainerImpl(AbstractBaseCimAdapter adapter) throws InitContainerException {
@@ -48,6 +56,7 @@ public class PrinterInUserACLDataContainerImpl extends BaseDataContainer impleme
 
 		
 			
+		
 		/**
 		* 
 		* linked container PrinterACLItemDataContainer
@@ -56,6 +65,66 @@ public class PrinterInUserACLDataContainerImpl extends BaseDataContainer impleme
 		{
 			return icPrinters;
 		}
+
+   	       /**
+		* Header for:
+		* 
+		* linked container PrinterACLItemDataContainer
+		*/
+		public org.sblim.wbemsmt.samba.bl.container.share.PrinterACLItemDataContainerHeader getPrintersHeader()
+		{
+			return this;
+		}
+
+				/**
+   		 * Header for field PrinterName
+		 */
+		public org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf getPrintersHeader_PrinterName() {
+    		if (icPrintersHeader_PrinterName == null)
+    		{
+    			String label = getAdapter().getBundle().getString("PrinterACLItemDataContainer.PrinterName");
+			    org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
+    			icPrintersHeader_PrinterName = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
+			}
+    		return icPrintersHeader_PrinterName;
+    	    }
+				/**
+   		 * Header for field accessTypeVI
+		 */
+		public org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf getPrintersHeader_usr_AccessTypeVI() {
+    		if (icPrintersHeader_usr_AccessTypeVI == null)
+    		{
+    			String label = getAdapter().getBundle().getString("PrinterACLItemDataContainer.accessTypeVI");
+			    org.sblim.wbemsmt.tools.converter.StringArrayConverter converter = new org.sblim.wbemsmt.tools.converter.UnsignedInt16StringArrayConverter();
+    			icPrintersHeader_usr_AccessTypeVI = new org.sblim.wbemsmt.tools.input.test.LabeledTestStringArrayComponent(this,label,"",converter);
+			}
+    		return icPrintersHeader_usr_AccessTypeVI;
+    	    }
+				/**
+   		 * Header for field accessTypeRW
+		 */
+		public org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf getPrintersHeader_usr_AccessTypeRW() {
+    		if (icPrintersHeader_usr_AccessTypeRW == null)
+    		{
+    			String label = getAdapter().getBundle().getString("PrinterACLItemDataContainer.accessTypeRW");
+			    org.sblim.wbemsmt.tools.converter.StringArrayConverter converter = new org.sblim.wbemsmt.tools.converter.UnsignedInt16StringArrayConverter();
+    			icPrintersHeader_usr_AccessTypeRW = new org.sblim.wbemsmt.tools.input.test.LabeledTestStringArrayComponent(this,label,"",converter);
+			}
+    		return icPrintersHeader_usr_AccessTypeRW;
+    	    }
+				/**
+   		 * Header for field admin
+		 */
+		public org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf getPrintersHeader_usr_Admin() {
+    		if (icPrintersHeader_usr_Admin == null)
+    		{
+    			String label = getAdapter().getBundle().getString("PrinterACLItemDataContainer.admin");
+			    org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
+    			icPrintersHeader_usr_Admin = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
+			}
+    		return icPrintersHeader_usr_Admin;
+    	    }
+		
 
 	
 		

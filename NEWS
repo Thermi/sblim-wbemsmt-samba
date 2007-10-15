@@ -1,3 +1,7 @@
+Changes on top of 0.5.2-1
+==============================================================================
+- 1813934  wbemsmt-samba: cliDataLoader uses CIMCommandValues
+
 Changes in 0.5.2-1
 ==============================================================================
 - 1787138  wbemsmt-samba: cleanup apidoc and todos

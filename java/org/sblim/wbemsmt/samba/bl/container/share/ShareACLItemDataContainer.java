@@ -75,7 +75,5 @@ public interface ShareACLItemDataContainer extends org.sblim.wbemsmt.bl.adapter.
 	/** 
 	 * Linked DataContainers
 	 **/
-	 
-	
 	
 }
