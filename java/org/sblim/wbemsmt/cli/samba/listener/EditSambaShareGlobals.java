@@ -37,47 +37,47 @@ public class EditSambaShareGlobals extends CimCommand {
  
 	//All Options that are local and defined for this command
 			/**
-   		 * the Default Create Mask  --createMask, default: noDefaultValue
+   		 * the Default Create Mask  --createMask
 		 */
-		public static final OptionDefinition KEY_createMask = new OptionDefinition(null,"createMask","noDefaultValue","CMDShareGlobalsDataContainer.CreateMask.argValue",false,false,"CMDShareGlobalsDataContainer.CreateMask.argDescription");
+		public static final OptionDefinition KEY_createMask = new OptionDefinition(null,"createMask",null,"CMDShareGlobalsDataContainer.CreateMask.argValue",false,false,"CMDShareGlobalsDataContainer.CreateMask.argDescription");
 			/**
-   		 * The directory Mask  --directoryMask, default: noDefaultValue
+   		 * The directory Mask  --directoryMask
 		 */
-		public static final OptionDefinition KEY_directoryMask = new OptionDefinition(null,"directoryMask","noDefaultValue","CMDShareGlobalsDataContainer.DirectoryMask.argValue",false,false,"CMDShareGlobalsDataContainer.DirectoryMask.argDescription");
+		public static final OptionDefinition KEY_directoryMask = new OptionDefinition(null,"directoryMask",null,"CMDShareGlobalsDataContainer.DirectoryMask.argValue",false,false,"CMDShareGlobalsDataContainer.DirectoryMask.argDescription");
 			/**
-   		 *  --directorySecurityMask, default: noDefaultValue
+   		 *  --directorySecurityMask
 		 */
-		public static final OptionDefinition KEY_directorySecurityMask = new OptionDefinition(null,"directorySecurityMask","noDefaultValue","CMDShareGlobalsDataContainer.DirectorySecurityMask.argValue",false,false,"CMDShareGlobalsDataContainer.DirectorySecurityMask.argDescription");
+		public static final OptionDefinition KEY_directorySecurityMask = new OptionDefinition(null,"directorySecurityMask",null,"CMDShareGlobalsDataContainer.DirectorySecurityMask.argValue",false,false,"CMDShareGlobalsDataContainer.DirectorySecurityMask.argDescription");
 			/**
-   		 *  --caseSensitive, default: noDefaultValue
+   		 *  --caseSensitive
 		 */
-		public static final OptionDefinition KEY_caseSensitive = new OptionDefinition(null,"caseSensitive","noDefaultValue","ShareGlobalsDataContainer.CaseSensitive.argValue",false,false,"ShareGlobalsDataContainer.CaseSensitive.argDescription");
+		public static final OptionDefinition KEY_caseSensitive = new OptionDefinition(null,"caseSensitive",null,"ShareGlobalsDataContainer.CaseSensitive.argValue",false,false,"ShareGlobalsDataContainer.CaseSensitive.argDescription");
 			/**
-   		 *  --dosFiletimes, default: noDefaultValue
+   		 *  --dosFiletimes
 		 */
-		public static final OptionDefinition KEY_dosFiletimes = new OptionDefinition(null,"dosFiletimes","noDefaultValue","ShareGlobalsDataContainer.DosFiletimes.argValue",false,false,"ShareGlobalsDataContainer.DosFiletimes.argDescription");
+		public static final OptionDefinition KEY_dosFiletimes = new OptionDefinition(null,"dosFiletimes",null,"ShareGlobalsDataContainer.DosFiletimes.argValue",false,false,"ShareGlobalsDataContainer.DosFiletimes.argDescription");
 			/**
-   		 *  --hideDotFiles, default: noDefaultValue
+   		 *  --hideDotFiles
 		 */
-		public static final OptionDefinition KEY_hideDotFiles = new OptionDefinition(null,"hideDotFiles","noDefaultValue","ShareGlobalsDataContainer.HideDotFiles.argValue",false,false,"ShareGlobalsDataContainer.HideDotFiles.argDescription");
+		public static final OptionDefinition KEY_hideDotFiles = new OptionDefinition(null,"hideDotFiles",null,"ShareGlobalsDataContainer.HideDotFiles.argValue",false,false,"ShareGlobalsDataContainer.HideDotFiles.argDescription");
 			/**
-   		 *  --aclCompatibility, default: noDefaultValue
+   		 *  --aclCompatibility
 		 */
-		public static final OptionDefinition KEY_aclCompatibility = new OptionDefinition(null,"aclCompatibility","noDefaultValue","ShareGlobalsDataContainer.AclCompatibility.argValue",false,false,"ShareGlobalsDataContainer.AclCompatibility.argDescription");
+		public static final OptionDefinition KEY_aclCompatibility = new OptionDefinition(null,"aclCompatibility",null,"ShareGlobalsDataContainer.AclCompatibility.argValue",false,false,"ShareGlobalsDataContainer.AclCompatibility.argDescription");
 			/**
-   		 *  --eaSupport, default: noDefaultValue
+   		 *  --eaSupport
 		 */
-		public static final OptionDefinition KEY_eaSupport = new OptionDefinition(null,"eaSupport","noDefaultValue","ShareGlobalsDataContainer.EASupport.argValue",false,false,"ShareGlobalsDataContainer.EASupport.argDescription");
+		public static final OptionDefinition KEY_eaSupport = new OptionDefinition(null,"eaSupport",null,"ShareGlobalsDataContainer.EASupport.argValue",false,false,"ShareGlobalsDataContainer.EASupport.argDescription");
 			/**
-   		 *  --ntaclSupport, default: noDefaultValue
+   		 *  --ntaclSupport
 		 */
-		public static final OptionDefinition KEY_ntaclSupport = new OptionDefinition(null,"ntaclSupport","noDefaultValue","ShareGlobalsDataContainer.NTACLSupport.argValue",false,false,"ShareGlobalsDataContainer.NTACLSupport.argDescription");
+		public static final OptionDefinition KEY_ntaclSupport = new OptionDefinition(null,"ntaclSupport",null,"ShareGlobalsDataContainer.NTACLSupport.argValue",false,false,"ShareGlobalsDataContainer.NTACLSupport.argDescription");
 		
 	//All Options that are global and task-related
 			/**
-   		 * required, used for selection:  --serviceName, default: noDefaultValue
+   		 * required, used for selection:  --serviceName
 		 */
-		public static final OptionDefinition KEY_GLOBAL_serviceName = new OptionDefinition(null,"serviceName","noDefaultValue","serviceName.argValue",true,false,"serviceName.argDescription");
+		public static final OptionDefinition KEY_GLOBAL_serviceName = new OptionDefinition(null,"serviceName",null,"serviceName.argValue",true,false,"serviceName.argDescription");
 	
 	// Global Communication Options
 			/**

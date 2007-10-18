@@ -37,55 +37,55 @@ public class EditSambaPrinter extends CimCommand {
  
 	//All Options that are local and defined for this command
 			/**
-   		 * required, used for selection:  --sambaPrintername, default: noDefaultValue
+   		 * required, used for selection:  --sambaPrintername
 		 */
-		public static final OptionDefinition KEY_sambaPrintername = new OptionDefinition(null,"sambaPrintername","noDefaultValue","PrinterOptionsDataContainer.Name.argValue",true,true,"PrinterOptionsDataContainer.Name.argDescription");
+		public static final OptionDefinition KEY_sambaPrintername = new OptionDefinition(null,"sambaPrintername",null,"PrinterOptionsDataContainer.Name.argValue",true,true,"PrinterOptionsDataContainer.Name.argDescription");
 			/**
-   		 *  --systemPrinterName, default: noDefaultValue
+   		 *  --systemPrinterName
 		 */
-		public static final OptionDefinition KEY_systemPrinterName = new OptionDefinition(null,"systemPrinterName","noDefaultValue","PrinterOptionsDataContainer.SystemPrinterName.argValue",false,false,"PrinterOptionsDataContainer.SystemPrinterName.argDescription");
+		public static final OptionDefinition KEY_systemPrinterName = new OptionDefinition(null,"systemPrinterName",null,"PrinterOptionsDataContainer.SystemPrinterName.argValue",false,false,"PrinterOptionsDataContainer.SystemPrinterName.argDescription");
 			/**
-   		 *  --path, default: noDefaultValue
+   		 *  --path
 		 */
-		public static final OptionDefinition KEY_path = new OptionDefinition(null,"path","noDefaultValue","PrinterOptionsDataContainer.Path.argValue",false,false,"PrinterOptionsDataContainer.Path.argDescription");
+		public static final OptionDefinition KEY_path = new OptionDefinition(null,"path",null,"PrinterOptionsDataContainer.Path.argValue",false,false,"PrinterOptionsDataContainer.Path.argDescription");
 			/**
-   		 *  --comment, default: noDefaultValue
+   		 *  --comment
 		 */
-		public static final OptionDefinition KEY_comment = new OptionDefinition(null,"comment","noDefaultValue","PrinterOptionsDataContainer.Comment.argValue",false,false,"PrinterOptionsDataContainer.Comment.argDescription");
+		public static final OptionDefinition KEY_comment = new OptionDefinition(null,"comment",null,"PrinterOptionsDataContainer.Comment.argValue",false,false,"PrinterOptionsDataContainer.Comment.argDescription");
 			/**
-   		 *  --available, default: noDefaultValue
+   		 *  --available
 		 */
-		public static final OptionDefinition KEY_available = new OptionDefinition(null,"available","noDefaultValue","PrinterOptionsDataContainer.Available.argValue",false,false,"PrinterOptionsDataContainer.Available.argDescription");
+		public static final OptionDefinition KEY_available = new OptionDefinition(null,"available",null,"PrinterOptionsDataContainer.Available.argValue",false,false,"PrinterOptionsDataContainer.Available.argDescription");
 			/**
-   		 *  --guestOK, default: noDefaultValue
+   		 *  --guestOK
 		 */
-		public static final OptionDefinition KEY_guestOK = new OptionDefinition(null,"guestOK","noDefaultValue","PrinterOptionsDataContainer.GuestOK.argValue",false,false,"PrinterOptionsDataContainer.GuestOK.argDescription");
+		public static final OptionDefinition KEY_guestOK = new OptionDefinition(null,"guestOK",null,"PrinterOptionsDataContainer.GuestOK.argValue",false,false,"PrinterOptionsDataContainer.GuestOK.argDescription");
 			/**
-   		 *  --guestOnly, default: noDefaultValue
+   		 *  --guestOnly
 		 */
-		public static final OptionDefinition KEY_guestOnly = new OptionDefinition(null,"guestOnly","noDefaultValue","PrinterOptionsDataContainer.GuestOnly.argValue",false,false,"PrinterOptionsDataContainer.GuestOnly.argDescription");
+		public static final OptionDefinition KEY_guestOnly = new OptionDefinition(null,"guestOnly",null,"PrinterOptionsDataContainer.GuestOnly.argValue",false,false,"PrinterOptionsDataContainer.GuestOnly.argDescription");
 			/**
-   		 *  --hostAllow, default: noDefaultValue
+   		 *  --hostAllow
 		 */
-		public static final OptionDefinition KEY_hostAllow = new OptionDefinition(null,"hostAllow","noDefaultValue","PrinterOptionsDataContainer.HostsAllow.argValue",false,false,"PrinterOptionsDataContainer.HostsAllow.argDescription");
+		public static final OptionDefinition KEY_hostAllow = new OptionDefinition(null,"hostAllow",null,"PrinterOptionsDataContainer.HostsAllow.argValue",false,false,"PrinterOptionsDataContainer.HostsAllow.argDescription");
 			/**
-   		 *  --hostDeny, default: noDefaultValue
+   		 *  --hostDeny
 		 */
-		public static final OptionDefinition KEY_hostDeny = new OptionDefinition(null,"hostDeny","noDefaultValue","PrinterOptionsDataContainer.HostsDeny.argValue",false,false,"PrinterOptionsDataContainer.HostsDeny.argDescription");
+		public static final OptionDefinition KEY_hostDeny = new OptionDefinition(null,"hostDeny",null,"PrinterOptionsDataContainer.HostsDeny.argValue",false,false,"PrinterOptionsDataContainer.HostsDeny.argDescription");
 			/**
-   		 *  --readOnly, default: noDefaultValue
+   		 *  --readOnly
 		 */
-		public static final OptionDefinition KEY_readOnly = new OptionDefinition(null,"readOnly","noDefaultValue","PrinterOptionsDataContainer.ReadOnly.argValue",false,false,"PrinterOptionsDataContainer.ReadOnly.argDescription");
+		public static final OptionDefinition KEY_readOnly = new OptionDefinition(null,"readOnly",null,"PrinterOptionsDataContainer.ReadOnly.argValue",false,false,"PrinterOptionsDataContainer.ReadOnly.argDescription");
 			/**
-   		 *  --browsable, default: noDefaultValue
+   		 *  --browsable
 		 */
-		public static final OptionDefinition KEY_browsable = new OptionDefinition(null,"browsable","noDefaultValue","PrinterOptionsDataContainer.Browsable.argValue",false,false,"PrinterOptionsDataContainer.Browsable.argDescription");
+		public static final OptionDefinition KEY_browsable = new OptionDefinition(null,"browsable",null,"PrinterOptionsDataContainer.Browsable.argValue",false,false,"PrinterOptionsDataContainer.Browsable.argDescription");
 		
 	//All Options that are global and task-related
 			/**
-   		 * required, used for selection:  --serviceName, default: noDefaultValue
+   		 * required, used for selection:  --serviceName
 		 */
-		public static final OptionDefinition KEY_GLOBAL_serviceName = new OptionDefinition(null,"serviceName","noDefaultValue","serviceName.argValue",true,false,"serviceName.argDescription");
+		public static final OptionDefinition KEY_GLOBAL_serviceName = new OptionDefinition(null,"serviceName",null,"serviceName.argValue",true,false,"serviceName.argDescription");
 	
 	// Global Communication Options
 			/**

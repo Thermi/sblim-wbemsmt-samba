@@ -36,23 +36,23 @@ public class ListSambaShareAclOfUser extends CimCommand {
  
 	//All Options that are local and defined for this command
 			/**
-   		 * required, used for selection:  --sambaUsername, default: noDefaultValue
+   		 * required, used for selection:  --sambaUsername
 		 */
-		public static final OptionDefinition KEY_sambaUsername = new OptionDefinition(null,"sambaUsername","noDefaultValue","ListSambaShareAclOfUser.sambaUsername.argValue",true,false,"ListSambaShareAclOfUser.sambaUsername.argDescription");
+		public static final OptionDefinition KEY_sambaUsername = new OptionDefinition(null,"sambaUsername",null,"ListSambaShareAclOfUser.sambaUsername.argValue",true,false,"ListSambaShareAclOfUser.sambaUsername.argDescription");
 			/**
    		 * used for selection:  --list, default: INSTANCE_WITH_CHILDS
 		 */
 		public static final OptionDefinition KEY_list = new OptionDefinition(null,"list","INSTANCE_WITH_CHILDS","ListSambaShareAclOfUser.list.argValue",false,false,"ListSambaShareAclOfUser.list.argDescription");
 			/**
-   		 * required, used for selection:  --shareName, default: noDefaultValue
+   		 * required, used for selection:  --shareName
 		 */
-		public static final OptionDefinition KEY_shareName = new OptionDefinition(null,"shareName","noDefaultValue","ShareACLItemDataContainer.shareName.argValue",true,false,"ShareACLItemDataContainer.shareName.argDescription");
+		public static final OptionDefinition KEY_shareName = new OptionDefinition(null,"shareName",null,"ShareACLItemDataContainer.shareName.argValue",true,false,"ShareACLItemDataContainer.shareName.argDescription");
 		
 	//All Options that are global and task-related
 			/**
-   		 * required, used for selection:  --serviceName, default: noDefaultValue
+   		 * required, used for selection:  --serviceName
 		 */
-		public static final OptionDefinition KEY_GLOBAL_serviceName = new OptionDefinition(null,"serviceName","noDefaultValue","serviceName.argValue",true,false,"serviceName.argDescription");
+		public static final OptionDefinition KEY_GLOBAL_serviceName = new OptionDefinition(null,"serviceName",null,"serviceName.argValue",true,false,"serviceName.argDescription");
 	
 	// Global Communication Options
 			/**

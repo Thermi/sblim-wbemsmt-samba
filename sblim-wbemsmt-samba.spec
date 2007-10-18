@@ -151,8 +151,9 @@ unlink $WBEMSMT_HELPDIR/plugins/org.sblim.wbemsmt.help.samba
 
 ###############################################################################
 %changelog
-* Mon Oct 15 2007 Michael Bauschert <michael.bauschert@de.ibm.com> 0.5.2-CVS
+* Thu Oct 18 2007 Michael Bauschert <michael.bauschert@de.ibm.com> 0.5.2-CVS
   - Inclusion of fixes for the following issues:
+    o 1815844  wbemsmt-samba: regenerate dcs/fcos to reflect gen. changes
     o 1813934  wbemsmt-samba: cliDataLoader uses CIMCommandValues
 
 * Mon Sep 01 2007 Michael Bauschert <michael.bauschert@de.ibm.com> 0.5.2-1

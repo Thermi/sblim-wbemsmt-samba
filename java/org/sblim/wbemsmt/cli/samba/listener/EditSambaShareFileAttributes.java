@@ -37,51 +37,51 @@ public class EditSambaShareFileAttributes extends CimCommand {
  
 	//All Options that are local and defined for this command
 			/**
-   		 * required, used for selection:  --sambaSharename, default: noDefaultValue
+   		 * required, used for selection:  --sambaSharename
 		 */
-		public static final OptionDefinition KEY_sambaSharename = new OptionDefinition(null,"sambaSharename","noDefaultValue","EditSambaShareFileAttributes.sambaSharename.argValue",true,false,"EditSambaShareFileAttributes.sambaSharename.argDescription");
+		public static final OptionDefinition KEY_sambaSharename = new OptionDefinition(null,"sambaSharename",null,"EditSambaShareFileAttributes.sambaSharename.argValue",true,false,"EditSambaShareFileAttributes.sambaSharename.argDescription");
 			/**
-   		 * the Default Create Mask required,  --createMask, default: noDefaultValue
+   		 * the Default Create Mask required,  --createMask
 		 */
-		public static final OptionDefinition KEY_createMask = new OptionDefinition(null,"createMask","noDefaultValue","CMDShareFileAttributes.CreateMask.argValue",true,false,"CMDShareFileAttributes.CreateMask.argDescription");
+		public static final OptionDefinition KEY_createMask = new OptionDefinition(null,"createMask",null,"CMDShareFileAttributes.CreateMask.argValue",true,false,"CMDShareFileAttributes.CreateMask.argDescription");
 			/**
-   		 * The directory Mask required,  --directoryMask, default: noDefaultValue
+   		 * The directory Mask required,  --directoryMask
 		 */
-		public static final OptionDefinition KEY_directoryMask = new OptionDefinition(null,"directoryMask","noDefaultValue","CMDShareFileAttributes.DirectoryMask.argValue",true,false,"CMDShareFileAttributes.DirectoryMask.argDescription");
+		public static final OptionDefinition KEY_directoryMask = new OptionDefinition(null,"directoryMask",null,"CMDShareFileAttributes.DirectoryMask.argValue",true,false,"CMDShareFileAttributes.DirectoryMask.argDescription");
 			/**
-   		 * required,  --directorySecurityMask, default: noDefaultValue
+   		 * required,  --directorySecurityMask
 		 */
-		public static final OptionDefinition KEY_directorySecurityMask = new OptionDefinition(null,"directorySecurityMask","noDefaultValue","CMDShareFileAttributes.DirectorySecurityMask.argValue",true,false,"CMDShareFileAttributes.DirectorySecurityMask.argDescription");
+		public static final OptionDefinition KEY_directorySecurityMask = new OptionDefinition(null,"directorySecurityMask",null,"CMDShareFileAttributes.DirectorySecurityMask.argValue",true,false,"CMDShareFileAttributes.DirectorySecurityMask.argDescription");
 			/**
-   		 *  --caseSensitive, default: noDefaultValue
+   		 *  --caseSensitive
 		 */
-		public static final OptionDefinition KEY_caseSensitive = new OptionDefinition(null,"caseSensitive","noDefaultValue","ShareFileAttributes.CaseSensitive.argValue",false,false,"ShareFileAttributes.CaseSensitive.argDescription");
+		public static final OptionDefinition KEY_caseSensitive = new OptionDefinition(null,"caseSensitive",null,"ShareFileAttributes.CaseSensitive.argValue",false,false,"ShareFileAttributes.CaseSensitive.argDescription");
 			/**
-   		 *  --hideDotFiles, default: noDefaultValue
+   		 *  --hideDotFiles
 		 */
-		public static final OptionDefinition KEY_hideDotFiles = new OptionDefinition(null,"hideDotFiles","noDefaultValue","ShareFileAttributes.HideDotFiles.argValue",false,false,"ShareFileAttributes.HideDotFiles.argDescription");
+		public static final OptionDefinition KEY_hideDotFiles = new OptionDefinition(null,"hideDotFiles",null,"ShareFileAttributes.HideDotFiles.argValue",false,false,"ShareFileAttributes.HideDotFiles.argDescription");
 			/**
-   		 *  --dosFiletimes, default: noDefaultValue
+   		 *  --dosFiletimes
 		 */
-		public static final OptionDefinition KEY_dosFiletimes = new OptionDefinition(null,"dosFiletimes","noDefaultValue","ShareFileAttributes.DosFiletimes.argValue",false,false,"ShareFileAttributes.DosFiletimes.argDescription");
+		public static final OptionDefinition KEY_dosFiletimes = new OptionDefinition(null,"dosFiletimes",null,"ShareFileAttributes.DosFiletimes.argValue",false,false,"ShareFileAttributes.DosFiletimes.argDescription");
 			/**
-   		 *  --eaSupport, default: noDefaultValue
+   		 *  --eaSupport
 		 */
-		public static final OptionDefinition KEY_eaSupport = new OptionDefinition(null,"eaSupport","noDefaultValue","ShareFileAttributes.EASupport.argValue",false,false,"ShareFileAttributes.EASupport.argDescription");
+		public static final OptionDefinition KEY_eaSupport = new OptionDefinition(null,"eaSupport",null,"ShareFileAttributes.EASupport.argValue",false,false,"ShareFileAttributes.EASupport.argDescription");
 			/**
-   		 *  --aclCompatibility, default: noDefaultValue
+   		 *  --aclCompatibility
 		 */
-		public static final OptionDefinition KEY_aclCompatibility = new OptionDefinition(null,"aclCompatibility","noDefaultValue","ShareFileAttributes.AclCompatibility.argValue",false,false,"ShareFileAttributes.AclCompatibility.argDescription");
+		public static final OptionDefinition KEY_aclCompatibility = new OptionDefinition(null,"aclCompatibility",null,"ShareFileAttributes.AclCompatibility.argValue",false,false,"ShareFileAttributes.AclCompatibility.argDescription");
 			/**
-   		 *  --ntaclSupport, default: noDefaultValue
+   		 *  --ntaclSupport
 		 */
-		public static final OptionDefinition KEY_ntaclSupport = new OptionDefinition(null,"ntaclSupport","noDefaultValue","ShareFileAttributes.NTACLSupport.argValue",false,false,"ShareFileAttributes.NTACLSupport.argDescription");
+		public static final OptionDefinition KEY_ntaclSupport = new OptionDefinition(null,"ntaclSupport",null,"ShareFileAttributes.NTACLSupport.argValue",false,false,"ShareFileAttributes.NTACLSupport.argDescription");
 		
 	//All Options that are global and task-related
 			/**
-   		 * required, used for selection:  --serviceName, default: noDefaultValue
+   		 * required, used for selection:  --serviceName
 		 */
-		public static final OptionDefinition KEY_GLOBAL_serviceName = new OptionDefinition(null,"serviceName","noDefaultValue","serviceName.argValue",true,false,"serviceName.argDescription");
+		public static final OptionDefinition KEY_GLOBAL_serviceName = new OptionDefinition(null,"serviceName",null,"serviceName.argValue",true,false,"serviceName.argDescription");
 	
 	// Global Communication Options
 			/**

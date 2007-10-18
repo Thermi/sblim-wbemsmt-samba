@@ -39,39 +39,39 @@ public class CreateSambaShare extends CimCommand implements ContainerUpdater {
  
 	//All Options that are local and defined for this command
 			/**
-   		 * required,  --sharename, default: noDefaultValue
+   		 * required,  --sharename
 		 */
-		public static final OptionDefinition KEY_sharename = new OptionDefinition(null,"sharename","noDefaultValue","ShareWizardPage1.Name.argValue",true,false,"ShareWizardPage1.Name.argDescription");
+		public static final OptionDefinition KEY_sharename = new OptionDefinition(null,"sharename",null,"ShareWizardPage1.Name.argValue",true,false,"ShareWizardPage1.Name.argDescription");
 			/**
-   		 * required,  --path, default: noDefaultValue
+   		 * required,  --path
 		 */
-		public static final OptionDefinition KEY_path = new OptionDefinition(null,"path","noDefaultValue","ShareWizardPage1.Path.argValue",true,false,"ShareWizardPage1.Path.argDescription");
+		public static final OptionDefinition KEY_path = new OptionDefinition(null,"path",null,"ShareWizardPage1.Path.argValue",true,false,"ShareWizardPage1.Path.argDescription");
 			/**
-   		 *  --comment, default: noDefaultValue
+   		 *  --comment
 		 */
-		public static final OptionDefinition KEY_comment = new OptionDefinition(null,"comment","noDefaultValue","ShareWizardPage1.Comment.argValue",false,false,"ShareWizardPage1.Comment.argDescription");
+		public static final OptionDefinition KEY_comment = new OptionDefinition(null,"comment",null,"ShareWizardPage1.Comment.argValue",false,false,"ShareWizardPage1.Comment.argDescription");
 			/**
-   		 *  --seenByEverybody, default: noDefaultValue
+   		 *  --seenByEverybody
 		 */
-		public static final OptionDefinition KEY_seenByEverybody = new OptionDefinition(null,"seenByEverybody","noDefaultValue","ShareWizardPage2.seenByEverybody.argValue",false,false,"ShareWizardPage2.seenByEverybody.argDescription");
+		public static final OptionDefinition KEY_seenByEverybody = new OptionDefinition(null,"seenByEverybody",null,"ShareWizardPage2.seenByEverybody.argValue",false,false,"ShareWizardPage2.seenByEverybody.argDescription");
 			/**
-   		 *  --forceUser, default: noDefaultValue
+   		 *  --forceUser
 		 */
-		public static final OptionDefinition KEY_forceUser = new OptionDefinition(null,"forceUser","noDefaultValue","ShareWizardPage2.forceUser.argValue",false,false,"ShareWizardPage2.forceUser.argDescription");
+		public static final OptionDefinition KEY_forceUser = new OptionDefinition(null,"forceUser",null,"ShareWizardPage2.forceUser.argValue",false,false,"ShareWizardPage2.forceUser.argDescription");
 			/**
-   		 *  --enableGuest, default: noDefaultValue
+   		 *  --enableGuest
 		 */
-		public static final OptionDefinition KEY_enableGuest = new OptionDefinition(null,"enableGuest","noDefaultValue","ShareWizardPage2.enableGuest.argValue",false,false,"ShareWizardPage2.enableGuest.argDescription");
+		public static final OptionDefinition KEY_enableGuest = new OptionDefinition(null,"enableGuest",null,"ShareWizardPage2.enableGuest.argValue",false,false,"ShareWizardPage2.enableGuest.argDescription");
 			/**
-   		 *  --enableAllUsers, default: noDefaultValue
+   		 *  --enableAllUsers
 		 */
-		public static final OptionDefinition KEY_enableAllUsers = new OptionDefinition(null,"enableAllUsers","noDefaultValue","ShareWizardPage2.enableAllUsers.argValue",false,false,"ShareWizardPage2.enableAllUsers.argDescription");
+		public static final OptionDefinition KEY_enableAllUsers = new OptionDefinition(null,"enableAllUsers",null,"ShareWizardPage2.enableAllUsers.argValue",false,false,"ShareWizardPage2.enableAllUsers.argDescription");
 		
 	//All Options that are global and task-related
 			/**
-   		 * required, used for selection:  --serviceName, default: noDefaultValue
+   		 * required, used for selection:  --serviceName
 		 */
-		public static final OptionDefinition KEY_GLOBAL_serviceName = new OptionDefinition(null,"serviceName","noDefaultValue","serviceName.argValue",true,false,"serviceName.argDescription");
+		public static final OptionDefinition KEY_GLOBAL_serviceName = new OptionDefinition(null,"serviceName",null,"serviceName.argValue",true,false,"serviceName.argDescription");
 	
 	// Global Communication Options
 			/**

@@ -24,24 +24,12 @@ package org.sblim.wbemsmt.samba.bl.fco;
 
 import java.lang.reflect.Constructor;
 import java.security.InvalidParameterException;
-import java.util.ArrayList;
-import java.util.Enumeration;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Set;
-import java.util.Vector;
+import java.util.*;
 
-import org.sblim.wbem.cim.CIMDataType;
-import org.sblim.wbem.cim.CIMException;
-import org.sblim.wbem.cim.CIMInstance;
-import org.sblim.wbem.cim.CIMObjectPath;
-import org.sblim.wbem.cim.CIMProperty;
-import org.sblim.wbem.cim.CIMValue;
+import org.sblim.wbem.cim.*;
 import org.sblim.wbem.client.CIMClient;
 import org.sblim.wbem.client.CIMEnumeration;
 import org.sblim.wbemsmt.schema.cim29.CIM_SettingData;
-
-
 
 /**
  * 
@@ -416,9 +404,10 @@ public class Linux_SambaPrinterOptions extends CIM_SettingData  {
 			enumeration = cimClient.associators(
 					this.getCimObjectPath(),
 					CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAALLOWHOSTSFORPRINTER, 
-					Linux_SambaHost.CIM_CLASS_NAME, 
-					"GroupComponent", //$NON-NLS-1$
-					"PartComponent", //$NON-NLS-1$
+					Linux_SambaHost.CIM_CLASS_NAME,
+					null,null, 
+					//"GroupComponent", //$NON-NLS-1$
+					//"PartComponent", //$NON-NLS-1$
 					includeQualifiers,
 					includeClassOrigin,
 					propertyList);
@@ -489,8 +478,119 @@ public class Linux_SambaPrinterOptions extends CIM_SettingData  {
 					this.getCimObjectPath(),
 					CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAALLOWHOSTSFORPRINTER, 
 					Linux_SambaHost.CIM_CLASS_NAME, 
-					"GroupComponent", //$NON-NLS-1$
-					"PartComponent"); //$NON-NLS-1$
+					null,null);
+					//"GroupComponent", //$NON-NLS-1$
+					//"PartComponent"); //$NON-NLS-1$
+		
+		
+			while (enumeration.hasMoreElements()) {
+				Object obj = enumeration.nextElement();
+			
+				if (obj instanceof CIMObjectPath) {
+					if (deep || ((CIMObjectPath)obj).getObjectName().equals(Linux_SambaHost.CIM_CLASS_NAME)) {
+						resultArrayList.add(obj);
+					}
+				}
+			}
+		} finally {
+			try {
+				if (enumeration != null) {
+					((CIMEnumeration)enumeration).close();
+				}
+			} catch(Exception e) {
+				throw new CIMException(CIMException.CIM_ERR_FAILED, "The socket of the result could not be closed properly.");
+			}
+		}
+			
+		return resultArrayList;
+	}
+
+	
+	public ArrayList getAssociations_Linux_SambaAllowHostsForPrinter(CIMClient cimClient,
+	boolean includeQualifiers, boolean includeClassOrigin, String role,java.lang.String[] propertyList) {
+
+		if (cimClient == null) {
+			throw new InvalidParameterException("The cimClient parameter does not contain a valid reference.");
+		}
+		
+		ArrayList resultArrayList = new ArrayList();
+		Enumeration enumeration = null;
+		
+		try {
+			enumeration = cimClient.references(
+					this.getCimObjectPath(),
+					CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAALLOWHOSTSFORPRINTER, 
+					role, //$NON-NLS-1$
+					includeQualifiers,
+					includeClassOrigin,
+					propertyList);
+		
+			while (enumeration.hasMoreElements()) {
+				Object obj = enumeration.nextElement();
+				if (obj instanceof CIMInstance) {
+					CIMInstance cimInstance = (CIMInstance)obj;
+                    Class clazz = Linux_SambaPrinterOptionsHelper.findClass(cimClient, cimInstance);
+                    
+					if (clazz == null) {
+						System.err.println("The class " + cimInstance.getClassName() +" was not found. Constructing instance of the base class.");
+						resultArrayList.add(new Linux_SambaHost(cimInstance.getObjectPath(), cimInstance));
+						continue;
+					}
+					
+					Class[] constParams = new Class[2];
+					constParams[0] = CIMObjectPath.class;
+					constParams[1] = CIMInstance.class;
+					Constructor cons = null;
+					try {
+						cons = clazz.getConstructor(constParams);
+						
+					} catch(NoSuchMethodException e) {
+						System.err.println("The required constructor of class " + cimInstance.getClassName() + " could not be found. Constructing instance of the base class.");
+						resultArrayList.add(new Linux_SambaHost(cimInstance.getObjectPath(), cimInstance));
+						continue;
+					}
+				
+					try {
+						Object[] actargs = new Object[] {cimInstance.getObjectPath(), cimInstance};
+					
+						Object dataObj = cons.newInstance(actargs);
+					
+						resultArrayList.add(dataObj);
+					} catch (Exception e) {
+						System.err.println("The instance of class " + cimInstance.getClassName() + " could not be created successful. Constructing instance of the base class.");
+						resultArrayList.add(new Linux_SambaHost(cimInstance.getObjectPath(), cimInstance));
+						continue;
+					}
+
+				}
+			}
+		} finally {
+			try {
+				if (enumeration != null) {
+					((CIMEnumeration)enumeration).close();
+				}
+			} catch(Exception e) {
+				throw new CIMException(CIMException.CIM_ERR_FAILED, "The socket of the result could not be closed properly.");
+			}
+		}
+			
+		return resultArrayList;
+	}
+	
+	public ArrayList getAssociationNames_Linux_SambaAllowHostsForPrinter(CIMClient cimClient, String role, boolean deep) {
+
+		if (cimClient == null) {
+			throw new InvalidParameterException("The cimClient parameter does not contain a valid reference.");
+		}
+		
+		Enumeration enumeration = null;
+		ArrayList resultArrayList = new ArrayList();
+
+		try {		
+			enumeration = cimClient.referenceNames(
+					this.getCimObjectPath(),
+					CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAALLOWHOSTSFORPRINTER, 
+					role); //$NON-NLS-1$
 		
 		
 			while (enumeration.hasMoreElements()) {
@@ -529,9 +629,10 @@ public class Linux_SambaPrinterOptions extends CIM_SettingData  {
 			enumeration = cimClient.associators(
 					this.getCimObjectPath(),
 					CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBACOMMONSECURITYFORPRINTER, 
-					Linux_SambaCommonSecurityOptions.CIM_CLASS_NAME, 
-					"ManagedElement", //$NON-NLS-1$
-					"SettingData", //$NON-NLS-1$
+					Linux_SambaCommonSecurityOptions.CIM_CLASS_NAME,
+					null,null, 
+					//"ManagedElement", //$NON-NLS-1$
+					//"SettingData", //$NON-NLS-1$
 					includeQualifiers,
 					includeClassOrigin,
 					propertyList);
@@ -602,8 +703,119 @@ public class Linux_SambaPrinterOptions extends CIM_SettingData  {
 					this.getCimObjectPath(),
 					CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBACOMMONSECURITYFORPRINTER, 
 					Linux_SambaCommonSecurityOptions.CIM_CLASS_NAME, 
-					"ManagedElement", //$NON-NLS-1$
-					"SettingData"); //$NON-NLS-1$
+					null,null);
+					//"ManagedElement", //$NON-NLS-1$
+					//"SettingData"); //$NON-NLS-1$
+		
+		
+			while (enumeration.hasMoreElements()) {
+				Object obj = enumeration.nextElement();
+			
+				if (obj instanceof CIMObjectPath) {
+					if (deep || ((CIMObjectPath)obj).getObjectName().equals(Linux_SambaCommonSecurityOptions.CIM_CLASS_NAME)) {
+						resultArrayList.add(obj);
+					}
+				}
+			}
+		} finally {
+			try {
+				if (enumeration != null) {
+					((CIMEnumeration)enumeration).close();
+				}
+			} catch(Exception e) {
+				throw new CIMException(CIMException.CIM_ERR_FAILED, "The socket of the result could not be closed properly.");
+			}
+		}
+			
+		return resultArrayList;
+	}
+
+	
+	public ArrayList getAssociations_Linux_SambaCommonSecurityForPrinter(CIMClient cimClient,
+	boolean includeQualifiers, boolean includeClassOrigin, String role,java.lang.String[] propertyList) {
+
+		if (cimClient == null) {
+			throw new InvalidParameterException("The cimClient parameter does not contain a valid reference.");
+		}
+		
+		ArrayList resultArrayList = new ArrayList();
+		Enumeration enumeration = null;
+		
+		try {
+			enumeration = cimClient.references(
+					this.getCimObjectPath(),
+					CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBACOMMONSECURITYFORPRINTER, 
+					role, //$NON-NLS-1$
+					includeQualifiers,
+					includeClassOrigin,
+					propertyList);
+		
+			while (enumeration.hasMoreElements()) {
+				Object obj = enumeration.nextElement();
+				if (obj instanceof CIMInstance) {
+					CIMInstance cimInstance = (CIMInstance)obj;
+                    Class clazz = Linux_SambaPrinterOptionsHelper.findClass(cimClient, cimInstance);
+                    
+					if (clazz == null) {
+						System.err.println("The class " + cimInstance.getClassName() +" was not found. Constructing instance of the base class.");
+						resultArrayList.add(new Linux_SambaCommonSecurityOptions(cimInstance.getObjectPath(), cimInstance));
+						continue;
+					}
+					
+					Class[] constParams = new Class[2];
+					constParams[0] = CIMObjectPath.class;
+					constParams[1] = CIMInstance.class;
+					Constructor cons = null;
+					try {
+						cons = clazz.getConstructor(constParams);
+						
+					} catch(NoSuchMethodException e) {
+						System.err.println("The required constructor of class " + cimInstance.getClassName() + " could not be found. Constructing instance of the base class.");
+						resultArrayList.add(new Linux_SambaCommonSecurityOptions(cimInstance.getObjectPath(), cimInstance));
+						continue;
+					}
+				
+					try {
+						Object[] actargs = new Object[] {cimInstance.getObjectPath(), cimInstance};
+					
+						Object dataObj = cons.newInstance(actargs);
+					
+						resultArrayList.add(dataObj);
+					} catch (Exception e) {
+						System.err.println("The instance of class " + cimInstance.getClassName() + " could not be created successful. Constructing instance of the base class.");
+						resultArrayList.add(new Linux_SambaCommonSecurityOptions(cimInstance.getObjectPath(), cimInstance));
+						continue;
+					}
+
+				}
+			}
+		} finally {
+			try {
+				if (enumeration != null) {
+					((CIMEnumeration)enumeration).close();
+				}
+			} catch(Exception e) {
+				throw new CIMException(CIMException.CIM_ERR_FAILED, "The socket of the result could not be closed properly.");
+			}
+		}
+			
+		return resultArrayList;
+	}
+	
+	public ArrayList getAssociationNames_Linux_SambaCommonSecurityForPrinter(CIMClient cimClient, String role, boolean deep) {
+
+		if (cimClient == null) {
+			throw new InvalidParameterException("The cimClient parameter does not contain a valid reference.");
+		}
+		
+		Enumeration enumeration = null;
+		ArrayList resultArrayList = new ArrayList();
+
+		try {		
+			enumeration = cimClient.referenceNames(
+					this.getCimObjectPath(),
+					CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBACOMMONSECURITYFORPRINTER, 
+					role); //$NON-NLS-1$
 		
 		
 			while (enumeration.hasMoreElements()) {
@@ -642,9 +854,10 @@ public class Linux_SambaPrinterOptions extends CIM_SettingData  {
 			enumeration = cimClient.associators(
 					this.getCimObjectPath(),
 					CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBADENYHOSTSFORPRINTER, 
-					Linux_SambaHost.CIM_CLASS_NAME, 
-					"GroupComponent", //$NON-NLS-1$
-					"PartComponent", //$NON-NLS-1$
+					Linux_SambaHost.CIM_CLASS_NAME,
+					null,null, 
+					//"GroupComponent", //$NON-NLS-1$
+					//"PartComponent", //$NON-NLS-1$
 					includeQualifiers,
 					includeClassOrigin,
 					propertyList);
@@ -715,8 +928,119 @@ public class Linux_SambaPrinterOptions extends CIM_SettingData  {
 					this.getCimObjectPath(),
 					CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBADENYHOSTSFORPRINTER, 
 					Linux_SambaHost.CIM_CLASS_NAME, 
-					"GroupComponent", //$NON-NLS-1$
-					"PartComponent"); //$NON-NLS-1$
+					null,null);
+					//"GroupComponent", //$NON-NLS-1$
+					//"PartComponent"); //$NON-NLS-1$
+		
+		
+			while (enumeration.hasMoreElements()) {
+				Object obj = enumeration.nextElement();
+			
+				if (obj instanceof CIMObjectPath) {
+					if (deep || ((CIMObjectPath)obj).getObjectName().equals(Linux_SambaHost.CIM_CLASS_NAME)) {
+						resultArrayList.add(obj);
+					}
+				}
+			}
+		} finally {
+			try {
+				if (enumeration != null) {
+					((CIMEnumeration)enumeration).close();
+				}
+			} catch(Exception e) {
+				throw new CIMException(CIMException.CIM_ERR_FAILED, "The socket of the result could not be closed properly.");
+			}
+		}
+			
+		return resultArrayList;
+	}
+
+	
+	public ArrayList getAssociations_Linux_SambaDenyHostsForPrinter(CIMClient cimClient,
+	boolean includeQualifiers, boolean includeClassOrigin, String role,java.lang.String[] propertyList) {
+
+		if (cimClient == null) {
+			throw new InvalidParameterException("The cimClient parameter does not contain a valid reference.");
+		}
+		
+		ArrayList resultArrayList = new ArrayList();
+		Enumeration enumeration = null;
+		
+		try {
+			enumeration = cimClient.references(
+					this.getCimObjectPath(),
+					CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBADENYHOSTSFORPRINTER, 
+					role, //$NON-NLS-1$
+					includeQualifiers,
+					includeClassOrigin,
+					propertyList);
+		
+			while (enumeration.hasMoreElements()) {
+				Object obj = enumeration.nextElement();
+				if (obj instanceof CIMInstance) {
+					CIMInstance cimInstance = (CIMInstance)obj;
+                    Class clazz = Linux_SambaPrinterOptionsHelper.findClass(cimClient, cimInstance);
+                    
+					if (clazz == null) {
+						System.err.println("The class " + cimInstance.getClassName() +" was not found. Constructing instance of the base class.");
+						resultArrayList.add(new Linux_SambaHost(cimInstance.getObjectPath(), cimInstance));
+						continue;
+					}
+					
+					Class[] constParams = new Class[2];
+					constParams[0] = CIMObjectPath.class;
+					constParams[1] = CIMInstance.class;
+					Constructor cons = null;
+					try {
+						cons = clazz.getConstructor(constParams);
+						
+					} catch(NoSuchMethodException e) {
+						System.err.println("The required constructor of class " + cimInstance.getClassName() + " could not be found. Constructing instance of the base class.");
+						resultArrayList.add(new Linux_SambaHost(cimInstance.getObjectPath(), cimInstance));
+						continue;
+					}
+				
+					try {
+						Object[] actargs = new Object[] {cimInstance.getObjectPath(), cimInstance};
+					
+						Object dataObj = cons.newInstance(actargs);
+					
+						resultArrayList.add(dataObj);
+					} catch (Exception e) {
+						System.err.println("The instance of class " + cimInstance.getClassName() + " could not be created successful. Constructing instance of the base class.");
+						resultArrayList.add(new Linux_SambaHost(cimInstance.getObjectPath(), cimInstance));
+						continue;
+					}
+
+				}
+			}
+		} finally {
+			try {
+				if (enumeration != null) {
+					((CIMEnumeration)enumeration).close();
+				}
+			} catch(Exception e) {
+				throw new CIMException(CIMException.CIM_ERR_FAILED, "The socket of the result could not be closed properly.");
+			}
+		}
+			
+		return resultArrayList;
+	}
+	
+	public ArrayList getAssociationNames_Linux_SambaDenyHostsForPrinter(CIMClient cimClient, String role, boolean deep) {
+
+		if (cimClient == null) {
+			throw new InvalidParameterException("The cimClient parameter does not contain a valid reference.");
+		}
+		
+		Enumeration enumeration = null;
+		ArrayList resultArrayList = new ArrayList();
+
+		try {		
+			enumeration = cimClient.referenceNames(
+					this.getCimObjectPath(),
+					CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBADENYHOSTSFORPRINTER, 
+					role); //$NON-NLS-1$
 		
 		
 			while (enumeration.hasMoreElements()) {
@@ -755,9 +1079,10 @@ public class Linux_SambaPrinterOptions extends CIM_SettingData  {
 			enumeration = cimClient.associators(
 					this.getCimObjectPath(),
 					CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAFORCEGROUPFORPRINTER, 
-					Linux_SambaGroup.CIM_CLASS_NAME, 
-					"GroupComponent", //$NON-NLS-1$
-					"PartComponent", //$NON-NLS-1$
+					Linux_SambaGroup.CIM_CLASS_NAME,
+					null,null, 
+					//"GroupComponent", //$NON-NLS-1$
+					//"PartComponent", //$NON-NLS-1$
 					includeQualifiers,
 					includeClassOrigin,
 					propertyList);
@@ -828,8 +1153,119 @@ public class Linux_SambaPrinterOptions extends CIM_SettingData  {
 					this.getCimObjectPath(),
 					CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAFORCEGROUPFORPRINTER, 
 					Linux_SambaGroup.CIM_CLASS_NAME, 
-					"GroupComponent", //$NON-NLS-1$
-					"PartComponent"); //$NON-NLS-1$
+					null,null);
+					//"GroupComponent", //$NON-NLS-1$
+					//"PartComponent"); //$NON-NLS-1$
+		
+		
+			while (enumeration.hasMoreElements()) {
+				Object obj = enumeration.nextElement();
+			
+				if (obj instanceof CIMObjectPath) {
+					if (deep || ((CIMObjectPath)obj).getObjectName().equals(Linux_SambaGroup.CIM_CLASS_NAME)) {
+						resultArrayList.add(obj);
+					}
+				}
+			}
+		} finally {
+			try {
+				if (enumeration != null) {
+					((CIMEnumeration)enumeration).close();
+				}
+			} catch(Exception e) {
+				throw new CIMException(CIMException.CIM_ERR_FAILED, "The socket of the result could not be closed properly.");
+			}
+		}
+			
+		return resultArrayList;
+	}
+
+	
+	public ArrayList getAssociations_Linux_SambaForceGroupForPrinter(CIMClient cimClient,
+	boolean includeQualifiers, boolean includeClassOrigin, String role,java.lang.String[] propertyList) {
+
+		if (cimClient == null) {
+			throw new InvalidParameterException("The cimClient parameter does not contain a valid reference.");
+		}
+		
+		ArrayList resultArrayList = new ArrayList();
+		Enumeration enumeration = null;
+		
+		try {
+			enumeration = cimClient.references(
+					this.getCimObjectPath(),
+					CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAFORCEGROUPFORPRINTER, 
+					role, //$NON-NLS-1$
+					includeQualifiers,
+					includeClassOrigin,
+					propertyList);
+		
+			while (enumeration.hasMoreElements()) {
+				Object obj = enumeration.nextElement();
+				if (obj instanceof CIMInstance) {
+					CIMInstance cimInstance = (CIMInstance)obj;
+                    Class clazz = Linux_SambaPrinterOptionsHelper.findClass(cimClient, cimInstance);
+                    
+					if (clazz == null) {
+						System.err.println("The class " + cimInstance.getClassName() +" was not found. Constructing instance of the base class.");
+						resultArrayList.add(new Linux_SambaGroup(cimInstance.getObjectPath(), cimInstance));
+						continue;
+					}
+					
+					Class[] constParams = new Class[2];
+					constParams[0] = CIMObjectPath.class;
+					constParams[1] = CIMInstance.class;
+					Constructor cons = null;
+					try {
+						cons = clazz.getConstructor(constParams);
+						
+					} catch(NoSuchMethodException e) {
+						System.err.println("The required constructor of class " + cimInstance.getClassName() + " could not be found. Constructing instance of the base class.");
+						resultArrayList.add(new Linux_SambaGroup(cimInstance.getObjectPath(), cimInstance));
+						continue;
+					}
+				
+					try {
+						Object[] actargs = new Object[] {cimInstance.getObjectPath(), cimInstance};
+					
+						Object dataObj = cons.newInstance(actargs);
+					
+						resultArrayList.add(dataObj);
+					} catch (Exception e) {
+						System.err.println("The instance of class " + cimInstance.getClassName() + " could not be created successful. Constructing instance of the base class.");
+						resultArrayList.add(new Linux_SambaGroup(cimInstance.getObjectPath(), cimInstance));
+						continue;
+					}
+
+				}
+			}
+		} finally {
+			try {
+				if (enumeration != null) {
+					((CIMEnumeration)enumeration).close();
+				}
+			} catch(Exception e) {
+				throw new CIMException(CIMException.CIM_ERR_FAILED, "The socket of the result could not be closed properly.");
+			}
+		}
+			
+		return resultArrayList;
+	}
+	
+	public ArrayList getAssociationNames_Linux_SambaForceGroupForPrinter(CIMClient cimClient, String role, boolean deep) {
+
+		if (cimClient == null) {
+			throw new InvalidParameterException("The cimClient parameter does not contain a valid reference.");
+		}
+		
+		Enumeration enumeration = null;
+		ArrayList resultArrayList = new ArrayList();
+
+		try {		
+			enumeration = cimClient.referenceNames(
+					this.getCimObjectPath(),
+					CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAFORCEGROUPFORPRINTER, 
+					role); //$NON-NLS-1$
 		
 		
 			while (enumeration.hasMoreElements()) {
@@ -868,9 +1304,10 @@ public class Linux_SambaPrinterOptions extends CIM_SettingData  {
 			enumeration = cimClient.associators(
 					this.getCimObjectPath(),
 					CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAFORCEUSERFORPRINTER, 
-					Linux_SambaUser.CIM_CLASS_NAME, 
-					"GroupComponent", //$NON-NLS-1$
-					"PartComponent", //$NON-NLS-1$
+					Linux_SambaUser.CIM_CLASS_NAME,
+					null,null, 
+					//"GroupComponent", //$NON-NLS-1$
+					//"PartComponent", //$NON-NLS-1$
 					includeQualifiers,
 					includeClassOrigin,
 					propertyList);
@@ -941,8 +1378,119 @@ public class Linux_SambaPrinterOptions extends CIM_SettingData  {
 					this.getCimObjectPath(),
 					CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAFORCEUSERFORPRINTER, 
 					Linux_SambaUser.CIM_CLASS_NAME, 
-					"GroupComponent", //$NON-NLS-1$
-					"PartComponent"); //$NON-NLS-1$
+					null,null);
+					//"GroupComponent", //$NON-NLS-1$
+					//"PartComponent"); //$NON-NLS-1$
+		
+		
+			while (enumeration.hasMoreElements()) {
+				Object obj = enumeration.nextElement();
+			
+				if (obj instanceof CIMObjectPath) {
+					if (deep || ((CIMObjectPath)obj).getObjectName().equals(Linux_SambaUser.CIM_CLASS_NAME)) {
+						resultArrayList.add(obj);
+					}
+				}
+			}
+		} finally {
+			try {
+				if (enumeration != null) {
+					((CIMEnumeration)enumeration).close();
+				}
+			} catch(Exception e) {
+				throw new CIMException(CIMException.CIM_ERR_FAILED, "The socket of the result could not be closed properly.");
+			}
+		}
+			
+		return resultArrayList;
+	}
+
+	
+	public ArrayList getAssociations_Linux_SambaForceUserForPrinter(CIMClient cimClient,
+	boolean includeQualifiers, boolean includeClassOrigin, String role,java.lang.String[] propertyList) {
+
+		if (cimClient == null) {
+			throw new InvalidParameterException("The cimClient parameter does not contain a valid reference.");
+		}
+		
+		ArrayList resultArrayList = new ArrayList();
+		Enumeration enumeration = null;
+		
+		try {
+			enumeration = cimClient.references(
+					this.getCimObjectPath(),
+					CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAFORCEUSERFORPRINTER, 
+					role, //$NON-NLS-1$
+					includeQualifiers,
+					includeClassOrigin,
+					propertyList);
+		
+			while (enumeration.hasMoreElements()) {
+				Object obj = enumeration.nextElement();
+				if (obj instanceof CIMInstance) {
+					CIMInstance cimInstance = (CIMInstance)obj;
+                    Class clazz = Linux_SambaPrinterOptionsHelper.findClass(cimClient, cimInstance);
+                    
+					if (clazz == null) {
+						System.err.println("The class " + cimInstance.getClassName() +" was not found. Constructing instance of the base class.");
+						resultArrayList.add(new Linux_SambaUser(cimInstance.getObjectPath(), cimInstance));
+						continue;
+					}
+					
+					Class[] constParams = new Class[2];
+					constParams[0] = CIMObjectPath.class;
+					constParams[1] = CIMInstance.class;
+					Constructor cons = null;
+					try {
+						cons = clazz.getConstructor(constParams);
+						
+					} catch(NoSuchMethodException e) {
+						System.err.println("The required constructor of class " + cimInstance.getClassName() + " could not be found. Constructing instance of the base class.");
+						resultArrayList.add(new Linux_SambaUser(cimInstance.getObjectPath(), cimInstance));
+						continue;
+					}
+				
+					try {
+						Object[] actargs = new Object[] {cimInstance.getObjectPath(), cimInstance};
+					
+						Object dataObj = cons.newInstance(actargs);
+					
+						resultArrayList.add(dataObj);
+					} catch (Exception e) {
+						System.err.println("The instance of class " + cimInstance.getClassName() + " could not be created successful. Constructing instance of the base class.");
+						resultArrayList.add(new Linux_SambaUser(cimInstance.getObjectPath(), cimInstance));
+						continue;
+					}
+
+				}
+			}
+		} finally {
+			try {
+				if (enumeration != null) {
+					((CIMEnumeration)enumeration).close();
+				}
+			} catch(Exception e) {
+				throw new CIMException(CIMException.CIM_ERR_FAILED, "The socket of the result could not be closed properly.");
+			}
+		}
+			
+		return resultArrayList;
+	}
+	
+	public ArrayList getAssociationNames_Linux_SambaForceUserForPrinter(CIMClient cimClient, String role, boolean deep) {
+
+		if (cimClient == null) {
+			throw new InvalidParameterException("The cimClient parameter does not contain a valid reference.");
+		}
+		
+		Enumeration enumeration = null;
+		ArrayList resultArrayList = new ArrayList();
+
+		try {		
+			enumeration = cimClient.referenceNames(
+					this.getCimObjectPath(),
+					CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAFORCEUSERFORPRINTER, 
+					role); //$NON-NLS-1$
 		
 		
 			while (enumeration.hasMoreElements()) {
@@ -981,9 +1529,10 @@ public class Linux_SambaPrinterOptions extends CIM_SettingData  {
 			enumeration = cimClient.associators(
 					this.getCimObjectPath(),
 					CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAINVALIDUSERSFORPRINTER, 
-					Linux_SambaUser.CIM_CLASS_NAME, 
-					"GroupComponent", //$NON-NLS-1$
-					"PartComponent", //$NON-NLS-1$
+					Linux_SambaUser.CIM_CLASS_NAME,
+					null,null, 
+					//"GroupComponent", //$NON-NLS-1$
+					//"PartComponent", //$NON-NLS-1$
 					includeQualifiers,
 					includeClassOrigin,
 					propertyList);
@@ -1054,8 +1603,119 @@ public class Linux_SambaPrinterOptions extends CIM_SettingData  {
 					this.getCimObjectPath(),
 					CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAINVALIDUSERSFORPRINTER, 
 					Linux_SambaUser.CIM_CLASS_NAME, 
-					"GroupComponent", //$NON-NLS-1$
-					"PartComponent"); //$NON-NLS-1$
+					null,null);
+					//"GroupComponent", //$NON-NLS-1$
+					//"PartComponent"); //$NON-NLS-1$
+		
+		
+			while (enumeration.hasMoreElements()) {
+				Object obj = enumeration.nextElement();
+			
+				if (obj instanceof CIMObjectPath) {
+					if (deep || ((CIMObjectPath)obj).getObjectName().equals(Linux_SambaUser.CIM_CLASS_NAME)) {
+						resultArrayList.add(obj);
+					}
+				}
+			}
+		} finally {
+			try {
+				if (enumeration != null) {
+					((CIMEnumeration)enumeration).close();
+				}
+			} catch(Exception e) {
+				throw new CIMException(CIMException.CIM_ERR_FAILED, "The socket of the result could not be closed properly.");
+			}
+		}
+			
+		return resultArrayList;
+	}
+
+	
+	public ArrayList getAssociations_Linux_SambaInvalidUsersForPrinter(CIMClient cimClient,
+	boolean includeQualifiers, boolean includeClassOrigin, String role,java.lang.String[] propertyList) {
+
+		if (cimClient == null) {
+			throw new InvalidParameterException("The cimClient parameter does not contain a valid reference.");
+		}
+		
+		ArrayList resultArrayList = new ArrayList();
+		Enumeration enumeration = null;
+		
+		try {
+			enumeration = cimClient.references(
+					this.getCimObjectPath(),
+					CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAINVALIDUSERSFORPRINTER, 
+					role, //$NON-NLS-1$
+					includeQualifiers,
+					includeClassOrigin,
+					propertyList);
+		
+			while (enumeration.hasMoreElements()) {
+				Object obj = enumeration.nextElement();
+				if (obj instanceof CIMInstance) {
+					CIMInstance cimInstance = (CIMInstance)obj;
+                    Class clazz = Linux_SambaPrinterOptionsHelper.findClass(cimClient, cimInstance);
+                    
+					if (clazz == null) {
+						System.err.println("The class " + cimInstance.getClassName() +" was not found. Constructing instance of the base class.");
+						resultArrayList.add(new Linux_SambaUser(cimInstance.getObjectPath(), cimInstance));
+						continue;
+					}
+					
+					Class[] constParams = new Class[2];
+					constParams[0] = CIMObjectPath.class;
+					constParams[1] = CIMInstance.class;
+					Constructor cons = null;
+					try {
+						cons = clazz.getConstructor(constParams);
+						
+					} catch(NoSuchMethodException e) {
+						System.err.println("The required constructor of class " + cimInstance.getClassName() + " could not be found. Constructing instance of the base class.");
+						resultArrayList.add(new Linux_SambaUser(cimInstance.getObjectPath(), cimInstance));
+						continue;
+					}
+				
+					try {
+						Object[] actargs = new Object[] {cimInstance.getObjectPath(), cimInstance};
+					
+						Object dataObj = cons.newInstance(actargs);
+					
+						resultArrayList.add(dataObj);
+					} catch (Exception e) {
+						System.err.println("The instance of class " + cimInstance.getClassName() + " could not be created successful. Constructing instance of the base class.");
+						resultArrayList.add(new Linux_SambaUser(cimInstance.getObjectPath(), cimInstance));
+						continue;
+					}
+
+				}
+			}
+		} finally {
+			try {
+				if (enumeration != null) {
+					((CIMEnumeration)enumeration).close();
+				}
+			} catch(Exception e) {
+				throw new CIMException(CIMException.CIM_ERR_FAILED, "The socket of the result could not be closed properly.");
+			}
+		}
+			
+		return resultArrayList;
+	}
+	
+	public ArrayList getAssociationNames_Linux_SambaInvalidUsersForPrinter(CIMClient cimClient, String role, boolean deep) {
+
+		if (cimClient == null) {
+			throw new InvalidParameterException("The cimClient parameter does not contain a valid reference.");
+		}
+		
+		Enumeration enumeration = null;
+		ArrayList resultArrayList = new ArrayList();
+
+		try {		
+			enumeration = cimClient.referenceNames(
+					this.getCimObjectPath(),
+					CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAINVALIDUSERSFORPRINTER, 
+					role); //$NON-NLS-1$
 		
 		
 			while (enumeration.hasMoreElements()) {
@@ -1094,9 +1754,10 @@ public class Linux_SambaPrinterOptions extends CIM_SettingData  {
 			enumeration = cimClient.associators(
 					this.getCimObjectPath(),
 					CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAPRINTERADMINFORPRINTER, 
-					Linux_SambaUser.CIM_CLASS_NAME, 
-					"GroupComponent", //$NON-NLS-1$
-					"PartComponent", //$NON-NLS-1$
+					Linux_SambaUser.CIM_CLASS_NAME,
+					null,null, 
+					//"GroupComponent", //$NON-NLS-1$
+					//"PartComponent", //$NON-NLS-1$
 					includeQualifiers,
 					includeClassOrigin,
 					propertyList);
@@ -1167,8 +1828,119 @@ public class Linux_SambaPrinterOptions extends CIM_SettingData  {
 					this.getCimObjectPath(),
 					CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAPRINTERADMINFORPRINTER, 
 					Linux_SambaUser.CIM_CLASS_NAME, 
-					"GroupComponent", //$NON-NLS-1$
-					"PartComponent"); //$NON-NLS-1$
+					null,null);
+					//"GroupComponent", //$NON-NLS-1$
+					//"PartComponent"); //$NON-NLS-1$
+		
+		
+			while (enumeration.hasMoreElements()) {
+				Object obj = enumeration.nextElement();
+			
+				if (obj instanceof CIMObjectPath) {
+					if (deep || ((CIMObjectPath)obj).getObjectName().equals(Linux_SambaUser.CIM_CLASS_NAME)) {
+						resultArrayList.add(obj);
+					}
+				}
+			}
+		} finally {
+			try {
+				if (enumeration != null) {
+					((CIMEnumeration)enumeration).close();
+				}
+			} catch(Exception e) {
+				throw new CIMException(CIMException.CIM_ERR_FAILED, "The socket of the result could not be closed properly.");
+			}
+		}
+			
+		return resultArrayList;
+	}
+
+	
+	public ArrayList getAssociations_Linux_SambaPrinterAdminForPrinter(CIMClient cimClient,
+	boolean includeQualifiers, boolean includeClassOrigin, String role,java.lang.String[] propertyList) {
+
+		if (cimClient == null) {
+			throw new InvalidParameterException("The cimClient parameter does not contain a valid reference.");
+		}
+		
+		ArrayList resultArrayList = new ArrayList();
+		Enumeration enumeration = null;
+		
+		try {
+			enumeration = cimClient.references(
+					this.getCimObjectPath(),
+					CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAPRINTERADMINFORPRINTER, 
+					role, //$NON-NLS-1$
+					includeQualifiers,
+					includeClassOrigin,
+					propertyList);
+		
+			while (enumeration.hasMoreElements()) {
+				Object obj = enumeration.nextElement();
+				if (obj instanceof CIMInstance) {
+					CIMInstance cimInstance = (CIMInstance)obj;
+                    Class clazz = Linux_SambaPrinterOptionsHelper.findClass(cimClient, cimInstance);
+                    
+					if (clazz == null) {
+						System.err.println("The class " + cimInstance.getClassName() +" was not found. Constructing instance of the base class.");
+						resultArrayList.add(new Linux_SambaUser(cimInstance.getObjectPath(), cimInstance));
+						continue;
+					}
+					
+					Class[] constParams = new Class[2];
+					constParams[0] = CIMObjectPath.class;
+					constParams[1] = CIMInstance.class;
+					Constructor cons = null;
+					try {
+						cons = clazz.getConstructor(constParams);
+						
+					} catch(NoSuchMethodException e) {
+						System.err.println("The required constructor of class " + cimInstance.getClassName() + " could not be found. Constructing instance of the base class.");
+						resultArrayList.add(new Linux_SambaUser(cimInstance.getObjectPath(), cimInstance));
+						continue;
+					}
+				
+					try {
+						Object[] actargs = new Object[] {cimInstance.getObjectPath(), cimInstance};
+					
+						Object dataObj = cons.newInstance(actargs);
+					
+						resultArrayList.add(dataObj);
+					} catch (Exception e) {
+						System.err.println("The instance of class " + cimInstance.getClassName() + " could not be created successful. Constructing instance of the base class.");
+						resultArrayList.add(new Linux_SambaUser(cimInstance.getObjectPath(), cimInstance));
+						continue;
+					}
+
+				}
+			}
+		} finally {
+			try {
+				if (enumeration != null) {
+					((CIMEnumeration)enumeration).close();
+				}
+			} catch(Exception e) {
+				throw new CIMException(CIMException.CIM_ERR_FAILED, "The socket of the result could not be closed properly.");
+			}
+		}
+			
+		return resultArrayList;
+	}
+	
+	public ArrayList getAssociationNames_Linux_SambaPrinterAdminForPrinter(CIMClient cimClient, String role, boolean deep) {
+
+		if (cimClient == null) {
+			throw new InvalidParameterException("The cimClient parameter does not contain a valid reference.");
+		}
+		
+		Enumeration enumeration = null;
+		ArrayList resultArrayList = new ArrayList();
+
+		try {		
+			enumeration = cimClient.referenceNames(
+					this.getCimObjectPath(),
+					CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAPRINTERADMINFORPRINTER, 
+					role); //$NON-NLS-1$
 		
 		
 			while (enumeration.hasMoreElements()) {
@@ -1207,9 +1979,10 @@ public class Linux_SambaPrinterOptions extends CIM_SettingData  {
 			enumeration = cimClient.associators(
 					this.getCimObjectPath(),
 					CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAPRINTERBROWSEFORPRINTER, 
-					Linux_SambaPrinterBrowseOptions.CIM_CLASS_NAME, 
-					"ManagedElement", //$NON-NLS-1$
-					"SettingData", //$NON-NLS-1$
+					Linux_SambaPrinterBrowseOptions.CIM_CLASS_NAME,
+					null,null, 
+					//"ManagedElement", //$NON-NLS-1$
+					//"SettingData", //$NON-NLS-1$
 					includeQualifiers,
 					includeClassOrigin,
 					propertyList);
@@ -1280,8 +2053,119 @@ public class Linux_SambaPrinterOptions extends CIM_SettingData  {
 					this.getCimObjectPath(),
 					CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAPRINTERBROWSEFORPRINTER, 
 					Linux_SambaPrinterBrowseOptions.CIM_CLASS_NAME, 
-					"ManagedElement", //$NON-NLS-1$
-					"SettingData"); //$NON-NLS-1$
+					null,null);
+					//"ManagedElement", //$NON-NLS-1$
+					//"SettingData"); //$NON-NLS-1$
+		
+		
+			while (enumeration.hasMoreElements()) {
+				Object obj = enumeration.nextElement();
+			
+				if (obj instanceof CIMObjectPath) {
+					if (deep || ((CIMObjectPath)obj).getObjectName().equals(Linux_SambaPrinterBrowseOptions.CIM_CLASS_NAME)) {
+						resultArrayList.add(obj);
+					}
+				}
+			}
+		} finally {
+			try {
+				if (enumeration != null) {
+					((CIMEnumeration)enumeration).close();
+				}
+			} catch(Exception e) {
+				throw new CIMException(CIMException.CIM_ERR_FAILED, "The socket of the result could not be closed properly.");
+			}
+		}
+			
+		return resultArrayList;
+	}
+
+	
+	public ArrayList getAssociations_Linux_SambaPrinterBrowseForPrinter(CIMClient cimClient,
+	boolean includeQualifiers, boolean includeClassOrigin, String role,java.lang.String[] propertyList) {
+
+		if (cimClient == null) {
+			throw new InvalidParameterException("The cimClient parameter does not contain a valid reference.");
+		}
+		
+		ArrayList resultArrayList = new ArrayList();
+		Enumeration enumeration = null;
+		
+		try {
+			enumeration = cimClient.references(
+					this.getCimObjectPath(),
+					CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAPRINTERBROWSEFORPRINTER, 
+					role, //$NON-NLS-1$
+					includeQualifiers,
+					includeClassOrigin,
+					propertyList);
+		
+			while (enumeration.hasMoreElements()) {
+				Object obj = enumeration.nextElement();
+				if (obj instanceof CIMInstance) {
+					CIMInstance cimInstance = (CIMInstance)obj;
+                    Class clazz = Linux_SambaPrinterOptionsHelper.findClass(cimClient, cimInstance);
+                    
+					if (clazz == null) {
+						System.err.println("The class " + cimInstance.getClassName() +" was not found. Constructing instance of the base class.");
+						resultArrayList.add(new Linux_SambaPrinterBrowseOptions(cimInstance.getObjectPath(), cimInstance));
+						continue;
+					}
+					
+					Class[] constParams = new Class[2];
+					constParams[0] = CIMObjectPath.class;
+					constParams[1] = CIMInstance.class;
+					Constructor cons = null;
+					try {
+						cons = clazz.getConstructor(constParams);
+						
+					} catch(NoSuchMethodException e) {
+						System.err.println("The required constructor of class " + cimInstance.getClassName() + " could not be found. Constructing instance of the base class.");
+						resultArrayList.add(new Linux_SambaPrinterBrowseOptions(cimInstance.getObjectPath(), cimInstance));
+						continue;
+					}
+				
+					try {
+						Object[] actargs = new Object[] {cimInstance.getObjectPath(), cimInstance};
+					
+						Object dataObj = cons.newInstance(actargs);
+					
+						resultArrayList.add(dataObj);
+					} catch (Exception e) {
+						System.err.println("The instance of class " + cimInstance.getClassName() + " could not be created successful. Constructing instance of the base class.");
+						resultArrayList.add(new Linux_SambaPrinterBrowseOptions(cimInstance.getObjectPath(), cimInstance));
+						continue;
+					}
+
+				}
+			}
+		} finally {
+			try {
+				if (enumeration != null) {
+					((CIMEnumeration)enumeration).close();
+				}
+			} catch(Exception e) {
+				throw new CIMException(CIMException.CIM_ERR_FAILED, "The socket of the result could not be closed properly.");
+			}
+		}
+			
+		return resultArrayList;
+	}
+	
+	public ArrayList getAssociationNames_Linux_SambaPrinterBrowseForPrinter(CIMClient cimClient, String role, boolean deep) {
+
+		if (cimClient == null) {
+			throw new InvalidParameterException("The cimClient parameter does not contain a valid reference.");
+		}
+		
+		Enumeration enumeration = null;
+		ArrayList resultArrayList = new ArrayList();
+
+		try {		
+			enumeration = cimClient.referenceNames(
+					this.getCimObjectPath(),
+					CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAPRINTERBROWSEFORPRINTER, 
+					role); //$NON-NLS-1$
 		
 		
 			while (enumeration.hasMoreElements()) {
@@ -1320,9 +2204,10 @@ public class Linux_SambaPrinterOptions extends CIM_SettingData  {
 			enumeration = cimClient.associators(
 					this.getCimObjectPath(),
 					CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAPRINTERFORSERVICE, 
-					Linux_SambaService.CIM_CLASS_NAME, 
-					"SettingData", //$NON-NLS-1$
-					"ManagedElement", //$NON-NLS-1$
+					Linux_SambaService.CIM_CLASS_NAME,
+					null,null, 
+					//"SettingData", //$NON-NLS-1$
+					//"ManagedElement", //$NON-NLS-1$
 					includeQualifiers,
 					includeClassOrigin,
 					propertyList);
@@ -1393,8 +2278,119 @@ public class Linux_SambaPrinterOptions extends CIM_SettingData  {
 					this.getCimObjectPath(),
 					CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAPRINTERFORSERVICE, 
 					Linux_SambaService.CIM_CLASS_NAME, 
-					"SettingData", //$NON-NLS-1$
-					"ManagedElement"); //$NON-NLS-1$
+					null,null);
+					//"SettingData", //$NON-NLS-1$
+					//"ManagedElement"); //$NON-NLS-1$
+		
+		
+			while (enumeration.hasMoreElements()) {
+				Object obj = enumeration.nextElement();
+			
+				if (obj instanceof CIMObjectPath) {
+					if (deep || ((CIMObjectPath)obj).getObjectName().equals(Linux_SambaService.CIM_CLASS_NAME)) {
+						resultArrayList.add(obj);
+					}
+				}
+			}
+		} finally {
+			try {
+				if (enumeration != null) {
+					((CIMEnumeration)enumeration).close();
+				}
+			} catch(Exception e) {
+				throw new CIMException(CIMException.CIM_ERR_FAILED, "The socket of the result could not be closed properly.");
+			}
+		}
+			
+		return resultArrayList;
+	}
+
+	
+	public ArrayList getAssociations_Linux_SambaPrinterForService(CIMClient cimClient,
+	boolean includeQualifiers, boolean includeClassOrigin, String role,java.lang.String[] propertyList) {
+
+		if (cimClient == null) {
+			throw new InvalidParameterException("The cimClient parameter does not contain a valid reference.");
+		}
+		
+		ArrayList resultArrayList = new ArrayList();
+		Enumeration enumeration = null;
+		
+		try {
+			enumeration = cimClient.references(
+					this.getCimObjectPath(),
+					CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAPRINTERFORSERVICE, 
+					role, //$NON-NLS-1$
+					includeQualifiers,
+					includeClassOrigin,
+					propertyList);
+		
+			while (enumeration.hasMoreElements()) {
+				Object obj = enumeration.nextElement();
+				if (obj instanceof CIMInstance) {
+					CIMInstance cimInstance = (CIMInstance)obj;
+                    Class clazz = Linux_SambaPrinterOptionsHelper.findClass(cimClient, cimInstance);
+                    
+					if (clazz == null) {
+						System.err.println("The class " + cimInstance.getClassName() +" was not found. Constructing instance of the base class.");
+						resultArrayList.add(new Linux_SambaService(cimInstance.getObjectPath(), cimInstance));
+						continue;
+					}
+					
+					Class[] constParams = new Class[2];
+					constParams[0] = CIMObjectPath.class;
+					constParams[1] = CIMInstance.class;
+					Constructor cons = null;
+					try {
+						cons = clazz.getConstructor(constParams);
+						
+					} catch(NoSuchMethodException e) {
+						System.err.println("The required constructor of class " + cimInstance.getClassName() + " could not be found. Constructing instance of the base class.");
+						resultArrayList.add(new Linux_SambaService(cimInstance.getObjectPath(), cimInstance));
+						continue;
+					}
+				
+					try {
+						Object[] actargs = new Object[] {cimInstance.getObjectPath(), cimInstance};
+					
+						Object dataObj = cons.newInstance(actargs);
+					
+						resultArrayList.add(dataObj);
+					} catch (Exception e) {
+						System.err.println("The instance of class " + cimInstance.getClassName() + " could not be created successful. Constructing instance of the base class.");
+						resultArrayList.add(new Linux_SambaService(cimInstance.getObjectPath(), cimInstance));
+						continue;
+					}
+
+				}
+			}
+		} finally {
+			try {
+				if (enumeration != null) {
+					((CIMEnumeration)enumeration).close();
+				}
+			} catch(Exception e) {
+				throw new CIMException(CIMException.CIM_ERR_FAILED, "The socket of the result could not be closed properly.");
+			}
+		}
+			
+		return resultArrayList;
+	}
+	
+	public ArrayList getAssociationNames_Linux_SambaPrinterForService(CIMClient cimClient, String role, boolean deep) {
+
+		if (cimClient == null) {
+			throw new InvalidParameterException("The cimClient parameter does not contain a valid reference.");
+		}
+		
+		Enumeration enumeration = null;
+		ArrayList resultArrayList = new ArrayList();
+
+		try {		
+			enumeration = cimClient.referenceNames(
+					this.getCimObjectPath(),
+					CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAPRINTERFORSERVICE, 
+					role); //$NON-NLS-1$
 		
 		
 			while (enumeration.hasMoreElements()) {
@@ -1433,9 +2429,10 @@ public class Linux_SambaPrinterOptions extends CIM_SettingData  {
 			enumeration = cimClient.associators(
 					this.getCimObjectPath(),
 					CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAPRINTERPRINTINGFORPRINTER, 
-					Linux_SambaPrinterPrintingOptions.CIM_CLASS_NAME, 
-					"ManagedElement", //$NON-NLS-1$
-					"SettingData", //$NON-NLS-1$
+					Linux_SambaPrinterPrintingOptions.CIM_CLASS_NAME,
+					null,null, 
+					//"ManagedElement", //$NON-NLS-1$
+					//"SettingData", //$NON-NLS-1$
 					includeQualifiers,
 					includeClassOrigin,
 					propertyList);
@@ -1506,8 +2503,119 @@ public class Linux_SambaPrinterOptions extends CIM_SettingData  {
 					this.getCimObjectPath(),
 					CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAPRINTERPRINTINGFORPRINTER, 
 					Linux_SambaPrinterPrintingOptions.CIM_CLASS_NAME, 
-					"ManagedElement", //$NON-NLS-1$
-					"SettingData"); //$NON-NLS-1$
+					null,null);
+					//"ManagedElement", //$NON-NLS-1$
+					//"SettingData"); //$NON-NLS-1$
+		
+		
+			while (enumeration.hasMoreElements()) {
+				Object obj = enumeration.nextElement();
+			
+				if (obj instanceof CIMObjectPath) {
+					if (deep || ((CIMObjectPath)obj).getObjectName().equals(Linux_SambaPrinterPrintingOptions.CIM_CLASS_NAME)) {
+						resultArrayList.add(obj);
+					}
+				}
+			}
+		} finally {
+			try {
+				if (enumeration != null) {
+					((CIMEnumeration)enumeration).close();
+				}
+			} catch(Exception e) {
+				throw new CIMException(CIMException.CIM_ERR_FAILED, "The socket of the result could not be closed properly.");
+			}
+		}
+			
+		return resultArrayList;
+	}
+
+	
+	public ArrayList getAssociations_Linux_SambaPrinterPrintingForPrinter(CIMClient cimClient,
+	boolean includeQualifiers, boolean includeClassOrigin, String role,java.lang.String[] propertyList) {
+
+		if (cimClient == null) {
+			throw new InvalidParameterException("The cimClient parameter does not contain a valid reference.");
+		}
+		
+		ArrayList resultArrayList = new ArrayList();
+		Enumeration enumeration = null;
+		
+		try {
+			enumeration = cimClient.references(
+					this.getCimObjectPath(),
+					CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAPRINTERPRINTINGFORPRINTER, 
+					role, //$NON-NLS-1$
+					includeQualifiers,
+					includeClassOrigin,
+					propertyList);
+		
+			while (enumeration.hasMoreElements()) {
+				Object obj = enumeration.nextElement();
+				if (obj instanceof CIMInstance) {
+					CIMInstance cimInstance = (CIMInstance)obj;
+                    Class clazz = Linux_SambaPrinterOptionsHelper.findClass(cimClient, cimInstance);
+                    
+					if (clazz == null) {
+						System.err.println("The class " + cimInstance.getClassName() +" was not found. Constructing instance of the base class.");
+						resultArrayList.add(new Linux_SambaPrinterPrintingOptions(cimInstance.getObjectPath(), cimInstance));
+						continue;
+					}
+					
+					Class[] constParams = new Class[2];
+					constParams[0] = CIMObjectPath.class;
+					constParams[1] = CIMInstance.class;
+					Constructor cons = null;
+					try {
+						cons = clazz.getConstructor(constParams);
+						
+					} catch(NoSuchMethodException e) {
+						System.err.println("The required constructor of class " + cimInstance.getClassName() + " could not be found. Constructing instance of the base class.");
+						resultArrayList.add(new Linux_SambaPrinterPrintingOptions(cimInstance.getObjectPath(), cimInstance));
+						continue;
+					}
+				
+					try {
+						Object[] actargs = new Object[] {cimInstance.getObjectPath(), cimInstance};
+					
+						Object dataObj = cons.newInstance(actargs);
+					
+						resultArrayList.add(dataObj);
+					} catch (Exception e) {
+						System.err.println("The instance of class " + cimInstance.getClassName() + " could not be created successful. Constructing instance of the base class.");
+						resultArrayList.add(new Linux_SambaPrinterPrintingOptions(cimInstance.getObjectPath(), cimInstance));
+						continue;
+					}
+
+				}
+			}
+		} finally {
+			try {
+				if (enumeration != null) {
+					((CIMEnumeration)enumeration).close();
+				}
+			} catch(Exception e) {
+				throw new CIMException(CIMException.CIM_ERR_FAILED, "The socket of the result could not be closed properly.");
+			}
+		}
+			
+		return resultArrayList;
+	}
+	
+	public ArrayList getAssociationNames_Linux_SambaPrinterPrintingForPrinter(CIMClient cimClient, String role, boolean deep) {
+
+		if (cimClient == null) {
+			throw new InvalidParameterException("The cimClient parameter does not contain a valid reference.");
+		}
+		
+		Enumeration enumeration = null;
+		ArrayList resultArrayList = new ArrayList();
+
+		try {		
+			enumeration = cimClient.referenceNames(
+					this.getCimObjectPath(),
+					CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAPRINTERPRINTINGFORPRINTER, 
+					role); //$NON-NLS-1$
 		
 		
 			while (enumeration.hasMoreElements()) {
@@ -1546,9 +2654,10 @@ public class Linux_SambaPrinterOptions extends CIM_SettingData  {
 			enumeration = cimClient.associators(
 					this.getCimObjectPath(),
 					CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAPRINTERSECURITYFORPRINTER, 
-					Linux_SambaPrinterSecurityOptions.CIM_CLASS_NAME, 
-					"ManagedElement", //$NON-NLS-1$
-					"SettingData", //$NON-NLS-1$
+					Linux_SambaPrinterSecurityOptions.CIM_CLASS_NAME,
+					null,null, 
+					//"ManagedElement", //$NON-NLS-1$
+					//"SettingData", //$NON-NLS-1$
 					includeQualifiers,
 					includeClassOrigin,
 					propertyList);
@@ -1619,8 +2728,119 @@ public class Linux_SambaPrinterOptions extends CIM_SettingData  {
 					this.getCimObjectPath(),
 					CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAPRINTERSECURITYFORPRINTER, 
 					Linux_SambaPrinterSecurityOptions.CIM_CLASS_NAME, 
-					"ManagedElement", //$NON-NLS-1$
-					"SettingData"); //$NON-NLS-1$
+					null,null);
+					//"ManagedElement", //$NON-NLS-1$
+					//"SettingData"); //$NON-NLS-1$
+		
+		
+			while (enumeration.hasMoreElements()) {
+				Object obj = enumeration.nextElement();
+			
+				if (obj instanceof CIMObjectPath) {
+					if (deep || ((CIMObjectPath)obj).getObjectName().equals(Linux_SambaPrinterSecurityOptions.CIM_CLASS_NAME)) {
+						resultArrayList.add(obj);
+					}
+				}
+			}
+		} finally {
+			try {
+				if (enumeration != null) {
+					((CIMEnumeration)enumeration).close();
+				}
+			} catch(Exception e) {
+				throw new CIMException(CIMException.CIM_ERR_FAILED, "The socket of the result could not be closed properly.");
+			}
+		}
+			
+		return resultArrayList;
+	}
+
+	
+	public ArrayList getAssociations_Linux_SambaPrinterSecurityForPrinter(CIMClient cimClient,
+	boolean includeQualifiers, boolean includeClassOrigin, String role,java.lang.String[] propertyList) {
+
+		if (cimClient == null) {
+			throw new InvalidParameterException("The cimClient parameter does not contain a valid reference.");
+		}
+		
+		ArrayList resultArrayList = new ArrayList();
+		Enumeration enumeration = null;
+		
+		try {
+			enumeration = cimClient.references(
+					this.getCimObjectPath(),
+					CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAPRINTERSECURITYFORPRINTER, 
+					role, //$NON-NLS-1$
+					includeQualifiers,
+					includeClassOrigin,
+					propertyList);
+		
+			while (enumeration.hasMoreElements()) {
+				Object obj = enumeration.nextElement();
+				if (obj instanceof CIMInstance) {
+					CIMInstance cimInstance = (CIMInstance)obj;
+                    Class clazz = Linux_SambaPrinterOptionsHelper.findClass(cimClient, cimInstance);
+                    
+					if (clazz == null) {
+						System.err.println("The class " + cimInstance.getClassName() +" was not found. Constructing instance of the base class.");
+						resultArrayList.add(new Linux_SambaPrinterSecurityOptions(cimInstance.getObjectPath(), cimInstance));
+						continue;
+					}
+					
+					Class[] constParams = new Class[2];
+					constParams[0] = CIMObjectPath.class;
+					constParams[1] = CIMInstance.class;
+					Constructor cons = null;
+					try {
+						cons = clazz.getConstructor(constParams);
+						
+					} catch(NoSuchMethodException e) {
+						System.err.println("The required constructor of class " + cimInstance.getClassName() + " could not be found. Constructing instance of the base class.");
+						resultArrayList.add(new Linux_SambaPrinterSecurityOptions(cimInstance.getObjectPath(), cimInstance));
+						continue;
+					}
+				
+					try {
+						Object[] actargs = new Object[] {cimInstance.getObjectPath(), cimInstance};
+					
+						Object dataObj = cons.newInstance(actargs);
+					
+						resultArrayList.add(dataObj);
+					} catch (Exception e) {
+						System.err.println("The instance of class " + cimInstance.getClassName() + " could not be created successful. Constructing instance of the base class.");
+						resultArrayList.add(new Linux_SambaPrinterSecurityOptions(cimInstance.getObjectPath(), cimInstance));
+						continue;
+					}
+
+				}
+			}
+		} finally {
+			try {
+				if (enumeration != null) {
+					((CIMEnumeration)enumeration).close();
+				}
+			} catch(Exception e) {
+				throw new CIMException(CIMException.CIM_ERR_FAILED, "The socket of the result could not be closed properly.");
+			}
+		}
+			
+		return resultArrayList;
+	}
+	
+	public ArrayList getAssociationNames_Linux_SambaPrinterSecurityForPrinter(CIMClient cimClient, String role, boolean deep) {
+
+		if (cimClient == null) {
+			throw new InvalidParameterException("The cimClient parameter does not contain a valid reference.");
+		}
+		
+		Enumeration enumeration = null;
+		ArrayList resultArrayList = new ArrayList();
+
+		try {		
+			enumeration = cimClient.referenceNames(
+					this.getCimObjectPath(),
+					CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAPRINTERSECURITYFORPRINTER, 
+					role); //$NON-NLS-1$
 		
 		
 			while (enumeration.hasMoreElements()) {
@@ -1659,9 +2879,10 @@ public class Linux_SambaPrinterOptions extends CIM_SettingData  {
 			enumeration = cimClient.associators(
 					this.getCimObjectPath(),
 					CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAREADLISTFORPRINTER, 
-					Linux_SambaUser.CIM_CLASS_NAME, 
-					"GroupComponent", //$NON-NLS-1$
-					"PartComponent", //$NON-NLS-1$
+					Linux_SambaUser.CIM_CLASS_NAME,
+					null,null, 
+					//"GroupComponent", //$NON-NLS-1$
+					//"PartComponent", //$NON-NLS-1$
 					includeQualifiers,
 					includeClassOrigin,
 					propertyList);
@@ -1732,8 +2953,119 @@ public class Linux_SambaPrinterOptions extends CIM_SettingData  {
 					this.getCimObjectPath(),
 					CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAREADLISTFORPRINTER, 
 					Linux_SambaUser.CIM_CLASS_NAME, 
-					"GroupComponent", //$NON-NLS-1$
-					"PartComponent"); //$NON-NLS-1$
+					null,null);
+					//"GroupComponent", //$NON-NLS-1$
+					//"PartComponent"); //$NON-NLS-1$
+		
+		
+			while (enumeration.hasMoreElements()) {
+				Object obj = enumeration.nextElement();
+			
+				if (obj instanceof CIMObjectPath) {
+					if (deep || ((CIMObjectPath)obj).getObjectName().equals(Linux_SambaUser.CIM_CLASS_NAME)) {
+						resultArrayList.add(obj);
+					}
+				}
+			}
+		} finally {
+			try {
+				if (enumeration != null) {
+					((CIMEnumeration)enumeration).close();
+				}
+			} catch(Exception e) {
+				throw new CIMException(CIMException.CIM_ERR_FAILED, "The socket of the result could not be closed properly.");
+			}
+		}
+			
+		return resultArrayList;
+	}
+
+	
+	public ArrayList getAssociations_Linux_SambaReadListForPrinter(CIMClient cimClient,
+	boolean includeQualifiers, boolean includeClassOrigin, String role,java.lang.String[] propertyList) {
+
+		if (cimClient == null) {
+			throw new InvalidParameterException("The cimClient parameter does not contain a valid reference.");
+		}
+		
+		ArrayList resultArrayList = new ArrayList();
+		Enumeration enumeration = null;
+		
+		try {
+			enumeration = cimClient.references(
+					this.getCimObjectPath(),
+					CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAREADLISTFORPRINTER, 
+					role, //$NON-NLS-1$
+					includeQualifiers,
+					includeClassOrigin,
+					propertyList);
+		
+			while (enumeration.hasMoreElements()) {
+				Object obj = enumeration.nextElement();
+				if (obj instanceof CIMInstance) {
+					CIMInstance cimInstance = (CIMInstance)obj;
+                    Class clazz = Linux_SambaPrinterOptionsHelper.findClass(cimClient, cimInstance);
+                    
+					if (clazz == null) {
+						System.err.println("The class " + cimInstance.getClassName() +" was not found. Constructing instance of the base class.");
+						resultArrayList.add(new Linux_SambaUser(cimInstance.getObjectPath(), cimInstance));
+						continue;
+					}
+					
+					Class[] constParams = new Class[2];
+					constParams[0] = CIMObjectPath.class;
+					constParams[1] = CIMInstance.class;
+					Constructor cons = null;
+					try {
+						cons = clazz.getConstructor(constParams);
+						
+					} catch(NoSuchMethodException e) {
+						System.err.println("The required constructor of class " + cimInstance.getClassName() + " could not be found. Constructing instance of the base class.");
+						resultArrayList.add(new Linux_SambaUser(cimInstance.getObjectPath(), cimInstance));
+						continue;
+					}
+				
+					try {
+						Object[] actargs = new Object[] {cimInstance.getObjectPath(), cimInstance};
+					
+						Object dataObj = cons.newInstance(actargs);
+					
+						resultArrayList.add(dataObj);
+					} catch (Exception e) {
+						System.err.println("The instance of class " + cimInstance.getClassName() + " could not be created successful. Constructing instance of the base class.");
+						resultArrayList.add(new Linux_SambaUser(cimInstance.getObjectPath(), cimInstance));
+						continue;
+					}
+
+				}
+			}
+		} finally {
+			try {
+				if (enumeration != null) {
+					((CIMEnumeration)enumeration).close();
+				}
+			} catch(Exception e) {
+				throw new CIMException(CIMException.CIM_ERR_FAILED, "The socket of the result could not be closed properly.");
+			}
+		}
+			
+		return resultArrayList;
+	}
+	
+	public ArrayList getAssociationNames_Linux_SambaReadListForPrinter(CIMClient cimClient, String role, boolean deep) {
+
+		if (cimClient == null) {
+			throw new InvalidParameterException("The cimClient parameter does not contain a valid reference.");
+		}
+		
+		Enumeration enumeration = null;
+		ArrayList resultArrayList = new ArrayList();
+
+		try {		
+			enumeration = cimClient.referenceNames(
+					this.getCimObjectPath(),
+					CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAREADLISTFORPRINTER, 
+					role); //$NON-NLS-1$
 		
 		
 			while (enumeration.hasMoreElements()) {
@@ -1772,9 +3104,10 @@ public class Linux_SambaPrinterOptions extends CIM_SettingData  {
 			enumeration = cimClient.associators(
 					this.getCimObjectPath(),
 					CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAVALIDUSERSFORPRINTER, 
-					Linux_SambaUser.CIM_CLASS_NAME, 
-					"GroupComponent", //$NON-NLS-1$
-					"PartComponent", //$NON-NLS-1$
+					Linux_SambaUser.CIM_CLASS_NAME,
+					null,null, 
+					//"GroupComponent", //$NON-NLS-1$
+					//"PartComponent", //$NON-NLS-1$
 					includeQualifiers,
 					includeClassOrigin,
 					propertyList);
@@ -1845,8 +3178,119 @@ public class Linux_SambaPrinterOptions extends CIM_SettingData  {
 					this.getCimObjectPath(),
 					CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAVALIDUSERSFORPRINTER, 
 					Linux_SambaUser.CIM_CLASS_NAME, 
-					"GroupComponent", //$NON-NLS-1$
-					"PartComponent"); //$NON-NLS-1$
+					null,null);
+					//"GroupComponent", //$NON-NLS-1$
+					//"PartComponent"); //$NON-NLS-1$
+		
+		
+			while (enumeration.hasMoreElements()) {
+				Object obj = enumeration.nextElement();
+			
+				if (obj instanceof CIMObjectPath) {
+					if (deep || ((CIMObjectPath)obj).getObjectName().equals(Linux_SambaUser.CIM_CLASS_NAME)) {
+						resultArrayList.add(obj);
+					}
+				}
+			}
+		} finally {
+			try {
+				if (enumeration != null) {
+					((CIMEnumeration)enumeration).close();
+				}
+			} catch(Exception e) {
+				throw new CIMException(CIMException.CIM_ERR_FAILED, "The socket of the result could not be closed properly.");
+			}
+		}
+			
+		return resultArrayList;
+	}
+
+	
+	public ArrayList getAssociations_Linux_SambaValidUsersForPrinter(CIMClient cimClient,
+	boolean includeQualifiers, boolean includeClassOrigin, String role,java.lang.String[] propertyList) {
+
+		if (cimClient == null) {
+			throw new InvalidParameterException("The cimClient parameter does not contain a valid reference.");
+		}
+		
+		ArrayList resultArrayList = new ArrayList();
+		Enumeration enumeration = null;
+		
+		try {
+			enumeration = cimClient.references(
+					this.getCimObjectPath(),
+					CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAVALIDUSERSFORPRINTER, 
+					role, //$NON-NLS-1$
+					includeQualifiers,
+					includeClassOrigin,
+					propertyList);
+		
+			while (enumeration.hasMoreElements()) {
+				Object obj = enumeration.nextElement();
+				if (obj instanceof CIMInstance) {
+					CIMInstance cimInstance = (CIMInstance)obj;
+                    Class clazz = Linux_SambaPrinterOptionsHelper.findClass(cimClient, cimInstance);
+                    
+					if (clazz == null) {
+						System.err.println("The class " + cimInstance.getClassName() +" was not found. Constructing instance of the base class.");
+						resultArrayList.add(new Linux_SambaUser(cimInstance.getObjectPath(), cimInstance));
+						continue;
+					}
+					
+					Class[] constParams = new Class[2];
+					constParams[0] = CIMObjectPath.class;
+					constParams[1] = CIMInstance.class;
+					Constructor cons = null;
+					try {
+						cons = clazz.getConstructor(constParams);
+						
+					} catch(NoSuchMethodException e) {
+						System.err.println("The required constructor of class " + cimInstance.getClassName() + " could not be found. Constructing instance of the base class.");
+						resultArrayList.add(new Linux_SambaUser(cimInstance.getObjectPath(), cimInstance));
+						continue;
+					}
+				
+					try {
+						Object[] actargs = new Object[] {cimInstance.getObjectPath(), cimInstance};
+					
+						Object dataObj = cons.newInstance(actargs);
+					
+						resultArrayList.add(dataObj);
+					} catch (Exception e) {
+						System.err.println("The instance of class " + cimInstance.getClassName() + " could not be created successful. Constructing instance of the base class.");
+						resultArrayList.add(new Linux_SambaUser(cimInstance.getObjectPath(), cimInstance));
+						continue;
+					}
+
+				}
+			}
+		} finally {
+			try {
+				if (enumeration != null) {
+					((CIMEnumeration)enumeration).close();
+				}
+			} catch(Exception e) {
+				throw new CIMException(CIMException.CIM_ERR_FAILED, "The socket of the result could not be closed properly.");
+			}
+		}
+			
+		return resultArrayList;
+	}
+	
+	public ArrayList getAssociationNames_Linux_SambaValidUsersForPrinter(CIMClient cimClient, String role, boolean deep) {
+
+		if (cimClient == null) {
+			throw new InvalidParameterException("The cimClient parameter does not contain a valid reference.");
+		}
+		
+		Enumeration enumeration = null;
+		ArrayList resultArrayList = new ArrayList();
+
+		try {		
+			enumeration = cimClient.referenceNames(
+					this.getCimObjectPath(),
+					CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAVALIDUSERSFORPRINTER, 
+					role); //$NON-NLS-1$
 		
 		
 			while (enumeration.hasMoreElements()) {
@@ -1885,9 +3329,10 @@ public class Linux_SambaPrinterOptions extends CIM_SettingData  {
 			enumeration = cimClient.associators(
 					this.getCimObjectPath(),
 					CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAWRITELISTFORPRINTER, 
-					Linux_SambaUser.CIM_CLASS_NAME, 
-					"GroupComponent", //$NON-NLS-1$
-					"PartComponent", //$NON-NLS-1$
+					Linux_SambaUser.CIM_CLASS_NAME,
+					null,null, 
+					//"GroupComponent", //$NON-NLS-1$
+					//"PartComponent", //$NON-NLS-1$
 					includeQualifiers,
 					includeClassOrigin,
 					propertyList);
@@ -1958,8 +3403,119 @@ public class Linux_SambaPrinterOptions extends CIM_SettingData  {
 					this.getCimObjectPath(),
 					CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAWRITELISTFORPRINTER, 
 					Linux_SambaUser.CIM_CLASS_NAME, 
-					"GroupComponent", //$NON-NLS-1$
-					"PartComponent"); //$NON-NLS-1$
+					null,null);
+					//"GroupComponent", //$NON-NLS-1$
+					//"PartComponent"); //$NON-NLS-1$
+		
+		
+			while (enumeration.hasMoreElements()) {
+				Object obj = enumeration.nextElement();
+			
+				if (obj instanceof CIMObjectPath) {
+					if (deep || ((CIMObjectPath)obj).getObjectName().equals(Linux_SambaUser.CIM_CLASS_NAME)) {
+						resultArrayList.add(obj);
+					}
+				}
+			}
+		} finally {
+			try {
+				if (enumeration != null) {
+					((CIMEnumeration)enumeration).close();
+				}
+			} catch(Exception e) {
+				throw new CIMException(CIMException.CIM_ERR_FAILED, "The socket of the result could not be closed properly.");
+			}
+		}
+			
+		return resultArrayList;
+	}
+
+	
+	public ArrayList getAssociations_Linux_SambaWriteListForPrinter(CIMClient cimClient,
+	boolean includeQualifiers, boolean includeClassOrigin, String role,java.lang.String[] propertyList) {
+
+		if (cimClient == null) {
+			throw new InvalidParameterException("The cimClient parameter does not contain a valid reference.");
+		}
+		
+		ArrayList resultArrayList = new ArrayList();
+		Enumeration enumeration = null;
+		
+		try {
+			enumeration = cimClient.references(
+					this.getCimObjectPath(),
+					CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAWRITELISTFORPRINTER, 
+					role, //$NON-NLS-1$
+					includeQualifiers,
+					includeClassOrigin,
+					propertyList);
+		
+			while (enumeration.hasMoreElements()) {
+				Object obj = enumeration.nextElement();
+				if (obj instanceof CIMInstance) {
+					CIMInstance cimInstance = (CIMInstance)obj;
+                    Class clazz = Linux_SambaPrinterOptionsHelper.findClass(cimClient, cimInstance);
+                    
+					if (clazz == null) {
+						System.err.println("The class " + cimInstance.getClassName() +" was not found. Constructing instance of the base class.");
+						resultArrayList.add(new Linux_SambaUser(cimInstance.getObjectPath(), cimInstance));
+						continue;
+					}
+					
+					Class[] constParams = new Class[2];
+					constParams[0] = CIMObjectPath.class;
+					constParams[1] = CIMInstance.class;
+					Constructor cons = null;
+					try {
+						cons = clazz.getConstructor(constParams);
+						
+					} catch(NoSuchMethodException e) {
+						System.err.println("The required constructor of class " + cimInstance.getClassName() + " could not be found. Constructing instance of the base class.");
+						resultArrayList.add(new Linux_SambaUser(cimInstance.getObjectPath(), cimInstance));
+						continue;
+					}
+				
+					try {
+						Object[] actargs = new Object[] {cimInstance.getObjectPath(), cimInstance};
+					
+						Object dataObj = cons.newInstance(actargs);
+					
+						resultArrayList.add(dataObj);
+					} catch (Exception e) {
+						System.err.println("The instance of class " + cimInstance.getClassName() + " could not be created successful. Constructing instance of the base class.");
+						resultArrayList.add(new Linux_SambaUser(cimInstance.getObjectPath(), cimInstance));
+						continue;
+					}
+
+				}
+			}
+		} finally {
+			try {
+				if (enumeration != null) {
+					((CIMEnumeration)enumeration).close();
+				}
+			} catch(Exception e) {
+				throw new CIMException(CIMException.CIM_ERR_FAILED, "The socket of the result could not be closed properly.");
+			}
+		}
+			
+		return resultArrayList;
+	}
+	
+	public ArrayList getAssociationNames_Linux_SambaWriteListForPrinter(CIMClient cimClient, String role, boolean deep) {
+
+		if (cimClient == null) {
+			throw new InvalidParameterException("The cimClient parameter does not contain a valid reference.");
+		}
+		
+		Enumeration enumeration = null;
+		ArrayList resultArrayList = new ArrayList();
+
+		try {		
+			enumeration = cimClient.referenceNames(
+					this.getCimObjectPath(),
+					CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAWRITELISTFORPRINTER, 
+					role); //$NON-NLS-1$
 		
 		
 			while (enumeration.hasMoreElements()) {
@@ -2249,6 +3805,12 @@ public class Linux_SambaPrinterOptions extends CIM_SettingData  {
 	public static String invoke_getAllSystemDefinedPrinters(CIMClient cimClient) {
 	  	Vector inParameter = new Vector();
 	  	Vector outParameter = new Vector();
+	  	
+	  	
+	  	
+
+	  	
+	  	
 	  	
 	  	CIMValue returnValue = cimClient.invokeMethod(new CIMObjectPath(Linux_SambaPrinterOptions.CIM_CLASS_NAME), 
 				  									  CIM_METHOD_GETALLSYSTEMDEFINEDPRINTERS,

@@ -37,19 +37,19 @@ public class EditSambaUser extends CimCommand {
  
 	//All Options that are local and defined for this command
 			/**
-   		 * used for selection:  --sambaUserName, default: noDefaultValue
+   		 * used for selection:  --sambaUserName
 		 */
-		public static final OptionDefinition KEY_sambaUserName = new OptionDefinition(null,"sambaUserName","noDefaultValue","UserDataContainer.SambaUserName.argValue",false,true,"UserDataContainer.SambaUserName.argDescription");
+		public static final OptionDefinition KEY_sambaUserName = new OptionDefinition(null,"sambaUserName",null,"UserDataContainer.SambaUserName.argValue",false,true,"UserDataContainer.SambaUserName.argDescription");
 			/**
-   		 *  --isGuest, default: noDefaultValue
+   		 *  --isGuest
 		 */
-		public static final OptionDefinition KEY_isGuest = new OptionDefinition(null,"isGuest","noDefaultValue","UserDataContainer.isGuest.argValue",false,false,"UserDataContainer.isGuest.argDescription");
+		public static final OptionDefinition KEY_isGuest = new OptionDefinition(null,"isGuest",null,"UserDataContainer.isGuest.argValue",false,false,"UserDataContainer.isGuest.argDescription");
 		
 	//All Options that are global and task-related
 			/**
-   		 * required, used for selection:  --serviceName, default: noDefaultValue
+   		 * required, used for selection:  --serviceName
 		 */
-		public static final OptionDefinition KEY_GLOBAL_serviceName = new OptionDefinition(null,"serviceName","noDefaultValue","serviceName.argValue",true,false,"serviceName.argDescription");
+		public static final OptionDefinition KEY_GLOBAL_serviceName = new OptionDefinition(null,"serviceName",null,"serviceName.argValue",true,false,"serviceName.argDescription");
 	
 	// Global Communication Options
 			/**

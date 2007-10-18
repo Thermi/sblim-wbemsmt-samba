@@ -37,15 +37,15 @@ public class DeleteSambaHost extends CimCommand {
  
 	//All Options that are local and defined for this command
 			/**
-   		 * required, used for selection:  --sambaHostname, default: noDefaultValue
+   		 * required, used for selection:  --sambaHostname
 		 */
-		public static final OptionDefinition KEY_sambaHostname = new OptionDefinition(null,"sambaHostname","noDefaultValue","DeleteSambaHost.sambaHostname.argValue",true,false,"DeleteSambaHost.sambaHostname.argDescription");
+		public static final OptionDefinition KEY_sambaHostname = new OptionDefinition(null,"sambaHostname",null,"DeleteSambaHost.sambaHostname.argValue",true,false,"DeleteSambaHost.sambaHostname.argDescription");
 		
 	//All Options that are global and task-related
 			/**
-   		 * required, used for selection:  --serviceName, default: noDefaultValue
+   		 * required, used for selection:  --serviceName
 		 */
-		public static final OptionDefinition KEY_GLOBAL_serviceName = new OptionDefinition(null,"serviceName","noDefaultValue","serviceName.argValue",true,false,"serviceName.argDescription");
+		public static final OptionDefinition KEY_GLOBAL_serviceName = new OptionDefinition(null,"serviceName",null,"serviceName.argValue",true,false,"serviceName.argDescription");
 	
 	// Global Communication Options
 			/**

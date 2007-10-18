@@ -37,67 +37,67 @@ public class EditSambaServiceGlobalSecurity extends CimCommand {
  
 	//All Options that are local and defined for this command
 			/**
-   		 *  --authMethods, default: noDefaultValue
+   		 *  --authMethods
 		 */
-		public static final OptionDefinition KEY_authMethods = new OptionDefinition(null,"authMethods","noDefaultValue","ServiceGlobalSecurityOptionsDataContainer.AuthMethods.argValue",false,false,"ServiceGlobalSecurityOptionsDataContainer.AuthMethods.argDescription");
+		public static final OptionDefinition KEY_authMethods = new OptionDefinition(null,"authMethods",null,"ServiceGlobalSecurityOptionsDataContainer.AuthMethods.argValue",false,false,"ServiceGlobalSecurityOptionsDataContainer.AuthMethods.argDescription");
 			/**
-   		 *  --encryptPasswords, default: noDefaultValue
+   		 *  --encryptPasswords
 		 */
-		public static final OptionDefinition KEY_encryptPasswords = new OptionDefinition(null,"encryptPasswords","noDefaultValue","ServiceGlobalSecurityOptionsDataContainer.EncryptPasswords.argValue",false,false,"ServiceGlobalSecurityOptionsDataContainer.EncryptPasswords.argDescription");
+		public static final OptionDefinition KEY_encryptPasswords = new OptionDefinition(null,"encryptPasswords",null,"ServiceGlobalSecurityOptionsDataContainer.EncryptPasswords.argValue",false,false,"ServiceGlobalSecurityOptionsDataContainer.EncryptPasswords.argDescription");
 			/**
-   		 *  --minLength, default: noDefaultValue
+   		 *  --minLength
 		 */
-		public static final OptionDefinition KEY_minLength = new OptionDefinition(null,"minLength","noDefaultValue","ServiceGlobalSecurityOptionsDataContainer.MinPasswordLength.argValue",false,false,"ServiceGlobalSecurityOptionsDataContainer.MinPasswordLength.argDescription");
+		public static final OptionDefinition KEY_minLength = new OptionDefinition(null,"minLength",null,"ServiceGlobalSecurityOptionsDataContainer.MinPasswordLength.argValue",false,false,"ServiceGlobalSecurityOptionsDataContainer.MinPasswordLength.argDescription");
 			/**
-   		 *  --nullPasswords, default: noDefaultValue
+   		 *  --nullPasswords
 		 */
-		public static final OptionDefinition KEY_nullPasswords = new OptionDefinition(null,"nullPasswords","noDefaultValue","ServiceGlobalSecurityOptionsDataContainer.NullPasswords.argValue",false,false,"ServiceGlobalSecurityOptionsDataContainer.NullPasswords.argDescription");
+		public static final OptionDefinition KEY_nullPasswords = new OptionDefinition(null,"nullPasswords",null,"ServiceGlobalSecurityOptionsDataContainer.NullPasswords.argValue",false,false,"ServiceGlobalSecurityOptionsDataContainer.NullPasswords.argDescription");
 			/**
-   		 *  --passdbBackend, default: noDefaultValue
+   		 *  --passdbBackend
 		 */
-		public static final OptionDefinition KEY_passdbBackend = new OptionDefinition(null,"passdbBackend","noDefaultValue","ServiceGlobalSecurityOptionsDataContainer.PassdbBackend.argValue",false,false,"ServiceGlobalSecurityOptionsDataContainer.PassdbBackend.argDescription");
+		public static final OptionDefinition KEY_passdbBackend = new OptionDefinition(null,"passdbBackend",null,"ServiceGlobalSecurityOptionsDataContainer.PassdbBackend.argValue",false,false,"ServiceGlobalSecurityOptionsDataContainer.PassdbBackend.argDescription");
 			/**
-   		 *  --smbPasswdFile, default: noDefaultValue
+   		 *  --smbPasswdFile
 		 */
-		public static final OptionDefinition KEY_smbPasswdFile = new OptionDefinition(null,"smbPasswdFile","noDefaultValue","ServiceGlobalSecurityOptionsDataContainer.SMBPasswdFile.argValue",false,false,"ServiceGlobalSecurityOptionsDataContainer.SMBPasswdFile.argDescription");
+		public static final OptionDefinition KEY_smbPasswdFile = new OptionDefinition(null,"smbPasswdFile",null,"ServiceGlobalSecurityOptionsDataContainer.SMBPasswdFile.argValue",false,false,"ServiceGlobalSecurityOptionsDataContainer.SMBPasswdFile.argDescription");
 			/**
-   		 *  --security, default: noDefaultValue
+   		 *  --security
 		 */
-		public static final OptionDefinition KEY_security = new OptionDefinition(null,"security","noDefaultValue","ServiceGlobalSecurityOptionsDataContainer.Security.argValue",false,false,"ServiceGlobalSecurityOptionsDataContainer.Security.argDescription");
+		public static final OptionDefinition KEY_security = new OptionDefinition(null,"security",null,"ServiceGlobalSecurityOptionsDataContainer.Security.argValue",false,false,"ServiceGlobalSecurityOptionsDataContainer.Security.argDescription");
 			/**
-   		 *  --guestOK, default: noDefaultValue
+   		 *  --guestOK
 		 */
-		public static final OptionDefinition KEY_guestOK = new OptionDefinition(null,"guestOK","noDefaultValue","ServiceGlobalSecurityOptionsDataContainer.GuestOK.argValue",false,false,"ServiceGlobalSecurityOptionsDataContainer.GuestOK.argDescription");
+		public static final OptionDefinition KEY_guestOK = new OptionDefinition(null,"guestOK",null,"ServiceGlobalSecurityOptionsDataContainer.GuestOK.argValue",false,false,"ServiceGlobalSecurityOptionsDataContainer.GuestOK.argDescription");
 			/**
-   		 *  --guestOnly, default: noDefaultValue
+   		 *  --guestOnly
 		 */
-		public static final OptionDefinition KEY_guestOnly = new OptionDefinition(null,"guestOnly","noDefaultValue","ServiceGlobalSecurityOptionsDataContainer.GuestOnly.argValue",false,false,"ServiceGlobalSecurityOptionsDataContainer.GuestOnly.argDescription");
+		public static final OptionDefinition KEY_guestOnly = new OptionDefinition(null,"guestOnly",null,"ServiceGlobalSecurityOptionsDataContainer.GuestOnly.argValue",false,false,"ServiceGlobalSecurityOptionsDataContainer.GuestOnly.argDescription");
 			/**
-   		 *  --hostAllow, default: noDefaultValue
+   		 *  --hostAllow
 		 */
-		public static final OptionDefinition KEY_hostAllow = new OptionDefinition(null,"hostAllow","noDefaultValue","ServiceGlobalSecurityOptionsDataContainer.HostsAllow.argValue",false,false,"ServiceGlobalSecurityOptionsDataContainer.HostsAllow.argDescription");
+		public static final OptionDefinition KEY_hostAllow = new OptionDefinition(null,"hostAllow",null,"ServiceGlobalSecurityOptionsDataContainer.HostsAllow.argValue",false,false,"ServiceGlobalSecurityOptionsDataContainer.HostsAllow.argDescription");
 			/**
-   		 *  --hostDeny, default: noDefaultValue
+   		 *  --hostDeny
 		 */
-		public static final OptionDefinition KEY_hostDeny = new OptionDefinition(null,"hostDeny","noDefaultValue","ServiceGlobalSecurityOptionsDataContainer.HostsDeny.argValue",false,false,"ServiceGlobalSecurityOptionsDataContainer.HostsDeny.argDescription");
+		public static final OptionDefinition KEY_hostDeny = new OptionDefinition(null,"hostDeny",null,"ServiceGlobalSecurityOptionsDataContainer.HostsDeny.argValue",false,false,"ServiceGlobalSecurityOptionsDataContainer.HostsDeny.argDescription");
 			/**
-   		 *  --readOnly, default: noDefaultValue
+   		 *  --readOnly
 		 */
-		public static final OptionDefinition KEY_readOnly = new OptionDefinition(null,"readOnly","noDefaultValue","ServiceGlobalSecurityOptionsDataContainer.ReadOnly.argValue",false,false,"ServiceGlobalSecurityOptionsDataContainer.ReadOnly.argDescription");
+		public static final OptionDefinition KEY_readOnly = new OptionDefinition(null,"readOnly",null,"ServiceGlobalSecurityOptionsDataContainer.ReadOnly.argValue",false,false,"ServiceGlobalSecurityOptionsDataContainer.ReadOnly.argDescription");
 			/**
-   		 *  --domainMaster, default: noDefaultValue
+   		 *  --domainMaster
 		 */
-		public static final OptionDefinition KEY_domainMaster = new OptionDefinition(null,"domainMaster","noDefaultValue","ServiceGlobalSecurityOptionsDataContainer.DomainMaster.argValue",false,false,"ServiceGlobalSecurityOptionsDataContainer.DomainMaster.argDescription");
+		public static final OptionDefinition KEY_domainMaster = new OptionDefinition(null,"domainMaster",null,"ServiceGlobalSecurityOptionsDataContainer.DomainMaster.argValue",false,false,"ServiceGlobalSecurityOptionsDataContainer.DomainMaster.argDescription");
 			/**
-   		 *  --browsable, default: noDefaultValue
+   		 *  --browsable
 		 */
-		public static final OptionDefinition KEY_browsable = new OptionDefinition(null,"browsable","noDefaultValue","ServiceGlobalSecurityOptionsDataContainer.Browsable.argValue",false,false,"ServiceGlobalSecurityOptionsDataContainer.Browsable.argDescription");
+		public static final OptionDefinition KEY_browsable = new OptionDefinition(null,"browsable",null,"ServiceGlobalSecurityOptionsDataContainer.Browsable.argValue",false,false,"ServiceGlobalSecurityOptionsDataContainer.Browsable.argDescription");
 		
 	//All Options that are global and task-related
 			/**
-   		 * required, used for selection:  --serviceName, default: noDefaultValue
+   		 * required, used for selection:  --serviceName
 		 */
-		public static final OptionDefinition KEY_GLOBAL_serviceName = new OptionDefinition(null,"serviceName","noDefaultValue","serviceName.argValue",true,false,"serviceName.argDescription");
+		public static final OptionDefinition KEY_GLOBAL_serviceName = new OptionDefinition(null,"serviceName",null,"serviceName.argValue",true,false,"serviceName.argDescription");
 	
 	// Global Communication Options
 			/**

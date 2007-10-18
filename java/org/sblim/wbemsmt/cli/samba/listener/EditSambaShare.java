@@ -37,51 +37,51 @@ public class EditSambaShare extends CimCommand {
  
 	//All Options that are local and defined for this command
 			/**
-   		 * required, used for selection:  --sharename, default: noDefaultValue
+   		 * required, used for selection:  --sharename
 		 */
-		public static final OptionDefinition KEY_sharename = new OptionDefinition(null,"sharename","noDefaultValue","ShareOptionsDataContainer.Name.argValue",true,true,"ShareOptionsDataContainer.Name.argDescription");
+		public static final OptionDefinition KEY_sharename = new OptionDefinition(null,"sharename",null,"ShareOptionsDataContainer.Name.argValue",true,true,"ShareOptionsDataContainer.Name.argDescription");
 			/**
-   		 *  --available, default: noDefaultValue
+   		 *  --available
 		 */
-		public static final OptionDefinition KEY_available = new OptionDefinition(null,"available","noDefaultValue","ShareOptionsDataContainer.Available.argValue",false,false,"ShareOptionsDataContainer.Available.argDescription");
+		public static final OptionDefinition KEY_available = new OptionDefinition(null,"available",null,"ShareOptionsDataContainer.Available.argValue",false,false,"ShareOptionsDataContainer.Available.argDescription");
 			/**
-   		 *  --comment, default: noDefaultValue
+   		 *  --comment
 		 */
-		public static final OptionDefinition KEY_comment = new OptionDefinition(null,"comment","noDefaultValue","ShareOptionsDataContainer.Comment.argValue",false,false,"ShareOptionsDataContainer.Comment.argDescription");
+		public static final OptionDefinition KEY_comment = new OptionDefinition(null,"comment",null,"ShareOptionsDataContainer.Comment.argValue",false,false,"ShareOptionsDataContainer.Comment.argDescription");
 			/**
-   		 *  --path, default: noDefaultValue
+   		 *  --path
 		 */
-		public static final OptionDefinition KEY_path = new OptionDefinition(null,"path","noDefaultValue","ShareOptionsDataContainer.Path.argValue",false,false,"ShareOptionsDataContainer.Path.argDescription");
+		public static final OptionDefinition KEY_path = new OptionDefinition(null,"path",null,"ShareOptionsDataContainer.Path.argValue",false,false,"ShareOptionsDataContainer.Path.argDescription");
 			/**
-   		 *  --browsable, default: noDefaultValue
+   		 *  --browsable
 		 */
-		public static final OptionDefinition KEY_browsable = new OptionDefinition(null,"browsable","noDefaultValue","ShareOptionsDataContainer.Browsable.argValue",false,false,"ShareOptionsDataContainer.Browsable.argDescription");
+		public static final OptionDefinition KEY_browsable = new OptionDefinition(null,"browsable",null,"ShareOptionsDataContainer.Browsable.argValue",false,false,"ShareOptionsDataContainer.Browsable.argDescription");
 			/**
-   		 *  --guestok, default: noDefaultValue
+   		 *  --guestok
 		 */
-		public static final OptionDefinition KEY_guestok = new OptionDefinition(null,"guestok","noDefaultValue","ShareOptionsDataContainer.GuestOK.argValue",false,false,"ShareOptionsDataContainer.GuestOK.argDescription");
+		public static final OptionDefinition KEY_guestok = new OptionDefinition(null,"guestok",null,"ShareOptionsDataContainer.GuestOK.argValue",false,false,"ShareOptionsDataContainer.GuestOK.argDescription");
 			/**
-   		 *  --guestOnly, default: noDefaultValue
+   		 *  --guestOnly
 		 */
-		public static final OptionDefinition KEY_guestOnly = new OptionDefinition(null,"guestOnly","noDefaultValue","ShareOptionsDataContainer.GuestOnly.argValue",false,false,"ShareOptionsDataContainer.GuestOnly.argDescription");
+		public static final OptionDefinition KEY_guestOnly = new OptionDefinition(null,"guestOnly",null,"ShareOptionsDataContainer.GuestOnly.argValue",false,false,"ShareOptionsDataContainer.GuestOnly.argDescription");
 			/**
-   		 *  --hostsAllow, default: noDefaultValue
+   		 *  --hostsAllow
 		 */
-		public static final OptionDefinition KEY_hostsAllow = new OptionDefinition(null,"hostsAllow","noDefaultValue","ShareOptionsDataContainer.HostsAllow.argValue",false,false,"ShareOptionsDataContainer.HostsAllow.argDescription");
+		public static final OptionDefinition KEY_hostsAllow = new OptionDefinition(null,"hostsAllow",null,"ShareOptionsDataContainer.HostsAllow.argValue",false,false,"ShareOptionsDataContainer.HostsAllow.argDescription");
 			/**
-   		 *  --hostsDeny, default: noDefaultValue
+   		 *  --hostsDeny
 		 */
-		public static final OptionDefinition KEY_hostsDeny = new OptionDefinition(null,"hostsDeny","noDefaultValue","ShareOptionsDataContainer.HostsDeny.argValue",false,false,"ShareOptionsDataContainer.HostsDeny.argDescription");
+		public static final OptionDefinition KEY_hostsDeny = new OptionDefinition(null,"hostsDeny",null,"ShareOptionsDataContainer.HostsDeny.argValue",false,false,"ShareOptionsDataContainer.HostsDeny.argDescription");
 			/**
-   		 *  --readOnly, default: noDefaultValue
+   		 *  --readOnly
 		 */
-		public static final OptionDefinition KEY_readOnly = new OptionDefinition(null,"readOnly","noDefaultValue","ShareOptionsDataContainer.ReadOnly.argValue",false,false,"ShareOptionsDataContainer.ReadOnly.argDescription");
+		public static final OptionDefinition KEY_readOnly = new OptionDefinition(null,"readOnly",null,"ShareOptionsDataContainer.ReadOnly.argValue",false,false,"ShareOptionsDataContainer.ReadOnly.argDescription");
 		
 	//All Options that are global and task-related
 			/**
-   		 * required, used for selection:  --serviceName, default: noDefaultValue
+   		 * required, used for selection:  --serviceName
 		 */
-		public static final OptionDefinition KEY_GLOBAL_serviceName = new OptionDefinition(null,"serviceName","noDefaultValue","serviceName.argValue",true,false,"serviceName.argDescription");
+		public static final OptionDefinition KEY_GLOBAL_serviceName = new OptionDefinition(null,"serviceName",null,"serviceName.argValue",true,false,"serviceName.argDescription");
 	
 	// Global Communication Options
 			/**

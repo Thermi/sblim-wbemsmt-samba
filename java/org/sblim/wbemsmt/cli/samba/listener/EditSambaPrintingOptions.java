@@ -37,39 +37,39 @@ public class EditSambaPrintingOptions extends CimCommand {
  
 	//All Options that are local and defined for this command
 			/**
-   		 * required, used for selection:  --sambaPrintername, default: noDefaultValue
+   		 * required, used for selection:  --sambaPrintername
 		 */
-		public static final OptionDefinition KEY_sambaPrintername = new OptionDefinition(null,"sambaPrintername","noDefaultValue","EditSambaPrintingOptions.sambaPrintername.argValue",true,false,"EditSambaPrintingOptions.sambaPrintername.argDescription");
+		public static final OptionDefinition KEY_sambaPrintername = new OptionDefinition(null,"sambaPrintername",null,"EditSambaPrintingOptions.sambaPrintername.argValue",true,false,"EditSambaPrintingOptions.sambaPrintername.argDescription");
 			/**
-   		 *  --cupsOptions, default: noDefaultValue
+   		 *  --cupsOptions
 		 */
-		public static final OptionDefinition KEY_cupsOptions = new OptionDefinition(null,"cupsOptions","noDefaultValue","PrintingOptionsDataContainer.CupsOptions.argValue",false,false,"PrintingOptionsDataContainer.CupsOptions.argDescription");
+		public static final OptionDefinition KEY_cupsOptions = new OptionDefinition(null,"cupsOptions",null,"PrintingOptionsDataContainer.CupsOptions.argValue",false,false,"PrintingOptionsDataContainer.CupsOptions.argDescription");
 			/**
-   		 *  --defaultDevMode, default: noDefaultValue
+   		 *  --defaultDevMode
 		 */
-		public static final OptionDefinition KEY_defaultDevMode = new OptionDefinition(null,"defaultDevMode","noDefaultValue","PrintingOptionsDataContainer.DefaultDevMode.argValue",false,false,"PrintingOptionsDataContainer.DefaultDevMode.argDescription");
+		public static final OptionDefinition KEY_defaultDevMode = new OptionDefinition(null,"defaultDevMode",null,"PrintingOptionsDataContainer.DefaultDevMode.argValue",false,false,"PrintingOptionsDataContainer.DefaultDevMode.argDescription");
 			/**
-   		 *  --maxPrintjobs, default: noDefaultValue
+   		 *  --maxPrintjobs
 		 */
-		public static final OptionDefinition KEY_maxPrintjobs = new OptionDefinition(null,"maxPrintjobs","noDefaultValue","PrintingOptionsDataContainer.MaxPrintjobs.argValue",false,false,"PrintingOptionsDataContainer.MaxPrintjobs.argDescription");
+		public static final OptionDefinition KEY_maxPrintjobs = new OptionDefinition(null,"maxPrintjobs",null,"PrintingOptionsDataContainer.MaxPrintjobs.argValue",false,false,"PrintingOptionsDataContainer.MaxPrintjobs.argDescription");
 			/**
-   		 *  --maxReportedPrintjobs, default: noDefaultValue
+   		 *  --maxReportedPrintjobs
 		 */
-		public static final OptionDefinition KEY_maxReportedPrintjobs = new OptionDefinition(null,"maxReportedPrintjobs","noDefaultValue","PrintingOptionsDataContainer.MaxReportedPrintjobs.argValue",false,false,"PrintingOptionsDataContainer.MaxReportedPrintjobs.argDescription");
+		public static final OptionDefinition KEY_maxReportedPrintjobs = new OptionDefinition(null,"maxReportedPrintjobs",null,"PrintingOptionsDataContainer.MaxReportedPrintjobs.argValue",false,false,"PrintingOptionsDataContainer.MaxReportedPrintjobs.argDescription");
 			/**
-   		 *  --printCommand, default: noDefaultValue
+   		 *  --printCommand
 		 */
-		public static final OptionDefinition KEY_printCommand = new OptionDefinition(null,"printCommand","noDefaultValue","PrintingOptionsDataContainer.PrintCommand.argValue",false,false,"PrintingOptionsDataContainer.PrintCommand.argDescription");
+		public static final OptionDefinition KEY_printCommand = new OptionDefinition(null,"printCommand",null,"PrintingOptionsDataContainer.PrintCommand.argValue",false,false,"PrintingOptionsDataContainer.PrintCommand.argDescription");
 			/**
-   		 *  --useClientDriver, default: noDefaultValue
+   		 *  --useClientDriver
 		 */
-		public static final OptionDefinition KEY_useClientDriver = new OptionDefinition(null,"useClientDriver","noDefaultValue","PrintingOptionsDataContainer.UseClientDriver.argValue",false,false,"PrintingOptionsDataContainer.UseClientDriver.argDescription");
+		public static final OptionDefinition KEY_useClientDriver = new OptionDefinition(null,"useClientDriver",null,"PrintingOptionsDataContainer.UseClientDriver.argValue",false,false,"PrintingOptionsDataContainer.UseClientDriver.argDescription");
 		
 	//All Options that are global and task-related
 			/**
-   		 * required, used for selection:  --serviceName, default: noDefaultValue
+   		 * required, used for selection:  --serviceName
 		 */
-		public static final OptionDefinition KEY_GLOBAL_serviceName = new OptionDefinition(null,"serviceName","noDefaultValue","serviceName.argValue",true,false,"serviceName.argDescription");
+		public static final OptionDefinition KEY_GLOBAL_serviceName = new OptionDefinition(null,"serviceName",null,"serviceName.argValue",true,false,"serviceName.argDescription");
 	
 	// Global Communication Options
 			/**

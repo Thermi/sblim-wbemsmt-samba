@@ -39,35 +39,35 @@ public class CreateSambaUser extends CimCommand implements ContainerUpdater {
  
 	//All Options that are local and defined for this command
 			/**
-   		 * required,  --username, default: noDefaultValue
+   		 * required,  --username
 		 */
-		public static final OptionDefinition KEY_username = new OptionDefinition(null,"username","noDefaultValue","UserWizardPage1.SambaUserName.argValue",true,false,"UserWizardPage1.SambaUserName.argDescription");
+		public static final OptionDefinition KEY_username = new OptionDefinition(null,"username",null,"UserWizardPage1.SambaUserName.argValue",true,false,"UserWizardPage1.SambaUserName.argDescription");
 			/**
-   		 * required,  --userPassword, default: noDefaultValue
+   		 * required,  --userPassword
 		 */
-		public static final OptionDefinition KEY_userPassword = new OptionDefinition(null,"userPassword","noDefaultValue","UserWizardPage1.SambaUserPassword.argValue",true,false,"UserWizardPage1.SambaUserPassword.argDescription");
+		public static final OptionDefinition KEY_userPassword = new OptionDefinition(null,"userPassword",null,"UserWizardPage1.SambaUserPassword.argValue",true,false,"UserWizardPage1.SambaUserPassword.argDescription");
 			/**
-   		 * required,  --userPasswordVerify, default: noDefaultValue
+   		 * required,  --userPasswordVerify
 		 */
-		public static final OptionDefinition KEY_userPasswordVerify = new OptionDefinition(null,"userPasswordVerify","noDefaultValue","UserWizardPage1.SambaUserPassword2.argValue",true,false,"UserWizardPage1.SambaUserPassword2.argDescription");
+		public static final OptionDefinition KEY_userPasswordVerify = new OptionDefinition(null,"userPasswordVerify",null,"UserWizardPage1.SambaUserPassword2.argValue",true,false,"UserWizardPage1.SambaUserPassword2.argDescription");
 			/**
-   		 * required,  --isGuest, default: noDefaultValue
+   		 * required,  --isGuest
 		 */
-		public static final OptionDefinition KEY_isGuest = new OptionDefinition(null,"isGuest","noDefaultValue","UserWizardPage1.isGuest.argValue",true,false,"UserWizardPage1.isGuest.argDescription");
+		public static final OptionDefinition KEY_isGuest = new OptionDefinition(null,"isGuest",null,"UserWizardPage1.isGuest.argValue",true,false,"UserWizardPage1.isGuest.argDescription");
 			/**
-   		 * required,  --accessToAll, default: noDefaultValue
+   		 * required,  --accessToAll
 		 */
-		public static final OptionDefinition KEY_accessToAll = new OptionDefinition(null,"accessToAll","noDefaultValue","UserWizardPage2.accessToAll.argValue",true,false,"UserWizardPage2.accessToAll.argDescription");
+		public static final OptionDefinition KEY_accessToAll = new OptionDefinition(null,"accessToAll",null,"UserWizardPage2.accessToAll.argValue",true,false,"UserWizardPage2.accessToAll.argDescription");
 			/**
-   		 *  --systemUser, default: noDefaultValue
+   		 *  --systemUser
 		 */
-		public static final OptionDefinition KEY_systemUser = new OptionDefinition(null,"systemUser","noDefaultValue","UserWizardPage3.SystemUserName.argValue",false,false,"UserWizardPage3.SystemUserName.argDescription");
+		public static final OptionDefinition KEY_systemUser = new OptionDefinition(null,"systemUser",null,"UserWizardPage3.SystemUserName.argValue",false,false,"UserWizardPage3.SystemUserName.argDescription");
 		
 	//All Options that are global and task-related
 			/**
-   		 * required, used for selection:  --serviceName, default: noDefaultValue
+   		 * required, used for selection:  --serviceName
 		 */
-		public static final OptionDefinition KEY_GLOBAL_serviceName = new OptionDefinition(null,"serviceName","noDefaultValue","serviceName.argValue",true,false,"serviceName.argDescription");
+		public static final OptionDefinition KEY_GLOBAL_serviceName = new OptionDefinition(null,"serviceName",null,"serviceName.argValue",true,false,"serviceName.argDescription");
 	
 	// Global Communication Options
 			/**

@@ -39,55 +39,55 @@ public class CreateSambaPrinter extends CimCommand implements ContainerUpdater {
  
 	//All Options that are local and defined for this command
 			/**
-   		 * required,  --allOrOne, default: noDefaultValue
+   		 * required,  --allOrOne
 		 */
-		public static final OptionDefinition KEY_allOrOne = new OptionDefinition(null,"allOrOne","noDefaultValue","PrinterWizardPage1.allOrOne.argValue",true,false,"PrinterWizardPage1.allOrOne.argDescription");
+		public static final OptionDefinition KEY_allOrOne = new OptionDefinition(null,"allOrOne",null,"PrinterWizardPage1.allOrOne.argValue",true,false,"PrinterWizardPage1.allOrOne.argDescription");
 			/**
-   		 * required,  --sambaPrinterName, default: noDefaultValue
+   		 * required,  --sambaPrinterName
 		 */
-		public static final OptionDefinition KEY_sambaPrinterName = new OptionDefinition(null,"sambaPrinterName","noDefaultValue","PrinterWizardPage2.SambaPrinterName.argValue",true,false,"PrinterWizardPage2.SambaPrinterName.argDescription");
+		public static final OptionDefinition KEY_sambaPrinterName = new OptionDefinition(null,"sambaPrinterName",null,"PrinterWizardPage2.SambaPrinterName.argValue",true,false,"PrinterWizardPage2.SambaPrinterName.argDescription");
 			/**
-   		 * required,  --systemPrintername, default: noDefaultValue
+   		 * required,  --systemPrintername
 		 */
-		public static final OptionDefinition KEY_systemPrintername = new OptionDefinition(null,"systemPrintername","noDefaultValue","PrinterWizardPage2.SystemPrinterName.argValue",true,false,"PrinterWizardPage2.SystemPrinterName.argDescription");
+		public static final OptionDefinition KEY_systemPrintername = new OptionDefinition(null,"systemPrintername",null,"PrinterWizardPage2.SystemPrinterName.argValue",true,false,"PrinterWizardPage2.SystemPrinterName.argDescription");
 			/**
-   		 * required,  --path, default: noDefaultValue
+   		 * required,  --path
 		 */
-		public static final OptionDefinition KEY_path = new OptionDefinition(null,"path","noDefaultValue","PrinterWizardPage2.Path.argValue",true,false,"PrinterWizardPage2.Path.argDescription");
+		public static final OptionDefinition KEY_path = new OptionDefinition(null,"path",null,"PrinterWizardPage2.Path.argValue",true,false,"PrinterWizardPage2.Path.argDescription");
 			/**
-   		 *  --comment, default: noDefaultValue
+   		 *  --comment
 		 */
-		public static final OptionDefinition KEY_comment = new OptionDefinition(null,"comment","noDefaultValue","PrinterWizardPage2.Comment.argValue",false,false,"PrinterWizardPage2.Comment.argDescription");
+		public static final OptionDefinition KEY_comment = new OptionDefinition(null,"comment",null,"PrinterWizardPage2.Comment.argValue",false,false,"PrinterWizardPage2.Comment.argDescription");
 			/**
-   		 *  --seenByEverybody, default: noDefaultValue
+   		 *  --seenByEverybody
 		 */
-		public static final OptionDefinition KEY_seenByEverybody = new OptionDefinition(null,"seenByEverybody","noDefaultValue","PrinterWizardPage3.seenByEverybody.argValue",false,false,"PrinterWizardPage3.seenByEverybody.argDescription");
+		public static final OptionDefinition KEY_seenByEverybody = new OptionDefinition(null,"seenByEverybody",null,"PrinterWizardPage3.seenByEverybody.argValue",false,false,"PrinterWizardPage3.seenByEverybody.argDescription");
 			/**
-   		 *  --enableGuest, default: noDefaultValue
+   		 *  --enableGuest
 		 */
-		public static final OptionDefinition KEY_enableGuest = new OptionDefinition(null,"enableGuest","noDefaultValue","PrinterWizardPage3.enableGuest.argValue",false,false,"PrinterWizardPage3.enableGuest.argDescription");
+		public static final OptionDefinition KEY_enableGuest = new OptionDefinition(null,"enableGuest",null,"PrinterWizardPage3.enableGuest.argValue",false,false,"PrinterWizardPage3.enableGuest.argDescription");
 			/**
-   		 *  --enableAllUsers, default: noDefaultValue
+   		 *  --enableAllUsers
 		 */
-		public static final OptionDefinition KEY_enableAllUsers = new OptionDefinition(null,"enableAllUsers","noDefaultValue","PrinterWizardPage3.enableAllUsers.argValue",false,false,"PrinterWizardPage3.enableAllUsers.argDescription");
+		public static final OptionDefinition KEY_enableAllUsers = new OptionDefinition(null,"enableAllUsers",null,"PrinterWizardPage3.enableAllUsers.argValue",false,false,"PrinterWizardPage3.enableAllUsers.argDescription");
 			/**
-   		 *  --forceUser, default: noDefaultValue
+   		 *  --forceUser
 		 */
-		public static final OptionDefinition KEY_forceUser = new OptionDefinition(null,"forceUser","noDefaultValue","PrinterWizardPage3.forceUser.argValue",false,false,"PrinterWizardPage3.forceUser.argDescription");
+		public static final OptionDefinition KEY_forceUser = new OptionDefinition(null,"forceUser",null,"PrinterWizardPage3.forceUser.argValue",false,false,"PrinterWizardPage3.forceUser.argDescription");
 			/**
-   		 *  --cupsOptions, default: noDefaultValue
+   		 *  --cupsOptions
 		 */
-		public static final OptionDefinition KEY_cupsOptions = new OptionDefinition(null,"cupsOptions","noDefaultValue","PrinterWizardPage4.CupsOptions.argValue",false,false,"PrinterWizardPage4.CupsOptions.argDescription");
+		public static final OptionDefinition KEY_cupsOptions = new OptionDefinition(null,"cupsOptions",null,"PrinterWizardPage4.CupsOptions.argValue",false,false,"PrinterWizardPage4.CupsOptions.argDescription");
 			/**
-   		 *  --printCommand, default: noDefaultValue
+   		 *  --printCommand
 		 */
-		public static final OptionDefinition KEY_printCommand = new OptionDefinition(null,"printCommand","noDefaultValue","PrinterWizardPage4.PrintCommand.argValue",false,false,"PrinterWizardPage4.PrintCommand.argDescription");
+		public static final OptionDefinition KEY_printCommand = new OptionDefinition(null,"printCommand",null,"PrinterWizardPage4.PrintCommand.argValue",false,false,"PrinterWizardPage4.PrintCommand.argDescription");
 		
 	//All Options that are global and task-related
 			/**
-   		 * required, used for selection:  --serviceName, default: noDefaultValue
+   		 * required, used for selection:  --serviceName
 		 */
-		public static final OptionDefinition KEY_GLOBAL_serviceName = new OptionDefinition(null,"serviceName","noDefaultValue","serviceName.argValue",true,false,"serviceName.argDescription");
+		public static final OptionDefinition KEY_GLOBAL_serviceName = new OptionDefinition(null,"serviceName",null,"serviceName.argValue",true,false,"serviceName.argDescription");
 	
 	// Global Communication Options
 			/**

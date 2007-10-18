@@ -57,9 +57,9 @@
 | *CustomLayouter* \\ | --- |
 *Fields:*
 | *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
-| CreateMask | UNSIGNED_INT16 | TEXTFIELD | Linux_SambaShareSecurityOptions.get_CreateMask \\ | --- | -createMask, Optional,Default is noDefaultValue |
-| DirectoryMask | UNSIGNED_INT16 | TEXTFIELD | Linux_SambaShareSecurityOptions.get_DirectoryMask \\ | --- | -directoryMask, Optional,Default is noDefaultValue |
-| DirectorySecurityMask | UNSIGNED_INT16 | TEXTFIELD | Linux_SambaShareSecurityOptions.get_DirectorySecurityMask \\ | --- | -directorySecurityMask, Optional,Default is noDefaultValue |
+| CreateMask | UNSIGNED_INT16 | TEXTFIELD | Linux_SambaShareSecurityOptions.get_CreateMask \\ | --- | -createMask, Optional,no default |
+| DirectoryMask | UNSIGNED_INT16 | TEXTFIELD | Linux_SambaShareSecurityOptions.get_DirectoryMask \\ | --- | -directoryMask, Optional,no default |
+| DirectorySecurityMask | UNSIGNED_INT16 | TEXTFIELD | Linux_SambaShareSecurityOptions.get_DirectorySecurityMask \\ | --- | -directorySecurityMask, Optional,no default |
 
 *Relations*
 | *RelationType&nbsp;* | *&nbsp;related DataContainer* \\ | *&nbsp;Additional Information* \\ |
@@ -137,14 +137,14 @@
 | *CustomLayouter* \\ | --- |
 *Fields:*
 | *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
-| PrintcapCacheTime | UNSIGNED_INT64 | TEXTFIELD | Linux_SambaGlobalPrintingOptions.get_PrintcapCacheTime \\ | --- | -printcapCacheTime, Optional,Default is noDefaultValue |
-| SystemPrinterName | UNSIGNED_INT16 | COMBOBOX | Linux_SambaGlobalPrintingOptions.get_SystemPrinterName \\ | Userdefined | -systemPrinterName, Optional,Default is noDefaultValue |
-| CupsOptions | STRING | TEXTFIELD | Linux_SambaGlobalPrintingOptions.get_CupsOptions \\ | --- | -cupsOptions, Optional,Default is noDefaultValue |
-| DefaultDevMode | BOOLEAN | CHECKBOX | Linux_SambaGlobalPrintingOptions.get_DefaultDevMode \\ | --- | -defaultDevMode, Optional,Default is noDefaultValue |
-| MaxPrintjobs | UNSIGNED_INT64 | TEXTFIELD | Linux_SambaGlobalPrintingOptions.get_MaxPrintjobs \\ | --- | -maxPrintjobs, Optional,Default is noDefaultValue |
-| MaxReportedPrintjobs | UNSIGNED_INT64 | TEXTFIELD | Linux_SambaGlobalPrintingOptions.get_MaxReportedPrintjobs \\ | --- | -maxReportedPrintjobs, Optional,Default is noDefaultValue |
-| PrintCommand | STRING | TEXTFIELD | Linux_SambaGlobalPrintingOptions.get_PrintCommand \\ | --- | -printCommand, Optional,Default is noDefaultValue |
-| UseClientDriver | BOOLEAN | CHECKBOX | Linux_SambaGlobalPrintingOptions.get_UseClientDriver \\ | --- | -useClientDriver, Optional,Default is noDefaultValue |
+| PrintcapCacheTime | UNSIGNED_INT64 | TEXTFIELD | Linux_SambaGlobalPrintingOptions.get_PrintcapCacheTime \\ | --- | -printcapCacheTime, Optional,no default |
+| SystemPrinterName | UNSIGNED_INT16 | COMBOBOX | Linux_SambaGlobalPrintingOptions.get_SystemPrinterName \\ | Userdefined | -systemPrinterName, Optional,no default |
+| CupsOptions | STRING | TEXTFIELD | Linux_SambaGlobalPrintingOptions.get_CupsOptions \\ | --- | -cupsOptions, Optional,no default |
+| DefaultDevMode | BOOLEAN | CHECKBOX | Linux_SambaGlobalPrintingOptions.get_DefaultDevMode \\ | --- | -defaultDevMode, Optional,no default |
+| MaxPrintjobs | UNSIGNED_INT64 | TEXTFIELD | Linux_SambaGlobalPrintingOptions.get_MaxPrintjobs \\ | --- | -maxPrintjobs, Optional,no default |
+| MaxReportedPrintjobs | UNSIGNED_INT64 | TEXTFIELD | Linux_SambaGlobalPrintingOptions.get_MaxReportedPrintjobs \\ | --- | -maxReportedPrintjobs, Optional,no default |
+| PrintCommand | STRING | TEXTFIELD | Linux_SambaGlobalPrintingOptions.get_PrintCommand \\ | --- | -printCommand, Optional,no default |
+| UseClientDriver | BOOLEAN | CHECKBOX | Linux_SambaGlobalPrintingOptions.get_UseClientDriver \\ | --- | -useClientDriver, Optional,no default |
 
 *Relations*
 | *RelationType&nbsp;* | *&nbsp;related DataContainer* \\ | *&nbsp;Additional Information* \\ |
@@ -165,12 +165,12 @@
 | *CustomLayouter* \\ | --- |
 *Fields:*
 | *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
-| CaseSensitive | BOOLEAN | CHECKBOX | Linux_SambaGlobalFileNameHandlingOptions.get_CaseSensitive \\ | --- | -caseSensitive, Optional,Default is noDefaultValue |
-| DosFiletimes | BOOLEAN | CHECKBOX | Linux_SambaGlobalFileNameHandlingOptions.get_DosFiletimes \\ | --- | -dosFiletimes, Optional,Default is noDefaultValue |
-| HideDotFiles | BOOLEAN | CHECKBOX | Linux_SambaGlobalFileNameHandlingOptions.get_HideDotFiles \\ | --- | -hideDotFiles, Optional,Default is noDefaultValue |
-| AclCompatibility | UNSIGNED_INT8 | COMBOBOX | Linux_SambaGlobalProtocolOptions.get_AclCompatibility \\ | --- | -aclCompatibility, Optional,Default is noDefaultValue |
-| EASupport | BOOLEAN | CHECKBOX | Linux_SambaGlobalProtocolOptions.get_EASupport \\ | --- | -eaSupport, Optional,Default is noDefaultValue |
-| NTACLSupport | BOOLEAN | CHECKBOX | Linux_SambaGlobalProtocolOptions.get_NTACLSupport \\ | --- | -ntaclSupport, Optional,Default is noDefaultValue |
+| CaseSensitive | BOOLEAN | CHECKBOX | Linux_SambaGlobalFileNameHandlingOptions.get_CaseSensitive \\ | --- | -caseSensitive, Optional,no default |
+| DosFiletimes | BOOLEAN | CHECKBOX | Linux_SambaGlobalFileNameHandlingOptions.get_DosFiletimes \\ | --- | -dosFiletimes, Optional,no default |
+| HideDotFiles | BOOLEAN | CHECKBOX | Linux_SambaGlobalFileNameHandlingOptions.get_HideDotFiles \\ | --- | -hideDotFiles, Optional,no default |
+| AclCompatibility | UNSIGNED_INT8 | COMBOBOX | Linux_SambaGlobalProtocolOptions.get_AclCompatibility \\ | --- | -aclCompatibility, Optional,no default |
+| EASupport | BOOLEAN | CHECKBOX | Linux_SambaGlobalProtocolOptions.get_EASupport \\ | --- | -eaSupport, Optional,no default |
+| NTACLSupport | BOOLEAN | CHECKBOX | Linux_SambaGlobalProtocolOptions.get_NTACLSupport \\ | --- | -ntaclSupport, Optional,no default |
 
 {panel}
 
@@ -189,7 +189,7 @@
 *Fields:*
 | *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
 | SambaUserName | STRING | LABEL | Linux_SambaUser.get_SambaUserName \\ | Readonly, Userdefined | -sambaUsername, Required, Used for selection |
-| admin | BOOLEAN | CHECKBOX | userdefined \\ | Userdefined | -admin, Optional,Default is noDefaultValue |
+| admin | BOOLEAN | CHECKBOX | userdefined \\ | Userdefined | -admin, Optional,no default |
 
 {panel}
 
@@ -207,7 +207,7 @@
 | *CustomLayouter* \\ | --- |
 *Fields:*
 | *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
-| Name | STRING | TEXTFIELD | Linux_SambaHost.get_Name \\ | --- | -host, Optional,Default is noDefaultValue |
+| Name | STRING | TEXTFIELD | Linux_SambaHost.get_Name \\ | --- | -host, Optional,no default |
 
 {panel}
 
@@ -298,16 +298,16 @@
 *Fields:*
 | *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
 | Name | STRING | LABEL | Linux_SambaPrinterOptions.get_Name \\ | Readonly | -sambaPrintername, Required, Used for selection |
-| SystemPrinterName | UNSIGNED_INT16 | COMBOBOX | Linux_SambaPrinterOptions.get_SystemPrinterName \\ | Userdefined | -systemPrinterName, Optional,Default is noDefaultValue |
-| Path | STRING | TEXTFIELD | Linux_SambaPrinterOptions.get_Path \\ | --- | -path, Optional,Default is noDefaultValue |
-| Comment | STRING | TEXTFIELD | Linux_SambaPrinterOptions.get_Comment \\ | --- | -comment, Optional,Default is noDefaultValue |
-| Available | BOOLEAN | CHECKBOX | Linux_SambaPrinterOptions.get_Available \\ | --- | -available, Optional,Default is noDefaultValue |
-| GuestOK | BOOLEAN | CHECKBOX | Linux_SambaCommonSecurityOptions.get_GuestOK \\ | --- | -guestOK, Optional,Default is noDefaultValue |
-| GuestOnly | BOOLEAN | CHECKBOX | Linux_SambaCommonSecurityOptions.get_GuestOnly \\ | --- | -guestOnly, Optional,Default is noDefaultValue |
-| HostsAllow | STRING | TEXTFIELD | Linux_SambaCommonSecurityOptions.get_HostsAllow \\ | --- | -hostAllow, Optional,Default is noDefaultValue |
-| HostsDeny | STRING | TEXTFIELD | Linux_SambaCommonSecurityOptions.get_HostsDeny \\ | --- | -hostDeny, Optional,Default is noDefaultValue |
-| ReadOnly | BOOLEAN | CHECKBOX | Linux_SambaCommonSecurityOptions.get_ReadOnly \\ | --- | -readOnly, Optional,Default is noDefaultValue |
-| Browsable | BOOLEAN | CHECKBOX | Linux_SambaSharePrinterBrowseOptions.get_Browsable \\ | --- | -browsable, Optional,Default is noDefaultValue |
+| SystemPrinterName | UNSIGNED_INT16 | COMBOBOX | Linux_SambaPrinterOptions.get_SystemPrinterName \\ | Userdefined | -systemPrinterName, Optional,no default |
+| Path | STRING | TEXTFIELD | Linux_SambaPrinterOptions.get_Path \\ | --- | -path, Optional,no default |
+| Comment | STRING | TEXTFIELD | Linux_SambaPrinterOptions.get_Comment \\ | --- | -comment, Optional,no default |
+| Available | BOOLEAN | CHECKBOX | Linux_SambaPrinterOptions.get_Available \\ | --- | -available, Optional,no default |
+| GuestOK | BOOLEAN | CHECKBOX | Linux_SambaCommonSecurityOptions.get_GuestOK \\ | --- | -guestOK, Optional,no default |
+| GuestOnly | BOOLEAN | CHECKBOX | Linux_SambaCommonSecurityOptions.get_GuestOnly \\ | --- | -guestOnly, Optional,no default |
+| HostsAllow | STRING | TEXTFIELD | Linux_SambaCommonSecurityOptions.get_HostsAllow \\ | --- | -hostAllow, Optional,no default |
+| HostsDeny | STRING | TEXTFIELD | Linux_SambaCommonSecurityOptions.get_HostsDeny \\ | --- | -hostDeny, Optional,no default |
+| ReadOnly | BOOLEAN | CHECKBOX | Linux_SambaCommonSecurityOptions.get_ReadOnly \\ | --- | -readOnly, Optional,no default |
+| Browsable | BOOLEAN | CHECKBOX | Linux_SambaSharePrinterBrowseOptions.get_Browsable \\ | --- | -browsable, Optional,no default |
 
 {panel}
 
@@ -325,12 +325,12 @@
 | *CustomLayouter* \\ | --- |
 *Fields:*
 | *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
-| CupsOptions | STRING | TEXTFIELD | Linux_SambaPrinterPrintingOptions.get_CupsOptions \\ | --- | -cupsOptions, Optional,Default is noDefaultValue |
-| DefaultDevMode | BOOLEAN | CHECKBOX | Linux_SambaPrinterPrintingOptions.get_DefaultDevMode \\ | --- | -defaultDevMode, Optional,Default is noDefaultValue |
-| MaxPrintjobs | UNSIGNED_INT64 | TEXTFIELD | Linux_SambaPrinterPrintingOptions.get_MaxPrintjobs \\ | --- | -maxPrintjobs, Optional,Default is noDefaultValue |
-| MaxReportedPrintjobs | UNSIGNED_INT64 | TEXTFIELD | Linux_SambaPrinterPrintingOptions.get_MaxReportedPrintjobs \\ | --- | -maxReportedPrintjobs, Optional,Default is noDefaultValue |
-| PrintCommand | STRING | TEXTFIELD | Linux_SambaPrinterPrintingOptions.get_PrintCommand \\ | --- | -printCommand, Optional,Default is noDefaultValue |
-| UseClientDriver | BOOLEAN | CHECKBOX | Linux_SambaPrinterPrintingOptions.get_UseClientDriver \\ | --- | -useClientDriver, Optional,Default is noDefaultValue |
+| CupsOptions | STRING | TEXTFIELD | Linux_SambaPrinterPrintingOptions.get_CupsOptions \\ | --- | -cupsOptions, Optional,no default |
+| DefaultDevMode | BOOLEAN | CHECKBOX | Linux_SambaPrinterPrintingOptions.get_DefaultDevMode \\ | --- | -defaultDevMode, Optional,no default |
+| MaxPrintjobs | UNSIGNED_INT64 | TEXTFIELD | Linux_SambaPrinterPrintingOptions.get_MaxPrintjobs \\ | --- | -maxPrintjobs, Optional,no default |
+| MaxReportedPrintjobs | UNSIGNED_INT64 | TEXTFIELD | Linux_SambaPrinterPrintingOptions.get_MaxReportedPrintjobs \\ | --- | -maxReportedPrintjobs, Optional,no default |
+| PrintCommand | STRING | TEXTFIELD | Linux_SambaPrinterPrintingOptions.get_PrintCommand \\ | --- | -printCommand, Optional,no default |
+| UseClientDriver | BOOLEAN | CHECKBOX | Linux_SambaPrinterPrintingOptions.get_UseClientDriver \\ | --- | -useClientDriver, Optional,no default |
 
 {panel}
 
@@ -349,9 +349,9 @@
 *Fields:*
 | *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
 | SambaUserName | STRING | LABEL | Linux_SambaUser.get_SambaUserName \\ | Readonly | -sambaUsername, Required, Used for selection |
-| accessTypeVI | UNSIGNED_INT16 | RADIOBUTTON | userdefined \\ | Userdefined | -access, Optional,Default is noDefaultValue |
-| accessTypeRW | UNSIGNED_INT16 | RADIOBUTTON | userdefined \\ | Userdefined | -accessTypeRW, Optional,Default is noDefaultValue |
-| admin | BOOLEAN | CHECKBOX | userdefined \\ | Userdefined | -admin, Optional,Default is noDefaultValue |
+| accessTypeVI | UNSIGNED_INT16 | RADIOBUTTON | userdefined \\ | Userdefined | -access, Optional,no default |
+| accessTypeRW | UNSIGNED_INT16 | RADIOBUTTON | userdefined \\ | Userdefined | -accessTypeRW, Optional,no default |
+| admin | BOOLEAN | CHECKBOX | userdefined \\ | Userdefined | -admin, Optional,no default |
 
 {panel}
 
@@ -369,8 +369,8 @@
 | *CustomLayouter* \\ | --- |
 *Fields:*
 | *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
-| currentForceUser | STRING | LABEL | userdefined \\ | Readonly, Userdefined | -currentForceUser, Optional,Default is noDefaultValue |
-| newForceUser | UNSIGNED_INT16 | COMBOBOX | userdefined \\ | Userdefined | -newForceUser, Optional,Default is noDefaultValue |
+| currentForceUser | STRING | LABEL | userdefined \\ | Readonly, Userdefined | -currentForceUser, Optional,no default |
+| newForceUser | UNSIGNED_INT16 | COMBOBOX | userdefined \\ | Userdefined | -newForceUser, Optional,no default |
 
 *Relations*
 | *RelationType&nbsp;* | *&nbsp;related DataContainer* \\ | *&nbsp;Additional Information* \\ |
@@ -391,8 +391,8 @@
 | *CustomLayouter* \\ | --- |
 *Fields:*
 | *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
-| allowedHosts | UNSIGNED_INT16 | LIST | userdefined \\ | Userdefined | -allowedHosts, Optional,Default is noDefaultValue |
-| hostsToAllow | UNSIGNED_INT16 | LIST | userdefined \\ | Userdefined | -hostsToAllow, Optional,Default is noDefaultValue |
+| allowedHosts | UNSIGNED_INT16 | LIST | userdefined \\ | Userdefined | -allowedHosts, Optional,no default |
+| hostsToAllow | UNSIGNED_INT16 | LIST | userdefined \\ | Userdefined | -hostsToAllow, Optional,no default |
 | addHost | ACTION | BUTTON | userdefined \\ | Userdefined | -addHost, Optional,no default |
 | removeHost | ACTION | BUTTON | userdefined \\ | Userdefined | -removeHost, Optional,no default |
 
@@ -412,8 +412,8 @@
 | *CustomLayouter* \\ | --- |
 *Fields:*
 | *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
-| deniedHosts | UNSIGNED_INT16 | LIST | userdefined \\ | Userdefined | -allowedHosts, Optional,Default is noDefaultValue |
-| hostsToDeny | UNSIGNED_INT16 | LIST | userdefined \\ | Userdefined | -hostsToAllow, Optional,Default is noDefaultValue |
+| deniedHosts | UNSIGNED_INT16 | LIST | userdefined \\ | Userdefined | -allowedHosts, Optional,no default |
+| hostsToDeny | UNSIGNED_INT16 | LIST | userdefined \\ | Userdefined | -hostsToAllow, Optional,no default |
 | addHost | ACTION | BUTTON | userdefined \\ | Userdefined | -addHost, Optional,no default |
 | removeHost | ACTION | BUTTON | userdefined \\ | Userdefined | -removeHost, Optional,no default |
 
@@ -433,20 +433,20 @@
 | *CustomLayouter* \\ | --- |
 *Fields:*
 | *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
-| AuthMethods | STRING | TEXTFIELD | Linux_SambaGlobalSecurityOptions.get_AuthMethods \\ | --- | -authMethods, Optional,Default is noDefaultValue |
-| EncryptPasswords | BOOLEAN | CHECKBOX | Linux_SambaGlobalSecurityOptions.get_EncryptPasswords \\ | --- | -encryptPasswords, Optional,Default is noDefaultValue |
-| MinPasswordLength | UNSIGNED_INT8 | TEXTFIELD | Linux_SambaGlobalSecurityOptions.get_MinPasswordLength \\ | --- | -minLength, Optional,Default is noDefaultValue |
-| NullPasswords | BOOLEAN | CHECKBOX | Linux_SambaGlobalSecurityOptions.get_NullPasswords \\ | --- | -nullPasswords, Optional,Default is noDefaultValue |
-| PassdbBackend | UNSIGNED_INT16 | COMBOBOX | Linux_SambaGlobalSecurityOptions.get_PassdbBackend \\ | Userdefined | -passdbBackend, Optional,Default is noDefaultValue |
-| SMBPasswdFile | STRING | TEXTFIELD | Linux_SambaGlobalSecurityOptions.get_SMBPasswdFile \\ | --- | -smbPasswdFile, Optional,Default is noDefaultValue |
-| Security | UNSIGNED_INT8 | COMBOBOX | Linux_SambaGlobalSecurityOptions.get_Security \\ | --- | -security, Optional,Default is noDefaultValue |
-| GuestOK | BOOLEAN | CHECKBOX | Linux_SambaCommonSecurityOptions.get_GuestOK \\ | --- | -guestOK, Optional,Default is noDefaultValue |
-| GuestOnly | BOOLEAN | CHECKBOX | Linux_SambaCommonSecurityOptions.get_GuestOnly \\ | --- | -guestOnly, Optional,Default is noDefaultValue |
-| HostsAllow | STRING | TEXTFIELD | Linux_SambaCommonSecurityOptions.get_HostsAllow \\ | --- | -hostAllow, Optional,Default is noDefaultValue |
-| HostsDeny | STRING | TEXTFIELD | Linux_SambaCommonSecurityOptions.get_HostsDeny \\ | --- | -hostDeny, Optional,Default is noDefaultValue |
-| ReadOnly | BOOLEAN | CHECKBOX | Linux_SambaCommonSecurityOptions.get_ReadOnly \\ | --- | -readOnly, Optional,Default is noDefaultValue |
-| DomainMaster | UNSIGNED_INT16 | COMBOBOX | Linux_SambaGlobalBrowseOptions.get_DomainMaster \\ | --- | -domainMaster, Optional,Default is noDefaultValue |
-| Browsable | BOOLEAN | CHECKBOX | Linux_SambaGlobalBrowseOptions.get_Browsable \\ | --- | -browsable, Optional,Default is noDefaultValue |
+| AuthMethods | STRING | TEXTFIELD | Linux_SambaGlobalSecurityOptions.get_AuthMethods \\ | --- | -authMethods, Optional,no default |
+| EncryptPasswords | BOOLEAN | CHECKBOX | Linux_SambaGlobalSecurityOptions.get_EncryptPasswords \\ | --- | -encryptPasswords, Optional,no default |
+| MinPasswordLength | UNSIGNED_INT8 | TEXTFIELD | Linux_SambaGlobalSecurityOptions.get_MinPasswordLength \\ | --- | -minLength, Optional,no default |
+| NullPasswords | BOOLEAN | CHECKBOX | Linux_SambaGlobalSecurityOptions.get_NullPasswords \\ | --- | -nullPasswords, Optional,no default |
+| PassdbBackend | UNSIGNED_INT16 | COMBOBOX | Linux_SambaGlobalSecurityOptions.get_PassdbBackend \\ | Userdefined | -passdbBackend, Optional,no default |
+| SMBPasswdFile | STRING | TEXTFIELD | Linux_SambaGlobalSecurityOptions.get_SMBPasswdFile \\ | --- | -smbPasswdFile, Optional,no default |
+| Security | UNSIGNED_INT8 | COMBOBOX | Linux_SambaGlobalSecurityOptions.get_Security \\ | --- | -security, Optional,no default |
+| GuestOK | BOOLEAN | CHECKBOX | Linux_SambaCommonSecurityOptions.get_GuestOK \\ | --- | -guestOK, Optional,no default |
+| GuestOnly | BOOLEAN | CHECKBOX | Linux_SambaCommonSecurityOptions.get_GuestOnly \\ | --- | -guestOnly, Optional,no default |
+| HostsAllow | STRING | TEXTFIELD | Linux_SambaCommonSecurityOptions.get_HostsAllow \\ | --- | -hostAllow, Optional,no default |
+| HostsDeny | STRING | TEXTFIELD | Linux_SambaCommonSecurityOptions.get_HostsDeny \\ | --- | -hostDeny, Optional,no default |
+| ReadOnly | BOOLEAN | CHECKBOX | Linux_SambaCommonSecurityOptions.get_ReadOnly \\ | --- | -readOnly, Optional,no default |
+| DomainMaster | UNSIGNED_INT16 | COMBOBOX | Linux_SambaGlobalBrowseOptions.get_DomainMaster \\ | --- | -domainMaster, Optional,no default |
+| Browsable | BOOLEAN | CHECKBOX | Linux_SambaGlobalBrowseOptions.get_Browsable \\ | --- | -browsable, Optional,no default |
 
 {panel}
 
@@ -464,15 +464,15 @@
 | *CustomLayouter* \\ | --- |
 *Fields:*
 | *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
-| SysLog | UNSIGNED_INT16 | TEXTFIELD | Linux_SambaLoggingOptions.get_SysLog \\ | --- | -syslog, Optional,Default is noDefaultValue |
-| SysLogOnly | BOOLEAN | CHECKBOX | Linux_SambaLoggingOptions.get_SysLogOnly \\ | --- | -syslogOnly, Optional,Default is noDefaultValue |
-| MaxLogSize | UNSIGNED_INT32 | TEXTFIELD | Linux_SambaLoggingOptions.get_MaxLogSize \\ | --- | -maxLogSize, Optional,Default is noDefaultValue |
-| DebugHiresTimestamp | BOOLEAN | CHECKBOX | Linux_SambaLoggingOptions.get_DebugHiresTimestamp \\ | --- | -debugHires, Optional,Default is noDefaultValue |
-| DebugPID | BOOLEAN | CHECKBOX | Linux_SambaLoggingOptions.get_DebugPID \\ | --- | -debugPID, Optional,Default is noDefaultValue |
-| DebugTimestamp | BOOLEAN | CHECKBOX | Linux_SambaLoggingOptions.get_DebugTimestamp \\ | --- | -debugTimestamp, Optional,Default is noDefaultValue |
-| DebugUID | BOOLEAN | CHECKBOX | Linux_SambaLoggingOptions.get_DebugUID \\ | --- | -debugUID, Optional,Default is noDefaultValue |
-| LogFile | STRING | TEXTFIELD | Linux_SambaLoggingOptions.get_LogFile \\ | --- | -logfile, Optional,Default is noDefaultValue |
-| LogLevel | STRING | TEXTFIELD | Linux_SambaLoggingOptions.get_LogLevel \\ | --- | -loglevel, Optional,Default is noDefaultValue |
+| SysLog | UNSIGNED_INT16 | TEXTFIELD | Linux_SambaLoggingOptions.get_SysLog \\ | --- | -syslog, Optional,no default |
+| SysLogOnly | BOOLEAN | CHECKBOX | Linux_SambaLoggingOptions.get_SysLogOnly \\ | --- | -syslogOnly, Optional,no default |
+| MaxLogSize | UNSIGNED_INT32 | TEXTFIELD | Linux_SambaLoggingOptions.get_MaxLogSize \\ | --- | -maxLogSize, Optional,no default |
+| DebugHiresTimestamp | BOOLEAN | CHECKBOX | Linux_SambaLoggingOptions.get_DebugHiresTimestamp \\ | --- | -debugHires, Optional,no default |
+| DebugPID | BOOLEAN | CHECKBOX | Linux_SambaLoggingOptions.get_DebugPID \\ | --- | -debugPID, Optional,no default |
+| DebugTimestamp | BOOLEAN | CHECKBOX | Linux_SambaLoggingOptions.get_DebugTimestamp \\ | --- | -debugTimestamp, Optional,no default |
+| DebugUID | BOOLEAN | CHECKBOX | Linux_SambaLoggingOptions.get_DebugUID \\ | --- | -debugUID, Optional,no default |
+| LogFile | STRING | TEXTFIELD | Linux_SambaLoggingOptions.get_LogFile \\ | --- | -logfile, Optional,no default |
+| LogLevel | STRING | TEXTFIELD | Linux_SambaLoggingOptions.get_LogLevel \\ | --- | -loglevel, Optional,no default |
 
 {panel}
 
@@ -511,13 +511,13 @@
 | *CustomLayouter* \\ | --- |
 *Fields:*
 | *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
-| BindInterfacesOnly | BOOLEAN | CHECKBOX | Linux_SambaGlobalOptions.get_BindInterfacesOnly \\ | --- | -bindInterfaces, Optional,Default is noDefaultValue |
-| Interfaces | STRING | TEXTFIELD | Linux_SambaGlobalOptions.get_Interfaces \\ | --- | -interfaces, Optional,Default is noDefaultValue |
-| NetbiosAlias | STRING | TEXTFIELD | Linux_SambaGlobalOptions.get_NetbiosAlias \\ | --- | -netbiosAlias, Optional,Default is noDefaultValue |
-| NetbiosName | STRING | TEXTFIELD | Linux_SambaGlobalOptions.get_NetbiosName \\ | --- | -netbiosName, Optional,Default is noDefaultValue |
-| ServerString | STRING | TEXTFIELD | Linux_SambaGlobalOptions.get_ServerString \\ | --- | -serverString, Optional,Default is noDefaultValue |
-| Workgroup | STRING | TEXTFIELD | Linux_SambaGlobalOptions.get_Workgroup \\ | --- | -workgroup, Optional,Default is noDefaultValue |
-| ConfigurationFile | STRING | TEXTFIELD | Linux_SambaServiceConfiguration.get_ConfigurationFile \\ | --- | -configurationFile, Optional,Default is noDefaultValue |
+| BindInterfacesOnly | BOOLEAN | CHECKBOX | Linux_SambaGlobalOptions.get_BindInterfacesOnly \\ | --- | -bindInterfaces, Optional,no default |
+| Interfaces | STRING | TEXTFIELD | Linux_SambaGlobalOptions.get_Interfaces \\ | --- | -interfaces, Optional,no default |
+| NetbiosAlias | STRING | TEXTFIELD | Linux_SambaGlobalOptions.get_NetbiosAlias \\ | --- | -netbiosAlias, Optional,no default |
+| NetbiosName | STRING | TEXTFIELD | Linux_SambaGlobalOptions.get_NetbiosName \\ | --- | -netbiosName, Optional,no default |
+| ServerString | STRING | TEXTFIELD | Linux_SambaGlobalOptions.get_ServerString \\ | --- | -serverString, Optional,no default |
+| Workgroup | STRING | TEXTFIELD | Linux_SambaGlobalOptions.get_Workgroup \\ | --- | -workgroup, Optional,no default |
+| ConfigurationFile | STRING | TEXTFIELD | Linux_SambaServiceConfiguration.get_ConfigurationFile \\ | --- | -configurationFile, Optional,no default |
 
 {panel}
 
@@ -535,15 +535,15 @@
 | *CustomLayouter* \\ | --- |
 *Fields:*
 | *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
-| AddGroupScript | STRING | TEXTFIELD | Linux_SambaScriptingOptions.get_AddGroupScript \\ | --- | -addGroupScript, Optional,Default is noDefaultValue |
-| AddPrinterCommand | STRING | TEXTFIELD | Linux_SambaScriptingOptions.get_AddPrinterCommand \\ | --- | -addPrinterCommand, Optional,Default is noDefaultValue |
-| AddShareCommand | STRING | TEXTFIELD | Linux_SambaScriptingOptions.get_AddShareCommand \\ | --- | -addShareCommand, Optional,Default is noDefaultValue |
-| AddUserScript | STRING | TEXTFIELD | Linux_SambaScriptingOptions.get_AddUserScript \\ | --- | -addUserScript, Optional,Default is noDefaultValue |
-| AddUsertoGroupScript | STRING | TEXTFIELD | Linux_SambaScriptingOptions.get_AddUsertoGroupScript \\ | --- | -addUsertoGroupScript, Optional,Default is noDefaultValue |
-| DeleteGroupScript | STRING | TEXTFIELD | Linux_SambaScriptingOptions.get_DeleteGrouprScript \\ | --- | -deleteGroupScript, Optional,Default is noDefaultValue |
-| DeleteUserScript | STRING | TEXTFIELD | Linux_SambaScriptingOptions.get_DeleteUserScript \\ | --- | -deleteUserScript, Optional,Default is noDefaultValue |
-| DeleteUserfromGroupScript | STRING | TEXTFIELD | Linux_SambaScriptingOptions.get_DeleteUserfromGroupScript \\ | --- | -deleteUserfromGroupScript, Optional,Default is noDefaultValue |
-| SetPrimaryGroupScript | STRING | TEXTFIELD | Linux_SambaScriptingOptions.get_SetPrimaryGroupScript \\ | --- | -setPrimaryGroupScript, Optional,Default is noDefaultValue |
+| AddGroupScript | STRING | TEXTFIELD | Linux_SambaScriptingOptions.get_AddGroupScript \\ | --- | -addGroupScript, Optional,no default |
+| AddPrinterCommand | STRING | TEXTFIELD | Linux_SambaScriptingOptions.get_AddPrinterCommand \\ | --- | -addPrinterCommand, Optional,no default |
+| AddShareCommand | STRING | TEXTFIELD | Linux_SambaScriptingOptions.get_AddShareCommand \\ | --- | -addShareCommand, Optional,no default |
+| AddUserScript | STRING | TEXTFIELD | Linux_SambaScriptingOptions.get_AddUserScript \\ | --- | -addUserScript, Optional,no default |
+| AddUsertoGroupScript | STRING | TEXTFIELD | Linux_SambaScriptingOptions.get_AddUsertoGroupScript \\ | --- | -addUsertoGroupScript, Optional,no default |
+| DeleteGroupScript | STRING | TEXTFIELD | Linux_SambaScriptingOptions.get_DeleteGrouprScript \\ | --- | -deleteGroupScript, Optional,no default |
+| DeleteUserScript | STRING | TEXTFIELD | Linux_SambaScriptingOptions.get_DeleteUserScript \\ | --- | -deleteUserScript, Optional,no default |
+| DeleteUserfromGroupScript | STRING | TEXTFIELD | Linux_SambaScriptingOptions.get_DeleteUserfromGroupScript \\ | --- | -deleteUserfromGroupScript, Optional,no default |
+| SetPrimaryGroupScript | STRING | TEXTFIELD | Linux_SambaScriptingOptions.get_SetPrimaryGroupScript \\ | --- | -setPrimaryGroupScript, Optional,no default |
 
 {panel}
 
@@ -561,9 +561,9 @@
 | *CustomLayouter* \\ | --- |
 *Fields:*
 | *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
-| guestUser | STRING | LABEL | userdefined \\ | Readonly, Userdefined | -userForGuestAccount, Optional,Default is noDefaultValue |
-| currentForceUser | STRING | LABEL | userdefined \\ | Readonly, Userdefined | -currentForceUser, Optional,Default is noDefaultValue |
-| newForceUser | UNSIGNED_INT16 | COMBOBOX | userdefined \\ | Userdefined | -newForceUser, Optional,Default is noDefaultValue |
+| guestUser | STRING | LABEL | userdefined \\ | Readonly, Userdefined | -userForGuestAccount, Optional,no default |
+| currentForceUser | STRING | LABEL | userdefined \\ | Readonly, Userdefined | -currentForceUser, Optional,no default |
+| newForceUser | UNSIGNED_INT16 | COMBOBOX | userdefined \\ | Userdefined | -newForceUser, Optional,no default |
 
 *Relations*
 | *RelationType&nbsp;* | *&nbsp;related DataContainer* \\ | *&nbsp;Additional Information* \\ |
@@ -584,11 +584,11 @@
 | *CustomLayouter* \\ | --- |
 *Fields:*
 | *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
-| DNS_Proxy | STRING | TEXTFIELD | Linux_SambaWinsOptions.get_DNS_Proxy \\ | --- | -dnsProxy, Optional,Default is noDefaultValue |
-| WINSHook | STRING | TEXTFIELD | Linux_SambaWinsOptions.get_WINSHook \\ | --- | -winsHook, Optional,Default is noDefaultValue |
-| WINSProxy | BOOLEAN | CHECKBOX | Linux_SambaWinsOptions.get_WINSProxy \\ | --- | -winsProxy, Optional,Default is noDefaultValue |
-| WINSServer | STRING | TEXTFIELD | Linux_SambaWinsOptions.get_WINSServer \\ | --- | -winsServer, Optional,Default is noDefaultValue |
-| WINSSupport | BOOLEAN | CHECKBOX | Linux_SambaWinsOptions.get_WINSSupport \\ | --- | -winsSupport, Optional,Default is noDefaultValue |
+| DNS_Proxy | STRING | TEXTFIELD | Linux_SambaWinsOptions.get_DNS_Proxy \\ | --- | -dnsProxy, Optional,no default |
+| WINSHook | STRING | TEXTFIELD | Linux_SambaWinsOptions.get_WINSHook \\ | --- | -winsHook, Optional,no default |
+| WINSProxy | BOOLEAN | CHECKBOX | Linux_SambaWinsOptions.get_WINSProxy \\ | --- | -winsProxy, Optional,no default |
+| WINSServer | STRING | TEXTFIELD | Linux_SambaWinsOptions.get_WINSServer \\ | --- | -winsServer, Optional,no default |
+| WINSSupport | BOOLEAN | CHECKBOX | Linux_SambaWinsOptions.get_WINSSupport \\ | --- | -winsSupport, Optional,no default |
 
 {panel}
 
@@ -607,8 +607,8 @@
 *Fields:*
 | *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
 | SambaUserName | STRING | LABEL | Linux_SambaUser.get_SambaUserName \\ | Readonly | -sambaUsername, Required, Used for selection |
-| accessTypeVI | UNSIGNED_INT16 | RADIOBUTTON | userdefined \\ | Userdefined | -access, Optional,Default is noDefaultValue |
-| accessTypeRW | UNSIGNED_INT16 | RADIOBUTTON | userdefined \\ | Userdefined | -accessTypeRW, Optional,Default is noDefaultValue |
+| accessTypeVI | UNSIGNED_INT16 | RADIOBUTTON | userdefined \\ | Userdefined | -access, Optional,no default |
+| accessTypeRW | UNSIGNED_INT16 | RADIOBUTTON | userdefined \\ | Userdefined | -accessTypeRW, Optional,no default |
 
 {panel}
 
@@ -706,9 +706,9 @@
 *Fields:*
 | *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
 | PrinterName | STRING | LABEL | Linux_SambaPrinterOptions.get_Name \\ | Readonly | -sambaPrintername, Required, Used for selection |
-| accessTypeVI | UNSIGNED_INT16 | RADIOBUTTON | userdefined \\ | Userdefined | -access, Optional,Default is noDefaultValue |
-| accessTypeRW | UNSIGNED_INT16 | RADIOBUTTON | userdefined \\ | Userdefined | -accessTypeRW, Optional,Default is noDefaultValue |
-| admin | BOOLEAN | CHECKBOX | userdefined \\ | Userdefined | -admin, Optional,Default is noDefaultValue |
+| accessTypeVI | UNSIGNED_INT16 | RADIOBUTTON | userdefined \\ | Userdefined | -access, Optional,no default |
+| accessTypeRW | UNSIGNED_INT16 | RADIOBUTTON | userdefined \\ | Userdefined | -accessTypeRW, Optional,no default |
+| admin | BOOLEAN | CHECKBOX | userdefined \\ | Userdefined | -admin, Optional,no default |
 
 {panel}
 
@@ -727,9 +727,9 @@
 *Fields:*
 | *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
 | shareName | STRING | LABEL | Linux_SambaShareOptions.get_Name \\ | --- | -shareName, Required, Used for selection |
-| accessTypeVI | UNSIGNED_INT16 | RADIOBUTTON | userdefined \\ | Userdefined | -access, Optional,Default is noDefaultValue |
-| accessTypeRW | UNSIGNED_INT16 | RADIOBUTTON | userdefined \\ | Userdefined | -accessTypeRW, Optional,Default is noDefaultValue |
-| admin | BOOLEAN | CHECKBOX | userdefined \\ | Userdefined | -admin, Optional,Default is noDefaultValue |
+| accessTypeVI | UNSIGNED_INT16 | RADIOBUTTON | userdefined \\ | Userdefined | -access, Optional,no default |
+| accessTypeRW | UNSIGNED_INT16 | RADIOBUTTON | userdefined \\ | Userdefined | -accessTypeRW, Optional,no default |
+| admin | BOOLEAN | CHECKBOX | userdefined \\ | Userdefined | -admin, Optional,no default |
 
 {panel}
 
@@ -783,12 +783,12 @@
 | *CustomLayouter* \\ | --- |
 *Fields:*
 | *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
-| CaseSensitive | BOOLEAN | CHECKBOX | Linux_SambaShareFileNameHandlingOptions.get_CaseSensitive \\ | --- | -caseSensitive, Optional,Default is noDefaultValue |
-| HideDotFiles | BOOLEAN | CHECKBOX | Linux_SambaShareFileNameHandlingOptions.get_HideDotFiles \\ | --- | -hideDotFiles, Optional,Default is noDefaultValue |
-| DosFiletimes | BOOLEAN | CHECKBOX | Linux_SambaShareFileNameHandlingOptions.get_DosFiletimes \\ | --- | -dosFiletimes, Optional,Default is noDefaultValue |
-| EASupport | BOOLEAN | CHECKBOX | Linux_SambaShareProtocolOptions.get_EASupport \\ | --- | -eaSupport, Optional,Default is noDefaultValue |
-| AclCompatibility | UNSIGNED_INT8 | COMBOBOX | Linux_SambaShareProtocolOptions.get_AclCompatibility \\ | --- | -aclCompatibility, Optional,Default is noDefaultValue |
-| NTACLSupport | BOOLEAN | CHECKBOX | Linux_SambaShareProtocolOptions.get_NTACLSupport \\ | --- | -ntaclSupport, Optional,Default is noDefaultValue |
+| CaseSensitive | BOOLEAN | CHECKBOX | Linux_SambaShareFileNameHandlingOptions.get_CaseSensitive \\ | --- | -caseSensitive, Optional,no default |
+| HideDotFiles | BOOLEAN | CHECKBOX | Linux_SambaShareFileNameHandlingOptions.get_HideDotFiles \\ | --- | -hideDotFiles, Optional,no default |
+| DosFiletimes | BOOLEAN | CHECKBOX | Linux_SambaShareFileNameHandlingOptions.get_DosFiletimes \\ | --- | -dosFiletimes, Optional,no default |
+| EASupport | BOOLEAN | CHECKBOX | Linux_SambaShareProtocolOptions.get_EASupport \\ | --- | -eaSupport, Optional,no default |
+| AclCompatibility | UNSIGNED_INT8 | COMBOBOX | Linux_SambaShareProtocolOptions.get_AclCompatibility \\ | --- | -aclCompatibility, Optional,no default |
+| NTACLSupport | BOOLEAN | CHECKBOX | Linux_SambaShareProtocolOptions.get_NTACLSupport \\ | --- | -ntaclSupport, Optional,no default |
 
 {panel}
 
@@ -843,15 +843,15 @@
 *Fields:*
 | *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
 | Name | STRING | LABEL | Linux_SambaShareOptions.get_Name \\ | Readonly | -sharename, Required, Used for selection |
-| Available | BOOLEAN | CHECKBOX | Linux_SambaShareOptions.get_Available \\ | --- | -available, Optional,Default is noDefaultValue |
-| Comment | STRING | TEXTFIELD | Linux_SambaShareOptions.get_Comment \\ | --- | -comment, Optional,Default is noDefaultValue |
-| Path | STRING | TEXTFIELD | Linux_SambaShareOptions.get_Path \\ | --- | -path, Optional,Default is noDefaultValue |
-| Browsable | BOOLEAN | CHECKBOX | Linux_SambaSharePrinterBrowseOptions.get_Browsable \\ | --- | -browsable, Optional,Default is noDefaultValue |
-| GuestOK | BOOLEAN | CHECKBOX | Linux_SambaCommonSecurityOptions.get_GuestOK \\ | --- | -guestok, Optional,Default is noDefaultValue |
-| GuestOnly | BOOLEAN | CHECKBOX | Linux_SambaCommonSecurityOptions.get_GuestOnly \\ | --- | -guestOnly, Optional,Default is noDefaultValue |
-| HostsAllow | STRING | TEXTFIELD | Linux_SambaCommonSecurityOptions.get_HostsAllow \\ | --- | -hostsAllow, Optional,Default is noDefaultValue |
-| HostsDeny | STRING | TEXTFIELD | Linux_SambaCommonSecurityOptions.get_HostsDeny \\ | --- | -hostsDeny, Optional,Default is noDefaultValue |
-| ReadOnly | BOOLEAN | CHECKBOX | Linux_SambaCommonSecurityOptions.get_ReadOnly \\ | --- | -readOnly, Optional,Default is noDefaultValue |
+| Available | BOOLEAN | CHECKBOX | Linux_SambaShareOptions.get_Available \\ | --- | -available, Optional,no default |
+| Comment | STRING | TEXTFIELD | Linux_SambaShareOptions.get_Comment \\ | --- | -comment, Optional,no default |
+| Path | STRING | TEXTFIELD | Linux_SambaShareOptions.get_Path \\ | --- | -path, Optional,no default |
+| Browsable | BOOLEAN | CHECKBOX | Linux_SambaSharePrinterBrowseOptions.get_Browsable \\ | --- | -browsable, Optional,no default |
+| GuestOK | BOOLEAN | CHECKBOX | Linux_SambaCommonSecurityOptions.get_GuestOK \\ | --- | -guestok, Optional,no default |
+| GuestOnly | BOOLEAN | CHECKBOX | Linux_SambaCommonSecurityOptions.get_GuestOnly \\ | --- | -guestOnly, Optional,no default |
+| HostsAllow | STRING | TEXTFIELD | Linux_SambaCommonSecurityOptions.get_HostsAllow \\ | --- | -hostsAllow, Optional,no default |
+| HostsDeny | STRING | TEXTFIELD | Linux_SambaCommonSecurityOptions.get_HostsDeny \\ | --- | -hostsDeny, Optional,no default |
+| ReadOnly | BOOLEAN | CHECKBOX | Linux_SambaCommonSecurityOptions.get_ReadOnly \\ | --- | -readOnly, Optional,no default |
 
 {panel}
 
@@ -870,9 +870,9 @@
 *Fields:*
 | *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
 | SambaUserName | STRING | LABEL | Linux_SambaUser.get_SambaUserName \\ | Readonly | -sambaUsername, Required, Used for selection |
-| accessTypeVI | UNSIGNED_INT16 | RADIOBUTTON | userdefined \\ | Userdefined | -access, Optional,Default is noDefaultValue |
-| accessTypeRW | UNSIGNED_INT16 | RADIOBUTTON | userdefined \\ | Userdefined | -accessTypeRW, Optional,Default is noDefaultValue |
-| admin | BOOLEAN | CHECKBOX | userdefined \\ | Userdefined | -admin, Optional,Default is noDefaultValue |
+| accessTypeVI | UNSIGNED_INT16 | RADIOBUTTON | userdefined \\ | Userdefined | -access, Optional,no default |
+| accessTypeRW | UNSIGNED_INT16 | RADIOBUTTON | userdefined \\ | Userdefined | -accessTypeRW, Optional,no default |
+| admin | BOOLEAN | CHECKBOX | userdefined \\ | Userdefined | -admin, Optional,no default |
 
 {panel}
 
@@ -890,8 +890,8 @@
 | *CustomLayouter* \\ | --- |
 *Fields:*
 | *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
-| newForceUser | UNSIGNED_INT16 | COMBOBOX | userdefined \\ | Userdefined | -newForceUser, Optional,Default is noDefaultValue |
-| currentForceUser | STRING | LABEL | userdefined \\ | Readonly, Userdefined | -newOptions, Optional,Default is noDefaultValue |
+| newForceUser | UNSIGNED_INT16 | COMBOBOX | userdefined \\ | Userdefined | -newForceUser, Optional,no default |
+| currentForceUser | STRING | LABEL | userdefined \\ | Readonly, Userdefined | -newOptions, Optional,no default |
 
 *Relations*
 | *RelationType&nbsp;* | *&nbsp;related DataContainer* \\ | *&nbsp;Additional Information* \\ |
@@ -948,9 +948,9 @@
 | *CustomLayouter* \\ | --- |
 *Fields:*
 | *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
-| SambaUserName | STRING | LABEL | Linux_SambaUser.get_SambaUserName \\ | Readonly | -sambaUserName, Optional,Default is noDefaultValue, Used for selection |
-| SystemUserName | STRING | LABEL | Linux_SambaUser.get_SystemUserName \\ | Readonly | -systemUserName, Optional,Default is noDefaultValue |
-| isGuest | BOOLEAN | CHECKBOX | userdefined \\ | Userdefined | -isGuest, Optional,Default is noDefaultValue |
+| SambaUserName | STRING | LABEL | Linux_SambaUser.get_SambaUserName \\ | Readonly | -sambaUserName, Optional,no default, Used for selection |
+| SystemUserName | STRING | LABEL | Linux_SambaUser.get_SystemUserName \\ | Readonly | -systemUserName, Optional,no default |
+| isGuest | BOOLEAN | CHECKBOX | userdefined \\ | Userdefined | -isGuest, Optional,no default |
 
 {panel}
 
@@ -1028,7 +1028,7 @@
 | *CustomLayouter* \\ | --- |
 *Fields:*
 | *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
-| Name | STRING | TEXTFIELD | Linux_SambaShareOptions.get_Name \\ | --- | -name, Optional,Default is noDefaultValue |
+| Name | STRING | TEXTFIELD | Linux_SambaShareOptions.get_Name \\ | --- | -name, Optional,no default |
 
 {panel}
 
@@ -1046,7 +1046,7 @@
 | *CustomLayouter* \\ | --- |
 *Fields:*
 | *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
-| Name | STRING | LABEL | Linux_SambaShareOptions.get_Name \\ | Readonly | -name, Optional,Default is noDefaultValue |
+| Name | STRING | LABEL | Linux_SambaShareOptions.get_Name \\ | Readonly | -name, Optional,no default |
 
 {panel}
 
@@ -1103,7 +1103,7 @@
 | SambaPrinterName | STRING | TEXTFIELD | Linux_SambaPrinterOptions.get_Name \\ | --- | -sambaPrinterName, Required |
 | SystemPrinterName | UNSIGNED_INT16 | COMBOBOX | userdefined \\ | Userdefined | -systemPrintername, Required |
 | Path | STRING | TEXTFIELD | Linux_SambaPrinterOptions.get_Path \\ | --- | -path, Required |
-| Comment | STRING | TEXTFIELD | Linux_SambaPrinterOptions.get_Comment \\ | --- | -comment, Optional,Default is noDefaultValue |
+| Comment | STRING | TEXTFIELD | Linux_SambaPrinterOptions.get_Comment \\ | --- | -comment, Optional,no default |
 
 {panel}
 
@@ -1121,10 +1121,10 @@
 | *CustomLayouter* \\ | --- |
 *Fields:*
 | *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
-| seenByEverybody | BOOLEAN | CHECKBOX | userdefined \\ | Userdefined | -seenByEverybody, Optional,Default is noDefaultValue |
-| enableGuest | BOOLEAN | CHECKBOX | userdefined \\ | Userdefined | -enableGuest, Optional,Default is noDefaultValue |
-| enableAllUsers | BOOLEAN | CHECKBOX_WITH_CLICKEVENT | userdefined \\ | Userdefined | -enableAllUsers, Optional,Default is noDefaultValue |
-| forceUser | UNSIGNED_INT16 | COMBOBOX | userdefined \\ | Userdefined | -forceUser, Optional,Default is noDefaultValue |
+| seenByEverybody | BOOLEAN | CHECKBOX | userdefined \\ | Userdefined | -seenByEverybody, Optional,no default |
+| enableGuest | BOOLEAN | CHECKBOX | userdefined \\ | Userdefined | -enableGuest, Optional,no default |
+| enableAllUsers | BOOLEAN | CHECKBOX_WITH_CLICKEVENT | userdefined \\ | Userdefined | -enableAllUsers, Optional,no default |
+| forceUser | UNSIGNED_INT16 | COMBOBOX | userdefined \\ | Userdefined | -forceUser, Optional,no default |
 
 *Relations*
 | *RelationType&nbsp;* | *&nbsp;related DataContainer* \\ | *&nbsp;Additional Information* \\ |
@@ -1145,8 +1145,8 @@
 | *CustomLayouter* \\ | --- |
 *Fields:*
 | *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
-| CupsOptions | STRING | TEXTFIELD | Linux_SambaPrinterPrintingOptions.get_CupsOptions \\ | --- | -cupsOptions, Optional,Default is noDefaultValue |
-| PrintCommand | STRING | TEXTFIELD | Linux_SambaPrinterPrintingOptions.get_PrintCommand \\ | --- | -printCommand, Optional,Default is noDefaultValue |
+| CupsOptions | STRING | TEXTFIELD | Linux_SambaPrinterPrintingOptions.get_CupsOptions \\ | --- | -cupsOptions, Optional,no default |
+| PrintCommand | STRING | TEXTFIELD | Linux_SambaPrinterPrintingOptions.get_PrintCommand \\ | --- | -printCommand, Optional,no default |
 
 {panel}
 
@@ -1165,14 +1165,14 @@
 *Fields:*
 | *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
 | allOrOne | UNSIGNED_INT16 | RADIOBUTTON | userdefined \\ | Readonly, Userdefined | -allOrOne, Required |
-| SambaPrinterName | STRING | LABEL | Linux_SambaPrinterOptions.get_Name \\ | Readonly | -sambaPrinterName, Optional,Default is noDefaultValue |
-| SystemPrinterName | UNSIGNED_INT16 | COMBOBOX | userdefined \\ | Readonly, Userdefined | -systemPrintername, Optional,Default is noDefaultValue |
-| Path | STRING | LABEL | Linux_SambaPrinterOptions.get_Path \\ | Readonly | -path, Optional,Default is noDefaultValue |
-| Comment | STRING | LABEL | Linux_SambaPrinterOptions.get_Comment \\ | Readonly | -comment, Optional,Default is noDefaultValue |
-| seenByEverybody | BOOLEAN | CHECKBOX | userdefined \\ | Readonly, Userdefined | -seenByEverybody, Optional,Default is noDefaultValue |
-| enableGuest | BOOLEAN | CHECKBOX | userdefined \\ | Readonly, Userdefined | -enableGuest, Optional,Default is noDefaultValue |
-| CupsOptions | STRING | LABEL | Linux_SambaPrinterPrintingOptions.get_CupsOptions \\ | Readonly | -cupsOptions, Optional,Default is noDefaultValue |
-| PrintCommand | STRING | LABEL | Linux_SambaPrinterPrintingOptions.get_PrintCommand \\ | Readonly | -printCommand, Optional,Default is noDefaultValue |
+| SambaPrinterName | STRING | LABEL | Linux_SambaPrinterOptions.get_Name \\ | Readonly | -sambaPrinterName, Optional,no default |
+| SystemPrinterName | UNSIGNED_INT16 | COMBOBOX | userdefined \\ | Readonly, Userdefined | -systemPrintername, Optional,no default |
+| Path | STRING | LABEL | Linux_SambaPrinterOptions.get_Path \\ | Readonly | -path, Optional,no default |
+| Comment | STRING | LABEL | Linux_SambaPrinterOptions.get_Comment \\ | Readonly | -comment, Optional,no default |
+| seenByEverybody | BOOLEAN | CHECKBOX | userdefined \\ | Readonly, Userdefined | -seenByEverybody, Optional,no default |
+| enableGuest | BOOLEAN | CHECKBOX | userdefined \\ | Readonly, Userdefined | -enableGuest, Optional,no default |
+| CupsOptions | STRING | LABEL | Linux_SambaPrinterPrintingOptions.get_CupsOptions \\ | Readonly | -cupsOptions, Optional,no default |
+| PrintCommand | STRING | LABEL | Linux_SambaPrinterPrintingOptions.get_PrintCommand \\ | Readonly | -printCommand, Optional,no default |
 | forceUser | STRING | LABEL | userdefined \\ | Readonly, Userdefined | Not used for Commandline |
 
 *Relations*
@@ -1214,7 +1214,7 @@
 | *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
 | Name | STRING | TEXTFIELD | Linux_SambaShareOptions.get_Name \\ | --- | -sharename, Required |
 | Path | STRING | TEXTFIELD | Linux_SambaShareOptions.get_Path \\ | --- | -path, Required |
-| Comment | STRING | TEXTFIELD | Linux_SambaShareOptions.get_Comment \\ | --- | -comment, Optional,Default is noDefaultValue |
+| Comment | STRING | TEXTFIELD | Linux_SambaShareOptions.get_Comment \\ | --- | -comment, Optional,no default |
 
 {panel}
 
@@ -1232,10 +1232,10 @@
 | *CustomLayouter* \\ | --- |
 *Fields:*
 | *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
-| seenByEverybody | BOOLEAN | CHECKBOX | userdefined \\ | Userdefined | -seenByEverybody, Optional,Default is noDefaultValue |
-| forceUser | UNSIGNED_INT16 | COMBOBOX | userdefined \\ | Userdefined | -forceUser, Optional,Default is noDefaultValue |
-| enableGuest | BOOLEAN | CHECKBOX | userdefined \\ | Userdefined | -enableGuest, Optional,Default is noDefaultValue |
-| enableAllUsers | BOOLEAN | CHECKBOX_WITH_CLICKEVENT | userdefined \\ | Userdefined | -enableAllUsers, Optional,Default is noDefaultValue |
+| seenByEverybody | BOOLEAN | CHECKBOX | userdefined \\ | Userdefined | -seenByEverybody, Optional,no default |
+| forceUser | UNSIGNED_INT16 | COMBOBOX | userdefined \\ | Userdefined | -forceUser, Optional,no default |
+| enableGuest | BOOLEAN | CHECKBOX | userdefined \\ | Userdefined | -enableGuest, Optional,no default |
+| enableAllUsers | BOOLEAN | CHECKBOX_WITH_CLICKEVENT | userdefined \\ | Userdefined | -enableAllUsers, Optional,no default |
 
 *Relations*
 | *RelationType&nbsp;* | *&nbsp;related DataContainer* \\ | *&nbsp;Additional Information* \\ |
@@ -1332,11 +1332,11 @@
 | Name | STRING | LABEL | Linux_SambaShareOptions.get_Name \\ | Readonly | Not used for Commandline |
 | Path | STRING | LABEL | Linux_SambaShareOptions.get_Path \\ | Readonly | Not used for Commandline |
 | Comment | STRING | LABEL | Linux_SambaShareOptions.get_Comment \\ | Readonly | Not used for Commandline |
-| seenByEverybody | BOOLEAN | CHECKBOX | userdefined \\ | Readonly, Userdefined | -seenByEverybody, Optional,Default is noDefaultValue |
-| enableGuest | BOOLEAN | CHECKBOX | userdefined \\ | Readonly, Userdefined | -enableGuest, Optional,Default is noDefaultValue |
-| CreateMask | STRING | LABEL | Linux_SambaShareSecurityOptions.get_CreateMask \\ | Readonly | -createMask, Optional,Default is noDefaultValue |
-| DirectoryMask | STRING | LABEL | Linux_SambaShareSecurityOptions.get_DirectoryMask \\ | Readonly | -directoryMask, Optional,Default is noDefaultValue |
-| DirectorySecurityMask | STRING | LABEL | Linux_SambaShareSecurityOptions.get_DirectorySecurityMask \\ | Readonly | -directorySecurityMask, Optional,Default is noDefaultValue |
+| seenByEverybody | BOOLEAN | CHECKBOX | userdefined \\ | Readonly, Userdefined | -seenByEverybody, Optional,no default |
+| enableGuest | BOOLEAN | CHECKBOX | userdefined \\ | Readonly, Userdefined | -enableGuest, Optional,no default |
+| CreateMask | STRING | LABEL | Linux_SambaShareSecurityOptions.get_CreateMask \\ | Readonly | -createMask, Optional,no default |
+| DirectoryMask | STRING | LABEL | Linux_SambaShareSecurityOptions.get_DirectoryMask \\ | Readonly | -directoryMask, Optional,no default |
+| DirectorySecurityMask | STRING | LABEL | Linux_SambaShareSecurityOptions.get_DirectorySecurityMask \\ | Readonly | -directorySecurityMask, Optional,no default |
 | forceUser | STRING | LABEL | userdefined \\ | Readonly, Userdefined | Not used for Commandline |
 
 *Relations*
@@ -1438,9 +1438,9 @@
 | *CustomLayouter* \\ | --- |
 *Fields:*
 | *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
-| SambaUserName | STRING | LABEL | Linux_SambaUser.get_SambaUserName \\ | Readonly | -username, Optional,Default is noDefaultValue |
-| SystemUserName | STRING | LABEL | Linux_SambaUser.get_SystemUserName \\ | --- | -systemUser, Optional,Default is noDefaultValue, Duplicates allowed |
-| isGuest | BOOLEAN | CHECKBOX | userdefined \\ | Readonly, Userdefined | -isGuest, Optional,Default is noDefaultValue |
+| SambaUserName | STRING | LABEL | Linux_SambaUser.get_SambaUserName \\ | Readonly | -username, Optional,no default |
+| SystemUserName | STRING | LABEL | Linux_SambaUser.get_SystemUserName \\ | --- | -systemUser, Optional,no default, Duplicates allowed |
+| isGuest | BOOLEAN | CHECKBOX | userdefined \\ | Readonly, Userdefined | -isGuest, Optional,no default |
 
 *Relations*
 | *RelationType&nbsp;* | *&nbsp;related DataContainer* \\ | *&nbsp;Additional Information* \\ |

@@ -28,12 +28,7 @@ import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.Vector;
 
-import org.sblim.wbem.cim.CIMClass;
-import org.sblim.wbem.cim.CIMException;
-import org.sblim.wbem.cim.CIMInstance;
-import org.sblim.wbem.cim.CIMObjectPath;
-import org.sblim.wbem.cim.CIMProperty;
-import org.sblim.wbem.cim.UnsignedInt64;
+import org.sblim.wbem.cim.*;
 import org.sblim.wbem.client.CIMClient;
 import org.sblim.wbem.client.CIMEnumeration;
 
@@ -201,15 +196,36 @@ public final class Linux_SambaGlobalPrintingOptionsHelper {
 		CIMInstance cimInstance = cimClient.getInstance(cimObjectPath);
 		
 		Linux_SambaGlobalPrintingOptions dataInstance = null;
+		Class clazz = Linux_SambaGlobalPrintingOptionsHelper.findClass(cimClient, cimInstance);
+
+		if (clazz == null) {
+			System.err.println("The class " + cimInstance.getClassName() +" was not found. Constructing instance of class Linux_SambaGlobalPrintingOptions.");
+		}
+		else
+		{
+			Class[] constParams = new Class[2];
+			constParams[0] = CIMObjectPath.class;
+			constParams[1] = CIMInstance.class;
+			try {
+				Constructor cons = clazz.getConstructor(constParams);
+				Object[] actargs = new Object[] {cimInstance.getObjectPath(), cimInstance};
+				dataInstance = (Linux_SambaGlobalPrintingOptions)cons.newInstance(actargs);
+			} catch (Exception e) {
+				System.err.println("The instance of class " + cimInstance.getClassName() + " could not be created successful. Constructing instance of class Linux_SambaGlobalPrintingOptions.");
+			}
+		}
+
 		try {
-			dataInstance = new Linux_SambaGlobalPrintingOptions(cimObjectPath, cimInstance);
+			if (dataInstance == null)
+			{
+				dataInstance = new Linux_SambaGlobalPrintingOptions(cimObjectPath, cimInstance);
+			}
 		} catch (Exception e) {
 			// This error should normally not happen, because the instance was received by the server with a valid CIMObjectPath
 			System.err.println("The received CIMInstance object was not valid.\nReceived values are:\n" + cimObjectPath + "\n" + cimInstance);
-			dataInstance = null;
 		}
-		
 		return dataInstance;
+					
 	}
 	
 		/**

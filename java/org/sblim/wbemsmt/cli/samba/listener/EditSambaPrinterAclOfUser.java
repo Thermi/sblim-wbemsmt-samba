@@ -37,31 +37,31 @@ public class EditSambaPrinterAclOfUser extends CimCommand {
  
 	//All Options that are local and defined for this command
 			/**
-   		 * username to change acl of required, used for selection:  --sambaUsername, default: noDefaultValue
+   		 * username to change acl of required, used for selection:  --sambaUsername
 		 */
-		public static final OptionDefinition KEY_sambaUsername = new OptionDefinition(null,"sambaUsername","noDefaultValue","EditSambaPrinterAclOfUser.sambaUsername.argValue",true,false,"EditSambaPrinterAclOfUser.sambaUsername.argDescription");
+		public static final OptionDefinition KEY_sambaUsername = new OptionDefinition(null,"sambaUsername",null,"EditSambaPrinterAclOfUser.sambaUsername.argValue",true,false,"EditSambaPrinterAclOfUser.sambaUsername.argDescription");
 			/**
-   		 * required, used for selection:  --sambaPrintername, default: noDefaultValue
+   		 * required, used for selection:  --sambaPrintername
 		 */
-		public static final OptionDefinition KEY_sambaPrintername = new OptionDefinition(null,"sambaPrintername","noDefaultValue","PrinterACLItemDataContainer.PrinterName.argValue",true,true,"PrinterACLItemDataContainer.PrinterName.argDescription");
+		public static final OptionDefinition KEY_sambaPrintername = new OptionDefinition(null,"sambaPrintername",null,"PrinterACLItemDataContainer.PrinterName.argValue",true,true,"PrinterACLItemDataContainer.PrinterName.argDescription");
 			/**
-   		 *  --access, default: noDefaultValue
+   		 *  --access
 		 */
-		public static final OptionDefinition KEY_access = new OptionDefinition(null,"access","noDefaultValue","PrinterACLItemDataContainer.accessTypeVI.argValue",false,false,"PrinterACLItemDataContainer.accessTypeVI.argDescription");
+		public static final OptionDefinition KEY_access = new OptionDefinition(null,"access",null,"PrinterACLItemDataContainer.accessTypeVI.argValue",false,false,"PrinterACLItemDataContainer.accessTypeVI.argDescription");
 			/**
-   		 *  --accessTypeRW, default: noDefaultValue
+   		 *  --accessTypeRW
 		 */
-		public static final OptionDefinition KEY_accessTypeRW = new OptionDefinition(null,"accessTypeRW","noDefaultValue","PrinterACLItemDataContainer.accessTypeRW.argValue",false,false,"PrinterACLItemDataContainer.accessTypeRW.argDescription");
+		public static final OptionDefinition KEY_accessTypeRW = new OptionDefinition(null,"accessTypeRW",null,"PrinterACLItemDataContainer.accessTypeRW.argValue",false,false,"PrinterACLItemDataContainer.accessTypeRW.argDescription");
 			/**
-   		 *  --admin, default: noDefaultValue
+   		 *  --admin
 		 */
-		public static final OptionDefinition KEY_admin = new OptionDefinition(null,"admin","noDefaultValue","PrinterACLItemDataContainer.admin.argValue",false,false,"PrinterACLItemDataContainer.admin.argDescription");
+		public static final OptionDefinition KEY_admin = new OptionDefinition(null,"admin",null,"PrinterACLItemDataContainer.admin.argValue",false,false,"PrinterACLItemDataContainer.admin.argDescription");
 		
 	//All Options that are global and task-related
 			/**
-   		 * required, used for selection:  --serviceName, default: noDefaultValue
+   		 * required, used for selection:  --serviceName
 		 */
-		public static final OptionDefinition KEY_GLOBAL_serviceName = new OptionDefinition(null,"serviceName","noDefaultValue","serviceName.argValue",true,false,"serviceName.argDescription");
+		public static final OptionDefinition KEY_GLOBAL_serviceName = new OptionDefinition(null,"serviceName",null,"serviceName.argValue",true,false,"serviceName.argDescription");
 	
 	// Global Communication Options
 			/**

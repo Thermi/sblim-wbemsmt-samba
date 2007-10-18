@@ -37,23 +37,23 @@ public class EditSambaUserAclInService extends CimCommand {
  
 	//All Options that are local and defined for this command
 			/**
-   		 * required, used for selection:  --sambaUsername, default: noDefaultValue
+   		 * required, used for selection:  --sambaUsername
 		 */
-		public static final OptionDefinition KEY_sambaUsername = new OptionDefinition(null,"sambaUsername","noDefaultValue","UserACLItemDataContainerForService.SambaUserName.argValue",true,true,"UserACLItemDataContainerForService.SambaUserName.argDescription");
+		public static final OptionDefinition KEY_sambaUsername = new OptionDefinition(null,"sambaUsername",null,"UserACLItemDataContainerForService.SambaUserName.argValue",true,true,"UserACLItemDataContainerForService.SambaUserName.argDescription");
 			/**
-   		 *  --access, default: noDefaultValue
+   		 *  --access
 		 */
-		public static final OptionDefinition KEY_access = new OptionDefinition(null,"access","noDefaultValue","UserACLItemDataContainerForService.accessTypeVI.argValue",false,false,"UserACLItemDataContainerForService.accessTypeVI.argDescription");
+		public static final OptionDefinition KEY_access = new OptionDefinition(null,"access",null,"UserACLItemDataContainerForService.accessTypeVI.argValue",false,false,"UserACLItemDataContainerForService.accessTypeVI.argDescription");
 			/**
-   		 *  --accessTypeRW, default: noDefaultValue
+   		 *  --accessTypeRW
 		 */
-		public static final OptionDefinition KEY_accessTypeRW = new OptionDefinition(null,"accessTypeRW","noDefaultValue","UserACLItemDataContainerForService.accessTypeRW.argValue",false,false,"UserACLItemDataContainerForService.accessTypeRW.argDescription");
+		public static final OptionDefinition KEY_accessTypeRW = new OptionDefinition(null,"accessTypeRW",null,"UserACLItemDataContainerForService.accessTypeRW.argValue",false,false,"UserACLItemDataContainerForService.accessTypeRW.argDescription");
 		
 	//All Options that are global and task-related
 			/**
-   		 * required, used for selection:  --serviceName, default: noDefaultValue
+   		 * required, used for selection:  --serviceName
 		 */
-		public static final OptionDefinition KEY_GLOBAL_serviceName = new OptionDefinition(null,"serviceName","noDefaultValue","serviceName.argValue",true,false,"serviceName.argDescription");
+		public static final OptionDefinition KEY_GLOBAL_serviceName = new OptionDefinition(null,"serviceName",null,"serviceName.argValue",true,false,"serviceName.argDescription");
 	
 	// Global Communication Options
 			/**

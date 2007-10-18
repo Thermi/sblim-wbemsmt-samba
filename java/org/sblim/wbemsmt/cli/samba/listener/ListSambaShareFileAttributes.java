@@ -36,9 +36,9 @@ public class ListSambaShareFileAttributes extends CimCommand {
  
 	//All Options that are local and defined for this command
 			/**
-   		 * required, used for selection:  --sharename, default: noDefaultValue
+   		 * required, used for selection:  --sharename
 		 */
-		public static final OptionDefinition KEY_sharename = new OptionDefinition(null,"sharename","noDefaultValue","ListSambaShareFileAttributes.sharename.argValue",true,false,"ListSambaShareFileAttributes.sharename.argDescription");
+		public static final OptionDefinition KEY_sharename = new OptionDefinition(null,"sharename",null,"ListSambaShareFileAttributes.sharename.argValue",true,false,"ListSambaShareFileAttributes.sharename.argDescription");
 			/**
    		 * used for selection:  --list, default: INSTANCE_WITH_CHILDS
 		 */
@@ -46,9 +46,9 @@ public class ListSambaShareFileAttributes extends CimCommand {
 		
 	//All Options that are global and task-related
 			/**
-   		 * required, used for selection:  --serviceName, default: noDefaultValue
+   		 * required, used for selection:  --serviceName
 		 */
-		public static final OptionDefinition KEY_GLOBAL_serviceName = new OptionDefinition(null,"serviceName","noDefaultValue","serviceName.argValue",true,false,"serviceName.argDescription");
+		public static final OptionDefinition KEY_GLOBAL_serviceName = new OptionDefinition(null,"serviceName",null,"serviceName.argValue",true,false,"serviceName.argDescription");
 	
 	// Global Communication Options
 			/**

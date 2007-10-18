@@ -37,39 +37,39 @@ public class EditSambaServiceOptions extends CimCommand {
  
 	//All Options that are local and defined for this command
 			/**
-   		 *  --bindInterfaces, default: noDefaultValue
+   		 *  --bindInterfaces
 		 */
-		public static final OptionDefinition KEY_bindInterfaces = new OptionDefinition(null,"bindInterfaces","noDefaultValue","ServiceOptionsDataContainer.BindInterfacesOnly.argValue",false,false,"ServiceOptionsDataContainer.BindInterfacesOnly.argDescription");
+		public static final OptionDefinition KEY_bindInterfaces = new OptionDefinition(null,"bindInterfaces",null,"ServiceOptionsDataContainer.BindInterfacesOnly.argValue",false,false,"ServiceOptionsDataContainer.BindInterfacesOnly.argDescription");
 			/**
-   		 *  --interfaces, default: noDefaultValue
+   		 *  --interfaces
 		 */
-		public static final OptionDefinition KEY_interfaces = new OptionDefinition(null,"interfaces","noDefaultValue","ServiceOptionsDataContainer.Interfaces.argValue",false,false,"ServiceOptionsDataContainer.Interfaces.argDescription");
+		public static final OptionDefinition KEY_interfaces = new OptionDefinition(null,"interfaces",null,"ServiceOptionsDataContainer.Interfaces.argValue",false,false,"ServiceOptionsDataContainer.Interfaces.argDescription");
 			/**
-   		 *  --netbiosAlias, default: noDefaultValue
+   		 *  --netbiosAlias
 		 */
-		public static final OptionDefinition KEY_netbiosAlias = new OptionDefinition(null,"netbiosAlias","noDefaultValue","ServiceOptionsDataContainer.NetbiosAlias.argValue",false,false,"ServiceOptionsDataContainer.NetbiosAlias.argDescription");
+		public static final OptionDefinition KEY_netbiosAlias = new OptionDefinition(null,"netbiosAlias",null,"ServiceOptionsDataContainer.NetbiosAlias.argValue",false,false,"ServiceOptionsDataContainer.NetbiosAlias.argDescription");
 			/**
-   		 *  --netbiosName, default: noDefaultValue
+   		 *  --netbiosName
 		 */
-		public static final OptionDefinition KEY_netbiosName = new OptionDefinition(null,"netbiosName","noDefaultValue","ServiceOptionsDataContainer.NetbiosName.argValue",false,false,"ServiceOptionsDataContainer.NetbiosName.argDescription");
+		public static final OptionDefinition KEY_netbiosName = new OptionDefinition(null,"netbiosName",null,"ServiceOptionsDataContainer.NetbiosName.argValue",false,false,"ServiceOptionsDataContainer.NetbiosName.argDescription");
 			/**
-   		 *  --serverString, default: noDefaultValue
+   		 *  --serverString
 		 */
-		public static final OptionDefinition KEY_serverString = new OptionDefinition(null,"serverString","noDefaultValue","ServiceOptionsDataContainer.ServerString.argValue",false,false,"ServiceOptionsDataContainer.ServerString.argDescription");
+		public static final OptionDefinition KEY_serverString = new OptionDefinition(null,"serverString",null,"ServiceOptionsDataContainer.ServerString.argValue",false,false,"ServiceOptionsDataContainer.ServerString.argDescription");
 			/**
-   		 *  --workgroup, default: noDefaultValue
+   		 *  --workgroup
 		 */
-		public static final OptionDefinition KEY_workgroup = new OptionDefinition(null,"workgroup","noDefaultValue","ServiceOptionsDataContainer.Workgroup.argValue",false,false,"ServiceOptionsDataContainer.Workgroup.argDescription");
+		public static final OptionDefinition KEY_workgroup = new OptionDefinition(null,"workgroup",null,"ServiceOptionsDataContainer.Workgroup.argValue",false,false,"ServiceOptionsDataContainer.Workgroup.argDescription");
 			/**
-   		 *  --configurationFile, default: noDefaultValue
+   		 *  --configurationFile
 		 */
-		public static final OptionDefinition KEY_configurationFile = new OptionDefinition(null,"configurationFile","noDefaultValue","ServiceOptionsDataContainer.ConfigurationFile.argValue",false,false,"ServiceOptionsDataContainer.ConfigurationFile.argDescription");
+		public static final OptionDefinition KEY_configurationFile = new OptionDefinition(null,"configurationFile",null,"ServiceOptionsDataContainer.ConfigurationFile.argValue",false,false,"ServiceOptionsDataContainer.ConfigurationFile.argDescription");
 		
 	//All Options that are global and task-related
 			/**
-   		 * required, used for selection:  --serviceName, default: noDefaultValue
+   		 * required, used for selection:  --serviceName
 		 */
-		public static final OptionDefinition KEY_GLOBAL_serviceName = new OptionDefinition(null,"serviceName","noDefaultValue","serviceName.argValue",true,false,"serviceName.argDescription");
+		public static final OptionDefinition KEY_GLOBAL_serviceName = new OptionDefinition(null,"serviceName",null,"serviceName.argValue",true,false,"serviceName.argDescription");
 	
 	// Global Communication Options
 			/**

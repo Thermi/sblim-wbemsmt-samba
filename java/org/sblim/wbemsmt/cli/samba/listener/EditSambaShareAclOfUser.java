@@ -37,31 +37,31 @@ public class EditSambaShareAclOfUser extends CimCommand {
  
 	//All Options that are local and defined for this command
 			/**
-   		 * required, used for selection:  --sambaUsername, default: noDefaultValue
+   		 * required, used for selection:  --sambaUsername
 		 */
-		public static final OptionDefinition KEY_sambaUsername = new OptionDefinition(null,"sambaUsername","noDefaultValue","EditSambaShareAclOfUser.sambaUsername.argValue",true,false,"EditSambaShareAclOfUser.sambaUsername.argDescription");
+		public static final OptionDefinition KEY_sambaUsername = new OptionDefinition(null,"sambaUsername",null,"EditSambaShareAclOfUser.sambaUsername.argValue",true,false,"EditSambaShareAclOfUser.sambaUsername.argDescription");
 			/**
-   		 * required, used for selection:  --shareName, default: noDefaultValue
+   		 * required, used for selection:  --shareName
 		 */
-		public static final OptionDefinition KEY_shareName = new OptionDefinition(null,"shareName","noDefaultValue","ShareACLItemDataContainer.shareName.argValue",true,false,"ShareACLItemDataContainer.shareName.argDescription");
+		public static final OptionDefinition KEY_shareName = new OptionDefinition(null,"shareName",null,"ShareACLItemDataContainer.shareName.argValue",true,false,"ShareACLItemDataContainer.shareName.argDescription");
 			/**
-   		 *  --access, default: noDefaultValue
+   		 *  --access
 		 */
-		public static final OptionDefinition KEY_access = new OptionDefinition(null,"access","noDefaultValue","ShareACLItemDataContainer.accessTypeVI.argValue",false,false,"ShareACLItemDataContainer.accessTypeVI.argDescription");
+		public static final OptionDefinition KEY_access = new OptionDefinition(null,"access",null,"ShareACLItemDataContainer.accessTypeVI.argValue",false,false,"ShareACLItemDataContainer.accessTypeVI.argDescription");
 			/**
-   		 *  --accessTypeRW, default: noDefaultValue
+   		 *  --accessTypeRW
 		 */
-		public static final OptionDefinition KEY_accessTypeRW = new OptionDefinition(null,"accessTypeRW","noDefaultValue","ShareACLItemDataContainer.accessTypeRW.argValue",false,false,"ShareACLItemDataContainer.accessTypeRW.argDescription");
+		public static final OptionDefinition KEY_accessTypeRW = new OptionDefinition(null,"accessTypeRW",null,"ShareACLItemDataContainer.accessTypeRW.argValue",false,false,"ShareACLItemDataContainer.accessTypeRW.argDescription");
 			/**
-   		 *  --admin, default: noDefaultValue
+   		 *  --admin
 		 */
-		public static final OptionDefinition KEY_admin = new OptionDefinition(null,"admin","noDefaultValue","ShareACLItemDataContainer.admin.argValue",false,false,"ShareACLItemDataContainer.admin.argDescription");
+		public static final OptionDefinition KEY_admin = new OptionDefinition(null,"admin",null,"ShareACLItemDataContainer.admin.argValue",false,false,"ShareACLItemDataContainer.admin.argDescription");
 		
 	//All Options that are global and task-related
 			/**
-   		 * required, used for selection:  --serviceName, default: noDefaultValue
+   		 * required, used for selection:  --serviceName
 		 */
-		public static final OptionDefinition KEY_GLOBAL_serviceName = new OptionDefinition(null,"serviceName","noDefaultValue","serviceName.argValue",true,false,"serviceName.argDescription");
+		public static final OptionDefinition KEY_GLOBAL_serviceName = new OptionDefinition(null,"serviceName",null,"serviceName.argValue",true,false,"serviceName.argDescription");
 	
 	// Global Communication Options
 			/**

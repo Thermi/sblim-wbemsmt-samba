@@ -39,15 +39,15 @@ public class CreateSambaHost extends CimCommand implements ContainerUpdater {
  
 	//All Options that are local and defined for this command
 			/**
-   		 *  --name, default: noDefaultValue
+   		 *  --name
 		 */
-		public static final OptionDefinition KEY_name = new OptionDefinition(null,"name","noDefaultValue","HostWizardPage1.Name.argValue",false,false,"HostWizardPage1.Name.argDescription");
+		public static final OptionDefinition KEY_name = new OptionDefinition(null,"name",null,"HostWizardPage1.Name.argValue",false,false,"HostWizardPage1.Name.argDescription");
 		
 	//All Options that are global and task-related
 			/**
-   		 * required, used for selection:  --serviceName, default: noDefaultValue
+   		 * required, used for selection:  --serviceName
 		 */
-		public static final OptionDefinition KEY_GLOBAL_serviceName = new OptionDefinition(null,"serviceName","noDefaultValue","serviceName.argValue",true,false,"serviceName.argDescription");
+		public static final OptionDefinition KEY_GLOBAL_serviceName = new OptionDefinition(null,"serviceName",null,"serviceName.argValue",true,false,"serviceName.argDescription");
 	
 	// Global Communication Options
 			/**

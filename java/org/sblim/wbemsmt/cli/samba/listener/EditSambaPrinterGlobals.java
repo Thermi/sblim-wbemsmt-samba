@@ -37,43 +37,43 @@ public class EditSambaPrinterGlobals extends CimCommand {
  
 	//All Options that are local and defined for this command
 			/**
-   		 *  --printcapCacheTime, default: noDefaultValue
+   		 *  --printcapCacheTime
 		 */
-		public static final OptionDefinition KEY_printcapCacheTime = new OptionDefinition(null,"printcapCacheTime","noDefaultValue","PrintingGlobalsDataContainer.PrintcapCacheTime.argValue",false,false,"PrintingGlobalsDataContainer.PrintcapCacheTime.argDescription");
+		public static final OptionDefinition KEY_printcapCacheTime = new OptionDefinition(null,"printcapCacheTime",null,"PrintingGlobalsDataContainer.PrintcapCacheTime.argValue",false,false,"PrintingGlobalsDataContainer.PrintcapCacheTime.argDescription");
 			/**
-   		 *  --systemPrinterName, default: noDefaultValue
+   		 *  --systemPrinterName
 		 */
-		public static final OptionDefinition KEY_systemPrinterName = new OptionDefinition(null,"systemPrinterName","noDefaultValue","PrintingGlobalsDataContainer.SystemPrinterName.argValue",false,false,"PrintingGlobalsDataContainer.SystemPrinterName.argDescription");
+		public static final OptionDefinition KEY_systemPrinterName = new OptionDefinition(null,"systemPrinterName",null,"PrintingGlobalsDataContainer.SystemPrinterName.argValue",false,false,"PrintingGlobalsDataContainer.SystemPrinterName.argDescription");
 			/**
-   		 *  --cupsOptions, default: noDefaultValue
+   		 *  --cupsOptions
 		 */
-		public static final OptionDefinition KEY_cupsOptions = new OptionDefinition(null,"cupsOptions","noDefaultValue","PrintingGlobalsDataContainer.CupsOptions.argValue",false,false,"PrintingGlobalsDataContainer.CupsOptions.argDescription");
+		public static final OptionDefinition KEY_cupsOptions = new OptionDefinition(null,"cupsOptions",null,"PrintingGlobalsDataContainer.CupsOptions.argValue",false,false,"PrintingGlobalsDataContainer.CupsOptions.argDescription");
 			/**
-   		 *  --defaultDevMode, default: noDefaultValue
+   		 *  --defaultDevMode
 		 */
-		public static final OptionDefinition KEY_defaultDevMode = new OptionDefinition(null,"defaultDevMode","noDefaultValue","PrintingGlobalsDataContainer.DefaultDevMode.argValue",false,false,"PrintingGlobalsDataContainer.DefaultDevMode.argDescription");
+		public static final OptionDefinition KEY_defaultDevMode = new OptionDefinition(null,"defaultDevMode",null,"PrintingGlobalsDataContainer.DefaultDevMode.argValue",false,false,"PrintingGlobalsDataContainer.DefaultDevMode.argDescription");
 			/**
-   		 *  --maxPrintjobs, default: noDefaultValue
+   		 *  --maxPrintjobs
 		 */
-		public static final OptionDefinition KEY_maxPrintjobs = new OptionDefinition(null,"maxPrintjobs","noDefaultValue","PrintingGlobalsDataContainer.MaxPrintjobs.argValue",false,false,"PrintingGlobalsDataContainer.MaxPrintjobs.argDescription");
+		public static final OptionDefinition KEY_maxPrintjobs = new OptionDefinition(null,"maxPrintjobs",null,"PrintingGlobalsDataContainer.MaxPrintjobs.argValue",false,false,"PrintingGlobalsDataContainer.MaxPrintjobs.argDescription");
 			/**
-   		 *  --maxReportedPrintjobs, default: noDefaultValue
+   		 *  --maxReportedPrintjobs
 		 */
-		public static final OptionDefinition KEY_maxReportedPrintjobs = new OptionDefinition(null,"maxReportedPrintjobs","noDefaultValue","PrintingGlobalsDataContainer.MaxReportedPrintjobs.argValue",false,false,"PrintingGlobalsDataContainer.MaxReportedPrintjobs.argDescription");
+		public static final OptionDefinition KEY_maxReportedPrintjobs = new OptionDefinition(null,"maxReportedPrintjobs",null,"PrintingGlobalsDataContainer.MaxReportedPrintjobs.argValue",false,false,"PrintingGlobalsDataContainer.MaxReportedPrintjobs.argDescription");
 			/**
-   		 *  --printCommand, default: noDefaultValue
+   		 *  --printCommand
 		 */
-		public static final OptionDefinition KEY_printCommand = new OptionDefinition(null,"printCommand","noDefaultValue","PrintingGlobalsDataContainer.PrintCommand.argValue",false,false,"PrintingGlobalsDataContainer.PrintCommand.argDescription");
+		public static final OptionDefinition KEY_printCommand = new OptionDefinition(null,"printCommand",null,"PrintingGlobalsDataContainer.PrintCommand.argValue",false,false,"PrintingGlobalsDataContainer.PrintCommand.argDescription");
 			/**
-   		 *  --useClientDriver, default: noDefaultValue
+   		 *  --useClientDriver
 		 */
-		public static final OptionDefinition KEY_useClientDriver = new OptionDefinition(null,"useClientDriver","noDefaultValue","PrintingGlobalsDataContainer.UseClientDriver.argValue",false,false,"PrintingGlobalsDataContainer.UseClientDriver.argDescription");
+		public static final OptionDefinition KEY_useClientDriver = new OptionDefinition(null,"useClientDriver",null,"PrintingGlobalsDataContainer.UseClientDriver.argValue",false,false,"PrintingGlobalsDataContainer.UseClientDriver.argDescription");
 		
 	//All Options that are global and task-related
 			/**
-   		 * required, used for selection:  --serviceName, default: noDefaultValue
+   		 * required, used for selection:  --serviceName
 		 */
-		public static final OptionDefinition KEY_GLOBAL_serviceName = new OptionDefinition(null,"serviceName","noDefaultValue","serviceName.argValue",true,false,"serviceName.argDescription");
+		public static final OptionDefinition KEY_GLOBAL_serviceName = new OptionDefinition(null,"serviceName",null,"serviceName.argValue",true,false,"serviceName.argDescription");
 	
 	// Global Communication Options
 			/**

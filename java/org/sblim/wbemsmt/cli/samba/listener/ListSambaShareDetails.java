@@ -40,15 +40,15 @@ public class ListSambaShareDetails extends CimCommand {
 		 */
 		public static final OptionDefinition KEY_list = new OptionDefinition(null,"list","INSTANCE_WITH_CHILDS","ListSambaShareDetails.list.argValue",false,false,"ListSambaShareDetails.list.argDescription");
 			/**
-   		 * required, used for selection:  --sharename, default: noDefaultValue
+   		 * required, used for selection:  --sharename
 		 */
-		public static final OptionDefinition KEY_sharename = new OptionDefinition(null,"sharename","noDefaultValue","ShareOptionsDataContainer.Name.argValue",true,true,"ShareOptionsDataContainer.Name.argDescription");
+		public static final OptionDefinition KEY_sharename = new OptionDefinition(null,"sharename",null,"ShareOptionsDataContainer.Name.argValue",true,true,"ShareOptionsDataContainer.Name.argDescription");
 		
 	//All Options that are global and task-related
 			/**
-   		 * required, used for selection:  --serviceName, default: noDefaultValue
+   		 * required, used for selection:  --serviceName
 		 */
-		public static final OptionDefinition KEY_GLOBAL_serviceName = new OptionDefinition(null,"serviceName","noDefaultValue","serviceName.argValue",true,false,"serviceName.argDescription");
+		public static final OptionDefinition KEY_GLOBAL_serviceName = new OptionDefinition(null,"serviceName",null,"serviceName.argValue",true,false,"serviceName.argDescription");
 	
 	// Global Communication Options
 			/**
