@@ -115,7 +115,7 @@ public class EditServiceListenerEditBeanTabSecurity extends EditBean {
         				saveResult.addAll(result);
     				}
 										
-						reloadAdapters();
+						//reloadAdapters();
 			
 			super.clearEditBeansModified();
 			return PAGE_EDIT;
