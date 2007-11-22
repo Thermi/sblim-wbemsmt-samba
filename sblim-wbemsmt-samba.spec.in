@@ -1,5 +1,5 @@
 %define name                    sblim-wbemsmt-samba
-%define version                 0.5.2
+%define version                 @PACKAGE_VERSION@
 %define build_release           CVS
 %define release                 %{build_release}jpp
 %define section                 free
@@ -153,6 +153,7 @@ unlink $WBEMSMT_HELPDIR/plugins/org.sblim.wbemsmt.help.samba
 %changelog
 * Wed Oct 24 2007 Michael Bauschert <michael.bauschert@de.ibm.com> 0.5.2-CVS
   - Inclusion of fixes for the following issues:
+    o 1836654  wbemsmt-samba: Version replacement during build
     o 1819344  wbemsmt-samba : no reload adapter for edit beans
     o 1815844  wbemsmt-samba: regenerate dcs/fcos to reflect gen. changes
     o 1813934  wbemsmt-samba: cliDataLoader uses CIMCommandValues

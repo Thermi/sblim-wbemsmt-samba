@@ -128,6 +128,9 @@
     <target name="package-src-tar" description="--> Package a source TAR ball for ${ant.project.name}">
         <mkdir dir="${dir.release.output}"/>
 
+    	<copy file="${basedir}/sblim-wbemsmt-samba.spec.in" tofile="${basedir}/sblim-wbemsmt-samba.spec"/>
+        <replace file="${basedir}/sblim-wbemsmt-samba.spec" token="@PACKAGE_VERSION@" value="${Manifest.version}"/>
+    	
         <tar destfile="${dir.release.output}/sblim-${ant.project.name}-${Manifest.version}-src.tar.bz2"
              compression="bzip2" longfile="${tar.longfile}">
           <tarfileset
@@ -151,6 +154,9 @@
                       ${dir.release.output}/**"
             prefix="sblim-${ant.project.name}"/>
         </tar>
+    	
+    	<delete file="${basedir}/sblim-wbemsmt-samba.spec"/>
+
     </target>
 
 

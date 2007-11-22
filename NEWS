@@ -1,5 +1,6 @@
 Changes on top of 0.5.2-1
 ==============================================================================
+- 1836654  wbemsmt-samba: Version replacement during build
 - 1819344  wbemsmt-samba : no reload adapter for edit beans
 - 1815844  wbemsmt-samba : regenerate dcs/fcos to reflect gen. changes
 - 1813934  wbemsmt-samba: cliDataLoader uses CIMCommandValues
