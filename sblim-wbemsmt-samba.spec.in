@@ -12,7 +12,7 @@ Version:        %{version}
 Release:        %{release}
 License:        Common Public License
 Url:            http://sblim.sourceforge.net/
-Group:          Development/Libraries/Java
+Group:          Systems Management/Web Application
 Vendor:         IBM
 Summary:        Provides a wbemsmt-based task that provides support to configure Samba
 SOURCE0:        %{name}-%{version}-src.tar.bz2
@@ -153,6 +153,7 @@ unlink $WBEMSMT_HELPDIR/plugins/org.sblim.wbemsmt.help.samba
 %changelog
 * Wed Oct 24 2007 Michael Bauschert <michael.bauschert@de.ibm.com> 0.5.2-CVS
   - Inclusion of fixes for the following issues:
+    o 1845502  wbemsmt-samba: Include proper group definition for RPM
     o 1836654  wbemsmt-samba: Version replacement during build
     o 1819344  wbemsmt-samba : no reload adapter for edit beans
     o 1815844  wbemsmt-samba: regenerate dcs/fcos to reflect gen. changes
