@@ -19,10 +19,12 @@
   */
 package org.sblim.wbemsmt.samba.initialobjectloading;
 
-import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
-import org.sblim.wbem.client.CIMClient;
+import javax.wbem.client.WBEMClient;
+
+import org.sblim.wbemsmt.exception.WbemsmtException;
 import org.sblim.wbemsmt.samba.bl.fco.Linux_SambaService;
 import org.sblim.wbemsmt.samba.bl.fco.Linux_SambaServiceHelper;
 import org.sblim.wbemsmt.tasklauncher.CIMClassNode;
@@ -34,26 +36,26 @@ import org.sblim.wbemsmt.tasklauncher.initialobjectloading.WbemsmtInitialObjectL
  */
 public class SambaInitialObjectLoader extends WbemsmtInitialObjectLoader {
 
-	private CIMClient cimClient;
+	private WBEMClient cimClient;
 
 	/* (non-Javadoc)
 	 * @see org.sblim.wbemsmt.tasklauncher.initialobjectloading.WbemsmtInitialObjectLoader#getChangedCimClient()
 	 */
-	public CIMClient getChangedCimClient() {
+	public WBEMClient getChangedCimClient() {
 		return cimClient;
 	}
 
 	/* (non-Javadoc)
 	 * @see org.sblim.wbemsmt.tasklauncher.initialobjectloading.WbemsmtInitialObjectLoader#load(org.sblim.wbem.client.CIMClient)
 	 */
-	public void load(CIMClassNode cimClassNode) {
+	public void load(CIMClassNode cimClassNode) throws WbemsmtException {
 		this.cimClient = cimClassNode.getCimClient();
 
-		ArrayList list = Linux_SambaServiceHelper.enumerateInstances(cimClient, true);
-		for (Iterator iter = list.iterator(); iter.hasNext();) {
-			Linux_SambaService service = (Linux_SambaService) iter.next();
-			addInitialObject(service.getCimInstance());
-		}
+		List list = Linux_SambaServiceHelper.enumerateInstances(cimClient,cimClassNode.getNamespace(), true);
+        for (Iterator iter = list.iterator(); iter.hasNext();) {
+        	Linux_SambaService service = (Linux_SambaService) iter.next();
+        	addInitialObject(service.getCimInstance());
+        }
 	}
 
 }

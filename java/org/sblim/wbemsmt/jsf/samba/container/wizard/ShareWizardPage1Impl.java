@@ -1,218 +1,190 @@
 /** 
-  * ShareWizardPage1Impl.java
-  *
-
- 
-  * © Copyright IBM Corp. 2005
-  *
-  * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
-  * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
-  * CONSTITUTES RECIPIENTS ACCEPTANCE OF THE AGREEMENT.
-  *
-  * You can obtain a current copy of the Common Public License from
-  * http://www.opensource.org/licenses/cpl1.0.php
-  *
-  * @author: org.sblim.wbemsmt.dcg.generator.jsf.JSFPresentationLayerGenerator
-  * @template: org/sblim/wbemsmt/dcg/templates/jsf/containerImpl.vm
-  *
-  * Contributors: 
-  * 
-  * Description: 
-  * 
-  * generated Class
-  */
+ * ShareWizardPage1Impl.java
+ *
+ * 
+ * © Copyright IBM Corp. 2006,2007
+ *
+ * THIS FILE IS PROVIDED UNDER THE TER	MS OF THE COMMON PUBLIC LICENSE
+ * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
+ * CONSTITUTES RECIPIENTS ACCEPTANCE OF THE AGREEMENT.
+ *
+ * You can obtain a current copy of the Common Public License from
+ * http://www.opensource.org/licenses/cpl1.0.php
+ *
+ * @author: org.sblim.wbemsmt.dcg.generator.jsf.JSFPresentationLayerGenerator
+ * @template: org/sblim/wbemsmt/dcg/templates/jsf/containerImpl.vm
+ *
+ * Contributors: 
+ *   michael.bauschert@de.ibm.com
+ * 
+ * Description: 
+ * 
+ * generated Class
+ */
 
 package org.sblim.wbemsmt.jsf.samba.container.wizard;
 
 import org.sblim.wbemsmt.exception.*;
 import java.util.*;
 
-
-
-
 import org.sblim.wbemsmt.bl.adapter.DataContainer;
 import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
-public class ShareWizardPage1Impl extends org.sblim.wbemsmt.tools.wizard.jsf.WizardBasePanel implements org.sblim.wbemsmt.samba.bl.container.wizard.ShareWizardPage1
-	{
-			private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_Name;
-    		private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_Path;
-    		private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_Comment;
-    	
-		
-	
-	public ShareWizardPage1Impl(org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
+public class ShareWizardPage1Impl extends org.sblim.wbemsmt.tools.wizard.jsf.WizardBasePanel
+        implements org.sblim.wbemsmt.samba.bl.container.wizard.ShareWizardPage1 {
+    private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_Name;
+    private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_Path;
+    private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_Comment;
 
-			
-				super(adapter,bindingPrefix, "ShareWizardPage1.caption","ShareWizardPage1.subTitle",false);
-				
-				
-		
-				
-    			
-    	    		        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_Name());
-        	        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_Path());
-        	        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_Comment());
-        					
-		setFooter(getPanelForCustomLayout(),"ShareWizardPage1.footerText");
-		adapter.initContainer(this);
-	}
-	
+    public ShareWizardPage1Impl(org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter adapter,
+            String bindingPrefix) throws WbemsmtException {
 
-			/**
-		* 
-		* DataType STRING
-		* UIType TEXTFIELD
-		* ReadOnly false
-		*/
+        super(adapter, bindingPrefix, "ShareWizardPage1.caption", "ShareWizardPage1.subTitle",
+                false);
 
-		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_Name() {
-    		if (ic_Name == null)
-    		{
-				String label = bundle.getString("ShareWizardPage1.Name");
-				String binding = bindingPrefix + "_Name.item";
-				logger.fine("Using binding " + binding);
-				org.sblim.wbemsmt.bl.adapter.DataContainer parent = this;
-				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
-				boolean readOnly = false;
-    			ic_Name = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
-								ic_Name.setRequired(true);
-				;
-    		}
-			
-						
-    		return ic_Name;
-    	}
-			/**
-		* 
-		* DataType STRING
-		* UIType TEXTFIELD
-		* ReadOnly false
-		*/
+        addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent) get_Name());
+        addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent) get_Path());
+        addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent) get_Comment());
 
-		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_Path() {
-    		if (ic_Path == null)
-    		{
-				String label = bundle.getString("ShareWizardPage1.Path");
-				String binding = bindingPrefix + "_Path.item";
-				logger.fine("Using binding " + binding);
-				org.sblim.wbemsmt.bl.adapter.DataContainer parent = this;
-				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
-				boolean readOnly = false;
-    			ic_Path = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
-								ic_Path.setRequired(true);
-				;
-    		}
-			
-						
-    		return ic_Path;
-    	}
-			/**
-		* 
-		* DataType STRING
-		* UIType TEXTFIELD
-		* ReadOnly false
-		*/
+        setFooter(getPanelForCustomLayout(), "ShareWizardPage1.footerText");
+        adapter.initContainer(this);
+    }
 
-		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_Comment() {
-    		if (ic_Comment == null)
-    		{
-				String label = bundle.getString("ShareWizardPage1.Comment");
-				String binding = bindingPrefix + "_Comment.item";
-				logger.fine("Using binding " + binding);
-				org.sblim.wbemsmt.bl.adapter.DataContainer parent = this;
-				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
-				boolean readOnly = false;
-    			ic_Comment = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
-				;
-    		}
-			
-						
-    		return ic_Comment;
-    	}
-		
-	
-		
-	public void reload()
-	{
-		super.reload();
-	    		if (ic_Name != null)
-    		{
-				ic_Name.setLabelText(bundle.getString("ShareWizardPage1.Name"));
-    		}
-	    		if (ic_Path != null)
-    		{
-				ic_Path.setLabelText(bundle.getString("ShareWizardPage1.Path"));
-    		}
-	    		if (ic_Comment != null)
-    		{
-				ic_Comment.setLabelText(bundle.getString("ShareWizardPage1.Comment"));
-    		}
-		}
+    /**
+     * 
+     * DataType STRING
+     * UIType TEXTFIELD
+     * ReadOnly false
+     */
 
-	public String[] getResourceBundleNames() {
-		return new String[]{"messages","messagesSamba"};
-	}
+    public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_Name() {
+        if (ic_Name == null) {
+            String label = bundle.getString("ShareWizardPage1.Name");
+            String binding = bindingPrefix + "_Name.item";
+            logger.fine("Using binding " + binding);
+            org.sblim.wbemsmt.bl.adapter.DataContainer parent = this;
+            org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
+            boolean readOnly = false;
+            ic_Name = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,
+                    label, binding, converter, readOnly);
+            ic_Name.setRequired(true);
+            ;
+        }
 
-	public void countAndCreateChildren() throws InitContainerException {
-	
-    		}
+        return ic_Name;
+    }
 
+    /**
+     * 
+     * DataType STRING
+     * UIType TEXTFIELD
+     * ReadOnly false
+     */
 
-	/**
-	 * count and create childrens
-	 * @throws UpdateControlsException
-	 */
-	public void updateControls() throws UpdateControlsException {
-		try {
-			countAndCreateChildren();
-			adapter.updateControls(this);
-		
-					} catch (InitContainerException e) {
-			throw new UpdateControlsException(e);
-		}
-	}
+    public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_Path() {
+        if (ic_Path == null) {
+            String label = bundle.getString("ShareWizardPage1.Path");
+            String binding = bindingPrefix + "_Path.item";
+            logger.fine("Using binding " + binding);
+            org.sblim.wbemsmt.bl.adapter.DataContainer parent = this;
+            org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
+            boolean readOnly = false;
+            ic_Path = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,
+                    label, binding, converter, readOnly);
+            ic_Path.setRequired(true);
+            ;
+        }
 
-	
- 
-	/**
-	 * Return a list of all Fields. A Field is a LabeledBaseInputComponentIf
-	 * @return
-	 */
-	public List getFields()
-	{
-		List fields = new ArrayList();
-    				fields.add(get_Name());
-    				fields.add(get_Path());
-    				fields.add(get_Comment());
-    			return fields;
-	}
+        return ic_Path;
+    }
 
-	/**
-	 * Return a list of all associated childContainers. A childContainer is a DataContainer
-	 * @return
-	 */
-	public List getChildContainers()
-	{
-		List childs = new ArrayList();
-    	    			return childs;
-	
-	}
-	
-	public void copyFrom(DataContainer sourceContainer)
-	{
-		ShareWizardPage1Impl source = (ShareWizardPage1Impl)sourceContainer;
-	
-    	    		get_Name().setValue(source.get_Name().getValue());
-		    		get_Path().setValue(source.get_Path().getValue());
-		    		get_Comment().setValue(source.get_Comment().getValue());
-				
-    	    		}
-	
-	public boolean isModified()
-	{
-    	return DataContainerUtil.isModified(this);
-	}		
+    /**
+     * 
+     * DataType STRING
+     * UIType TEXTFIELD
+     * ReadOnly false
+     */
 
-	
+    public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_Comment() {
+        if (ic_Comment == null) {
+            String label = bundle.getString("ShareWizardPage1.Comment");
+            String binding = bindingPrefix + "_Comment.item";
+            logger.fine("Using binding " + binding);
+            org.sblim.wbemsmt.bl.adapter.DataContainer parent = this;
+            org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
+            boolean readOnly = false;
+            ic_Comment = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(
+                    parent, label, binding, converter, readOnly);
+            ;
+        }
+
+        return ic_Comment;
+    }
+
+    public void reload() {
+        super.reload();
+        if (ic_Name != null) {
+            ic_Name.setLabelText(bundle.getString("ShareWizardPage1.Name"));
+        }
+        if (ic_Path != null) {
+            ic_Path.setLabelText(bundle.getString("ShareWizardPage1.Path"));
+        }
+        if (ic_Comment != null) {
+            ic_Comment.setLabelText(bundle.getString("ShareWizardPage1.Comment"));
+        }
+    }
+
+    public String[] getResourceBundleNames() {
+        return new String[] { "messages", "messagesSamba" };
+    }
+
+    public void countAndCreateChildren() throws WbemsmtException {
+
+    }
+
+    /**
+     * count and create childrens
+     * @throws WbemsmtException
+     */
+    public void updateControls() throws WbemsmtException {
+        countAndCreateChildren();
+        adapter.updateControls(this);
+
+    }
+
+    /**
+     * Return a list of all Fields. A Field is a LabeledBaseInputComponentIf
+     * @return
+     */
+    public List getFields() {
+        List fields = new ArrayList();
+        fields.add(get_Name());
+        fields.add(get_Path());
+        fields.add(get_Comment());
+        return fields;
+    }
+
+    /**
+     * Return a list of all associated childContainers. A childContainer is a DataContainer
+     * @return
+     */
+    public List getChildContainers() {
+        List childs = new ArrayList();
+        return childs;
+
+    }
+
+    public void copyFrom(DataContainer sourceContainer) throws WbemsmtException {
+        ShareWizardPage1Impl source = (ShareWizardPage1Impl) sourceContainer;
+
+        get_Name().setValue(source.get_Name().getValue());
+        get_Path().setValue(source.get_Path().getValue());
+        get_Comment().setValue(source.get_Comment().getValue());
+
+    }
+
+    public boolean isModified() {
+        return DataContainerUtil.isModified(this);
+    }
+
 }

@@ -20,16 +20,8 @@
 package org.sblim.wbemsmt.samba.bl.adapter;
 
 import org.sblim.wbemsmt.bl.adapter.SelectionHierarchy;
-import org.sblim.wbemsmt.samba.bl.fco.Linux_SambaHost;
-import org.sblim.wbemsmt.samba.bl.fco.Linux_SambaPrinterOptions;
-import org.sblim.wbemsmt.samba.bl.fco.Linux_SambaService;
-import org.sblim.wbemsmt.samba.bl.fco.Linux_SambaShareOptions;
-import org.sblim.wbemsmt.samba.bl.fco.Linux_SambaUser;
-import org.sblim.wbemsmt.samba.bl.wrapper.Host;
-import org.sblim.wbemsmt.samba.bl.wrapper.Printer;
-import org.sblim.wbemsmt.samba.bl.wrapper.Service;
-import org.sblim.wbemsmt.samba.bl.wrapper.Share;
-import org.sblim.wbemsmt.samba.bl.wrapper.User;
+import org.sblim.wbemsmt.samba.bl.fco.*;
+import org.sblim.wbemsmt.samba.bl.wrapper.*;
 
 public class SambaSelectionHierarchy extends SelectionHierarchy {
 

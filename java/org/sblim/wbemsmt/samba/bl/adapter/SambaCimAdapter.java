@@ -20,56 +20,27 @@
 
 package org.sblim.wbemsmt.samba.bl.adapter;
 
-import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import org.sblim.wbem.client.CIMClient;
-import org.sblim.wbemsmt.bl.adapter.AbstractBaseCimAdapter;
-import org.sblim.wbemsmt.bl.adapter.CimObjectKey;
-import org.sblim.wbemsmt.bl.adapter.CountDelegatee;
-import org.sblim.wbemsmt.bl.adapter.CreateDelegatee;
-import org.sblim.wbemsmt.bl.adapter.DeleteDelegatee;
-import org.sblim.wbemsmt.bl.adapter.InitContainerDelegatee;
-import org.sblim.wbemsmt.bl.adapter.InitWizardDelegatee;
-import org.sblim.wbemsmt.bl.adapter.InstallValidatorsDelegatee;
-import org.sblim.wbemsmt.bl.adapter.RevertDelegatee;
-import org.sblim.wbemsmt.bl.adapter.SaveDelegatee;
-import org.sblim.wbemsmt.bl.adapter.UpdateControlsDelegatee;
-import org.sblim.wbemsmt.bl.adapter.UpdateModelDelegatee;
+import javax.wbem.client.WBEMClient;
+
+import org.sblim.wbemsmt.bl.adapter.*;
+import org.sblim.wbemsmt.bl.fco.FcoHelper;
 import org.sblim.wbemsmt.bl.tree.ICIMClassNode;
 import org.sblim.wbemsmt.bl.tree.ICIMInstanceNode;
 import org.sblim.wbemsmt.bl.tree.ITaskLauncherTreeNode;
-import org.sblim.wbemsmt.exception.ModelLoadException;
-import org.sblim.wbemsmt.exception.ObjectNotFoundException;
-import org.sblim.wbemsmt.exception.WbemSmtException;
-import org.sblim.wbemsmt.samba.bl.fco.Linux_SambaHost;
-import org.sblim.wbemsmt.samba.bl.fco.Linux_SambaPrinterOptions;
-import org.sblim.wbemsmt.samba.bl.fco.Linux_SambaPrinterOptionsHelper;
-import org.sblim.wbemsmt.samba.bl.fco.Linux_SambaService;
-import org.sblim.wbemsmt.samba.bl.fco.Linux_SambaServiceHelper;
-import org.sblim.wbemsmt.samba.bl.fco.Linux_SambaShareOptions;
-import org.sblim.wbemsmt.samba.bl.fco.Linux_SambaShareOptionsHelper;
-import org.sblim.wbemsmt.samba.bl.fco.Linux_SambaUser;
-import org.sblim.wbemsmt.samba.bl.fco.Linux_SambaUserHelper;
-import org.sblim.wbemsmt.samba.bl.wrapper.Host;
-import org.sblim.wbemsmt.samba.bl.wrapper.Printer;
-import org.sblim.wbemsmt.samba.bl.wrapper.Service;
-import org.sblim.wbemsmt.samba.bl.wrapper.Share;
-import org.sblim.wbemsmt.samba.bl.wrapper.User;
-import org.sblim.wbemsmt.samba.bl.wrapper.list.HostList;
-import org.sblim.wbemsmt.samba.bl.wrapper.list.PrinterList;
-import org.sblim.wbemsmt.samba.bl.wrapper.list.ServiceList;
-import org.sblim.wbemsmt.samba.bl.wrapper.list.ShareList;
-import org.sblim.wbemsmt.samba.bl.wrapper.list.UserList;
+import org.sblim.wbemsmt.exception.WbemsmtException;
+import org.sblim.wbemsmt.samba.bl.fco.*;
+import org.sblim.wbemsmt.samba.bl.wrapper.*;
+import org.sblim.wbemsmt.samba.bl.wrapper.list.*;
 import org.sblim.wbemsmt.samba.bl.wrapper.wizard.HostWizard;
 import org.sblim.wbemsmt.samba.bl.wrapper.wizard.PrinterWizard;
 import org.sblim.wbemsmt.samba.bl.wrapper.wizard.ShareWizard;
 import org.sblim.wbemsmt.samba.bl.wrapper.wizard.UserWizard;
-import org.sblim.wbemsmt.schema.cim29.tools.FcoHelper;
 import org.sblim.wbemsmt.tools.resources.ResourceBundleManager;
 
 public class SambaCimAdapter extends AbstractBaseCimAdapter {
@@ -105,8 +76,7 @@ public class SambaCimAdapter extends AbstractBaseCimAdapter {
 	private Printer selectedPrinter;
 	private User selectedUser;
 	private Host selectedHost;
-	
-	public SambaCimAdapter(Locale locale) {
+    public SambaCimAdapter(Locale locale) {
 		super();
 		
 		init(ResourceBundleManager.getResourceBundle(RESOURCE_BUNDLE_NAMES,locale),sambaSelectionHierarchy, new FcoHelper());
@@ -129,71 +99,71 @@ public class SambaCimAdapter extends AbstractBaseCimAdapter {
 		
 	}
 
-	public void reLoad(CIMClient cimClient) throws ModelLoadException
+	public void reLoad(WBEMClient cimClient) throws WbemsmtException
 	{
 		loaded = false;
 		load(cimClient);
 	}
 
-	public void load(CIMClient cimClient) throws ModelLoadException {
+	public void load(WBEMClient cimClient) throws WbemsmtException {
 		
 		if (loaded)
 			return;
 
-		this.cimClient = cimClient;
-		ArrayList list = Linux_SambaServiceHelper.enumerateInstances(cimClient,true);
-		
-		for (Iterator iter = list.iterator(); iter.hasNext();) {
-			Linux_SambaService serviceFco = (Linux_SambaService) iter.next();
-			Service service = new Service(this,serviceFco);
+		setCimClient(cimClient);
+        List list = Linux_SambaServiceHelper.enumerateInstances(cimClient, namespace, true);
+        
+        for (Iterator iter = list.iterator(); iter.hasNext();) {
+        	Linux_SambaService serviceFco = (Linux_SambaService) iter.next();
+        	Service service = new Service(this,serviceFco);
 
-			ShareList shares = new ShareList();
-			ArrayList associated_Linux_SambaShareOptions = serviceFco.getAssociated_Linux_SambaShareOptions_Linux_SambaShareForServices(cimClient,false,false,null);
-			for (Iterator iter2 = associated_Linux_SambaShareOptions.iterator(); iter2.hasNext();) {
-				Linux_SambaShareOptions shareFco = (Linux_SambaShareOptions) iter2.next();
-				shares.addShare(new Share(service,shareFco,this));
-			}
-			service.setShares(shares);
-			
-			PrinterList printers = new PrinterList();
-			ArrayList associated_Linux_SambaPrinterOptions = serviceFco.getAssociated_Linux_SambaPrinterOptions_Linux_SambaPrinterForServices(cimClient,false,false,null);
-			for (Iterator iter2 = associated_Linux_SambaPrinterOptions.iterator(); iter2.hasNext();) {
-				Linux_SambaPrinterOptions printerFco = (Linux_SambaPrinterOptions) iter2.next();
-				printers.addPrinter(new Printer(service,printerFco,this));
-			}
-			service.setPrinters(printers);
+        	ShareList shares = new ShareList();
+        	List associated_Linux_SambaShareOptions = serviceFco.getAssociated_Linux_SambaShareOptions_Linux_SambaShareForServices(cimClient);
+        	for (Iterator iter2 = associated_Linux_SambaShareOptions.iterator(); iter2.hasNext();) {
+        		Linux_SambaShareOptions shareFco = (Linux_SambaShareOptions) iter2.next();
+        		shares.addShare(new Share(service,shareFco,this));
+        	}
+        	service.setShares(shares);
+        	
+        	PrinterList printers = new PrinterList();
+        	List associated_Linux_SambaPrinterOptions = serviceFco.getAssociated_Linux_SambaPrinterOptions_Linux_SambaPrinterForServices(cimClient);
+        	for (Iterator iter2 = associated_Linux_SambaPrinterOptions.iterator(); iter2.hasNext();) {
+        		Linux_SambaPrinterOptions printerFco = (Linux_SambaPrinterOptions) iter2.next();
+        		printers.addPrinter(new Printer(service,printerFco,this));
+        	}
+        	service.setPrinters(printers);
 
-			UserList users = new UserList();
-			ArrayList associated_Linux_SambaUsers = serviceFco.getAssociated_Linux_SambaUser_Linux_SambaUsersForServices(cimClient,false,false,null);
-			for (Iterator iter2 = associated_Linux_SambaUsers.iterator(); iter2.hasNext();) {
-				Linux_SambaUser userFco = (Linux_SambaUser) iter2.next();
-				users.addUser(new User(service,userFco,this));
-			}
-			service.setUsers(users);
+        	UserList users = new UserList();
+        	List associated_Linux_SambaUsers = serviceFco.getAssociated_Linux_SambaUser_Linux_SambaUsersForServices(cimClient);
+        	for (Iterator iter2 = associated_Linux_SambaUsers.iterator(); iter2.hasNext();) {
+        		Linux_SambaUser userFco = (Linux_SambaUser) iter2.next();
+        		users.addUser(new User(service,userFco,this));
+        	}
+        	service.setUsers(users);
 
-			HostList hosts = new HostList();
-			ArrayList associated_Linux_SambaHosts = serviceFco.getAssociated_Linux_SambaHost_Linux_SambaHostsForServices(cimClient,false,false,null);
-			for (Iterator iter2 = associated_Linux_SambaHosts.iterator(); iter2.hasNext();) {
-				Linux_SambaHost hostFco = (Linux_SambaHost) iter2.next();
-				hosts.addHost(new Host(service,hostFco,this));
-			}
-			service.setHosts(hosts);
-			
-			services.addService(service);
-			
-			loaded = true;
+        	HostList hosts = new HostList();
+        	List associated_Linux_SambaHosts = serviceFco.getAssociated_Linux_SambaHost_Linux_SambaHostsForServices(cimClient);
+        	for (Iterator iter2 = associated_Linux_SambaHosts.iterator(); iter2.hasNext();) {
+        		Linux_SambaHost hostFco = (Linux_SambaHost) iter2.next();
+        		hosts.addHost(new Host(service,hostFco,this));
+        	}
+        	service.setHosts(hosts);
+        	
+        	services.addService(service);
+        	
+        	loaded = true;
 
-		}
+        }
 		
 	}
 
-	public void reLoad(ITaskLauncherTreeNode rootNode) throws ModelLoadException {
+	public void reLoad(ITaskLauncherTreeNode rootNode) throws WbemsmtException {
 		loaded = false;
 		services.clear();
 		load(rootNode);
 	}
 
-	public void load(ITaskLauncherTreeNode rootNode) throws ModelLoadException {
+	public void load(ITaskLauncherTreeNode rootNode) throws WbemsmtException {
 		try {
 			if (loaded == true)
 				return;
@@ -205,7 +175,7 @@ public class SambaCimAdapter extends AbstractBaseCimAdapter {
 			for (Iterator iterServiceNodes = listWithServiceNodes.iterator(); iterServiceNodes.hasNext();) {
 				ICIMInstanceNode serviceNode = (ICIMInstanceNode) iterServiceNodes.next();
 
-				Linux_SambaService serviceFco = new Linux_SambaService(serviceNode.getCimInstance().getObjectPath(),serviceNode.getCimInstance());
+				Linux_SambaService serviceFco = new Linux_SambaService(serviceNode.getCimInstance());
 				
 				Service service = new Service(this,serviceFco);
 				
@@ -215,7 +185,7 @@ public class SambaCimAdapter extends AbstractBaseCimAdapter {
 				List shareNodes = serviceNode.findInstanceNodes(Linux_SambaShareOptions.CIM_CLASS_NAME);
 				for (Iterator iter = shareNodes.iterator(); iter.hasNext();) {
 					ICIMInstanceNode shareNode = (ICIMInstanceNode) iter.next();
-					Linux_SambaShareOptions shareFco = new Linux_SambaShareOptions(shareNode.getCimInstance().getObjectPath(),shareNode.getCimInstance());
+					Linux_SambaShareOptions shareFco = new Linux_SambaShareOptions(shareNode.getCimInstance());
 					shares.addShare(new Share(service,shareFco,this));
 				}
 				service.setShares(shares);
@@ -226,7 +196,7 @@ public class SambaCimAdapter extends AbstractBaseCimAdapter {
 				List printerNodes = serviceNode.findInstanceNodes(Linux_SambaPrinterOptions.CIM_CLASS_NAME);
 				for (Iterator iter = printerNodes.iterator(); iter.hasNext();) {
 					ICIMInstanceNode shareNode = (ICIMInstanceNode) iter.next();
-					Linux_SambaPrinterOptions printerFco = new Linux_SambaPrinterOptions(shareNode.getCimInstance().getObjectPath(),shareNode.getCimInstance());
+					Linux_SambaPrinterOptions printerFco = new Linux_SambaPrinterOptions(shareNode.getCimInstance());
 					printers.addPrinter(new Printer(service,printerFco,this));
 				}
 				service.setPrinters(printers);
@@ -237,7 +207,7 @@ public class SambaCimAdapter extends AbstractBaseCimAdapter {
 				List userNodes = serviceNode.findInstanceNodes(Linux_SambaUser.CIM_CLASS_NAME);
 				for (Iterator iter = userNodes.iterator(); iter.hasNext();) {
 					ICIMInstanceNode shareNode = (ICIMInstanceNode) iter.next();
-					Linux_SambaUser userFco = new Linux_SambaUser(shareNode.getCimInstance().getObjectPath(),shareNode.getCimInstance());
+					Linux_SambaUser userFco = new Linux_SambaUser(shareNode.getCimInstance());
 					users.addUser(new User(service,userFco,this));
 				}
 				service.setUsers(users);
@@ -247,7 +217,7 @@ public class SambaCimAdapter extends AbstractBaseCimAdapter {
 				List hostNodes = serviceNode.findInstanceNodes(Linux_SambaHost.CIM_CLASS_NAME);
 				for (Iterator iter = hostNodes.iterator(); iter.hasNext();) {
 					ICIMInstanceNode shareNode = (ICIMInstanceNode) iter.next();
-					Linux_SambaHost hostFco = new Linux_SambaHost(shareNode.getCimInstance().getObjectPath(),shareNode.getCimInstance());
+					Linux_SambaHost hostFco = new Linux_SambaHost(shareNode.getCimInstance());
 					hosts.addHost(new Host(service,hostFco,this));
 				}
 				service.setHosts(hosts);
@@ -257,12 +227,12 @@ public class SambaCimAdapter extends AbstractBaseCimAdapter {
 				
 				loaded = true;
 			}
-		} catch (WbemSmtException e) {
-			throw new ModelLoadException(e);
+		} catch (WbemsmtException e) {
+			throw new WbemsmtException(WbemsmtException.ERR_LOADING_MODEL,e);
 		}
 	}
 
-	public CimObjectKey getKeyByTreeNode(ITaskLauncherTreeNode treeNode) throws ObjectNotFoundException {
+	public CimObjectKey getKeyByTreeNode(ITaskLauncherTreeNode treeNode) throws WbemsmtException {
 
 		if (treeNode instanceof ICIMInstanceNode) {
 			ICIMInstanceNode node = (ICIMInstanceNode) treeNode;
@@ -314,10 +284,10 @@ public class SambaCimAdapter extends AbstractBaseCimAdapter {
 				if (fco != null)
 				{
 					service = new Service(this,fco);
-					service.loadUserList(cimClient);
-					service.loadPrinterList(cimClient);
-					service.loadShareList(cimClient);
-					service.loadHostList(cimClient);
+					service.loadUserList();
+					service.loadPrinterList();
+					service.loadShareList();
+					service.loadHostList();
 					services.addService(service);
 					sambaSelectionHierarchy.add(service);
 					//service loaded
@@ -564,7 +534,7 @@ public class SambaCimAdapter extends AbstractBaseCimAdapter {
 		return sambaSelectionHierarchy;
 	}
 
-	public void loadInitial(CIMClient cimClient) throws ModelLoadException {
+	public void loadInitial(WBEMClient cimClient) throws WbemsmtException {
 	}
 
 	public InitContainerDelegatee getInitContainerDelegatee() {

@@ -23,27 +23,18 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
-import java.util.Vector;
 
-import org.sblim.wbem.cim.CIMDataType;
-import org.sblim.wbem.cim.CIMProperty;
-import org.sblim.wbem.cim.CIMValue;
-import org.sblim.wbem.cim.UnsignedInt16;
-import org.sblim.wbem.cim.UnsignedInt64;
-import org.sblim.wbem.client.CIMClient;
+import javax.cim.UnsignedInteger16;
+import javax.cim.UnsignedInteger64;
+import javax.wbem.client.WBEMClient;
+
 import org.sblim.wbemsmt.bl.adapter.CimObjectKey;
 import org.sblim.wbemsmt.bl.adapter.MessageList;
-import org.sblim.wbemsmt.exception.ModelLoadException;
-import org.sblim.wbemsmt.exception.ModelUpdateException;
-import org.sblim.wbemsmt.exception.ObjectDeletionException;
-import org.sblim.wbemsmt.exception.ObjectRevertException;
-import org.sblim.wbemsmt.exception.ObjectSaveException;
-import org.sblim.wbemsmt.exception.UpdateControlsException;
+import org.sblim.wbemsmt.exception.WbemsmtException;
 import org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter;
 import org.sblim.wbemsmt.samba.bl.adapter.SambaObject;
 import org.sblim.wbemsmt.samba.bl.container.global.AdminUsersInPrinterGlobals;
 import org.sblim.wbemsmt.samba.bl.container.global.PrintingGlobalsDataContainer;
-import org.sblim.wbemsmt.samba.bl.fco.Linux_SambaGlobalOptions;
 import org.sblim.wbemsmt.samba.bl.fco.Linux_SambaGlobalPrintingOptions;
 import org.sblim.wbemsmt.samba.bl.fco.Linux_SambaPrinterAdminForGlobal;
 import org.sblim.wbemsmt.samba.bl.fco.Linux_SambaUser;
@@ -55,43 +46,42 @@ public class PrinterGlobals extends SambaObject {
 	private Linux_SambaGlobalPrintingOptions globalPrintingOptions1;
 	private Set adminsBySambaUserName;
 
-	public PrinterGlobals(Service service, SambaCimAdapter adapter) throws ModelLoadException {
+	public PrinterGlobals(Service service, SambaCimAdapter adapter) throws WbemsmtException {
 		super(adapter);
 		this.service = service;
-		loadGlobalPrinterAdmins(adapter.getCimClient());
+		loadGlobalPrinterAdmins();
 	}
 
 	/* (non-Javadoc)
-	 * @see org.sblim.wbemsmt.samba.bl.adapter.SambaObject#loadChilds(org.sblim.wbem.client.CIMClient)
+	 * @see org.sblim.wbemsmt.samba.bl.adapter.SambaObject#loadChilds(org.sblim.wbem.client.WBEMClient)
 	 */
-	public void reloadChilds(CIMClient cimClient) throws ModelLoadException {
-		getGlobalPrintingOptions(cimClient);
+	public void reloadChilds() throws WbemsmtException {
+		getGlobalPrintingOptions();
 		reloadChilds = false;
 	}
 
 
-	private Linux_SambaGlobalPrintingOptions getGlobalPrintingOptions(CIMClient cimClient) throws ModelLoadException{
+	private Linux_SambaGlobalPrintingOptions getGlobalPrintingOptions() throws WbemsmtException{
 		if (globalPrintingOptions1 == null || reloadChilds)
-		{
-			globalPrintingOptions1 = (Linux_SambaGlobalPrintingOptions) 
-			getFirstChild(
-					Linux_SambaGlobalPrintingOptions.class
-					,service.
-						getGlobalOptions(cimClient).
-						getAssociated_Linux_SambaGlobalPrintingOptions_Linux_SambaGlobalPrintingForGlobal_Names(cimClient,false), false);
-		}
-		return globalPrintingOptions1;
+        {
+        	globalPrintingOptions1 = (Linux_SambaGlobalPrintingOptions) 
+        	getFirstChild(
+        			Linux_SambaGlobalPrintingOptions.class
+        			,service.
+        				getGlobalOptions().
+        				getAssociated_Linux_SambaGlobalPrintingOptions_Linux_SambaGlobalPrintingForGlobalNames(adapter.getCimClient()), false);
+        }
+        return globalPrintingOptions1;
 	}
 
-	private void loadGlobalPrinterAdmins(CIMClient cimClient) throws ModelLoadException
+	private void loadGlobalPrinterAdmins() throws WbemsmtException
 	{
-		//get the associated Admin
-		List admins = service.getGlobalOptions(cimClient).getAssociated_Linux_SambaUser_Linux_SambaPrinterAdminForGlobals(cimClient,false,false,null);
-		adminsBySambaUserName = new HashSet();
-		for (Iterator iter = admins.iterator(); iter.hasNext();) {
-			Linux_SambaUser user = (Linux_SambaUser) iter.next();
-			adminsBySambaUserName.add(user.get_SambaUserName());			
-		}
+		List admins = service.getGlobalOptions().getAssociated_Linux_SambaUser_Linux_SambaPrinterAdminForGlobals(adapter.getCimClient());
+        adminsBySambaUserName = new HashSet();
+        for (Iterator iter = admins.iterator(); iter.hasNext();) {
+        	Linux_SambaUser user = (Linux_SambaUser) iter.next();
+        	adminsBySambaUserName.add(user.get_key_SambaUserName());			
+        }
 	}
 
 	/* (non-Javadoc)
@@ -101,74 +91,61 @@ public class PrinterGlobals extends SambaObject {
 		return service.getCimObjectKey();
 	}
 
-	public void updateControls(PrintingGlobalsDataContainer container) throws UpdateControlsException {
+	public void updateControls(PrintingGlobalsDataContainer container) throws WbemsmtException {
 		
-		try {
-			CIMClient cc = container.getAdapter().getCimClient();
-			container.get_CupsOptions().setControlValue(getGlobalPrintingOptions(cc).get_CupsOptions());
-			container.get_DefaultDevMode().setControlValue(getGlobalPrintingOptions(cc).get_DefaultDevMode());
-			container.get_MaxPrintjobs().setControlValue(getGlobalPrintingOptions(cc).get_MaxPrintjobs());
-			container.get_MaxReportedPrintjobs().setControlValue(getGlobalPrintingOptions(cc).get_MaxReportedPrintjobs());
-			container.get_PrintcapCacheTime().setControlValue(getGlobalPrintingOptions(cc).get_PrintcapCacheTime());
-			container.get_PrintCommand().setControlValue(getGlobalPrintingOptions(cc).get_PrintCommand());
-			
-			
-			container.get_usr_SystemPrinterName().setValues(service.getSystemPrinters(cc).getNameArray());
-			int index = StringUtil.indexOf(service.getSystemPrinters(cc).getNameArray(),getGlobalPrintingOptions(cc).get_SystemPrinterName());
-			if (index == -1)
-			{
-				index = 0;
-			}
-			container.get_usr_SystemPrinterName().setControlValue(new UnsignedInt16(index));
-			container.get_UseClientDriver().setControlValue(getGlobalPrintingOptions(cc).get_UseClientDriver());
-			
-			container.getAdapter().updateControls(container.getUsers(),service.getUsers().getFCOs());
-			
-		} catch (ModelLoadException e) {
-			throw new UpdateControlsException(e);
-		}
+		container.get_CupsOptions().setControlValue(getGlobalPrintingOptions().get_CupsOptions());
+        container.get_DefaultDevMode().setControlValue(getGlobalPrintingOptions().get_DefaultDevMode());
+        container.get_MaxPrintjobs().setControlValue(getGlobalPrintingOptions().get_MaxPrintjobs());
+        container.get_MaxReportedPrintjobs().setControlValue(getGlobalPrintingOptions().get_MaxReportedPrintjobs());
+        container.get_PrintcapCacheTime().setControlValue(getGlobalPrintingOptions().get_PrintcapCacheTime());
+        container.get_PrintCommand().setControlValue(getGlobalPrintingOptions().get_PrintCommand());
+        
+        
+        container.get_usr_SystemPrinterName().setValues(service.getSystemPrinters().getNameArray());
+        int index = StringUtil.indexOf(service.getSystemPrinters().getNameArray(),getGlobalPrintingOptions().get_SystemPrinterName());
+        if (index == -1)
+        {
+        	index = 0;
+        }
+        container.get_usr_SystemPrinterName().setControlValue(new UnsignedInteger16(index));
+        container.get_UseClientDriver().setControlValue(getGlobalPrintingOptions().get_UseClientDriver());
+        
+        container.getAdapter().updateControls(container.getUsers(),service.getUsers().getFCOs());
 		
 	}
 
-	public void updateModel(PrintingGlobalsDataContainer container) throws ModelUpdateException {
+	public void updateModel(PrintingGlobalsDataContainer container) throws WbemsmtException {
 	}
 
-	public MessageList save(PrintingGlobalsDataContainer container) throws ObjectSaveException {
+	public MessageList save(PrintingGlobalsDataContainer container) throws WbemsmtException {
 
-		try {
-		
-			CIMClient cc = container.getAdapter().getCimClient();
-		
-			getGlobalPrintingOptions(cc).set_CupsOptions((String) container.get_CupsOptions().getConvertedControlValue());
-			getGlobalPrintingOptions(cc).set_DefaultDevMode((Boolean) container.get_DefaultDevMode().getConvertedControlValue());
-			getGlobalPrintingOptions(cc).set_MaxPrintjobs((UnsignedInt64) container.get_MaxPrintjobs().getConvertedControlValue());
-			getGlobalPrintingOptions(cc).set_MaxReportedPrintjobs((UnsignedInt64) container.get_MaxReportedPrintjobs().getConvertedControlValue());
-			getGlobalPrintingOptions(cc).set_PrintcapCacheTime((UnsignedInt64) container.get_PrintcapCacheTime().getConvertedControlValue());
-			getGlobalPrintingOptions(cc).set_PrintCommand((String) container.get_PrintCommand().getConvertedControlValue());
-			UnsignedInt16 index = (UnsignedInt16) container.get_usr_SystemPrinterName().getConvertedControlValue();
-			if (index != null)
-			{
-				getGlobalPrintingOptions(cc).set_SystemPrinterName(service.getSystemPrinters(cc).getNameArray()[index.intValue()]);
-			}
-			getGlobalPrintingOptions(cc).set_UseClientDriver((Boolean) container.get_UseClientDriver().getConvertedControlValue());
-			adapter.getFcoHelper().save(getGlobalPrintingOptions(cc),cc);
+		WBEMClient cc = container.getAdapter().getCimClient();
 
-			container.getAdapter().save(container.getUsers(),service.getUsers().getFCOs());
-			
-			reloadChilds = true;
-			reloadChilds(cc);
-			resetPrinterAcl(service);
-			resetPrinterChilds(service);
-			resetUserAcl(service);
-			return null;
-			
-			
-		} catch (ModelLoadException e) {
-			throw new ObjectSaveException(e);
-		}
+        getGlobalPrintingOptions().set_CupsOptions((String) container.get_CupsOptions().getConvertedControlValue());
+        getGlobalPrintingOptions().set_DefaultDevMode((Boolean) container.get_DefaultDevMode().getConvertedControlValue());
+        getGlobalPrintingOptions().set_MaxPrintjobs((UnsignedInteger64) container.get_MaxPrintjobs().getConvertedControlValue());
+        getGlobalPrintingOptions().set_MaxReportedPrintjobs((UnsignedInteger64) container.get_MaxReportedPrintjobs().getConvertedControlValue());
+        getGlobalPrintingOptions().set_PrintcapCacheTime((UnsignedInteger64) container.get_PrintcapCacheTime().getConvertedControlValue());
+        getGlobalPrintingOptions().set_PrintCommand((String) container.get_PrintCommand().getConvertedControlValue());
+        UnsignedInteger16 index = (UnsignedInteger16) container.get_usr_SystemPrinterName().getConvertedControlValue();
+        if (index != null)
+        {
+        	getGlobalPrintingOptions().set_SystemPrinterName(service.getSystemPrinters().getNameArray()[index.intValue()]);
+        }
+        getGlobalPrintingOptions().set_UseClientDriver((Boolean) container.get_UseClientDriver().getConvertedControlValue());
+        adapter.getFcoHelper().save(getGlobalPrintingOptions(),cc);
+
+        container.getAdapter().save(container.getUsers(),service.getUsers().getFCOs());
+        
+        reloadChilds = true;
+        reloadChilds();
+        resetPrinterAcl(service);
+        resetPrinterChilds(service);
+        resetUserAcl(service);
+        return null;
 	}
 
-	public void updateControls(AdminUsersInPrinterGlobals container) throws UpdateControlsException {
+	public void updateControls(AdminUsersInPrinterGlobals container) throws WbemsmtException {
 		super.updateSharePrinterAdminForGlobalControls(container,adminsBySambaUserName,service);
 	}
 
@@ -176,40 +153,27 @@ public class PrinterGlobals extends SambaObject {
 		super.updateSharePrinterAdminForGlobalControls(container,fco,adminsBySambaUserName);
 	}
 
-	public MessageList save(AdminUsersInPrinterGlobals container, Linux_SambaUser fco) throws ObjectSaveException {
+	public MessageList save(AdminUsersInPrinterGlobals container, Linux_SambaUser fco) throws WbemsmtException {
 		
-		CIMClient cc = container.getAdapter().getCimClient();
+		WBEMClient cc = container.getAdapter().getCimClient();
 		String userName = (String) container.get_usr_SambaUserName().getConvertedControlValue();
 		boolean checked = ((Boolean) container.get_usr_Admin().getConvertedControlValue()).booleanValue();
 
-		try {
-			if (!checked && adminsBySambaUserName.contains(userName))
-			{
-				Vector vKeyProperties = new Vector();
-				CIMDataType dataTypeGlobals = new CIMDataType(Linux_SambaGlobalOptions.CIM_CLASS_NAME);
-				CIMValue valueGlobals = new CIMValue(service.getGlobalOptions(cc ).getCimObjectPath(), dataTypeGlobals);
-				CIMProperty propertyGlobals = new CIMProperty(Linux_SambaPrinterAdminForGlobal.CIM_PROPERTY_LINUX_SAMBAGLOBALOPTIONS, valueGlobals);
-				CIMValue valueUser = new CIMValue(fco.getCimObjectPath(), new CIMDataType(Linux_SambaUser.CIM_CLASS_NAME));
-				CIMProperty propertyUser = new CIMProperty(Linux_SambaPrinterAdminForGlobal.CIM_PROPERTY_LINUX_SAMBAUSER, valueUser);
-				
-				vKeyProperties.add(propertyUser);
-				vKeyProperties.add(propertyGlobals);
-				adapter.getFcoHelper().delete(Linux_SambaPrinterAdminForGlobal.class,vKeyProperties,cc);
-				loadGlobalPrinterAdmins(cc);
-			}
-			else if (checked && !adminsBySambaUserName.contains(userName))
-			{
-				Linux_SambaPrinterAdminForGlobal assoc = new Linux_SambaPrinterAdminForGlobal();
-				assoc.set_Linux_SambaGlobalOptions(service.getGlobalOptions(cc));
-				assoc.set_Linux_SambaUser(fco);
-				adapter.getFcoHelper().create(assoc,cc);
-				loadGlobalPrinterAdmins(cc);
-			}
-		} catch (ModelLoadException e) {
-			throw new ObjectSaveException(e);
-		} catch (ObjectDeletionException e) {
-			throw new ObjectSaveException(e);
-		}
+		if (!checked && adminsBySambaUserName.contains(userName))
+        {
+            
+            List list = fco.getAssociations_Linux_SambaPrinterAdminForGlobal(cc, false, false, null, null);
+            adapter.getFcoHelper().delete(list, cc);
+        	loadGlobalPrinterAdmins();
+        }
+        else if (checked && !adminsBySambaUserName.contains(userName))
+        {
+        	Linux_SambaPrinterAdminForGlobal assoc = new Linux_SambaPrinterAdminForGlobal(cc,adapter.getNamespace());
+        	assoc.set_GroupComponent_Linux_SambaGlobalOptions(service.getGlobalOptions());
+        	assoc.set_PartComponent_Linux_SambaUser(fco);
+        	adapter.getFcoHelper().create(assoc,cc);
+        	loadGlobalPrinterAdmins();
+        }
 		
 		return null;
 	}
@@ -218,56 +182,40 @@ public class PrinterGlobals extends SambaObject {
 	 * Called from commandline
 	 * @param container
 	 * @return
-	 * @throws ObjectSaveException 
+	 * @throws WbemsmtException 
 	 */
-	public MessageList save(AdminUsersInPrinterGlobals container) throws ObjectSaveException {
-		try {
-			User user = getCurrenUser(container, service);
-			Linux_SambaUser fco = user.getUser();
-			return save(container,fco);
-		} catch (ModelLoadException e) {
-			throw new ObjectSaveException(e);
-		}		
+	public MessageList save(AdminUsersInPrinterGlobals container) throws WbemsmtException {
+		User user = getCurrenUser(container, service);
+        Linux_SambaUser fco = user.getUser();
+        return save(container,fco);		
 	}
 	
-	public Set getAdminUsers(CIMClient cc) throws ModelLoadException
+	public Set getAdminUsers() throws WbemsmtException
 	{
 		return adminsBySambaUserName;
 	}
 
-	public MessageList revert(AdminUsersInPrinterGlobals container, Linux_SambaUser fco) throws ObjectRevertException {
-		try {
-			loadGlobalPrinterAdmins(container.getAdapter().getCimClient());
-		} catch (ModelLoadException e) {
-			throw new ObjectRevertException(e);
-		}
+	public MessageList revert(AdminUsersInPrinterGlobals container, Linux_SambaUser fco) throws WbemsmtException {
+		loadGlobalPrinterAdmins();
 		return null;
 	}
 
-	public MessageList revert(PrintingGlobalsDataContainer container) throws ObjectRevertException {
+	public MessageList revert(PrintingGlobalsDataContainer container) throws WbemsmtException {
 		
 		globalPrintingOptions1 = null;
 
-		container.getAdapter().revert(container.getUsers(),service.getUsers().getFCOs());		
-		
-		reloadChilds = true;
-		try {
-			reloadChilds(container.getAdapter().getCimClient());
-		} catch (ModelLoadException e) {
-			throw new ObjectRevertException(e);
-		}
-		resetPrinterAcl(service);
-		resetPrinterChilds(service);
-		resetUserAcl(service);
+		container.getAdapter().revert(container.getUsers(),service.getUsers().getFCOs());
+
+        reloadChilds = true;
+        reloadChilds();
+        resetPrinterAcl(service);
+        resetPrinterChilds(service);
+        resetUserAcl(service);
 		return null;
 	}
 
-	public MessageList revert(AdminUsersInPrinterGlobals container) throws ObjectRevertException {
-		try {
-			loadGlobalPrinterAdmins(container.getAdapter().getCimClient());
-		} catch (ModelLoadException e) {
-			throw new ObjectRevertException(e);
-		}
+	public MessageList revert(AdminUsersInPrinterGlobals container) throws WbemsmtException {
+		loadGlobalPrinterAdmins();
 		return null;
 	}
 

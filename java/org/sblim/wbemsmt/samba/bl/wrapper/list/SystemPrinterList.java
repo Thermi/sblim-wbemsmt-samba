@@ -19,9 +19,11 @@
   */
 package org.sblim.wbemsmt.samba.bl.wrapper.list;
 
-import org.sblim.wbem.cim.CIMObjectPath;
+import javax.cim.CIMObjectPath;
+
 import org.sblim.wbemsmt.bl.adapter.CimObjectKey;
 import org.sblim.wbemsmt.bl.wrapper.ObjectList;
+import org.sblim.wbemsmt.exception.WbemsmtException;
 import org.sblim.wbemsmt.samba.bl.wrapper.SystemPrinter;
 import org.sblim.wbemsmt.schema.cim29.CIM_ManagedElement;
 
@@ -45,19 +47,19 @@ public class SystemPrinterList extends ObjectList {
 		return getSystemPrinter(new CimObjectKey(element.getCimObjectPath()));
 	}
 
-	public void addSystemPrinter(SystemPrinter printer)
+	public void addSystemPrinter(SystemPrinter printer) throws WbemsmtException
 	{
 		put(printer);
 	}
 	
-	public void addSystemPrinters(SystemPrinter[] printers) {
+	public void addSystemPrinters(SystemPrinter[] printers) throws WbemsmtException {
 		for (int i = 0; i < printers.length; i++) {
 			addSystemPrinter(printers[i]);
 		}
 	}
 	
 	
-	public void removeSystemPrinter(SystemPrinter printer)
+	public void removeSystemPrinter(SystemPrinter printer) throws WbemsmtException
 	{
 		removeSystemPrinter(printer.getCimObjectKey());
 	}
@@ -67,11 +69,11 @@ public class SystemPrinterList extends ObjectList {
 		remove(key);
 	}
 	
-	public SystemPrinter getSystemPrinterByName(String printername) {
+	public SystemPrinter getSystemPrinterByName(String printername) throws WbemsmtException {
 		return (SystemPrinter) getObjectsByName().get(printername);
 	}
 	
-	public SystemPrinter getSystemPrinter(int i) {
+	public SystemPrinter getSystemPrinter(int i) throws WbemsmtException {
 		return (SystemPrinter)getList().get(i);
 	}
 

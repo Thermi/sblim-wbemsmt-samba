@@ -20,7 +20,7 @@
 package org.sblim.wbemsmt.cli.samba.listener;
 
 import org.sblim.wbemsmt.bl.adapter.AbstractBaseCimAdapter;
-import org.sblim.wbemsmt.exception.ObjectNotFoundException;
+import org.sblim.wbemsmt.exception.WbemsmtException;
 import org.sblim.wbemsmt.tools.cli.CimCommandValues;
 import org.sblim.wbemsmt.tools.cli.CliDataLoader;
 import org.sblim.wbemsmt.tools.cli.CliUtil;
@@ -34,7 +34,7 @@ public class EditSambaShareLoader extends SambaLoader implements
 	 */
 	public void load(WbemSmtResourceBundle bundle,
 			AbstractBaseCimAdapter adapter, CimCommandValues commandValues)
-			throws ObjectNotFoundException {
+			throws WbemsmtException {
 		String serviceName = CliUtil.getOption(commandValues,EditSambaShare.KEY_GLOBAL_serviceName);
 		String shareName = CliUtil.getOption(commandValues,EditSambaShare.KEY_sharename);
 

@@ -19,9 +19,11 @@
   */
 package org.sblim.wbemsmt.samba.bl.wrapper.list;
 
-import org.sblim.wbem.cim.CIMObjectPath;
+import javax.cim.CIMObjectPath;
+
 import org.sblim.wbemsmt.bl.adapter.CimObjectKey;
 import org.sblim.wbemsmt.bl.wrapper.ObjectList;
+import org.sblim.wbemsmt.exception.WbemsmtException;
 import org.sblim.wbemsmt.samba.bl.wrapper.Service;
 import org.sblim.wbemsmt.schema.cim29.CIM_ManagedElement;
 
@@ -46,7 +48,7 @@ public class ServiceList extends ObjectList {
 		return getService(new CimObjectKey(element.getCimObjectPath()));
 	}
 
-	public void addService(Service service)
+	public void addService(Service service) throws WbemsmtException
 	{
 		put(service);
 	}
@@ -61,7 +63,7 @@ public class ServiceList extends ObjectList {
 		return service.getService();
 	}
 	
-	public Service getServiceByName(String nameOfService) {
+	public Service getServiceByName(String nameOfService) throws WbemsmtException {
 		return (Service) getObjectsByName().get(nameOfService);
 	}
 	

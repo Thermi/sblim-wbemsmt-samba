@@ -19,9 +19,11 @@
   */
 package org.sblim.wbemsmt.samba.bl.wrapper.list;
 
-import org.sblim.wbem.cim.CIMObjectPath;
+import javax.cim.CIMObjectPath;
+
 import org.sblim.wbemsmt.bl.adapter.CimObjectKey;
 import org.sblim.wbemsmt.bl.wrapper.ObjectList;
+import org.sblim.wbemsmt.exception.WbemsmtException;
 import org.sblim.wbemsmt.samba.bl.wrapper.User;
 import org.sblim.wbemsmt.schema.cim29.CIM_ManagedElement;
 
@@ -45,7 +47,7 @@ public class UserList extends ObjectList {
 		return getUser(new CimObjectKey(element.getCimObjectPath()));
 	}
 
-	public void addUser(User user)
+	public void addUser(User user) throws WbemsmtException
 	{
 		put(user);
 	}
@@ -60,17 +62,17 @@ public class UserList extends ObjectList {
 		remove(key);
 	}
 	
-	public User getUserByName(String username) {
+	public User getUserByName(String username) throws WbemsmtException {
 		return (User) getObjectsByName().get(username);
 	}
 	
-	public User getUser(int i) {
+	public User getUser(int i) throws WbemsmtException {
 		return (User)getList().get(i);
 	}
 
 	protected Object getKey(Object value) {
 		User user = (User) value;
-		return user.getUser().get_SambaUserName();
+		return user.getUser().get_key_SambaUserName();
 	}
 	
 	protected Object getFco(Object value) {

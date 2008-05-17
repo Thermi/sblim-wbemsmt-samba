@@ -20,7 +20,7 @@
 package org.sblim.wbemsmt.cli.samba.listener;
 
 import org.sblim.wbemsmt.bl.adapter.AbstractBaseCimAdapter;
-import org.sblim.wbemsmt.exception.ObjectNotFoundException;
+import org.sblim.wbemsmt.exception.WbemsmtException;
 import org.sblim.wbemsmt.samba.bl.container.wizard.UserWizardPage3;
 import org.sblim.wbemsmt.tools.cli.CliDataLoader;
 import org.sblim.wbemsmt.tools.cli.CliUtil;
@@ -34,7 +34,7 @@ public class CreateSambaUserLoader extends SambaServiceLoader  implements CliDat
 	}
 
 
-	public void loadTracingObject(WbemSmtResourceBundle bundle, AbstractBaseCimAdapter adapter, UserWizardPage3 page3) throws ObjectNotFoundException {
+	public void loadTracingObject(WbemSmtResourceBundle bundle, AbstractBaseCimAdapter adapter, UserWizardPage3 page3) throws WbemsmtException {
 		String serviceName = CliUtil.getOption(commandValues,CreateSambaShare.KEY_GLOBAL_serviceName);
 		String name = (String) page3.get_SambaUserName().getConvertedControlValue();
 		

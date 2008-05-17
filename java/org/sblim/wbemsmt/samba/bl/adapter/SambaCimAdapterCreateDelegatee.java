@@ -19,7 +19,7 @@
   */
 package org.sblim.wbemsmt.samba.bl.adapter;
 
-import org.sblim.wbemsmt.exception.ObjectSaveException;
+import org.sblim.wbemsmt.exception.WbemsmtException;
 import org.sblim.wbemsmt.samba.bl.container.wizard.HostWizardPage2;
 import org.sblim.wbemsmt.samba.bl.container.wizard.PrinterWizardPage5;
 import org.sblim.wbemsmt.samba.bl.container.wizard.ShareWizardPage4;
@@ -31,19 +31,19 @@ public class SambaCimAdapterCreateDelegatee extends SambaDelegatee implements Sa
 		super(adapter);
 	}
 
-	public void createImpl(HostWizardPage2 container) throws ObjectSaveException {
+	public void createImpl(HostWizardPage2 container) throws WbemsmtException {
 		adapter.getHostWizard().create(container);
 	}
 
-	public void createImpl(PrinterWizardPage5 container) throws ObjectSaveException {
+	public void createImpl(PrinterWizardPage5 container) throws WbemsmtException {
 		adapter.getPrinterWizard().create(container);
 	}
 
-	public void createImpl(UserWizardPage3 container) throws ObjectSaveException {
+	public void createImpl(UserWizardPage3 container) throws WbemsmtException {
 		adapter.getUserWizard().create(container);
 	}
 
-	public void createImpl(ShareWizardPage4 container) throws ObjectSaveException {
+	public void createImpl(ShareWizardPage4 container) throws WbemsmtException {
 		adapter.getShareWizard().create(container);
 	}
 

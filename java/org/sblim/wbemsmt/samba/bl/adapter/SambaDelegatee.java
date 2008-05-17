@@ -19,13 +19,7 @@
   */
 package org.sblim.wbemsmt.samba.bl.adapter;
 
-import org.sblim.wbemsmt.samba.bl.wrapper.Host;
-import org.sblim.wbemsmt.samba.bl.wrapper.Printer;
-import org.sblim.wbemsmt.samba.bl.wrapper.PrinterGlobals;
-import org.sblim.wbemsmt.samba.bl.wrapper.Service;
-import org.sblim.wbemsmt.samba.bl.wrapper.Share;
-import org.sblim.wbemsmt.samba.bl.wrapper.ShareGlobals;
-import org.sblim.wbemsmt.samba.bl.wrapper.User;
+import org.sblim.wbemsmt.samba.bl.wrapper.*;
 
 public class SambaDelegatee {
 

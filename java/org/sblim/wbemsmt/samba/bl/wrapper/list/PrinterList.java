@@ -19,9 +19,11 @@
   */
 package org.sblim.wbemsmt.samba.bl.wrapper.list;
 
-import org.sblim.wbem.cim.CIMObjectPath;
+import javax.cim.CIMObjectPath;
+
 import org.sblim.wbemsmt.bl.adapter.CimObjectKey;
 import org.sblim.wbemsmt.bl.wrapper.ObjectList;
+import org.sblim.wbemsmt.exception.WbemsmtException;
 import org.sblim.wbemsmt.samba.bl.wrapper.Printer;
 import org.sblim.wbemsmt.schema.cim29.CIM_ManagedElement;
 
@@ -44,14 +46,14 @@ public class PrinterList extends ObjectList  {
 		return getPrinter(new CimObjectKey(element.getCimObjectPath()));
 	}
 
-	public void addPrinter(Printer printer)
+	public void addPrinter(Printer printer) throws WbemsmtException
 	{
 		put(printer);
 	}
 
 	protected Object getKey(Object value) {
 		Printer printer = (Printer) value;
-		return printer.getPrinter().get_Name();
+		return printer.getPrinter().get_key_Name();
 	}
 	
 	protected Object getFco(Object value) {
@@ -59,11 +61,11 @@ public class PrinterList extends ObjectList  {
 		return printer.getPrinter();
 	}
 
-	public Printer getPrinterByName(String printerName) {
+	public Printer getPrinterByName(String printerName) throws WbemsmtException {
 		return (Printer) getObjectsByName().get(printerName);
 	}
 
-	public Printer getPrinter(int i) {
+	public Printer getPrinter(int i) throws WbemsmtException {
 		return (Printer) getList().get(i);
 	}
 }

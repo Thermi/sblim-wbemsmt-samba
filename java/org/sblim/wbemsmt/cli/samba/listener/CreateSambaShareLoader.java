@@ -21,7 +21,7 @@ package org.sblim.wbemsmt.cli.samba.listener;
 
 
 import org.sblim.wbemsmt.bl.adapter.AbstractBaseCimAdapter;
-import org.sblim.wbemsmt.exception.ObjectNotFoundException;
+import org.sblim.wbemsmt.exception.WbemsmtException;
 import org.sblim.wbemsmt.samba.bl.container.wizard.ShareWizardPage4;
 import org.sblim.wbemsmt.tools.cli.CliDataLoader;
 import org.sblim.wbemsmt.tools.cli.CliUtil;
@@ -35,7 +35,7 @@ public class CreateSambaShareLoader extends SambaServiceLoader  implements CliDa
 	}
 
 
-	public void loadTracingObject(WbemSmtResourceBundle bundle, AbstractBaseCimAdapter adapter, ShareWizardPage4 page4) throws ObjectNotFoundException {
+	public void loadTracingObject(WbemSmtResourceBundle bundle, AbstractBaseCimAdapter adapter, ShareWizardPage4 page4) throws WbemsmtException {
 		String serviceName = CliUtil.getOption(commandValues,CreateSambaShare.KEY_GLOBAL_serviceName);
 		String shareName = (String) page4.get_Name().getConvertedControlValue();
 		

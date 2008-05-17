@@ -1,1382 +1,2102 @@
 /** 
  * Linux_SambaGroup.java
  *
- * © Copyright IBM Corp. 2005
+ * 
+ * © Copyright IBM Corp. 2006,2007
  *
- * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
+ * THIS FILE IS PROVIDED UNDER THE TER	MS OF THE COMMON PUBLIC LICENSE
  * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
  * CONSTITUTES RECIPIENTS ACCEPTANCE OF THE AGREEMENT.
  *
  * You can obtain a current copy of the Common Public License from
  * http://www.opensource.org/licenses/cpl1.0.php
  *
- * @author:	ECCG 0.9.7 generated 
- * 			(author should be changed, e.g. First and Last Name <xxx@cc.ibm.com>)
+ * @author: org.sblim.wbemsmt.dcg.generator.fco.jsr48.FcoGenerator
+ * @template: org/sblim/wbemsmt/dcg/templates/fco/jsr48/fco.vm
  *
  * Contributors:
- *
- *
+ *    michael.bauschert@de.ibm.com 
+ * 
  * Description: 
  * 
+ * generated Class
  */
 
 package org.sblim.wbemsmt.samba.bl.fco;
 
-import java.lang.reflect.Constructor;
-import java.security.InvalidParameterException;
-import java.util.*;
+import javax.cim.*;
+import javax.wbem.client.*;
 
-import org.sblim.wbem.cim.*;
-import org.sblim.wbem.client.CIMClient;
-import org.sblim.wbem.client.CIMEnumeration;
-import org.sblim.wbemsmt.schema.cim29.CIM_ManagedElement;
+import org.sblim.wbemsmt.exception.*;
+import org.sblim.wbemsmt.exception.impl.*;
+import org.sblim.wbemsmt.exception.impl.userobject.*;
 
-/**
- * 
- */
-public class Linux_SambaGroup extends CIM_ManagedElement  {
-	
-	public final static String CIM_CLASS_NAME = "Linux_SambaGroup"; //$NON-NLS-1$
-	public final static String CIM_CLASS_DISPLAYNAME = CIM_CLASS_NAME;
+import org.sblim.wbemsmt.schema.cim29.*;
 
-	private boolean validCimInstance = false;
-	
-	public final static String CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAFORCEGROUPFORGLOBAL = "Linux_SambaForceGroupForGlobal"; //$NON-NLS-1$
-	public final static String CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAFORCEGROUPFORPRINTER = "Linux_SambaForceGroupForPrinter"; //$NON-NLS-1$
-	public final static String CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAFORCEGROUPFORSHARE = "Linux_SambaForceGroupForShare"; //$NON-NLS-1$
-	public final static String CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAGROUPFORUSER = "Linux_SambaGroupForUser"; //$NON-NLS-1$
-	
-	
-	/**
-	*	
-	*/
-	public final static String CIM_PROPERTY_SAMBAGROUPNAME = "SambaGroupName"; //$NON-NLS-1$
-	/**
-	*	
-	*/
-	public final static String CIM_PROPERTY_SYSTEMGROUPNAME = "SystemGroupName"; //$NON-NLS-1$
-	
-	
-	/**
-	*	
-	*/
-	public final static String CIM_METHOD_GETALLSYSTEMGROUPS = "getAllSystemGroups";
-	
+import java.lang.reflect.*;
+import javax.wbem.*;
 
-	public static Vector CIM_PropertyNameList	= new Vector();
-	public static Vector CIM_PropertyList 		= new Vector();
-	private static Set Java_Package_List 		= new HashSet();
-	
-	static {
-		CIM_PropertyNameList.add(CIM_PROPERTY_SAMBAGROUPNAME);
-		CIM_PropertyNameList.add(CIM_PROPERTY_SYSTEMGROUPNAME);
-				
-		for (int i = 0; i < CIM_ManagedElement.CIM_PropertyNameList.size(); i++) {
-			if (((String)CIM_ManagedElement.CIM_PropertyNameList.elementAt(i)).equals(CIM_PROPERTY_SAMBAGROUPNAME)||
-				((String)CIM_ManagedElement.CIM_PropertyNameList.elementAt(i)).equals(CIM_PROPERTY_SYSTEMGROUPNAME)){
-				continue;
-			}
-			
-			Linux_SambaGroup.CIM_PropertyNameList.add(CIM_ManagedElement.CIM_PropertyNameList.elementAt(i));
-		}
-		
-		CIM_PropertyList.add(new CIMProperty(CIM_PROPERTY_SAMBAGROUPNAME, new CIMValue(null, new CIMDataType(CIMDataType.STRING))));
-		CIM_PropertyList.add(new CIMProperty(CIM_PROPERTY_SYSTEMGROUPNAME, new CIMValue(null, new CIMDataType(CIMDataType.STRING))));
-				
-		for (int i = 0; i < CIM_ManagedElement.CIM_PropertyList.size(); i++) {
-			if (((CIMProperty)CIM_ManagedElement.CIM_PropertyList.get(i)).getName().equals(CIM_PROPERTY_SAMBAGROUPNAME)||
-				((CIMProperty)CIM_ManagedElement.CIM_PropertyList.get(i)).getName().equals(CIM_PROPERTY_SYSTEMGROUPNAME)){
-				continue;
-			}
-			
-			Linux_SambaGroup.CIM_PropertyList.add(CIM_ManagedElement.CIM_PropertyList.elementAt(i));
-		}
-		
-		addPackage("org.sblim.wbemsmt.samba.bl.fco");
-				
-		String[] parentClassPackageList = CIM_ManagedElement.getPackages();
-		
-		for (int i = 0; i < parentClassPackageList.length; i++) {
-			Java_Package_List.add(parentClassPackageList[i]);
-		}
-	};
-			
-	
-	
-	
-	
-	//**********************************************************************
-	// Constructors 	
-	//**********************************************************************
+public class Linux_SambaGroup extends CIM_ManagedElement {
 
-	/**
-	*	Class constructor
-	*/	
-	public Linux_SambaGroup() {
+    public final static String CIM_CLASS_NAME = "Linux_SambaGroup";
+    public final static String CIM_CLASS_DISPLAYNAME = CIM_CLASS_NAME;
 
-		this.cimInstance	= new CIMInstance();
-		
-		for (int i = 0; i < CIM_PropertyList.size(); i++) {
-			this.cimInstance.addProperty((CIMProperty)((CIMProperty)CIM_PropertyList.get(i)).clone());
-		}
-		
-		this.cimObjectPath 	= new CIMObjectPath(CIM_CLASS_NAME);
-		this.cimInstance.setObjectPath(this.cimObjectPath);
+    /**
+     * 
+     */
 
-		this.original_cimInstance	= (CIMInstance)this.cimInstance.clone();
+    public final static String CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAGROUPFORUSER = "Linux_SambaGroupForUser";
 
-		setValidCimInstance(false);
-	}
+    /**
+     * 
+     */
 
+    public final static String CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAFORCEGROUPFORGLOBAL = "Linux_SambaForceGroupForGlobal";
 
-	/**
-	*	Class constructor
-	*/	
-	public Linux_SambaGroup(Vector keyProperties){ 
-		this();
-		
-		if (keyProperties == null) {
-			throw new InvalidParameterException("The keyProperties parameter does not contain a valid reference.");
-		
-		}
-		
-		Iterator iter = keyProperties.iterator();
-		while (iter.hasNext()) {
-			Object property = iter.next();
-			
-			if (property instanceof CIMProperty) {
-				CIMProperty keyProperty = (CIMProperty)property;
-				this.cimObjectPath.addKey(keyProperty);
-				
-				if (this.cimInstance.getProperty(keyProperty.getName()) != null) {
-					this.cimInstance.removeProperty(keyProperty.getName());
-				}
-				this.cimInstance.addProperty(keyProperty);
-				
-			} else {
-				throw new InvalidParameterException("The keyProperties parameter should only contain objects of class CIMProperty.");
-				
-			}
-		}
-		
-		setValidCimInstance(false);
-	}
+    /**
+     * 
+     */
 
-	
-	/**
-	*	Class constructor
-	*/	
-	public Linux_SambaGroup(CIMObjectPath cimObjectPath, CIMInstance cimInstance){ 
-		
-		if (cimInstance == null) {
-			throw new InvalidParameterException("The cimInstance parameter does not contain a valid reference.");
-		
-		} else if (cimObjectPath == null){
-			throw new InvalidParameterException("The cimObjectPath parameter does not contain a valid reference.");		
-		
-		} else if (!cimObjectPath.getObjectName().equals(cimInstance.getClassName())) {
-			throw new InvalidParameterException("The class name of the instance and the ObjectPath are not the same.");
-		}
-		
-		setCimInstance(cimInstance);
-		this.original_cimInstance = (CIMInstance)cimInstance.clone();
-		this.cimObjectPath        = cimObjectPath;
-		setValidCimInstance(true);
-	}
+    public final static String CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAFORCEGROUPFORSHARE = "Linux_SambaForceGroupForShare";
 
-	
-	/**
-	*	The method returns the display name of the class
-	*/	
-	public String getClassDisplayName(){
-		return CIM_CLASS_DISPLAYNAME;
-	}
-	
-	public static void addPackage(String packagename) {
-        if (packagename != null) {
-            if (!packagename.endsWith(".")) {
-                packagename = packagename + ".";
-            }
-            Linux_SambaGroup.Java_Package_List.add(packagename);
-            
-        } else {
-            throw new NullPointerException();
+    /**
+     * 
+     */
+
+    public final static String CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAFORCEGROUPFORPRINTER = "Linux_SambaForceGroupForPrinter";
+
+    /**
+     * Constant for method\'s name and parameters
+     * 
+     */
+
+    public static class METHOD_GETALLSYSTEMGROUPS {
+        /**
+         * Constant for method getAllSystemGroups
+         */
+        public final static String NAME = "getAllSystemGroups";
+
+    }
+
+    /**
+     * Constants of property SambaGroupName
+     * 
+     */
+    public static class PROPERTY_SAMBAGROUPNAME {
+        /**
+         * name of the property SambaGroupName
+         */
+        public final static String NAME = "SambaGroupName";
+
+    }
+
+    /**
+     * Constants of property SystemGroupName
+     * 
+     */
+    public static class PROPERTY_SYSTEMGROUPNAME {
+        /**
+         * name of the property SystemGroupName
+         */
+        public final static String NAME = "SystemGroupName";
+
+    }
+
+    static {
+        addPackage("org.sblim.wbemsmt.samba.bl.fco");
+        String[] parentClassPackageList = CIM_ManagedElement.getPackages();
+
+        for (int i = 0; i < parentClassPackageList.length; i++) {
+            addPackage(parentClassPackageList[i]);
+        }
+
+    };
+
+    //**********************************************************************
+    // Constructors     
+    //**********************************************************************
+
+    /**
+     *   Class constructor
+     * 
+     *       *   <br>
+     *   
+     *   @param client the CIM Client
+     *   @param namespace the target namespace
+     */
+
+    public Linux_SambaGroup(WBEMClient client, String namespace) throws WbemsmtException {
+        CIMClass cls = getClass(client, namespace);
+        setFromServer(false);
+        init(cls.newInstance(), true);
+    }
+
+    /**
+     *   Class constructor
+     * 
+     *       *   <br>
+     *   
+     *   @param cimInstance the instance that is used to create the Object
+     */
+
+    public Linux_SambaGroup(CIMInstance cimInstance) throws WbemsmtException {
+
+        if (cimInstance == null) {
+            throw new WbemsmtException(WbemsmtException.ERR_INVALID_PARAMETER,
+                    "The cimInstance parameter does not contain a valid reference.");
+        }
+        setFromServer(true);
+        init(cimInstance, false);
+    }
+
+    /**
+     * Default constructor
+     */
+    protected Linux_SambaGroup() {
+    }
+
+    /**
+     * initializes the FCO
+     *
+     *   @param cimInstance the instance that is used to create the Object
+     *   @param overwrite currently the dataType of embeddedObject/Instance properties is not set correct by the cimClient. This flags decides if to overwrite thos properties
+     */
+    protected void init(CIMInstance cimInstance, boolean overwrite) throws WbemsmtException {
+        propertiesToCheck.put("SambaGroupName", new CIMProperty("SambaGroupName",
+                CIMDataType.STRING_T, null));
+        propertiesToCheck.put("SystemGroupName", new CIMProperty("SystemGroupName",
+                CIMDataType.STRING_T, null));
+
+        super.init(cimInstance, overwrite);
+
+        //currently the dataType of embeddedObject/Instance properties is not set correct by the cimClient
+        //we overwrite the dataType by setting null for every embeddedObject/Instance property
+        if (overwrite) {
+
         }
     }
 
-    public static String[] getPackages() {
-        return (String[]) Linux_SambaGroup.Java_Package_List.toArray(new String[Linux_SambaGroup.Java_Package_List.size()]);
+    //**********************************************************************
+    // Properties get/set     
+    //**********************************************************************
+
+    /**
+     * Get the property SambaGroupName
+     *     * <br>
+     * 
+     *     */
+
+    public String get_key_SambaGroupName() {
+        CIMProperty currentProperty = getProperty(PROPERTY_SAMBAGROUPNAME.NAME);
+
+        if (currentProperty == null || currentProperty.getValue() == null) {
+            logger.warning("Property " + PROPERTY_SAMBAGROUPNAME.NAME
+                    + " was not found in instance " + getCimObjectPath());
+            return null;
+        }
+
+        return (String) currentProperty.getValue();
+
     }
-	
-	//**********************************************************************
-	// Instance methods
-	//**********************************************************************
 
-	/**
-	*	no description
-	*/	
-	public boolean isDataValid(Vector invalidProperties) {
-		boolean result = true;
-		
-		if (invalidProperties == null) {
-			invalidProperties = new Vector();
-		} else {
-			invalidProperties.removeAllElements();
-		}
-		
-		CIMProperty CIMProperty_SambaGroupName = this.cimInstance.getProperty(CIM_PROPERTY_SAMBAGROUPNAME);
-		
-		if (CIMProperty_SambaGroupName == null || CIMProperty_SambaGroupName.getValue().isEmpty() || CIMProperty_SambaGroupName.getValue().isNullValue()) {
-			invalidProperties.add(new String[]{CIM_PROPERTY_SAMBAGROUPNAME, "Key"});
-			result = false;
-		}
-		
-		return result;
-	}
-	
-	/**
-	 * @return Returns the validCimInstance.
-	 */
-	public boolean isValidCimInstance() {
-		return this.validCimInstance;
-	}
-	
-	/**
-	 * @param validCimInstance The validCimInstance to set.
-	 */
-	private void setValidCimInstance(boolean isValidCimInstance) {
+    /**
+     * Set the property SambaGroupName
+     * <br>
+     * 
+     *
+     * @return true if the property was found, false if the property was not found and the value was not set
+     */
 
-		this.validCimInstance = isValidCimInstance;
-	}
-	
-	
-	/**
-	*	The method returns this CIM instance
-	*/
-	public CIMInstance getCimInstance() {
-		
-		return this.cimInstance;
-	}
-	
-	
-	/**
-	*	The method sets this CIM instance
-	*/
-	public void setCimInstance(CIMInstance cimInstance) {
-		
-		this.cimInstance = cimInstance;
-	}
-	
-		
-	/**
-	*	The method returns this CIM object path
-	*/
-	public CIMObjectPath getCimObjectPath() {
-		return this.cimObjectPath;
-	}
-	
-	
-	/**
-	*	The method checks if the cimInstance has been modified
-	*/
-	public boolean isModified() {
-	    
-	    if (!this.original_cimInstance.equals(this.cimInstance)) 
-	        return true;
-	    
-	    return false;
-	}
-	
-	
-	/**
-	*	The method resets the values of the cimInstance
-	*/	
-	public void resetValues() {
-	    this.cimInstance = (CIMInstance)this.original_cimInstance.clone();
-	}
-	
-	
-	/**
-	*	The method checks if the cimInstance equals an other cimInstance
-	*/	
-	public boolean equals(Object object) {
-	    
-	    if (!(object instanceof Linux_SambaGroup)) {
-	        return false;
-	    }
-	    
-	    if (this.cimInstance == null && ((Linux_SambaGroup)object).cimInstance != null) {
-	    	return false;
-	    	
-	    } else if (this.cimInstance != null && ((Linux_SambaGroup)object).cimInstance == null) {
-	    	return false;
-	    	
-	    } else if (this.cimInstance != null && !this.cimInstance.equals(((Linux_SambaGroup)object).cimInstance)) {
-	    	return false;
-	    	
-	    } else if (this.original_cimInstance == null && ((Linux_SambaGroup)object).original_cimInstance != null) {
-	    	return false;
-	    	
-	    } else if (this.original_cimInstance != null && ((Linux_SambaGroup)object).original_cimInstance == null) {
-	    	return false;
-	    	
-	    } else if (this.original_cimInstance != null && !this.original_cimInstance.equals(((Linux_SambaGroup)object).original_cimInstance)) {
-	        return false;
-	        
-	    } else if (this.cimObjectPath == null && ((Linux_SambaGroup)object).cimObjectPath != null) {
-	    	return false;
-	    	
-	    } else if (this.cimObjectPath != null && ((Linux_SambaGroup)object).cimObjectPath == null) {
-	    	return false;
-		    	
-	    } else if (this.cimObjectPath != null && !this.cimObjectPath.equals(((Linux_SambaGroup)object).cimObjectPath)) {
-	        return false;
-	        
-	    } 
-	    
-	    return true;
-	}
-	
-	/**
-	*	The method return this method as a string
-	*/	
-	public String toString() {
-		return this.cimInstance.toString();
-	}
+    public boolean set_key_SambaGroupName(String newValue) {
+        CIMProperty currentProperty = getProperty(PROPERTY_SAMBAGROUPNAME.NAME);
+        if (currentProperty != null) {
+            currentProperty = setPropertyValue_key_SambaGroupName(currentProperty, newValue);
+            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            return true;
+        }
+        else {
+            logger.warning("Property " + PROPERTY_SAMBAGROUPNAME.NAME
+                    + " was not found in instance " + getCimObjectPath());
+            return false;
+        }
 
-	//*****************************************************
-	// Associators methods
-	//*****************************************************
-	
-	public ArrayList getAssociated_Linux_SambaGlobalOptions_Linux_SambaForceGroupForGlobals(CIMClient cimClient,
-	boolean includeQualifiers, boolean includeClassOrigin, java.lang.String[] propertyList){
+    }
 
-		if (cimClient == null) {
-			throw new InvalidParameterException("The cimClient parameter does not contain a valid reference.");
-		}
-		
-		ArrayList resultArrayList = new ArrayList();
-		Enumeration enumeration = null;
-		
-		try {
-			enumeration = cimClient.associators(
-					this.getCimObjectPath(),
-					CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAFORCEGROUPFORGLOBAL, 
-					Linux_SambaGlobalOptions.CIM_CLASS_NAME,
-					null,null, 
-					//"PartComponent", //$NON-NLS-1$
-					//"GroupComponent", //$NON-NLS-1$
-					includeQualifiers,
-					includeClassOrigin,
-					propertyList);
-		
-			while (enumeration.hasMoreElements()) {
-				Object obj = enumeration.nextElement();
-				if (obj instanceof CIMInstance) {
-					CIMInstance cimInstance = (CIMInstance)obj;
+    /**
+     * Get the property SambaGroupName by getting the class from the server<br>
+     * and retrieving the property from it
+     * After that the value is set to this property and the property is returned
+     * @return null if the property cannot be found in the instance from the server
+     * @throws WbemsmtException 
+     */
+
+    public static CIMProperty create_key_SambaGroupName(WBEMClient client, String namespace,
+            String newValue) throws WbemsmtException {
+        Linux_SambaGroup fco = new Linux_SambaGroup(client, namespace);
+        CIMProperty property = fco.getProperty(PROPERTY_SAMBAGROUPNAME.NAME);
+        if (property != null) {
+            property = setPropertyValue_key_SambaGroupName(property, newValue);
+        }
+        else {
+            logger.warning("Property " + PROPERTY_SAMBAGROUPNAME.NAME
+                    + " was not found in instance " + fco.getCimObjectPath());
+        }
+        return property;
+    }
+
+    /**
+     * Set the property SambaGroupName
+     * <br>
+     * 
+     */
+
+    private static CIMProperty setPropertyValue_key_SambaGroupName(CIMProperty currentProperty,
+            String newValue) {
+        Object setThis = null;
+
+        setThis = newValue;
+
+        CIMProperty newProperty = new CIMProperty(currentProperty.getName(), currentProperty
+                .getDataType(), setThis, currentProperty.isKey(), currentProperty.isPropagated(),
+                currentProperty.getOriginClass());
+
+        return newProperty;
+    }
+
+    /**
+     * Get the property SystemGroupName
+     *     * <br>
+     * 
+     *     */
+
+    public String get_SystemGroupName() {
+        CIMProperty currentProperty = getProperty(PROPERTY_SYSTEMGROUPNAME.NAME);
+
+        if (currentProperty == null || currentProperty.getValue() == null) {
+            logger.warning("Property " + PROPERTY_SYSTEMGROUPNAME.NAME
+                    + " was not found in instance " + getCimObjectPath());
+            return null;
+        }
+
+        return (String) currentProperty.getValue();
+
+    }
+
+    /**
+     * Set the property SystemGroupName
+     * <br>
+     * 
+     *
+     * @return true if the property was found, false if the property was not found and the value was not set
+     */
+
+    public boolean set_SystemGroupName(String newValue) {
+        CIMProperty currentProperty = getProperty(PROPERTY_SYSTEMGROUPNAME.NAME);
+        if (currentProperty != null) {
+            currentProperty = setPropertyValue_SystemGroupName(currentProperty, newValue);
+            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            return true;
+        }
+        else {
+            logger.warning("Property " + PROPERTY_SYSTEMGROUPNAME.NAME
+                    + " was not found in instance " + getCimObjectPath());
+            return false;
+        }
+
+    }
+
+    /**
+     * Get the property SystemGroupName by getting the class from the server<br>
+     * and retrieving the property from it
+     * After that the value is set to this property and the property is returned
+     * @return null if the property cannot be found in the instance from the server
+     * @throws WbemsmtException 
+     */
+
+    public static CIMProperty create_SystemGroupName(WBEMClient client, String namespace,
+            String newValue) throws WbemsmtException {
+        Linux_SambaGroup fco = new Linux_SambaGroup(client, namespace);
+        CIMProperty property = fco.getProperty(PROPERTY_SYSTEMGROUPNAME.NAME);
+        if (property != null) {
+            property = setPropertyValue_SystemGroupName(property, newValue);
+        }
+        else {
+            logger.warning("Property " + PROPERTY_SYSTEMGROUPNAME.NAME
+                    + " was not found in instance " + fco.getCimObjectPath());
+        }
+        return property;
+    }
+
+    /**
+     * Set the property SystemGroupName
+     * <br>
+     * 
+     */
+
+    private static CIMProperty setPropertyValue_SystemGroupName(CIMProperty currentProperty,
+            String newValue) {
+        Object setThis = null;
+
+        setThis = newValue;
+
+        CIMProperty newProperty = new CIMProperty(currentProperty.getName(), currentProperty
+                .getDataType(), setThis, currentProperty.isKey(), currentProperty.isPropagated(),
+                currentProperty.getOriginClass());
+
+        return newProperty;
+    }
+
+    //**********************************************************************
+    // Associators methods     
+    //**********************************************************************
+
+    /**
+     * Get the list with Linux_SambaUser objects associated by the association Linux_SambaGroupForUser
+     * 
+     * @param cimClient the WBEMClient for the communication
+     *
+     * uses CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAGROUPFORUSER as associationClass<br>
+     * uses false for includeQualifiers and includeClassOrigin <br>
+     * uses null for resultClass, role, resultRole<br>
+     * <br>
+     * @see javax.wbem.client.WBEMClient#associators(CIMObjectPath, String, String, String, String, boolean, boolean, String[])
+     **/
+
+    public java.util.List getAssociated_Linux_SambaUser_Linux_SambaGroupForUsers(
+            WBEMClient cimClient) throws WbemsmtException {
+
+        return getAssociated_Linux_SambaUser_Linux_SambaGroupForUsers(cimClient,
+                CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAGROUPFORUSER, Linux_SambaUser.CIM_CLASS_NAME,
+                null, null, false, false, null);
+
+    }
+
+    /**
+     * Get the list with Linux_SambaUser objects associated by the association Linux_SambaGroupForUser
+     * 
+     * @param cimClient the WBEMClient for the communication
+     * @param resultClass This string MUST either contain a valid CIM Class name or be null. It filters the Objects returned to contain only the Objects of this Class name or one of its subclasses. The resultClass should be CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAGROUPFORUSER or a subclass 
+     * @param role This string MUST either contain a valid Property name or be null. It filters the Objects returned to contain only Objects associated to the source Object via an Association class in which the source Object plays the specified role. (i.e. the Property name in the Association class that refers to the source Object matches this value) If "Antecedent" is specified, then only Associations in which the source Object is the "Antecedent" reference are examined.
+     * @param resultRole This string MUST either contain a valid Property name or be null. It filters the Objects returned to contain only Objects associated to the source Object via an Association class in which the Object returned plays the specified role. (i.e. the Property name in the Association class that refers to the Object returned matches this value) If "Dependent" is specified, then only Associations in which the Object returned is the "Dependent" reference are examined. 
+     *
+     * uses CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAGROUPFORUSER as associationClass<br>
+     * uses false for includeQualifiers and includeClassOrigin <br>
+     * uses null for resultClass, role, resultRole<br>
+     * <br>
+     * @see javax.wbem.client.WBEMClient#associators(CIMObjectPath, String, String, String, String, boolean, boolean, String[])
+     **/
+
+    public java.util.List getAssociated_Linux_SambaUser_Linux_SambaGroupForUsers(
+            WBEMClient cimClient, String resultClass, String role, String resultRole)
+            throws WbemsmtException {
+
+        return getAssociated_Linux_SambaUser_Linux_SambaGroupForUsers(cimClient,
+                CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAGROUPFORUSER, resultClass, role, resultRole,
+                false, false, null);
+
+    }
+
+    /**
+     * Get the list with Linux_SambaUser objects associated by the association Linux_SambaGroupForUser
+     * 
+     * @param cimClient the WBEMClient for the communication
+     * @param associationClass This string MUST either contain a valid CIM Association class name or be null. It filters the Objects returned to contain only Objects associated to the source Object via this CIM Association class or one of its subclasses.
+     * @param resultClass This string MUST either contain a valid CIM Class name or be null. It filters the Objects returned to contain only the Objects of this Class name or one of its subclasses. The resultClass should be CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAGROUPFORUSER or a subclass 
+     * @param role This string MUST either contain a valid Property name or be null. It filters the Objects returned to contain only Objects associated to the source Object via an Association class in which the source Object plays the specified role. (i.e. the Property name in the Association class that refers to the source Object matches this value) If "Antecedent" is specified, then only Associations in which the source Object is the "Antecedent" reference are examined.
+     * @param resultRole This string MUST either contain a valid Property name or be null. It filters the Objects returned to contain only Objects associated to the source Object via an Association class in which the Object returned plays the specified role. (i.e. the Property name in the Association class that refers to the Object returned matches this value) If "Dependent" is specified, then only Associations in which the Object returned is the "Dependent" reference are examined. 
+     * @param includeQualifiers If true, all Qualifiers for each Object (including Qualifiers on the Object and on any returned Properties) MUST be included in the Objects returned. If false, no Qualifiers are present in each Object returned.
+     * @param includeClassOrigin If true, the CLASSORIGIN attribute will be present on all appropriate elements in the Objects returned. If false, no CLASSORIGIN attributes are present in the Objects returned. CLASSORIGIN is attached to an element (properties, methods, references) to indicate the class in which it was first defined.
+     * @param propertyList An array of property names used to filter what is contained in the Objects returned. Each CIMClass or CIMInstance returned only contains elements for the properties of the names specified. Duplicate and invalid property names are ignored and the request is otherwise processed normally. An empty array indicates that no properties should be included in the Objects returned. A null value indicates that all properties should be contained in the Objects returned. NOTE: Properties should not be specified in this parameter unless a non-null value is specified in the resultClass  parameter.
+     *
+     * @see javax.wbem.client.WBEMClient#associators(CIMObjectPath, String, String, String, String, boolean, boolean, String[])
+     **/
+
+    public java.util.List getAssociated_Linux_SambaUser_Linux_SambaGroupForUsers(
+            WBEMClient cimClient, String associationClass, String resultClass, String role,
+            String resultRole, boolean includeQualifiers, boolean includeClassOrigin,
+            java.lang.String[] propertyList) throws WbemsmtException {
+
+        if (cimClient == null) {
+            throw new WbemsmtException(WbemsmtException.ERR_INVALID_PARAMETER,
+                    "The cimClient parameter does not contain a valid reference.");
+        }
+
+        java.util.List result = new java.util.ArrayList();
+        CloseableIterator enumeration = null;
+
+        try {
+            enumeration = cimClient.associators(this.getCimObjectPath(), associationClass,
+                    resultClass, role, resultRole, includeQualifiers, includeClassOrigin,
+                    propertyList);
+        }
+        catch (WBEMException e) {
+            throw new AssociatorException(e, new AssociatorUserObject(this.getCimObjectPath(),
+                    associationClass, resultClass, role, resultRole, includeQualifiers,
+                    includeClassOrigin, propertyList));
+        }
+
+        try {
+            while (enumeration.hasNext()) {
+                Linux_SambaGroupHelper.checkException(enumeration);
+
+                Object obj = enumeration.next();
+                Linux_SambaGroupHelper.checkException(enumeration);
+
+                if (obj instanceof CIMInstance) {
+                    CIMInstance cimInstance = (CIMInstance) obj;
                     Class clazz = Linux_SambaGroupHelper.findClass(cimClient, cimInstance);
-                    
-					if (clazz == null) {
-						System.err.println("The class " + cimInstance.getClassName() +" was not found. Constructing instance of the base class.");
-						resultArrayList.add(new Linux_SambaGlobalOptions(cimInstance.getObjectPath(), cimInstance));
-						continue;
-					}
-					
-					Class[] constParams = new Class[2];
-					constParams[0] = CIMObjectPath.class;
-					constParams[1] = CIMInstance.class;
-					Constructor cons = null;
-					try {
-						cons = clazz.getConstructor(constParams);
-						
-					} catch(NoSuchMethodException e) {
-						System.err.println("The required constructor of class " + cimInstance.getClassName() + " could not be found. Constructing instance of the base class.");
-						resultArrayList.add(new Linux_SambaGlobalOptions(cimInstance.getObjectPath(), cimInstance));
-						continue;
-					}
-				
-					try {
-						Object[] actargs = new Object[] {cimInstance.getObjectPath(), cimInstance};
-					
-						Object dataObj = cons.newInstance(actargs);
-					
-						resultArrayList.add(dataObj);
-					} catch (Exception e) {
-						System.err.println("The instance of class " + cimInstance.getClassName() + " could not be created successful. Constructing instance of the base class.");
-						resultArrayList.add(new Linux_SambaGlobalOptions(cimInstance.getObjectPath(), cimInstance));
-						continue;
-					}
 
-				}
-			}
-		} finally {
-			try {
-				if (enumeration != null) {
-					((CIMEnumeration)enumeration).close();
-				}
-			} catch(Exception e) {
-				throw new CIMException(CIMException.CIM_ERR_FAILED, "The socket of the result could not be closed properly.");
-			}
-		}
-			
-		return resultArrayList;
-	}
+                    if (clazz == null) {
+                        System.err.println("The class " + cimInstance.getClassName()
+                                + " was not found. Constructing instance of the base class.");
+                        result.add(new Linux_SambaUser(cimInstance));
+                        continue;
+                    }
 
-	public ArrayList getAssociated_Linux_SambaGlobalOptions_Linux_SambaForceGroupForGlobal_Names(CIMClient cimClient, boolean deep) {
+                    Class[] constParams = new Class[1];
+                    constParams[0] = CIMInstance.class;
+                    Constructor cons = null;
+                    try {
+                        cons = clazz.getConstructor(constParams);
+                    }
+                    catch (NoSuchMethodException e) {
+                        System.err.println("The required constructor of class "
+                                + cimInstance.getClassName()
+                                + " could not be found. Constructing instance of the base class.");
+                        result.add(new Linux_SambaUser(cimInstance));
+                        continue;
+                    }
 
-		if (cimClient == null) {
-			throw new InvalidParameterException("The cimClient parameter does not contain a valid reference.");
-		}
-		
-		Enumeration enumeration = null;
-		ArrayList resultArrayList = new ArrayList();
+                    try {
+                        Object[] actargs = new Object[] { cimInstance };
+                        Object dataObj = cons.newInstance(actargs);
+                        result.add(dataObj);
+                    }
+                    catch (Exception e) {
+                        System.err
+                                .println("The instance of class "
+                                        + cimInstance.getClassName()
+                                        + " could not be created successful. Constructing instance of the base class.");
+                        result.add(new Linux_SambaUser(cimInstance));
+                        continue;
+                    }
+                }
+            }
+            Linux_SambaGroupHelper.checkException(enumeration);
+        }
+        finally {
+            try {
+                if (enumeration != null) {
+                    enumeration.close();
+                }
+            }
+            catch (Exception e) {
+                throw new WbemsmtException(WbemsmtException.ERR_FAILED,
+                        "The socket of the result could not be closed properly.");
+            }
+        }
 
-		try {		
-			enumeration = cimClient.associatorNames(
-					this.getCimObjectPath(),
-					CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAFORCEGROUPFORGLOBAL, 
-					Linux_SambaGlobalOptions.CIM_CLASS_NAME, 
-					null,null);
-					//"PartComponent", //$NON-NLS-1$
-					//"GroupComponent"); //$NON-NLS-1$
-		
-		
-			while (enumeration.hasMoreElements()) {
-				Object obj = enumeration.nextElement();
-			
-				if (obj instanceof CIMObjectPath) {
-					if (deep || ((CIMObjectPath)obj).getObjectName().equals(Linux_SambaGlobalOptions.CIM_CLASS_NAME)) {
-						resultArrayList.add(obj);
-					}
-				}
-			}
-		} finally {
-			try {
-				if (enumeration != null) {
-					((CIMEnumeration)enumeration).close();
-				}
-			} catch(Exception e) {
-				throw new CIMException(CIMException.CIM_ERR_FAILED, "The socket of the result could not be closed properly.");
-			}
-		}
-			
-		return resultArrayList;
-	}
+        return result;
+    }
 
-	
-	public ArrayList getAssociations_Linux_SambaForceGroupForGlobal(CIMClient cimClient,
-	boolean includeQualifiers, boolean includeClassOrigin, String role,java.lang.String[] propertyList) {
+    /**
+     * Get the list of CIMObjectPath items of the objects associated by the association Linux_SambaGroupForUser
+     * @param cimClient the WBEMClient for the communication
+     *
+     * uses CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAGROUPFORUSER as associationClass<br>
+     * uses false for includeQualifiers and includeClassOrigin <br>
+     * uses null for resultClass, role, resultRole<br>
+     * <br>
+     
+     * @see javax.wbem.client.WBEMClient#associatorNames(CIMObjectPath, String, String, String, String)
+     **/
 
-		if (cimClient == null) {
-			throw new InvalidParameterException("The cimClient parameter does not contain a valid reference.");
-		}
-		
-		ArrayList resultArrayList = new ArrayList();
-		Enumeration enumeration = null;
-		
-		try {
-			enumeration = cimClient.references(
-					this.getCimObjectPath(),
-					CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAFORCEGROUPFORGLOBAL, 
-					role, //$NON-NLS-1$
-					includeQualifiers,
-					includeClassOrigin,
-					propertyList);
-		
-			while (enumeration.hasMoreElements()) {
-				Object obj = enumeration.nextElement();
-				if (obj instanceof CIMInstance) {
-					CIMInstance cimInstance = (CIMInstance)obj;
+    public java.util.List getAssociated_Linux_SambaUser_Linux_SambaGroupForUserNames(
+            WBEMClient cimClient) throws WbemsmtException {
+
+        return getAssociated_Linux_SambaUser_Linux_SambaGroupForUserNames(cimClient, true,
+                CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAGROUPFORUSER, Linux_SambaUser.CIM_CLASS_NAME,
+                null, null);
+    }
+
+    /**
+     * Get the list of CIMObjectPath items of the objects associated by the association Linux_SambaGroupForUser
+     * @param cimClient the WBEMClient for the communication
+     * @param resultClass This string MUST either contain a valid CIM Class name or be null. It filters the Objects returned to contain only the Objects of this Class name or one of its subclasses. The resultClass should be CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAGROUPFORUSER or a subclass 
+     * @param role This string MUST either contain a valid Property name or be null. It filters the Objects returned to contain only Objects associated to the source Object via an Association class in which the source Object plays the specified role. (i.e. the Property name in the Association class that refers to the source Object matches this value) If "Antecedent" is specified, then only Associations in which the source Object is the "Antecedent" reference are examined.
+     * @param resultRole This string MUST either contain a valid Property name or be null. It filters the Objects returned to contain only Objects associated to the source Object via an Association class in which the Object returned plays the specified role. (i.e. the Property name in the Association class that refers to the Object returned matches this value) If "Dependent" is specified, then only Associations in which the Object returned is the "Dependent" reference are examined. 
+     *
+     * uses CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAGROUPFORUSER as associationClass<br>
+     * uses false for includeQualifiers and includeClassOrigin <br>
+     * uses null for resultClass, role, resultRole<br>
+     * <br>
+     
+     * @see javax.wbem.client.WBEMClient#associatorNames(CIMObjectPath, String, String, String, String)
+     **/
+
+    public java.util.List getAssociated_Linux_SambaUser_Linux_SambaGroupForUserNames(
+            WBEMClient cimClient, String resultClass, String role, String resultRole)
+            throws WbemsmtException {
+
+        return getAssociated_Linux_SambaUser_Linux_SambaGroupForUserNames(cimClient, true,
+                CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAGROUPFORUSER, resultClass, role, resultRole);
+    }
+
+    /**
+     * Get the list of CIMObjectPath items of the objects associated by the association Linux_SambaGroupForUser
+     * @param cimClient the WBEMClient for the communication
+     * @param deep if true the subclasses returned also
+     *
+     * @see javax.wbem.client.WBEMClient#associatorNames(CIMObjectPath, String, String, String, String)
+     **/
+
+    public java.util.List getAssociated_Linux_SambaUser_Linux_SambaGroupForUserNames(
+            WBEMClient cimClient, boolean deep, String associationClass, String resultClass,
+            String role, String resultRole) throws WbemsmtException {
+
+        if (cimClient == null) {
+            throw new WbemsmtException(WbemsmtException.ERR_INVALID_PARAMETER,
+                    "The cimClient parameter does not contain a valid reference.");
+        }
+
+        java.util.List result = new java.util.ArrayList();
+        CloseableIterator enumeration = null;
+
+        try {
+            enumeration = cimClient.associatorNames(this.getCimObjectPath(), associationClass,
+                    resultClass, role, resultRole);
+
+        }
+        catch (WBEMException e) {
+            throw new AssociatorNamesException(e, new AssociatorNamesUserObject(this
+                    .getCimObjectPath(), CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAGROUPFORUSER,
+                    Linux_SambaUser.CIM_CLASS_NAME, null, null));
+        }
+
+        try {
+            while (enumeration.hasNext()) {
+                Linux_SambaGroupHelper.checkException(enumeration);
+
+                Object obj = enumeration.next();
+                Linux_SambaGroupHelper.checkException(enumeration);
+                if (obj instanceof CIMObjectPath) {
+                    if (deep
+                            || ((CIMObjectPath) obj).getObjectName().equals(
+                                    Linux_SambaUser.CIM_CLASS_NAME)) {
+                        result.add(obj);
+                    }
+                }
+            }
+            Linux_SambaGroupHelper.checkException(enumeration);
+        }
+        finally {
+            try {
+                if (enumeration != null) {
+                    enumeration.close();
+                }
+            }
+            catch (Exception e) {
+                throw new WbemsmtException(WbemsmtException.ERR_FAILED,
+                        "The socket of the result could not be closed properly.");
+            }
+        }
+        return result;
+    }
+
+    /**
+     * Get the list with Linux_SambaGroupForUser associations
+     *
+     * @param cimClient the WBEMClient for the communication
+     * @param includeQualifiers If true, all Qualifiers for each Object (including Qualifiers on the Object and on any returned Properties) MUST be included in the Objects returned. If false, no Qualifiers are present in each Object returned.
+     * @param includeClassOrigin If true, the CLASSORIGIN attribute will be present on all appropriate elements in the Objects returned. If false, no CLASSORIGIN attributes are present in the Objects returned. CLASSORIGIN is attached to an element (properties, methods, references) to indicate the class in which it was first defined.
+     * @param role This string MUST either contain a valid Property name or be null. It filters the Objects returned to contain only Objects referring to the source Object via a Property with the specified name. If "Antecedent" is specified, then only Associations in which the source Object is the "Antecedent" reference are returned.
+     * @param propertyList An array of property names used to filter what is contained in the Objects returned. Each CIMClass or CIMInstance returned only contains elements for the properties of the names specified. Duplicate and invalid property names are ignored and the request is otherwise processed normally. An empty array indicates that no properties should be included in the Objects returned. A null value indicates that all properties should be contained in the Objects returned. NOTE: Properties should not be specified in this parameter unless a non-null value is specified in the resultClass  parameter.
+     *
+     * @see javax.wbem.client.WBEMClient#references(CIMObjectPath, String, String, boolean, boolean, String[])
+     **/
+
+    public java.util.List getAssociations_Linux_SambaGroupForUser(WBEMClient cimClient,
+            boolean includeQualifiers, boolean includeClassOrigin, String role,
+            java.lang.String[] propertyList) throws WbemsmtException {
+
+        if (cimClient == null) {
+            throw new WbemsmtException(WbemsmtException.ERR_INVALID_PARAMETER,
+                    "The cimClient parameter does not contain a valid reference.");
+        }
+
+        java.util.List result = new java.util.ArrayList();
+        CloseableIterator enumeration = null;
+
+        try {
+            enumeration = cimClient.references(this.getCimObjectPath(),
+                    CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAGROUPFORUSER, role, includeQualifiers,
+                    includeClassOrigin, propertyList);
+        }
+        catch (WBEMException e) {
+            throw new ReferencesException(e, new ReferencesUserObject(this.getCimObjectPath(),
+                    CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAGROUPFORUSER, role, includeQualifiers,
+                    includeClassOrigin, propertyList));
+        }
+
+        try {
+            while (enumeration.hasNext()) {
+                Linux_SambaGroupHelper.checkException(enumeration);
+                Object obj = enumeration.next();
+                Linux_SambaGroupHelper.checkException(enumeration);
+
+                if (obj instanceof CIMInstance) {
+                    CIMInstance cimInstance = (CIMInstance) obj;
+                    Class clazz = Linux_SambaGroupForUserHelper.findClass(cimClient, cimInstance);
+
+                    if (clazz == null) {
+                        System.err.println("The class " + cimInstance.getClassName()
+                                + " was not found. Constructing instance of the base class.");
+                        result.add(new Linux_SambaGroupForUser(cimInstance));
+                        continue;
+                    }
+
+                    Class[] constParams = new Class[1];
+                    constParams[0] = CIMInstance.class;
+                    Constructor cons = null;
+                    try {
+                        cons = clazz.getConstructor(constParams);
+                    }
+                    catch (NoSuchMethodException e) {
+                        System.err.println("The required constructor of class "
+                                + cimInstance.getClassName()
+                                + " could not be found. Constructing instance of the base class.");
+                        result.add(new Linux_SambaGroupForUser(cimInstance));
+                        continue;
+                    }
+
+                    try {
+                        Object[] actargs = new Object[] { cimInstance };
+                        Object dataObj = cons.newInstance(actargs);
+                        result.add(dataObj);
+                    }
+                    catch (Exception e) {
+                        System.err
+                                .println("The instance of class "
+                                        + cimInstance.getClassName()
+                                        + " could not be created successful. Constructing instance of the base class.");
+                        result.add(new Linux_SambaGroupForUser(cimInstance));
+                        continue;
+                    }
+                }
+            }
+            Linux_SambaGroupHelper.checkException(enumeration);
+        }
+        finally {
+            try {
+                if (enumeration != null) {
+                    enumeration.close();
+                }
+            }
+            catch (Exception e) {
+                throw new WbemsmtException(WbemsmtException.ERR_FAILED,
+                        "The socket of the result could not be closed properly.");
+            }
+        }
+
+        return result;
+    }
+
+    /**
+     * Get a list of CIMObjectPath items of the associations Linux_SambaGroupForUser
+     *
+     * @param cimClient the WBEMClient for the communication
+     * @param role This string MUST either contain a valid Property name or be null. It filters the Objects returned to contain only Objects referring to the source Object via a Property with the specified name. If "Antecedent" is specified, then only Associations in which the source Object is the "Antecedent" reference are returned.
+     * @param deep if true the subclasses returned also
+     *
+     * @see javax.wbem.client.WBEMClient#referenceNames(CIMObjectPath, String, String)
+     **/
+
+    public java.util.List getAssociationNames_Linux_SambaGroupForUser(WBEMClient cimClient,
+            String role, boolean deep) throws WbemsmtException {
+
+        if (cimClient == null) {
+            throw new WbemsmtException(WbemsmtException.ERR_INVALID_PARAMETER,
+                    "The cimClient parameter does not contain a valid reference.");
+        }
+
+        java.util.List result = new java.util.ArrayList();
+        CloseableIterator enumeration = null;
+
+        try {
+            enumeration = cimClient.referenceNames(this.getCimObjectPath(),
+                    CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAGROUPFORUSER, role);
+        }
+        catch (WBEMException e) {
+            throw new ReferenceNamesException(e, new ReferenceNamesUserObject(this
+                    .getCimObjectPath(), CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAGROUPFORUSER, role));
+        }
+
+        try {
+            while (enumeration.hasNext()) {
+                Linux_SambaGroupHelper.checkException(enumeration);
+                Object obj = enumeration.next();
+                Linux_SambaGroupHelper.checkException(enumeration);
+
+                if (obj instanceof CIMObjectPath) {
+                    if (deep
+                            || ((CIMObjectPath) obj).getObjectName().equals(
+                                    Linux_SambaGroupForUser.CIM_CLASS_NAME)) {
+                        result.add(obj);
+                    }
+                }
+            }
+            Linux_SambaGroupHelper.checkException(enumeration);
+        }
+        finally {
+            try {
+                if (enumeration != null) {
+                    enumeration.close();
+                }
+            }
+            catch (Exception e) {
+                throw new WbemsmtException(WbemsmtException.ERR_FAILED,
+                        "The socket of the result could not be closed properly.");
+            }
+        }
+        return result;
+    }
+
+    /**
+     * Get the list with Linux_SambaGlobalOptions objects associated by the association Linux_SambaForceGroupForGlobal
+     * 
+     * @param cimClient the WBEMClient for the communication
+     *
+     * uses CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAFORCEGROUPFORGLOBAL as associationClass<br>
+     * uses false for includeQualifiers and includeClassOrigin <br>
+     * uses null for resultClass, role, resultRole<br>
+     * <br>
+     * @see javax.wbem.client.WBEMClient#associators(CIMObjectPath, String, String, String, String, boolean, boolean, String[])
+     **/
+
+    public java.util.List getAssociated_Linux_SambaGlobalOptions_Linux_SambaForceGroupForGlobals(
+            WBEMClient cimClient) throws WbemsmtException {
+
+        return getAssociated_Linux_SambaGlobalOptions_Linux_SambaForceGroupForGlobals(cimClient,
+                CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAFORCEGROUPFORGLOBAL,
+                Linux_SambaGlobalOptions.CIM_CLASS_NAME, null, null, false, false, null);
+
+    }
+
+    /**
+     * Get the list with Linux_SambaGlobalOptions objects associated by the association Linux_SambaForceGroupForGlobal
+     * 
+     * @param cimClient the WBEMClient for the communication
+     * @param resultClass This string MUST either contain a valid CIM Class name or be null. It filters the Objects returned to contain only the Objects of this Class name or one of its subclasses. The resultClass should be CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAFORCEGROUPFORGLOBAL or a subclass 
+     * @param role This string MUST either contain a valid Property name or be null. It filters the Objects returned to contain only Objects associated to the source Object via an Association class in which the source Object plays the specified role. (i.e. the Property name in the Association class that refers to the source Object matches this value) If "Antecedent" is specified, then only Associations in which the source Object is the "Antecedent" reference are examined.
+     * @param resultRole This string MUST either contain a valid Property name or be null. It filters the Objects returned to contain only Objects associated to the source Object via an Association class in which the Object returned plays the specified role. (i.e. the Property name in the Association class that refers to the Object returned matches this value) If "Dependent" is specified, then only Associations in which the Object returned is the "Dependent" reference are examined. 
+     *
+     * uses CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAFORCEGROUPFORGLOBAL as associationClass<br>
+     * uses false for includeQualifiers and includeClassOrigin <br>
+     * uses null for resultClass, role, resultRole<br>
+     * <br>
+     * @see javax.wbem.client.WBEMClient#associators(CIMObjectPath, String, String, String, String, boolean, boolean, String[])
+     **/
+
+    public java.util.List getAssociated_Linux_SambaGlobalOptions_Linux_SambaForceGroupForGlobals(
+            WBEMClient cimClient, String resultClass, String role, String resultRole)
+            throws WbemsmtException {
+
+        return getAssociated_Linux_SambaGlobalOptions_Linux_SambaForceGroupForGlobals(cimClient,
+                CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAFORCEGROUPFORGLOBAL, resultClass, role,
+                resultRole, false, false, null);
+
+    }
+
+    /**
+     * Get the list with Linux_SambaGlobalOptions objects associated by the association Linux_SambaForceGroupForGlobal
+     * 
+     * @param cimClient the WBEMClient for the communication
+     * @param associationClass This string MUST either contain a valid CIM Association class name or be null. It filters the Objects returned to contain only Objects associated to the source Object via this CIM Association class or one of its subclasses.
+     * @param resultClass This string MUST either contain a valid CIM Class name or be null. It filters the Objects returned to contain only the Objects of this Class name or one of its subclasses. The resultClass should be CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAFORCEGROUPFORGLOBAL or a subclass 
+     * @param role This string MUST either contain a valid Property name or be null. It filters the Objects returned to contain only Objects associated to the source Object via an Association class in which the source Object plays the specified role. (i.e. the Property name in the Association class that refers to the source Object matches this value) If "Antecedent" is specified, then only Associations in which the source Object is the "Antecedent" reference are examined.
+     * @param resultRole This string MUST either contain a valid Property name or be null. It filters the Objects returned to contain only Objects associated to the source Object via an Association class in which the Object returned plays the specified role. (i.e. the Property name in the Association class that refers to the Object returned matches this value) If "Dependent" is specified, then only Associations in which the Object returned is the "Dependent" reference are examined. 
+     * @param includeQualifiers If true, all Qualifiers for each Object (including Qualifiers on the Object and on any returned Properties) MUST be included in the Objects returned. If false, no Qualifiers are present in each Object returned.
+     * @param includeClassOrigin If true, the CLASSORIGIN attribute will be present on all appropriate elements in the Objects returned. If false, no CLASSORIGIN attributes are present in the Objects returned. CLASSORIGIN is attached to an element (properties, methods, references) to indicate the class in which it was first defined.
+     * @param propertyList An array of property names used to filter what is contained in the Objects returned. Each CIMClass or CIMInstance returned only contains elements for the properties of the names specified. Duplicate and invalid property names are ignored and the request is otherwise processed normally. An empty array indicates that no properties should be included in the Objects returned. A null value indicates that all properties should be contained in the Objects returned. NOTE: Properties should not be specified in this parameter unless a non-null value is specified in the resultClass  parameter.
+     *
+     * @see javax.wbem.client.WBEMClient#associators(CIMObjectPath, String, String, String, String, boolean, boolean, String[])
+     **/
+
+    public java.util.List getAssociated_Linux_SambaGlobalOptions_Linux_SambaForceGroupForGlobals(
+            WBEMClient cimClient, String associationClass, String resultClass, String role,
+            String resultRole, boolean includeQualifiers, boolean includeClassOrigin,
+            java.lang.String[] propertyList) throws WbemsmtException {
+
+        if (cimClient == null) {
+            throw new WbemsmtException(WbemsmtException.ERR_INVALID_PARAMETER,
+                    "The cimClient parameter does not contain a valid reference.");
+        }
+
+        java.util.List result = new java.util.ArrayList();
+        CloseableIterator enumeration = null;
+
+        try {
+            enumeration = cimClient.associators(this.getCimObjectPath(), associationClass,
+                    resultClass, role, resultRole, includeQualifiers, includeClassOrigin,
+                    propertyList);
+        }
+        catch (WBEMException e) {
+            throw new AssociatorException(e, new AssociatorUserObject(this.getCimObjectPath(),
+                    associationClass, resultClass, role, resultRole, includeQualifiers,
+                    includeClassOrigin, propertyList));
+        }
+
+        try {
+            while (enumeration.hasNext()) {
+                Linux_SambaGroupHelper.checkException(enumeration);
+
+                Object obj = enumeration.next();
+                Linux_SambaGroupHelper.checkException(enumeration);
+
+                if (obj instanceof CIMInstance) {
+                    CIMInstance cimInstance = (CIMInstance) obj;
                     Class clazz = Linux_SambaGroupHelper.findClass(cimClient, cimInstance);
-                    
-					if (clazz == null) {
-						System.err.println("The class " + cimInstance.getClassName() +" was not found. Constructing instance of the base class.");
-						resultArrayList.add(new Linux_SambaGlobalOptions(cimInstance.getObjectPath(), cimInstance));
-						continue;
-					}
-					
-					Class[] constParams = new Class[2];
-					constParams[0] = CIMObjectPath.class;
-					constParams[1] = CIMInstance.class;
-					Constructor cons = null;
-					try {
-						cons = clazz.getConstructor(constParams);
-						
-					} catch(NoSuchMethodException e) {
-						System.err.println("The required constructor of class " + cimInstance.getClassName() + " could not be found. Constructing instance of the base class.");
-						resultArrayList.add(new Linux_SambaGlobalOptions(cimInstance.getObjectPath(), cimInstance));
-						continue;
-					}
-				
-					try {
-						Object[] actargs = new Object[] {cimInstance.getObjectPath(), cimInstance};
-					
-						Object dataObj = cons.newInstance(actargs);
-					
-						resultArrayList.add(dataObj);
-					} catch (Exception e) {
-						System.err.println("The instance of class " + cimInstance.getClassName() + " could not be created successful. Constructing instance of the base class.");
-						resultArrayList.add(new Linux_SambaGlobalOptions(cimInstance.getObjectPath(), cimInstance));
-						continue;
-					}
 
-				}
-			}
-		} finally {
-			try {
-				if (enumeration != null) {
-					((CIMEnumeration)enumeration).close();
-				}
-			} catch(Exception e) {
-				throw new CIMException(CIMException.CIM_ERR_FAILED, "The socket of the result could not be closed properly.");
-			}
-		}
-			
-		return resultArrayList;
-	}
-	
-	public ArrayList getAssociationNames_Linux_SambaForceGroupForGlobal(CIMClient cimClient, String role, boolean deep) {
+                    if (clazz == null) {
+                        System.err.println("The class " + cimInstance.getClassName()
+                                + " was not found. Constructing instance of the base class.");
+                        result.add(new Linux_SambaGlobalOptions(cimInstance));
+                        continue;
+                    }
 
-		if (cimClient == null) {
-			throw new InvalidParameterException("The cimClient parameter does not contain a valid reference.");
-		}
-		
-		Enumeration enumeration = null;
-		ArrayList resultArrayList = new ArrayList();
+                    Class[] constParams = new Class[1];
+                    constParams[0] = CIMInstance.class;
+                    Constructor cons = null;
+                    try {
+                        cons = clazz.getConstructor(constParams);
+                    }
+                    catch (NoSuchMethodException e) {
+                        System.err.println("The required constructor of class "
+                                + cimInstance.getClassName()
+                                + " could not be found. Constructing instance of the base class.");
+                        result.add(new Linux_SambaGlobalOptions(cimInstance));
+                        continue;
+                    }
 
-		try {		
-			enumeration = cimClient.referenceNames(
-					this.getCimObjectPath(),
-					CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAFORCEGROUPFORGLOBAL, 
-					role); //$NON-NLS-1$
-		
-		
-			while (enumeration.hasMoreElements()) {
-				Object obj = enumeration.nextElement();
-			
-				if (obj instanceof CIMObjectPath) {
-					if (deep || ((CIMObjectPath)obj).getObjectName().equals(Linux_SambaGlobalOptions.CIM_CLASS_NAME)) {
-						resultArrayList.add(obj);
-					}
-				}
-			}
-		} finally {
-			try {
-				if (enumeration != null) {
-					((CIMEnumeration)enumeration).close();
-				}
-			} catch(Exception e) {
-				throw new CIMException(CIMException.CIM_ERR_FAILED, "The socket of the result could not be closed properly.");
-			}
-		}
-			
-		return resultArrayList;
-	}
+                    try {
+                        Object[] actargs = new Object[] { cimInstance };
+                        Object dataObj = cons.newInstance(actargs);
+                        result.add(dataObj);
+                    }
+                    catch (Exception e) {
+                        System.err
+                                .println("The instance of class "
+                                        + cimInstance.getClassName()
+                                        + " could not be created successful. Constructing instance of the base class.");
+                        result.add(new Linux_SambaGlobalOptions(cimInstance));
+                        continue;
+                    }
+                }
+            }
+            Linux_SambaGroupHelper.checkException(enumeration);
+        }
+        finally {
+            try {
+                if (enumeration != null) {
+                    enumeration.close();
+                }
+            }
+            catch (Exception e) {
+                throw new WbemsmtException(WbemsmtException.ERR_FAILED,
+                        "The socket of the result could not be closed properly.");
+            }
+        }
 
-	public ArrayList getAssociated_Linux_SambaPrinterOptions_Linux_SambaForceGroupForPrinters(CIMClient cimClient,
-	boolean includeQualifiers, boolean includeClassOrigin, java.lang.String[] propertyList){
+        return result;
+    }
 
-		if (cimClient == null) {
-			throw new InvalidParameterException("The cimClient parameter does not contain a valid reference.");
-		}
-		
-		ArrayList resultArrayList = new ArrayList();
-		Enumeration enumeration = null;
-		
-		try {
-			enumeration = cimClient.associators(
-					this.getCimObjectPath(),
-					CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAFORCEGROUPFORPRINTER, 
-					Linux_SambaPrinterOptions.CIM_CLASS_NAME,
-					null,null, 
-					//"PartComponent", //$NON-NLS-1$
-					//"GroupComponent", //$NON-NLS-1$
-					includeQualifiers,
-					includeClassOrigin,
-					propertyList);
-		
-			while (enumeration.hasMoreElements()) {
-				Object obj = enumeration.nextElement();
-				if (obj instanceof CIMInstance) {
-					CIMInstance cimInstance = (CIMInstance)obj;
+    /**
+     * Get the list of CIMObjectPath items of the objects associated by the association Linux_SambaForceGroupForGlobal
+     * @param cimClient the WBEMClient for the communication
+     *
+     * uses CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAFORCEGROUPFORGLOBAL as associationClass<br>
+     * uses false for includeQualifiers and includeClassOrigin <br>
+     * uses null for resultClass, role, resultRole<br>
+     * <br>
+     
+     * @see javax.wbem.client.WBEMClient#associatorNames(CIMObjectPath, String, String, String, String)
+     **/
+
+    public java.util.List getAssociated_Linux_SambaGlobalOptions_Linux_SambaForceGroupForGlobalNames(
+            WBEMClient cimClient) throws WbemsmtException {
+
+        return getAssociated_Linux_SambaGlobalOptions_Linux_SambaForceGroupForGlobalNames(
+                cimClient, true, CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAFORCEGROUPFORGLOBAL,
+                Linux_SambaGlobalOptions.CIM_CLASS_NAME, null, null);
+    }
+
+    /**
+     * Get the list of CIMObjectPath items of the objects associated by the association Linux_SambaForceGroupForGlobal
+     * @param cimClient the WBEMClient for the communication
+     * @param resultClass This string MUST either contain a valid CIM Class name or be null. It filters the Objects returned to contain only the Objects of this Class name or one of its subclasses. The resultClass should be CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAFORCEGROUPFORGLOBAL or a subclass 
+     * @param role This string MUST either contain a valid Property name or be null. It filters the Objects returned to contain only Objects associated to the source Object via an Association class in which the source Object plays the specified role. (i.e. the Property name in the Association class that refers to the source Object matches this value) If "Antecedent" is specified, then only Associations in which the source Object is the "Antecedent" reference are examined.
+     * @param resultRole This string MUST either contain a valid Property name or be null. It filters the Objects returned to contain only Objects associated to the source Object via an Association class in which the Object returned plays the specified role. (i.e. the Property name in the Association class that refers to the Object returned matches this value) If "Dependent" is specified, then only Associations in which the Object returned is the "Dependent" reference are examined. 
+     *
+     * uses CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAFORCEGROUPFORGLOBAL as associationClass<br>
+     * uses false for includeQualifiers and includeClassOrigin <br>
+     * uses null for resultClass, role, resultRole<br>
+     * <br>
+     
+     * @see javax.wbem.client.WBEMClient#associatorNames(CIMObjectPath, String, String, String, String)
+     **/
+
+    public java.util.List getAssociated_Linux_SambaGlobalOptions_Linux_SambaForceGroupForGlobalNames(
+            WBEMClient cimClient, String resultClass, String role, String resultRole)
+            throws WbemsmtException {
+
+        return getAssociated_Linux_SambaGlobalOptions_Linux_SambaForceGroupForGlobalNames(
+                cimClient, true, CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAFORCEGROUPFORGLOBAL,
+                resultClass, role, resultRole);
+    }
+
+    /**
+     * Get the list of CIMObjectPath items of the objects associated by the association Linux_SambaForceGroupForGlobal
+     * @param cimClient the WBEMClient for the communication
+     * @param deep if true the subclasses returned also
+     *
+     * @see javax.wbem.client.WBEMClient#associatorNames(CIMObjectPath, String, String, String, String)
+     **/
+
+    public java.util.List getAssociated_Linux_SambaGlobalOptions_Linux_SambaForceGroupForGlobalNames(
+            WBEMClient cimClient, boolean deep, String associationClass, String resultClass,
+            String role, String resultRole) throws WbemsmtException {
+
+        if (cimClient == null) {
+            throw new WbemsmtException(WbemsmtException.ERR_INVALID_PARAMETER,
+                    "The cimClient parameter does not contain a valid reference.");
+        }
+
+        java.util.List result = new java.util.ArrayList();
+        CloseableIterator enumeration = null;
+
+        try {
+            enumeration = cimClient.associatorNames(this.getCimObjectPath(), associationClass,
+                    resultClass, role, resultRole);
+
+        }
+        catch (WBEMException e) {
+            throw new AssociatorNamesException(e, new AssociatorNamesUserObject(this
+                    .getCimObjectPath(), CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAFORCEGROUPFORGLOBAL,
+                    Linux_SambaGlobalOptions.CIM_CLASS_NAME, null, null));
+        }
+
+        try {
+            while (enumeration.hasNext()) {
+                Linux_SambaGroupHelper.checkException(enumeration);
+
+                Object obj = enumeration.next();
+                Linux_SambaGroupHelper.checkException(enumeration);
+                if (obj instanceof CIMObjectPath) {
+                    if (deep
+                            || ((CIMObjectPath) obj).getObjectName().equals(
+                                    Linux_SambaGlobalOptions.CIM_CLASS_NAME)) {
+                        result.add(obj);
+                    }
+                }
+            }
+            Linux_SambaGroupHelper.checkException(enumeration);
+        }
+        finally {
+            try {
+                if (enumeration != null) {
+                    enumeration.close();
+                }
+            }
+            catch (Exception e) {
+                throw new WbemsmtException(WbemsmtException.ERR_FAILED,
+                        "The socket of the result could not be closed properly.");
+            }
+        }
+        return result;
+    }
+
+    /**
+     * Get the list with Linux_SambaForceGroupForGlobal associations
+     *
+     * @param cimClient the WBEMClient for the communication
+     * @param includeQualifiers If true, all Qualifiers for each Object (including Qualifiers on the Object and on any returned Properties) MUST be included in the Objects returned. If false, no Qualifiers are present in each Object returned.
+     * @param includeClassOrigin If true, the CLASSORIGIN attribute will be present on all appropriate elements in the Objects returned. If false, no CLASSORIGIN attributes are present in the Objects returned. CLASSORIGIN is attached to an element (properties, methods, references) to indicate the class in which it was first defined.
+     * @param role This string MUST either contain a valid Property name or be null. It filters the Objects returned to contain only Objects referring to the source Object via a Property with the specified name. If "Antecedent" is specified, then only Associations in which the source Object is the "Antecedent" reference are returned.
+     * @param propertyList An array of property names used to filter what is contained in the Objects returned. Each CIMClass or CIMInstance returned only contains elements for the properties of the names specified. Duplicate and invalid property names are ignored and the request is otherwise processed normally. An empty array indicates that no properties should be included in the Objects returned. A null value indicates that all properties should be contained in the Objects returned. NOTE: Properties should not be specified in this parameter unless a non-null value is specified in the resultClass  parameter.
+     *
+     * @see javax.wbem.client.WBEMClient#references(CIMObjectPath, String, String, boolean, boolean, String[])
+     **/
+
+    public java.util.List getAssociations_Linux_SambaForceGroupForGlobal(WBEMClient cimClient,
+            boolean includeQualifiers, boolean includeClassOrigin, String role,
+            java.lang.String[] propertyList) throws WbemsmtException {
+
+        if (cimClient == null) {
+            throw new WbemsmtException(WbemsmtException.ERR_INVALID_PARAMETER,
+                    "The cimClient parameter does not contain a valid reference.");
+        }
+
+        java.util.List result = new java.util.ArrayList();
+        CloseableIterator enumeration = null;
+
+        try {
+            enumeration = cimClient.references(this.getCimObjectPath(),
+                    CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAFORCEGROUPFORGLOBAL, role,
+                    includeQualifiers, includeClassOrigin, propertyList);
+        }
+        catch (WBEMException e) {
+            throw new ReferencesException(e, new ReferencesUserObject(this.getCimObjectPath(),
+                    CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAFORCEGROUPFORGLOBAL, role,
+                    includeQualifiers, includeClassOrigin, propertyList));
+        }
+
+        try {
+            while (enumeration.hasNext()) {
+                Linux_SambaGroupHelper.checkException(enumeration);
+                Object obj = enumeration.next();
+                Linux_SambaGroupHelper.checkException(enumeration);
+
+                if (obj instanceof CIMInstance) {
+                    CIMInstance cimInstance = (CIMInstance) obj;
+                    Class clazz = Linux_SambaForceGroupForGlobalHelper.findClass(cimClient,
+                            cimInstance);
+
+                    if (clazz == null) {
+                        System.err.println("The class " + cimInstance.getClassName()
+                                + " was not found. Constructing instance of the base class.");
+                        result.add(new Linux_SambaForceGroupForGlobal(cimInstance));
+                        continue;
+                    }
+
+                    Class[] constParams = new Class[1];
+                    constParams[0] = CIMInstance.class;
+                    Constructor cons = null;
+                    try {
+                        cons = clazz.getConstructor(constParams);
+                    }
+                    catch (NoSuchMethodException e) {
+                        System.err.println("The required constructor of class "
+                                + cimInstance.getClassName()
+                                + " could not be found. Constructing instance of the base class.");
+                        result.add(new Linux_SambaForceGroupForGlobal(cimInstance));
+                        continue;
+                    }
+
+                    try {
+                        Object[] actargs = new Object[] { cimInstance };
+                        Object dataObj = cons.newInstance(actargs);
+                        result.add(dataObj);
+                    }
+                    catch (Exception e) {
+                        System.err
+                                .println("The instance of class "
+                                        + cimInstance.getClassName()
+                                        + " could not be created successful. Constructing instance of the base class.");
+                        result.add(new Linux_SambaForceGroupForGlobal(cimInstance));
+                        continue;
+                    }
+                }
+            }
+            Linux_SambaGroupHelper.checkException(enumeration);
+        }
+        finally {
+            try {
+                if (enumeration != null) {
+                    enumeration.close();
+                }
+            }
+            catch (Exception e) {
+                throw new WbemsmtException(WbemsmtException.ERR_FAILED,
+                        "The socket of the result could not be closed properly.");
+            }
+        }
+
+        return result;
+    }
+
+    /**
+     * Get a list of CIMObjectPath items of the associations Linux_SambaForceGroupForGlobal
+     *
+     * @param cimClient the WBEMClient for the communication
+     * @param role This string MUST either contain a valid Property name or be null. It filters the Objects returned to contain only Objects referring to the source Object via a Property with the specified name. If "Antecedent" is specified, then only Associations in which the source Object is the "Antecedent" reference are returned.
+     * @param deep if true the subclasses returned also
+     *
+     * @see javax.wbem.client.WBEMClient#referenceNames(CIMObjectPath, String, String)
+     **/
+
+    public java.util.List getAssociationNames_Linux_SambaForceGroupForGlobal(WBEMClient cimClient,
+            String role, boolean deep) throws WbemsmtException {
+
+        if (cimClient == null) {
+            throw new WbemsmtException(WbemsmtException.ERR_INVALID_PARAMETER,
+                    "The cimClient parameter does not contain a valid reference.");
+        }
+
+        java.util.List result = new java.util.ArrayList();
+        CloseableIterator enumeration = null;
+
+        try {
+            enumeration = cimClient.referenceNames(this.getCimObjectPath(),
+                    CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAFORCEGROUPFORGLOBAL, role);
+        }
+        catch (WBEMException e) {
+            throw new ReferenceNamesException(e, new ReferenceNamesUserObject(this
+                    .getCimObjectPath(), CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAFORCEGROUPFORGLOBAL,
+                    role));
+        }
+
+        try {
+            while (enumeration.hasNext()) {
+                Linux_SambaGroupHelper.checkException(enumeration);
+                Object obj = enumeration.next();
+                Linux_SambaGroupHelper.checkException(enumeration);
+
+                if (obj instanceof CIMObjectPath) {
+                    if (deep
+                            || ((CIMObjectPath) obj).getObjectName().equals(
+                                    Linux_SambaForceGroupForGlobal.CIM_CLASS_NAME)) {
+                        result.add(obj);
+                    }
+                }
+            }
+            Linux_SambaGroupHelper.checkException(enumeration);
+        }
+        finally {
+            try {
+                if (enumeration != null) {
+                    enumeration.close();
+                }
+            }
+            catch (Exception e) {
+                throw new WbemsmtException(WbemsmtException.ERR_FAILED,
+                        "The socket of the result could not be closed properly.");
+            }
+        }
+        return result;
+    }
+
+    /**
+     * Get the list with Linux_SambaShareOptions objects associated by the association Linux_SambaForceGroupForShare
+     * 
+     * @param cimClient the WBEMClient for the communication
+     *
+     * uses CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAFORCEGROUPFORSHARE as associationClass<br>
+     * uses false for includeQualifiers and includeClassOrigin <br>
+     * uses null for resultClass, role, resultRole<br>
+     * <br>
+     * @see javax.wbem.client.WBEMClient#associators(CIMObjectPath, String, String, String, String, boolean, boolean, String[])
+     **/
+
+    public java.util.List getAssociated_Linux_SambaShareOptions_Linux_SambaForceGroupForShares(
+            WBEMClient cimClient) throws WbemsmtException {
+
+        return getAssociated_Linux_SambaShareOptions_Linux_SambaForceGroupForShares(cimClient,
+                CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAFORCEGROUPFORSHARE,
+                Linux_SambaShareOptions.CIM_CLASS_NAME, null, null, false, false, null);
+
+    }
+
+    /**
+     * Get the list with Linux_SambaShareOptions objects associated by the association Linux_SambaForceGroupForShare
+     * 
+     * @param cimClient the WBEMClient for the communication
+     * @param resultClass This string MUST either contain a valid CIM Class name or be null. It filters the Objects returned to contain only the Objects of this Class name or one of its subclasses. The resultClass should be CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAFORCEGROUPFORSHARE or a subclass 
+     * @param role This string MUST either contain a valid Property name or be null. It filters the Objects returned to contain only Objects associated to the source Object via an Association class in which the source Object plays the specified role. (i.e. the Property name in the Association class that refers to the source Object matches this value) If "Antecedent" is specified, then only Associations in which the source Object is the "Antecedent" reference are examined.
+     * @param resultRole This string MUST either contain a valid Property name or be null. It filters the Objects returned to contain only Objects associated to the source Object via an Association class in which the Object returned plays the specified role. (i.e. the Property name in the Association class that refers to the Object returned matches this value) If "Dependent" is specified, then only Associations in which the Object returned is the "Dependent" reference are examined. 
+     *
+     * uses CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAFORCEGROUPFORSHARE as associationClass<br>
+     * uses false for includeQualifiers and includeClassOrigin <br>
+     * uses null for resultClass, role, resultRole<br>
+     * <br>
+     * @see javax.wbem.client.WBEMClient#associators(CIMObjectPath, String, String, String, String, boolean, boolean, String[])
+     **/
+
+    public java.util.List getAssociated_Linux_SambaShareOptions_Linux_SambaForceGroupForShares(
+            WBEMClient cimClient, String resultClass, String role, String resultRole)
+            throws WbemsmtException {
+
+        return getAssociated_Linux_SambaShareOptions_Linux_SambaForceGroupForShares(cimClient,
+                CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAFORCEGROUPFORSHARE, resultClass, role,
+                resultRole, false, false, null);
+
+    }
+
+    /**
+     * Get the list with Linux_SambaShareOptions objects associated by the association Linux_SambaForceGroupForShare
+     * 
+     * @param cimClient the WBEMClient for the communication
+     * @param associationClass This string MUST either contain a valid CIM Association class name or be null. It filters the Objects returned to contain only Objects associated to the source Object via this CIM Association class or one of its subclasses.
+     * @param resultClass This string MUST either contain a valid CIM Class name or be null. It filters the Objects returned to contain only the Objects of this Class name or one of its subclasses. The resultClass should be CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAFORCEGROUPFORSHARE or a subclass 
+     * @param role This string MUST either contain a valid Property name or be null. It filters the Objects returned to contain only Objects associated to the source Object via an Association class in which the source Object plays the specified role. (i.e. the Property name in the Association class that refers to the source Object matches this value) If "Antecedent" is specified, then only Associations in which the source Object is the "Antecedent" reference are examined.
+     * @param resultRole This string MUST either contain a valid Property name or be null. It filters the Objects returned to contain only Objects associated to the source Object via an Association class in which the Object returned plays the specified role. (i.e. the Property name in the Association class that refers to the Object returned matches this value) If "Dependent" is specified, then only Associations in which the Object returned is the "Dependent" reference are examined. 
+     * @param includeQualifiers If true, all Qualifiers for each Object (including Qualifiers on the Object and on any returned Properties) MUST be included in the Objects returned. If false, no Qualifiers are present in each Object returned.
+     * @param includeClassOrigin If true, the CLASSORIGIN attribute will be present on all appropriate elements in the Objects returned. If false, no CLASSORIGIN attributes are present in the Objects returned. CLASSORIGIN is attached to an element (properties, methods, references) to indicate the class in which it was first defined.
+     * @param propertyList An array of property names used to filter what is contained in the Objects returned. Each CIMClass or CIMInstance returned only contains elements for the properties of the names specified. Duplicate and invalid property names are ignored and the request is otherwise processed normally. An empty array indicates that no properties should be included in the Objects returned. A null value indicates that all properties should be contained in the Objects returned. NOTE: Properties should not be specified in this parameter unless a non-null value is specified in the resultClass  parameter.
+     *
+     * @see javax.wbem.client.WBEMClient#associators(CIMObjectPath, String, String, String, String, boolean, boolean, String[])
+     **/
+
+    public java.util.List getAssociated_Linux_SambaShareOptions_Linux_SambaForceGroupForShares(
+            WBEMClient cimClient, String associationClass, String resultClass, String role,
+            String resultRole, boolean includeQualifiers, boolean includeClassOrigin,
+            java.lang.String[] propertyList) throws WbemsmtException {
+
+        if (cimClient == null) {
+            throw new WbemsmtException(WbemsmtException.ERR_INVALID_PARAMETER,
+                    "The cimClient parameter does not contain a valid reference.");
+        }
+
+        java.util.List result = new java.util.ArrayList();
+        CloseableIterator enumeration = null;
+
+        try {
+            enumeration = cimClient.associators(this.getCimObjectPath(), associationClass,
+                    resultClass, role, resultRole, includeQualifiers, includeClassOrigin,
+                    propertyList);
+        }
+        catch (WBEMException e) {
+            throw new AssociatorException(e, new AssociatorUserObject(this.getCimObjectPath(),
+                    associationClass, resultClass, role, resultRole, includeQualifiers,
+                    includeClassOrigin, propertyList));
+        }
+
+        try {
+            while (enumeration.hasNext()) {
+                Linux_SambaGroupHelper.checkException(enumeration);
+
+                Object obj = enumeration.next();
+                Linux_SambaGroupHelper.checkException(enumeration);
+
+                if (obj instanceof CIMInstance) {
+                    CIMInstance cimInstance = (CIMInstance) obj;
                     Class clazz = Linux_SambaGroupHelper.findClass(cimClient, cimInstance);
-                    
-					if (clazz == null) {
-						System.err.println("The class " + cimInstance.getClassName() +" was not found. Constructing instance of the base class.");
-						resultArrayList.add(new Linux_SambaPrinterOptions(cimInstance.getObjectPath(), cimInstance));
-						continue;
-					}
-					
-					Class[] constParams = new Class[2];
-					constParams[0] = CIMObjectPath.class;
-					constParams[1] = CIMInstance.class;
-					Constructor cons = null;
-					try {
-						cons = clazz.getConstructor(constParams);
-						
-					} catch(NoSuchMethodException e) {
-						System.err.println("The required constructor of class " + cimInstance.getClassName() + " could not be found. Constructing instance of the base class.");
-						resultArrayList.add(new Linux_SambaPrinterOptions(cimInstance.getObjectPath(), cimInstance));
-						continue;
-					}
-				
-					try {
-						Object[] actargs = new Object[] {cimInstance.getObjectPath(), cimInstance};
-					
-						Object dataObj = cons.newInstance(actargs);
-					
-						resultArrayList.add(dataObj);
-					} catch (Exception e) {
-						System.err.println("The instance of class " + cimInstance.getClassName() + " could not be created successful. Constructing instance of the base class.");
-						resultArrayList.add(new Linux_SambaPrinterOptions(cimInstance.getObjectPath(), cimInstance));
-						continue;
-					}
 
-				}
-			}
-		} finally {
-			try {
-				if (enumeration != null) {
-					((CIMEnumeration)enumeration).close();
-				}
-			} catch(Exception e) {
-				throw new CIMException(CIMException.CIM_ERR_FAILED, "The socket of the result could not be closed properly.");
-			}
-		}
-			
-		return resultArrayList;
-	}
+                    if (clazz == null) {
+                        System.err.println("The class " + cimInstance.getClassName()
+                                + " was not found. Constructing instance of the base class.");
+                        result.add(new Linux_SambaShareOptions(cimInstance));
+                        continue;
+                    }
 
-	public ArrayList getAssociated_Linux_SambaPrinterOptions_Linux_SambaForceGroupForPrinter_Names(CIMClient cimClient, boolean deep) {
+                    Class[] constParams = new Class[1];
+                    constParams[0] = CIMInstance.class;
+                    Constructor cons = null;
+                    try {
+                        cons = clazz.getConstructor(constParams);
+                    }
+                    catch (NoSuchMethodException e) {
+                        System.err.println("The required constructor of class "
+                                + cimInstance.getClassName()
+                                + " could not be found. Constructing instance of the base class.");
+                        result.add(new Linux_SambaShareOptions(cimInstance));
+                        continue;
+                    }
 
-		if (cimClient == null) {
-			throw new InvalidParameterException("The cimClient parameter does not contain a valid reference.");
-		}
-		
-		Enumeration enumeration = null;
-		ArrayList resultArrayList = new ArrayList();
+                    try {
+                        Object[] actargs = new Object[] { cimInstance };
+                        Object dataObj = cons.newInstance(actargs);
+                        result.add(dataObj);
+                    }
+                    catch (Exception e) {
+                        System.err
+                                .println("The instance of class "
+                                        + cimInstance.getClassName()
+                                        + " could not be created successful. Constructing instance of the base class.");
+                        result.add(new Linux_SambaShareOptions(cimInstance));
+                        continue;
+                    }
+                }
+            }
+            Linux_SambaGroupHelper.checkException(enumeration);
+        }
+        finally {
+            try {
+                if (enumeration != null) {
+                    enumeration.close();
+                }
+            }
+            catch (Exception e) {
+                throw new WbemsmtException(WbemsmtException.ERR_FAILED,
+                        "The socket of the result could not be closed properly.");
+            }
+        }
 
-		try {		
-			enumeration = cimClient.associatorNames(
-					this.getCimObjectPath(),
-					CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAFORCEGROUPFORPRINTER, 
-					Linux_SambaPrinterOptions.CIM_CLASS_NAME, 
-					null,null);
-					//"PartComponent", //$NON-NLS-1$
-					//"GroupComponent"); //$NON-NLS-1$
-		
-		
-			while (enumeration.hasMoreElements()) {
-				Object obj = enumeration.nextElement();
-			
-				if (obj instanceof CIMObjectPath) {
-					if (deep || ((CIMObjectPath)obj).getObjectName().equals(Linux_SambaPrinterOptions.CIM_CLASS_NAME)) {
-						resultArrayList.add(obj);
-					}
-				}
-			}
-		} finally {
-			try {
-				if (enumeration != null) {
-					((CIMEnumeration)enumeration).close();
-				}
-			} catch(Exception e) {
-				throw new CIMException(CIMException.CIM_ERR_FAILED, "The socket of the result could not be closed properly.");
-			}
-		}
-			
-		return resultArrayList;
-	}
+        return result;
+    }
 
-	
-	public ArrayList getAssociations_Linux_SambaForceGroupForPrinter(CIMClient cimClient,
-	boolean includeQualifiers, boolean includeClassOrigin, String role,java.lang.String[] propertyList) {
+    /**
+     * Get the list of CIMObjectPath items of the objects associated by the association Linux_SambaForceGroupForShare
+     * @param cimClient the WBEMClient for the communication
+     *
+     * uses CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAFORCEGROUPFORSHARE as associationClass<br>
+     * uses false for includeQualifiers and includeClassOrigin <br>
+     * uses null for resultClass, role, resultRole<br>
+     * <br>
+     
+     * @see javax.wbem.client.WBEMClient#associatorNames(CIMObjectPath, String, String, String, String)
+     **/
 
-		if (cimClient == null) {
-			throw new InvalidParameterException("The cimClient parameter does not contain a valid reference.");
-		}
-		
-		ArrayList resultArrayList = new ArrayList();
-		Enumeration enumeration = null;
-		
-		try {
-			enumeration = cimClient.references(
-					this.getCimObjectPath(),
-					CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAFORCEGROUPFORPRINTER, 
-					role, //$NON-NLS-1$
-					includeQualifiers,
-					includeClassOrigin,
-					propertyList);
-		
-			while (enumeration.hasMoreElements()) {
-				Object obj = enumeration.nextElement();
-				if (obj instanceof CIMInstance) {
-					CIMInstance cimInstance = (CIMInstance)obj;
+    public java.util.List getAssociated_Linux_SambaShareOptions_Linux_SambaForceGroupForShareNames(
+            WBEMClient cimClient) throws WbemsmtException {
+
+        return getAssociated_Linux_SambaShareOptions_Linux_SambaForceGroupForShareNames(cimClient,
+                true, CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAFORCEGROUPFORSHARE,
+                Linux_SambaShareOptions.CIM_CLASS_NAME, null, null);
+    }
+
+    /**
+     * Get the list of CIMObjectPath items of the objects associated by the association Linux_SambaForceGroupForShare
+     * @param cimClient the WBEMClient for the communication
+     * @param resultClass This string MUST either contain a valid CIM Class name or be null. It filters the Objects returned to contain only the Objects of this Class name or one of its subclasses. The resultClass should be CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAFORCEGROUPFORSHARE or a subclass 
+     * @param role This string MUST either contain a valid Property name or be null. It filters the Objects returned to contain only Objects associated to the source Object via an Association class in which the source Object plays the specified role. (i.e. the Property name in the Association class that refers to the source Object matches this value) If "Antecedent" is specified, then only Associations in which the source Object is the "Antecedent" reference are examined.
+     * @param resultRole This string MUST either contain a valid Property name or be null. It filters the Objects returned to contain only Objects associated to the source Object via an Association class in which the Object returned plays the specified role. (i.e. the Property name in the Association class that refers to the Object returned matches this value) If "Dependent" is specified, then only Associations in which the Object returned is the "Dependent" reference are examined. 
+     *
+     * uses CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAFORCEGROUPFORSHARE as associationClass<br>
+     * uses false for includeQualifiers and includeClassOrigin <br>
+     * uses null for resultClass, role, resultRole<br>
+     * <br>
+     
+     * @see javax.wbem.client.WBEMClient#associatorNames(CIMObjectPath, String, String, String, String)
+     **/
+
+    public java.util.List getAssociated_Linux_SambaShareOptions_Linux_SambaForceGroupForShareNames(
+            WBEMClient cimClient, String resultClass, String role, String resultRole)
+            throws WbemsmtException {
+
+        return getAssociated_Linux_SambaShareOptions_Linux_SambaForceGroupForShareNames(cimClient,
+                true, CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAFORCEGROUPFORSHARE, resultClass, role,
+                resultRole);
+    }
+
+    /**
+     * Get the list of CIMObjectPath items of the objects associated by the association Linux_SambaForceGroupForShare
+     * @param cimClient the WBEMClient for the communication
+     * @param deep if true the subclasses returned also
+     *
+     * @see javax.wbem.client.WBEMClient#associatorNames(CIMObjectPath, String, String, String, String)
+     **/
+
+    public java.util.List getAssociated_Linux_SambaShareOptions_Linux_SambaForceGroupForShareNames(
+            WBEMClient cimClient, boolean deep, String associationClass, String resultClass,
+            String role, String resultRole) throws WbemsmtException {
+
+        if (cimClient == null) {
+            throw new WbemsmtException(WbemsmtException.ERR_INVALID_PARAMETER,
+                    "The cimClient parameter does not contain a valid reference.");
+        }
+
+        java.util.List result = new java.util.ArrayList();
+        CloseableIterator enumeration = null;
+
+        try {
+            enumeration = cimClient.associatorNames(this.getCimObjectPath(), associationClass,
+                    resultClass, role, resultRole);
+
+        }
+        catch (WBEMException e) {
+            throw new AssociatorNamesException(e, new AssociatorNamesUserObject(this
+                    .getCimObjectPath(), CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAFORCEGROUPFORSHARE,
+                    Linux_SambaShareOptions.CIM_CLASS_NAME, null, null));
+        }
+
+        try {
+            while (enumeration.hasNext()) {
+                Linux_SambaGroupHelper.checkException(enumeration);
+
+                Object obj = enumeration.next();
+                Linux_SambaGroupHelper.checkException(enumeration);
+                if (obj instanceof CIMObjectPath) {
+                    if (deep
+                            || ((CIMObjectPath) obj).getObjectName().equals(
+                                    Linux_SambaShareOptions.CIM_CLASS_NAME)) {
+                        result.add(obj);
+                    }
+                }
+            }
+            Linux_SambaGroupHelper.checkException(enumeration);
+        }
+        finally {
+            try {
+                if (enumeration != null) {
+                    enumeration.close();
+                }
+            }
+            catch (Exception e) {
+                throw new WbemsmtException(WbemsmtException.ERR_FAILED,
+                        "The socket of the result could not be closed properly.");
+            }
+        }
+        return result;
+    }
+
+    /**
+     * Get the list with Linux_SambaForceGroupForShare associations
+     *
+     * @param cimClient the WBEMClient for the communication
+     * @param includeQualifiers If true, all Qualifiers for each Object (including Qualifiers on the Object and on any returned Properties) MUST be included in the Objects returned. If false, no Qualifiers are present in each Object returned.
+     * @param includeClassOrigin If true, the CLASSORIGIN attribute will be present on all appropriate elements in the Objects returned. If false, no CLASSORIGIN attributes are present in the Objects returned. CLASSORIGIN is attached to an element (properties, methods, references) to indicate the class in which it was first defined.
+     * @param role This string MUST either contain a valid Property name or be null. It filters the Objects returned to contain only Objects referring to the source Object via a Property with the specified name. If "Antecedent" is specified, then only Associations in which the source Object is the "Antecedent" reference are returned.
+     * @param propertyList An array of property names used to filter what is contained in the Objects returned. Each CIMClass or CIMInstance returned only contains elements for the properties of the names specified. Duplicate and invalid property names are ignored and the request is otherwise processed normally. An empty array indicates that no properties should be included in the Objects returned. A null value indicates that all properties should be contained in the Objects returned. NOTE: Properties should not be specified in this parameter unless a non-null value is specified in the resultClass  parameter.
+     *
+     * @see javax.wbem.client.WBEMClient#references(CIMObjectPath, String, String, boolean, boolean, String[])
+     **/
+
+    public java.util.List getAssociations_Linux_SambaForceGroupForShare(WBEMClient cimClient,
+            boolean includeQualifiers, boolean includeClassOrigin, String role,
+            java.lang.String[] propertyList) throws WbemsmtException {
+
+        if (cimClient == null) {
+            throw new WbemsmtException(WbemsmtException.ERR_INVALID_PARAMETER,
+                    "The cimClient parameter does not contain a valid reference.");
+        }
+
+        java.util.List result = new java.util.ArrayList();
+        CloseableIterator enumeration = null;
+
+        try {
+            enumeration = cimClient.references(this.getCimObjectPath(),
+                    CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAFORCEGROUPFORSHARE, role,
+                    includeQualifiers, includeClassOrigin, propertyList);
+        }
+        catch (WBEMException e) {
+            throw new ReferencesException(e, new ReferencesUserObject(this.getCimObjectPath(),
+                    CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAFORCEGROUPFORSHARE, role,
+                    includeQualifiers, includeClassOrigin, propertyList));
+        }
+
+        try {
+            while (enumeration.hasNext()) {
+                Linux_SambaGroupHelper.checkException(enumeration);
+                Object obj = enumeration.next();
+                Linux_SambaGroupHelper.checkException(enumeration);
+
+                if (obj instanceof CIMInstance) {
+                    CIMInstance cimInstance = (CIMInstance) obj;
+                    Class clazz = Linux_SambaForceGroupForShareHelper.findClass(cimClient,
+                            cimInstance);
+
+                    if (clazz == null) {
+                        System.err.println("The class " + cimInstance.getClassName()
+                                + " was not found. Constructing instance of the base class.");
+                        result.add(new Linux_SambaForceGroupForShare(cimInstance));
+                        continue;
+                    }
+
+                    Class[] constParams = new Class[1];
+                    constParams[0] = CIMInstance.class;
+                    Constructor cons = null;
+                    try {
+                        cons = clazz.getConstructor(constParams);
+                    }
+                    catch (NoSuchMethodException e) {
+                        System.err.println("The required constructor of class "
+                                + cimInstance.getClassName()
+                                + " could not be found. Constructing instance of the base class.");
+                        result.add(new Linux_SambaForceGroupForShare(cimInstance));
+                        continue;
+                    }
+
+                    try {
+                        Object[] actargs = new Object[] { cimInstance };
+                        Object dataObj = cons.newInstance(actargs);
+                        result.add(dataObj);
+                    }
+                    catch (Exception e) {
+                        System.err
+                                .println("The instance of class "
+                                        + cimInstance.getClassName()
+                                        + " could not be created successful. Constructing instance of the base class.");
+                        result.add(new Linux_SambaForceGroupForShare(cimInstance));
+                        continue;
+                    }
+                }
+            }
+            Linux_SambaGroupHelper.checkException(enumeration);
+        }
+        finally {
+            try {
+                if (enumeration != null) {
+                    enumeration.close();
+                }
+            }
+            catch (Exception e) {
+                throw new WbemsmtException(WbemsmtException.ERR_FAILED,
+                        "The socket of the result could not be closed properly.");
+            }
+        }
+
+        return result;
+    }
+
+    /**
+     * Get a list of CIMObjectPath items of the associations Linux_SambaForceGroupForShare
+     *
+     * @param cimClient the WBEMClient for the communication
+     * @param role This string MUST either contain a valid Property name or be null. It filters the Objects returned to contain only Objects referring to the source Object via a Property with the specified name. If "Antecedent" is specified, then only Associations in which the source Object is the "Antecedent" reference are returned.
+     * @param deep if true the subclasses returned also
+     *
+     * @see javax.wbem.client.WBEMClient#referenceNames(CIMObjectPath, String, String)
+     **/
+
+    public java.util.List getAssociationNames_Linux_SambaForceGroupForShare(WBEMClient cimClient,
+            String role, boolean deep) throws WbemsmtException {
+
+        if (cimClient == null) {
+            throw new WbemsmtException(WbemsmtException.ERR_INVALID_PARAMETER,
+                    "The cimClient parameter does not contain a valid reference.");
+        }
+
+        java.util.List result = new java.util.ArrayList();
+        CloseableIterator enumeration = null;
+
+        try {
+            enumeration = cimClient.referenceNames(this.getCimObjectPath(),
+                    CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAFORCEGROUPFORSHARE, role);
+        }
+        catch (WBEMException e) {
+            throw new ReferenceNamesException(e, new ReferenceNamesUserObject(this
+                    .getCimObjectPath(), CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAFORCEGROUPFORSHARE,
+                    role));
+        }
+
+        try {
+            while (enumeration.hasNext()) {
+                Linux_SambaGroupHelper.checkException(enumeration);
+                Object obj = enumeration.next();
+                Linux_SambaGroupHelper.checkException(enumeration);
+
+                if (obj instanceof CIMObjectPath) {
+                    if (deep
+                            || ((CIMObjectPath) obj).getObjectName().equals(
+                                    Linux_SambaForceGroupForShare.CIM_CLASS_NAME)) {
+                        result.add(obj);
+                    }
+                }
+            }
+            Linux_SambaGroupHelper.checkException(enumeration);
+        }
+        finally {
+            try {
+                if (enumeration != null) {
+                    enumeration.close();
+                }
+            }
+            catch (Exception e) {
+                throw new WbemsmtException(WbemsmtException.ERR_FAILED,
+                        "The socket of the result could not be closed properly.");
+            }
+        }
+        return result;
+    }
+
+    /**
+     * Get the list with Linux_SambaPrinterOptions objects associated by the association Linux_SambaForceGroupForPrinter
+     * 
+     * @param cimClient the WBEMClient for the communication
+     *
+     * uses CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAFORCEGROUPFORPRINTER as associationClass<br>
+     * uses false for includeQualifiers and includeClassOrigin <br>
+     * uses null for resultClass, role, resultRole<br>
+     * <br>
+     * @see javax.wbem.client.WBEMClient#associators(CIMObjectPath, String, String, String, String, boolean, boolean, String[])
+     **/
+
+    public java.util.List getAssociated_Linux_SambaPrinterOptions_Linux_SambaForceGroupForPrinters(
+            WBEMClient cimClient) throws WbemsmtException {
+
+        return getAssociated_Linux_SambaPrinterOptions_Linux_SambaForceGroupForPrinters(cimClient,
+                CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAFORCEGROUPFORPRINTER,
+                Linux_SambaPrinterOptions.CIM_CLASS_NAME, null, null, false, false, null);
+
+    }
+
+    /**
+     * Get the list with Linux_SambaPrinterOptions objects associated by the association Linux_SambaForceGroupForPrinter
+     * 
+     * @param cimClient the WBEMClient for the communication
+     * @param resultClass This string MUST either contain a valid CIM Class name or be null. It filters the Objects returned to contain only the Objects of this Class name or one of its subclasses. The resultClass should be CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAFORCEGROUPFORPRINTER or a subclass 
+     * @param role This string MUST either contain a valid Property name or be null. It filters the Objects returned to contain only Objects associated to the source Object via an Association class in which the source Object plays the specified role. (i.e. the Property name in the Association class that refers to the source Object matches this value) If "Antecedent" is specified, then only Associations in which the source Object is the "Antecedent" reference are examined.
+     * @param resultRole This string MUST either contain a valid Property name or be null. It filters the Objects returned to contain only Objects associated to the source Object via an Association class in which the Object returned plays the specified role. (i.e. the Property name in the Association class that refers to the Object returned matches this value) If "Dependent" is specified, then only Associations in which the Object returned is the "Dependent" reference are examined. 
+     *
+     * uses CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAFORCEGROUPFORPRINTER as associationClass<br>
+     * uses false for includeQualifiers and includeClassOrigin <br>
+     * uses null for resultClass, role, resultRole<br>
+     * <br>
+     * @see javax.wbem.client.WBEMClient#associators(CIMObjectPath, String, String, String, String, boolean, boolean, String[])
+     **/
+
+    public java.util.List getAssociated_Linux_SambaPrinterOptions_Linux_SambaForceGroupForPrinters(
+            WBEMClient cimClient, String resultClass, String role, String resultRole)
+            throws WbemsmtException {
+
+        return getAssociated_Linux_SambaPrinterOptions_Linux_SambaForceGroupForPrinters(cimClient,
+                CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAFORCEGROUPFORPRINTER, resultClass, role,
+                resultRole, false, false, null);
+
+    }
+
+    /**
+     * Get the list with Linux_SambaPrinterOptions objects associated by the association Linux_SambaForceGroupForPrinter
+     * 
+     * @param cimClient the WBEMClient for the communication
+     * @param associationClass This string MUST either contain a valid CIM Association class name or be null. It filters the Objects returned to contain only Objects associated to the source Object via this CIM Association class or one of its subclasses.
+     * @param resultClass This string MUST either contain a valid CIM Class name or be null. It filters the Objects returned to contain only the Objects of this Class name or one of its subclasses. The resultClass should be CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAFORCEGROUPFORPRINTER or a subclass 
+     * @param role This string MUST either contain a valid Property name or be null. It filters the Objects returned to contain only Objects associated to the source Object via an Association class in which the source Object plays the specified role. (i.e. the Property name in the Association class that refers to the source Object matches this value) If "Antecedent" is specified, then only Associations in which the source Object is the "Antecedent" reference are examined.
+     * @param resultRole This string MUST either contain a valid Property name or be null. It filters the Objects returned to contain only Objects associated to the source Object via an Association class in which the Object returned plays the specified role. (i.e. the Property name in the Association class that refers to the Object returned matches this value) If "Dependent" is specified, then only Associations in which the Object returned is the "Dependent" reference are examined. 
+     * @param includeQualifiers If true, all Qualifiers for each Object (including Qualifiers on the Object and on any returned Properties) MUST be included in the Objects returned. If false, no Qualifiers are present in each Object returned.
+     * @param includeClassOrigin If true, the CLASSORIGIN attribute will be present on all appropriate elements in the Objects returned. If false, no CLASSORIGIN attributes are present in the Objects returned. CLASSORIGIN is attached to an element (properties, methods, references) to indicate the class in which it was first defined.
+     * @param propertyList An array of property names used to filter what is contained in the Objects returned. Each CIMClass or CIMInstance returned only contains elements for the properties of the names specified. Duplicate and invalid property names are ignored and the request is otherwise processed normally. An empty array indicates that no properties should be included in the Objects returned. A null value indicates that all properties should be contained in the Objects returned. NOTE: Properties should not be specified in this parameter unless a non-null value is specified in the resultClass  parameter.
+     *
+     * @see javax.wbem.client.WBEMClient#associators(CIMObjectPath, String, String, String, String, boolean, boolean, String[])
+     **/
+
+    public java.util.List getAssociated_Linux_SambaPrinterOptions_Linux_SambaForceGroupForPrinters(
+            WBEMClient cimClient, String associationClass, String resultClass, String role,
+            String resultRole, boolean includeQualifiers, boolean includeClassOrigin,
+            java.lang.String[] propertyList) throws WbemsmtException {
+
+        if (cimClient == null) {
+            throw new WbemsmtException(WbemsmtException.ERR_INVALID_PARAMETER,
+                    "The cimClient parameter does not contain a valid reference.");
+        }
+
+        java.util.List result = new java.util.ArrayList();
+        CloseableIterator enumeration = null;
+
+        try {
+            enumeration = cimClient.associators(this.getCimObjectPath(), associationClass,
+                    resultClass, role, resultRole, includeQualifiers, includeClassOrigin,
+                    propertyList);
+        }
+        catch (WBEMException e) {
+            throw new AssociatorException(e, new AssociatorUserObject(this.getCimObjectPath(),
+                    associationClass, resultClass, role, resultRole, includeQualifiers,
+                    includeClassOrigin, propertyList));
+        }
+
+        try {
+            while (enumeration.hasNext()) {
+                Linux_SambaGroupHelper.checkException(enumeration);
+
+                Object obj = enumeration.next();
+                Linux_SambaGroupHelper.checkException(enumeration);
+
+                if (obj instanceof CIMInstance) {
+                    CIMInstance cimInstance = (CIMInstance) obj;
                     Class clazz = Linux_SambaGroupHelper.findClass(cimClient, cimInstance);
-                    
-					if (clazz == null) {
-						System.err.println("The class " + cimInstance.getClassName() +" was not found. Constructing instance of the base class.");
-						resultArrayList.add(new Linux_SambaPrinterOptions(cimInstance.getObjectPath(), cimInstance));
-						continue;
-					}
-					
-					Class[] constParams = new Class[2];
-					constParams[0] = CIMObjectPath.class;
-					constParams[1] = CIMInstance.class;
-					Constructor cons = null;
-					try {
-						cons = clazz.getConstructor(constParams);
-						
-					} catch(NoSuchMethodException e) {
-						System.err.println("The required constructor of class " + cimInstance.getClassName() + " could not be found. Constructing instance of the base class.");
-						resultArrayList.add(new Linux_SambaPrinterOptions(cimInstance.getObjectPath(), cimInstance));
-						continue;
-					}
-				
-					try {
-						Object[] actargs = new Object[] {cimInstance.getObjectPath(), cimInstance};
-					
-						Object dataObj = cons.newInstance(actargs);
-					
-						resultArrayList.add(dataObj);
-					} catch (Exception e) {
-						System.err.println("The instance of class " + cimInstance.getClassName() + " could not be created successful. Constructing instance of the base class.");
-						resultArrayList.add(new Linux_SambaPrinterOptions(cimInstance.getObjectPath(), cimInstance));
-						continue;
-					}
 
-				}
-			}
-		} finally {
-			try {
-				if (enumeration != null) {
-					((CIMEnumeration)enumeration).close();
-				}
-			} catch(Exception e) {
-				throw new CIMException(CIMException.CIM_ERR_FAILED, "The socket of the result could not be closed properly.");
-			}
-		}
-			
-		return resultArrayList;
-	}
-	
-	public ArrayList getAssociationNames_Linux_SambaForceGroupForPrinter(CIMClient cimClient, String role, boolean deep) {
+                    if (clazz == null) {
+                        System.err.println("The class " + cimInstance.getClassName()
+                                + " was not found. Constructing instance of the base class.");
+                        result.add(new Linux_SambaPrinterOptions(cimInstance));
+                        continue;
+                    }
 
-		if (cimClient == null) {
-			throw new InvalidParameterException("The cimClient parameter does not contain a valid reference.");
-		}
-		
-		Enumeration enumeration = null;
-		ArrayList resultArrayList = new ArrayList();
+                    Class[] constParams = new Class[1];
+                    constParams[0] = CIMInstance.class;
+                    Constructor cons = null;
+                    try {
+                        cons = clazz.getConstructor(constParams);
+                    }
+                    catch (NoSuchMethodException e) {
+                        System.err.println("The required constructor of class "
+                                + cimInstance.getClassName()
+                                + " could not be found. Constructing instance of the base class.");
+                        result.add(new Linux_SambaPrinterOptions(cimInstance));
+                        continue;
+                    }
 
-		try {		
-			enumeration = cimClient.referenceNames(
-					this.getCimObjectPath(),
-					CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAFORCEGROUPFORPRINTER, 
-					role); //$NON-NLS-1$
-		
-		
-			while (enumeration.hasMoreElements()) {
-				Object obj = enumeration.nextElement();
-			
-				if (obj instanceof CIMObjectPath) {
-					if (deep || ((CIMObjectPath)obj).getObjectName().equals(Linux_SambaPrinterOptions.CIM_CLASS_NAME)) {
-						resultArrayList.add(obj);
-					}
-				}
-			}
-		} finally {
-			try {
-				if (enumeration != null) {
-					((CIMEnumeration)enumeration).close();
-				}
-			} catch(Exception e) {
-				throw new CIMException(CIMException.CIM_ERR_FAILED, "The socket of the result could not be closed properly.");
-			}
-		}
-			
-		return resultArrayList;
-	}
+                    try {
+                        Object[] actargs = new Object[] { cimInstance };
+                        Object dataObj = cons.newInstance(actargs);
+                        result.add(dataObj);
+                    }
+                    catch (Exception e) {
+                        System.err
+                                .println("The instance of class "
+                                        + cimInstance.getClassName()
+                                        + " could not be created successful. Constructing instance of the base class.");
+                        result.add(new Linux_SambaPrinterOptions(cimInstance));
+                        continue;
+                    }
+                }
+            }
+            Linux_SambaGroupHelper.checkException(enumeration);
+        }
+        finally {
+            try {
+                if (enumeration != null) {
+                    enumeration.close();
+                }
+            }
+            catch (Exception e) {
+                throw new WbemsmtException(WbemsmtException.ERR_FAILED,
+                        "The socket of the result could not be closed properly.");
+            }
+        }
 
-	public ArrayList getAssociated_Linux_SambaShareOptions_Linux_SambaForceGroupForShares(CIMClient cimClient,
-	boolean includeQualifiers, boolean includeClassOrigin, java.lang.String[] propertyList){
+        return result;
+    }
 
-		if (cimClient == null) {
-			throw new InvalidParameterException("The cimClient parameter does not contain a valid reference.");
-		}
-		
-		ArrayList resultArrayList = new ArrayList();
-		Enumeration enumeration = null;
-		
-		try {
-			enumeration = cimClient.associators(
-					this.getCimObjectPath(),
-					CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAFORCEGROUPFORSHARE, 
-					Linux_SambaShareOptions.CIM_CLASS_NAME,
-					null,null, 
-					//"PartComponent", //$NON-NLS-1$
-					//"GroupComponent", //$NON-NLS-1$
-					includeQualifiers,
-					includeClassOrigin,
-					propertyList);
-		
-			while (enumeration.hasMoreElements()) {
-				Object obj = enumeration.nextElement();
-				if (obj instanceof CIMInstance) {
-					CIMInstance cimInstance = (CIMInstance)obj;
-                    Class clazz = Linux_SambaGroupHelper.findClass(cimClient, cimInstance);
-                    
-					if (clazz == null) {
-						System.err.println("The class " + cimInstance.getClassName() +" was not found. Constructing instance of the base class.");
-						resultArrayList.add(new Linux_SambaShareOptions(cimInstance.getObjectPath(), cimInstance));
-						continue;
-					}
-					
-					Class[] constParams = new Class[2];
-					constParams[0] = CIMObjectPath.class;
-					constParams[1] = CIMInstance.class;
-					Constructor cons = null;
-					try {
-						cons = clazz.getConstructor(constParams);
-						
-					} catch(NoSuchMethodException e) {
-						System.err.println("The required constructor of class " + cimInstance.getClassName() + " could not be found. Constructing instance of the base class.");
-						resultArrayList.add(new Linux_SambaShareOptions(cimInstance.getObjectPath(), cimInstance));
-						continue;
-					}
-				
-					try {
-						Object[] actargs = new Object[] {cimInstance.getObjectPath(), cimInstance};
-					
-						Object dataObj = cons.newInstance(actargs);
-					
-						resultArrayList.add(dataObj);
-					} catch (Exception e) {
-						System.err.println("The instance of class " + cimInstance.getClassName() + " could not be created successful. Constructing instance of the base class.");
-						resultArrayList.add(new Linux_SambaShareOptions(cimInstance.getObjectPath(), cimInstance));
-						continue;
-					}
+    /**
+     * Get the list of CIMObjectPath items of the objects associated by the association Linux_SambaForceGroupForPrinter
+     * @param cimClient the WBEMClient for the communication
+     *
+     * uses CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAFORCEGROUPFORPRINTER as associationClass<br>
+     * uses false for includeQualifiers and includeClassOrigin <br>
+     * uses null for resultClass, role, resultRole<br>
+     * <br>
+     
+     * @see javax.wbem.client.WBEMClient#associatorNames(CIMObjectPath, String, String, String, String)
+     **/
 
-				}
-			}
-		} finally {
-			try {
-				if (enumeration != null) {
-					((CIMEnumeration)enumeration).close();
-				}
-			} catch(Exception e) {
-				throw new CIMException(CIMException.CIM_ERR_FAILED, "The socket of the result could not be closed properly.");
-			}
-		}
-			
-		return resultArrayList;
-	}
+    public java.util.List getAssociated_Linux_SambaPrinterOptions_Linux_SambaForceGroupForPrinterNames(
+            WBEMClient cimClient) throws WbemsmtException {
 
-	public ArrayList getAssociated_Linux_SambaShareOptions_Linux_SambaForceGroupForShare_Names(CIMClient cimClient, boolean deep) {
+        return getAssociated_Linux_SambaPrinterOptions_Linux_SambaForceGroupForPrinterNames(
+                cimClient, true, CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAFORCEGROUPFORPRINTER,
+                Linux_SambaPrinterOptions.CIM_CLASS_NAME, null, null);
+    }
 
-		if (cimClient == null) {
-			throw new InvalidParameterException("The cimClient parameter does not contain a valid reference.");
-		}
-		
-		Enumeration enumeration = null;
-		ArrayList resultArrayList = new ArrayList();
+    /**
+     * Get the list of CIMObjectPath items of the objects associated by the association Linux_SambaForceGroupForPrinter
+     * @param cimClient the WBEMClient for the communication
+     * @param resultClass This string MUST either contain a valid CIM Class name or be null. It filters the Objects returned to contain only the Objects of this Class name or one of its subclasses. The resultClass should be CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAFORCEGROUPFORPRINTER or a subclass 
+     * @param role This string MUST either contain a valid Property name or be null. It filters the Objects returned to contain only Objects associated to the source Object via an Association class in which the source Object plays the specified role. (i.e. the Property name in the Association class that refers to the source Object matches this value) If "Antecedent" is specified, then only Associations in which the source Object is the "Antecedent" reference are examined.
+     * @param resultRole This string MUST either contain a valid Property name or be null. It filters the Objects returned to contain only Objects associated to the source Object via an Association class in which the Object returned plays the specified role. (i.e. the Property name in the Association class that refers to the Object returned matches this value) If "Dependent" is specified, then only Associations in which the Object returned is the "Dependent" reference are examined. 
+     *
+     * uses CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAFORCEGROUPFORPRINTER as associationClass<br>
+     * uses false for includeQualifiers and includeClassOrigin <br>
+     * uses null for resultClass, role, resultRole<br>
+     * <br>
+     
+     * @see javax.wbem.client.WBEMClient#associatorNames(CIMObjectPath, String, String, String, String)
+     **/
 
-		try {		
-			enumeration = cimClient.associatorNames(
-					this.getCimObjectPath(),
-					CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAFORCEGROUPFORSHARE, 
-					Linux_SambaShareOptions.CIM_CLASS_NAME, 
-					null,null);
-					//"PartComponent", //$NON-NLS-1$
-					//"GroupComponent"); //$NON-NLS-1$
-		
-		
-			while (enumeration.hasMoreElements()) {
-				Object obj = enumeration.nextElement();
-			
-				if (obj instanceof CIMObjectPath) {
-					if (deep || ((CIMObjectPath)obj).getObjectName().equals(Linux_SambaShareOptions.CIM_CLASS_NAME)) {
-						resultArrayList.add(obj);
-					}
-				}
-			}
-		} finally {
-			try {
-				if (enumeration != null) {
-					((CIMEnumeration)enumeration).close();
-				}
-			} catch(Exception e) {
-				throw new CIMException(CIMException.CIM_ERR_FAILED, "The socket of the result could not be closed properly.");
-			}
-		}
-			
-		return resultArrayList;
-	}
+    public java.util.List getAssociated_Linux_SambaPrinterOptions_Linux_SambaForceGroupForPrinterNames(
+            WBEMClient cimClient, String resultClass, String role, String resultRole)
+            throws WbemsmtException {
 
-	
-	public ArrayList getAssociations_Linux_SambaForceGroupForShare(CIMClient cimClient,
-	boolean includeQualifiers, boolean includeClassOrigin, String role,java.lang.String[] propertyList) {
+        return getAssociated_Linux_SambaPrinterOptions_Linux_SambaForceGroupForPrinterNames(
+                cimClient, true, CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAFORCEGROUPFORPRINTER,
+                resultClass, role, resultRole);
+    }
 
-		if (cimClient == null) {
-			throw new InvalidParameterException("The cimClient parameter does not contain a valid reference.");
-		}
-		
-		ArrayList resultArrayList = new ArrayList();
-		Enumeration enumeration = null;
-		
-		try {
-			enumeration = cimClient.references(
-					this.getCimObjectPath(),
-					CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAFORCEGROUPFORSHARE, 
-					role, //$NON-NLS-1$
-					includeQualifiers,
-					includeClassOrigin,
-					propertyList);
-		
-			while (enumeration.hasMoreElements()) {
-				Object obj = enumeration.nextElement();
-				if (obj instanceof CIMInstance) {
-					CIMInstance cimInstance = (CIMInstance)obj;
-                    Class clazz = Linux_SambaGroupHelper.findClass(cimClient, cimInstance);
-                    
-					if (clazz == null) {
-						System.err.println("The class " + cimInstance.getClassName() +" was not found. Constructing instance of the base class.");
-						resultArrayList.add(new Linux_SambaShareOptions(cimInstance.getObjectPath(), cimInstance));
-						continue;
-					}
-					
-					Class[] constParams = new Class[2];
-					constParams[0] = CIMObjectPath.class;
-					constParams[1] = CIMInstance.class;
-					Constructor cons = null;
-					try {
-						cons = clazz.getConstructor(constParams);
-						
-					} catch(NoSuchMethodException e) {
-						System.err.println("The required constructor of class " + cimInstance.getClassName() + " could not be found. Constructing instance of the base class.");
-						resultArrayList.add(new Linux_SambaShareOptions(cimInstance.getObjectPath(), cimInstance));
-						continue;
-					}
-				
-					try {
-						Object[] actargs = new Object[] {cimInstance.getObjectPath(), cimInstance};
-					
-						Object dataObj = cons.newInstance(actargs);
-					
-						resultArrayList.add(dataObj);
-					} catch (Exception e) {
-						System.err.println("The instance of class " + cimInstance.getClassName() + " could not be created successful. Constructing instance of the base class.");
-						resultArrayList.add(new Linux_SambaShareOptions(cimInstance.getObjectPath(), cimInstance));
-						continue;
-					}
+    /**
+     * Get the list of CIMObjectPath items of the objects associated by the association Linux_SambaForceGroupForPrinter
+     * @param cimClient the WBEMClient for the communication
+     * @param deep if true the subclasses returned also
+     *
+     * @see javax.wbem.client.WBEMClient#associatorNames(CIMObjectPath, String, String, String, String)
+     **/
 
-				}
-			}
-		} finally {
-			try {
-				if (enumeration != null) {
-					((CIMEnumeration)enumeration).close();
-				}
-			} catch(Exception e) {
-				throw new CIMException(CIMException.CIM_ERR_FAILED, "The socket of the result could not be closed properly.");
-			}
-		}
-			
-		return resultArrayList;
-	}
-	
-	public ArrayList getAssociationNames_Linux_SambaForceGroupForShare(CIMClient cimClient, String role, boolean deep) {
+    public java.util.List getAssociated_Linux_SambaPrinterOptions_Linux_SambaForceGroupForPrinterNames(
+            WBEMClient cimClient, boolean deep, String associationClass, String resultClass,
+            String role, String resultRole) throws WbemsmtException {
 
-		if (cimClient == null) {
-			throw new InvalidParameterException("The cimClient parameter does not contain a valid reference.");
-		}
-		
-		Enumeration enumeration = null;
-		ArrayList resultArrayList = new ArrayList();
+        if (cimClient == null) {
+            throw new WbemsmtException(WbemsmtException.ERR_INVALID_PARAMETER,
+                    "The cimClient parameter does not contain a valid reference.");
+        }
 
-		try {		
-			enumeration = cimClient.referenceNames(
-					this.getCimObjectPath(),
-					CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAFORCEGROUPFORSHARE, 
-					role); //$NON-NLS-1$
-		
-		
-			while (enumeration.hasMoreElements()) {
-				Object obj = enumeration.nextElement();
-			
-				if (obj instanceof CIMObjectPath) {
-					if (deep || ((CIMObjectPath)obj).getObjectName().equals(Linux_SambaShareOptions.CIM_CLASS_NAME)) {
-						resultArrayList.add(obj);
-					}
-				}
-			}
-		} finally {
-			try {
-				if (enumeration != null) {
-					((CIMEnumeration)enumeration).close();
-				}
-			} catch(Exception e) {
-				throw new CIMException(CIMException.CIM_ERR_FAILED, "The socket of the result could not be closed properly.");
-			}
-		}
-			
-		return resultArrayList;
-	}
+        java.util.List result = new java.util.ArrayList();
+        CloseableIterator enumeration = null;
 
-	public ArrayList getAssociated_Linux_SambaUser_Linux_SambaGroupForUsers(CIMClient cimClient,
-	boolean includeQualifiers, boolean includeClassOrigin, java.lang.String[] propertyList){
+        try {
+            enumeration = cimClient.associatorNames(this.getCimObjectPath(), associationClass,
+                    resultClass, role, resultRole);
 
-		if (cimClient == null) {
-			throw new InvalidParameterException("The cimClient parameter does not contain a valid reference.");
-		}
-		
-		ArrayList resultArrayList = new ArrayList();
-		Enumeration enumeration = null;
-		
-		try {
-			enumeration = cimClient.associators(
-					this.getCimObjectPath(),
-					CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAGROUPFORUSER, 
-					Linux_SambaUser.CIM_CLASS_NAME,
-					null,null, 
-					//"GroupComponent", //$NON-NLS-1$
-					//"PartComponent", //$NON-NLS-1$
-					includeQualifiers,
-					includeClassOrigin,
-					propertyList);
-		
-			while (enumeration.hasMoreElements()) {
-				Object obj = enumeration.nextElement();
-				if (obj instanceof CIMInstance) {
-					CIMInstance cimInstance = (CIMInstance)obj;
-                    Class clazz = Linux_SambaGroupHelper.findClass(cimClient, cimInstance);
-                    
-					if (clazz == null) {
-						System.err.println("The class " + cimInstance.getClassName() +" was not found. Constructing instance of the base class.");
-						resultArrayList.add(new Linux_SambaUser(cimInstance.getObjectPath(), cimInstance));
-						continue;
-					}
-					
-					Class[] constParams = new Class[2];
-					constParams[0] = CIMObjectPath.class;
-					constParams[1] = CIMInstance.class;
-					Constructor cons = null;
-					try {
-						cons = clazz.getConstructor(constParams);
-						
-					} catch(NoSuchMethodException e) {
-						System.err.println("The required constructor of class " + cimInstance.getClassName() + " could not be found. Constructing instance of the base class.");
-						resultArrayList.add(new Linux_SambaUser(cimInstance.getObjectPath(), cimInstance));
-						continue;
-					}
-				
-					try {
-						Object[] actargs = new Object[] {cimInstance.getObjectPath(), cimInstance};
-					
-						Object dataObj = cons.newInstance(actargs);
-					
-						resultArrayList.add(dataObj);
-					} catch (Exception e) {
-						System.err.println("The instance of class " + cimInstance.getClassName() + " could not be created successful. Constructing instance of the base class.");
-						resultArrayList.add(new Linux_SambaUser(cimInstance.getObjectPath(), cimInstance));
-						continue;
-					}
+        }
+        catch (WBEMException e) {
+            throw new AssociatorNamesException(e, new AssociatorNamesUserObject(this
+                    .getCimObjectPath(), CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAFORCEGROUPFORPRINTER,
+                    Linux_SambaPrinterOptions.CIM_CLASS_NAME, null, null));
+        }
 
-				}
-			}
-		} finally {
-			try {
-				if (enumeration != null) {
-					((CIMEnumeration)enumeration).close();
-				}
-			} catch(Exception e) {
-				throw new CIMException(CIMException.CIM_ERR_FAILED, "The socket of the result could not be closed properly.");
-			}
-		}
-			
-		return resultArrayList;
-	}
+        try {
+            while (enumeration.hasNext()) {
+                Linux_SambaGroupHelper.checkException(enumeration);
 
-	public ArrayList getAssociated_Linux_SambaUser_Linux_SambaGroupForUser_Names(CIMClient cimClient, boolean deep) {
+                Object obj = enumeration.next();
+                Linux_SambaGroupHelper.checkException(enumeration);
+                if (obj instanceof CIMObjectPath) {
+                    if (deep
+                            || ((CIMObjectPath) obj).getObjectName().equals(
+                                    Linux_SambaPrinterOptions.CIM_CLASS_NAME)) {
+                        result.add(obj);
+                    }
+                }
+            }
+            Linux_SambaGroupHelper.checkException(enumeration);
+        }
+        finally {
+            try {
+                if (enumeration != null) {
+                    enumeration.close();
+                }
+            }
+            catch (Exception e) {
+                throw new WbemsmtException(WbemsmtException.ERR_FAILED,
+                        "The socket of the result could not be closed properly.");
+            }
+        }
+        return result;
+    }
 
-		if (cimClient == null) {
-			throw new InvalidParameterException("The cimClient parameter does not contain a valid reference.");
-		}
-		
-		Enumeration enumeration = null;
-		ArrayList resultArrayList = new ArrayList();
+    /**
+     * Get the list with Linux_SambaForceGroupForPrinter associations
+     *
+     * @param cimClient the WBEMClient for the communication
+     * @param includeQualifiers If true, all Qualifiers for each Object (including Qualifiers on the Object and on any returned Properties) MUST be included in the Objects returned. If false, no Qualifiers are present in each Object returned.
+     * @param includeClassOrigin If true, the CLASSORIGIN attribute will be present on all appropriate elements in the Objects returned. If false, no CLASSORIGIN attributes are present in the Objects returned. CLASSORIGIN is attached to an element (properties, methods, references) to indicate the class in which it was first defined.
+     * @param role This string MUST either contain a valid Property name or be null. It filters the Objects returned to contain only Objects referring to the source Object via a Property with the specified name. If "Antecedent" is specified, then only Associations in which the source Object is the "Antecedent" reference are returned.
+     * @param propertyList An array of property names used to filter what is contained in the Objects returned. Each CIMClass or CIMInstance returned only contains elements for the properties of the names specified. Duplicate and invalid property names are ignored and the request is otherwise processed normally. An empty array indicates that no properties should be included in the Objects returned. A null value indicates that all properties should be contained in the Objects returned. NOTE: Properties should not be specified in this parameter unless a non-null value is specified in the resultClass  parameter.
+     *
+     * @see javax.wbem.client.WBEMClient#references(CIMObjectPath, String, String, boolean, boolean, String[])
+     **/
 
-		try {		
-			enumeration = cimClient.associatorNames(
-					this.getCimObjectPath(),
-					CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAGROUPFORUSER, 
-					Linux_SambaUser.CIM_CLASS_NAME, 
-					null,null);
-					//"GroupComponent", //$NON-NLS-1$
-					//"PartComponent"); //$NON-NLS-1$
-		
-		
-			while (enumeration.hasMoreElements()) {
-				Object obj = enumeration.nextElement();
-			
-				if (obj instanceof CIMObjectPath) {
-					if (deep || ((CIMObjectPath)obj).getObjectName().equals(Linux_SambaUser.CIM_CLASS_NAME)) {
-						resultArrayList.add(obj);
-					}
-				}
-			}
-		} finally {
-			try {
-				if (enumeration != null) {
-					((CIMEnumeration)enumeration).close();
-				}
-			} catch(Exception e) {
-				throw new CIMException(CIMException.CIM_ERR_FAILED, "The socket of the result could not be closed properly.");
-			}
-		}
-			
-		return resultArrayList;
-	}
+    public java.util.List getAssociations_Linux_SambaForceGroupForPrinter(WBEMClient cimClient,
+            boolean includeQualifiers, boolean includeClassOrigin, String role,
+            java.lang.String[] propertyList) throws WbemsmtException {
 
-	
-	public ArrayList getAssociations_Linux_SambaGroupForUser(CIMClient cimClient,
-	boolean includeQualifiers, boolean includeClassOrigin, String role,java.lang.String[] propertyList) {
+        if (cimClient == null) {
+            throw new WbemsmtException(WbemsmtException.ERR_INVALID_PARAMETER,
+                    "The cimClient parameter does not contain a valid reference.");
+        }
 
-		if (cimClient == null) {
-			throw new InvalidParameterException("The cimClient parameter does not contain a valid reference.");
-		}
-		
-		ArrayList resultArrayList = new ArrayList();
-		Enumeration enumeration = null;
-		
-		try {
-			enumeration = cimClient.references(
-					this.getCimObjectPath(),
-					CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAGROUPFORUSER, 
-					role, //$NON-NLS-1$
-					includeQualifiers,
-					includeClassOrigin,
-					propertyList);
-		
-			while (enumeration.hasMoreElements()) {
-				Object obj = enumeration.nextElement();
-				if (obj instanceof CIMInstance) {
-					CIMInstance cimInstance = (CIMInstance)obj;
-                    Class clazz = Linux_SambaGroupHelper.findClass(cimClient, cimInstance);
-                    
-					if (clazz == null) {
-						System.err.println("The class " + cimInstance.getClassName() +" was not found. Constructing instance of the base class.");
-						resultArrayList.add(new Linux_SambaUser(cimInstance.getObjectPath(), cimInstance));
-						continue;
-					}
-					
-					Class[] constParams = new Class[2];
-					constParams[0] = CIMObjectPath.class;
-					constParams[1] = CIMInstance.class;
-					Constructor cons = null;
-					try {
-						cons = clazz.getConstructor(constParams);
-						
-					} catch(NoSuchMethodException e) {
-						System.err.println("The required constructor of class " + cimInstance.getClassName() + " could not be found. Constructing instance of the base class.");
-						resultArrayList.add(new Linux_SambaUser(cimInstance.getObjectPath(), cimInstance));
-						continue;
-					}
-				
-					try {
-						Object[] actargs = new Object[] {cimInstance.getObjectPath(), cimInstance};
-					
-						Object dataObj = cons.newInstance(actargs);
-					
-						resultArrayList.add(dataObj);
-					} catch (Exception e) {
-						System.err.println("The instance of class " + cimInstance.getClassName() + " could not be created successful. Constructing instance of the base class.");
-						resultArrayList.add(new Linux_SambaUser(cimInstance.getObjectPath(), cimInstance));
-						continue;
-					}
+        java.util.List result = new java.util.ArrayList();
+        CloseableIterator enumeration = null;
 
-				}
-			}
-		} finally {
-			try {
-				if (enumeration != null) {
-					((CIMEnumeration)enumeration).close();
-				}
-			} catch(Exception e) {
-				throw new CIMException(CIMException.CIM_ERR_FAILED, "The socket of the result could not be closed properly.");
-			}
-		}
-			
-		return resultArrayList;
-	}
-	
-	public ArrayList getAssociationNames_Linux_SambaGroupForUser(CIMClient cimClient, String role, boolean deep) {
+        try {
+            enumeration = cimClient.references(this.getCimObjectPath(),
+                    CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAFORCEGROUPFORPRINTER, role,
+                    includeQualifiers, includeClassOrigin, propertyList);
+        }
+        catch (WBEMException e) {
+            throw new ReferencesException(e, new ReferencesUserObject(this.getCimObjectPath(),
+                    CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAFORCEGROUPFORPRINTER, role,
+                    includeQualifiers, includeClassOrigin, propertyList));
+        }
 
-		if (cimClient == null) {
-			throw new InvalidParameterException("The cimClient parameter does not contain a valid reference.");
-		}
-		
-		Enumeration enumeration = null;
-		ArrayList resultArrayList = new ArrayList();
+        try {
+            while (enumeration.hasNext()) {
+                Linux_SambaGroupHelper.checkException(enumeration);
+                Object obj = enumeration.next();
+                Linux_SambaGroupHelper.checkException(enumeration);
 
-		try {		
-			enumeration = cimClient.referenceNames(
-					this.getCimObjectPath(),
-					CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAGROUPFORUSER, 
-					role); //$NON-NLS-1$
-		
-		
-			while (enumeration.hasMoreElements()) {
-				Object obj = enumeration.nextElement();
-			
-				if (obj instanceof CIMObjectPath) {
-					if (deep || ((CIMObjectPath)obj).getObjectName().equals(Linux_SambaUser.CIM_CLASS_NAME)) {
-						resultArrayList.add(obj);
-					}
-				}
-			}
-		} finally {
-			try {
-				if (enumeration != null) {
-					((CIMEnumeration)enumeration).close();
-				}
-			} catch(Exception e) {
-				throw new CIMException(CIMException.CIM_ERR_FAILED, "The socket of the result could not be closed properly.");
-			}
-		}
-			
-		return resultArrayList;
-	}
+                if (obj instanceof CIMInstance) {
+                    CIMInstance cimInstance = (CIMInstance) obj;
+                    Class clazz = Linux_SambaForceGroupForPrinterHelper.findClass(cimClient,
+                            cimInstance);
 
-	
-	
-	//*****************************************************
-	// Attribute methods
-	//*****************************************************
-	
-	// Attribute SambaGroupName
-	
-	public String get_SambaGroupName() {
-		
-		CIMProperty currentProperty = this.cimInstance.getProperty(Linux_SambaGroup.CIM_PROPERTY_SAMBAGROUPNAME);
-        
-		if (currentProperty == null) {
-			throw new CIMException(CIMException.CIM_ERR_NO_SUCH_PROPERTY, "The property " + Linux_SambaGroup.CIM_PROPERTY_SAMBAGROUPNAME + " could not be found");
-    		
-		} else if (currentProperty.getType() == null || currentProperty.getType().getType() != CIMDataType.STRING) {
-			throw new CIMException(CIMException.CIM_ERR_TYPE_MISMATCH, "The property " + Linux_SambaGroup.CIM_PROPERTY_SAMBAGROUPNAME + " is not of expected type " + CIMDataType.getPredefinedType(CIMDataType.STRING) + ".");
-		}
-        
-		if (currentProperty.getValue() == null) {
-			return null;
-		}
-        
-		return (String)currentProperty.getValue().getValue();
-	}
-	    
-			
-	public void set_SambaGroupName(String newValue) {
-		
-		CIMProperty currentProperty = this.cimInstance.getProperty(Linux_SambaGroup.CIM_PROPERTY_SAMBAGROUPNAME);
-    	
-		if (isValidCimInstance()) {
-    		throw new InvalidParameterException("The property " + Linux_SambaGroup.CIM_PROPERTY_SAMBAGROUPNAME + "can not be modified. It is a KEY value.");
-    		
-		} else if (currentProperty == null) {
-			throw new CIMException(CIMException.CIM_ERR_NO_SUCH_PROPERTY, "The property " + Linux_SambaGroup.CIM_PROPERTY_SAMBAGROUPNAME + " could not be found");
-    		
-		} else if (!Linux_SambaGroupHelper.isValid_SambaGroupName(newValue)) {
-			throw new InvalidParameterException("The value " + newValue + " is not valid for property " + Linux_SambaGroup.CIM_PROPERTY_SAMBAGROUPNAME);
-    		
-		} else if (currentProperty.getType() == null || currentProperty.getType().getType() != CIMDataType.STRING) {
-			throw new CIMException(CIMException.CIM_ERR_TYPE_MISMATCH, "The property " + Linux_SambaGroup.CIM_PROPERTY_SAMBAGROUPNAME + " is not of expected type " + CIMDataType.getPredefinedType(CIMDataType.STRING) + ".");
-		}
-    	
-		CIMValue updatedValue = new CIMValue(newValue, new CIMDataType(CIMDataType.STRING));
-		currentProperty.setValue(updatedValue);
-	}	
-	    
-	
+                    if (clazz == null) {
+                        System.err.println("The class " + cimInstance.getClassName()
+                                + " was not found. Constructing instance of the base class.");
+                        result.add(new Linux_SambaForceGroupForPrinter(cimInstance));
+                        continue;
+                    }
 
-	// Attribute SystemGroupName
-	
-	public String get_SystemGroupName() {
-		
-		CIMProperty currentProperty = this.cimInstance.getProperty(Linux_SambaGroup.CIM_PROPERTY_SYSTEMGROUPNAME);
-        
-		if (currentProperty == null) {
-			throw new CIMException(CIMException.CIM_ERR_NO_SUCH_PROPERTY, "The property " + Linux_SambaGroup.CIM_PROPERTY_SYSTEMGROUPNAME + " could not be found");
-    		
-		} else if (currentProperty.getType() == null || currentProperty.getType().getType() != CIMDataType.STRING) {
-			throw new CIMException(CIMException.CIM_ERR_TYPE_MISMATCH, "The property " + Linux_SambaGroup.CIM_PROPERTY_SYSTEMGROUPNAME + " is not of expected type " + CIMDataType.getPredefinedType(CIMDataType.STRING) + ".");
-		}
-        
-		if (currentProperty.getValue() == null) {
-			return null;
-		}
-        
-		return (String)currentProperty.getValue().getValue();
-	}
-	    
-			
-	public void set_SystemGroupName(String newValue) {
-		
-		CIMProperty currentProperty = this.cimInstance.getProperty(Linux_SambaGroup.CIM_PROPERTY_SYSTEMGROUPNAME);
-    	
-		if (currentProperty == null) {
-			throw new CIMException(CIMException.CIM_ERR_NO_SUCH_PROPERTY, "The property " + Linux_SambaGroup.CIM_PROPERTY_SYSTEMGROUPNAME + " could not be found");
-    		
-		} else if (!Linux_SambaGroupHelper.isValid_SystemGroupName(newValue)) {
-			throw new InvalidParameterException("The value " + newValue + " is not valid for property " + Linux_SambaGroup.CIM_PROPERTY_SYSTEMGROUPNAME);
-    		
-		} else if (currentProperty.getType() == null || currentProperty.getType().getType() != CIMDataType.STRING) {
-			throw new CIMException(CIMException.CIM_ERR_TYPE_MISMATCH, "The property " + Linux_SambaGroup.CIM_PROPERTY_SYSTEMGROUPNAME + " is not of expected type " + CIMDataType.getPredefinedType(CIMDataType.STRING) + ".");
-		}
-    	
-		CIMValue updatedValue = new CIMValue(newValue, new CIMDataType(CIMDataType.STRING));
-		currentProperty.setValue(updatedValue);
-	}	
-	    
-	
+                    Class[] constParams = new Class[1];
+                    constParams[0] = CIMInstance.class;
+                    Constructor cons = null;
+                    try {
+                        cons = clazz.getConstructor(constParams);
+                    }
+                    catch (NoSuchMethodException e) {
+                        System.err.println("The required constructor of class "
+                                + cimInstance.getClassName()
+                                + " could not be found. Constructing instance of the base class.");
+                        result.add(new Linux_SambaForceGroupForPrinter(cimInstance));
+                        continue;
+                    }
 
-	
-	
-	//*****************************************************
-	// Invoke methods
-	//*****************************************************
-	
-	
-	public static String invoke_getAllSystemGroups(CIMClient cimClient) {
-	  	Vector inParameter = new Vector();
-	  	Vector outParameter = new Vector();
-	  	
-	  	
-	  	
+                    try {
+                        Object[] actargs = new Object[] { cimInstance };
+                        Object dataObj = cons.newInstance(actargs);
+                        result.add(dataObj);
+                    }
+                    catch (Exception e) {
+                        System.err
+                                .println("The instance of class "
+                                        + cimInstance.getClassName()
+                                        + " could not be created successful. Constructing instance of the base class.");
+                        result.add(new Linux_SambaForceGroupForPrinter(cimInstance));
+                        continue;
+                    }
+                }
+            }
+            Linux_SambaGroupHelper.checkException(enumeration);
+        }
+        finally {
+            try {
+                if (enumeration != null) {
+                    enumeration.close();
+                }
+            }
+            catch (Exception e) {
+                throw new WbemsmtException(WbemsmtException.ERR_FAILED,
+                        "The socket of the result could not be closed properly.");
+            }
+        }
 
-	  	
-	  	
-	  	
-	  	CIMValue returnValue = cimClient.invokeMethod(new CIMObjectPath(Linux_SambaGroup.CIM_CLASS_NAME), 
-				  									  CIM_METHOD_GETALLSYSTEMGROUPS,
-													  inParameter,
-													  outParameter);
-		
-		if (returnValue == null || returnValue.isNull()) {
-			throw new CIMException(CIMException.CIM_ERR_FAILED, "The returned CIMValue from remote method call '" + 
-					Linux_SambaGroup.CIM_METHOD_GETALLSYSTEMGROUPS + "' is null.");
-		}
-		if (returnValue.getValue() == null || returnValue.isNullValue()) {
-			throw new CIMException(CIMException.CIM_ERR_FAILED, "The return value from remote method call '" + 
-					Linux_SambaGroup.CIM_METHOD_GETALLSYSTEMGROUPS + "' is null.");
-		}
-		if (returnValue.getType().getType() != CIMDataType.STRING) {
-			throw new CIMException(CIMException.CIM_ERR_TYPE_MISMATCH, "The return value from remote method call " + Linux_SambaGroup.CIM_METHOD_GETALLSYSTEMGROUPS + 
-					" is not of expected type: " + CIMDataType.getPredefinedType(CIMDataType.STRING) + ".");		
-		}
+        return result;
+    }
 
-		return (String)returnValue.getValue(); 		  	
-	  }
+    /**
+     * Get a list of CIMObjectPath items of the associations Linux_SambaForceGroupForPrinter
+     *
+     * @param cimClient the WBEMClient for the communication
+     * @param role This string MUST either contain a valid Property name or be null. It filters the Objects returned to contain only Objects referring to the source Object via a Property with the specified name. If "Antecedent" is specified, then only Associations in which the source Object is the "Antecedent" reference are returned.
+     * @param deep if true the subclasses returned also
+     *
+     * @see javax.wbem.client.WBEMClient#referenceNames(CIMObjectPath, String, String)
+     **/
 
-	
+    public java.util.List getAssociationNames_Linux_SambaForceGroupForPrinter(WBEMClient cimClient,
+            String role, boolean deep) throws WbemsmtException {
+
+        if (cimClient == null) {
+            throw new WbemsmtException(WbemsmtException.ERR_INVALID_PARAMETER,
+                    "The cimClient parameter does not contain a valid reference.");
+        }
+
+        java.util.List result = new java.util.ArrayList();
+        CloseableIterator enumeration = null;
+
+        try {
+            enumeration = cimClient.referenceNames(this.getCimObjectPath(),
+                    CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAFORCEGROUPFORPRINTER, role);
+        }
+        catch (WBEMException e) {
+            throw new ReferenceNamesException(e, new ReferenceNamesUserObject(this
+                    .getCimObjectPath(), CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAFORCEGROUPFORPRINTER,
+                    role));
+        }
+
+        try {
+            while (enumeration.hasNext()) {
+                Linux_SambaGroupHelper.checkException(enumeration);
+                Object obj = enumeration.next();
+                Linux_SambaGroupHelper.checkException(enumeration);
+
+                if (obj instanceof CIMObjectPath) {
+                    if (deep
+                            || ((CIMObjectPath) obj).getObjectName().equals(
+                                    Linux_SambaForceGroupForPrinter.CIM_CLASS_NAME)) {
+                        result.add(obj);
+                    }
+                }
+            }
+            Linux_SambaGroupHelper.checkException(enumeration);
+        }
+        finally {
+            try {
+                if (enumeration != null) {
+                    enumeration.close();
+                }
+            }
+            catch (Exception e) {
+                throw new WbemsmtException(WbemsmtException.ERR_FAILED,
+                        "The socket of the result could not be closed properly.");
+            }
+        }
+        return result;
+    }
+
+    //**********************************************************************
+    // Extrinsic Method invocations     
+    //**********************************************************************                         
+
+    /**
+     * Invokes the Method getAllSystemGroups
+     * <br>
+     * @param client the cimclient
+     * 
+     *
+     */
+
+    public static GetAllSystemGroupsResult invoke_getAllSystemGroups(WBEMClient cimClient,
+            String namespace) throws WbemsmtException {
+
+        CIMArgument[] inParameter = new CIMArgument[0];
+        CIMArgument[] outParameter = new CIMArgument[0];
+
+        String resultObject = null;
+
+        try {
+            Object oResult = cimClient.invokeMethod(
+                    new CIMObjectPath(Linux_SambaGroup.CIM_CLASS_NAME,
+                            org.sblim.wbemsmt.bl.fco.AbstractWbemsmtFcoHelper
+                                    .harmonizeNamespace(namespace)),
+                    METHOD_GETALLSYSTEMGROUPS.NAME, inParameter, outParameter);
+            if (oResult != null) {
+
+                resultObject = (String) oResult;
+            }
+        }
+        catch (WBEMException e) {
+            throw new InvokeMethodException(e, new InvokeMethodUserObject(null,
+                    METHOD_GETALLSYSTEMGROUPS.NAME, inParameter, outParameter));
+        }
+
+        GetAllSystemGroupsResult result = new GetAllSystemGroupsResult();
+        result.setResultObject(resultObject);
+
+        java.util.HashMap mapOutParameter = new java.util.HashMap();
+        for (int i = 0; i < outParameter.length; i++) {
+            CIMArgument argument = outParameter[i];
+            if (argument != null) {
+                mapOutParameter.put(argument.getName(), argument);
+            }
+        }
+
+        return result;
+    }
+
+    /**
+     * Result object for the method getAllSystemGroups
+     */
+    public static class GetAllSystemGroupsResult {
+        /**
+         * The return value of the method
+         */
+
+        String resultObject = null;
+
+        /**
+         * Default constructor
+         */
+        GetAllSystemGroupsResult() {
+        }
+
+        /**
+         * Set the return value
+         * @param rc
+         */
+        void setResultObject(String resultObject) {
+            this.resultObject = resultObject;
+        }
+
+        /**
+         * Get the return value of the methid
+         * @return the return value
+         */
+        public String getResultObject() {
+            return this.resultObject;
+        }
+
+    }
+
+    //**********************************************************************
+    // utility methods     
+    //**********************************************************************                         
+
+    /**
+     * return the name of the CIMClass
+     * @return
+     */
+    public String getObjectName() {
+        return Linux_SambaGroup.CIM_CLASS_NAME;
+    }
 
 }

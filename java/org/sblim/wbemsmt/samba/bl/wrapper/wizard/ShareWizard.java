@@ -22,39 +22,18 @@ package org.sblim.wbemsmt.samba.bl.wrapper.wizard;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import java.util.Vector;
 
-import org.sblim.wbem.cim.CIMDataType;
-import org.sblim.wbem.cim.CIMProperty;
-import org.sblim.wbem.cim.CIMValue;
-import org.sblim.wbem.cim.UnsignedInt16;
-import org.sblim.wbem.client.CIMClient;
+import javax.cim.CIMProperty;
+import javax.cim.UnsignedInteger16;
+import javax.wbem.client.WBEMClient;
+
 import org.sblim.wbemsmt.bl.adapter.CimObjectKey;
 import org.sblim.wbemsmt.bl.adapter.DataContainer;
 import org.sblim.wbemsmt.bl.adapter.MessageList;
-import org.sblim.wbemsmt.exception.ModelLoadException;
-import org.sblim.wbemsmt.exception.ObjectCreationException;
-import org.sblim.wbemsmt.exception.ObjectSaveException;
-import org.sblim.wbemsmt.exception.UpdateControlsException;
+import org.sblim.wbemsmt.exception.WbemsmtException;
 import org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter;
-import org.sblim.wbemsmt.samba.bl.container.wizard.ShareWizardPage1;
-import org.sblim.wbemsmt.samba.bl.container.wizard.ShareWizardPage2;
-import org.sblim.wbemsmt.samba.bl.container.wizard.ShareWizardPage3CMD;
-import org.sblim.wbemsmt.samba.bl.container.wizard.ShareWizardPage3GUI;
-import org.sblim.wbemsmt.samba.bl.container.wizard.ShareWizardPage4;
-import org.sblim.wbemsmt.samba.bl.container.wizard.UserInShareWizardACLItemDataContainer;
-import org.sblim.wbemsmt.samba.bl.fco.Linux_SambaAdminUsersForShare;
-import org.sblim.wbemsmt.samba.bl.fco.Linux_SambaCommonSecurityOptions;
-import org.sblim.wbemsmt.samba.bl.fco.Linux_SambaForceUserForShare;
-import org.sblim.wbemsmt.samba.bl.fco.Linux_SambaInvalidUsersForShare;
-import org.sblim.wbemsmt.samba.bl.fco.Linux_SambaReadListForShare;
-import org.sblim.wbemsmt.samba.bl.fco.Linux_SambaShareBrowseOptions;
-import org.sblim.wbemsmt.samba.bl.fco.Linux_SambaShareFileNameHandlingOptions;
-import org.sblim.wbemsmt.samba.bl.fco.Linux_SambaShareOptions;
-import org.sblim.wbemsmt.samba.bl.fco.Linux_SambaShareProtocolOptions;
-import org.sblim.wbemsmt.samba.bl.fco.Linux_SambaUser;
-import org.sblim.wbemsmt.samba.bl.fco.Linux_SambaValidUsersForShare;
-import org.sblim.wbemsmt.samba.bl.fco.Linux_SambaWriteListForShare;
+import org.sblim.wbemsmt.samba.bl.container.wizard.*;
+import org.sblim.wbemsmt.samba.bl.fco.*;
 import org.sblim.wbemsmt.samba.bl.wrapper.Service;
 
 public class ShareWizard   extends SambaWizard{
@@ -72,12 +51,12 @@ public class ShareWizard   extends SambaWizard{
 		super(adapter);
 	}
 
-	public void create(ShareWizardPage4 container) throws ObjectCreationException {
-		Linux_SambaShareOptions share = new Linux_SambaShareOptions();
-		CIMClient cc = adapter.getCimClient();
-		MessageList.init(container);
-		try {
-			share.set_Name((String) page1.get_Name().getConvertedControlValue());
+	public void create(ShareWizardPage4 container) throws WbemsmtException {
+	    try {
+    		Linux_SambaShareOptions share = new Linux_SambaShareOptions(adapter.getCimClient(),adapter.getNamespace());
+    		WBEMClient cc = adapter.getCimClient();
+    		MessageList.init(container);
+			share.set_key_Name((String) page1.get_Name().getConvertedControlValue());
 			share.set_Path((String) page1.get_Path().getConvertedControlValue());
 			share.set_Comment((String) page1.get_Comment().getConvertedControlValue());
 			setInstanceId(share);
@@ -87,14 +66,14 @@ public class ShareWizard   extends SambaWizard{
 			boolean enableGuest  = ((Boolean)page2.get_usr_EnableGuest().getConvertedControlValue()).booleanValue();
 			boolean publicShare = ((Boolean)page2.get_usr_SeenByEverybody().getConvertedControlValue()).booleanValue();
 
-			createForceUser(share,cc);
-			createBrowseOpts(share, cc, publicShare);
-			createCommonSec(share, cc, enableGuest);			
-			createShareSec(share, cc);			
-			createFilenameHandlingOpts(share, cc);			
-			createProtocolOpts(share, cc);			
+			createForceUser(share);
+			createBrowseOpts(share, publicShare);
+			createCommonSec(share, enableGuest);			
+			createShareSec(share);			
+			createFilenameHandlingOpts(share);			
+			createProtocolOpts(share);			
 
-			createUserAcl(cc, share);
+			createUserAcl(share);
 			
 			//next time in the wizard is first time
 			updatedContainers.clear();
@@ -105,110 +84,107 @@ public class ShareWizard   extends SambaWizard{
 			adapter.setPathOfTreeNode(share.getCimObjectPath());
 
 		} catch (Exception e) {
-			throw new ObjectCreationException(adapter.getBundle().getString("cannot.create.share"),e);
+			throw new WbemsmtException(WbemsmtException.ERR_CREATE_OBJECT,adapter.getBundle().getString("cannot.create.share"),e);
 		}
 	}
 
-	private void createForceUser(Linux_SambaShareOptions share, CIMClient cc) throws ObjectCreationException {
-		UnsignedInt16 index = (UnsignedInt16) page2.get_usr_ForceUser().getConvertedControlValue();
-		//first element is the "no force user text" so subtract one to get the right user
-		if (index != null && index.intValue() > 0)
-		{
-			Linux_SambaUser user = ((SambaCimAdapter) page4.getAdapter()).getSelectedService().getUsers().getUser(index.intValue()-1).getUser();
-			Linux_SambaForceUserForShare newForceUserAssoc = new Linux_SambaForceUserForShare();
-			newForceUserAssoc.set_Linux_SambaShareOptions(share);
-			newForceUserAssoc.set_Linux_SambaUser(user);
-			adapter.getFcoHelper().create(newForceUserAssoc,cc);
-			
-		}
+	private void createForceUser(Linux_SambaShareOptions share) throws WbemsmtException {
+		try {
+            UnsignedInteger16 index = (UnsignedInteger16) page2.get_usr_ForceUser().getConvertedControlValue();
+            //first element is the "no force user text" so subtract one to get the right user
+            if (index != null && index.intValue() > 0)
+            {
+            	Linux_SambaUser user = ((SambaCimAdapter) page4.getAdapter()).getSelectedService().getUsers().getUser(index.intValue()-1).getUser();
+            	Linux_SambaForceUserForShare newForceUserAssoc = new Linux_SambaForceUserForShare(adapter.getCimClient(),adapter.getNamespace());
+            	newForceUserAssoc.set_GroupComponent_Linux_SambaShareOptions(share);
+            	newForceUserAssoc.set_PartComponent_Linux_SambaUser(user);
+            	adapter.getFcoHelper().create(newForceUserAssoc,adapter.getCimClient());
+            	
+            }
+        }
+        catch (Exception e) {
+            throw new WbemsmtException(WbemsmtException.ERR_CREATE_OBJECT,e);
+        }
 	}
 
-	private void createUserAcl(CIMClient cc, Linux_SambaShareOptions share) throws ObjectSaveException {
+	private void createUserAcl(Linux_SambaShareOptions share) throws WbemsmtException {
 		List items = page4.getUsers();
 		for (int i=0; i < items.size(); i++)
 		{
-			UserInShareWizardACLItemDataContainer item = (UserInShareWizardACLItemDataContainer)items.get(i);
-			boolean admin = ((Boolean)item.get_usr_Admin().getConvertedControlValue()).booleanValue();
-			Linux_SambaUser user = adapter.getSelectedService().getUsers().getUser(i).getUser();
-			String sambaUserName = user.get_SambaUserName();
+		    UserInShareWizardACLItemDataContainer item = (UserInShareWizardACLItemDataContainer)items.get(i);
+            boolean admin = ((Boolean)item.get_usr_Admin().getConvertedControlValue()).booleanValue();
+            Linux_SambaUser user = adapter.getSelectedService().getUsers().getUser(i).getUser();
+            String sambaUserName = user.get_key_SambaUserName();
+   
+            CIMProperty[] vKeyProperties = new CIMProperty[] {
+                    Linux_SambaInvalidUsersForShare.create_GroupComponent_Linux_SambaShareOptions(adapter.getCimClient(), adapter.getNamespace(), share),
+                    Linux_SambaInvalidUsersForShare.create_PartComponent_Linux_SambaUser(adapter.getCimClient(), adapter.getNamespace(), user)};
 
-			Vector vKeyProperties = new Vector();
-			vKeyProperties.add(new CIMProperty(Linux_SambaInvalidUsersForShare.CIM_PROPERTY_LINUX_SAMBAUSER, new CIMValue(user.getCimObjectPath(), new CIMDataType(Linux_SambaUser.CIM_CLASS_NAME))));
-			vKeyProperties.add(new CIMProperty(Linux_SambaInvalidUsersForShare.CIM_PROPERTY_LINUX_SAMBASHAREOPTIONS, new CIMValue(share.getCimObjectPath(), new CIMDataType(Linux_SambaShareOptions.CIM_CLASS_NAME))));
-
-			try {
-				save(admin, adapter.getSelectedService().getAdminUsers(cc),
-						Linux_SambaAdminUsersForShare.class, sambaUserName,
-						vKeyProperties, cc);
-				saveValidInvalid(item.get_usr_AccessTypeVI(), user,
-						adapter.getSelectedService().getInvalidUsers(cc), adapter.getSelectedService().getValidUsers(cc), cc, vKeyProperties,
-						Linux_SambaInvalidUsersForShare.class,
-						Linux_SambaValidUsersForShare.class);
-				saveReadWrite(item.get_usr_AccessTypeRW(), user, adapter.getSelectedService().getReadUsers(cc),
-						adapter.getSelectedService().getWriteUsers(cc), cc, vKeyProperties,
-						Linux_SambaReadListForShare.class,
-						Linux_SambaWriteListForShare.class);
-			} catch (ModelLoadException e) {
-				throw new ObjectSaveException(e);
-			}
+            save(admin, adapter.getSelectedService().getAdminUsers(),
+            		Linux_SambaAdminUsersForShare.class, sambaUserName,
+            		vKeyProperties);
+            saveValidInvalid(item.get_usr_AccessTypeVI(), user,
+            		adapter.getSelectedService().getInvalidUsers(), adapter.getSelectedService().getValidUsers(), vKeyProperties,
+            		Linux_SambaInvalidUsersForShare.class,
+            		Linux_SambaValidUsersForShare.class);
+            saveReadWrite(item.get_usr_AccessTypeRW(), user, adapter.getSelectedService().getReadUsers(),
+            		adapter.getSelectedService().getWriteUsers(), vKeyProperties,
+            		Linux_SambaReadListForShare.class,
+            		Linux_SambaWriteListForShare.class);
 		}
 	}
 	
-	private void createFilenameHandlingOpts(Linux_SambaShareOptions share, CIMClient cc) throws ObjectSaveException {
+	private void createFilenameHandlingOpts(Linux_SambaShareOptions share) throws WbemsmtException {
 		try {
 			Linux_SambaShareFileNameHandlingOptions child = 
-				(Linux_SambaShareFileNameHandlingOptions) getFirstChild(Linux_SambaShareFileNameHandlingOptions.class,share.getAssociated_Linux_SambaShareFileNameHandlingOptions_Linux_SambaShareFileNameHandlingForShare_Names(cc,false),false);
-			adapter.getFcoHelper().save(child,cc);
-		} catch (ModelLoadException e) {
-			throw new ObjectSaveException(e);
+				(Linux_SambaShareFileNameHandlingOptions) getFirstChild(Linux_SambaShareFileNameHandlingOptions.class,share.getAssociated_Linux_SambaShareFileNameHandlingOptions_Linux_SambaShareFileNameHandlingForShareNames(adapter.getCimClient()),false);
+			adapter.getFcoHelper().save(child,adapter.getCimClient());
+		} catch (Exception e) {
+			throw new WbemsmtException(WbemsmtException.ERR_SAVE_OBJECT,e);
 		}
 	}
 
-	private void createProtocolOpts(Linux_SambaShareOptions share, CIMClient cc) throws ObjectSaveException {
+	private void createProtocolOpts(Linux_SambaShareOptions share) throws WbemsmtException {
 		try {
 			Linux_SambaShareProtocolOptions child = 
-				(Linux_SambaShareProtocolOptions) getFirstChild(Linux_SambaShareProtocolOptions.class,share.getAssociated_Linux_SambaShareProtocolOptions_Linux_SambaShareProtocolForShare_Names(cc,false),false);
-			adapter.getFcoHelper().save(child,cc);
-		} catch (ModelLoadException e) {
-			throw new ObjectSaveException(e);
+				(Linux_SambaShareProtocolOptions) getFirstChild(Linux_SambaShareProtocolOptions.class,share.getAssociated_Linux_SambaShareProtocolOptions_Linux_SambaShareProtocolForShareNames(adapter.getCimClient()),false);
+			adapter.getFcoHelper().save(child,adapter.getCimClient());
+		} catch (Exception e) {
+			throw new WbemsmtException(WbemsmtException.ERR_SAVE_OBJECT,e);
 		}
 	}
 
-	private void createCommonSec(Linux_SambaShareOptions share, CIMClient cc, boolean enableGuest) throws ObjectSaveException {
+	private void createCommonSec(Linux_SambaShareOptions share, boolean enableGuest) throws WbemsmtException {
 		try {
 			Linux_SambaCommonSecurityOptions child = 
-				(Linux_SambaCommonSecurityOptions) getFirstChild(Linux_SambaCommonSecurityOptions.class,share.getAssociated_Linux_SambaCommonSecurityOptions_Linux_SambaCommonSecurityForShare_Names(cc,false),false);
+				(Linux_SambaCommonSecurityOptions) getFirstChild(Linux_SambaCommonSecurityOptions.class,share.getAssociated_Linux_SambaCommonSecurityOptions_Linux_SambaCommonSecurityForShareNames(adapter.getCimClient()),false);
 			child.set_GuestOK(new Boolean(enableGuest));
-			adapter.getFcoHelper().save(child,cc);
-		} catch (ModelLoadException e) {
-			throw new ObjectSaveException(e);
+			adapter.getFcoHelper().save(child,adapter.getCimClient());
+		} catch (Exception e) {
+			throw new WbemsmtException(WbemsmtException.ERR_SAVE_OBJECT,e);
 		}
 		
 	}
 
-	private void createShareSec(Linux_SambaShareOptions share, CIMClient cc) throws ObjectSaveException {
+	private void createShareSec(Linux_SambaShareOptions share) throws WbemsmtException {
 //		Linux_SambaShareSecurityOptions child;
-//		try {
-//			child = (Linux_SambaShareSecurityOptions) getFirstChild(cc,Linux_SambaShareSecurityOptions.class,share.getAssociated_Linux_SambaShareSecurityOptions_Linux_SambaShareSecurityForShare_Names(cc,false),false);
-//		} catch (ModelLoadException e1) {
-//			throw new ObjectSaveException("Cannot find Linux_SambaShareSecurityOptions for Share " + share.get_Name(),e1);
-//		}
-//		child.set_CreateMask(new UnsignedInt16(Integer.parseInt((String) page4.get_CreateMask().getConvertedControlValue())));
-//		child.set_DirectoryMask(new UnsignedInt16(Integer.parseInt((String) page4.get_DirectoryMask().getConvertedControlValue())));
-//		child.set_DirectorySecurityMask(new UnsignedInt16(Integer.parseInt((String) page4.get_DirectorySecurityMask().getConvertedControlValue())));
-//		adapter.getFcoHelper().save(child,cc);
+//		child = (Linux_SambaShareSecurityOptions) getFirstChild(adapter.getCimClient(),Linux_SambaShareSecurityOptions.class,share.getAssociated_Linux_SambaShareSecurityOptions_Linux_SambaShareSecurityForShare_Names(adapter.getCimClient(),false),false);
+//		child.set_CreateMask(new UnsignedInteger16(Integer.parseInt((String) page4.get_CreateMask().getConvertedControlValue())));
+//		child.set_DirectoryMask(new UnsignedInteger16(Integer.parseInt((String) page4.get_DirectoryMask().getConvertedControlValue())));
+//		child.set_DirectorySecurityMask(new UnsignedInteger16(Integer.parseInt((String) page4.get_DirectorySecurityMask().getConvertedControlValue())));
+//		adapter.getFcoHelper().save(child,adapter.getCimClient());
 		
 	}
 
-	private void createBrowseOpts(Linux_SambaShareOptions share, CIMClient cc, boolean publicShare) throws ObjectSaveException {
+	private void createBrowseOpts(Linux_SambaShareOptions share, boolean publicShare) throws WbemsmtException {
 		try {
 			Linux_SambaShareBrowseOptions child = 
-				(Linux_SambaShareBrowseOptions) getFirstChild(Linux_SambaShareBrowseOptions.class,share.getAssociated_Linux_SambaShareBrowseOptions_Linux_SambaShareBrowseForShare_Names(cc,false),false);
+				(Linux_SambaShareBrowseOptions) getFirstChild(Linux_SambaShareBrowseOptions.class,share.getAssociated_Linux_SambaShareBrowseOptions_Linux_SambaShareBrowseForShareNames(adapter.getCimClient()),false);
 
 			child.set_Browsable(new Boolean(publicShare));
-			adapter.getFcoHelper().save(child,cc);
-		} catch (ModelLoadException e) {
-			throw new ObjectSaveException(e);
+			adapter.getFcoHelper().save(child,adapter.getCimClient());
+		} catch (Exception e) {
+			throw new WbemsmtException(WbemsmtException.ERR_SAVE_OBJECT,e);
 		}
 	}
 
@@ -221,16 +197,16 @@ public class ShareWizard   extends SambaWizard{
 //		lastcontainer = page3 = container;
 	}
 
-	public void updateControls(ShareWizardPage2 container) throws UpdateControlsException {
+	public void updateControls(ShareWizardPage2 container) throws WbemsmtException {
 		lastcontainer = page2 = container;
-		
-		super.updateForceUserForWizard(container,container.get_usr_ForceUser(),adapter.getSelectedService());
-		
-		if (!updatedContainers.contains(page2))
-		{
-			adapter.updateControls(container.getUsers(),adapter.getSelectedService().getUsers().getFCOs());
-			updatedContainers.add(page2);
-		}
+        
+        super.updateForceUserForWizard(container,container.get_usr_ForceUser(),adapter.getSelectedService());
+        
+        if (!updatedContainers.contains(page2))
+        {
+        	adapter.updateControls(container.getUsers(),adapter.getSelectedService().getUsers().getFCOs());
+        	updatedContainers.add(page2);
+        }
 		
 	}
 
@@ -238,23 +214,23 @@ public class ShareWizard   extends SambaWizard{
 		lastcontainer = page1 = container;
 	}
 
-	public void updateControls(ShareWizardPage4 container) throws UpdateControlsException
+	public void updateControls(ShareWizardPage4 container) throws WbemsmtException
 	{
-		lastcontainer = page4 = container;
-		
-		container.get_Name().setControlValue(page1.get_Name().getConvertedControlValue());
-		container.get_Path().setControlValue(page1.get_Path().getConvertedControlValue());
-		container.get_Comment().setControlValue(page1.get_Comment().getConvertedControlValue());
-		container.get_usr_EnableGuest().setControlValue(page2.get_usr_EnableGuest().getConvertedControlValue());
-		container.get_usr_SeenByEverybody().setControlValue(page2.get_usr_SeenByEverybody().getConvertedControlValue());
+	    lastcontainer = page4 = container;
+        
+        container.get_Name().setControlValue(page1.get_Name().getConvertedControlValue());
+        container.get_Path().setControlValue(page1.get_Path().getConvertedControlValue());
+        container.get_Comment().setControlValue(page1.get_Comment().getConvertedControlValue());
+        container.get_usr_EnableGuest().setControlValue(page2.get_usr_EnableGuest().getConvertedControlValue());
+        container.get_usr_SeenByEverybody().setControlValue(page2.get_usr_SeenByEverybody().getConvertedControlValue());
 
-		super.setForceUserForWizardOverview(container, page2.get_usr_ForceUser(),page4.get_usr_ForceUser());
-		
-		//remove if the createMask etc is enabled again
-		container.get_CreateMask().getProperties().setVisible(false);
-		container.get_DirectoryMask().getProperties().setVisible(false);
-		container.get_DirectorySecurityMask().getProperties().setVisible(false);
-		
+        super.setForceUserForWizardOverview(container, page2.get_usr_ForceUser(),page4.get_usr_ForceUser());
+
+//remove if the createMask etc is enabled again
+container.get_CreateMask().getProperties().setVisible(false);
+container.get_DirectoryMask().getProperties().setVisible(false);
+container.get_DirectorySecurityMask().getProperties().setVisible(false);
+
 //		if (page3 instanceof ShareWizardPage3CMD)
 //		{
 //			ShareWizardPage3CMD cmd = (ShareWizardPage3CMD) page3;
@@ -267,7 +243,7 @@ public class ShareWizard   extends SambaWizard{
 //			ShareWizardPage3GUI p3 = (ShareWizardPage3GUI) page3;
 //			String sharename = (String) page1.get_Name().getConvertedControlValue();
 //			try {
-//				UnsignedInt16 createMask = updateModel(
+//				UnsignedInteger16 createMask = updateModel(
 //						p3.get_usr_Create_u(),p3.get_usr_Create_g(),p3.get_usr_Create_s(),
 //						p3.get_usr_Create_user_r(),p3.get_usr_Create_user_w(),p3.get_usr_Create_user_x(),
 //						p3.get_usr_Create_group_r(),p3.get_usr_Create_group_w(),p3.get_usr_Create_group_x(),
@@ -275,10 +251,10 @@ public class ShareWizard   extends SambaWizard{
 //				);
 //				container.get_CreateMask().setControlValue(FORMAT_MASK.format(createMask.intValue()));
 //			} catch (ObjectSaveException e) {
-//				throw new UpdateControlsException("Canot create CreateMask for share " + sharename );
+//				throw new WbemsmtException(WbemsmtException.ERR_UPDATE_CONTROLS,"Canot create CreateMask for share " + sharename );
 //			}
 //			try {
-//				UnsignedInt16 directoryMask = updateModel(
+//				UnsignedInteger16 directoryMask = updateModel(
 //						p3.get_usr_Directory_u(),p3.get_usr_Directory_g(),p3.get_usr_Directory_s(),
 //						p3.get_usr_Directory_user_r(),p3.get_usr_Directory_user_w(),p3.get_usr_Directory_user_x(),
 //						p3.get_usr_Directory_group_r(),p3.get_usr_Directory_group_w(),p3.get_usr_Directory_group_x(),
@@ -286,10 +262,10 @@ public class ShareWizard   extends SambaWizard{
 //				);
 //				container.get_DirectoryMask().setControlValue(FORMAT_MASK.format(directoryMask.intValue()));
 //			} catch (ObjectSaveException e) {
-//				throw new UpdateControlsException("Canot create DirectoryMask for share " + sharename);
+//				throw new WbemsmtException(WbemsmtException.ERR_UPDATE_CONTROLS,"Canot create DirectoryMask for share " + sharename);
 //			}
 //			try {
-//				UnsignedInt16 directorySecurityMask = updateModel(
+//				UnsignedInteger16 directorySecurityMask = updateModel(
 //						p3.get_usr_Directory_security_u(),p3.get_usr_Directory_security_g(),p3.get_usr_Directory_security_s(),
 //						p3.get_usr_Directory_security_user_r(),p3.get_usr_Directory_security_user_w(),p3.get_usr_Directory_security_user_x(),
 //						p3.get_usr_Directory_security_group_r(),p3.get_usr_Directory_security_group_w(),p3.get_usr_Directory_security_group_x(),
@@ -297,21 +273,21 @@ public class ShareWizard   extends SambaWizard{
 //				);
 //				container.get_DirectorySecurityMask().setControlValue(FORMAT_MASK.format(directorySecurityMask.intValue()));
 //			} catch (ObjectSaveException e) {
-//				throw new UpdateControlsException("Canot create DirectorySecurityMask for share " + sharename);
+//				throw new WbemsmtException(WbemsmtException.ERR_UPDATE_CONTROLS,"Canot create DirectorySecurityMask for share " + sharename);
 //			}
 //		}
 //		else 
 //		{
-//			throw new UpdateControlsException("Cannot create object with page3 is instanceof " +(  page3 != null ? page3.getClass().getName() : "null"));
+//			throw new WbemsmtException(WbemsmtException.ERR_UPDATE_CONTROLS,"Cannot create object with page3 is instanceof " +(  page3 != null ? page3.getClass().getName() : "null"));
 //		}
-		
-		//overwrite the values on the lastPage with default values if there is no value set and the enable All-Checkbox is active
-		listCount = 0;
-		adapter.updateControls(container.getUsers(),adapter.getSelectedService().getUsers().getFCOs());
+
+//overwrite the values on the lastPage with default values if there is no value set and the enable All-Checkbox is active
+        listCount = 0;
+        adapter.updateControls(container.getUsers(),adapter.getSelectedService().getUsers().getFCOs());
 	}
 	
-	public void updateControls(UserInShareWizardACLItemDataContainer container, Linux_SambaUser fco) throws UpdateControlsException {
-		container.get_SambaUserName().setControlValue(fco.get_SambaUserName());
+	public void updateControls(UserInShareWizardACLItemDataContainer container, Linux_SambaUser fco) throws WbemsmtException {
+		container.get_SambaUserName().setControlValue(fco.get_key_SambaUserName());
 		container.get_usr_AccessTypeRW().setValues(getReadWriteTypes(adapter.getBundle()));
 		container.get_usr_AccessTypeVI().setValues(getValidInvalidTypes(adapter.getBundle()));
 		
@@ -323,7 +299,8 @@ public class ShareWizard   extends SambaWizard{
 		
 		if (lastPage)
 		{
-			UserInShareWizardACLItemDataContainer page2Container = (UserInShareWizardACLItemDataContainer) page2.getUsers().get(listCount);			container.get_usr_AccessTypeRW().setControlValue(page2Container.get_usr_AccessTypeRW().getConvertedControlValue());
+			UserInShareWizardACLItemDataContainer page2Container = (UserInShareWizardACLItemDataContainer) page2.getUsers().get(listCount);			
+			container.get_usr_AccessTypeRW().setControlValue(page2Container.get_usr_AccessTypeRW().getConvertedControlValue());
 			container.get_usr_Admin().setControlValue(page2Container.get_usr_Admin().getConvertedControlValue());
 			container.get_usr_AccessTypeRW().setControlValue(page2Container.get_usr_AccessTypeRW().getConvertedControlValue());
 			container.get_usr_AccessTypeVI().setControlValue(page2Container.get_usr_AccessTypeVI().getConvertedControlValue());
@@ -335,14 +312,9 @@ public class ShareWizard   extends SambaWizard{
 			//becaus we are having no default values for the new printer and no associator call to get the "global-local-merged" entries
 			//from the server
 			Service srv = adapter.getSelectedService();
-			CIMClient cc = adapter.getCimClient();
-			try {
-				updateValidInvalidWithUserList(container,container.get_usr_AccessTypeVI(), fco.get_SambaUserName(), srv.getInvalidUsers(cc), srv.getValidUsers(cc), false, srv,adapter.getCimClient());
-				updateReadWriteWithUserList(container,container.get_usr_AccessTypeRW(), fco.get_SambaUserName(), srv.getReadUsers(cc), srv.getWriteUsers(cc), false, srv,adapter.getCimClient());
-				updateAdminWithUserList(container,container.get_usr_Admin(), fco.get_SambaUserName(), srv.getAdminUsers(cc), srv,adapter.getCimClient(),adapter.getSelectedService().getAdminUsers(cc), false);
-			} catch (ModelLoadException e) {
-				throw new UpdateControlsException(e);
-			}
+			updateValidInvalidWithUserList(container,container.get_usr_AccessTypeVI(), fco.get_key_SambaUserName(), srv.getInvalidUsers(), srv.getValidUsers(), false, srv);
+            updateReadWriteWithUserList(container,container.get_usr_AccessTypeRW(), fco.get_key_SambaUserName(), srv.getReadUsers(), srv.getWriteUsers(), false, srv);
+            updateAdminWithUserList(container,container.get_usr_Admin(), fco.get_key_SambaUserName(), srv.getAdminUsers(), srv,adapter.getSelectedService().getAdminUsers(), false);
 		}
 	}
 
@@ -363,8 +335,8 @@ public class ShareWizard   extends SambaWizard{
 		for (int i=0; i < items.size(); i++)
 		{
 			UserInShareWizardACLItemDataContainer item = (UserInShareWizardACLItemDataContainer)items.get(i);
-			item.get_usr_AccessTypeVI().setControlValue(new UnsignedInt16(enableAll ? USR_ACL_IDX_ENABLE : USR_ACL_IDX_DISABLE));
-			item.get_usr_AccessTypeRW().setControlValue(enableAll ?  new UnsignedInt16(USR_ACL_IDX_WRITE) : null);
+			item.get_usr_AccessTypeVI().setControlValue(new UnsignedInteger16(enableAll ? USR_ACL_IDX_ENABLE : USR_ACL_IDX_DISABLE));
+			item.get_usr_AccessTypeRW().setControlValue(enableAll ?  new UnsignedInteger16(USR_ACL_IDX_WRITE) : null);
 		}
 	}
 

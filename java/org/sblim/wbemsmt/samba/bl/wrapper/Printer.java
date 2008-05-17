@@ -19,47 +19,19 @@
   */
 package org.sblim.wbemsmt.samba.bl.wrapper;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-import java.util.Vector;
+import java.util.*;
 
-import org.sblim.wbem.cim.CIMDataType;
-import org.sblim.wbem.cim.CIMProperty;
-import org.sblim.wbem.cim.CIMValue;
-import org.sblim.wbem.cim.UnsignedInt16;
-import org.sblim.wbem.cim.UnsignedInt64;
-import org.sblim.wbem.client.CIMClient;
+import javax.cim.CIMProperty;
+import javax.cim.UnsignedInteger16;
+import javax.cim.UnsignedInteger64;
+
 import org.sblim.wbemsmt.bl.adapter.CimObjectKey;
 import org.sblim.wbemsmt.bl.adapter.MessageList;
-import org.sblim.wbemsmt.bl.fco.CIMPropertyBuilder;
-import org.sblim.wbemsmt.exception.ModelLoadException;
-import org.sblim.wbemsmt.exception.ModelUpdateException;
-import org.sblim.wbemsmt.exception.ObjectRevertException;
-import org.sblim.wbemsmt.exception.ObjectSaveException;
-import org.sblim.wbemsmt.exception.UpdateControlsException;
-import org.sblim.wbemsmt.exception.WbemSmtException;
+import org.sblim.wbemsmt.exception.WbemsmtException;
 import org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter;
 import org.sblim.wbemsmt.samba.bl.adapter.SambaObject;
-import org.sblim.wbemsmt.samba.bl.container.printer.PrinterAllowHostSecurityDataContainer;
-import org.sblim.wbemsmt.samba.bl.container.printer.PrinterDenyHostSecurityDataContainer;
-import org.sblim.wbemsmt.samba.bl.container.printer.PrinterOptionsDataContainer;
-import org.sblim.wbemsmt.samba.bl.container.printer.PrintingOptionsDataContainer;
-import org.sblim.wbemsmt.samba.bl.container.printer.UserACLItemDataContainerForPrinter;
-import org.sblim.wbemsmt.samba.bl.container.printer.UserInPrinterACLDataContainer;
-import org.sblim.wbemsmt.samba.bl.fco.Linux_SambaCommonSecurityOptions;
-import org.sblim.wbemsmt.samba.bl.fco.Linux_SambaForceUserForPrinter;
-import org.sblim.wbemsmt.samba.bl.fco.Linux_SambaGlobalOptions;
-import org.sblim.wbemsmt.samba.bl.fco.Linux_SambaInvalidUsersForPrinter;
-import org.sblim.wbemsmt.samba.bl.fco.Linux_SambaPrinterAdminForPrinter;
-import org.sblim.wbemsmt.samba.bl.fco.Linux_SambaPrinterBrowseOptions;
-import org.sblim.wbemsmt.samba.bl.fco.Linux_SambaPrinterOptions;
-import org.sblim.wbemsmt.samba.bl.fco.Linux_SambaPrinterPrintingOptions;
-import org.sblim.wbemsmt.samba.bl.fco.Linux_SambaReadListForPrinter;
-import org.sblim.wbemsmt.samba.bl.fco.Linux_SambaUser;
-import org.sblim.wbemsmt.samba.bl.fco.Linux_SambaValidUsersForPrinter;
-import org.sblim.wbemsmt.samba.bl.fco.Linux_SambaWriteListForPrinter;
+import org.sblim.wbemsmt.samba.bl.container.printer.*;
+import org.sblim.wbemsmt.samba.bl.fco.*;
 import org.sblim.wbemsmt.util.StringUtil;
 
 public class Printer extends SambaObject {
@@ -87,25 +59,25 @@ public class Printer extends SambaObject {
 	private String[] systemPrinterNames;
 	private Linux_SambaUser forceUser;
 	
-	public Printer(Service service, Linux_SambaPrinterOptions printerFco, SambaCimAdapter adapter) throws ModelLoadException {
+	public Printer(Service service, Linux_SambaPrinterOptions printerFco, SambaCimAdapter adapter) throws WbemsmtException {
 		super(adapter);
 		this.service = service;
 		printer = printerFco;
-		getAdminUsers(adapter.getCimClient());
+		getAdminUsers();
 	}
 
 	/* (non-Javadoc)
-	 * @see org.sblim.wbemsmt.samba.bl.adapter.SambaObject#loadChilds(org.sblim.wbem.client.CIMClient)
+	 * @see org.sblim.wbemsmt.samba.bl.adapter.SambaObject#loadChilds(org.sblim.wbem.client.WBEMClient)
 	 */
-	public void reloadChilds(CIMClient cimClient) throws ModelLoadException {
+	public void reloadChilds() throws WbemsmtException {
 		
 		
-		getCommonSecurity(cimClient);
-		getPrintingOptions(cimClient);
-		getBrowseOptions(cimClient);
+		getCommonSecurity();
+		getPrintingOptions();
+		getBrowseOptions();
 
 		reloadPrinterUsers = reloadChilds;
-		reloadPrinterUsers(cimClient);
+		reloadPrinterUsers();
 
 		reloadChilds = false;
 	
@@ -125,72 +97,72 @@ public class Printer extends SambaObject {
 		adminUsers = null;
 	}
 
-	private void reloadPrinterUsers(CIMClient cimClient) throws ModelLoadException {
+	private void reloadPrinterUsers() throws WbemsmtException {
 		
-		getInvalidUsers(cimClient);
-		getValidUsers(cimClient);
-		getAdminUsers(cimClient);
+		getInvalidUsers();
+		getValidUsers();
+		getAdminUsers();
 
 		reloadPrinterUsers = false;
 	
 	}
 
-	private Set getAdminUsers(CIMClient cimClient) {
+	private Set getAdminUsers() throws WbemsmtException {
 		
 		if (adminUsers == null || reloadPrinterUsers)
-		{
-			adminUsers = new HashSet();
-			setShareUsers(adminUsers,printer.getAssociated_Linux_SambaUser_Linux_SambaPrinterAdminForPrinter_Names(cimClient,false));
-		}
-		return adminUsers;
+        {
+        	adminUsers = new HashSet();
+        	setShareUsers(adminUsers,printer.getAssociated_Linux_SambaUser_Linux_SambaPrinterAdminForPrinterNames(adapter.getCimClient()));
+        }
+        return adminUsers;
 	}	
-	private Set getValidUsers(CIMClient cimClient) {
+	private Set getValidUsers() throws WbemsmtException {
 		
 		if (validUsers == null || reloadPrinterUsers)
-		{
-			validUsers = new HashSet();
-			setShareUsers(validUsers,printer.getAssociated_Linux_SambaUser_Linux_SambaValidUsersForPrinter_Names(cimClient,false));
-		}
-		return validUsers;
+        {
+        	validUsers = new HashSet();
+        	setShareUsers(validUsers,printer.getAssociated_Linux_SambaUser_Linux_SambaValidUsersForPrinterNames(adapter.getCimClient()));
+        }
+        return validUsers;
 	}
 
-	private Set getInvalidUsers(CIMClient cimClient) {
+	private Set getInvalidUsers() throws WbemsmtException {
 		
 		if (invalidUsers == null || reloadPrinterUsers)
-		{
-			invalidUsers = new HashSet();
-			setShareUsers(invalidUsers,printer.getAssociated_Linux_SambaUser_Linux_SambaInvalidUsersForPrinter_Names(cimClient,false));
-		}
-		return invalidUsers;
+        {
+        	invalidUsers = new HashSet();
+        	setShareUsers(invalidUsers,printer.getAssociated_Linux_SambaUser_Linux_SambaInvalidUsersForPrinterNames(adapter.getCimClient()));
+        }
+        return invalidUsers;
 	}	
 	
-	private Set getWriteUsers(CIMClient cimClient) {
+	private Set getWriteUsers() throws WbemsmtException {
 		
 		if (writeUsers == null || reloadPrinterUsers)
-		{
-			writeUsers = new HashSet();
-			setShareUsers(writeUsers,printer.getAssociated_Linux_SambaUser_Linux_SambaWriteListForPrinter_Names(cimClient,false));
-		}
-		return writeUsers;
+        {
+        	writeUsers = new HashSet();
+        	setShareUsers(writeUsers,printer.getAssociated_Linux_SambaUser_Linux_SambaWriteListForPrinterNames(adapter.getCimClient()));
+        }
+        return writeUsers;
 	}
 
-	private Set getReadUsers(CIMClient cimClient) {
+	private Set getReadUsers() throws WbemsmtException {
 		
 		if (readUsers == null || reloadPrinterUsers)
-		{
-			readUsers = new HashSet();
-			setShareUsers(readUsers,printer.getAssociated_Linux_SambaUser_Linux_SambaReadListForPrinter_Names(cimClient,false));
-		}
-		return readUsers;
+        {
+        	readUsers = new HashSet();
+        	setShareUsers(readUsers,printer.getAssociated_Linux_SambaUser_Linux_SambaReadListForPrinterNames(adapter.getCimClient()));
+        }
+        return readUsers;
 	}	
 
-	private Linux_SambaCommonSecurityOptions getCommonSecurity(CIMClient cimClient) throws ModelLoadException {
+	private Linux_SambaCommonSecurityOptions getCommonSecurity() throws WbemsmtException {
 		
 		if (commonSecurity == null || reloadChilds)
-		{
-			commonSecurity = (Linux_SambaCommonSecurityOptions)getFirstChild(Linux_SambaCommonSecurityOptions.class,printer.getAssociated_Linux_SambaCommonSecurityOptions_Linux_SambaCommonSecurityForPrinter_Names(cimClient, false), false);
-		}
-		return commonSecurity;
+        {
+        	commonSecurity = (Linux_SambaCommonSecurityOptions)getFirstChild(Linux_SambaCommonSecurityOptions.class,printer.getAssociated_Linux_SambaCommonSecurityOptions_Linux_SambaCommonSecurityForPrinterNames(adapter.getCimClient()), false);
+        }
+        return commonSecurity;
 		
 	}
 	
@@ -198,20 +170,20 @@ public class Printer extends SambaObject {
 		this.commonSecurity = commonSecurity;
 	}
 
-	private Linux_SambaPrinterPrintingOptions getPrintingOptions(CIMClient cimClient) throws ModelLoadException {
+	private Linux_SambaPrinterPrintingOptions getPrintingOptions() throws WbemsmtException {
 		if (printingOptions == null || reloadChilds)
-		{
-			printingOptions = (Linux_SambaPrinterPrintingOptions)getFirstChild(Linux_SambaPrinterPrintingOptions.class,printer.getAssociated_Linux_SambaPrinterPrintingOptions_Linux_SambaPrinterPrintingForPrinter_Names(cimClient, false), false);
-		}
-		return printingOptions;
+        {
+        	printingOptions = (Linux_SambaPrinterPrintingOptions)getFirstChild(Linux_SambaPrinterPrintingOptions.class,printer.getAssociated_Linux_SambaPrinterPrintingOptions_Linux_SambaPrinterPrintingForPrinterNames(adapter.getCimClient()), false);
+        }
+        return printingOptions;
 	}
 
-	private Linux_SambaPrinterBrowseOptions getBrowseOptions(CIMClient cimClient) throws ModelLoadException {
+	private Linux_SambaPrinterBrowseOptions getBrowseOptions() throws WbemsmtException {
 		if (browseOptions == null || reloadChilds)
-		{
-			browseOptions = (Linux_SambaPrinterBrowseOptions)getFirstChild(Linux_SambaPrinterBrowseOptions.class,printer.getAssociated_Linux_SambaPrinterBrowseOptions_Linux_SambaPrinterBrowseForPrinter_Names(cimClient, false), false);
-		}
-		return browseOptions;
+        {
+        	browseOptions = (Linux_SambaPrinterBrowseOptions)getFirstChild(Linux_SambaPrinterBrowseOptions.class,printer.getAssociated_Linux_SambaPrinterBrowseOptions_Linux_SambaPrinterBrowseForPrinterNames(adapter.getCimClient()), false);
+        }
+        return browseOptions;
 	}
 
 	/* (non-Javadoc)
@@ -225,19 +197,14 @@ public class Printer extends SambaObject {
 		return printer;
 	}
 
-	public void updateControls(UserACLItemDataContainerForPrinter container, Linux_SambaUser fco) throws UpdateControlsException {
-		try {
-			CIMClient cc = container.getAdapter().getCimClient();
-			container.get_SambaUserName().setControlValue(fco.get_SambaUserName());
-			updateValidInvalidWithUserList(container,container.get_usr_AccessTypeVI(), fco.get_SambaUserName(), getInvalidUsers(cc), getValidUsers(cc), false, service,cc);
-			updateReadWriteWithUserList(container,container.get_usr_AccessTypeRW(), fco.get_SambaUserName(), getReadUsers(cc), getWriteUsers(cc), false, service,cc);
-			updateAdminWithUserList(container,container.get_usr_Admin(), fco.get_SambaUserName(), getAdminUsers(cc), service,cc,service.getPrinterGlobals().getAdminUsers(cc), false);
-		}catch (ModelLoadException e) {
-			throw new UpdateControlsException(e);
-		}
+	public void updateControls(UserACLItemDataContainerForPrinter container, Linux_SambaUser fco) throws WbemsmtException {
+		container.get_SambaUserName().setControlValue(fco.get_key_SambaUserName());
+        updateValidInvalidWithUserList(container,container.get_usr_AccessTypeVI(), fco.get_key_SambaUserName(), getInvalidUsers(), getValidUsers(), false, service);
+        updateReadWriteWithUserList(container,container.get_usr_AccessTypeRW(), fco.get_key_SambaUserName(), getReadUsers(), getWriteUsers(), false, service);
+        updateAdminWithUserList(container,container.get_usr_Admin(), fco.get_key_SambaUserName(), getAdminUsers(), service,service.getPrinterGlobals().getAdminUsers(), false);
 	}
 
-	public void updateControls(PrinterDenyHostSecurityDataContainer container)  throws UpdateControlsException {
+	public void updateControls(PrinterDenyHostSecurityDataContainer container)  throws WbemsmtException {
 		listHostsToDeny = new ArrayList();
 		listHostsDenied = new ArrayList();
 		
@@ -247,7 +214,7 @@ public class Printer extends SambaObject {
 		container.get_usr_HostsToDeny().setValues((String[]) listHostsToDeny.toArray(new String[listHostsToDeny.size()]));
 	}
 
-	public void updateControls(PrinterAllowHostSecurityDataContainer container)  throws UpdateControlsException {
+	public void updateControls(PrinterAllowHostSecurityDataContainer container)  throws WbemsmtException {
 		listHostsToAllow = new ArrayList();
 		listHostsAllowed = new ArrayList();
 		
@@ -257,109 +224,83 @@ public class Printer extends SambaObject {
 		container.get_usr_HostsToAllow().setValues((String[]) listHostsToAllow.toArray(new String[listHostsToAllow.size()]));
 	}
 	
-	public void updateControls(UserInPrinterACLDataContainer container) throws UpdateControlsException {
-		CIMClient cc = container.getAdapter().getCimClient();
-		try {
-			super.updateForceUser(container, container.get_usr_CurrentForceUser(),container.get_usr_NewForceUser(),service,getForceUser(cc));
-		} catch (ModelLoadException e) {
-			throw new UpdateControlsException(e);
-		}
-		container.getAdapter().updateControls(container.getUsers(),service.getUsers().getFCOs());
+	public void updateControls(UserInPrinterACLDataContainer container) throws WbemsmtException {
+		super.updateForceUser(container, container.get_usr_CurrentForceUser(),container.get_usr_NewForceUser(),service,getForceUser());
+        container.getAdapter().updateControls(container.getUsers(),service.getUsers().getFCOs());
 	}
 
 
-	public void updateControls(PrintingOptionsDataContainer container) throws UpdateControlsException {
+	public void updateControls(PrintingOptionsDataContainer container) throws WbemsmtException {
 		
-		try {
-			CIMClient cc = container.getAdapter().getCimClient();
-			container.get_CupsOptions().setControlValue(getPrintingOptions(cc).get_CupsOptions());
-			container.get_DefaultDevMode().setControlValue(getPrintingOptions(cc).get_DefaultDevMode());
-			container.get_MaxPrintjobs().setControlValue(getPrintingOptions(cc).get_MaxPrintjobs());
-			container.get_MaxReportedPrintjobs().setControlValue(getPrintingOptions(cc).get_MaxReportedPrintjobs());
-			container.get_PrintCommand().setControlValue(getPrintingOptions(cc).get_PrintCommand());
-			container.get_UseClientDriver().setControlValue(getPrintingOptions(cc).get_UseClientDriver());
-		} catch (ModelLoadException e) {
-			throw new UpdateControlsException(e);
-		}
+		container.get_CupsOptions().setControlValue(getPrintingOptions().get_CupsOptions());
+        container.get_DefaultDevMode().setControlValue(getPrintingOptions().get_DefaultDevMode());
+        container.get_MaxPrintjobs().setControlValue(getPrintingOptions().get_MaxPrintjobs());
+        container.get_MaxReportedPrintjobs().setControlValue(getPrintingOptions().get_MaxReportedPrintjobs());
+        container.get_PrintCommand().setControlValue(getPrintingOptions().get_PrintCommand());
+        container.get_UseClientDriver().setControlValue(getPrintingOptions().get_UseClientDriver());
 	}
 
-	public void updateControls(PrinterOptionsDataContainer container) throws UpdateControlsException {
-		try {
-			CIMClient cc = container.getAdapter().getCimClient();
-			container.get_Name().setControlValue(printer.get_Name());
-			container.get_Available().setControlValue(printer.get_Available());
-			container.get_Browsable().setControlValue(getBrowseOptions(cc).get_Browsable());
-			container.get_Comment().setControlValue(printer.get_Comment());
-			container.get_GuestOK().setControlValue(getCommonSecurity(cc).get_GuestOK());
-			container.get_GuestOnly().setControlValue(getCommonSecurity(cc).get_GuestOnly());
-			container.get_HostsAllow().setControlValue(getCommonSecurity(cc).get_HostsAllow());
-			container.get_HostsDeny().setControlValue(getCommonSecurity(cc).get_HostsDeny());
-			container.get_Path().setControlValue(printer.get_Path());
-			container.get_ReadOnly().setControlValue(getCommonSecurity(cc).get_ReadOnly());
-			systemPrinterNames = service.getSystemPrinters(cc).getNameArray();
-			container.get_usr_SystemPrinterName().setValues(systemPrinterNames);
-			int index = StringUtil.indexOf(systemPrinterNames,printer.get_SystemPrinterName());
-			if (index == -1)
-			{
-				index = 0;
-			}
-			
-			container.get_usr_SystemPrinterName().setControlValue(new UnsignedInt16(index ));
-		} catch (ModelLoadException e) {
-			throw new UpdateControlsException(e);
-		}
+	public void updateControls(PrinterOptionsDataContainer container) throws WbemsmtException {
+		container.get_Name().setControlValue(printer.get_key_Name());
+        container.get_Available().setControlValue(printer.get_Available());
+        container.get_Browsable().setControlValue(getBrowseOptions().get_Browsable());
+        container.get_Comment().setControlValue(printer.get_Comment());
+        container.get_GuestOK().setControlValue(getCommonSecurity().get_GuestOK());
+        container.get_GuestOnly().setControlValue(getCommonSecurity().get_GuestOnly());
+        container.get_HostsAllow().setControlValue(getCommonSecurity().get_HostsAllow());
+        container.get_HostsDeny().setControlValue(getCommonSecurity().get_HostsDeny());
+        container.get_Path().setControlValue(printer.get_Path());
+        container.get_ReadOnly().setControlValue(getCommonSecurity().get_ReadOnly());
+        systemPrinterNames = service.getSystemPrinters().getNameArray();
+        container.get_usr_SystemPrinterName().setValues(systemPrinterNames);
+        int index = StringUtil.indexOf(systemPrinterNames,printer.get_SystemPrinterName());
+        if (index == -1)
+        {
+        	index = 0;
+        }
+        
+        container.get_usr_SystemPrinterName().setControlValue(new UnsignedInteger16(index ));
 	}
 
 
-	public MessageList save(UserInPrinterACLDataContainer container) throws ObjectSaveException {
+	public MessageList save(UserInPrinterACLDataContainer container) throws WbemsmtException {
 		
-		CIMClient cc = container.getAdapter().getCimClient();
 		MessageList list = new MessageList();
 		
-		UnsignedInt16 index = (UnsignedInt16) container.get_usr_NewForceUser().getConvertedControlValue();
-		//first element is the "no force user text" so subtract one to get the right user
+		UnsignedInteger16 index = (UnsignedInteger16) container.get_usr_NewForceUser().getConvertedControlValue();
 		if (index != null)
-		{
-			setForceUser(cc,index.intValue() <= 0 ? null : service.getUsers().getUser(index.intValue()-1).getUser());
-		}
-		
-		list.addAll(container.getAdapter().save(container.getUsers(),service.getUsers().getFCOs()));
+        {
+        	setForceUser(index.intValue() <= 0 ? null : service.getUsers().getUser(index.intValue()-1).getUser());
+        }
+        
+        list.addAll(container.getAdapter().save(container.getUsers(),service.getUsers().getFCOs()));
 		
 		if (reloadPrinterUsers)
 		{
-			try {
-				reloadPrinterUsers(container.getAdapter().getCimClient());
-				//force reload
-				super.resetUserAcl(service);
-				reloadPrinterUsers = false;
-			} catch (ModelLoadException e) {
-				throw new ObjectSaveException(e);
-			}
+			reloadPrinterUsers();
+            //force reload
+            super.resetUserAcl(service);
+            reloadPrinterUsers = false;
 		}
 		return list;
 	}
 
-	public MessageList save(UserACLItemDataContainerForPrinter container, Linux_SambaUser fco) throws ObjectSaveException {
+	public MessageList save(UserACLItemDataContainerForPrinter container, Linux_SambaUser fco) throws WbemsmtException {
 		reloadPrinterUsers = saveUserACL(container,fco,printer) || reloadPrinterUsers;
 		return null;
 	}
 
-	public MessageList save(PrintingOptionsDataContainer container) throws ObjectSaveException {
-		try {
-			CIMClient cc = container.getAdapter().getCimClient();
-			getPrintingOptions(cc).set_CupsOptions((String) container.get_CupsOptions().getConvertedControlValue());
-			getPrintingOptions(cc).set_DefaultDevMode((Boolean) container.get_DefaultDevMode().getConvertedControlValue());
-			getPrintingOptions(cc).set_MaxPrintjobs((UnsignedInt64) container.get_MaxPrintjobs().getConvertedControlValue());
-			getPrintingOptions(cc).set_MaxReportedPrintjobs((UnsignedInt64) container.get_MaxReportedPrintjobs().getConvertedControlValue());
-			getPrintingOptions(cc).set_PrintCommand((String) container.get_PrintCommand().getConvertedControlValue());
-			getPrintingOptions(cc).set_UseClientDriver((Boolean) container.get_UseClientDriver().getConvertedControlValue());
-			adapter.getFcoHelper().save(getPrintingOptions(cc),cc);
-			//force a reload
-			printingOptions = null;
-			return null;
-		} catch (ModelLoadException e) {
-			throw new ObjectSaveException(e);
-		}
+	public MessageList save(PrintingOptionsDataContainer container) throws WbemsmtException {
+		getPrintingOptions().set_CupsOptions((String) container.get_CupsOptions().getConvertedControlValue());
+        getPrintingOptions().set_DefaultDevMode((Boolean) container.get_DefaultDevMode().getConvertedControlValue());
+        getPrintingOptions().set_MaxPrintjobs((UnsignedInteger64) container.get_MaxPrintjobs().getConvertedControlValue());
+        getPrintingOptions().set_MaxReportedPrintjobs((UnsignedInteger64) container.get_MaxReportedPrintjobs().getConvertedControlValue());
+        getPrintingOptions().set_PrintCommand((String) container.get_PrintCommand().getConvertedControlValue());
+        getPrintingOptions().set_UseClientDriver((Boolean) container.get_UseClientDriver().getConvertedControlValue());
+        adapter.getFcoHelper().save(getPrintingOptions(),adapter.getCimClient());
+        //force a reload
+        printingOptions = null;
+        return null;
 	}
 
 	public MessageList save(PrinterAllowHostSecurityDataContainer container) {
@@ -372,137 +313,121 @@ public class Printer extends SambaObject {
 	}
 	
 
-	public MessageList save(PrinterOptionsDataContainer container)  throws ObjectSaveException {
+	public MessageList save(PrinterOptionsDataContainer container)  throws WbemsmtException {
 		
-		try {
-			CIMClient cc = container.getAdapter().getCimClient();
-			printer.set_Available((Boolean) container.get_Available().getConvertedControlValue());
-			getBrowseOptions(cc).set_Browsable((Boolean) container.get_Browsable().getConvertedControlValue());
-			printer.set_Comment((String) container.get_Comment().getConvertedControlValue());
-			getCommonSecurity(cc).set_GuestOK((Boolean) container.get_GuestOK().getConvertedControlValue());
-			getCommonSecurity(cc).set_GuestOnly((Boolean) container.get_GuestOnly().getConvertedControlValue());
-			getCommonSecurity(cc).set_HostsAllow((String) container.get_HostsAllow().getConvertedControlValue());
-			getCommonSecurity(cc).set_HostsDeny((String) container.get_HostsDeny().getConvertedControlValue());
-			//share.set_Name(container.get_Name().getConvertedControlValue());
-			printer.set_Path((String) container.get_Path().getConvertedControlValue());
-			getCommonSecurity(cc).set_ReadOnly((Boolean) container.get_ReadOnly().getConvertedControlValue());
-			
-			UnsignedInt16 index = (UnsignedInt16) container.get_usr_SystemPrinterName().getConvertedControlValue();
-			if (index != null && index.intValue() < systemPrinterNames.length)
-			{
-				printer.set_SystemPrinterName(systemPrinterNames[index.intValue()]);
-			}
-			
-			adapter.getFcoHelper().save(printer,cc);
-			adapter.getFcoHelper().save(getCommonSecurity(cc),cc);
-			adapter.getFcoHelper().save(getBrowseOptions(cc),cc);
-			
-			printer = (Linux_SambaPrinterOptions)adapter.getFcoHelper().reload(printer,cc);
-			//fore reload
-			commonSecurity = null;
-			browseOptions = null;
-			return null;
-		} catch (ModelLoadException e) {
-			throw new ObjectSaveException(e);
-		}
+		printer.set_Available((Boolean) container.get_Available().getConvertedControlValue());
+        getBrowseOptions().set_Browsable((Boolean) container.get_Browsable().getConvertedControlValue());
+        printer.set_Comment((String) container.get_Comment().getConvertedControlValue());
+        getCommonSecurity().set_GuestOK((Boolean) container.get_GuestOK().getConvertedControlValue());
+        getCommonSecurity().set_GuestOnly((Boolean) container.get_GuestOnly().getConvertedControlValue());
+        getCommonSecurity().set_HostsAllow((String) container.get_HostsAllow().getConvertedControlValue());
+        getCommonSecurity().set_HostsDeny((String) container.get_HostsDeny().getConvertedControlValue());
+        //share.set_Name(container.get_Name().getConvertedControlValue());
+        printer.set_Path((String) container.get_Path().getConvertedControlValue());
+        getCommonSecurity().set_ReadOnly((Boolean) container.get_ReadOnly().getConvertedControlValue());
+        
+        UnsignedInteger16 index = (UnsignedInteger16) container.get_usr_SystemPrinterName().getConvertedControlValue();
+        if (index != null && index.intValue() < systemPrinterNames.length)
+        {
+        	printer.set_SystemPrinterName(systemPrinterNames[index.intValue()]);
+        }
+        
+        adapter.getFcoHelper().save(printer,adapter.getCimClient());
+        adapter.getFcoHelper().save(getCommonSecurity(),adapter.getCimClient());
+        adapter.getFcoHelper().save(getBrowseOptions(),adapter.getCimClient());
+        
+        printer = (Linux_SambaPrinterOptions)adapter.getFcoHelper().reload(printer,adapter.getCimClient());
+        //fore reload
+        commonSecurity = null;
+        browseOptions = null;
+        return null;
 	}
 
-	public void updateModel(PrinterAllowHostSecurityDataContainer container) throws ModelUpdateException{
+	public void updateModel(PrinterAllowHostSecurityDataContainer container) throws WbemsmtException{
 		updateModelHostsAcl(container, container.get_usr_AddHost(), container.get_usr_RemoveHost(), container.get_usr_AllowedHosts(), container.get_usr_HostsToAllow(), listHostsAllowed, listHostsToAllow);
 	}
 
-	public void updateModel(PrinterDenyHostSecurityDataContainer container) throws ModelUpdateException {
+	public void updateModel(PrinterDenyHostSecurityDataContainer container) throws WbemsmtException {
 		updateModelHostsAcl(container, container.get_usr_AddHost(), container.get_usr_RemoveHost(), container.get_usr_DeniedHosts(), container.get_usr_HostsToDeny(), listHostsDenied, listHostsToDeny);
 	}
 
-	private boolean saveUserACL(UserACLItemDataContainerForPrinter container, Linux_SambaUser user, Linux_SambaPrinterOptions printerOptions) throws ObjectSaveException {
+	private boolean saveUserACL(UserACLItemDataContainerForPrinter container, Linux_SambaUser user, Linux_SambaPrinterOptions printerOptions) throws WbemsmtException {
 
 		boolean reloadShareUsers = false;
-		CIMClient cc = container.getAdapter().getCimClient();
-		String sambaUserName = user.get_SambaUserName();
-		Vector vKeyProperties = new Vector();
-		vKeyProperties.add(CIMPropertyBuilder.create(Linux_SambaInvalidUsersForPrinter.CIM_PROPERTY_LINUX_SAMBAUSER, user));
-		vKeyProperties.add(CIMPropertyBuilder.create(Linux_SambaInvalidUsersForPrinter.CIM_PROPERTY_LINUX_SAMBAPRINTEROPTIONS, printerOptions));
-		
-		boolean admin = ((Boolean)container.get_usr_Admin().getConvertedControlValue()).booleanValue();
+        String sambaUserName = user.get_key_SambaUserName();
+        CIMProperty[] vKeyProperties = new CIMProperty[] {
+            Linux_SambaInvalidUsersForPrinter.create_GroupComponent_Linux_SambaPrinterOptions(adapter.getCimClient(), adapter.getNamespace(), printerOptions),
+            Linux_SambaInvalidUsersForPrinter.create_PartComponent_Linux_SambaUser(adapter.getCimClient(), adapter.getNamespace(), user)};
+        
+        boolean admin = ((Boolean)container.get_usr_Admin().getConvertedControlValue()).booleanValue();
 
-		reloadShareUsers = save(admin, getAdminUsers(cc),
-				Linux_SambaPrinterAdminForPrinter.class, sambaUserName,
-				vKeyProperties, cc);
-		reloadShareUsers = saveValidInvalid(container.get_usr_AccessTypeVI(), user,
-				getInvalidUsers(cc), getValidUsers(cc), cc, vKeyProperties,
-				Linux_SambaInvalidUsersForPrinter.class,
-				Linux_SambaValidUsersForPrinter.class)
-				|| reloadShareUsers;
-		reloadShareUsers = saveReadWrite(container.get_usr_AccessTypeRW(), user, getReadUsers(cc),
-				getWriteUsers(cc), cc, vKeyProperties,
-				Linux_SambaReadListForPrinter.class,
-				Linux_SambaWriteListForPrinter.class)
-				|| reloadShareUsers;
-		return reloadShareUsers;
+        reloadShareUsers = save(admin, getAdminUsers(),
+        		Linux_SambaPrinterAdminForPrinter.class, sambaUserName,
+        		vKeyProperties);
+        reloadShareUsers = saveValidInvalid(container.get_usr_AccessTypeVI(), user,
+        		getInvalidUsers(), getValidUsers(), vKeyProperties,
+        		Linux_SambaInvalidUsersForPrinter.class,
+        		Linux_SambaValidUsersForPrinter.class)
+        		|| reloadShareUsers;
+        reloadShareUsers = saveReadWrite(container.get_usr_AccessTypeRW(), user, getReadUsers(),
+        		getWriteUsers(), vKeyProperties,
+        		Linux_SambaReadListForPrinter.class,
+        		Linux_SambaWriteListForPrinter.class)
+        		|| reloadShareUsers;
+        return reloadShareUsers;
 	}
 
-	public MessageList save(UserACLItemDataContainerForPrinter container) throws ObjectSaveException {
+	public MessageList save(UserACLItemDataContainerForPrinter container) throws WbemsmtException {
 		Linux_SambaUser fco = service.getUsers().getUserByName((String) container.get_SambaUserName().getConvertedControlValue()).getUser();
-		reloadPrinterUsers = saveUserACL(container,fco,printer);
-		return null;
+        reloadPrinterUsers = saveUserACL(container,fco,printer);
+        return null;
 	}
 
-	public void updateControls(UserACLItemDataContainerForPrinter container) throws UpdateControlsException {
+	public void updateControls(UserACLItemDataContainerForPrinter container) throws WbemsmtException {
 		Linux_SambaUser fco = service.getUsers().getUserByName((String) container.get_SambaUserName().getConvertedControlValue()).getUser();
-		updateControls(container,fco);
+        updateControls(container,fco);
 	}
 
-	public Linux_SambaUser getForceUser(CIMClient cimClient) throws ModelLoadException {
+	public Linux_SambaUser getForceUser() throws WbemsmtException {
 		if (forceUser == null || reloadChilds)
-		{
-			List list = printer.getAssociated_Linux_SambaUser_Linux_SambaForceUserForPrinters(cimClient,false,false,null); 
-			forceUser = (Linux_SambaUser)getFirstChild(Linux_SambaUser.class, list , true);
-		}
-		return forceUser;
+        {
+        	List list = printer.getAssociated_Linux_SambaUser_Linux_SambaForceUserForPrinters(adapter.getCimClient()); 
+        	forceUser = (Linux_SambaUser)getFirstChild(Linux_SambaUser.class, list , true);
+        }
+        return forceUser;
 	}
 	
 	/**
-	 * @param cc
 	 * @param newForceUser
-	 * @throws ModelUpdateException
+	 * @throws WbemsmtException
 	 */
-	public void setForceUser(CIMClient cc, Linux_SambaUser newForceUser) throws ObjectSaveException  {
+	public void setForceUser(Linux_SambaUser newForceUser) throws WbemsmtException  {
 		
 		Linux_SambaUser oldForceUser = null;
-		try {
-			//delete Old Guest
-			oldForceUser = getForceUser(cc);
-			if (oldForceUser != null)
-			{
-				logger.info("Deleting Force User " + oldForceUser.get_SambaUserName());
-				Vector keys = new Vector();
-				keys.add(new CIMProperty(Linux_SambaForceUserForPrinter.CIM_PROPERTY_LINUX_SAMBAPRINTEROPTIONS, new CIMValue(printer.getCimObjectPath(), new CIMDataType(Linux_SambaGlobalOptions.CIM_CLASS_NAME))));
-				keys.add(new CIMProperty(Linux_SambaForceUserForPrinter.CIM_PROPERTY_LINUX_SAMBAUSER, new CIMValue(oldForceUser.getCimObjectPath(), new CIMDataType(Linux_SambaUser.CIM_CLASS_NAME))));
-				adapter.getFcoHelper().delete(Linux_SambaForceUserForPrinter.class,keys,cc);
-			}
-			//create new Guest
-			if (newForceUser != null)
-			{
-				logger.info("Set as Force User " + newForceUser.get_SambaUserName());
-				Linux_SambaForceUserForPrinter newForceUserAssoc = new Linux_SambaForceUserForPrinter();
-				newForceUserAssoc.set_Linux_SambaPrinterOptions(printer);
-				newForceUserAssoc.set_Linux_SambaUser(newForceUser);
-				adapter.getFcoHelper().create(newForceUserAssoc,cc);
-			}
-			//force a reload if needed next time
-			this.forceUser = null;
-		} catch (WbemSmtException e) {
-			throw new ObjectSaveException(adapter.getFcoHelper().getCIM_ObjectCreator().createUnhecked(newForceUser),e);
-		}
+		//delete Old Guest
+        oldForceUser = getForceUser();
+        if (oldForceUser != null)
+        {
+        	logger.info("Deleting Force User " + oldForceUser.get_key_SambaUserName());
+        	
+        	List list = oldForceUser.getAssociations_Linux_SambaForceUserForPrinter(adapter.getCimClient(), false,false,null,null);
+        	adapter.getFcoHelper().delete(list,adapter.getCimClient());
+        }
+        //create new Guest
+        if (newForceUser != null)
+        {
+        	logger.info("Set as Force User " + newForceUser.get_key_SambaUserName());
+        	Linux_SambaForceUserForPrinter newForceUserAssoc = new Linux_SambaForceUserForPrinter(adapter.getCimClient(),adapter.getNamespace());
+        	newForceUserAssoc.set_GroupComponent_Linux_SambaPrinterOptions(printer);
+        	newForceUserAssoc.set_PartComponent_Linux_SambaUser(newForceUser);
+        	adapter.getFcoHelper().create(newForceUserAssoc,adapter.getCimClient());
+        }
+        //force a reload if needed next time
+        this.forceUser = null;
 	}
 
-	public MessageList revert(PrinterOptionsDataContainer container) throws ObjectRevertException {
-		try {
-			printer = (Linux_SambaPrinterOptions) adapter.getFcoHelper().reload(printer, container.getAdapter().getCimClient());
-		} catch (ModelLoadException e) {
-			throw new ObjectRevertException(e);
-		}
+	public MessageList revert(PrinterOptionsDataContainer container) throws WbemsmtException {
+		printer = (Linux_SambaPrinterOptions) adapter.getFcoHelper().reload(printer, container.getAdapter().getCimClient());
 
 		printingOptions = null;
 		forceUser = null;
@@ -523,7 +448,7 @@ public class Printer extends SambaObject {
 		return null;
 	}
 
-	public MessageList revert(UserInPrinterACLDataContainer container) throws ObjectRevertException {
+	public MessageList revert(UserInPrinterACLDataContainer container) throws WbemsmtException {
 		resetPrinterUsers();
 		return null;
 	}

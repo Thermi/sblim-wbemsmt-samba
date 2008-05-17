@@ -21,7 +21,7 @@ package org.sblim.wbemsmt.samba.bl.validator;
 
 import org.sblim.wbemsmt.bl.adapter.Message;
 import org.sblim.wbemsmt.bl.adapter.MessageList;
-import org.sblim.wbemsmt.exception.ValidationException;
+import org.sblim.wbemsmt.exception.WbemsmtException;
 import org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter;
 import org.sblim.wbemsmt.samba.bl.adapter.SambaErrCodes;
 import org.sblim.wbemsmt.samba.bl.wrapper.Printer;
@@ -50,26 +50,26 @@ public class DuplicateSambaServiceValidator extends Validator {
 	/* (non-Javadoc)
 	 * @see org.sblim.wbemsmt.tools.validator.Validator#validateElement(org.sblim.wbemsmt.bl.adapter.MessageList)
 	 */
-	public void validateElement(MessageList result) throws ValidationException {
+	public void validateElement(MessageList result) throws WbemsmtException {
 		
 		String name = (String) shareOrPrinterName.getConvertedControlValue();
-		
-		Share share = sambaCimAdapter.getSelectedService().getShares().getShareByName(name);
-		if (share != null)
-		{
-			result.addMessage(Message.create(SambaErrCodes.MSG_SHARE_EXISTS,Message.ERROR,adapter.getBundle(),"validator.shareExists",new Object[]{shareOrPrinterName.getLabelText(), name}));
-		}
-		
-		Printer printer = sambaCimAdapter.getSelectedService().getPrinters().getPrinterByName(name);
-		if (printer != null)
-		{
-			result.addMessage(Message.create(SambaErrCodes.MSG_PRINTER_EXISTS,Message.ERROR,adapter.getBundle(),"validator.printerExists",new Object[]{shareOrPrinterName.getLabelText(), name}));
-		}
-		
-		if (name.equalsIgnoreCase("global"))
-		{
-			result.addMessage(Message.create(SambaErrCodes.MSG_PRINTER_EXISTS,Message.ERROR,adapter.getBundle(),"validator.globalExists", new Object[]{shareOrPrinterName.getLabelText()}));
-		}
+        
+        Share share = sambaCimAdapter.getSelectedService().getShares().getShareByName(name);
+        if (share != null)
+        {
+        	result.addMessage(Message.create(SambaErrCodes.MSG_SHARE_EXISTS,Message.ERROR,adapter.getBundle(),"validator.shareExists",new Object[]{shareOrPrinterName.getLabelText(), name}));
+        }
+        
+        Printer printer = sambaCimAdapter.getSelectedService().getPrinters().getPrinterByName(name);
+        if (printer != null)
+        {
+        	result.addMessage(Message.create(SambaErrCodes.MSG_PRINTER_EXISTS,Message.ERROR,adapter.getBundle(),"validator.printerExists",new Object[]{shareOrPrinterName.getLabelText(), name}));
+        }
+        
+        if (name.equalsIgnoreCase("global"))
+        {
+        	result.addMessage(Message.create(SambaErrCodes.MSG_PRINTER_EXISTS,Message.ERROR,adapter.getBundle(),"validator.globalExists", new Object[]{shareOrPrinterName.getLabelText()}));
+        }
 
 	}
 

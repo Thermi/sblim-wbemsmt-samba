@@ -19,13 +19,15 @@
   */
 package org.sblim.wbemsmt.cli.samba.listener;
 
-import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
-import org.sblim.wbem.cim.CIMObjectPath;
+import javax.cim.CIMObjectPath;
+
 import org.sblim.wbemsmt.bl.adapter.AbstractBaseCimAdapter;
 import org.sblim.wbemsmt.bl.adapter.CimObjectKey;
-import org.sblim.wbemsmt.exception.ObjectNotFoundException;
+import org.sblim.wbemsmt.exception.WbemsmtException;
+import org.sblim.wbemsmt.samba.bl.fco.Linux_SambaService;
 import org.sblim.wbemsmt.samba.bl.fco.Linux_SambaServiceHelper;
 import org.sblim.wbemsmt.tools.cli.CimCommandValues;
 import org.sblim.wbemsmt.tools.cli.CliUtil;
@@ -42,7 +44,7 @@ public abstract class SambaServiceLoader extends SambaLoader {
 
 	public void load(WbemSmtResourceBundle bundle,
 			AbstractBaseCimAdapter adapter, CimCommandValues commandValues)
-			throws ObjectNotFoundException {
+			throws WbemsmtException {
 		this.commandValues = commandValues;
 		String serviceName = CliUtil.getOption(commandValues,getServiceNameKey());
 		selectService(bundle, adapter, serviceName);
@@ -50,7 +52,7 @@ public abstract class SambaServiceLoader extends SambaLoader {
 	
 	protected abstract OptionDefinition getServiceNameKey();
 
-	protected void selectService(WbemSmtResourceBundle bundle, AbstractBaseCimAdapter adapter, String serviceName) throws ObjectNotFoundException {
+	protected void selectService(WbemSmtResourceBundle bundle, AbstractBaseCimAdapter adapter, String serviceName) throws WbemsmtException {
 		try {
 			CIMObjectPath pathService = getPathOfService(adapter, serviceName);
 			if (pathService != null)
@@ -61,25 +63,25 @@ public abstract class SambaServiceLoader extends SambaLoader {
 			}
 			else
 			{
-				throw new ObjectNotFoundException(bundle.getString("service.not.found",new Object[]{serviceName}));
+				throw new WbemsmtException(WbemsmtException.ERR_OBJECT_NOT_FOUND,bundle.getString("service.not.found",new Object[]{serviceName}));
 			}
-		} catch (ObjectNotFoundException e) {
-			throw new ObjectNotFoundException(bundle.getString("service.not.found",new Object[]{serviceName}),e);
+		} catch (WbemsmtException e) {
+			throw new WbemsmtException(WbemsmtException.ERR_OBJECT_NOT_FOUND,bundle.getString("service.not.found",new Object[]{serviceName}),e);
 		}
 	}
 
-	protected CIMObjectPath getPathOfService(AbstractBaseCimAdapter adapter, String serviceName) {
-		ArrayList list = Linux_SambaServiceHelper.enumerateInstanceNames(adapter.getCimClient(),false);
-		CIMObjectPath pathService = null;
-		for (Iterator iter = list.iterator(); iter.hasNext();) {
-			Object o = iter.next();
-			CIMObjectPath path = (CIMObjectPath) o;
-			if (path.getKey("Name").getValue().getValue().equals(serviceName))
-			{
-				pathService = path;
-			}
-		}
-		return pathService;
+	protected CIMObjectPath getPathOfService(AbstractBaseCimAdapter adapter, String serviceName) throws WbemsmtException {
+        List list = Linux_SambaServiceHelper.enumerateInstanceNames(adapter.getCimClient(),adapter.getNamespace(),false);
+        CIMObjectPath pathService = null;
+        for (Iterator iter = list.iterator(); iter.hasNext();) {
+        	Object o = iter.next();
+        	CIMObjectPath path = (CIMObjectPath) o;
+        	if (path.getKey(Linux_SambaService.PROPERTY_NAME.NAME).getValue().equals(serviceName))
+        	{
+        		pathService = path;
+        	}
+        }
+        return pathService;
 	}
 
 }

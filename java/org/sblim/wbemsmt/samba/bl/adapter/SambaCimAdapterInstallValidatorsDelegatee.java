@@ -19,9 +19,10 @@
   */
 package org.sblim.wbemsmt.samba.bl.adapter;
 
-import org.sblim.wbem.cim.UnsignedInt16;
-import org.sblim.wbem.cim.UnsignedInt32;
-import org.sblim.wbemsmt.exception.ModelLoadException;
+import javax.cim.UnsignedInteger16;
+import javax.cim.UnsignedInteger32;
+
+import org.sblim.wbemsmt.exception.WbemsmtException;
 import org.sblim.wbemsmt.samba.bl.container.global.*;
 import org.sblim.wbemsmt.samba.bl.container.host.HostDataContainer;
 import org.sblim.wbemsmt.samba.bl.container.printer.*;
@@ -56,8 +57,8 @@ public class SambaCimAdapterInstallValidatorsDelegatee extends SambaDelegatee im
 	}
 
 	public void installValidatorsImpl(ServiceLoggingDataContainer container) {
-		adapter.addValidator(container,new NumericFieldValidator(UnsignedInt16.MIN_VALUE,UnsignedInt16.MAX_VALUE,container.get_SysLog(), adapter));
-		adapter.addValidator(container,new NumericFieldValidator(UnsignedInt32.MIN_VALUE,UnsignedInt32.MAX_VALUE,container.get_MaxLogSize(), adapter));
+		adapter.addValidator(container,new NumericFieldValidator(UnsignedInteger16.MIN_VALUE,UnsignedInteger16.MAX_VALUE,container.get_SysLog(), adapter));
+		adapter.addValidator(container,new NumericFieldValidator(UnsignedInteger32.MIN_VALUE,UnsignedInteger32.MAX_VALUE,container.get_MaxLogSize(), adapter));
 	}
 
 	public void installValidatorsImpl(ServiceGlobalSecurityOptionsDataContainer container) {
@@ -127,16 +128,11 @@ public class SambaCimAdapterInstallValidatorsDelegatee extends SambaDelegatee im
 	public void installValidatorsImpl(PrinterWizardPage1 container) {
 	}
 
-	public void installValidatorsImpl(UserWizardPage1 container) {
+	public void installValidatorsImpl(UserWizardPage1 container) throws WbemsmtException {
 
-		try {
-			
-			Validator sysUserRequiredValidator = new RequiredFieldValidator(container.get_SystemUserName(),adapter);
-			sysUserRequiredValidator.addChild(new OtherSelectionValidator(container.get_SystemUserName(),Service.KEY_NO_SYSTEMUSER_FOUND,adapter,adapter.getSelectedService().getSystemUsers(container.getAdapter().getCimClient()).getNameArray()));
-			adapter.addValidator(container,sysUserRequiredValidator);
-		} catch (ModelLoadException e) {
-			throw new RuntimeException("Cannot install Validators for WizardPage",e);
-		}
+		Validator sysUserRequiredValidator = new RequiredFieldValidator(container.get_SystemUserName(),adapter);
+        sysUserRequiredValidator.addChild(new OtherSelectionValidator(container.get_SystemUserName(),Service.KEY_NO_SYSTEMUSER_FOUND,adapter,adapter.getSelectedService().getSystemUsers().getNameArray()));
+        adapter.addValidator(container,sysUserRequiredValidator);
 
 		
 		Validator password1Validator = new RequiredFieldValidator(container.get_SambaUserPassword(),adapter);
@@ -239,16 +235,12 @@ public class SambaCimAdapterInstallValidatorsDelegatee extends SambaDelegatee im
 	}
 
 
-	public void installValidatorsImpl(PrinterWizardPage2 container) {
-		try {
-			adapter.addValidator(container,new OtherSelectionValidator(container.get_usr_SystemPrinterName(),Service.KEY_NO_SYSTEMPRINTER_FOUND,adapter,adapter.getSelectedService().getSystemPrinters(container.getAdapter().getCimClient()).getNameArray()));
-			RequiredFieldValidator requiredFieldValidator = new RequiredFieldValidator(container.get_SambaPrinterName(),adapter);
-			requiredFieldValidator.addChild(new DuplicateSambaServiceValidator(container.get_SambaPrinterName(),adapter));
-			adapter.addValidator(container,requiredFieldValidator);
-			adapter.addValidator(container,new RequiredFieldValidator(container.get_Path(),adapter));
-		} catch (ModelLoadException e) {
-			throw new RuntimeException("Cannot install Validators for WizardPage",e);
-		}
+	public void installValidatorsImpl(PrinterWizardPage2 container) throws WbemsmtException {
+		adapter.addValidator(container,new OtherSelectionValidator(container.get_usr_SystemPrinterName(),Service.KEY_NO_SYSTEMPRINTER_FOUND,adapter,adapter.getSelectedService().getSystemPrinters().getNameArray()));
+        RequiredFieldValidator requiredFieldValidator = new RequiredFieldValidator(container.get_SambaPrinterName(),adapter);
+        requiredFieldValidator.addChild(new DuplicateSambaServiceValidator(container.get_SambaPrinterName(),adapter));
+        adapter.addValidator(container,requiredFieldValidator);
+        adapter.addValidator(container,new RequiredFieldValidator(container.get_Path(),adapter));
 	}
 
 

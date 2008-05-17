@@ -20,38 +20,16 @@
 package org.sblim.wbemsmt.samba.bl.wrapper.wizard;
 
 import java.util.List;
-import java.util.Vector;
 
-import org.sblim.wbem.cim.CIMDataType;
-import org.sblim.wbem.cim.CIMProperty;
-import org.sblim.wbem.cim.CIMValue;
-import org.sblim.wbem.cim.UnsignedInt16;
-import org.sblim.wbem.client.CIMClient;
+import javax.cim.CIMProperty;
+import javax.cim.UnsignedInteger16;
+import javax.wbem.client.WBEMClient;
+
 import org.sblim.wbemsmt.bl.adapter.DataContainer;
-import org.sblim.wbemsmt.exception.ModelLoadException;
-import org.sblim.wbemsmt.exception.ObjectCreationException;
-import org.sblim.wbemsmt.exception.ObjectSaveException;
-import org.sblim.wbemsmt.exception.UpdateControlsException;
-import org.sblim.wbemsmt.exception.WbemSmtException;
+import org.sblim.wbemsmt.exception.WbemsmtException;
 import org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter;
-import org.sblim.wbemsmt.samba.bl.container.wizard.PrinterInUserWizardACLItemDataContainer;
-import org.sblim.wbemsmt.samba.bl.container.wizard.ShareInUserWizardACLItemDataContainer;
-import org.sblim.wbemsmt.samba.bl.container.wizard.UserWizardPage1;
-import org.sblim.wbemsmt.samba.bl.container.wizard.UserWizardPage2;
-import org.sblim.wbemsmt.samba.bl.container.wizard.UserWizardPage3;
-import org.sblim.wbemsmt.samba.bl.fco.Linux_SambaAdminUsersForShare;
-import org.sblim.wbemsmt.samba.bl.fco.Linux_SambaInvalidUsersForPrinter;
-import org.sblim.wbemsmt.samba.bl.fco.Linux_SambaInvalidUsersForShare;
-import org.sblim.wbemsmt.samba.bl.fco.Linux_SambaPrinterAdminForPrinter;
-import org.sblim.wbemsmt.samba.bl.fco.Linux_SambaPrinterOptions;
-import org.sblim.wbemsmt.samba.bl.fco.Linux_SambaReadListForPrinter;
-import org.sblim.wbemsmt.samba.bl.fco.Linux_SambaReadListForShare;
-import org.sblim.wbemsmt.samba.bl.fco.Linux_SambaShareOptions;
-import org.sblim.wbemsmt.samba.bl.fco.Linux_SambaUser;
-import org.sblim.wbemsmt.samba.bl.fco.Linux_SambaValidUsersForPrinter;
-import org.sblim.wbemsmt.samba.bl.fco.Linux_SambaValidUsersForShare;
-import org.sblim.wbemsmt.samba.bl.fco.Linux_SambaWriteListForPrinter;
-import org.sblim.wbemsmt.samba.bl.fco.Linux_SambaWriteListForShare;
+import org.sblim.wbemsmt.samba.bl.container.wizard.*;
+import org.sblim.wbemsmt.samba.bl.fco.*;
 
 public class UserWizard extends SambaWizard {
 
@@ -65,57 +43,46 @@ public class UserWizard extends SambaWizard {
 		super(adapter);
 	}
 
-	public void updateControls(UserWizardPage1 container) throws UpdateControlsException {
+	public void updateControls(UserWizardPage1 container) throws WbemsmtException {
 		this.lastcontainer = this.page1 = container;
-		CIMClient cc = container.getAdapter().getCimClient();
-		try {
-			container.get_SystemUserName().setValues(adapter.getSelectedService().getSystemUsers(cc ).getNameArray());
-		} catch (ModelLoadException e) {
-			throw new UpdateControlsException(e);
-		}
+		container.get_SystemUserName().setValues(adapter.getSelectedService().getSystemUsers( ).getNameArray());
 	}
 
-	public void updateControls(UserWizardPage2 container) throws UpdateControlsException {
+	public void updateControls(UserWizardPage2 container) throws WbemsmtException {
 		this.lastcontainer = this.page2 = container;
-		adapter.updateControls(container.getPrinters(),adapter.getSelectedService().getPrinters().getFCOs());
-		adapter.updateControls(container.getShares(),adapter.getSelectedService().getShares().getFCOs());
+        adapter.updateControls(container.getPrinters(),adapter.getSelectedService().getPrinters().getFCOs());
+        adapter.updateControls(container.getShares(),adapter.getSelectedService().getShares().getFCOs());
 	}
 
-	public void updateControls(UserWizardPage3 container) throws UpdateControlsException {
+	public void updateControls(UserWizardPage3 container) throws WbemsmtException {
 		this.lastcontainer = this.page3 = container;
 		
-		try {
-			container.get_SambaUserName().setControlValue(page1.get_SambaUserName().getConvertedControlValue());
-			
-			CIMClient cc = container.getAdapter().getCimClient();
-			container.get_SystemUserName().setControlValue(getSysUserName(cc ));
-			
-			container.get_usr_IsGuest().setControlValue(page1.get_usr_IsGuest().getConvertedControlValue());
-			
-			listCount = 0;
-			adapter.updateControls(container.getShares(),adapter.getSelectedService().getShares().getFCOs());
-			listCount = 0;
-			adapter.updateControls(container.getPrinters(),adapter.getSelectedService().getPrinters().getFCOs());
-			
-		} catch (ModelLoadException e) {
-			throw new UpdateControlsException(e);
-		}
+		container.get_SambaUserName().setControlValue(page1.get_SambaUserName().getConvertedControlValue());
+        
+        container.get_SystemUserName().setControlValue(getSysUserName( ));
+        
+        container.get_usr_IsGuest().setControlValue(page1.get_usr_IsGuest().getConvertedControlValue());
+        
+        listCount = 0;
+        adapter.updateControls(container.getShares(),adapter.getSelectedService().getShares().getFCOs());
+        listCount = 0;
+        adapter.updateControls(container.getPrinters(),adapter.getSelectedService().getPrinters().getFCOs());
 	}
 
-	private String getSysUserName(CIMClient cc) throws ModelLoadException {
+	private String getSysUserName() throws WbemsmtException {
 		String sysUserName = null; 
-		UnsignedInt16 userIdx = (UnsignedInt16) page1.get_SystemUserName().getConvertedControlValue();
+		UnsignedInteger16 userIdx = (UnsignedInteger16) page1.get_SystemUserName().getConvertedControlValue();
 		if (userIdx != null)
 		{
-			sysUserName = adapter.getSelectedService().getSystemUsers(cc).getSystemUser(userIdx.intValue()).getName();
+			sysUserName = adapter.getSelectedService().getSystemUsers().getSystemUser(userIdx.intValue()).getName();
 		}
 		return sysUserName;
 	}
 
-	public void updateControls(ShareInUserWizardACLItemDataContainer container, Linux_SambaShareOptions fco) throws UpdateControlsException {
+	public void updateControls(ShareInUserWizardACLItemDataContainer container, Linux_SambaShareOptions fco) throws WbemsmtException {
 		container.get_usr_AccessTypeVI().setValues(getValidInvalidTypes(container.getAdapter().getBundle()));
 		container.get_usr_AccessTypeRW().setValues(getReadWriteTypes(container.getAdapter().getBundle()));
-		container.get_ShareName().setControlValue(fco.get_Name());		
+		container.get_ShareName().setControlValue(fco.get_key_Name());		
 		
 		
 		boolean lastPage = lastcontainer == page3;
@@ -137,7 +104,7 @@ public class UserWizard extends SambaWizard {
 	public void updateControls(PrinterInUserWizardACLItemDataContainer container, Linux_SambaPrinterOptions fco) {
 		container.get_usr_AccessTypeVI().setValues(getValidInvalidTypes(container.getAdapter().getBundle()));
 		container.get_usr_AccessTypeRW().setValues(getReadWriteTypes(container.getAdapter().getBundle()));
-		container.get_PrinterName().setControlValue(fco.get_Name());		
+		container.get_PrinterName().setControlValue(fco.get_key_Name());		
 
 		boolean lastPage = lastcontainer == page3;
 
@@ -174,107 +141,92 @@ public class UserWizard extends SambaWizard {
 		for (int i=0; i < items.size(); i++)
 		{
 			ShareInUserWizardACLItemDataContainer item = (ShareInUserWizardACLItemDataContainer)items.get(i);
-			item.get_usr_AccessTypeVI().setControlValue(new UnsignedInt16(enableAll ? USR_ACL_IDX_ENABLE : USR_ACL_IDX_DISABLE));
-			item.get_usr_AccessTypeRW().setControlValue(enableAll ?  new UnsignedInt16(USR_ACL_IDX_WRITE) : null);
+			item.get_usr_AccessTypeVI().setControlValue(new UnsignedInteger16(enableAll ? USR_ACL_IDX_ENABLE : USR_ACL_IDX_DISABLE));
+			item.get_usr_AccessTypeRW().setControlValue(enableAll ?  new UnsignedInteger16(USR_ACL_IDX_WRITE) : null);
 		}
 
 		items = container.getPrinters();
 		for (int i=0; i < items.size(); i++)
 		{
 			PrinterInUserWizardACLItemDataContainer item = (PrinterInUserWizardACLItemDataContainer)items.get(i);
-			item.get_usr_AccessTypeVI().setControlValue(new UnsignedInt16(enableAll ? USR_ACL_IDX_ENABLE : USR_ACL_IDX_DISABLE));
-			item.get_usr_AccessTypeRW().setControlValue(enableAll ?  new UnsignedInt16(USR_ACL_IDX_WRITE) : null);
+			item.get_usr_AccessTypeVI().setControlValue(new UnsignedInteger16(enableAll ? USR_ACL_IDX_ENABLE : USR_ACL_IDX_DISABLE));
+			item.get_usr_AccessTypeRW().setControlValue(enableAll ?  new UnsignedInteger16(USR_ACL_IDX_WRITE) : null);
 		}
 	}
-	public void create(UserWizardPage3 container) throws ObjectCreationException {
+	public void create(UserWizardPage3 container) throws WbemsmtException {
 		
-		Linux_SambaUser user = new Linux_SambaUser();
-		CIMClient cc = adapter.getCimClient();
-		try {
-			user.set_SambaUserName((String) page1.get_SambaUserName().getConvertedControlValue());
-			user.set_SambaUserPassword((String) page1.get_SambaUserPassword().getConvertedControlValue());
-			user.set_SystemUserName(getSysUserName(cc));
-			user = (Linux_SambaUser) adapter.getFcoHelper().create(user,cc);
-			
-			createShareAcl(cc, user);
-			createPrinterAcl(cc, user);
+	    Linux_SambaUser user = new Linux_SambaUser(adapter.getCimClient(),adapter.getNamespace());
+        WBEMClient cc = adapter.getCimClient();
+        user.set_key_SambaUserName((String) page1.get_SambaUserName().getConvertedControlValue());
+        user.set_SambaUserPassword((String) page1.get_SambaUserPassword().getConvertedControlValue());
+        user.set_SystemUserName(getSysUserName());
+        user = (Linux_SambaUser) adapter.getFcoHelper().create(user,cc);
+        
+        createShareAcl(user);
+        createPrinterAcl(user);
 
-			boolean guest = ((Boolean)page1.get_usr_IsGuest().getConvertedControlValue()).booleanValue();
-			if (guest)
-			{
-				adapter.getSelectedService().setGuestAccount(cc,user);
-			}
+        boolean guest = ((Boolean)page1.get_usr_IsGuest().getConvertedControlValue()).booleanValue();
+        if (guest)
+        {
+        	adapter.getSelectedService().setGuestAccount(user);
+        }
 
-			adapter.setMarkedForReload();
-			adapter.setPathOfTreeNode(user.getCimObjectPath());
-
-		} catch (ObjectCreationException e) {
-			throw e;
-		} catch (WbemSmtException e) {
-			throw new ObjectCreationException(adapter.getBundle().getString("cannot.create.user"),e);
-		}
+        adapter.setMarkedForReload();
+        adapter.setPathOfTreeNode(user.getCimObjectPath());
 		
 	}
 
-	private void createShareAcl(CIMClient cc, Linux_SambaUser user) throws ObjectSaveException {
+	private void createShareAcl(Linux_SambaUser user) throws WbemsmtException {
 		List shares = page2.getShares();
 		for (int i=0; i < shares.size(); i++)
 		{
-			ShareInUserWizardACLItemDataContainer item = (ShareInUserWizardACLItemDataContainer)shares.get(i);
-			boolean admin = ((Boolean)item.get_usr_Admin().getConvertedControlValue()).booleanValue();
-			Linux_SambaShareOptions share = adapter.getSelectedService().getShares().getShare(i).getShare();
-			String sambaUserName = user.get_SambaUserName();
+		    ShareInUserWizardACLItemDataContainer item = (ShareInUserWizardACLItemDataContainer)shares.get(i);
+            boolean admin = ((Boolean)item.get_usr_Admin().getConvertedControlValue()).booleanValue();
+            Linux_SambaShareOptions share = adapter.getSelectedService().getShares().getShare(i).getShare();
+            String sambaUserName = user.get_key_SambaUserName();
+   
+            CIMProperty[] vKeyProperties = new CIMProperty[] {
+                    Linux_SambaInvalidUsersForShare.create_GroupComponent_Linux_SambaShareOptions(adapter.getCimClient(), adapter.getNamespace(), share),
+                    Linux_SambaInvalidUsersForShare.create_PartComponent_Linux_SambaUser(adapter.getCimClient(), adapter.getNamespace(), user)};
 
-			Vector vKeyProperties = new Vector();
-			vKeyProperties.add(new CIMProperty(Linux_SambaInvalidUsersForShare.CIM_PROPERTY_LINUX_SAMBAUSER, new CIMValue(user.getCimObjectPath(), new CIMDataType(Linux_SambaUser.CIM_CLASS_NAME))));
-			vKeyProperties.add(new CIMProperty(Linux_SambaInvalidUsersForShare.CIM_PROPERTY_LINUX_SAMBASHAREOPTIONS, new CIMValue(share.getCimObjectPath(), new CIMDataType(Linux_SambaShareOptions.CIM_CLASS_NAME))));
-
-			try {
-				save(admin, adapter.getSelectedService().getAdminUsers(cc),
-						Linux_SambaAdminUsersForShare.class, sambaUserName,
-						vKeyProperties, cc);
-				saveValidInvalid(item.get_usr_AccessTypeVI(), user,
-						adapter.getSelectedService().getInvalidUsers(cc), adapter.getSelectedService().getValidUsers(cc), cc, vKeyProperties,
-						Linux_SambaInvalidUsersForShare.class,
-						Linux_SambaValidUsersForShare.class);
-				saveReadWrite(item.get_usr_AccessTypeRW(), user, adapter.getSelectedService().getReadUsers(cc),
-						adapter.getSelectedService().getWriteUsers(cc), cc, vKeyProperties,
-						Linux_SambaReadListForShare.class,
-						Linux_SambaWriteListForShare.class);
-			} catch (ModelLoadException e) {
-				throw new ObjectSaveException(e);
-			}
+            save(admin, adapter.getSelectedService().getAdminUsers(),
+            		Linux_SambaAdminUsersForShare.class, sambaUserName,
+            		vKeyProperties);
+            saveValidInvalid(item.get_usr_AccessTypeVI(), user,
+            		adapter.getSelectedService().getInvalidUsers(), adapter.getSelectedService().getValidUsers(), vKeyProperties,
+            		Linux_SambaInvalidUsersForShare.class,
+            		Linux_SambaValidUsersForShare.class);
+            saveReadWrite(item.get_usr_AccessTypeRW(), user, adapter.getSelectedService().getReadUsers(),
+            		adapter.getSelectedService().getWriteUsers(), vKeyProperties,
+            		Linux_SambaReadListForShare.class,
+            		Linux_SambaWriteListForShare.class);
 		}
 	}
 	
-	private void createPrinterAcl(CIMClient cc, Linux_SambaUser user) throws ObjectSaveException {
+	private void createPrinterAcl(Linux_SambaUser user) throws WbemsmtException {
 		List printers = page2.getPrinters();
 		for (int i=0; i < printers.size(); i++)
 		{
-			PrinterInUserWizardACLItemDataContainer item = (PrinterInUserWizardACLItemDataContainer)printers.get(i);
-			boolean admin = ((Boolean)item.get_usr_Admin().getConvertedControlValue()).booleanValue();
-			Linux_SambaPrinterOptions printer = adapter.getSelectedService().getPrinters().getPrinter(i).getPrinter();
-			String sambaUserName = user.get_SambaUserName();
+		    PrinterInUserWizardACLItemDataContainer item = (PrinterInUserWizardACLItemDataContainer)printers.get(i);
+            boolean admin = ((Boolean)item.get_usr_Admin().getConvertedControlValue()).booleanValue();
+            Linux_SambaPrinterOptions printer = adapter.getSelectedService().getPrinters().getPrinter(i).getPrinter();
+            String sambaUserName = user.get_key_SambaUserName();
+   
+            CIMProperty[] vKeyProperties = new CIMProperty[] {
+                    Linux_SambaInvalidUsersForPrinter.create_GroupComponent_Linux_SambaPrinterOptions(adapter.getCimClient(), adapter.getNamespace(), printer),
+                    Linux_SambaInvalidUsersForPrinter.create_PartComponent_Linux_SambaUser(adapter.getCimClient(), adapter.getNamespace(), user)};
 
-			Vector vKeyProperties = new Vector();
-			vKeyProperties.add(new CIMProperty(Linux_SambaInvalidUsersForPrinter.CIM_PROPERTY_LINUX_SAMBAUSER, new CIMValue(user.getCimObjectPath(), new CIMDataType(Linux_SambaUser.CIM_CLASS_NAME))));
-			vKeyProperties.add(new CIMProperty(Linux_SambaInvalidUsersForPrinter.CIM_PROPERTY_LINUX_SAMBAPRINTEROPTIONS, new CIMValue(printer.getCimObjectPath(), new CIMDataType(Linux_SambaShareOptions.CIM_CLASS_NAME))));
-
-			try {
-				save(admin, adapter.getSelectedService().getAdminUsers(cc),
-						Linux_SambaPrinterAdminForPrinter.class, sambaUserName,
-						vKeyProperties, cc);
-				saveValidInvalid(item.get_usr_AccessTypeVI(), user,
-						adapter.getSelectedService().getInvalidUsers(cc), adapter.getSelectedService().getValidUsers(cc), cc, vKeyProperties,
-						Linux_SambaInvalidUsersForPrinter.class,
-						Linux_SambaValidUsersForPrinter.class);
-				saveReadWrite(item.get_usr_AccessTypeRW(), user, adapter.getSelectedService().getReadUsers(cc),
-						adapter.getSelectedService().getWriteUsers(cc), cc, vKeyProperties,
-						Linux_SambaReadListForPrinter.class,
-						Linux_SambaWriteListForPrinter.class);
-			} catch (ModelLoadException e) {
-				throw new ObjectSaveException(e);
-			}
+            save(admin, adapter.getSelectedService().getAdminUsers(),
+            		Linux_SambaPrinterAdminForPrinter.class, sambaUserName,
+            		vKeyProperties);
+            saveValidInvalid(item.get_usr_AccessTypeVI(), user,
+            		adapter.getSelectedService().getInvalidUsers(), adapter.getSelectedService().getValidUsers(), vKeyProperties,
+            		Linux_SambaInvalidUsersForPrinter.class,
+            		Linux_SambaValidUsersForPrinter.class);
+            saveReadWrite(item.get_usr_AccessTypeRW(), user, adapter.getSelectedService().getReadUsers(),
+            		adapter.getSelectedService().getWriteUsers(), vKeyProperties,
+            		Linux_SambaReadListForPrinter.class,
+            		Linux_SambaWriteListForPrinter.class);
 		}
 	}
 	

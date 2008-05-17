@@ -19,9 +19,11 @@
   */
 package org.sblim.wbemsmt.samba.bl.wrapper.list;
 
-import org.sblim.wbem.cim.CIMObjectPath;
+import javax.cim.CIMObjectPath;
+
 import org.sblim.wbemsmt.bl.adapter.CimObjectKey;
 import org.sblim.wbemsmt.bl.wrapper.ObjectList;
+import org.sblim.wbemsmt.exception.WbemsmtException;
 import org.sblim.wbemsmt.samba.bl.wrapper.Host;
 import org.sblim.wbemsmt.schema.cim29.CIM_ManagedElement;
 
@@ -44,14 +46,14 @@ public class HostList extends ObjectList {
 		return getHost(new CimObjectKey(element.getCimObjectPath()));
 	}
 
-	public void addHost(Host host)
+	public void addHost(Host host) throws WbemsmtException
 	{
 		put(host);
 	}
 	
 	protected Object getKey(Object value) {
 		Host host = (Host) value;
-		return host.getHost().get_Name();
+		return host.getHost().get_key_Name();
 	}
 	
 	protected Object getFco(Object value) {
@@ -59,7 +61,7 @@ public class HostList extends ObjectList {
 		return host.getHost();
 	}
 
-	public Host getHostByName(String nameOfHost) {
+	public Host getHostByName(String nameOfHost) throws WbemsmtException {
 		return (Host) getObjectsByName().get(nameOfHost);
 	}
 	

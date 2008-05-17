@@ -19,7 +19,7 @@
   */
 package org.sblim.wbemsmt.samba.bl.adapter;
 
-import org.sblim.wbemsmt.exception.ObjectDeletionException;
+import org.sblim.wbemsmt.exception.WbemsmtException;
 import org.sblim.wbemsmt.samba.bl.fco.Linux_SambaHost;
 import org.sblim.wbemsmt.samba.bl.fco.Linux_SambaPrinterOptions;
 import org.sblim.wbemsmt.samba.bl.fco.Linux_SambaShareOptions;
@@ -35,42 +35,42 @@ public class SambaCimAdapterDeleteDelegatee extends SambaDelegatee implements Sa
 	 * @see org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapterDeleteIf#deleteImpl(org.sblim.wbemsmt.samba.bl.fco.Linux_SambaShareOptions)
 	 */
 	public void deleteImpl(Linux_SambaShareOptions fco)
-			throws ObjectDeletionException {
+			throws WbemsmtException {
 		
 		try {
 			adapter.getSelectedShare().delete(fco);
 			adapter.setMarkedForReload();
 		} catch (Exception e) {
-			throw new ObjectDeletionException(adapter.getFcoHelper().getCIM_ObjectCreator().createUnhecked(fco),e);
+			throw new WbemsmtException(WbemsmtException.ERR_DELETE_OBJECT,fco,e);
 		}
 			
 
 	}
 
-	public void deleteImpl(Linux_SambaHost fco) throws ObjectDeletionException {
+	public void deleteImpl(Linux_SambaHost fco) throws WbemsmtException {
 		try {
 			adapter.getFcoHelper().delete(fco,adapter.getCimClient());
 			adapter.setMarkedForReload();
 		} catch (Exception e) {
-			throw new ObjectDeletionException(adapter.getFcoHelper().getCIM_ObjectCreator().createUnhecked(fco),e);
+			throw new WbemsmtException(WbemsmtException.ERR_DELETE_OBJECT,fco,e);
 		}
 	}
 
-	public void deleteImpl(Linux_SambaPrinterOptions fco) throws ObjectDeletionException {
+	public void deleteImpl(Linux_SambaPrinterOptions fco) throws WbemsmtException {
 		try {
 			adapter.getFcoHelper().delete(fco,adapter.getCimClient());
 			adapter.setMarkedForReload();
 		} catch (Exception e) {
-			throw new ObjectDeletionException(adapter.getFcoHelper().getCIM_ObjectCreator().createUnhecked(fco),e);
+			throw new WbemsmtException(WbemsmtException.ERR_DELETE_OBJECT,fco,e);
 		}
 	}
 
-	public void deleteImpl(Linux_SambaUser fco) throws ObjectDeletionException {
+	public void deleteImpl(Linux_SambaUser fco) throws WbemsmtException {
 		try {
 			adapter.getFcoHelper().delete(fco,adapter.getCimClient());
 			adapter.setMarkedForReload();
 		} catch (Exception e) {
-			throw new ObjectDeletionException(adapter.getFcoHelper().getCIM_ObjectCreator().createUnhecked(fco),e);
+			throw new WbemsmtException(WbemsmtException.ERR_DELETE_OBJECT,fco,e);
 		}
 	}
 

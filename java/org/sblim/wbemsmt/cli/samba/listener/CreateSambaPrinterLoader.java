@@ -20,7 +20,7 @@
 package org.sblim.wbemsmt.cli.samba.listener;
 
 import org.sblim.wbemsmt.bl.adapter.AbstractBaseCimAdapter;
-import org.sblim.wbemsmt.exception.ObjectNotFoundException;
+import org.sblim.wbemsmt.exception.WbemsmtException;
 import org.sblim.wbemsmt.samba.bl.container.wizard.PrinterWizardPage5;
 import org.sblim.wbemsmt.tools.cli.CliDataLoader;
 import org.sblim.wbemsmt.tools.cli.CliUtil;
@@ -34,13 +34,13 @@ public class CreateSambaPrinterLoader extends SambaServiceLoader  implements Cli
 	}
 
 
-	public void loadTracingObject(WbemSmtResourceBundle bundle, AbstractBaseCimAdapter adapter, PrinterWizardPage5 page5) throws ObjectNotFoundException {
+	public void loadTracingObject(WbemSmtResourceBundle bundle, AbstractBaseCimAdapter adapter, PrinterWizardPage5 page5) throws WbemsmtException {
 		//trace not more than an service because more than one printer can be created
 		String serviceName = CliUtil.getOption(commandValues,CreateSambaShare.KEY_GLOBAL_serviceName);
 		try {
 			selectService(bundle, adapter, serviceName);
-		} catch (ObjectNotFoundException e) {
-			throw new ObjectNotFoundException(bundle.getString("service.not.found",new Object[]{serviceName}),e);
+		} catch (WbemsmtException e) {
+			throw new WbemsmtException(WbemsmtException.ERR_OBJECT_NOT_FOUND,bundle.getString("service.not.found",new Object[]{serviceName}),e);
 		}
 	}
 

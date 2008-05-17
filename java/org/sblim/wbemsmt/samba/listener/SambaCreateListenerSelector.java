@@ -21,14 +21,9 @@ package org.sblim.wbemsmt.samba.listener;
 
 import java.util.List;
 
-import org.sblim.wbemsmt.bl.adapter.AbstractBaseCimAdapter;
-import org.sblim.wbemsmt.bl.adapter.CimAdapterFactory;
-import org.sblim.wbemsmt.bl.adapter.Message;
-import org.sblim.wbemsmt.bl.adapter.MessageUtil;
-import org.sblim.wbemsmt.bl.adapter.TaskLauncherTreeNodeSelectorForCreate;
+import org.sblim.wbemsmt.bl.adapter.*;
 import org.sblim.wbemsmt.bl.tree.ITaskLauncherTreeNode;
-import org.sblim.wbemsmt.exception.ObjectNotFoundException;
-import org.sblim.wbemsmt.exception.WbemSmtException;
+import org.sblim.wbemsmt.exception.WbemsmtException;
 import org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter;
 import org.sblim.wbemsmt.samba.bl.adapter.SambaErrCodes;
 import org.sblim.wbemsmt.samba.bl.fco.Linux_SambaService;
@@ -42,7 +37,7 @@ public class SambaCreateListenerSelector implements TaskLauncherTreeNodeSelector
 
 	private AbstractBaseCimAdapter adapter;
 
-	public void select(ITaskLauncherTreeNode treeNode, AbstractBaseCimAdapter cimAdapter, String createId) throws ObjectNotFoundException {
+	public void select(ITaskLauncherTreeNode treeNode, AbstractBaseCimAdapter cimAdapter, String createId) throws WbemsmtException {
 		
 		ITaskLauncherTreeNode parent = treeNode;
 		try {
@@ -68,8 +63,8 @@ public class SambaCreateListenerSelector implements TaskLauncherTreeNodeSelector
 			}
 			
 			
-		} catch (WbemSmtException e) {
-			throw new ObjectNotFoundException("Cannot find SambaService with node " + treeNode.getInfo(),e); 
+		} catch (WbemsmtException e) {
+			throw new WbemsmtException(WbemsmtException.ERR_OBJECT_NOT_FOUND,"Cannot find SambaService with node " + treeNode.getInfo(),e); 
 		}
 		
 	}

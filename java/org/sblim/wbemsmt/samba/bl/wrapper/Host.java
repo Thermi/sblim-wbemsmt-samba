@@ -19,9 +19,9 @@
   */
 package org.sblim.wbemsmt.samba.bl.wrapper;
 
-import org.sblim.wbem.client.CIMClient;
+
 import org.sblim.wbemsmt.bl.adapter.CimObjectKey;
-import org.sblim.wbemsmt.exception.ModelLoadException;
+import org.sblim.wbemsmt.exception.WbemsmtException;
 import org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter;
 import org.sblim.wbemsmt.samba.bl.adapter.SambaObject;
 import org.sblim.wbemsmt.samba.bl.fco.Linux_SambaHost;
@@ -35,9 +35,8 @@ public class Host extends SambaObject {
 	}
 
 	/* (non-Javadoc)
-	 * @see org.sblim.wbemsmt.samba.bl.adapter.SambaObject#loadChilds(org.sblim.wbem.client.CIMClient)
 	 */
-	public void loadChilds(CIMClient cimClient) throws ModelLoadException {
+	public void loadChilds() throws WbemsmtException {
 		
 
 	}

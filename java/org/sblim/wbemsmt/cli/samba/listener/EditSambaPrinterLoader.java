@@ -20,7 +20,7 @@
 package org.sblim.wbemsmt.cli.samba.listener;
 
 import org.sblim.wbemsmt.bl.adapter.AbstractBaseCimAdapter;
-import org.sblim.wbemsmt.exception.ObjectNotFoundException;
+import org.sblim.wbemsmt.exception.WbemsmtException;
 import org.sblim.wbemsmt.tools.cli.CimCommandValues;
 import org.sblim.wbemsmt.tools.cli.CliDataLoader;
 import org.sblim.wbemsmt.tools.cli.CliUtil;
@@ -28,7 +28,7 @@ import org.sblim.wbemsmt.tools.resources.WbemSmtResourceBundle;
 
 public class EditSambaPrinterLoader extends SambaLoader implements CliDataLoader {
 
-	public void load(WbemSmtResourceBundle bundle, AbstractBaseCimAdapter adapter, CimCommandValues commandValues) throws ObjectNotFoundException {
+	public void load(WbemSmtResourceBundle bundle, AbstractBaseCimAdapter adapter, CimCommandValues commandValues) throws WbemsmtException {
 		String serviceName = CliUtil.getOption(commandValues,EditSambaPrinter.KEY_GLOBAL_serviceName);
 		String printerName = CliUtil.getOption(commandValues,EditSambaPrinter.KEY_sambaPrintername);
 

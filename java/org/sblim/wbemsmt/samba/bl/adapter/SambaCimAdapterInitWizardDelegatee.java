@@ -19,7 +19,8 @@
   */
 package org.sblim.wbemsmt.samba.bl.adapter;
 
-import org.sblim.wbemsmt.exception.InitWizardException;
+import org.sblim.wbemsmt.bl.adapter.AbstractBaseCimAdapter;
+import org.sblim.wbemsmt.exception.WbemsmtException;
 import org.sblim.wbemsmt.samba.bl.container.wizard.HostWizardPage1;
 import org.sblim.wbemsmt.samba.bl.container.wizard.PrinterWizardPage1;
 import org.sblim.wbemsmt.samba.bl.container.wizard.ShareWizardPage1;
@@ -32,7 +33,7 @@ import org.sblim.wbemsmt.samba.wizard.UserWizardContainer;
 public class SambaCimAdapterInitWizardDelegatee implements
 		SambaCimAdapterInitWizardIf {
 
-	public SambaCimAdapterInitWizardDelegatee(SambaCimAdapter adapter) {
+	public SambaCimAdapterInitWizardDelegatee(AbstractBaseCimAdapter adapter) {
 	}
 
 	/* (non-Javadoc)
@@ -40,7 +41,7 @@ public class SambaCimAdapterInitWizardDelegatee implements
 	 */
 	public void initWizardImpl(HostWizardPage1 container,
 			HostWizardContainer wizardContainer, String currentPagename)
-			throws InitWizardException {
+			throws WbemsmtException {
 		
 
 	}
@@ -50,7 +51,7 @@ public class SambaCimAdapterInitWizardDelegatee implements
 	 */
 	public void initWizardImpl(PrinterWizardPage1 container,
 			PrinterWizardContainer wizardContainer, String currentPagename)
-			throws InitWizardException {
+			throws WbemsmtException {
 		
 
 	}
@@ -60,7 +61,7 @@ public class SambaCimAdapterInitWizardDelegatee implements
 	 */
 	public void initWizardImpl(ShareWizardPage1 container,
 			ShareWizardContainer wizardContainer, String currentPagename)
-			throws InitWizardException {
+			throws WbemsmtException {
 		
 
 	}
@@ -70,7 +71,7 @@ public class SambaCimAdapterInitWizardDelegatee implements
 	 */
 	public void initWizardImpl(UserWizardPage1 container,
 			UserWizardContainer wizardContainer, String currentPagename)
-			throws InitWizardException {
+			throws WbemsmtException {
 		
 
 	}

@@ -1,419 +1,344 @@
 /** 
  * Linux_SambaPrinterPrintingForPrinter.java
  *
- * © Copyright IBM Corp. 2005
+ * 
+ * © Copyright IBM Corp. 2006,2007
  *
- * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
+ * THIS FILE IS PROVIDED UNDER THE TER	MS OF THE COMMON PUBLIC LICENSE
  * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
  * CONSTITUTES RECIPIENTS ACCEPTANCE OF THE AGREEMENT.
  *
  * You can obtain a current copy of the Common Public License from
  * http://www.opensource.org/licenses/cpl1.0.php
  *
- * @author:	ECCG 0.9.7 generated 
- * 			(author should be changed, e.g. First and Last Name <xxx@cc.ibm.com>)
+ * @author: org.sblim.wbemsmt.dcg.generator.fco.jsr48.FcoGenerator
+ * @template: org/sblim/wbemsmt/dcg/templates/fco/jsr48/fco.vm
  *
  * Contributors:
- *
- *
+ *    michael.bauschert@de.ibm.com 
+ * 
  * Description: 
  * 
+ * generated Class
  */
 
 package org.sblim.wbemsmt.samba.bl.fco;
 
-import java.security.InvalidParameterException;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Set;
-import java.util.Vector;
+import javax.cim.*;
+import javax.wbem.client.*;
 
-import org.sblim.wbem.cim.*;
-import org.sblim.wbemsmt.schema.cim29.CIM_ElementSettingData;
+import org.sblim.wbemsmt.exception.*;
 
-/**
- * 
- */
-public class Linux_SambaPrinterPrintingForPrinter extends CIM_ElementSettingData  {
-	
-	public final static String CIM_CLASS_NAME = "Linux_SambaPrinterPrintingForPrinter"; //$NON-NLS-1$
-	public final static String CIM_CLASS_DISPLAYNAME = CIM_CLASS_NAME;
+import org.sblim.wbemsmt.schema.cim29.*;
 
-	private boolean validCimInstance = false;
-	
-	public final static String CIM_PROPERTY_LINUX_SAMBAPRINTERPRINTINGOPTIONS = "SettingData"; //$NON-NLS-1$
-	public final static String CIM_PROPERTY_LINUX_SAMBAPRINTEROPTIONS = "ManagedElement"; //$NON-NLS-1$
-	
-	
-	
-	
-	
+public class Linux_SambaPrinterPrintingForPrinter extends CIM_ElementSettingData {
 
-	public static Vector CIM_PropertyNameList	= new Vector();
-	public static Vector CIM_PropertyList 		= new Vector();
-	private static Set Java_Package_List 		= new HashSet();
-	
-	static {
-		CIM_PropertyNameList.add(CIM_PROPERTY_LINUX_SAMBAPRINTERPRINTINGOPTIONS);
-		CIM_PropertyNameList.add(CIM_PROPERTY_LINUX_SAMBAPRINTEROPTIONS);
-				
-		for (int i = 0; i < CIM_ElementSettingData.CIM_PropertyNameList.size(); i++) {
-			
-			Linux_SambaPrinterPrintingForPrinter.CIM_PropertyNameList.add(CIM_ElementSettingData.CIM_PropertyNameList.elementAt(i));
-		}
-		
-		
-		CIM_PropertyList.add(new CIMProperty(CIM_PROPERTY_LINUX_SAMBAPRINTERPRINTINGOPTIONS, new CIMValue(null, new CIMDataType(Linux_SambaPrinterPrintingOptions.CIM_CLASS_NAME))));
-		CIM_PropertyList.add(new CIMProperty(CIM_PROPERTY_LINUX_SAMBAPRINTEROPTIONS, new CIMValue(null, new CIMDataType(Linux_SambaPrinterOptions.CIM_CLASS_NAME))));
-				
-		for (int i = 0; i < CIM_ElementSettingData.CIM_PropertyList.size(); i++) {
-			
-			Linux_SambaPrinterPrintingForPrinter.CIM_PropertyList.add(CIM_ElementSettingData.CIM_PropertyList.elementAt(i));
-		}
-		
-		addPackage("org.sblim.wbemsmt.samba.bl.fco");
-				
-		String[] parentClassPackageList = CIM_ElementSettingData.getPackages();
-		
-		for (int i = 0; i < parentClassPackageList.length; i++) {
-			Java_Package_List.add(parentClassPackageList[i]);
-		}
-	};
-			
-	
-	
-	
-	
-	//**********************************************************************
-	// Constructors 	
-	//**********************************************************************
+    public final static String CIM_CLASS_NAME = "Linux_SambaPrinterPrintingForPrinter";
+    public final static String CIM_CLASS_DISPLAYNAME = CIM_CLASS_NAME;
 
-	/**
-	*	Class constructor
-	*/	
-	public Linux_SambaPrinterPrintingForPrinter() {
+    /**
+     * Constants of property SettingData
+     * 
+     */
+    public static class PROPERTY_SETTINGDATA_LINUX_SAMBAPRINTERPRINTINGOPTIONS {
+        /**
+         * name of the property SettingData
+         */
+        public final static String NAME = "SettingData";
 
-		this.cimInstance	= new CIMInstance();
-		
-		for (int i = 0; i < CIM_PropertyList.size(); i++) {
-			this.cimInstance.addProperty((CIMProperty)((CIMProperty)CIM_PropertyList.get(i)).clone());
-		}
-		
-		this.cimObjectPath 	= new CIMObjectPath(CIM_CLASS_NAME);
-		this.cimInstance.setObjectPath(this.cimObjectPath);
+    }
 
-		this.original_cimInstance	= (CIMInstance)this.cimInstance.clone();
+    /**
+     * Constants of property ManagedElement
+     * 
+     */
+    public static class PROPERTY_MANAGEDELEMENT_LINUX_SAMBAPRINTEROPTIONS {
+        /**
+         * name of the property ManagedElement
+         */
+        public final static String NAME = "ManagedElement";
 
-		setValidCimInstance(false);
-	}
+    }
 
+    static {
+        addPackage("org.sblim.wbemsmt.samba.bl.fco");
+        String[] parentClassPackageList = CIM_ElementSettingData.getPackages();
 
-	/**
-	*	Class constructor
-	*/	
-	public Linux_SambaPrinterPrintingForPrinter(Vector keyProperties){ 
-		this();
-		
-		if (keyProperties == null) {
-			throw new InvalidParameterException("The keyProperties parameter does not contain a valid reference.");
-		
-		}
-		
-		Iterator iter = keyProperties.iterator();
-		while (iter.hasNext()) {
-			Object property = iter.next();
-			
-			if (property instanceof CIMProperty) {
-				CIMProperty keyProperty = (CIMProperty)property;
-				this.cimObjectPath.addKey(keyProperty);
-				
-				if (this.cimInstance.getProperty(keyProperty.getName()) != null) {
-					this.cimInstance.removeProperty(keyProperty.getName());
-				}
-				this.cimInstance.addProperty(keyProperty);
-				
-			} else {
-				throw new InvalidParameterException("The keyProperties parameter should only contain objects of class CIMProperty.");
-				
-			}
-		}
-		
-		setValidCimInstance(false);
-	}
+        for (int i = 0; i < parentClassPackageList.length; i++) {
+            addPackage(parentClassPackageList[i]);
+        }
 
-	
-	/**
-	*	Class constructor
-	*/	
-	public Linux_SambaPrinterPrintingForPrinter(CIMObjectPath cimObjectPath, CIMInstance cimInstance){ 
-		
-		if (cimInstance == null) {
-			throw new InvalidParameterException("The cimInstance parameter does not contain a valid reference.");
-		
-		} else if (cimObjectPath == null){
-			throw new InvalidParameterException("The cimObjectPath parameter does not contain a valid reference.");		
-		
-		} else if (!cimObjectPath.getObjectName().equals(cimInstance.getClassName())) {
-			throw new InvalidParameterException("The class name of the instance and the ObjectPath are not the same.");
-		}
-		
-		setCimInstance(cimInstance);
-		this.original_cimInstance = (CIMInstance)cimInstance.clone();
-		this.cimObjectPath        = cimObjectPath;
-		setValidCimInstance(true);
-	}
+    };
 
-	
-	/**
-	*	The method returns the display name of the class
-	*/	
-	public String getClassDisplayName(){
-		return CIM_CLASS_DISPLAYNAME;
-	}
-	
-	public static void addPackage(String packagename) {
-        if (packagename != null) {
-            if (!packagename.endsWith(".")) {
-                packagename = packagename + ".";
-            }
-            Linux_SambaPrinterPrintingForPrinter.Java_Package_List.add(packagename);
-            
-        } else {
-            throw new NullPointerException();
+    //**********************************************************************
+    // Constructors     
+    //**********************************************************************
+
+    /**
+     *   Class constructor
+     * 
+     *       *   <br>
+     *   
+     *   @param client the CIM Client
+     *   @param namespace the target namespace
+     */
+
+    public Linux_SambaPrinterPrintingForPrinter(WBEMClient client, String namespace)
+            throws WbemsmtException {
+        CIMClass cls = getClass(client, namespace);
+        setFromServer(false);
+        init(cls.newInstance(), true);
+    }
+
+    /**
+     *   Class constructor
+     * 
+     *       *   <br>
+     *   
+     *   @param cimInstance the instance that is used to create the Object
+     */
+
+    public Linux_SambaPrinterPrintingForPrinter(CIMInstance cimInstance) throws WbemsmtException {
+
+        if (cimInstance == null) {
+            throw new WbemsmtException(WbemsmtException.ERR_INVALID_PARAMETER,
+                    "The cimInstance parameter does not contain a valid reference.");
+        }
+        setFromServer(true);
+        init(cimInstance, false);
+    }
+
+    /**
+     * Default constructor
+     */
+    protected Linux_SambaPrinterPrintingForPrinter() {
+    }
+
+    /**
+     * initializes the FCO
+     *
+     *   @param cimInstance the instance that is used to create the Object
+     *   @param overwrite currently the dataType of embeddedObject/Instance properties is not set correct by the cimClient. This flags decides if to overwrite thos properties
+     */
+    protected void init(CIMInstance cimInstance, boolean overwrite) throws WbemsmtException {
+        propertiesToCheck.put("SettingData", new CIMProperty("SettingData", new CIMDataType(
+                Linux_SambaPrinterPrintingOptions.CIM_CLASS_NAME), null));
+        propertiesToCheck.put("ManagedElement", new CIMProperty("ManagedElement", new CIMDataType(
+                Linux_SambaPrinterOptions.CIM_CLASS_NAME), null));
+
+        super.init(cimInstance, overwrite);
+
+        //currently the dataType of embeddedObject/Instance properties is not set correct by the cimClient
+        //we overwrite the dataType by setting null for every embeddedObject/Instance property
+        if (overwrite) {
+
         }
     }
 
-    public static String[] getPackages() {
-        return (String[]) Linux_SambaPrinterPrintingForPrinter.Java_Package_List.toArray(new String[Linux_SambaPrinterPrintingForPrinter.Java_Package_List.size()]);
+    //**********************************************************************
+    // Properties get/set     
+    //**********************************************************************
+
+    /**
+     * Get the property SettingData
+     * @param client the client used to get the JavaObject by the retrieved CIMObjectPath of this attribute    * <br>
+     * 
+     *     */
+
+    public Linux_SambaPrinterPrintingOptions get_SettingData_Linux_SambaPrinterPrintingOptions(
+            javax.wbem.client.WBEMClient client) throws WbemsmtException {
+        CIMProperty currentProperty = getProperty(PROPERTY_SETTINGDATA_LINUX_SAMBAPRINTERPRINTINGOPTIONS.NAME);
+
+        if (currentProperty == null || currentProperty.getValue() == null) {
+            logger.warning("Property "
+                    + PROPERTY_SETTINGDATA_LINUX_SAMBAPRINTERPRINTINGOPTIONS.NAME
+                    + " was not found in instance " + getCimObjectPath());
+            return null;
+        }
+
+        return Linux_SambaPrinterPrintingOptionsHelper.getInstance(client,
+                (CIMObjectPath) currentProperty.getValue());
+
     }
-	
-	//**********************************************************************
-	// Instance methods
-	//**********************************************************************
 
-	/**
-	*	no description
-	*/	
-	public boolean isDataValid(Vector invalidProperties) {
-		boolean result = true;
-		
-		if (invalidProperties == null) {
-			invalidProperties = new Vector();
-		} else {
-			invalidProperties.removeAllElements();
-		}
-		
-		return result;
-	}
-	
-	/**
-	 * @return Returns the validCimInstance.
-	 */
-	public boolean isValidCimInstance() {
-		return this.validCimInstance;
-	}
-	
-	/**
-	 * @param validCimInstance The validCimInstance to set.
-	 */
-	private void setValidCimInstance(boolean isValidCimInstance) {
+    /**
+     * Set the property SettingData
+     * <br>
+     * 
+     *
+     * @return true if the property was found, false if the property was not found and the value was not set
+     */
 
-		this.validCimInstance = isValidCimInstance;
-	}
-	
-	
-	/**
-	*	The method returns this CIM instance
-	*/
-	public CIMInstance getCimInstance() {
-		
-		return this.cimInstance;
-	}
-	
-	
-	/**
-	*	The method sets this CIM instance
-	*/
-	public void setCimInstance(CIMInstance cimInstance) {
-		
-		this.cimInstance = cimInstance;
-	}
-	
-		
-	/**
-	*	The method returns this CIM object path
-	*/
-	public CIMObjectPath getCimObjectPath() {
-		return this.cimObjectPath;
-	}
-	
-	
-	/**
-	*	The method checks if the cimInstance has been modified
-	*/
-	public boolean isModified() {
-	    
-	    if (!this.original_cimInstance.equals(this.cimInstance)) 
-	        return true;
-	    
-	    return false;
-	}
-	
-	
-	/**
-	*	The method resets the values of the cimInstance
-	*/	
-	public void resetValues() {
-	    this.cimInstance = (CIMInstance)this.original_cimInstance.clone();
-	}
-	
-	
-	/**
-	*	The method checks if the cimInstance equals an other cimInstance
-	*/	
-	public boolean equals(Object object) {
-	    
-	    if (!(object instanceof Linux_SambaPrinterPrintingForPrinter)) {
-	        return false;
-	    }
-	    
-	    if (this.cimInstance == null && ((Linux_SambaPrinterPrintingForPrinter)object).cimInstance != null) {
-	    	return false;
-	    	
-	    } else if (this.cimInstance != null && ((Linux_SambaPrinterPrintingForPrinter)object).cimInstance == null) {
-	    	return false;
-	    	
-	    } else if (this.cimInstance != null && !this.cimInstance.equals(((Linux_SambaPrinterPrintingForPrinter)object).cimInstance)) {
-	    	return false;
-	    	
-	    } else if (this.original_cimInstance == null && ((Linux_SambaPrinterPrintingForPrinter)object).original_cimInstance != null) {
-	    	return false;
-	    	
-	    } else if (this.original_cimInstance != null && ((Linux_SambaPrinterPrintingForPrinter)object).original_cimInstance == null) {
-	    	return false;
-	    	
-	    } else if (this.original_cimInstance != null && !this.original_cimInstance.equals(((Linux_SambaPrinterPrintingForPrinter)object).original_cimInstance)) {
-	        return false;
-	        
-	    } else if (this.cimObjectPath == null && ((Linux_SambaPrinterPrintingForPrinter)object).cimObjectPath != null) {
-	    	return false;
-	    	
-	    } else if (this.cimObjectPath != null && ((Linux_SambaPrinterPrintingForPrinter)object).cimObjectPath == null) {
-	    	return false;
-		    	
-	    } else if (this.cimObjectPath != null && !this.cimObjectPath.equals(((Linux_SambaPrinterPrintingForPrinter)object).cimObjectPath)) {
-	        return false;
-	        
-	    } 
-	    
-	    return true;
-	}
-	
-	/**
-	*	The method return this method as a string
-	*/	
-	public String toString() {
-		return this.cimInstance.toString();
-	}
+    public boolean set_SettingData_Linux_SambaPrinterPrintingOptions(
+            Linux_SambaPrinterPrintingOptions newValue) {
+        CIMProperty currentProperty = getProperty(PROPERTY_SETTINGDATA_LINUX_SAMBAPRINTERPRINTINGOPTIONS.NAME);
+        if (currentProperty != null) {
+            currentProperty = setPropertyValue_SettingData_Linux_SambaPrinterPrintingOptions(
+                    currentProperty, newValue);
+            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            return true;
+        }
+        else {
+            logger.warning("Property "
+                    + PROPERTY_SETTINGDATA_LINUX_SAMBAPRINTERPRINTINGOPTIONS.NAME
+                    + " was not found in instance " + getCimObjectPath());
+            return false;
+        }
 
-	//*****************************************************
-	// Associators methods
-	//*****************************************************
-	
-	
-	
-	//*****************************************************
-	// Attribute methods
-	//*****************************************************
-	
-	// Attribute Linux_SambaPrinterPrintingOptions
-	
-	public CIMObjectPath get_Linux_SambaPrinterPrintingOptions() {
-		
-		CIMProperty currentProperty = this.cimInstance.getProperty(Linux_SambaPrinterPrintingForPrinter.CIM_PROPERTY_LINUX_SAMBAPRINTERPRINTINGOPTIONS);
-        
-		if (currentProperty == null) {
-			throw new CIMException(CIMException.CIM_ERR_NO_SUCH_PROPERTY, "The property " + Linux_SambaPrinterPrintingForPrinter.CIM_PROPERTY_LINUX_SAMBAPRINTERPRINTINGOPTIONS + " could not be found");
-    		
-		} else if (currentProperty.getType() == null ) {
-			throw new CIMException(CIMException.CIM_ERR_TYPE_MISMATCH, "The property " + Linux_SambaPrinterPrintingForPrinter.CIM_PROPERTY_LINUX_SAMBAPRINTERPRINTINGOPTIONS + " is not of expected type Linux_SambaPrinterPrintingOptions.");
-		}
-        
-		if (currentProperty.getValue() == null) {
-			return null;
-		}
-        
-		return (CIMObjectPath)currentProperty.getValue().getValue();
-	}
-	    
-			
-	public void set_Linux_SambaPrinterPrintingOptions(Linux_SambaPrinterPrintingOptions newValue) {
-		
-		CIMProperty currentProperty = this.cimInstance.getProperty(Linux_SambaPrinterPrintingForPrinter.CIM_PROPERTY_LINUX_SAMBAPRINTERPRINTINGOPTIONS);
-    	
-		if (currentProperty == null) {
-			throw new CIMException(CIMException.CIM_ERR_NO_SUCH_PROPERTY, "The property " + Linux_SambaPrinterPrintingForPrinter.CIM_PROPERTY_LINUX_SAMBAPRINTERPRINTINGOPTIONS + " could not be found");
-    		
-		} else if (!Linux_SambaPrinterPrintingForPrinterHelper.isValid_Linux_SambaPrinterPrintingOptions(newValue)) {
-			throw new InvalidParameterException("The value " + newValue + " is not valid for property " + Linux_SambaPrinterPrintingForPrinter.CIM_PROPERTY_LINUX_SAMBAPRINTERPRINTINGOPTIONS);
-    		
-		} else if (currentProperty.getType() == null ) {
-			throw new CIMException(CIMException.CIM_ERR_TYPE_MISMATCH, "The property " + Linux_SambaPrinterPrintingForPrinter.CIM_PROPERTY_LINUX_SAMBAPRINTERPRINTINGOPTIONS + " is not of expected type Linux_SambaPrinterPrintingOptions.");
-		}
-    	
-		CIMValue updatedValue = new CIMValue(newValue.getCimObjectPath(), new CIMDataType(Linux_SambaPrinterPrintingOptions.CIM_CLASS_NAME));
-		currentProperty.setValue(updatedValue);
-	}	
-	    
-	
+    }
 
-	// Attribute Linux_SambaPrinterOptions
-	
-	public CIMObjectPath get_Linux_SambaPrinterOptions() {
-		
-		CIMProperty currentProperty = this.cimInstance.getProperty(Linux_SambaPrinterPrintingForPrinter.CIM_PROPERTY_LINUX_SAMBAPRINTEROPTIONS);
-        
-		if (currentProperty == null) {
-			throw new CIMException(CIMException.CIM_ERR_NO_SUCH_PROPERTY, "The property " + Linux_SambaPrinterPrintingForPrinter.CIM_PROPERTY_LINUX_SAMBAPRINTEROPTIONS + " could not be found");
-    		
-		} else if (currentProperty.getType() == null ) {
-			throw new CIMException(CIMException.CIM_ERR_TYPE_MISMATCH, "The property " + Linux_SambaPrinterPrintingForPrinter.CIM_PROPERTY_LINUX_SAMBAPRINTEROPTIONS + " is not of expected type Linux_SambaPrinterOptions.");
-		}
-        
-		if (currentProperty.getValue() == null) {
-			return null;
-		}
-        
-		return (CIMObjectPath)currentProperty.getValue().getValue();
-	}
-	    
-			
-	public void set_Linux_SambaPrinterOptions(Linux_SambaPrinterOptions newValue) {
-		
-		CIMProperty currentProperty = this.cimInstance.getProperty(Linux_SambaPrinterPrintingForPrinter.CIM_PROPERTY_LINUX_SAMBAPRINTEROPTIONS);
-    	
-		if (currentProperty == null) {
-			throw new CIMException(CIMException.CIM_ERR_NO_SUCH_PROPERTY, "The property " + Linux_SambaPrinterPrintingForPrinter.CIM_PROPERTY_LINUX_SAMBAPRINTEROPTIONS + " could not be found");
-    		
-		} else if (!Linux_SambaPrinterPrintingForPrinterHelper.isValid_Linux_SambaPrinterOptions(newValue)) {
-			throw new InvalidParameterException("The value " + newValue + " is not valid for property " + Linux_SambaPrinterPrintingForPrinter.CIM_PROPERTY_LINUX_SAMBAPRINTEROPTIONS);
-    		
-		} else if (currentProperty.getType() == null ) {
-			throw new CIMException(CIMException.CIM_ERR_TYPE_MISMATCH, "The property " + Linux_SambaPrinterPrintingForPrinter.CIM_PROPERTY_LINUX_SAMBAPRINTEROPTIONS + " is not of expected type Linux_SambaPrinterOptions.");
-		}
-    	
-		CIMValue updatedValue = new CIMValue(newValue.getCimObjectPath(), new CIMDataType(Linux_SambaPrinterOptions.CIM_CLASS_NAME));
-		currentProperty.setValue(updatedValue);
-	}	
-	    
-	
+    /**
+     * Get the property SettingData by getting the class from the server<br>
+     * and retrieving the property from it
+     * After that the value is set to this property and the property is returned
+     * @return null if the property cannot be found in the instance from the server
+     * @throws WbemsmtException 
+     */
 
-	
-	
-	//*****************************************************
-	// Invoke methods
-	//*****************************************************
-	
-	
+    public static CIMProperty create_SettingData_Linux_SambaPrinterPrintingOptions(
+            WBEMClient client, String namespace, Linux_SambaPrinterPrintingOptions newValue)
+            throws WbemsmtException {
+        Linux_SambaPrinterPrintingForPrinter fco = new Linux_SambaPrinterPrintingForPrinter(client,
+                namespace);
+        CIMProperty property = fco
+                .getProperty(PROPERTY_SETTINGDATA_LINUX_SAMBAPRINTERPRINTINGOPTIONS.NAME);
+        if (property != null) {
+            property = setPropertyValue_SettingData_Linux_SambaPrinterPrintingOptions(property,
+                    newValue);
+        }
+        else {
+            logger.warning("Property "
+                    + PROPERTY_SETTINGDATA_LINUX_SAMBAPRINTERPRINTINGOPTIONS.NAME
+                    + " was not found in instance " + fco.getCimObjectPath());
+        }
+        return property;
+    }
+
+    /**
+     * Set the property SettingData
+     * <br>
+     * 
+     */
+
+    private static CIMProperty setPropertyValue_SettingData_Linux_SambaPrinterPrintingOptions(
+            CIMProperty currentProperty, Linux_SambaPrinterPrintingOptions newValue) {
+        Object setThis = null;
+
+        setThis = newValue != null ? newValue.getCimObjectPath() : null;
+
+        CIMProperty newProperty = new CIMProperty(currentProperty.getName(), currentProperty
+                .getDataType(), setThis, currentProperty.isKey(), currentProperty.isPropagated(),
+                currentProperty.getOriginClass());
+
+        return newProperty;
+    }
+
+    /**
+     * Get the property ManagedElement
+     * @param client the client used to get the JavaObject by the retrieved CIMObjectPath of this attribute    * <br>
+     * 
+     *     */
+
+    public Linux_SambaPrinterOptions get_ManagedElement_Linux_SambaPrinterOptions(
+            javax.wbem.client.WBEMClient client) throws WbemsmtException {
+        CIMProperty currentProperty = getProperty(PROPERTY_MANAGEDELEMENT_LINUX_SAMBAPRINTEROPTIONS.NAME);
+
+        if (currentProperty == null || currentProperty.getValue() == null) {
+            logger.warning("Property " + PROPERTY_MANAGEDELEMENT_LINUX_SAMBAPRINTEROPTIONS.NAME
+                    + " was not found in instance " + getCimObjectPath());
+            return null;
+        }
+
+        return Linux_SambaPrinterOptionsHelper.getInstance(client, (CIMObjectPath) currentProperty
+                .getValue());
+
+    }
+
+    /**
+     * Set the property ManagedElement
+     * <br>
+     * 
+     *
+     * @return true if the property was found, false if the property was not found and the value was not set
+     */
+
+    public boolean set_ManagedElement_Linux_SambaPrinterOptions(Linux_SambaPrinterOptions newValue) {
+        CIMProperty currentProperty = getProperty(PROPERTY_MANAGEDELEMENT_LINUX_SAMBAPRINTEROPTIONS.NAME);
+        if (currentProperty != null) {
+            currentProperty = setPropertyValue_ManagedElement_Linux_SambaPrinterOptions(
+                    currentProperty, newValue);
+            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            return true;
+        }
+        else {
+            logger.warning("Property " + PROPERTY_MANAGEDELEMENT_LINUX_SAMBAPRINTEROPTIONS.NAME
+                    + " was not found in instance " + getCimObjectPath());
+            return false;
+        }
+
+    }
+
+    /**
+     * Get the property ManagedElement by getting the class from the server<br>
+     * and retrieving the property from it
+     * After that the value is set to this property and the property is returned
+     * @return null if the property cannot be found in the instance from the server
+     * @throws WbemsmtException 
+     */
+
+    public static CIMProperty create_ManagedElement_Linux_SambaPrinterOptions(WBEMClient client,
+            String namespace, Linux_SambaPrinterOptions newValue) throws WbemsmtException {
+        Linux_SambaPrinterPrintingForPrinter fco = new Linux_SambaPrinterPrintingForPrinter(client,
+                namespace);
+        CIMProperty property = fco
+                .getProperty(PROPERTY_MANAGEDELEMENT_LINUX_SAMBAPRINTEROPTIONS.NAME);
+        if (property != null) {
+            property = setPropertyValue_ManagedElement_Linux_SambaPrinterOptions(property, newValue);
+        }
+        else {
+            logger.warning("Property " + PROPERTY_MANAGEDELEMENT_LINUX_SAMBAPRINTEROPTIONS.NAME
+                    + " was not found in instance " + fco.getCimObjectPath());
+        }
+        return property;
+    }
+
+    /**
+     * Set the property ManagedElement
+     * <br>
+     * 
+     */
+
+    private static CIMProperty setPropertyValue_ManagedElement_Linux_SambaPrinterOptions(
+            CIMProperty currentProperty, Linux_SambaPrinterOptions newValue) {
+        Object setThis = null;
+
+        setThis = newValue != null ? newValue.getCimObjectPath() : null;
+
+        CIMProperty newProperty = new CIMProperty(currentProperty.getName(), currentProperty
+                .getDataType(), setThis, currentProperty.isKey(), currentProperty.isPropagated(),
+                currentProperty.getOriginClass());
+
+        return newProperty;
+    }
+
+    //**********************************************************************
+    // Associators methods     
+    //**********************************************************************
+
+    //**********************************************************************
+    // Extrinsic Method invocations     
+    //**********************************************************************                         
+
+    //**********************************************************************
+    // utility methods     
+    //**********************************************************************                         
+
+    /**
+     * return the name of the CIMClass
+     * @return
+     */
+    public String getObjectName() {
+        return Linux_SambaPrinterPrintingForPrinter.CIM_CLASS_NAME;
+    }
 
 }

@@ -21,9 +21,9 @@ package org.sblim.wbemsmt.samba.lookup;
 
 import java.util.logging.Logger;
 
-import org.sblim.wbem.cim.CIMException;
-import org.sblim.wbem.cim.CIMObjectPath;
-import org.sblim.wbem.client.CIMClient;
+import javax.wbem.client.WBEMClient;
+
+import org.sblim.wbemsmt.exception.WbemsmtException;
 import org.sblim.wbemsmt.lookup.Lookup;
 import org.sblim.wbemsmt.samba.bl.fco.Linux_SambaService;
 
@@ -31,13 +31,13 @@ public class LookupServerTask implements Lookup {
 
 	static Logger logger = Logger.getLogger(LookupServerTask.class.getName()); 
 	
-	public boolean lookup(CIMClient cimClient) {
+	public boolean lookup(WBEMClient cimClient, String namespace) {
 		
 		try {
-			cimClient.getClass(new CIMObjectPath(Linux_SambaService.CIM_CLASS_NAME));
+			new Linux_SambaService(cimClient,namespace);
 			return true;
-		} catch (CIMException e) {
-			logger.severe("Cannot lookup samba task on server " + cimClient.getNameSpace().toString() + " Exception " + e.getDescription());
+		} catch (WbemsmtException e) {
+			logger.severe("Cannot lookup samba task on server " + namespace + " Exception " + e.getMessage());
 			return false;
 		}
 	}

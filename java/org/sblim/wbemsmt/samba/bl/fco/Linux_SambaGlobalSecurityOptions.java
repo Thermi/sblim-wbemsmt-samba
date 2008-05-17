@@ -1,976 +1,1697 @@
 /** 
  * Linux_SambaGlobalSecurityOptions.java
  *
- * © Copyright IBM Corp. 2005
+ * 
+ * © Copyright IBM Corp. 2006,2007
  *
- * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
+ * THIS FILE IS PROVIDED UNDER THE TER	MS OF THE COMMON PUBLIC LICENSE
  * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
  * CONSTITUTES RECIPIENTS ACCEPTANCE OF THE AGREEMENT.
  *
  * You can obtain a current copy of the Common Public License from
  * http://www.opensource.org/licenses/cpl1.0.php
  *
- * @author:	ECCG 0.9.7 generated 
- * 			(author should be changed, e.g. First and Last Name <xxx@cc.ibm.com>)
+ * @author: org.sblim.wbemsmt.dcg.generator.fco.jsr48.FcoGenerator
+ * @template: org/sblim/wbemsmt/dcg/templates/fco/jsr48/fco.vm
  *
  * Contributors:
- *
- *
+ *    michael.bauschert@de.ibm.com 
+ * 
  * Description: 
  * 
+ * generated Class
  */
 
 package org.sblim.wbemsmt.samba.bl.fco;
 
-import java.lang.reflect.Constructor;
-import java.security.InvalidParameterException;
-import java.util.*;
+import javax.cim.*;
+import javax.wbem.client.*;
 
-import org.sblim.wbem.cim.*;
-import org.sblim.wbem.client.CIMClient;
-import org.sblim.wbem.client.CIMEnumeration;
-import org.sblim.wbemsmt.schema.cim29.CIM_SettingData;
+import org.sblim.wbemsmt.exception.*;
+import org.sblim.wbemsmt.exception.impl.*;
+import org.sblim.wbemsmt.exception.impl.userobject.*;
 
-/**
- * 
- */
-public class Linux_SambaGlobalSecurityOptions extends CIM_SettingData  {
-	
-	public final static String CIM_CLASS_NAME = "Linux_SambaGlobalSecurityOptions"; //$NON-NLS-1$
-	public final static String CIM_CLASS_DISPLAYNAME = CIM_CLASS_NAME;
+import org.sblim.wbemsmt.schema.cim29.*;
 
-	private boolean validCimInstance = false;
-	
-	public final static String CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAGLOBALSECURITYFORGLOBAL = "Linux_SambaGlobalSecurityForGlobal"; //$NON-NLS-1$
-	
-	
-	/**
-	*	
-	*/
-	public final static String CIM_PROPERTY_AUTHMETHODS = "AuthMethods"; //$NON-NLS-1$
-	/**
-	*	
-	*/
-	public final static String CIM_PROPERTY_ENCRYPTPASSWORDS = "EncryptPasswords"; //$NON-NLS-1$
-	/**
-	*	
-	*/
-	public final static String CIM_PROPERTY_MINPASSWORDLENGTH = "MinPasswordLength"; //$NON-NLS-1$
-	/**
-	*	
-	*/
-	public final static String CIM_PROPERTY_NAME = "Name"; //$NON-NLS-1$
-	/**
-	*	
-	*/
-	public final static String CIM_PROPERTY_NULLPASSWORDS = "NullPasswords"; //$NON-NLS-1$
-	/**
-	*	
-	*/
-	public final static String CIM_PROPERTY_PASSDBBACKEND = "PassdbBackend"; //$NON-NLS-1$
-	/**
-	*	
-	*/
-	public final static String CIM_PROPERTY_SMBPASSWDFILE = "SMBPasswdFile"; //$NON-NLS-1$
-	/**
-	*	
-	*/
-	public final static String CIM_PROPERTY_SECURITY = "Security"; //$NON-NLS-1$
-	
-	
-	
+import java.lang.reflect.*;
+import javax.wbem.*;
 
-	public static Vector CIM_PropertyNameList	= new Vector();
-	public static Vector CIM_PropertyList 		= new Vector();
-	private static Set Java_Package_List 		= new HashSet();
-	
-	static {
-		CIM_PropertyNameList.add(CIM_PROPERTY_AUTHMETHODS);
-		CIM_PropertyNameList.add(CIM_PROPERTY_ENCRYPTPASSWORDS);
-		CIM_PropertyNameList.add(CIM_PROPERTY_MINPASSWORDLENGTH);
-		CIM_PropertyNameList.add(CIM_PROPERTY_NAME);
-		CIM_PropertyNameList.add(CIM_PROPERTY_NULLPASSWORDS);
-		CIM_PropertyNameList.add(CIM_PROPERTY_PASSDBBACKEND);
-		CIM_PropertyNameList.add(CIM_PROPERTY_SMBPASSWDFILE);
-		CIM_PropertyNameList.add(CIM_PROPERTY_SECURITY);
-				
-		for (int i = 0; i < CIM_SettingData.CIM_PropertyNameList.size(); i++) {
-			if (((String)CIM_SettingData.CIM_PropertyNameList.elementAt(i)).equals(CIM_PROPERTY_AUTHMETHODS)||
-				((String)CIM_SettingData.CIM_PropertyNameList.elementAt(i)).equals(CIM_PROPERTY_ENCRYPTPASSWORDS)||
-				((String)CIM_SettingData.CIM_PropertyNameList.elementAt(i)).equals(CIM_PROPERTY_MINPASSWORDLENGTH)||
-				((String)CIM_SettingData.CIM_PropertyNameList.elementAt(i)).equals(CIM_PROPERTY_NAME)||
-				((String)CIM_SettingData.CIM_PropertyNameList.elementAt(i)).equals(CIM_PROPERTY_NULLPASSWORDS)||
-				((String)CIM_SettingData.CIM_PropertyNameList.elementAt(i)).equals(CIM_PROPERTY_PASSDBBACKEND)||
-				((String)CIM_SettingData.CIM_PropertyNameList.elementAt(i)).equals(CIM_PROPERTY_SMBPASSWDFILE)||
-				((String)CIM_SettingData.CIM_PropertyNameList.elementAt(i)).equals(CIM_PROPERTY_SECURITY)){
-				continue;
-			}
-			
-			Linux_SambaGlobalSecurityOptions.CIM_PropertyNameList.add(CIM_SettingData.CIM_PropertyNameList.elementAt(i));
-		}
-		
-		CIM_PropertyList.add(new CIMProperty(CIM_PROPERTY_AUTHMETHODS, new CIMValue(null, new CIMDataType(CIMDataType.STRING))));
-		CIM_PropertyList.add(new CIMProperty(CIM_PROPERTY_ENCRYPTPASSWORDS, new CIMValue(null, new CIMDataType(CIMDataType.BOOLEAN))));
-		CIM_PropertyList.add(new CIMProperty(CIM_PROPERTY_MINPASSWORDLENGTH, new CIMValue(null, new CIMDataType(CIMDataType.UINT8))));
-		CIM_PropertyList.add(new CIMProperty(CIM_PROPERTY_NAME, new CIMValue(null, new CIMDataType(CIMDataType.STRING))));
-		CIM_PropertyList.add(new CIMProperty(CIM_PROPERTY_NULLPASSWORDS, new CIMValue(null, new CIMDataType(CIMDataType.BOOLEAN))));
-		CIM_PropertyList.add(new CIMProperty(CIM_PROPERTY_PASSDBBACKEND, new CIMValue(null, new CIMDataType(CIMDataType.STRING))));
-		CIM_PropertyList.add(new CIMProperty(CIM_PROPERTY_SMBPASSWDFILE, new CIMValue(null, new CIMDataType(CIMDataType.STRING))));
-		CIM_PropertyList.add(new CIMProperty(CIM_PROPERTY_SECURITY, new CIMValue(null, new CIMDataType(CIMDataType.UINT8))));
-				
-		for (int i = 0; i < CIM_SettingData.CIM_PropertyList.size(); i++) {
-			if (((CIMProperty)CIM_SettingData.CIM_PropertyList.get(i)).getName().equals(CIM_PROPERTY_AUTHMETHODS)||
-				((CIMProperty)CIM_SettingData.CIM_PropertyList.get(i)).getName().equals(CIM_PROPERTY_ENCRYPTPASSWORDS)||
-				((CIMProperty)CIM_SettingData.CIM_PropertyList.get(i)).getName().equals(CIM_PROPERTY_MINPASSWORDLENGTH)||
-				((CIMProperty)CIM_SettingData.CIM_PropertyList.get(i)).getName().equals(CIM_PROPERTY_NAME)||
-				((CIMProperty)CIM_SettingData.CIM_PropertyList.get(i)).getName().equals(CIM_PROPERTY_NULLPASSWORDS)||
-				((CIMProperty)CIM_SettingData.CIM_PropertyList.get(i)).getName().equals(CIM_PROPERTY_PASSDBBACKEND)||
-				((CIMProperty)CIM_SettingData.CIM_PropertyList.get(i)).getName().equals(CIM_PROPERTY_SMBPASSWDFILE)||
-				((CIMProperty)CIM_SettingData.CIM_PropertyList.get(i)).getName().equals(CIM_PROPERTY_SECURITY)){
-				continue;
-			}
-			
-			Linux_SambaGlobalSecurityOptions.CIM_PropertyList.add(CIM_SettingData.CIM_PropertyList.elementAt(i));
-		}
-		
-		addPackage("org.sblim.wbemsmt.samba.bl.fco");
-				
-		String[] parentClassPackageList = CIM_SettingData.getPackages();
-		
-		for (int i = 0; i < parentClassPackageList.length; i++) {
-			Java_Package_List.add(parentClassPackageList[i]);
-		}
-	};
-			
-	public final static String[] CIM_VALUEMAP_PASSDBBACKEND = {"0", "1", "2", "3", "4"};
-	public final static String[] CIM_VALUEMAP_SECURITY = {"0", "1", "2", "3", "4"};
-	
-	
-	public final static String PASSDBBACKEND_0 = "smbpasswd";
-	public final static String PASSDBBACKEND_1 = "tdbsam";
-	public final static String PASSDBBACKEND_2 = "ldapsam";
-	public final static String PASSDBBACKEND_3 = "nisplussam";
-	public final static String PASSDBBACKEND_4 = "mysql";
-	
-	public final static String SECURITY_0 = "User";
-	public final static String SECURITY_1 = "Share";
-	public final static String SECURITY_2 = "Server";
-	public final static String SECURITY_3 = "Domain";
-	public final static String SECURITY_4 = "ADS";
-	
-	
-	
-	//**********************************************************************
-	// Constructors 	
-	//**********************************************************************
+public class Linux_SambaGlobalSecurityOptions extends CIM_SettingData {
 
-	/**
-	*	Class constructor
-	*/	
-	public Linux_SambaGlobalSecurityOptions() {
+    public final static String CIM_CLASS_NAME = "Linux_SambaGlobalSecurityOptions";
+    public final static String CIM_CLASS_DISPLAYNAME = CIM_CLASS_NAME;
 
-		this.cimInstance	= new CIMInstance();
-		
-		for (int i = 0; i < CIM_PropertyList.size(); i++) {
-			this.cimInstance.addProperty((CIMProperty)((CIMProperty)CIM_PropertyList.get(i)).clone());
-		}
-		
-		this.cimObjectPath 	= new CIMObjectPath(CIM_CLASS_NAME);
-		this.cimInstance.setObjectPath(this.cimObjectPath);
+    /**
+     * 
+     */
 
-		this.original_cimInstance	= (CIMInstance)this.cimInstance.clone();
+    public final static String CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAGLOBALSECURITYFORGLOBAL = "Linux_SambaGlobalSecurityForGlobal";
 
-		setValidCimInstance(false);
-	}
+    /**
+     * Constants of property AuthMethods
+     * 
+     */
+    public static class PROPERTY_AUTHMETHODS {
+        /**
+         * name of the property AuthMethods
+         */
+        public final static String NAME = "AuthMethods";
 
+    }
 
-	/**
-	*	Class constructor
-	*/	
-	public Linux_SambaGlobalSecurityOptions(Vector keyProperties){ 
-		this();
-		
-		if (keyProperties == null) {
-			throw new InvalidParameterException("The keyProperties parameter does not contain a valid reference.");
-		
-		}
-		
-		Iterator iter = keyProperties.iterator();
-		while (iter.hasNext()) {
-			Object property = iter.next();
-			
-			if (property instanceof CIMProperty) {
-				CIMProperty keyProperty = (CIMProperty)property;
-				this.cimObjectPath.addKey(keyProperty);
-				
-				if (this.cimInstance.getProperty(keyProperty.getName()) != null) {
-					this.cimInstance.removeProperty(keyProperty.getName());
-				}
-				this.cimInstance.addProperty(keyProperty);
-				
-			} else {
-				throw new InvalidParameterException("The keyProperties parameter should only contain objects of class CIMProperty.");
-				
-			}
-		}
-		
-		setValidCimInstance(false);
-	}
+    /**
+     * Constants of property EncryptPasswords
+     * 
+     */
+    public static class PROPERTY_ENCRYPTPASSWORDS {
+        /**
+         * name of the property EncryptPasswords
+         */
+        public final static String NAME = "EncryptPasswords";
 
-	
-	/**
-	*	Class constructor
-	*/	
-	public Linux_SambaGlobalSecurityOptions(CIMObjectPath cimObjectPath, CIMInstance cimInstance){ 
-		
-		if (cimInstance == null) {
-			throw new InvalidParameterException("The cimInstance parameter does not contain a valid reference.");
-		
-		} else if (cimObjectPath == null){
-			throw new InvalidParameterException("The cimObjectPath parameter does not contain a valid reference.");		
-		
-		} else if (!cimObjectPath.getObjectName().equals(cimInstance.getClassName())) {
-			throw new InvalidParameterException("The class name of the instance and the ObjectPath are not the same.");
-		}
-		
-		setCimInstance(cimInstance);
-		this.original_cimInstance = (CIMInstance)cimInstance.clone();
-		this.cimObjectPath        = cimObjectPath;
-		setValidCimInstance(true);
-	}
+    }
 
-	
-	/**
-	*	The method returns the display name of the class
-	*/	
-	public String getClassDisplayName(){
-		return CIM_CLASS_DISPLAYNAME;
-	}
-	
-	public static void addPackage(String packagename) {
-        if (packagename != null) {
-            if (!packagename.endsWith(".")) {
-                packagename = packagename + ".";
+    /**
+     * Constants of property MinPasswordLength
+     * 
+     */
+    public static class PROPERTY_MINPASSWORDLENGTH {
+        /**
+         * name of the property MinPasswordLength
+         */
+        public final static String NAME = "MinPasswordLength";
+
+    }
+
+    /**
+     * Constants of property Name
+     * 
+     */
+    public static class PROPERTY_NAME {
+        /**
+         * name of the property Name
+         */
+        public final static String NAME = "Name";
+
+    }
+
+    /**
+     * Constants of property NullPasswords
+     * 
+     */
+    public static class PROPERTY_NULLPASSWORDS {
+        /**
+         * name of the property NullPasswords
+         */
+        public final static String NAME = "NullPasswords";
+
+    }
+
+    /**
+     * Constants of property PassdbBackend
+     * 
+     */
+    public static class PROPERTY_PASSDBBACKEND {
+        /**
+         * name of the property PassdbBackend
+         */
+        public final static String NAME = "PassdbBackend";
+
+        /**
+         * constant for value map entry 0
+         */
+
+        public final static String VALUE_MAP_ENTRY_0_FOR_VALUE_ENTRY_smbpasswd = new String("0");
+
+        /**
+         * constant for value entry smbpasswd (corresponds to mapEntry 0 )
+         */
+        public final static String VALUE_ENTRY_smbpasswd = "smbpasswd";
+
+        /**
+         * constant for value map entry 1
+         */
+
+        public final static String VALUE_MAP_ENTRY_1_FOR_VALUE_ENTRY_tdbsam = new String("1");
+
+        /**
+         * constant for value entry tdbsam (corresponds to mapEntry 1 )
+         */
+        public final static String VALUE_ENTRY_tdbsam = "tdbsam";
+
+        /**
+         * constant for value map entry 2
+         */
+
+        public final static String VALUE_MAP_ENTRY_2_FOR_VALUE_ENTRY_ldapsam = new String("2");
+
+        /**
+         * constant for value entry ldapsam (corresponds to mapEntry 2 )
+         */
+        public final static String VALUE_ENTRY_ldapsam = "ldapsam";
+
+        /**
+         * constant for value map entry 3
+         */
+
+        public final static String VALUE_MAP_ENTRY_3_FOR_VALUE_ENTRY_nisplussam = new String("3");
+
+        /**
+         * constant for value entry nisplussam (corresponds to mapEntry 3 )
+         */
+        public final static String VALUE_ENTRY_nisplussam = "nisplussam";
+
+        /**
+         * constant for value map entry 4
+         */
+
+        public final static String VALUE_MAP_ENTRY_4_FOR_VALUE_ENTRY_mysql = new String("4");
+
+        /**
+         * constant for value entry mysql (corresponds to mapEntry 4 )
+         */
+        public final static String VALUE_ENTRY_mysql = "mysql";
+
+        /**
+         * get the ValueMapEntry of the given value
+         * @param value the value to find the ValueMapEntry for
+         * @return the ValueMap entry or null if not found
+         */
+        public static String getValueMapEntry(String value) {
+            if (VALUE_ENTRY_smbpasswd.equals(value)) {
+                return VALUE_MAP_ENTRY_0_FOR_VALUE_ENTRY_smbpasswd;
             }
-            Linux_SambaGlobalSecurityOptions.Java_Package_List.add(packagename);
-            
-        } else {
-            throw new NullPointerException();
+            if (VALUE_ENTRY_tdbsam.equals(value)) {
+                return VALUE_MAP_ENTRY_1_FOR_VALUE_ENTRY_tdbsam;
+            }
+            if (VALUE_ENTRY_ldapsam.equals(value)) {
+                return VALUE_MAP_ENTRY_2_FOR_VALUE_ENTRY_ldapsam;
+            }
+            if (VALUE_ENTRY_nisplussam.equals(value)) {
+                return VALUE_MAP_ENTRY_3_FOR_VALUE_ENTRY_nisplussam;
+            }
+            if (VALUE_ENTRY_mysql.equals(value)) {
+                return VALUE_MAP_ENTRY_4_FOR_VALUE_ENTRY_mysql;
+            }
+            return null;
+        }
+
+        /**
+         * uses the element within array VALUE_ENTRIES_FOR_DISPLAY at index indexInPulldown to get the ValueMapEntry
+         * @param indexInPulldown the index within the pulldown element, the list etc
+         * @return the ValueMap entry from the displayed values
+         */
+        public static String getValueMapEntryFromDisplayedValue(Number indexInPulldown) {
+            return getValueMapEntry(VALUE_ENTRIES_FOR_DISPLAY[indexInPulldown.intValue()]);
+        }
+
+        /**
+         * gets the value for the given valueMap entry (currentValue) and gives back the index of this value within the VALUE_ENTRIES_FOR_DISPLAY array
+         *
+         * can be used to set the correct selection index for a pulldown field
+         *
+         * @return -1 if for the currentValue no value within VALUE_ENTRIES_FOR_DISPLAY was found
+         * @param currentValue the currentValue to get the index for
+         */
+        public static int getIndexForDisplay(String currentValue) {
+            String valueEntry = getValueEntry(currentValue);
+            if (valueEntry != null) {
+                for (int i = 0; i < VALUE_ENTRIES_FOR_DISPLAY.length; i++) {
+                    if (VALUE_ENTRIES_FOR_DISPLAY[i].equals(valueEntry)) {
+                        return i;
+                    }
+                }
+            }
+            return -1;
+
+        }
+
+        /**
+         * get the ValueEntry of the given valueMapEntry
+         * @param valueMapEntry the entry within the valueMap to find the ValueEntry for
+         * @return the Value entry or null if not found
+         */
+
+        public static String getValueEntry(String valueMapEntry) {
+            if (VALUE_MAP_ENTRY_0_FOR_VALUE_ENTRY_smbpasswd.equals(valueMapEntry)) {
+                return VALUE_ENTRY_smbpasswd;
+            }
+            if (VALUE_MAP_ENTRY_1_FOR_VALUE_ENTRY_tdbsam.equals(valueMapEntry)) {
+                return VALUE_ENTRY_tdbsam;
+            }
+            if (VALUE_MAP_ENTRY_2_FOR_VALUE_ENTRY_ldapsam.equals(valueMapEntry)) {
+                return VALUE_ENTRY_ldapsam;
+            }
+            if (VALUE_MAP_ENTRY_3_FOR_VALUE_ENTRY_nisplussam.equals(valueMapEntry)) {
+                return VALUE_ENTRY_nisplussam;
+            }
+            if (VALUE_MAP_ENTRY_4_FOR_VALUE_ENTRY_mysql.equals(valueMapEntry)) {
+                return VALUE_ENTRY_mysql;
+            }
+            return null;
+        }
+
+        /**
+         * ValueMap entries
+         * Contains no entries that having an integer value range representation
+         * 
+         * The couterpart for the value entries is returned by VALUE_ENTRIES_FOR_DISPLAY
+         *
+         * @see \#VALUE_ENTRIES_FOR_DISPLAY
+         * 
+         * Value Map for the property PassdbBackend   
+         */
+        public final static String[] VALUE_MAP_ENTRIES = {
+                VALUE_MAP_ENTRY_0_FOR_VALUE_ENTRY_smbpasswd,
+                VALUE_MAP_ENTRY_1_FOR_VALUE_ENTRY_tdbsam,
+                VALUE_MAP_ENTRY_2_FOR_VALUE_ENTRY_ldapsam,
+                VALUE_MAP_ENTRY_3_FOR_VALUE_ENTRY_nisplussam,
+                VALUE_MAP_ENTRY_4_FOR_VALUE_ENTRY_mysql };
+
+        /**
+         * Values
+         * Contains all values even those having an integer value range representation within the valueMap
+         * Value Map for the property PassdbBackend   
+         */
+        public final static String[] VALUE_ENTRIES = { VALUE_ENTRY_smbpasswd, VALUE_ENTRY_tdbsam,
+                VALUE_ENTRY_ldapsam, VALUE_ENTRY_nisplussam, VALUE_ENTRY_mysql };
+
+        /**
+         * Values for displaying within pulldown elements, lists, radio buttons etc
+         * Contains no values that having an integer value range representation within the valueMap
+         * 
+         * Value Map for the property PassdbBackend   
+         */
+        public final static String[] VALUE_ENTRIES_FOR_DISPLAY = { VALUE_ENTRY_smbpasswd,
+                VALUE_ENTRY_tdbsam, VALUE_ENTRY_ldapsam, VALUE_ENTRY_nisplussam, VALUE_ENTRY_mysql };
+
+    }
+
+    /**
+     * Constants of property SMBPasswdFile
+     * 
+     */
+    public static class PROPERTY_SMBPASSWDFILE {
+        /**
+         * name of the property SMBPasswdFile
+         */
+        public final static String NAME = "SMBPasswdFile";
+
+    }
+
+    /**
+     * Constants of property Security
+     * 
+     */
+    public static class PROPERTY_SECURITY {
+        /**
+         * name of the property Security
+         */
+        public final static String NAME = "Security";
+
+        /**
+         * constant for value map entry 0
+         */
+
+        public final static javax.cim.UnsignedInteger8 VALUE_MAP_ENTRY_0_FOR_VALUE_ENTRY_User = new javax.cim.UnsignedInteger8(
+                "0");
+
+        /**
+         * constant for value entry User (corresponds to mapEntry 0 )
+         */
+        public final static String VALUE_ENTRY_User = "User";
+
+        /**
+         * constant for value map entry 1
+         */
+
+        public final static javax.cim.UnsignedInteger8 VALUE_MAP_ENTRY_1_FOR_VALUE_ENTRY_Share = new javax.cim.UnsignedInteger8(
+                "1");
+
+        /**
+         * constant for value entry Share (corresponds to mapEntry 1 )
+         */
+        public final static String VALUE_ENTRY_Share = "Share";
+
+        /**
+         * constant for value map entry 2
+         */
+
+        public final static javax.cim.UnsignedInteger8 VALUE_MAP_ENTRY_2_FOR_VALUE_ENTRY_Server = new javax.cim.UnsignedInteger8(
+                "2");
+
+        /**
+         * constant for value entry Server (corresponds to mapEntry 2 )
+         */
+        public final static String VALUE_ENTRY_Server = "Server";
+
+        /**
+         * constant for value map entry 3
+         */
+
+        public final static javax.cim.UnsignedInteger8 VALUE_MAP_ENTRY_3_FOR_VALUE_ENTRY_Domain = new javax.cim.UnsignedInteger8(
+                "3");
+
+        /**
+         * constant for value entry Domain (corresponds to mapEntry 3 )
+         */
+        public final static String VALUE_ENTRY_Domain = "Domain";
+
+        /**
+         * constant for value map entry 4
+         */
+
+        public final static javax.cim.UnsignedInteger8 VALUE_MAP_ENTRY_4_FOR_VALUE_ENTRY_ADS = new javax.cim.UnsignedInteger8(
+                "4");
+
+        /**
+         * constant for value entry ADS (corresponds to mapEntry 4 )
+         */
+        public final static String VALUE_ENTRY_ADS = "ADS";
+
+        /**
+         * get the ValueMapEntry of the given value
+         * @param value the value to find the ValueMapEntry for
+         * @return the ValueMap entry or null if not found
+         */
+        //org.sblim.wbemsmt.dcg.generator.DCGContextUtil$Wrapper@53e253e2
+        public static javax.cim.UnsignedInteger8 getValueMapEntry(String value) {
+
+            if (VALUE_ENTRY_User.equals(value)) {
+                return VALUE_MAP_ENTRY_0_FOR_VALUE_ENTRY_User;
+            }
+
+            if (VALUE_ENTRY_Share.equals(value)) {
+                return VALUE_MAP_ENTRY_1_FOR_VALUE_ENTRY_Share;
+            }
+
+            if (VALUE_ENTRY_Server.equals(value)) {
+                return VALUE_MAP_ENTRY_2_FOR_VALUE_ENTRY_Server;
+            }
+
+            if (VALUE_ENTRY_Domain.equals(value)) {
+                return VALUE_MAP_ENTRY_3_FOR_VALUE_ENTRY_Domain;
+            }
+
+            if (VALUE_ENTRY_ADS.equals(value)) {
+                return VALUE_MAP_ENTRY_4_FOR_VALUE_ENTRY_ADS;
+            }
+            return null;
+
+        }
+
+        /**
+         * uses the element within array VALUE_ENTRIES_FOR_DISPLAY at index indexInPulldown to get the ValueMapEntry
+         * @param indexInPulldown the index within the pulldown element, the list etc
+         * @return the ValueMap entry from the displayed values
+         */
+        public static javax.cim.UnsignedInteger8 getValueMapEntryFromDisplayedValue(
+                Number indexInPulldown) {
+            return getValueMapEntry(VALUE_ENTRIES_FOR_DISPLAY[indexInPulldown.intValue()]);
+        }
+
+        /**
+         * gets the value for the given valueMap entry (currentValue) and gives back the index of this value within the VALUE_ENTRIES_FOR_DISPLAY array
+         *
+         * can be used to set the correct selection index for a pulldown field
+         *
+         * @return -1 if for the currentValue no value within VALUE_ENTRIES_FOR_DISPLAY was found
+         * @param currentValue the currentValue to get the index for
+         */
+        public static int getIndexForDisplay(javax.cim.UnsignedInteger8 currentValue) {
+            String valueEntry = getValueEntry(currentValue);
+            if (valueEntry != null) {
+                for (int i = 0; i < VALUE_ENTRIES_FOR_DISPLAY.length; i++) {
+                    if (VALUE_ENTRIES_FOR_DISPLAY[i].equals(valueEntry)) {
+                        return i;
+                    }
+                }
+            }
+            return -1;
+
+        }
+
+        /**
+         * get the ValueEntry of the given valueMapEntry
+         * @param valueMapEntry the entry within the valueMap to find the ValueEntry for
+         * @return the Value entry or null if not found
+         */
+
+        public static String getValueEntry(javax.cim.UnsignedInteger8 value) {
+            int iValue = value.intValue();
+
+            if (iValue == VALUE_MAP_ENTRY_0_FOR_VALUE_ENTRY_User.intValue()) {
+                return VALUE_ENTRY_User;
+            }
+
+            if (iValue == VALUE_MAP_ENTRY_1_FOR_VALUE_ENTRY_Share.intValue()) {
+                return VALUE_ENTRY_Share;
+            }
+
+            if (iValue == VALUE_MAP_ENTRY_2_FOR_VALUE_ENTRY_Server.intValue()) {
+                return VALUE_ENTRY_Server;
+            }
+
+            if (iValue == VALUE_MAP_ENTRY_3_FOR_VALUE_ENTRY_Domain.intValue()) {
+                return VALUE_ENTRY_Domain;
+            }
+
+            if (iValue == VALUE_MAP_ENTRY_4_FOR_VALUE_ENTRY_ADS.intValue()) {
+                return VALUE_ENTRY_ADS;
+            }
+            return null;
+
+        }
+
+        /**
+         * ValueMap entries
+         * Contains no entries that having an integer value range representation
+         * 
+         * The couterpart for the value entries is returned by VALUE_ENTRIES_FOR_DISPLAY
+         *
+         * @see \#VALUE_ENTRIES_FOR_DISPLAY
+         * 
+         * Value Map for the property Security   
+         */
+        public final static javax.cim.UnsignedInteger8[] VALUE_MAP_ENTRIES = {
+                VALUE_MAP_ENTRY_0_FOR_VALUE_ENTRY_User, VALUE_MAP_ENTRY_1_FOR_VALUE_ENTRY_Share,
+                VALUE_MAP_ENTRY_2_FOR_VALUE_ENTRY_Server, VALUE_MAP_ENTRY_3_FOR_VALUE_ENTRY_Domain,
+                VALUE_MAP_ENTRY_4_FOR_VALUE_ENTRY_ADS };
+
+        /**
+         * Values
+         * Contains all values even those having an integer value range representation within the valueMap
+         * Value Map for the property Security   
+         */
+        public final static String[] VALUE_ENTRIES = { VALUE_ENTRY_User, VALUE_ENTRY_Share,
+                VALUE_ENTRY_Server, VALUE_ENTRY_Domain, VALUE_ENTRY_ADS };
+
+        /**
+         * Values for displaying within pulldown elements, lists, radio buttons etc
+         * Contains no values that having an integer value range representation within the valueMap
+         * 
+         * Value Map for the property Security   
+         */
+        public final static String[] VALUE_ENTRIES_FOR_DISPLAY = { VALUE_ENTRY_User,
+                VALUE_ENTRY_Share, VALUE_ENTRY_Server, VALUE_ENTRY_Domain, VALUE_ENTRY_ADS };
+
+    }
+
+    static {
+        addPackage("org.sblim.wbemsmt.samba.bl.fco");
+        String[] parentClassPackageList = CIM_SettingData.getPackages();
+
+        for (int i = 0; i < parentClassPackageList.length; i++) {
+            addPackage(parentClassPackageList[i]);
+        }
+
+    };
+
+    //**********************************************************************
+    // Constructors     
+    //**********************************************************************
+
+    /**
+     *   Class constructor
+     * 
+     *       *   <br>
+     *   
+     *   @param client the CIM Client
+     *   @param namespace the target namespace
+     */
+
+    public Linux_SambaGlobalSecurityOptions(WBEMClient client, String namespace)
+            throws WbemsmtException {
+        CIMClass cls = getClass(client, namespace);
+        setFromServer(false);
+        init(cls.newInstance(), true);
+    }
+
+    /**
+     *   Class constructor
+     * 
+     *       *   <br>
+     *   
+     *   @param cimInstance the instance that is used to create the Object
+     */
+
+    public Linux_SambaGlobalSecurityOptions(CIMInstance cimInstance) throws WbemsmtException {
+
+        if (cimInstance == null) {
+            throw new WbemsmtException(WbemsmtException.ERR_INVALID_PARAMETER,
+                    "The cimInstance parameter does not contain a valid reference.");
+        }
+        setFromServer(true);
+        init(cimInstance, false);
+    }
+
+    /**
+     * Default constructor
+     */
+    protected Linux_SambaGlobalSecurityOptions() {
+    }
+
+    /**
+     * initializes the FCO
+     *
+     *   @param cimInstance the instance that is used to create the Object
+     *   @param overwrite currently the dataType of embeddedObject/Instance properties is not set correct by the cimClient. This flags decides if to overwrite thos properties
+     */
+    protected void init(CIMInstance cimInstance, boolean overwrite) throws WbemsmtException {
+        propertiesToCheck.put("AuthMethods", new CIMProperty("AuthMethods", CIMDataType.STRING_T,
+                null));
+        propertiesToCheck.put("EncryptPasswords", new CIMProperty("EncryptPasswords",
+                CIMDataType.BOOLEAN_T, null));
+        propertiesToCheck.put("MinPasswordLength", new CIMProperty("MinPasswordLength",
+                CIMDataType.UINT8_T, null));
+        propertiesToCheck.put("Name", new CIMProperty("Name", CIMDataType.STRING_T, null));
+        propertiesToCheck.put("NullPasswords", new CIMProperty("NullPasswords",
+                CIMDataType.BOOLEAN_T, null));
+        propertiesToCheck.put("PassdbBackend", new CIMProperty("PassdbBackend",
+                CIMDataType.STRING_T, null));
+        propertiesToCheck.put("SMBPasswdFile", new CIMProperty("SMBPasswdFile",
+                CIMDataType.STRING_T, null));
+        propertiesToCheck.put("Security", new CIMProperty("Security", CIMDataType.UINT8_T, null));
+
+        super.init(cimInstance, overwrite);
+
+        //currently the dataType of embeddedObject/Instance properties is not set correct by the cimClient
+        //we overwrite the dataType by setting null for every embeddedObject/Instance property
+        if (overwrite) {
+
         }
     }
 
-    public static String[] getPackages() {
-        return (String[]) Linux_SambaGlobalSecurityOptions.Java_Package_List.toArray(new String[Linux_SambaGlobalSecurityOptions.Java_Package_List.size()]);
+    //**********************************************************************
+    // Properties get/set     
+    //**********************************************************************
+
+    /**
+     * Get the property AuthMethods
+     *     * <br>
+     * 
+     *     */
+
+    public String get_AuthMethods() {
+        CIMProperty currentProperty = getProperty(PROPERTY_AUTHMETHODS.NAME);
+
+        if (currentProperty == null || currentProperty.getValue() == null) {
+            logger.warning("Property " + PROPERTY_AUTHMETHODS.NAME + " was not found in instance "
+                    + getCimObjectPath());
+            return null;
+        }
+
+        return (String) currentProperty.getValue();
+
     }
-	
-	//**********************************************************************
-	// Instance methods
-	//**********************************************************************
 
-	/**
-	*	no description
-	*/	
-	public boolean isDataValid(Vector invalidProperties) {
-		boolean result = true;
-		
-		if (invalidProperties == null) {
-			invalidProperties = new Vector();
-		} else {
-			invalidProperties.removeAllElements();
-		}
-		
-		CIMProperty CIMProperty_Name = this.cimInstance.getProperty(CIM_PROPERTY_NAME);
-		
-		if (CIMProperty_Name == null || CIMProperty_Name.getValue().isEmpty() || CIMProperty_Name.getValue().isNullValue()) {
-			invalidProperties.add(new String[]{CIM_PROPERTY_NAME, "Key"});
-			result = false;
-		}
-		
-		return result;
-	}
-	
-	/**
-	 * @return Returns the validCimInstance.
-	 */
-	public boolean isValidCimInstance() {
-		return this.validCimInstance;
-	}
-	
-	/**
-	 * @param validCimInstance The validCimInstance to set.
-	 */
-	private void setValidCimInstance(boolean isValidCimInstance) {
+    /**
+     * Set the property AuthMethods
+     * <br>
+     * 
+     *
+     * @return true if the property was found, false if the property was not found and the value was not set
+     */
 
-		this.validCimInstance = isValidCimInstance;
-	}
-	
-	
-	/**
-	*	The method returns this CIM instance
-	*/
-	public CIMInstance getCimInstance() {
-		
-		return this.cimInstance;
-	}
-	
-	
-	/**
-	*	The method sets this CIM instance
-	*/
-	public void setCimInstance(CIMInstance cimInstance) {
-		
-		this.cimInstance = cimInstance;
-	}
-	
-		
-	/**
-	*	The method returns this CIM object path
-	*/
-	public CIMObjectPath getCimObjectPath() {
-		return this.cimObjectPath;
-	}
-	
-	
-	/**
-	*	The method checks if the cimInstance has been modified
-	*/
-	public boolean isModified() {
-	    
-	    if (!this.original_cimInstance.equals(this.cimInstance)) 
-	        return true;
-	    
-	    return false;
-	}
-	
-	
-	/**
-	*	The method resets the values of the cimInstance
-	*/	
-	public void resetValues() {
-	    this.cimInstance = (CIMInstance)this.original_cimInstance.clone();
-	}
-	
-	
-	/**
-	*	The method checks if the cimInstance equals an other cimInstance
-	*/	
-	public boolean equals(Object object) {
-	    
-	    if (!(object instanceof Linux_SambaGlobalSecurityOptions)) {
-	        return false;
-	    }
-	    
-	    if (this.cimInstance == null && ((Linux_SambaGlobalSecurityOptions)object).cimInstance != null) {
-	    	return false;
-	    	
-	    } else if (this.cimInstance != null && ((Linux_SambaGlobalSecurityOptions)object).cimInstance == null) {
-	    	return false;
-	    	
-	    } else if (this.cimInstance != null && !this.cimInstance.equals(((Linux_SambaGlobalSecurityOptions)object).cimInstance)) {
-	    	return false;
-	    	
-	    } else if (this.original_cimInstance == null && ((Linux_SambaGlobalSecurityOptions)object).original_cimInstance != null) {
-	    	return false;
-	    	
-	    } else if (this.original_cimInstance != null && ((Linux_SambaGlobalSecurityOptions)object).original_cimInstance == null) {
-	    	return false;
-	    	
-	    } else if (this.original_cimInstance != null && !this.original_cimInstance.equals(((Linux_SambaGlobalSecurityOptions)object).original_cimInstance)) {
-	        return false;
-	        
-	    } else if (this.cimObjectPath == null && ((Linux_SambaGlobalSecurityOptions)object).cimObjectPath != null) {
-	    	return false;
-	    	
-	    } else if (this.cimObjectPath != null && ((Linux_SambaGlobalSecurityOptions)object).cimObjectPath == null) {
-	    	return false;
-		    	
-	    } else if (this.cimObjectPath != null && !this.cimObjectPath.equals(((Linux_SambaGlobalSecurityOptions)object).cimObjectPath)) {
-	        return false;
-	        
-	    } 
-	    
-	    return true;
-	}
-	
-	/**
-	*	The method return this method as a string
-	*/	
-	public String toString() {
-		return this.cimInstance.toString();
-	}
+    public boolean set_AuthMethods(String newValue) {
+        CIMProperty currentProperty = getProperty(PROPERTY_AUTHMETHODS.NAME);
+        if (currentProperty != null) {
+            currentProperty = setPropertyValue_AuthMethods(currentProperty, newValue);
+            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            return true;
+        }
+        else {
+            logger.warning("Property " + PROPERTY_AUTHMETHODS.NAME + " was not found in instance "
+                    + getCimObjectPath());
+            return false;
+        }
 
-	//*****************************************************
-	// Associators methods
-	//*****************************************************
-	
-	public ArrayList getAssociated_Linux_SambaGlobalOptions_Linux_SambaGlobalSecurityForGlobals(CIMClient cimClient,
-	boolean includeQualifiers, boolean includeClassOrigin, java.lang.String[] propertyList){
+    }
 
-		if (cimClient == null) {
-			throw new InvalidParameterException("The cimClient parameter does not contain a valid reference.");
-		}
-		
-		ArrayList resultArrayList = new ArrayList();
-		Enumeration enumeration = null;
-		
-		try {
-			enumeration = cimClient.associators(
-					this.getCimObjectPath(),
-					CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAGLOBALSECURITYFORGLOBAL, 
-					Linux_SambaGlobalOptions.CIM_CLASS_NAME,
-					null,null, 
-					//"SettingData", //$NON-NLS-1$
-					//"ManagedElement", //$NON-NLS-1$
-					includeQualifiers,
-					includeClassOrigin,
-					propertyList);
-		
-			while (enumeration.hasMoreElements()) {
-				Object obj = enumeration.nextElement();
-				if (obj instanceof CIMInstance) {
-					CIMInstance cimInstance = (CIMInstance)obj;
-                    Class clazz = Linux_SambaGlobalSecurityOptionsHelper.findClass(cimClient, cimInstance);
-                    
-					if (clazz == null) {
-						System.err.println("The class " + cimInstance.getClassName() +" was not found. Constructing instance of the base class.");
-						resultArrayList.add(new Linux_SambaGlobalOptions(cimInstance.getObjectPath(), cimInstance));
-						continue;
-					}
-					
-					Class[] constParams = new Class[2];
-					constParams[0] = CIMObjectPath.class;
-					constParams[1] = CIMInstance.class;
-					Constructor cons = null;
-					try {
-						cons = clazz.getConstructor(constParams);
-						
-					} catch(NoSuchMethodException e) {
-						System.err.println("The required constructor of class " + cimInstance.getClassName() + " could not be found. Constructing instance of the base class.");
-						resultArrayList.add(new Linux_SambaGlobalOptions(cimInstance.getObjectPath(), cimInstance));
-						continue;
-					}
-				
-					try {
-						Object[] actargs = new Object[] {cimInstance.getObjectPath(), cimInstance};
-					
-						Object dataObj = cons.newInstance(actargs);
-					
-						resultArrayList.add(dataObj);
-					} catch (Exception e) {
-						System.err.println("The instance of class " + cimInstance.getClassName() + " could not be created successful. Constructing instance of the base class.");
-						resultArrayList.add(new Linux_SambaGlobalOptions(cimInstance.getObjectPath(), cimInstance));
-						continue;
-					}
+    /**
+     * Get the property AuthMethods by getting the class from the server<br>
+     * and retrieving the property from it
+     * After that the value is set to this property and the property is returned
+     * @return null if the property cannot be found in the instance from the server
+     * @throws WbemsmtException 
+     */
 
-				}
-			}
-		} finally {
-			try {
-				if (enumeration != null) {
-					((CIMEnumeration)enumeration).close();
-				}
-			} catch(Exception e) {
-				throw new CIMException(CIMException.CIM_ERR_FAILED, "The socket of the result could not be closed properly.");
-			}
-		}
-			
-		return resultArrayList;
-	}
+    public static CIMProperty create_AuthMethods(WBEMClient client, String namespace,
+            String newValue) throws WbemsmtException {
+        Linux_SambaGlobalSecurityOptions fco = new Linux_SambaGlobalSecurityOptions(client,
+                namespace);
+        CIMProperty property = fco.getProperty(PROPERTY_AUTHMETHODS.NAME);
+        if (property != null) {
+            property = setPropertyValue_AuthMethods(property, newValue);
+        }
+        else {
+            logger.warning("Property " + PROPERTY_AUTHMETHODS.NAME + " was not found in instance "
+                    + fco.getCimObjectPath());
+        }
+        return property;
+    }
 
-	public ArrayList getAssociated_Linux_SambaGlobalOptions_Linux_SambaGlobalSecurityForGlobal_Names(CIMClient cimClient, boolean deep) {
+    /**
+     * Set the property AuthMethods
+     * <br>
+     * 
+     */
 
-		if (cimClient == null) {
-			throw new InvalidParameterException("The cimClient parameter does not contain a valid reference.");
-		}
-		
-		Enumeration enumeration = null;
-		ArrayList resultArrayList = new ArrayList();
+    private static CIMProperty setPropertyValue_AuthMethods(CIMProperty currentProperty,
+            String newValue) {
+        Object setThis = null;
 
-		try {		
-			enumeration = cimClient.associatorNames(
-					this.getCimObjectPath(),
-					CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAGLOBALSECURITYFORGLOBAL, 
-					Linux_SambaGlobalOptions.CIM_CLASS_NAME, 
-					null,null);
-					//"SettingData", //$NON-NLS-1$
-					//"ManagedElement"); //$NON-NLS-1$
-		
-		
-			while (enumeration.hasMoreElements()) {
-				Object obj = enumeration.nextElement();
-			
-				if (obj instanceof CIMObjectPath) {
-					if (deep || ((CIMObjectPath)obj).getObjectName().equals(Linux_SambaGlobalOptions.CIM_CLASS_NAME)) {
-						resultArrayList.add(obj);
-					}
-				}
-			}
-		} finally {
-			try {
-				if (enumeration != null) {
-					((CIMEnumeration)enumeration).close();
-				}
-			} catch(Exception e) {
-				throw new CIMException(CIMException.CIM_ERR_FAILED, "The socket of the result could not be closed properly.");
-			}
-		}
-			
-		return resultArrayList;
-	}
+        setThis = newValue;
 
-	
-	public ArrayList getAssociations_Linux_SambaGlobalSecurityForGlobal(CIMClient cimClient,
-	boolean includeQualifiers, boolean includeClassOrigin, String role,java.lang.String[] propertyList) {
+        CIMProperty newProperty = new CIMProperty(currentProperty.getName(), currentProperty
+                .getDataType(), setThis, currentProperty.isKey(), currentProperty.isPropagated(),
+                currentProperty.getOriginClass());
 
-		if (cimClient == null) {
-			throw new InvalidParameterException("The cimClient parameter does not contain a valid reference.");
-		}
-		
-		ArrayList resultArrayList = new ArrayList();
-		Enumeration enumeration = null;
-		
-		try {
-			enumeration = cimClient.references(
-					this.getCimObjectPath(),
-					CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAGLOBALSECURITYFORGLOBAL, 
-					role, //$NON-NLS-1$
-					includeQualifiers,
-					includeClassOrigin,
-					propertyList);
-		
-			while (enumeration.hasMoreElements()) {
-				Object obj = enumeration.nextElement();
-				if (obj instanceof CIMInstance) {
-					CIMInstance cimInstance = (CIMInstance)obj;
-                    Class clazz = Linux_SambaGlobalSecurityOptionsHelper.findClass(cimClient, cimInstance);
-                    
-					if (clazz == null) {
-						System.err.println("The class " + cimInstance.getClassName() +" was not found. Constructing instance of the base class.");
-						resultArrayList.add(new Linux_SambaGlobalOptions(cimInstance.getObjectPath(), cimInstance));
-						continue;
-					}
-					
-					Class[] constParams = new Class[2];
-					constParams[0] = CIMObjectPath.class;
-					constParams[1] = CIMInstance.class;
-					Constructor cons = null;
-					try {
-						cons = clazz.getConstructor(constParams);
-						
-					} catch(NoSuchMethodException e) {
-						System.err.println("The required constructor of class " + cimInstance.getClassName() + " could not be found. Constructing instance of the base class.");
-						resultArrayList.add(new Linux_SambaGlobalOptions(cimInstance.getObjectPath(), cimInstance));
-						continue;
-					}
-				
-					try {
-						Object[] actargs = new Object[] {cimInstance.getObjectPath(), cimInstance};
-					
-						Object dataObj = cons.newInstance(actargs);
-					
-						resultArrayList.add(dataObj);
-					} catch (Exception e) {
-						System.err.println("The instance of class " + cimInstance.getClassName() + " could not be created successful. Constructing instance of the base class.");
-						resultArrayList.add(new Linux_SambaGlobalOptions(cimInstance.getObjectPath(), cimInstance));
-						continue;
-					}
+        return newProperty;
+    }
 
-				}
-			}
-		} finally {
-			try {
-				if (enumeration != null) {
-					((CIMEnumeration)enumeration).close();
-				}
-			} catch(Exception e) {
-				throw new CIMException(CIMException.CIM_ERR_FAILED, "The socket of the result could not be closed properly.");
-			}
-		}
-			
-		return resultArrayList;
-	}
-	
-	public ArrayList getAssociationNames_Linux_SambaGlobalSecurityForGlobal(CIMClient cimClient, String role, boolean deep) {
+    /**
+     * Get the property EncryptPasswords
+     *     * <br>
+     * 
+     *     */
 
-		if (cimClient == null) {
-			throw new InvalidParameterException("The cimClient parameter does not contain a valid reference.");
-		}
-		
-		Enumeration enumeration = null;
-		ArrayList resultArrayList = new ArrayList();
+    public Boolean get_EncryptPasswords() {
+        CIMProperty currentProperty = getProperty(PROPERTY_ENCRYPTPASSWORDS.NAME);
 
-		try {		
-			enumeration = cimClient.referenceNames(
-					this.getCimObjectPath(),
-					CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAGLOBALSECURITYFORGLOBAL, 
-					role); //$NON-NLS-1$
-		
-		
-			while (enumeration.hasMoreElements()) {
-				Object obj = enumeration.nextElement();
-			
-				if (obj instanceof CIMObjectPath) {
-					if (deep || ((CIMObjectPath)obj).getObjectName().equals(Linux_SambaGlobalOptions.CIM_CLASS_NAME)) {
-						resultArrayList.add(obj);
-					}
-				}
-			}
-		} finally {
-			try {
-				if (enumeration != null) {
-					((CIMEnumeration)enumeration).close();
-				}
-			} catch(Exception e) {
-				throw new CIMException(CIMException.CIM_ERR_FAILED, "The socket of the result could not be closed properly.");
-			}
-		}
-			
-		return resultArrayList;
-	}
+        if (currentProperty == null || currentProperty.getValue() == null) {
+            logger.warning("Property " + PROPERTY_ENCRYPTPASSWORDS.NAME
+                    + " was not found in instance " + getCimObjectPath());
+            return null;
+        }
 
-	
-	
-	//*****************************************************
-	// Attribute methods
-	//*****************************************************
-	
-	// Attribute AuthMethods
-	
-	public String get_AuthMethods() {
-		
-		CIMProperty currentProperty = this.cimInstance.getProperty(Linux_SambaGlobalSecurityOptions.CIM_PROPERTY_AUTHMETHODS);
-        
-		if (currentProperty == null) {
-			throw new CIMException(CIMException.CIM_ERR_NO_SUCH_PROPERTY, "The property " + Linux_SambaGlobalSecurityOptions.CIM_PROPERTY_AUTHMETHODS + " could not be found");
-    		
-		} else if (currentProperty.getType() == null || currentProperty.getType().getType() != CIMDataType.STRING) {
-			throw new CIMException(CIMException.CIM_ERR_TYPE_MISMATCH, "The property " + Linux_SambaGlobalSecurityOptions.CIM_PROPERTY_AUTHMETHODS + " is not of expected type " + CIMDataType.getPredefinedType(CIMDataType.STRING) + ".");
-		}
-        
-		if (currentProperty.getValue() == null) {
-			return null;
-		}
-        
-		return (String)currentProperty.getValue().getValue();
-	}
-	    
-			
-	public void set_AuthMethods(String newValue) {
-		
-		CIMProperty currentProperty = this.cimInstance.getProperty(Linux_SambaGlobalSecurityOptions.CIM_PROPERTY_AUTHMETHODS);
-    	
-		if (currentProperty == null) {
-			throw new CIMException(CIMException.CIM_ERR_NO_SUCH_PROPERTY, "The property " + Linux_SambaGlobalSecurityOptions.CIM_PROPERTY_AUTHMETHODS + " could not be found");
-    		
-		} else if (!Linux_SambaGlobalSecurityOptionsHelper.isValid_AuthMethods(newValue)) {
-			throw new InvalidParameterException("The value " + newValue + " is not valid for property " + Linux_SambaGlobalSecurityOptions.CIM_PROPERTY_AUTHMETHODS);
-    		
-		} else if (currentProperty.getType() == null || currentProperty.getType().getType() != CIMDataType.STRING) {
-			throw new CIMException(CIMException.CIM_ERR_TYPE_MISMATCH, "The property " + Linux_SambaGlobalSecurityOptions.CIM_PROPERTY_AUTHMETHODS + " is not of expected type " + CIMDataType.getPredefinedType(CIMDataType.STRING) + ".");
-		}
-    	
-		CIMValue updatedValue = new CIMValue(newValue, new CIMDataType(CIMDataType.STRING));
-		currentProperty.setValue(updatedValue);
-	}	
-	    
-	
+        return (Boolean) currentProperty.getValue();
 
-	// Attribute EncryptPasswords
-	
-	public Boolean get_EncryptPasswords() {
-		
-		CIMProperty currentProperty = this.cimInstance.getProperty(Linux_SambaGlobalSecurityOptions.CIM_PROPERTY_ENCRYPTPASSWORDS);
-        
-		if (currentProperty == null) {
-			throw new CIMException(CIMException.CIM_ERR_NO_SUCH_PROPERTY, "The property " + Linux_SambaGlobalSecurityOptions.CIM_PROPERTY_ENCRYPTPASSWORDS + " could not be found");
-    		
-		} else if (currentProperty.getType() == null || currentProperty.getType().getType() != CIMDataType.BOOLEAN) {
-			throw new CIMException(CIMException.CIM_ERR_TYPE_MISMATCH, "The property " + Linux_SambaGlobalSecurityOptions.CIM_PROPERTY_ENCRYPTPASSWORDS + " is not of expected type " + CIMDataType.getPredefinedType(CIMDataType.BOOLEAN) + ".");
-		}
-        
-		if (currentProperty.getValue() == null) {
-			return null;
-		}
-        
-		return (Boolean)currentProperty.getValue().getValue();
-	}
-	    
-			
-	public void set_EncryptPasswords(Boolean newValue) {
-		
-		CIMProperty currentProperty = this.cimInstance.getProperty(Linux_SambaGlobalSecurityOptions.CIM_PROPERTY_ENCRYPTPASSWORDS);
-    	
-		if (currentProperty == null) {
-			throw new CIMException(CIMException.CIM_ERR_NO_SUCH_PROPERTY, "The property " + Linux_SambaGlobalSecurityOptions.CIM_PROPERTY_ENCRYPTPASSWORDS + " could not be found");
-    		
-		} else if (!Linux_SambaGlobalSecurityOptionsHelper.isValid_EncryptPasswords(newValue)) {
-			throw new InvalidParameterException("The value " + newValue + " is not valid for property " + Linux_SambaGlobalSecurityOptions.CIM_PROPERTY_ENCRYPTPASSWORDS);
-    		
-		} else if (currentProperty.getType() == null || currentProperty.getType().getType() != CIMDataType.BOOLEAN) {
-			throw new CIMException(CIMException.CIM_ERR_TYPE_MISMATCH, "The property " + Linux_SambaGlobalSecurityOptions.CIM_PROPERTY_ENCRYPTPASSWORDS + " is not of expected type " + CIMDataType.getPredefinedType(CIMDataType.BOOLEAN) + ".");
-		}
-    	
-		CIMValue updatedValue = new CIMValue(newValue, new CIMDataType(CIMDataType.BOOLEAN));
-		currentProperty.setValue(updatedValue);
-	}	
-	    
-	
+    }
 
-	// Attribute MinPasswordLength
-	
-	public UnsignedInt8 get_MinPasswordLength() {
-		
-		CIMProperty currentProperty = this.cimInstance.getProperty(Linux_SambaGlobalSecurityOptions.CIM_PROPERTY_MINPASSWORDLENGTH);
-        
-		if (currentProperty == null) {
-			throw new CIMException(CIMException.CIM_ERR_NO_SUCH_PROPERTY, "The property " + Linux_SambaGlobalSecurityOptions.CIM_PROPERTY_MINPASSWORDLENGTH + " could not be found");
-    		
-		} else if (currentProperty.getType() == null || currentProperty.getType().getType() != CIMDataType.UINT8) {
-			throw new CIMException(CIMException.CIM_ERR_TYPE_MISMATCH, "The property " + Linux_SambaGlobalSecurityOptions.CIM_PROPERTY_MINPASSWORDLENGTH + " is not of expected type " + CIMDataType.getPredefinedType(CIMDataType.UINT8) + ".");
-		}
-        
-		if (currentProperty.getValue() == null) {
-			return null;
-		}
-        
-		return (UnsignedInt8)currentProperty.getValue().getValue();
-	}
-	    
-			
-	public void set_MinPasswordLength(UnsignedInt8 newValue) {
-		
-		CIMProperty currentProperty = this.cimInstance.getProperty(Linux_SambaGlobalSecurityOptions.CIM_PROPERTY_MINPASSWORDLENGTH);
-    	
-		if (currentProperty == null) {
-			throw new CIMException(CIMException.CIM_ERR_NO_SUCH_PROPERTY, "The property " + Linux_SambaGlobalSecurityOptions.CIM_PROPERTY_MINPASSWORDLENGTH + " could not be found");
-    		
-		} else if (!Linux_SambaGlobalSecurityOptionsHelper.isValid_MinPasswordLength(newValue)) {
-			throw new InvalidParameterException("The value " + newValue + " is not valid for property " + Linux_SambaGlobalSecurityOptions.CIM_PROPERTY_MINPASSWORDLENGTH);
-    		
-		} else if (currentProperty.getType() == null || currentProperty.getType().getType() != CIMDataType.UINT8) {
-			throw new CIMException(CIMException.CIM_ERR_TYPE_MISMATCH, "The property " + Linux_SambaGlobalSecurityOptions.CIM_PROPERTY_MINPASSWORDLENGTH + " is not of expected type " + CIMDataType.getPredefinedType(CIMDataType.UINT8) + ".");
-		}
-    	
-		CIMValue updatedValue = new CIMValue(newValue, new CIMDataType(CIMDataType.UINT8));
-		currentProperty.setValue(updatedValue);
-	}	
-	    
-	
+    /**
+     * Set the property EncryptPasswords
+     * <br>
+     * 
+     *
+     * @return true if the property was found, false if the property was not found and the value was not set
+     */
 
-	// Attribute Name
-	
-	public String get_Name() {
-		
-		CIMProperty currentProperty = this.cimInstance.getProperty(Linux_SambaGlobalSecurityOptions.CIM_PROPERTY_NAME);
-        
-		if (currentProperty == null) {
-			throw new CIMException(CIMException.CIM_ERR_NO_SUCH_PROPERTY, "The property " + Linux_SambaGlobalSecurityOptions.CIM_PROPERTY_NAME + " could not be found");
-    		
-		} else if (currentProperty.getType() == null || currentProperty.getType().getType() != CIMDataType.STRING) {
-			throw new CIMException(CIMException.CIM_ERR_TYPE_MISMATCH, "The property " + Linux_SambaGlobalSecurityOptions.CIM_PROPERTY_NAME + " is not of expected type " + CIMDataType.getPredefinedType(CIMDataType.STRING) + ".");
-		}
-        
-		if (currentProperty.getValue() == null) {
-			return null;
-		}
-        
-		return (String)currentProperty.getValue().getValue();
-	}
-	    
-			
-	public void set_Name(String newValue) {
-		
-		CIMProperty currentProperty = this.cimInstance.getProperty(Linux_SambaGlobalSecurityOptions.CIM_PROPERTY_NAME);
-    	
-		if (isValidCimInstance()) {
-    		throw new InvalidParameterException("The property " + Linux_SambaGlobalSecurityOptions.CIM_PROPERTY_NAME + "can not be modified. It is a KEY value.");
-    		
-		} else if (currentProperty == null) {
-			throw new CIMException(CIMException.CIM_ERR_NO_SUCH_PROPERTY, "The property " + Linux_SambaGlobalSecurityOptions.CIM_PROPERTY_NAME + " could not be found");
-    		
-		} else if (!Linux_SambaGlobalSecurityOptionsHelper.isValid_Name(newValue)) {
-			throw new InvalidParameterException("The value " + newValue + " is not valid for property " + Linux_SambaGlobalSecurityOptions.CIM_PROPERTY_NAME);
-    		
-		} else if (currentProperty.getType() == null || currentProperty.getType().getType() != CIMDataType.STRING) {
-			throw new CIMException(CIMException.CIM_ERR_TYPE_MISMATCH, "The property " + Linux_SambaGlobalSecurityOptions.CIM_PROPERTY_NAME + " is not of expected type " + CIMDataType.getPredefinedType(CIMDataType.STRING) + ".");
-		}
-    	
-		CIMValue updatedValue = new CIMValue(newValue, new CIMDataType(CIMDataType.STRING));
-		currentProperty.setValue(updatedValue);
-	}	
-	    
-	
+    public boolean set_EncryptPasswords(Boolean newValue) {
+        CIMProperty currentProperty = getProperty(PROPERTY_ENCRYPTPASSWORDS.NAME);
+        if (currentProperty != null) {
+            currentProperty = setPropertyValue_EncryptPasswords(currentProperty, newValue);
+            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            return true;
+        }
+        else {
+            logger.warning("Property " + PROPERTY_ENCRYPTPASSWORDS.NAME
+                    + " was not found in instance " + getCimObjectPath());
+            return false;
+        }
 
-	// Attribute NullPasswords
-	
-	public Boolean get_NullPasswords() {
-		
-		CIMProperty currentProperty = this.cimInstance.getProperty(Linux_SambaGlobalSecurityOptions.CIM_PROPERTY_NULLPASSWORDS);
-        
-		if (currentProperty == null) {
-			throw new CIMException(CIMException.CIM_ERR_NO_SUCH_PROPERTY, "The property " + Linux_SambaGlobalSecurityOptions.CIM_PROPERTY_NULLPASSWORDS + " could not be found");
-    		
-		} else if (currentProperty.getType() == null || currentProperty.getType().getType() != CIMDataType.BOOLEAN) {
-			throw new CIMException(CIMException.CIM_ERR_TYPE_MISMATCH, "The property " + Linux_SambaGlobalSecurityOptions.CIM_PROPERTY_NULLPASSWORDS + " is not of expected type " + CIMDataType.getPredefinedType(CIMDataType.BOOLEAN) + ".");
-		}
-        
-		if (currentProperty.getValue() == null) {
-			return null;
-		}
-        
-		return (Boolean)currentProperty.getValue().getValue();
-	}
-	    
-			
-	public void set_NullPasswords(Boolean newValue) {
-		
-		CIMProperty currentProperty = this.cimInstance.getProperty(Linux_SambaGlobalSecurityOptions.CIM_PROPERTY_NULLPASSWORDS);
-    	
-		if (currentProperty == null) {
-			throw new CIMException(CIMException.CIM_ERR_NO_SUCH_PROPERTY, "The property " + Linux_SambaGlobalSecurityOptions.CIM_PROPERTY_NULLPASSWORDS + " could not be found");
-    		
-		} else if (!Linux_SambaGlobalSecurityOptionsHelper.isValid_NullPasswords(newValue)) {
-			throw new InvalidParameterException("The value " + newValue + " is not valid for property " + Linux_SambaGlobalSecurityOptions.CIM_PROPERTY_NULLPASSWORDS);
-    		
-		} else if (currentProperty.getType() == null || currentProperty.getType().getType() != CIMDataType.BOOLEAN) {
-			throw new CIMException(CIMException.CIM_ERR_TYPE_MISMATCH, "The property " + Linux_SambaGlobalSecurityOptions.CIM_PROPERTY_NULLPASSWORDS + " is not of expected type " + CIMDataType.getPredefinedType(CIMDataType.BOOLEAN) + ".");
-		}
-    	
-		CIMValue updatedValue = new CIMValue(newValue, new CIMDataType(CIMDataType.BOOLEAN));
-		currentProperty.setValue(updatedValue);
-	}	
-	    
-	
+    }
 
-	// Attribute PassdbBackend
-	
-	public String get_PassdbBackend() {
-		
-		CIMProperty currentProperty = this.cimInstance.getProperty(Linux_SambaGlobalSecurityOptions.CIM_PROPERTY_PASSDBBACKEND);
-        
-		if (currentProperty == null) {
-			throw new CIMException(CIMException.CIM_ERR_NO_SUCH_PROPERTY, "The property " + Linux_SambaGlobalSecurityOptions.CIM_PROPERTY_PASSDBBACKEND + " could not be found");
-    		
-		} else if (currentProperty.getType() == null || currentProperty.getType().getType() != CIMDataType.STRING) {
-			throw new CIMException(CIMException.CIM_ERR_TYPE_MISMATCH, "The property " + Linux_SambaGlobalSecurityOptions.CIM_PROPERTY_PASSDBBACKEND + " is not of expected type " + CIMDataType.getPredefinedType(CIMDataType.STRING) + ".");
-		}
-        
-		if (currentProperty.getValue() == null) {
-			return null;
-		}
-        
-		return (String)currentProperty.getValue().getValue();
-	}
-	    
-			
-	public void set_PassdbBackend(String newValue) {
-		
-		CIMProperty currentProperty = this.cimInstance.getProperty(Linux_SambaGlobalSecurityOptions.CIM_PROPERTY_PASSDBBACKEND);
-    	
-		if (currentProperty == null) {
-			throw new CIMException(CIMException.CIM_ERR_NO_SUCH_PROPERTY, "The property " + Linux_SambaGlobalSecurityOptions.CIM_PROPERTY_PASSDBBACKEND + " could not be found");
-    		
-		} else if (!Linux_SambaGlobalSecurityOptionsHelper.isValid_PassdbBackend(newValue)) {
-			throw new InvalidParameterException("The value " + newValue + " is not valid for property " + Linux_SambaGlobalSecurityOptions.CIM_PROPERTY_PASSDBBACKEND);
-    		
-		} else if (currentProperty.getType() == null || currentProperty.getType().getType() != CIMDataType.STRING) {
-			throw new CIMException(CIMException.CIM_ERR_TYPE_MISMATCH, "The property " + Linux_SambaGlobalSecurityOptions.CIM_PROPERTY_PASSDBBACKEND + " is not of expected type " + CIMDataType.getPredefinedType(CIMDataType.STRING) + ".");
-		}
-    	
-		CIMValue updatedValue = new CIMValue(newValue, new CIMDataType(CIMDataType.STRING));
-		currentProperty.setValue(updatedValue);
-	}	
-	    
-	
+    /**
+     * Get the property EncryptPasswords by getting the class from the server<br>
+     * and retrieving the property from it
+     * After that the value is set to this property and the property is returned
+     * @return null if the property cannot be found in the instance from the server
+     * @throws WbemsmtException 
+     */
 
-	// Attribute SMBPasswdFile
-	
-	public String get_SMBPasswdFile() {
-		
-		CIMProperty currentProperty = this.cimInstance.getProperty(Linux_SambaGlobalSecurityOptions.CIM_PROPERTY_SMBPASSWDFILE);
-        
-		if (currentProperty == null) {
-			throw new CIMException(CIMException.CIM_ERR_NO_SUCH_PROPERTY, "The property " + Linux_SambaGlobalSecurityOptions.CIM_PROPERTY_SMBPASSWDFILE + " could not be found");
-    		
-		} else if (currentProperty.getType() == null || currentProperty.getType().getType() != CIMDataType.STRING) {
-			throw new CIMException(CIMException.CIM_ERR_TYPE_MISMATCH, "The property " + Linux_SambaGlobalSecurityOptions.CIM_PROPERTY_SMBPASSWDFILE + " is not of expected type " + CIMDataType.getPredefinedType(CIMDataType.STRING) + ".");
-		}
-        
-		if (currentProperty.getValue() == null) {
-			return null;
-		}
-        
-		return (String)currentProperty.getValue().getValue();
-	}
-	    
-			
-	public void set_SMBPasswdFile(String newValue) {
-		
-		CIMProperty currentProperty = this.cimInstance.getProperty(Linux_SambaGlobalSecurityOptions.CIM_PROPERTY_SMBPASSWDFILE);
-    	
-		if (currentProperty == null) {
-			throw new CIMException(CIMException.CIM_ERR_NO_SUCH_PROPERTY, "The property " + Linux_SambaGlobalSecurityOptions.CIM_PROPERTY_SMBPASSWDFILE + " could not be found");
-    		
-		} else if (!Linux_SambaGlobalSecurityOptionsHelper.isValid_SMBPasswdFile(newValue)) {
-			throw new InvalidParameterException("The value " + newValue + " is not valid for property " + Linux_SambaGlobalSecurityOptions.CIM_PROPERTY_SMBPASSWDFILE);
-    		
-		} else if (currentProperty.getType() == null || currentProperty.getType().getType() != CIMDataType.STRING) {
-			throw new CIMException(CIMException.CIM_ERR_TYPE_MISMATCH, "The property " + Linux_SambaGlobalSecurityOptions.CIM_PROPERTY_SMBPASSWDFILE + " is not of expected type " + CIMDataType.getPredefinedType(CIMDataType.STRING) + ".");
-		}
-    	
-		CIMValue updatedValue = new CIMValue(newValue, new CIMDataType(CIMDataType.STRING));
-		currentProperty.setValue(updatedValue);
-	}	
-	    
-	
+    public static CIMProperty create_EncryptPasswords(WBEMClient client, String namespace,
+            Boolean newValue) throws WbemsmtException {
+        Linux_SambaGlobalSecurityOptions fco = new Linux_SambaGlobalSecurityOptions(client,
+                namespace);
+        CIMProperty property = fco.getProperty(PROPERTY_ENCRYPTPASSWORDS.NAME);
+        if (property != null) {
+            property = setPropertyValue_EncryptPasswords(property, newValue);
+        }
+        else {
+            logger.warning("Property " + PROPERTY_ENCRYPTPASSWORDS.NAME
+                    + " was not found in instance " + fco.getCimObjectPath());
+        }
+        return property;
+    }
 
-	// Attribute Security
-	
-	public UnsignedInt8 get_Security() {
-		
-		CIMProperty currentProperty = this.cimInstance.getProperty(Linux_SambaGlobalSecurityOptions.CIM_PROPERTY_SECURITY);
-        
-		if (currentProperty == null) {
-			throw new CIMException(CIMException.CIM_ERR_NO_SUCH_PROPERTY, "The property " + Linux_SambaGlobalSecurityOptions.CIM_PROPERTY_SECURITY + " could not be found");
-    		
-		} else if (currentProperty.getType() == null || currentProperty.getType().getType() != CIMDataType.UINT8) {
-			throw new CIMException(CIMException.CIM_ERR_TYPE_MISMATCH, "The property " + Linux_SambaGlobalSecurityOptions.CIM_PROPERTY_SECURITY + " is not of expected type " + CIMDataType.getPredefinedType(CIMDataType.UINT8) + ".");
-		}
-        
-		if (currentProperty.getValue() == null) {
-			return null;
-		}
-        
-		return (UnsignedInt8)currentProperty.getValue().getValue();
-	}
-	    
-			
-	public void set_Security(UnsignedInt8 newValue) {
-		
-		CIMProperty currentProperty = this.cimInstance.getProperty(Linux_SambaGlobalSecurityOptions.CIM_PROPERTY_SECURITY);
-    	
-		if (currentProperty == null) {
-			throw new CIMException(CIMException.CIM_ERR_NO_SUCH_PROPERTY, "The property " + Linux_SambaGlobalSecurityOptions.CIM_PROPERTY_SECURITY + " could not be found");
-    		
-		} else if (!Linux_SambaGlobalSecurityOptionsHelper.isValid_Security(newValue)) {
-			throw new InvalidParameterException("The value " + newValue + " is not valid for property " + Linux_SambaGlobalSecurityOptions.CIM_PROPERTY_SECURITY);
-    		
-		} else if (currentProperty.getType() == null || currentProperty.getType().getType() != CIMDataType.UINT8) {
-			throw new CIMException(CIMException.CIM_ERR_TYPE_MISMATCH, "The property " + Linux_SambaGlobalSecurityOptions.CIM_PROPERTY_SECURITY + " is not of expected type " + CIMDataType.getPredefinedType(CIMDataType.UINT8) + ".");
-		}
-    	
-		CIMValue updatedValue = new CIMValue(newValue, new CIMDataType(CIMDataType.UINT8));
-		currentProperty.setValue(updatedValue);
-	}	
-	    
-	
+    /**
+     * Set the property EncryptPasswords
+     * <br>
+     * 
+     */
 
-	
-	
-	//*****************************************************
-	// Invoke methods
-	//*****************************************************
-	
-	
+    private static CIMProperty setPropertyValue_EncryptPasswords(CIMProperty currentProperty,
+            Boolean newValue) {
+        Object setThis = null;
+
+        setThis = newValue;
+
+        CIMProperty newProperty = new CIMProperty(currentProperty.getName(), currentProperty
+                .getDataType(), setThis, currentProperty.isKey(), currentProperty.isPropagated(),
+                currentProperty.getOriginClass());
+
+        return newProperty;
+    }
+
+    /**
+     * Get the property MinPasswordLength
+     *     * <br>
+     * 
+     *     */
+
+    public javax.cim.UnsignedInteger8 get_MinPasswordLength() {
+        CIMProperty currentProperty = getProperty(PROPERTY_MINPASSWORDLENGTH.NAME);
+
+        if (currentProperty == null || currentProperty.getValue() == null) {
+            logger.warning("Property " + PROPERTY_MINPASSWORDLENGTH.NAME
+                    + " was not found in instance " + getCimObjectPath());
+            return null;
+        }
+
+        return (javax.cim.UnsignedInteger8) currentProperty.getValue();
+
+    }
+
+    /**
+     * Set the property MinPasswordLength
+     * <br>
+     * 
+     *
+     * @return true if the property was found, false if the property was not found and the value was not set
+     */
+
+    public boolean set_MinPasswordLength(javax.cim.UnsignedInteger8 newValue) {
+        CIMProperty currentProperty = getProperty(PROPERTY_MINPASSWORDLENGTH.NAME);
+        if (currentProperty != null) {
+            currentProperty = setPropertyValue_MinPasswordLength(currentProperty, newValue);
+            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            return true;
+        }
+        else {
+            logger.warning("Property " + PROPERTY_MINPASSWORDLENGTH.NAME
+                    + " was not found in instance " + getCimObjectPath());
+            return false;
+        }
+
+    }
+
+    /**
+     * Get the property MinPasswordLength by getting the class from the server<br>
+     * and retrieving the property from it
+     * After that the value is set to this property and the property is returned
+     * @return null if the property cannot be found in the instance from the server
+     * @throws WbemsmtException 
+     */
+
+    public static CIMProperty create_MinPasswordLength(WBEMClient client, String namespace,
+            javax.cim.UnsignedInteger8 newValue) throws WbemsmtException {
+        Linux_SambaGlobalSecurityOptions fco = new Linux_SambaGlobalSecurityOptions(client,
+                namespace);
+        CIMProperty property = fco.getProperty(PROPERTY_MINPASSWORDLENGTH.NAME);
+        if (property != null) {
+            property = setPropertyValue_MinPasswordLength(property, newValue);
+        }
+        else {
+            logger.warning("Property " + PROPERTY_MINPASSWORDLENGTH.NAME
+                    + " was not found in instance " + fco.getCimObjectPath());
+        }
+        return property;
+    }
+
+    /**
+     * Set the property MinPasswordLength
+     * <br>
+     * 
+     */
+
+    private static CIMProperty setPropertyValue_MinPasswordLength(CIMProperty currentProperty,
+            javax.cim.UnsignedInteger8 newValue) {
+        Object setThis = null;
+
+        setThis = newValue;
+
+        CIMProperty newProperty = new CIMProperty(currentProperty.getName(), currentProperty
+                .getDataType(), setThis, currentProperty.isKey(), currentProperty.isPropagated(),
+                currentProperty.getOriginClass());
+
+        return newProperty;
+    }
+
+    /**
+     * Get the property Name
+     *     * <br>
+     * 
+     *     */
+
+    public String get_key_Name() {
+        CIMProperty currentProperty = getProperty(PROPERTY_NAME.NAME);
+
+        if (currentProperty == null || currentProperty.getValue() == null) {
+            logger.warning("Property " + PROPERTY_NAME.NAME + " was not found in instance "
+                    + getCimObjectPath());
+            return null;
+        }
+
+        return (String) currentProperty.getValue();
+
+    }
+
+    /**
+     * Set the property Name
+     * <br>
+     * 
+     *
+     * @return true if the property was found, false if the property was not found and the value was not set
+     */
+
+    public boolean set_key_Name(String newValue) {
+        CIMProperty currentProperty = getProperty(PROPERTY_NAME.NAME);
+        if (currentProperty != null) {
+            currentProperty = setPropertyValue_key_Name(currentProperty, newValue);
+            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            return true;
+        }
+        else {
+            logger.warning("Property " + PROPERTY_NAME.NAME + " was not found in instance "
+                    + getCimObjectPath());
+            return false;
+        }
+
+    }
+
+    /**
+     * Get the property Name by getting the class from the server<br>
+     * and retrieving the property from it
+     * After that the value is set to this property and the property is returned
+     * @return null if the property cannot be found in the instance from the server
+     * @throws WbemsmtException 
+     */
+
+    public static CIMProperty create_key_Name(WBEMClient client, String namespace, String newValue)
+            throws WbemsmtException {
+        Linux_SambaGlobalSecurityOptions fco = new Linux_SambaGlobalSecurityOptions(client,
+                namespace);
+        CIMProperty property = fco.getProperty(PROPERTY_NAME.NAME);
+        if (property != null) {
+            property = setPropertyValue_key_Name(property, newValue);
+        }
+        else {
+            logger.warning("Property " + PROPERTY_NAME.NAME + " was not found in instance "
+                    + fco.getCimObjectPath());
+        }
+        return property;
+    }
+
+    /**
+     * Set the property Name
+     * <br>
+     * 
+     */
+
+    private static CIMProperty setPropertyValue_key_Name(CIMProperty currentProperty,
+            String newValue) {
+        Object setThis = null;
+
+        setThis = newValue;
+
+        CIMProperty newProperty = new CIMProperty(currentProperty.getName(), currentProperty
+                .getDataType(), setThis, currentProperty.isKey(), currentProperty.isPropagated(),
+                currentProperty.getOriginClass());
+
+        return newProperty;
+    }
+
+    /**
+     * Get the property NullPasswords
+     *     * <br>
+     * 
+     *     */
+
+    public Boolean get_NullPasswords() {
+        CIMProperty currentProperty = getProperty(PROPERTY_NULLPASSWORDS.NAME);
+
+        if (currentProperty == null || currentProperty.getValue() == null) {
+            logger.warning("Property " + PROPERTY_NULLPASSWORDS.NAME
+                    + " was not found in instance " + getCimObjectPath());
+            return null;
+        }
+
+        return (Boolean) currentProperty.getValue();
+
+    }
+
+    /**
+     * Set the property NullPasswords
+     * <br>
+     * 
+     *
+     * @return true if the property was found, false if the property was not found and the value was not set
+     */
+
+    public boolean set_NullPasswords(Boolean newValue) {
+        CIMProperty currentProperty = getProperty(PROPERTY_NULLPASSWORDS.NAME);
+        if (currentProperty != null) {
+            currentProperty = setPropertyValue_NullPasswords(currentProperty, newValue);
+            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            return true;
+        }
+        else {
+            logger.warning("Property " + PROPERTY_NULLPASSWORDS.NAME
+                    + " was not found in instance " + getCimObjectPath());
+            return false;
+        }
+
+    }
+
+    /**
+     * Get the property NullPasswords by getting the class from the server<br>
+     * and retrieving the property from it
+     * After that the value is set to this property and the property is returned
+     * @return null if the property cannot be found in the instance from the server
+     * @throws WbemsmtException 
+     */
+
+    public static CIMProperty create_NullPasswords(WBEMClient client, String namespace,
+            Boolean newValue) throws WbemsmtException {
+        Linux_SambaGlobalSecurityOptions fco = new Linux_SambaGlobalSecurityOptions(client,
+                namespace);
+        CIMProperty property = fco.getProperty(PROPERTY_NULLPASSWORDS.NAME);
+        if (property != null) {
+            property = setPropertyValue_NullPasswords(property, newValue);
+        }
+        else {
+            logger.warning("Property " + PROPERTY_NULLPASSWORDS.NAME
+                    + " was not found in instance " + fco.getCimObjectPath());
+        }
+        return property;
+    }
+
+    /**
+     * Set the property NullPasswords
+     * <br>
+     * 
+     */
+
+    private static CIMProperty setPropertyValue_NullPasswords(CIMProperty currentProperty,
+            Boolean newValue) {
+        Object setThis = null;
+
+        setThis = newValue;
+
+        CIMProperty newProperty = new CIMProperty(currentProperty.getName(), currentProperty
+                .getDataType(), setThis, currentProperty.isKey(), currentProperty.isPropagated(),
+                currentProperty.getOriginClass());
+
+        return newProperty;
+    }
+
+    /**
+     * Get the property PassdbBackend
+     *     * <br>
+     * 
+     *     */
+
+    public String get_PassdbBackend() {
+        CIMProperty currentProperty = getProperty(PROPERTY_PASSDBBACKEND.NAME);
+
+        if (currentProperty == null || currentProperty.getValue() == null) {
+            logger.warning("Property " + PROPERTY_PASSDBBACKEND.NAME
+                    + " was not found in instance " + getCimObjectPath());
+            return null;
+        }
+
+        return (String) currentProperty.getValue();
+
+    }
+
+    /**
+     * Set the property PassdbBackend
+     * <br>
+     * 
+     *
+     * @return true if the property was found, false if the property was not found and the value was not set
+     */
+
+    public boolean set_PassdbBackend(String newValue) {
+        CIMProperty currentProperty = getProperty(PROPERTY_PASSDBBACKEND.NAME);
+        if (currentProperty != null) {
+            currentProperty = setPropertyValue_PassdbBackend(currentProperty, newValue);
+            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            return true;
+        }
+        else {
+            logger.warning("Property " + PROPERTY_PASSDBBACKEND.NAME
+                    + " was not found in instance " + getCimObjectPath());
+            return false;
+        }
+
+    }
+
+    /**
+     * Get the property PassdbBackend by getting the class from the server<br>
+     * and retrieving the property from it
+     * After that the value is set to this property and the property is returned
+     * @return null if the property cannot be found in the instance from the server
+     * @throws WbemsmtException 
+     */
+
+    public static CIMProperty create_PassdbBackend(WBEMClient client, String namespace,
+            String newValue) throws WbemsmtException {
+        Linux_SambaGlobalSecurityOptions fco = new Linux_SambaGlobalSecurityOptions(client,
+                namespace);
+        CIMProperty property = fco.getProperty(PROPERTY_PASSDBBACKEND.NAME);
+        if (property != null) {
+            property = setPropertyValue_PassdbBackend(property, newValue);
+        }
+        else {
+            logger.warning("Property " + PROPERTY_PASSDBBACKEND.NAME
+                    + " was not found in instance " + fco.getCimObjectPath());
+        }
+        return property;
+    }
+
+    /**
+     * Set the property PassdbBackend
+     * <br>
+     * 
+     */
+
+    private static CIMProperty setPropertyValue_PassdbBackend(CIMProperty currentProperty,
+            String newValue) {
+        Object setThis = null;
+
+        setThis = newValue;
+
+        CIMProperty newProperty = new CIMProperty(currentProperty.getName(), currentProperty
+                .getDataType(), setThis, currentProperty.isKey(), currentProperty.isPropagated(),
+                currentProperty.getOriginClass());
+
+        return newProperty;
+    }
+
+    /**
+     * Get the property SMBPasswdFile
+     *     * <br>
+     * 
+     *     */
+
+    public String get_SMBPasswdFile() {
+        CIMProperty currentProperty = getProperty(PROPERTY_SMBPASSWDFILE.NAME);
+
+        if (currentProperty == null || currentProperty.getValue() == null) {
+            logger.warning("Property " + PROPERTY_SMBPASSWDFILE.NAME
+                    + " was not found in instance " + getCimObjectPath());
+            return null;
+        }
+
+        return (String) currentProperty.getValue();
+
+    }
+
+    /**
+     * Set the property SMBPasswdFile
+     * <br>
+     * 
+     *
+     * @return true if the property was found, false if the property was not found and the value was not set
+     */
+
+    public boolean set_SMBPasswdFile(String newValue) {
+        CIMProperty currentProperty = getProperty(PROPERTY_SMBPASSWDFILE.NAME);
+        if (currentProperty != null) {
+            currentProperty = setPropertyValue_SMBPasswdFile(currentProperty, newValue);
+            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            return true;
+        }
+        else {
+            logger.warning("Property " + PROPERTY_SMBPASSWDFILE.NAME
+                    + " was not found in instance " + getCimObjectPath());
+            return false;
+        }
+
+    }
+
+    /**
+     * Get the property SMBPasswdFile by getting the class from the server<br>
+     * and retrieving the property from it
+     * After that the value is set to this property and the property is returned
+     * @return null if the property cannot be found in the instance from the server
+     * @throws WbemsmtException 
+     */
+
+    public static CIMProperty create_SMBPasswdFile(WBEMClient client, String namespace,
+            String newValue) throws WbemsmtException {
+        Linux_SambaGlobalSecurityOptions fco = new Linux_SambaGlobalSecurityOptions(client,
+                namespace);
+        CIMProperty property = fco.getProperty(PROPERTY_SMBPASSWDFILE.NAME);
+        if (property != null) {
+            property = setPropertyValue_SMBPasswdFile(property, newValue);
+        }
+        else {
+            logger.warning("Property " + PROPERTY_SMBPASSWDFILE.NAME
+                    + " was not found in instance " + fco.getCimObjectPath());
+        }
+        return property;
+    }
+
+    /**
+     * Set the property SMBPasswdFile
+     * <br>
+     * 
+     */
+
+    private static CIMProperty setPropertyValue_SMBPasswdFile(CIMProperty currentProperty,
+            String newValue) {
+        Object setThis = null;
+
+        setThis = newValue;
+
+        CIMProperty newProperty = new CIMProperty(currentProperty.getName(), currentProperty
+                .getDataType(), setThis, currentProperty.isKey(), currentProperty.isPropagated(),
+                currentProperty.getOriginClass());
+
+        return newProperty;
+    }
+
+    /**
+     * Get the property Security
+     *     * <br>
+     * 
+     *     */
+
+    public javax.cim.UnsignedInteger8 get_Security() {
+        CIMProperty currentProperty = getProperty(PROPERTY_SECURITY.NAME);
+
+        if (currentProperty == null || currentProperty.getValue() == null) {
+            logger.warning("Property " + PROPERTY_SECURITY.NAME + " was not found in instance "
+                    + getCimObjectPath());
+            return null;
+        }
+
+        return (javax.cim.UnsignedInteger8) currentProperty.getValue();
+
+    }
+
+    /**
+     * Set the property Security
+     * <br>
+     * 
+     *
+     * @return true if the property was found, false if the property was not found and the value was not set
+     */
+
+    public boolean set_Security(javax.cim.UnsignedInteger8 newValue) {
+        CIMProperty currentProperty = getProperty(PROPERTY_SECURITY.NAME);
+        if (currentProperty != null) {
+            currentProperty = setPropertyValue_Security(currentProperty, newValue);
+            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            return true;
+        }
+        else {
+            logger.warning("Property " + PROPERTY_SECURITY.NAME + " was not found in instance "
+                    + getCimObjectPath());
+            return false;
+        }
+
+    }
+
+    /**
+     * Get the property Security by getting the class from the server<br>
+     * and retrieving the property from it
+     * After that the value is set to this property and the property is returned
+     * @return null if the property cannot be found in the instance from the server
+     * @throws WbemsmtException 
+     */
+
+    public static CIMProperty create_Security(WBEMClient client, String namespace,
+            javax.cim.UnsignedInteger8 newValue) throws WbemsmtException {
+        Linux_SambaGlobalSecurityOptions fco = new Linux_SambaGlobalSecurityOptions(client,
+                namespace);
+        CIMProperty property = fco.getProperty(PROPERTY_SECURITY.NAME);
+        if (property != null) {
+            property = setPropertyValue_Security(property, newValue);
+        }
+        else {
+            logger.warning("Property " + PROPERTY_SECURITY.NAME + " was not found in instance "
+                    + fco.getCimObjectPath());
+        }
+        return property;
+    }
+
+    /**
+     * Set the property Security
+     * <br>
+     * 
+     */
+
+    private static CIMProperty setPropertyValue_Security(CIMProperty currentProperty,
+            javax.cim.UnsignedInteger8 newValue) {
+        Object setThis = null;
+
+        setThis = newValue;
+
+        CIMProperty newProperty = new CIMProperty(currentProperty.getName(), currentProperty
+                .getDataType(), setThis, currentProperty.isKey(), currentProperty.isPropagated(),
+                currentProperty.getOriginClass());
+
+        return newProperty;
+    }
+
+    //**********************************************************************
+    // Associators methods     
+    //**********************************************************************
+
+    /**
+     * Get the list with Linux_SambaGlobalOptions objects associated by the association Linux_SambaGlobalSecurityForGlobal
+     * 
+     * @param cimClient the WBEMClient for the communication
+     *
+     * uses CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAGLOBALSECURITYFORGLOBAL as associationClass<br>
+     * uses false for includeQualifiers and includeClassOrigin <br>
+     * uses null for resultClass, role, resultRole<br>
+     * <br>
+     * @see javax.wbem.client.WBEMClient#associators(CIMObjectPath, String, String, String, String, boolean, boolean, String[])
+     **/
+
+    public java.util.List getAssociated_Linux_SambaGlobalOptions_Linux_SambaGlobalSecurityForGlobals(
+            WBEMClient cimClient) throws WbemsmtException {
+
+        return getAssociated_Linux_SambaGlobalOptions_Linux_SambaGlobalSecurityForGlobals(
+                cimClient, CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAGLOBALSECURITYFORGLOBAL,
+                Linux_SambaGlobalOptions.CIM_CLASS_NAME, null, null, false, false, null);
+
+    }
+
+    /**
+     * Get the list with Linux_SambaGlobalOptions objects associated by the association Linux_SambaGlobalSecurityForGlobal
+     * 
+     * @param cimClient the WBEMClient for the communication
+     * @param resultClass This string MUST either contain a valid CIM Class name or be null. It filters the Objects returned to contain only the Objects of this Class name or one of its subclasses. The resultClass should be CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAGLOBALSECURITYFORGLOBAL or a subclass 
+     * @param role This string MUST either contain a valid Property name or be null. It filters the Objects returned to contain only Objects associated to the source Object via an Association class in which the source Object plays the specified role. (i.e. the Property name in the Association class that refers to the source Object matches this value) If "Antecedent" is specified, then only Associations in which the source Object is the "Antecedent" reference are examined.
+     * @param resultRole This string MUST either contain a valid Property name or be null. It filters the Objects returned to contain only Objects associated to the source Object via an Association class in which the Object returned plays the specified role. (i.e. the Property name in the Association class that refers to the Object returned matches this value) If "Dependent" is specified, then only Associations in which the Object returned is the "Dependent" reference are examined. 
+     *
+     * uses CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAGLOBALSECURITYFORGLOBAL as associationClass<br>
+     * uses false for includeQualifiers and includeClassOrigin <br>
+     * uses null for resultClass, role, resultRole<br>
+     * <br>
+     * @see javax.wbem.client.WBEMClient#associators(CIMObjectPath, String, String, String, String, boolean, boolean, String[])
+     **/
+
+    public java.util.List getAssociated_Linux_SambaGlobalOptions_Linux_SambaGlobalSecurityForGlobals(
+            WBEMClient cimClient, String resultClass, String role, String resultRole)
+            throws WbemsmtException {
+
+        return getAssociated_Linux_SambaGlobalOptions_Linux_SambaGlobalSecurityForGlobals(
+                cimClient, CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAGLOBALSECURITYFORGLOBAL,
+                resultClass, role, resultRole, false, false, null);
+
+    }
+
+    /**
+     * Get the list with Linux_SambaGlobalOptions objects associated by the association Linux_SambaGlobalSecurityForGlobal
+     * 
+     * @param cimClient the WBEMClient for the communication
+     * @param associationClass This string MUST either contain a valid CIM Association class name or be null. It filters the Objects returned to contain only Objects associated to the source Object via this CIM Association class or one of its subclasses.
+     * @param resultClass This string MUST either contain a valid CIM Class name or be null. It filters the Objects returned to contain only the Objects of this Class name or one of its subclasses. The resultClass should be CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAGLOBALSECURITYFORGLOBAL or a subclass 
+     * @param role This string MUST either contain a valid Property name or be null. It filters the Objects returned to contain only Objects associated to the source Object via an Association class in which the source Object plays the specified role. (i.e. the Property name in the Association class that refers to the source Object matches this value) If "Antecedent" is specified, then only Associations in which the source Object is the "Antecedent" reference are examined.
+     * @param resultRole This string MUST either contain a valid Property name or be null. It filters the Objects returned to contain only Objects associated to the source Object via an Association class in which the Object returned plays the specified role. (i.e. the Property name in the Association class that refers to the Object returned matches this value) If "Dependent" is specified, then only Associations in which the Object returned is the "Dependent" reference are examined. 
+     * @param includeQualifiers If true, all Qualifiers for each Object (including Qualifiers on the Object and on any returned Properties) MUST be included in the Objects returned. If false, no Qualifiers are present in each Object returned.
+     * @param includeClassOrigin If true, the CLASSORIGIN attribute will be present on all appropriate elements in the Objects returned. If false, no CLASSORIGIN attributes are present in the Objects returned. CLASSORIGIN is attached to an element (properties, methods, references) to indicate the class in which it was first defined.
+     * @param propertyList An array of property names used to filter what is contained in the Objects returned. Each CIMClass or CIMInstance returned only contains elements for the properties of the names specified. Duplicate and invalid property names are ignored and the request is otherwise processed normally. An empty array indicates that no properties should be included in the Objects returned. A null value indicates that all properties should be contained in the Objects returned. NOTE: Properties should not be specified in this parameter unless a non-null value is specified in the resultClass  parameter.
+     *
+     * @see javax.wbem.client.WBEMClient#associators(CIMObjectPath, String, String, String, String, boolean, boolean, String[])
+     **/
+
+    public java.util.List getAssociated_Linux_SambaGlobalOptions_Linux_SambaGlobalSecurityForGlobals(
+            WBEMClient cimClient, String associationClass, String resultClass, String role,
+            String resultRole, boolean includeQualifiers, boolean includeClassOrigin,
+            java.lang.String[] propertyList) throws WbemsmtException {
+
+        if (cimClient == null) {
+            throw new WbemsmtException(WbemsmtException.ERR_INVALID_PARAMETER,
+                    "The cimClient parameter does not contain a valid reference.");
+        }
+
+        java.util.List result = new java.util.ArrayList();
+        CloseableIterator enumeration = null;
+
+        try {
+            enumeration = cimClient.associators(this.getCimObjectPath(), associationClass,
+                    resultClass, role, resultRole, includeQualifiers, includeClassOrigin,
+                    propertyList);
+        }
+        catch (WBEMException e) {
+            throw new AssociatorException(e, new AssociatorUserObject(this.getCimObjectPath(),
+                    associationClass, resultClass, role, resultRole, includeQualifiers,
+                    includeClassOrigin, propertyList));
+        }
+
+        try {
+            while (enumeration.hasNext()) {
+                Linux_SambaGlobalSecurityOptionsHelper.checkException(enumeration);
+
+                Object obj = enumeration.next();
+                Linux_SambaGlobalSecurityOptionsHelper.checkException(enumeration);
+
+                if (obj instanceof CIMInstance) {
+                    CIMInstance cimInstance = (CIMInstance) obj;
+                    Class clazz = Linux_SambaGlobalSecurityOptionsHelper.findClass(cimClient,
+                            cimInstance);
+
+                    if (clazz == null) {
+                        System.err.println("The class " + cimInstance.getClassName()
+                                + " was not found. Constructing instance of the base class.");
+                        result.add(new Linux_SambaGlobalOptions(cimInstance));
+                        continue;
+                    }
+
+                    Class[] constParams = new Class[1];
+                    constParams[0] = CIMInstance.class;
+                    Constructor cons = null;
+                    try {
+                        cons = clazz.getConstructor(constParams);
+                    }
+                    catch (NoSuchMethodException e) {
+                        System.err.println("The required constructor of class "
+                                + cimInstance.getClassName()
+                                + " could not be found. Constructing instance of the base class.");
+                        result.add(new Linux_SambaGlobalOptions(cimInstance));
+                        continue;
+                    }
+
+                    try {
+                        Object[] actargs = new Object[] { cimInstance };
+                        Object dataObj = cons.newInstance(actargs);
+                        result.add(dataObj);
+                    }
+                    catch (Exception e) {
+                        System.err
+                                .println("The instance of class "
+                                        + cimInstance.getClassName()
+                                        + " could not be created successful. Constructing instance of the base class.");
+                        result.add(new Linux_SambaGlobalOptions(cimInstance));
+                        continue;
+                    }
+                }
+            }
+            Linux_SambaGlobalSecurityOptionsHelper.checkException(enumeration);
+        }
+        finally {
+            try {
+                if (enumeration != null) {
+                    enumeration.close();
+                }
+            }
+            catch (Exception e) {
+                throw new WbemsmtException(WbemsmtException.ERR_FAILED,
+                        "The socket of the result could not be closed properly.");
+            }
+        }
+
+        return result;
+    }
+
+    /**
+     * Get the list of CIMObjectPath items of the objects associated by the association Linux_SambaGlobalSecurityForGlobal
+     * @param cimClient the WBEMClient for the communication
+     *
+     * uses CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAGLOBALSECURITYFORGLOBAL as associationClass<br>
+     * uses false for includeQualifiers and includeClassOrigin <br>
+     * uses null for resultClass, role, resultRole<br>
+     * <br>
+     
+     * @see javax.wbem.client.WBEMClient#associatorNames(CIMObjectPath, String, String, String, String)
+     **/
+
+    public java.util.List getAssociated_Linux_SambaGlobalOptions_Linux_SambaGlobalSecurityForGlobalNames(
+            WBEMClient cimClient) throws WbemsmtException {
+
+        return getAssociated_Linux_SambaGlobalOptions_Linux_SambaGlobalSecurityForGlobalNames(
+                cimClient, true, CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAGLOBALSECURITYFORGLOBAL,
+                Linux_SambaGlobalOptions.CIM_CLASS_NAME, null, null);
+    }
+
+    /**
+     * Get the list of CIMObjectPath items of the objects associated by the association Linux_SambaGlobalSecurityForGlobal
+     * @param cimClient the WBEMClient for the communication
+     * @param resultClass This string MUST either contain a valid CIM Class name or be null. It filters the Objects returned to contain only the Objects of this Class name or one of its subclasses. The resultClass should be CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAGLOBALSECURITYFORGLOBAL or a subclass 
+     * @param role This string MUST either contain a valid Property name or be null. It filters the Objects returned to contain only Objects associated to the source Object via an Association class in which the source Object plays the specified role. (i.e. the Property name in the Association class that refers to the source Object matches this value) If "Antecedent" is specified, then only Associations in which the source Object is the "Antecedent" reference are examined.
+     * @param resultRole This string MUST either contain a valid Property name or be null. It filters the Objects returned to contain only Objects associated to the source Object via an Association class in which the Object returned plays the specified role. (i.e. the Property name in the Association class that refers to the Object returned matches this value) If "Dependent" is specified, then only Associations in which the Object returned is the "Dependent" reference are examined. 
+     *
+     * uses CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAGLOBALSECURITYFORGLOBAL as associationClass<br>
+     * uses false for includeQualifiers and includeClassOrigin <br>
+     * uses null for resultClass, role, resultRole<br>
+     * <br>
+     
+     * @see javax.wbem.client.WBEMClient#associatorNames(CIMObjectPath, String, String, String, String)
+     **/
+
+    public java.util.List getAssociated_Linux_SambaGlobalOptions_Linux_SambaGlobalSecurityForGlobalNames(
+            WBEMClient cimClient, String resultClass, String role, String resultRole)
+            throws WbemsmtException {
+
+        return getAssociated_Linux_SambaGlobalOptions_Linux_SambaGlobalSecurityForGlobalNames(
+                cimClient, true, CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAGLOBALSECURITYFORGLOBAL,
+                resultClass, role, resultRole);
+    }
+
+    /**
+     * Get the list of CIMObjectPath items of the objects associated by the association Linux_SambaGlobalSecurityForGlobal
+     * @param cimClient the WBEMClient for the communication
+     * @param deep if true the subclasses returned also
+     *
+     * @see javax.wbem.client.WBEMClient#associatorNames(CIMObjectPath, String, String, String, String)
+     **/
+
+    public java.util.List getAssociated_Linux_SambaGlobalOptions_Linux_SambaGlobalSecurityForGlobalNames(
+            WBEMClient cimClient, boolean deep, String associationClass, String resultClass,
+            String role, String resultRole) throws WbemsmtException {
+
+        if (cimClient == null) {
+            throw new WbemsmtException(WbemsmtException.ERR_INVALID_PARAMETER,
+                    "The cimClient parameter does not contain a valid reference.");
+        }
+
+        java.util.List result = new java.util.ArrayList();
+        CloseableIterator enumeration = null;
+
+        try {
+            enumeration = cimClient.associatorNames(this.getCimObjectPath(), associationClass,
+                    resultClass, role, resultRole);
+
+        }
+        catch (WBEMException e) {
+            throw new AssociatorNamesException(e, new AssociatorNamesUserObject(this
+                    .getCimObjectPath(),
+                    CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAGLOBALSECURITYFORGLOBAL,
+                    Linux_SambaGlobalOptions.CIM_CLASS_NAME, null, null));
+        }
+
+        try {
+            while (enumeration.hasNext()) {
+                Linux_SambaGlobalSecurityOptionsHelper.checkException(enumeration);
+
+                Object obj = enumeration.next();
+                Linux_SambaGlobalSecurityOptionsHelper.checkException(enumeration);
+                if (obj instanceof CIMObjectPath) {
+                    if (deep
+                            || ((CIMObjectPath) obj).getObjectName().equals(
+                                    Linux_SambaGlobalOptions.CIM_CLASS_NAME)) {
+                        result.add(obj);
+                    }
+                }
+            }
+            Linux_SambaGlobalSecurityOptionsHelper.checkException(enumeration);
+        }
+        finally {
+            try {
+                if (enumeration != null) {
+                    enumeration.close();
+                }
+            }
+            catch (Exception e) {
+                throw new WbemsmtException(WbemsmtException.ERR_FAILED,
+                        "The socket of the result could not be closed properly.");
+            }
+        }
+        return result;
+    }
+
+    /**
+     * Get the list with Linux_SambaGlobalSecurityForGlobal associations
+     *
+     * @param cimClient the WBEMClient for the communication
+     * @param includeQualifiers If true, all Qualifiers for each Object (including Qualifiers on the Object and on any returned Properties) MUST be included in the Objects returned. If false, no Qualifiers are present in each Object returned.
+     * @param includeClassOrigin If true, the CLASSORIGIN attribute will be present on all appropriate elements in the Objects returned. If false, no CLASSORIGIN attributes are present in the Objects returned. CLASSORIGIN is attached to an element (properties, methods, references) to indicate the class in which it was first defined.
+     * @param role This string MUST either contain a valid Property name or be null. It filters the Objects returned to contain only Objects referring to the source Object via a Property with the specified name. If "Antecedent" is specified, then only Associations in which the source Object is the "Antecedent" reference are returned.
+     * @param propertyList An array of property names used to filter what is contained in the Objects returned. Each CIMClass or CIMInstance returned only contains elements for the properties of the names specified. Duplicate and invalid property names are ignored and the request is otherwise processed normally. An empty array indicates that no properties should be included in the Objects returned. A null value indicates that all properties should be contained in the Objects returned. NOTE: Properties should not be specified in this parameter unless a non-null value is specified in the resultClass  parameter.
+     *
+     * @see javax.wbem.client.WBEMClient#references(CIMObjectPath, String, String, boolean, boolean, String[])
+     **/
+
+    public java.util.List getAssociations_Linux_SambaGlobalSecurityForGlobal(WBEMClient cimClient,
+            boolean includeQualifiers, boolean includeClassOrigin, String role,
+            java.lang.String[] propertyList) throws WbemsmtException {
+
+        if (cimClient == null) {
+            throw new WbemsmtException(WbemsmtException.ERR_INVALID_PARAMETER,
+                    "The cimClient parameter does not contain a valid reference.");
+        }
+
+        java.util.List result = new java.util.ArrayList();
+        CloseableIterator enumeration = null;
+
+        try {
+            enumeration = cimClient.references(this.getCimObjectPath(),
+                    CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAGLOBALSECURITYFORGLOBAL, role,
+                    includeQualifiers, includeClassOrigin, propertyList);
+        }
+        catch (WBEMException e) {
+            throw new ReferencesException(e, new ReferencesUserObject(this.getCimObjectPath(),
+                    CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAGLOBALSECURITYFORGLOBAL, role,
+                    includeQualifiers, includeClassOrigin, propertyList));
+        }
+
+        try {
+            while (enumeration.hasNext()) {
+                Linux_SambaGlobalSecurityOptionsHelper.checkException(enumeration);
+                Object obj = enumeration.next();
+                Linux_SambaGlobalSecurityOptionsHelper.checkException(enumeration);
+
+                if (obj instanceof CIMInstance) {
+                    CIMInstance cimInstance = (CIMInstance) obj;
+                    Class clazz = Linux_SambaGlobalSecurityForGlobalHelper.findClass(cimClient,
+                            cimInstance);
+
+                    if (clazz == null) {
+                        System.err.println("The class " + cimInstance.getClassName()
+                                + " was not found. Constructing instance of the base class.");
+                        result.add(new Linux_SambaGlobalSecurityForGlobal(cimInstance));
+                        continue;
+                    }
+
+                    Class[] constParams = new Class[1];
+                    constParams[0] = CIMInstance.class;
+                    Constructor cons = null;
+                    try {
+                        cons = clazz.getConstructor(constParams);
+                    }
+                    catch (NoSuchMethodException e) {
+                        System.err.println("The required constructor of class "
+                                + cimInstance.getClassName()
+                                + " could not be found. Constructing instance of the base class.");
+                        result.add(new Linux_SambaGlobalSecurityForGlobal(cimInstance));
+                        continue;
+                    }
+
+                    try {
+                        Object[] actargs = new Object[] { cimInstance };
+                        Object dataObj = cons.newInstance(actargs);
+                        result.add(dataObj);
+                    }
+                    catch (Exception e) {
+                        System.err
+                                .println("The instance of class "
+                                        + cimInstance.getClassName()
+                                        + " could not be created successful. Constructing instance of the base class.");
+                        result.add(new Linux_SambaGlobalSecurityForGlobal(cimInstance));
+                        continue;
+                    }
+                }
+            }
+            Linux_SambaGlobalSecurityOptionsHelper.checkException(enumeration);
+        }
+        finally {
+            try {
+                if (enumeration != null) {
+                    enumeration.close();
+                }
+            }
+            catch (Exception e) {
+                throw new WbemsmtException(WbemsmtException.ERR_FAILED,
+                        "The socket of the result could not be closed properly.");
+            }
+        }
+
+        return result;
+    }
+
+    /**
+     * Get a list of CIMObjectPath items of the associations Linux_SambaGlobalSecurityForGlobal
+     *
+     * @param cimClient the WBEMClient for the communication
+     * @param role This string MUST either contain a valid Property name or be null. It filters the Objects returned to contain only Objects referring to the source Object via a Property with the specified name. If "Antecedent" is specified, then only Associations in which the source Object is the "Antecedent" reference are returned.
+     * @param deep if true the subclasses returned also
+     *
+     * @see javax.wbem.client.WBEMClient#referenceNames(CIMObjectPath, String, String)
+     **/
+
+    public java.util.List getAssociationNames_Linux_SambaGlobalSecurityForGlobal(
+            WBEMClient cimClient, String role, boolean deep) throws WbemsmtException {
+
+        if (cimClient == null) {
+            throw new WbemsmtException(WbemsmtException.ERR_INVALID_PARAMETER,
+                    "The cimClient parameter does not contain a valid reference.");
+        }
+
+        java.util.List result = new java.util.ArrayList();
+        CloseableIterator enumeration = null;
+
+        try {
+            enumeration = cimClient.referenceNames(this.getCimObjectPath(),
+                    CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAGLOBALSECURITYFORGLOBAL, role);
+        }
+        catch (WBEMException e) {
+            throw new ReferenceNamesException(e, new ReferenceNamesUserObject(this
+                    .getCimObjectPath(),
+                    CIM_ASSOCIATOR_CLASS_NAME_LINUX_SAMBAGLOBALSECURITYFORGLOBAL, role));
+        }
+
+        try {
+            while (enumeration.hasNext()) {
+                Linux_SambaGlobalSecurityOptionsHelper.checkException(enumeration);
+                Object obj = enumeration.next();
+                Linux_SambaGlobalSecurityOptionsHelper.checkException(enumeration);
+
+                if (obj instanceof CIMObjectPath) {
+                    if (deep
+                            || ((CIMObjectPath) obj).getObjectName().equals(
+                                    Linux_SambaGlobalSecurityForGlobal.CIM_CLASS_NAME)) {
+                        result.add(obj);
+                    }
+                }
+            }
+            Linux_SambaGlobalSecurityOptionsHelper.checkException(enumeration);
+        }
+        finally {
+            try {
+                if (enumeration != null) {
+                    enumeration.close();
+                }
+            }
+            catch (Exception e) {
+                throw new WbemsmtException(WbemsmtException.ERR_FAILED,
+                        "The socket of the result could not be closed properly.");
+            }
+        }
+        return result;
+    }
+
+    //**********************************************************************
+    // Extrinsic Method invocations     
+    //**********************************************************************                         
+
+    //**********************************************************************
+    // utility methods     
+    //**********************************************************************                         
+
+    /**
+     * return the name of the CIMClass
+     * @return
+     */
+    public String getObjectName() {
+        return Linux_SambaGlobalSecurityOptions.CIM_CLASS_NAME;
+    }
 
 }

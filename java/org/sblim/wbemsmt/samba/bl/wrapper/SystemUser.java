@@ -21,29 +21,32 @@
 
 package org.sblim.wbemsmt.samba.bl.wrapper;
 
-import org.sblim.wbem.cim.CIMObjectPath;
-import org.sblim.wbemsmt.bl.WbemsmtBusinessObject;
-import org.sblim.wbemsmt.bl.adapter.AbstractBaseCimAdapter;
 import org.sblim.wbemsmt.bl.adapter.CimObjectKey;
+import org.sblim.wbemsmt.exception.WbemsmtException;
+import org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter;
+import org.sblim.wbemsmt.samba.bl.adapter.SambaObject;
+import org.sblim.wbemsmt.samba.bl.fco.Linux_SambaUser;
 
-public class SystemUser extends WbemsmtBusinessObject {
+public class SystemUser extends SambaObject {
 
 	private final String name;
 
-	public SystemUser(String name, AbstractBaseCimAdapter adapter) {
+	public SystemUser(String name, SambaCimAdapter adapter) {
 		super(adapter);
 		this.name = name;
 	}
 
-	public CimObjectKey getCimObjectKey() {
-		return new CimObjectKey(new CIMObjectPath(name));
+	public CimObjectKey getCimObjectKey() throws WbemsmtException {
+        Linux_SambaUser user = new Linux_SambaUser(adapter.getCimClient(),adapter.getNamespace());
+        user.set_key_SambaUserName(name);
+	    return new CimObjectKey(user);
 	}
 
 	public String getName() {
 		return name;
 	}
 
-	public static SystemUser[] asObjects(String[] users, AbstractBaseCimAdapter adapter) {
+	public static SystemUser[] asObjects(String[] users, SambaCimAdapter adapter) {
 		SystemUser[] result = new SystemUser[users.length];
 		for (int i = 0; i < result.length; i++) {
 			result[i] = new SystemUser(users[i],adapter);

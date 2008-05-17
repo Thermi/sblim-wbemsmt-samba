@@ -19,7 +19,20 @@
   */
 package org.sblim.wbemsmt.samba.bl.adapter;
 
-import org.sblim.wbemsmt.exception.CountException;
+import org.sblim.wbemsmt.exception.WbemsmtException;
+import org.sblim.wbemsmt.samba.bl.container.global.GUIShareGlobalsDataContainer;
+import org.sblim.wbemsmt.samba.bl.container.global.PrintingGlobalsDataContainer;
+import org.sblim.wbemsmt.samba.bl.container.printer.PrinterListDataContainer;
+import org.sblim.wbemsmt.samba.bl.container.printer.UserInPrinterACLDataContainer;
+import org.sblim.wbemsmt.samba.bl.container.service.ServiceUserSecurityOptionsDataContainer;
+import org.sblim.wbemsmt.samba.bl.container.share.ShareListDataContainer;
+import org.sblim.wbemsmt.samba.bl.container.share.UserInShareACLDataContainer;
+import org.sblim.wbemsmt.samba.bl.container.user.PrinterInUserACLDataContainer;
+import org.sblim.wbemsmt.samba.bl.container.user.ShareInUserACLDataContainer;
+import org.sblim.wbemsmt.samba.bl.container.user.UserListDataContainer;
+import org.sblim.wbemsmt.samba.bl.container.wizard.PrinterWizardPage3;
+import org.sblim.wbemsmt.samba.bl.container.wizard.ShareWizardPage2;
+import org.sblim.wbemsmt.samba.bl.container.wizard.UserWizardPage2;
 import org.sblim.wbemsmt.samba.bl.wrapper.Service;
 
 public class SambaCimAdapterCountDelegatee extends SambaDelegatee implements SambaCimAdapterCountIf {
@@ -28,7 +41,7 @@ public class SambaCimAdapterCountDelegatee extends SambaDelegatee implements Sam
 		super(adapter);
 	}
 
-	public int countImpl_UserACLItemDataContainerForShare() throws CountException {
+	public int countImpl_Users(Class cls, UserInShareACLDataContainer container) throws WbemsmtException {
 		Service selectedService = adapter.getSelectedService();
 
 		if (adapter.getSelectionHierarchy().size() == 2 
@@ -39,7 +52,7 @@ public class SambaCimAdapterCountDelegatee extends SambaDelegatee implements Sam
 		return 0;
 	}
 
-	public int countImpl_UserACLItemDataContainerForPrinter() throws CountException {
+	public int countImpl_Users(Class cls, UserInPrinterACLDataContainer container) throws WbemsmtException {
 		Service selectedService = adapter.getSelectedService();
 
 		if (adapter.getSelectionHierarchy().size() == 2 
@@ -50,7 +63,7 @@ public class SambaCimAdapterCountDelegatee extends SambaDelegatee implements Sam
 		return 0;
 	}
 
-	public int countImpl_UserACLItemDataContainerForService() throws CountException {
+	public int countImpl_UserRights(Class cls, ServiceUserSecurityOptionsDataContainer container) throws WbemsmtException {
 		Service selectedService = adapter.getSelectedService();
 
 		if (adapter.getSelectionHierarchy().size() == 1)
@@ -60,47 +73,47 @@ public class SambaCimAdapterCountDelegatee extends SambaDelegatee implements Sam
 		return 0;
 	}
 
-	public int countImpl_PrinterACLItemDataContainer() throws CountException {
+	public int countImpl_Printers(Class cls, PrinterInUserACLDataContainer container) throws WbemsmtException {
 		return getSelectedService().getPrinters().size();
 	}
 
-	public int countImpl_ShareACLItemDataContainer() throws CountException {
+	public int countImpl_Shares(Class cls, ShareInUserACLDataContainer container) throws WbemsmtException {
 		return getSelectedService().getShares().size();
 	}
 
-	public int countImpl_UserInPrinterWizardACLItemDataContainer() throws CountException {
+	public int countImpl_Users(Class cls, PrinterWizardPage3 container) throws WbemsmtException {
 		return getSelectedService().getUsers().size();
 	}
 
-	public int countImpl_ShareInUserWizardACLItemDataContainer() throws CountException {
+	public int countImpl_Shares(Class cls, UserWizardPage2 page2) throws WbemsmtException {
 		return getSelectedService().getShares().size();
 	}
 
-	public int countImpl_PrinterInUserWizardACLItemDataContainer() throws CountException {
+	public int countImpl_Printers(Class cls, UserWizardPage2 page2) throws WbemsmtException {
 		return getSelectedService().getPrinters().size();
 	}
 
-	public int countImpl_UserInShareWizardACLItemDataContainer() throws CountException {
+	public int countImpl_Users(Class cls, ShareWizardPage2 container) throws WbemsmtException {
 		return getSelectedService().getUsers().size();
 	}
 
-	public int countImpl_AdminUsersInPrinterGlobals() throws CountException {
+	public int countImpl_Users(Class cls, PrintingGlobalsDataContainer container) throws WbemsmtException {
 		return adapter.getSelectedService().getUsers().size();
 	}
 
-	public int countImpl_AdminUsersInShareGlobals() throws CountException {
+	public int countImpl_Users(Class cls, GUIShareGlobalsDataContainer parent) throws WbemsmtException {
 		return adapter.getSelectedService().getUsers().size();
 	}
 
-	public int countImpl_ShareListItemDataContainer() throws CountException {
+	public int countImpl_Shares(Class cls, ShareListDataContainer container) throws WbemsmtException {
 		return adapter.getSelectedService().getShares().size();
 	}
 
-	public int countImpl_PrinterListItemDataContainer() throws CountException {
+	public int countImpl_Printers(Class cls, PrinterListDataContainer container) throws WbemsmtException {
 		return adapter.getSelectedService().getPrinters().size();
 	}
 
-	public int countImpl_UserListItemDataContainer() throws CountException {
+	public int countImpl_Users(Class cls, UserListDataContainer container) throws WbemsmtException {
 		return adapter.getSelectedService().getUsers().size();
 	}
 

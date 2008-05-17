@@ -19,9 +19,11 @@
   */
 package org.sblim.wbemsmt.samba.bl.wrapper.list;
 
-import org.sblim.wbem.cim.CIMObjectPath;
+import javax.cim.CIMObjectPath;
+
 import org.sblim.wbemsmt.bl.adapter.CimObjectKey;
 import org.sblim.wbemsmt.bl.wrapper.ObjectList;
+import org.sblim.wbemsmt.exception.WbemsmtException;
 import org.sblim.wbemsmt.samba.bl.wrapper.SystemUser;
 import org.sblim.wbemsmt.schema.cim29.CIM_ManagedElement;
 
@@ -45,12 +47,12 @@ public class SystemUserList extends ObjectList {
 		return getSystemUser(new CimObjectKey(element.getCimObjectPath()));
 	}
 
-	public void addSystemUser(SystemUser user)
+	public void addSystemUser(SystemUser user) throws WbemsmtException
 	{
 		put(user);
 	}
 	
-	public void removeSystemUser(SystemUser user)
+	public void removeSystemUser(SystemUser user) throws WbemsmtException
 	{
 		removeSystemUser(user.getCimObjectKey());
 	}
@@ -60,11 +62,11 @@ public class SystemUserList extends ObjectList {
 		remove(key);
 	}
 	
-	public SystemUser getSystemUserByName(String username) {
+	public SystemUser getSystemUserByName(String username) throws WbemsmtException {
 		return (SystemUser) getObjectsByName().get(username);
 	}
 	
-	public SystemUser getSystemUser(int i) {
+	public SystemUser getSystemUser(int i) throws WbemsmtException {
 		return (SystemUser)getList().get(i);
 	}
 
@@ -78,7 +80,7 @@ public class SystemUserList extends ObjectList {
 		return user;
 	}
 
-	public void addSystemUsers(SystemUser[] users) {
+	public void addSystemUsers(SystemUser[] users) throws WbemsmtException {
 		for (int i = 0; i < users.length; i++) {
 			SystemUser user = users[i];
 			addSystemUser(user);

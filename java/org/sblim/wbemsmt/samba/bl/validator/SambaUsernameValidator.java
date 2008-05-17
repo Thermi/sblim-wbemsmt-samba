@@ -21,7 +21,7 @@ package org.sblim.wbemsmt.samba.bl.validator;
 
 import org.sblim.wbemsmt.bl.adapter.Message;
 import org.sblim.wbemsmt.bl.adapter.MessageList;
-import org.sblim.wbemsmt.exception.ValidationException;
+import org.sblim.wbemsmt.exception.WbemsmtException;
 import org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter;
 import org.sblim.wbemsmt.samba.bl.adapter.SambaErrCodes;
 import org.sblim.wbemsmt.samba.bl.wrapper.User;
@@ -50,19 +50,19 @@ public class SambaUsernameValidator extends Validator {
 	/**
 	 * @see org.sblim.wbemsmt.tools.validator.Validator#validate()
 	 */
-	public void validateElement(MessageList result) throws ValidationException {
+	public void validateElement(MessageList result) throws WbemsmtException {
 		
 		if (!component.isEmpty())
-		{
-			String userName = (String) component.getConvertedControlValue();
-			User user = sambaCimAdapter.getSelectedService().getUsers().getUserByName(userName);
-			if (user != null)
-			{
-				String msg = adapter.getBundle().getString(SambaErrCodes.MSG_USER_EXISTS,"validator.userExists",new Object[]{userName});
-				result.addMessage(new Message(SambaErrCodes.MSG_USER_EXISTS,Message.ERROR,msg,component));
-				
-			}
-		}
+        {
+        	String userName = (String) component.getConvertedControlValue();
+        	User user = sambaCimAdapter.getSelectedService().getUsers().getUserByName(userName);
+        	if (user != null)
+        	{
+        		String msg = adapter.getBundle().getString(SambaErrCodes.MSG_USER_EXISTS,"validator.userExists",new Object[]{userName});
+        		result.addMessage(new Message(SambaErrCodes.MSG_USER_EXISTS,Message.ERROR,msg,component));
+        		
+        	}
+        }
 	}
 
 	protected LabeledBaseInputComponentIf[] getComponents() {

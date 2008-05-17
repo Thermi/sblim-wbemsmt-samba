@@ -24,12 +24,11 @@ package org.sblim.wbemsmt.samba.bl.wrapper.wizard;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.sblim.wbem.cim.UnsignedInt16;
-import org.sblim.wbem.client.CIMClient;
+import javax.cim.UnsignedInteger16;
+
 import org.sblim.wbemsmt.bl.adapter.CimObjectKey;
 import org.sblim.wbemsmt.bl.adapter.DataContainer;
-import org.sblim.wbemsmt.exception.ModelLoadException;
-import org.sblim.wbemsmt.exception.UpdateControlsException;
+import org.sblim.wbemsmt.exception.WbemsmtException;
 import org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter;
 import org.sblim.wbemsmt.samba.bl.adapter.SambaObject;
 import org.sblim.wbemsmt.samba.bl.fco.Linux_SambaUser;
@@ -45,28 +44,24 @@ public class SambaWizard extends SambaObject {
 		super(adapter);
 	}
 
-	public void loadChilds(CIMClient cimClient) throws ModelLoadException {
-		//do nothing per defautl - wizards have no childs
-	}
-
 	public CimObjectKey getCimObjectKey() {
 		return null;
 	}
 
 	public void setInstanceId(CIM_SettingData settingData) {
-		settingData.set_InstanceID(adapter.getSelectedService().getService().get_Name());
+		settingData.set_key_InstanceID(adapter.getSelectedService().getService().get_Name());
 	}
 	
-	public void updateForceUserForWizard(DataContainer container, LabeledStringArrayInputComponentIf newForceUser, Service service) throws UpdateControlsException {
-		List userNames = new ArrayList();
-		userNames.add(container.getAdapter().getBundle().getString("no.new.force.user"));
-		userNames.addAll(StringUtil.asList(service.getUsers().getNameArray()));
-		String[] array = (String[]) userNames.toArray(new String[userNames.size()]);
-		newForceUser.setValues(array);
+	public void updateForceUserForWizard(DataContainer container, LabeledStringArrayInputComponentIf newForceUser, Service service) throws WbemsmtException {
+            List userNames = new ArrayList();
+            userNames.add(container.getAdapter().getBundle().getString("no.new.force.user"));
+            userNames.addAll(StringUtil.asList(service.getUsers().getNameArray()));
+            String[] array = (String[]) userNames.toArray(new String[userNames.size()]);
+            newForceUser.setValues(array);
 	}
 
-	public void setForceUserForWizardOverview(DataContainer container, LabeledStringArrayInputComponentIf forceUserInput, LabeledBaseInputComponentIf forceUserLabel) {
-		UnsignedInt16 index = (UnsignedInt16) forceUserInput.getConvertedControlValue();
+	public void setForceUserForWizardOverview(DataContainer container, LabeledStringArrayInputComponentIf forceUserInput, LabeledBaseInputComponentIf forceUserLabel) throws WbemsmtException {
+		UnsignedInteger16 index = (UnsignedInteger16) forceUserInput.getConvertedControlValue();
 		//first element is the "no force user text" so subtract one to get the right user
 		if (index == null || index.intValue() == 0)
 		{
@@ -75,7 +70,7 @@ public class SambaWizard extends SambaObject {
 		else
 		{
 			Linux_SambaUser user = ((SambaCimAdapter) container.getAdapter()).getSelectedService().getUsers().getUser(index.intValue()-1).getUser();
-			forceUserLabel.setControlValue(user.get_SambaUserName());
+			forceUserLabel.setControlValue(user.get_key_SambaUserName());
 		}
 	}
 	

@@ -19,9 +19,11 @@
   */
 package org.sblim.wbemsmt.samba.bl.wrapper.list;
 
-import org.sblim.wbem.cim.CIMObjectPath;
+import javax.cim.CIMObjectPath;
+
 import org.sblim.wbemsmt.bl.adapter.CimObjectKey;
 import org.sblim.wbemsmt.bl.wrapper.ObjectList;
+import org.sblim.wbemsmt.exception.WbemsmtException;
 import org.sblim.wbemsmt.samba.bl.wrapper.Share;
 import org.sblim.wbemsmt.schema.cim29.CIM_ManagedElement;
 
@@ -47,14 +49,14 @@ public class ShareList extends ObjectList  {
 		return getShare(new CimObjectKey(element.getCimObjectPath()));
 	}
 
-	public void addShare(Share share)
+	public void addShare(Share share) throws WbemsmtException
 	{
 		put(share);
 	}
 	
 	protected Object getKey(Object value) {
 		Share share = (Share) value;
-		return share.getShare().get_Name();
+		return share.getShare().get_key_Name();
 	}
 	
 	protected Object getFco(Object value) {
@@ -62,11 +64,11 @@ public class ShareList extends ObjectList  {
 		return share.getShare();
 	}
 
-	public Share getShareByName(String nameOfShare) {
+	public Share getShareByName(String nameOfShare) throws WbemsmtException {
 		return (Share) getObjectsByName().get(nameOfShare);
 	}
 
-	public Share getShare(int i) {
+	public Share getShare(int i) throws WbemsmtException {
 		return (Share) getList().get(i);
 	}
 }
