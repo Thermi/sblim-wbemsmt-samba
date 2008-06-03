@@ -394,8 +394,8 @@ public class UserInPrinterACLDataContainerImpl extends org.sblim.wbemsmt.tools.j
     public void copyFrom(DataContainer sourceContainer) throws WbemsmtException {
         UserInPrinterACLDataContainerImpl source = (UserInPrinterACLDataContainerImpl) sourceContainer;
 
-        get_usr_CurrentForceUser().setValue(source.get_usr_CurrentForceUser().getValue());
-        get_usr_NewForceUser().setValue(source.get_usr_NewForceUser().getValue());
+        get_usr_CurrentForceUser().copyFrom(source.get_usr_CurrentForceUser());
+        get_usr_NewForceUser().copyFrom(source.get_usr_NewForceUser());
 
         List targetListForUsers = (List) getUsers();
         List sourceListForUsers = (List) source.getUsers();

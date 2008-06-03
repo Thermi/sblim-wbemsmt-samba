@@ -68,7 +68,7 @@ public class ServiceGlobalSecurityOptionsDataContainerImpl extends BaseDataConta
                     "ServiceGlobalSecurityOptionsDataContainer.AuthMethods");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_AuthMethods = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,
-                    label, "", converter);
+                    label, null, converter);
         }
         return ic_AuthMethods;
     }
@@ -86,7 +86,7 @@ public class ServiceGlobalSecurityOptionsDataContainerImpl extends BaseDataConta
                     "ServiceGlobalSecurityOptionsDataContainer.EncryptPasswords");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_EncryptPasswords = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_EncryptPasswords;
     }
@@ -104,7 +104,7 @@ public class ServiceGlobalSecurityOptionsDataContainerImpl extends BaseDataConta
                     "ServiceGlobalSecurityOptionsDataContainer.MinPasswordLength");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.UnsignedInt8StringConverter();
             ic_MinPasswordLength = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_MinPasswordLength;
     }
@@ -122,7 +122,7 @@ public class ServiceGlobalSecurityOptionsDataContainerImpl extends BaseDataConta
                     "ServiceGlobalSecurityOptionsDataContainer.NullPasswords");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_NullPasswords = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_NullPasswords;
     }
@@ -140,7 +140,7 @@ public class ServiceGlobalSecurityOptionsDataContainerImpl extends BaseDataConta
                     "ServiceGlobalSecurityOptionsDataContainer.PassdbBackend");
             org.sblim.wbemsmt.tools.converter.StringArrayConverter converter = new org.sblim.wbemsmt.tools.converter.UnsignedInt16StringArrayConverter();
             ic_usr_PassdbBackend = new org.sblim.wbemsmt.tools.input.test.LabeledTestStringArrayComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_PassdbBackend;
     }
@@ -158,7 +158,7 @@ public class ServiceGlobalSecurityOptionsDataContainerImpl extends BaseDataConta
                     "ServiceGlobalSecurityOptionsDataContainer.SMBPasswdFile");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_SMBPasswdFile = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_SMBPasswdFile;
     }
@@ -176,7 +176,7 @@ public class ServiceGlobalSecurityOptionsDataContainerImpl extends BaseDataConta
                     "ServiceGlobalSecurityOptionsDataContainer.Security");
             org.sblim.wbemsmt.tools.converter.StringArrayConverter converter = new org.sblim.wbemsmt.tools.converter.UnsignedInt8StringArrayConverter();
             ic_Security = new org.sblim.wbemsmt.tools.input.test.LabeledTestStringArrayComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_Security;
     }
@@ -194,7 +194,7 @@ public class ServiceGlobalSecurityOptionsDataContainerImpl extends BaseDataConta
                     "ServiceGlobalSecurityOptionsDataContainer.GuestOK");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_GuestOK = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,
-                    label, "", converter);
+                    label, null, converter);
         }
         return ic_GuestOK;
     }
@@ -212,7 +212,7 @@ public class ServiceGlobalSecurityOptionsDataContainerImpl extends BaseDataConta
                     "ServiceGlobalSecurityOptionsDataContainer.GuestOnly");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_GuestOnly = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,
-                    label, "", converter);
+                    label, null, converter);
         }
         return ic_GuestOnly;
     }
@@ -230,7 +230,7 @@ public class ServiceGlobalSecurityOptionsDataContainerImpl extends BaseDataConta
                     "ServiceGlobalSecurityOptionsDataContainer.HostsAllow");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_HostsAllow = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,
-                    label, "", converter);
+                    label, null, converter);
         }
         return ic_HostsAllow;
     }
@@ -248,7 +248,7 @@ public class ServiceGlobalSecurityOptionsDataContainerImpl extends BaseDataConta
                     "ServiceGlobalSecurityOptionsDataContainer.HostsDeny");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_HostsDeny = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,
-                    label, "", converter);
+                    label, null, converter);
         }
         return ic_HostsDeny;
     }
@@ -266,7 +266,7 @@ public class ServiceGlobalSecurityOptionsDataContainerImpl extends BaseDataConta
                     "ServiceGlobalSecurityOptionsDataContainer.ReadOnly");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_ReadOnly = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,
-                    label, "", converter);
+                    label, null, converter);
         }
         return ic_ReadOnly;
     }
@@ -284,7 +284,7 @@ public class ServiceGlobalSecurityOptionsDataContainerImpl extends BaseDataConta
                     "ServiceGlobalSecurityOptionsDataContainer.DomainMaster");
             org.sblim.wbemsmt.tools.converter.StringArrayConverter converter = new org.sblim.wbemsmt.tools.converter.UnsignedInt16StringArrayConverter();
             ic_DomainMaster = new org.sblim.wbemsmt.tools.input.test.LabeledTestStringArrayComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_DomainMaster;
     }
@@ -302,7 +302,7 @@ public class ServiceGlobalSecurityOptionsDataContainerImpl extends BaseDataConta
                     "ServiceGlobalSecurityOptionsDataContainer.Browsable");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_Browsable = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,
-                    label, "", converter);
+                    label, null, converter);
         }
         return ic_Browsable;
     }
@@ -436,20 +436,20 @@ public class ServiceGlobalSecurityOptionsDataContainerImpl extends BaseDataConta
     public void copyFrom(DataContainer sourceContainer) throws WbemsmtException {
         ServiceGlobalSecurityOptionsDataContainerImpl source = (ServiceGlobalSecurityOptionsDataContainerImpl) sourceContainer;
 
-        get_AuthMethods().setValue(source.get_AuthMethods().getValue());
-        get_EncryptPasswords().setValue(source.get_EncryptPasswords().getValue());
-        get_MinPasswordLength().setValue(source.get_MinPasswordLength().getValue());
-        get_NullPasswords().setValue(source.get_NullPasswords().getValue());
-        get_usr_PassdbBackend().setValue(source.get_usr_PassdbBackend().getValue());
-        get_SMBPasswdFile().setValue(source.get_SMBPasswdFile().getValue());
-        get_Security().setValue(source.get_Security().getValue());
-        get_GuestOK().setValue(source.get_GuestOK().getValue());
-        get_GuestOnly().setValue(source.get_GuestOnly().getValue());
-        get_HostsAllow().setValue(source.get_HostsAllow().getValue());
-        get_HostsDeny().setValue(source.get_HostsDeny().getValue());
-        get_ReadOnly().setValue(source.get_ReadOnly().getValue());
-        get_DomainMaster().setValue(source.get_DomainMaster().getValue());
-        get_Browsable().setValue(source.get_Browsable().getValue());
+        get_AuthMethods().copyFrom(source.get_AuthMethods());
+        get_EncryptPasswords().copyFrom(source.get_EncryptPasswords());
+        get_MinPasswordLength().copyFrom(source.get_MinPasswordLength());
+        get_NullPasswords().copyFrom(source.get_NullPasswords());
+        get_usr_PassdbBackend().copyFrom(source.get_usr_PassdbBackend());
+        get_SMBPasswdFile().copyFrom(source.get_SMBPasswdFile());
+        get_Security().copyFrom(source.get_Security());
+        get_GuestOK().copyFrom(source.get_GuestOK());
+        get_GuestOnly().copyFrom(source.get_GuestOnly());
+        get_HostsAllow().copyFrom(source.get_HostsAllow());
+        get_HostsDeny().copyFrom(source.get_HostsDeny());
+        get_ReadOnly().copyFrom(source.get_ReadOnly());
+        get_DomainMaster().copyFrom(source.get_DomainMaster());
+        get_Browsable().copyFrom(source.get_Browsable());
 
     }
 

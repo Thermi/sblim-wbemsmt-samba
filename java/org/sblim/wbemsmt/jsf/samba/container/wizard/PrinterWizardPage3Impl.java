@@ -452,10 +452,10 @@ public class PrinterWizardPage3Impl extends org.sblim.wbemsmt.tools.wizard.jsf.W
     public void copyFrom(DataContainer sourceContainer) throws WbemsmtException {
         PrinterWizardPage3Impl source = (PrinterWizardPage3Impl) sourceContainer;
 
-        get_usr_SeenByEverybody().setValue(source.get_usr_SeenByEverybody().getValue());
-        get_usr_EnableGuest().setValue(source.get_usr_EnableGuest().getValue());
-        get_usr_EnableAllUsers().setValue(source.get_usr_EnableAllUsers().getValue());
-        get_usr_ForceUser().setValue(source.get_usr_ForceUser().getValue());
+        get_usr_SeenByEverybody().copyFrom(source.get_usr_SeenByEverybody());
+        get_usr_EnableGuest().copyFrom(source.get_usr_EnableGuest());
+        get_usr_EnableAllUsers().copyFrom(source.get_usr_EnableAllUsers());
+        get_usr_ForceUser().copyFrom(source.get_usr_ForceUser());
 
         List targetListForUsers = (List) getUsers();
         List sourceListForUsers = (List) source.getUsers();

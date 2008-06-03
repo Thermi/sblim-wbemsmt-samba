@@ -596,15 +596,15 @@ public class ShareWizardPage4Impl extends org.sblim.wbemsmt.tools.wizard.jsf.Wiz
     public void copyFrom(DataContainer sourceContainer) throws WbemsmtException {
         ShareWizardPage4Impl source = (ShareWizardPage4Impl) sourceContainer;
 
-        get_Name().setValue(source.get_Name().getValue());
-        get_Path().setValue(source.get_Path().getValue());
-        get_Comment().setValue(source.get_Comment().getValue());
-        get_usr_SeenByEverybody().setValue(source.get_usr_SeenByEverybody().getValue());
-        get_usr_EnableGuest().setValue(source.get_usr_EnableGuest().getValue());
-        get_CreateMask().setValue(source.get_CreateMask().getValue());
-        get_DirectoryMask().setValue(source.get_DirectoryMask().getValue());
-        get_DirectorySecurityMask().setValue(source.get_DirectorySecurityMask().getValue());
-        get_usr_ForceUser().setValue(source.get_usr_ForceUser().getValue());
+        get_Name().copyFrom(source.get_Name());
+        get_Path().copyFrom(source.get_Path());
+        get_Comment().copyFrom(source.get_Comment());
+        get_usr_SeenByEverybody().copyFrom(source.get_usr_SeenByEverybody());
+        get_usr_EnableGuest().copyFrom(source.get_usr_EnableGuest());
+        get_CreateMask().copyFrom(source.get_CreateMask());
+        get_DirectoryMask().copyFrom(source.get_DirectoryMask());
+        get_DirectorySecurityMask().copyFrom(source.get_DirectorySecurityMask());
+        get_usr_ForceUser().copyFrom(source.get_usr_ForceUser());
 
         List targetListForUsers = (List) getUsers();
         List sourceListForUsers = (List) source.getUsers();

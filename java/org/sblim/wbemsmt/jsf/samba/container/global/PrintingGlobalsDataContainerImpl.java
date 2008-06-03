@@ -520,14 +520,14 @@ public class PrintingGlobalsDataContainerImpl extends org.sblim.wbemsmt.tools.js
     public void copyFrom(DataContainer sourceContainer) throws WbemsmtException {
         PrintingGlobalsDataContainerImpl source = (PrintingGlobalsDataContainerImpl) sourceContainer;
 
-        get_PrintcapCacheTime().setValue(source.get_PrintcapCacheTime().getValue());
-        get_usr_SystemPrinterName().setValue(source.get_usr_SystemPrinterName().getValue());
-        get_CupsOptions().setValue(source.get_CupsOptions().getValue());
-        get_DefaultDevMode().setValue(source.get_DefaultDevMode().getValue());
-        get_MaxPrintjobs().setValue(source.get_MaxPrintjobs().getValue());
-        get_MaxReportedPrintjobs().setValue(source.get_MaxReportedPrintjobs().getValue());
-        get_PrintCommand().setValue(source.get_PrintCommand().getValue());
-        get_UseClientDriver().setValue(source.get_UseClientDriver().getValue());
+        get_PrintcapCacheTime().copyFrom(source.get_PrintcapCacheTime());
+        get_usr_SystemPrinterName().copyFrom(source.get_usr_SystemPrinterName());
+        get_CupsOptions().copyFrom(source.get_CupsOptions());
+        get_DefaultDevMode().copyFrom(source.get_DefaultDevMode());
+        get_MaxPrintjobs().copyFrom(source.get_MaxPrintjobs());
+        get_MaxReportedPrintjobs().copyFrom(source.get_MaxReportedPrintjobs());
+        get_PrintCommand().copyFrom(source.get_PrintCommand());
+        get_UseClientDriver().copyFrom(source.get_UseClientDriver());
 
         List targetListForUsers = (List) getUsers();
         List sourceListForUsers = (List) source.getUsers();

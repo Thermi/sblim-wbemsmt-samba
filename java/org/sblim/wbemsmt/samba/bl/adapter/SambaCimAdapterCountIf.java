@@ -84,8 +84,16 @@ public interface SambaCimAdapterCountIf extends CountDelegatee {
             org.sblim.wbemsmt.samba.bl.container.wizard.UserWizardPage2 parent)
             throws WbemsmtException;
 
+    public int countImpl_Printers(Class childClass,
+            org.sblim.wbemsmt.samba.bl.container.wizard.UserWizardPage3 parent)
+            throws WbemsmtException;
+
     public int countImpl_Shares(Class childClass,
             org.sblim.wbemsmt.samba.bl.container.wizard.UserWizardPage2 parent)
+            throws WbemsmtException;
+
+    public int countImpl_Shares(Class childClass,
+            org.sblim.wbemsmt.samba.bl.container.wizard.UserWizardPage3 parent)
             throws WbemsmtException;
 
     public int countImpl_Users(Class childClass,
@@ -93,7 +101,15 @@ public interface SambaCimAdapterCountIf extends CountDelegatee {
             throws WbemsmtException;
 
     public int countImpl_Users(Class childClass,
+            org.sblim.wbemsmt.samba.bl.container.wizard.PrinterWizardPage5 parent)
+            throws WbemsmtException;
+
+    public int countImpl_Users(Class childClass,
             org.sblim.wbemsmt.samba.bl.container.wizard.ShareWizardPage2 parent)
+            throws WbemsmtException;
+
+    public int countImpl_Users(Class childClass,
+            org.sblim.wbemsmt.samba.bl.container.wizard.ShareWizardPage4 parent)
             throws WbemsmtException;
 
 }

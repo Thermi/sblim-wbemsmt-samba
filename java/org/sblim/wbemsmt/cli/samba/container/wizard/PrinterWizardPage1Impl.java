@@ -53,7 +53,7 @@ public class PrinterWizardPage1Impl extends BaseDataContainer implements
             String label = getAdapter().getBundle().getString("PrinterWizardPage1.allOrOne");
             org.sblim.wbemsmt.tools.converter.StringArrayConverter converter = new org.sblim.wbemsmt.tools.converter.UnsignedInt16StringArrayConverter();
             ic_usr_AllOrOne = new org.sblim.wbemsmt.tools.input.test.LabeledTestStringArrayComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_AllOrOne;
     }
@@ -108,7 +108,7 @@ public class PrinterWizardPage1Impl extends BaseDataContainer implements
     public void copyFrom(DataContainer sourceContainer) throws WbemsmtException {
         PrinterWizardPage1Impl source = (PrinterWizardPage1Impl) sourceContainer;
 
-        get_usr_AllOrOne().setValue(source.get_usr_AllOrOne().getValue());
+        get_usr_AllOrOne().copyFrom(source.get_usr_AllOrOne());
 
     }
 

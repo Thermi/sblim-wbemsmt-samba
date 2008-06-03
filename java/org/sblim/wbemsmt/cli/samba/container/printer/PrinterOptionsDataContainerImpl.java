@@ -63,7 +63,7 @@ public class PrinterOptionsDataContainerImpl extends BaseDataContainer implement
             String label = getAdapter().getBundle().getString("PrinterOptionsDataContainer.Name");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_Name = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this, label,
-                    "", converter);
+                    null, converter);
         }
         return ic_Name;
     }
@@ -81,7 +81,7 @@ public class PrinterOptionsDataContainerImpl extends BaseDataContainer implement
                     "PrinterOptionsDataContainer.SystemPrinterName");
             org.sblim.wbemsmt.tools.converter.StringArrayConverter converter = new org.sblim.wbemsmt.tools.converter.UnsignedInt16StringArrayConverter();
             ic_usr_SystemPrinterName = new org.sblim.wbemsmt.tools.input.test.LabeledTestStringArrayComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_SystemPrinterName;
     }
@@ -98,7 +98,7 @@ public class PrinterOptionsDataContainerImpl extends BaseDataContainer implement
             String label = getAdapter().getBundle().getString("PrinterOptionsDataContainer.Path");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_Path = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this, label,
-                    "", converter);
+                    null, converter);
         }
         return ic_Path;
     }
@@ -116,7 +116,7 @@ public class PrinterOptionsDataContainerImpl extends BaseDataContainer implement
                     .getString("PrinterOptionsDataContainer.Comment");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_Comment = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,
-                    label, "", converter);
+                    label, null, converter);
         }
         return ic_Comment;
     }
@@ -134,7 +134,7 @@ public class PrinterOptionsDataContainerImpl extends BaseDataContainer implement
                     "PrinterOptionsDataContainer.Available");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_Available = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,
-                    label, "", converter);
+                    label, null, converter);
         }
         return ic_Available;
     }
@@ -152,7 +152,7 @@ public class PrinterOptionsDataContainerImpl extends BaseDataContainer implement
                     .getString("PrinterOptionsDataContainer.GuestOK");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_GuestOK = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,
-                    label, "", converter);
+                    label, null, converter);
         }
         return ic_GuestOK;
     }
@@ -170,7 +170,7 @@ public class PrinterOptionsDataContainerImpl extends BaseDataContainer implement
                     "PrinterOptionsDataContainer.GuestOnly");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_GuestOnly = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,
-                    label, "", converter);
+                    label, null, converter);
         }
         return ic_GuestOnly;
     }
@@ -188,7 +188,7 @@ public class PrinterOptionsDataContainerImpl extends BaseDataContainer implement
                     "PrinterOptionsDataContainer.HostsAllow");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_HostsAllow = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,
-                    label, "", converter);
+                    label, null, converter);
         }
         return ic_HostsAllow;
     }
@@ -206,7 +206,7 @@ public class PrinterOptionsDataContainerImpl extends BaseDataContainer implement
                     "PrinterOptionsDataContainer.HostsDeny");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_HostsDeny = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,
-                    label, "", converter);
+                    label, null, converter);
         }
         return ic_HostsDeny;
     }
@@ -224,7 +224,7 @@ public class PrinterOptionsDataContainerImpl extends BaseDataContainer implement
                     "PrinterOptionsDataContainer.ReadOnly");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_ReadOnly = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,
-                    label, "", converter);
+                    label, null, converter);
         }
         return ic_ReadOnly;
     }
@@ -242,7 +242,7 @@ public class PrinterOptionsDataContainerImpl extends BaseDataContainer implement
                     "PrinterOptionsDataContainer.Browsable");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_Browsable = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,
-                    label, "", converter);
+                    label, null, converter);
         }
         return ic_Browsable;
     }
@@ -358,17 +358,17 @@ public class PrinterOptionsDataContainerImpl extends BaseDataContainer implement
     public void copyFrom(DataContainer sourceContainer) throws WbemsmtException {
         PrinterOptionsDataContainerImpl source = (PrinterOptionsDataContainerImpl) sourceContainer;
 
-        get_Name().setValue(source.get_Name().getValue());
-        get_usr_SystemPrinterName().setValue(source.get_usr_SystemPrinterName().getValue());
-        get_Path().setValue(source.get_Path().getValue());
-        get_Comment().setValue(source.get_Comment().getValue());
-        get_Available().setValue(source.get_Available().getValue());
-        get_GuestOK().setValue(source.get_GuestOK().getValue());
-        get_GuestOnly().setValue(source.get_GuestOnly().getValue());
-        get_HostsAllow().setValue(source.get_HostsAllow().getValue());
-        get_HostsDeny().setValue(source.get_HostsDeny().getValue());
-        get_ReadOnly().setValue(source.get_ReadOnly().getValue());
-        get_Browsable().setValue(source.get_Browsable().getValue());
+        get_Name().copyFrom(source.get_Name());
+        get_usr_SystemPrinterName().copyFrom(source.get_usr_SystemPrinterName());
+        get_Path().copyFrom(source.get_Path());
+        get_Comment().copyFrom(source.get_Comment());
+        get_Available().copyFrom(source.get_Available());
+        get_GuestOK().copyFrom(source.get_GuestOK());
+        get_GuestOnly().copyFrom(source.get_GuestOnly());
+        get_HostsAllow().copyFrom(source.get_HostsAllow());
+        get_HostsDeny().copyFrom(source.get_HostsDeny());
+        get_ReadOnly().copyFrom(source.get_ReadOnly());
+        get_Browsable().copyFrom(source.get_Browsable());
 
     }
 

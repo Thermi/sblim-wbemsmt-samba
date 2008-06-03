@@ -176,9 +176,9 @@ public class ShareWizardPage3CMDImpl extends org.sblim.wbemsmt.tools.wizard.jsf.
     public void copyFrom(DataContainer sourceContainer) throws WbemsmtException {
         ShareWizardPage3CMDImpl source = (ShareWizardPage3CMDImpl) sourceContainer;
 
-        get_CreateMask().setValue(source.get_CreateMask().getValue());
-        get_DirectoryMask().setValue(source.get_DirectoryMask().getValue());
-        get_DirectorySecurityMask().setValue(source.get_DirectorySecurityMask().getValue());
+        get_CreateMask().copyFrom(source.get_CreateMask());
+        get_DirectoryMask().copyFrom(source.get_DirectoryMask());
+        get_DirectorySecurityMask().copyFrom(source.get_DirectorySecurityMask());
 
     }
 

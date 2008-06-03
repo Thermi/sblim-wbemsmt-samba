@@ -59,7 +59,7 @@ public class WelcomeDataContainerImpl extends BaseDataContainer implements
             String label = getAdapter().getBundle().getString("WelcomeDataContainer.welcomeText");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_usr_WelcomeText = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_WelcomeText;
     }
@@ -76,7 +76,7 @@ public class WelcomeDataContainerImpl extends BaseDataContainer implements
             String label = getAdapter().getBundle().getString("WelcomeDataContainer.sharePicture");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.cli.NotSupportedConverter();
             ic_usr_SharePicture = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_SharePicture;
     }
@@ -94,7 +94,7 @@ public class WelcomeDataContainerImpl extends BaseDataContainer implements
                     "WelcomeDataContainer.linkCreateShare");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.cli.NotSupportedConverter();
             ic_usr_LinkCreateShare = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_LinkCreateShare;
     }
@@ -111,7 +111,7 @@ public class WelcomeDataContainerImpl extends BaseDataContainer implements
             String label = getAdapter().getBundle().getString("WelcomeDataContainer.memo");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.cli.MemoDataConverter();
             ic_usr_Memo = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,
-                    label, "", converter);
+                    label, null, converter);
         }
         return ic_usr_Memo;
     }
@@ -129,7 +129,7 @@ public class WelcomeDataContainerImpl extends BaseDataContainer implements
                     "WelcomeDataContainer.linkCreatePrinter");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.cli.NotSupportedConverter();
             ic_usr_LinkCreatePrinter = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_LinkCreatePrinter;
     }
@@ -147,7 +147,7 @@ public class WelcomeDataContainerImpl extends BaseDataContainer implements
                     .getString("WelcomeDataContainer.linkCreateUser");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.cli.NotSupportedConverter();
             ic_usr_LinkCreateUser = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_LinkCreateUser;
     }
@@ -164,7 +164,7 @@ public class WelcomeDataContainerImpl extends BaseDataContainer implements
             String label = getAdapter().getBundle().getString("WelcomeDataContainer.actions");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_usr_Actions = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,
-                    label, "", converter);
+                    label, null, converter);
         }
         return ic_usr_Actions;
     }
@@ -239,13 +239,13 @@ public class WelcomeDataContainerImpl extends BaseDataContainer implements
     public void copyFrom(DataContainer sourceContainer) throws WbemsmtException {
         WelcomeDataContainerImpl source = (WelcomeDataContainerImpl) sourceContainer;
 
-        get_usr_WelcomeText().setValue(source.get_usr_WelcomeText().getValue());
-        get_usr_SharePicture().setValue(source.get_usr_SharePicture().getValue());
-        get_usr_LinkCreateShare().setValue(source.get_usr_LinkCreateShare().getValue());
-        get_usr_Memo().setValue(source.get_usr_Memo().getValue());
-        get_usr_LinkCreatePrinter().setValue(source.get_usr_LinkCreatePrinter().getValue());
-        get_usr_LinkCreateUser().setValue(source.get_usr_LinkCreateUser().getValue());
-        get_usr_Actions().setValue(source.get_usr_Actions().getValue());
+        get_usr_WelcomeText().copyFrom(source.get_usr_WelcomeText());
+        get_usr_SharePicture().copyFrom(source.get_usr_SharePicture());
+        get_usr_LinkCreateShare().copyFrom(source.get_usr_LinkCreateShare());
+        get_usr_Memo().copyFrom(source.get_usr_Memo());
+        get_usr_LinkCreatePrinter().copyFrom(source.get_usr_LinkCreatePrinter());
+        get_usr_LinkCreateUser().copyFrom(source.get_usr_LinkCreateUser());
+        get_usr_Actions().copyFrom(source.get_usr_Actions());
 
     }
 

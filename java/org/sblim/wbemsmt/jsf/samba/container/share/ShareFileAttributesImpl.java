@@ -262,12 +262,12 @@ public class ShareFileAttributesImpl extends org.sblim.wbemsmt.tools.jsf.EditBas
     public void copyFrom(DataContainer sourceContainer) throws WbemsmtException {
         ShareFileAttributesImpl source = (ShareFileAttributesImpl) sourceContainer;
 
-        get_CaseSensitive().setValue(source.get_CaseSensitive().getValue());
-        get_HideDotFiles().setValue(source.get_HideDotFiles().getValue());
-        get_DosFiletimes().setValue(source.get_DosFiletimes().getValue());
-        get_EASupport().setValue(source.get_EASupport().getValue());
-        get_AclCompatibility().setValue(source.get_AclCompatibility().getValue());
-        get_NTACLSupport().setValue(source.get_NTACLSupport().getValue());
+        get_CaseSensitive().copyFrom(source.get_CaseSensitive());
+        get_HideDotFiles().copyFrom(source.get_HideDotFiles());
+        get_DosFiletimes().copyFrom(source.get_DosFiletimes());
+        get_EASupport().copyFrom(source.get_EASupport());
+        get_AclCompatibility().copyFrom(source.get_AclCompatibility());
+        get_NTACLSupport().copyFrom(source.get_NTACLSupport());
 
     }
 

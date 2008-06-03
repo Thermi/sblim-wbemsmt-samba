@@ -87,7 +87,7 @@ public class Linux_SambaProtocolOptions extends CIM_SettingData {
          * @param value the value to find the ValueMapEntry for
          * @return the ValueMap entry or null if not found
          */
-        //org.sblim.wbemsmt.dcg.generator.DCGContextUtil$Wrapper@31043104
+        //org.sblim.wbemsmt.dcg.generator.DCGContextUtil$Wrapper@46a246a2
         public static javax.cim.UnsignedInteger8 getValueMapEntry(String value) {
 
             if (VALUE_ENTRY_Auto.equals(value)) {
@@ -341,8 +341,7 @@ public class Linux_SambaProtocolOptions extends CIM_SettingData {
     public boolean set_AclCompatibility(javax.cim.UnsignedInteger8 newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_ACLCOMPATIBILITY.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_AclCompatibility(currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_AclCompatibility(currentProperty, newValue));
             return true;
         }
         else {
@@ -424,8 +423,7 @@ public class Linux_SambaProtocolOptions extends CIM_SettingData {
     public boolean set_EASupport(Boolean newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_EASUPPORT.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_EASupport(currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_EASupport(currentProperty, newValue));
             return true;
         }
         else {
@@ -507,8 +505,7 @@ public class Linux_SambaProtocolOptions extends CIM_SettingData {
     public boolean set_NTACLSupport(Boolean newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_NTACLSUPPORT.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_NTACLSupport(currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_NTACLSupport(currentProperty, newValue));
             return true;
         }
         else {
@@ -590,8 +587,7 @@ public class Linux_SambaProtocolOptions extends CIM_SettingData {
     public boolean set_key_Name(String newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_NAME.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_key_Name(currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_key_Name(currentProperty, newValue));
             return true;
         }
         else {

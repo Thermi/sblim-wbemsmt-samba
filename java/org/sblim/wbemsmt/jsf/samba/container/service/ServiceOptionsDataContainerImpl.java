@@ -296,13 +296,13 @@ public class ServiceOptionsDataContainerImpl extends org.sblim.wbemsmt.tools.jsf
     public void copyFrom(DataContainer sourceContainer) throws WbemsmtException {
         ServiceOptionsDataContainerImpl source = (ServiceOptionsDataContainerImpl) sourceContainer;
 
-        get_BindInterfacesOnly().setValue(source.get_BindInterfacesOnly().getValue());
-        get_Interfaces().setValue(source.get_Interfaces().getValue());
-        get_NetbiosAlias().setValue(source.get_NetbiosAlias().getValue());
-        get_NetbiosName().setValue(source.get_NetbiosName().getValue());
-        get_ServerString().setValue(source.get_ServerString().getValue());
-        get_Workgroup().setValue(source.get_Workgroup().getValue());
-        get_ConfigurationFile().setValue(source.get_ConfigurationFile().getValue());
+        get_BindInterfacesOnly().copyFrom(source.get_BindInterfacesOnly());
+        get_Interfaces().copyFrom(source.get_Interfaces());
+        get_NetbiosAlias().copyFrom(source.get_NetbiosAlias());
+        get_NetbiosName().copyFrom(source.get_NetbiosName());
+        get_ServerString().copyFrom(source.get_ServerString());
+        get_Workgroup().copyFrom(source.get_Workgroup());
+        get_ConfigurationFile().copyFrom(source.get_ConfigurationFile());
 
     }
 

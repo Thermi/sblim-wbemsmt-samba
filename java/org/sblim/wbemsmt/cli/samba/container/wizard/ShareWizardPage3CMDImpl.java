@@ -55,7 +55,7 @@ public class ShareWizardPage3CMDImpl extends BaseDataContainer implements
             String label = getAdapter().getBundle().getString("ShareWizardPage3CMD.CreateMask");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.UnsignedInt16StringConverter();
             ic_CreateMask = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,
-                    label, "", converter);
+                    label, null, converter);
         }
         return ic_CreateMask;
     }
@@ -72,7 +72,7 @@ public class ShareWizardPage3CMDImpl extends BaseDataContainer implements
             String label = getAdapter().getBundle().getString("ShareWizardPage3CMD.DirectoryMask");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.UnsignedInt16StringConverter();
             ic_DirectoryMask = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_DirectoryMask;
     }
@@ -90,7 +90,7 @@ public class ShareWizardPage3CMDImpl extends BaseDataContainer implements
                     "ShareWizardPage3CMD.DirectorySecurityMask");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.UnsignedInt16StringConverter();
             ic_DirectorySecurityMask = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_DirectorySecurityMask;
     }
@@ -157,9 +157,9 @@ public class ShareWizardPage3CMDImpl extends BaseDataContainer implements
     public void copyFrom(DataContainer sourceContainer) throws WbemsmtException {
         ShareWizardPage3CMDImpl source = (ShareWizardPage3CMDImpl) sourceContainer;
 
-        get_CreateMask().setValue(source.get_CreateMask().getValue());
-        get_DirectoryMask().setValue(source.get_DirectoryMask().getValue());
-        get_DirectorySecurityMask().setValue(source.get_DirectorySecurityMask().getValue());
+        get_CreateMask().copyFrom(source.get_CreateMask());
+        get_DirectoryMask().copyFrom(source.get_DirectoryMask());
+        get_DirectorySecurityMask().copyFrom(source.get_DirectorySecurityMask());
 
     }
 

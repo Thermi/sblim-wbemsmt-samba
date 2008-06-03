@@ -171,9 +171,8 @@ public class Linux_SambaPrinterForService extends CIM_ElementSettingData {
     public boolean set_SettingData_Linux_SambaPrinterOptions(Linux_SambaPrinterOptions newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_SETTINGDATA_LINUX_SAMBAPRINTEROPTIONS.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_SettingData_Linux_SambaPrinterOptions(
-                    currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_SettingData_Linux_SambaPrinterOptions(currentProperty,
+                    newValue));
             return true;
         }
         else {
@@ -257,9 +256,8 @@ public class Linux_SambaPrinterForService extends CIM_ElementSettingData {
     public boolean set_ManagedElement_Linux_SambaService(Linux_SambaService newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_MANAGEDELEMENT_LINUX_SAMBASERVICE.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_ManagedElement_Linux_SambaService(currentProperty,
-                    newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_ManagedElement_Linux_SambaService(currentProperty,
+                    newValue));
             return true;
         }
         else {

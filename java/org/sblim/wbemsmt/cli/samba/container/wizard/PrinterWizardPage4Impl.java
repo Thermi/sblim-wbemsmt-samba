@@ -54,7 +54,7 @@ public class PrinterWizardPage4Impl extends BaseDataContainer implements
             String label = getAdapter().getBundle().getString("PrinterWizardPage4.CupsOptions");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_CupsOptions = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,
-                    label, "", converter);
+                    label, null, converter);
         }
         return ic_CupsOptions;
     }
@@ -71,7 +71,7 @@ public class PrinterWizardPage4Impl extends BaseDataContainer implements
             String label = getAdapter().getBundle().getString("PrinterWizardPage4.PrintCommand");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_PrintCommand = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_PrintCommand;
     }
@@ -132,8 +132,8 @@ public class PrinterWizardPage4Impl extends BaseDataContainer implements
     public void copyFrom(DataContainer sourceContainer) throws WbemsmtException {
         PrinterWizardPage4Impl source = (PrinterWizardPage4Impl) sourceContainer;
 
-        get_CupsOptions().setValue(source.get_CupsOptions().getValue());
-        get_PrintCommand().setValue(source.get_PrintCommand().getValue());
+        get_CupsOptions().copyFrom(source.get_CupsOptions());
+        get_PrintCommand().copyFrom(source.get_PrintCommand());
 
     }
 

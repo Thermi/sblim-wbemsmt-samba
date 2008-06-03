@@ -171,9 +171,8 @@ public class Linux_SambaScriptingForGlobal extends CIM_ElementSettingData {
     public boolean set_ManagedElement_Linux_SambaGlobalOptions(Linux_SambaGlobalOptions newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_MANAGEDELEMENT_LINUX_SAMBAGLOBALOPTIONS.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_ManagedElement_Linux_SambaGlobalOptions(
-                    currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_ManagedElement_Linux_SambaGlobalOptions(currentProperty,
+                    newValue));
             return true;
         }
         else {
@@ -258,9 +257,8 @@ public class Linux_SambaScriptingForGlobal extends CIM_ElementSettingData {
     public boolean set_SettingData_Linux_SambaScriptingOptions(Linux_SambaScriptingOptions newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_SETTINGDATA_LINUX_SAMBASCRIPTINGOPTIONS.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_SettingData_Linux_SambaScriptingOptions(
-                    currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_SettingData_Linux_SambaScriptingOptions(currentProperty,
+                    newValue));
             return true;
         }
         else {

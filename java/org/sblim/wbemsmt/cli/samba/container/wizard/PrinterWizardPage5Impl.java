@@ -70,7 +70,7 @@ public class PrinterWizardPage5Impl extends BaseDataContainer implements
             String label = getAdapter().getBundle().getString("PrinterWizardPage5.allOrOne");
             org.sblim.wbemsmt.tools.converter.StringArrayConverter converter = new org.sblim.wbemsmt.tools.converter.UnsignedInt16StringArrayConverter();
             ic_usr_AllOrOne = new org.sblim.wbemsmt.tools.input.test.LabeledTestStringArrayComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_AllOrOne;
     }
@@ -88,7 +88,7 @@ public class PrinterWizardPage5Impl extends BaseDataContainer implements
                     .getString("PrinterWizardPage5.SambaPrinterName");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_SambaPrinterName = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_SambaPrinterName;
     }
@@ -106,7 +106,7 @@ public class PrinterWizardPage5Impl extends BaseDataContainer implements
                     "PrinterWizardPage5.SystemPrinterName");
             org.sblim.wbemsmt.tools.converter.StringArrayConverter converter = new org.sblim.wbemsmt.tools.converter.UnsignedInt16StringArrayConverter();
             ic_usr_SystemPrinterName = new org.sblim.wbemsmt.tools.input.test.LabeledTestStringArrayComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_SystemPrinterName;
     }
@@ -123,7 +123,7 @@ public class PrinterWizardPage5Impl extends BaseDataContainer implements
             String label = getAdapter().getBundle().getString("PrinterWizardPage5.Path");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_Path = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this, label,
-                    "", converter);
+                    null, converter);
         }
         return ic_Path;
     }
@@ -140,7 +140,7 @@ public class PrinterWizardPage5Impl extends BaseDataContainer implements
             String label = getAdapter().getBundle().getString("PrinterWizardPage5.Comment");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_Comment = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,
-                    label, "", converter);
+                    label, null, converter);
         }
         return ic_Comment;
     }
@@ -157,7 +157,7 @@ public class PrinterWizardPage5Impl extends BaseDataContainer implements
             String label = getAdapter().getBundle().getString("PrinterWizardPage5.seenByEverybody");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_usr_SeenByEverybody = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_SeenByEverybody;
     }
@@ -174,7 +174,7 @@ public class PrinterWizardPage5Impl extends BaseDataContainer implements
             String label = getAdapter().getBundle().getString("PrinterWizardPage5.enableGuest");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_usr_EnableGuest = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_EnableGuest;
     }
@@ -191,7 +191,7 @@ public class PrinterWizardPage5Impl extends BaseDataContainer implements
             String label = getAdapter().getBundle().getString("PrinterWizardPage5.CupsOptions");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_CupsOptions = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,
-                    label, "", converter);
+                    label, null, converter);
         }
         return ic_CupsOptions;
     }
@@ -208,7 +208,7 @@ public class PrinterWizardPage5Impl extends BaseDataContainer implements
             String label = getAdapter().getBundle().getString("PrinterWizardPage5.PrintCommand");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_PrintCommand = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_PrintCommand;
     }
@@ -225,7 +225,7 @@ public class PrinterWizardPage5Impl extends BaseDataContainer implements
             String label = getAdapter().getBundle().getString("PrinterWizardPage5.forceUser");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_usr_ForceUser = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_ForceUser;
     }
@@ -421,16 +421,16 @@ public class PrinterWizardPage5Impl extends BaseDataContainer implements
     public void copyFrom(DataContainer sourceContainer) throws WbemsmtException {
         PrinterWizardPage5Impl source = (PrinterWizardPage5Impl) sourceContainer;
 
-        get_usr_AllOrOne().setValue(source.get_usr_AllOrOne().getValue());
-        get_SambaPrinterName().setValue(source.get_SambaPrinterName().getValue());
-        get_usr_SystemPrinterName().setValue(source.get_usr_SystemPrinterName().getValue());
-        get_Path().setValue(source.get_Path().getValue());
-        get_Comment().setValue(source.get_Comment().getValue());
-        get_usr_SeenByEverybody().setValue(source.get_usr_SeenByEverybody().getValue());
-        get_usr_EnableGuest().setValue(source.get_usr_EnableGuest().getValue());
-        get_CupsOptions().setValue(source.get_CupsOptions().getValue());
-        get_PrintCommand().setValue(source.get_PrintCommand().getValue());
-        get_usr_ForceUser().setValue(source.get_usr_ForceUser().getValue());
+        get_usr_AllOrOne().copyFrom(source.get_usr_AllOrOne());
+        get_SambaPrinterName().copyFrom(source.get_SambaPrinterName());
+        get_usr_SystemPrinterName().copyFrom(source.get_usr_SystemPrinterName());
+        get_Path().copyFrom(source.get_Path());
+        get_Comment().copyFrom(source.get_Comment());
+        get_usr_SeenByEverybody().copyFrom(source.get_usr_SeenByEverybody());
+        get_usr_EnableGuest().copyFrom(source.get_usr_EnableGuest());
+        get_CupsOptions().copyFrom(source.get_CupsOptions());
+        get_PrintCommand().copyFrom(source.get_PrintCommand());
+        get_usr_ForceUser().copyFrom(source.get_usr_ForceUser());
 
         List targetListForUsers = (List) getUsers();
         List sourceListForUsers = (List) source.getUsers();

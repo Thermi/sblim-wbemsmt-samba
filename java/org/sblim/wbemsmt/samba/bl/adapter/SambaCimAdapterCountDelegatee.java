@@ -30,9 +30,7 @@ import org.sblim.wbemsmt.samba.bl.container.share.UserInShareACLDataContainer;
 import org.sblim.wbemsmt.samba.bl.container.user.PrinterInUserACLDataContainer;
 import org.sblim.wbemsmt.samba.bl.container.user.ShareInUserACLDataContainer;
 import org.sblim.wbemsmt.samba.bl.container.user.UserListDataContainer;
-import org.sblim.wbemsmt.samba.bl.container.wizard.PrinterWizardPage3;
-import org.sblim.wbemsmt.samba.bl.container.wizard.ShareWizardPage2;
-import org.sblim.wbemsmt.samba.bl.container.wizard.UserWizardPage2;
+import org.sblim.wbemsmt.samba.bl.container.wizard.*;
 import org.sblim.wbemsmt.samba.bl.wrapper.Service;
 
 public class SambaCimAdapterCountDelegatee extends SambaDelegatee implements SambaCimAdapterCountIf {
@@ -97,7 +95,11 @@ public class SambaCimAdapterCountDelegatee extends SambaDelegatee implements Sam
 		return getSelectedService().getUsers().size();
 	}
 
-	public int countImpl_Users(Class cls, PrintingGlobalsDataContainer container) throws WbemsmtException {
+    public int countImpl_Users(Class cls, ShareWizardPage4 container) throws WbemsmtException {
+        return getSelectedService().getUsers().size();
+    }
+
+    public int countImpl_Users(Class cls, PrintingGlobalsDataContainer container) throws WbemsmtException {
 		return adapter.getSelectedService().getUsers().size();
 	}
 
@@ -116,5 +118,17 @@ public class SambaCimAdapterCountDelegatee extends SambaDelegatee implements Sam
 	public int countImpl_Users(Class cls, UserListDataContainer container) throws WbemsmtException {
 		return adapter.getSelectedService().getUsers().size();
 	}
+
+    public int countImpl_Printers(Class childClass, UserWizardPage3 parent) throws WbemsmtException {
+        return adapter.getSelectedService().getPrinters().size();
+    }
+
+    public int countImpl_Shares(Class childClass, UserWizardPage3 parent) throws WbemsmtException {
+        return adapter.getSelectedService().getShares().size();
+    }
+
+    public int countImpl_Users(Class childClass, PrinterWizardPage5 parent) throws WbemsmtException {
+        return adapter.getSelectedService().getUsers().size();
+    }
 
 }

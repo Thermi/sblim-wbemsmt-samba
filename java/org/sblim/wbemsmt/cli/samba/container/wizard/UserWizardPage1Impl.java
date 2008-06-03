@@ -57,7 +57,7 @@ public class UserWizardPage1Impl extends BaseDataContainer implements
             String label = getAdapter().getBundle().getString("UserWizardPage1.SambaUserName");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_SambaUserName = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_SambaUserName;
     }
@@ -74,7 +74,7 @@ public class UserWizardPage1Impl extends BaseDataContainer implements
             String label = getAdapter().getBundle().getString("UserWizardPage1.SystemUserName");
             org.sblim.wbemsmt.tools.converter.StringArrayConverter converter = new org.sblim.wbemsmt.tools.converter.UnsignedInt16StringArrayConverter();
             ic_SystemUserName = new org.sblim.wbemsmt.tools.input.test.LabeledTestStringArrayComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_SystemUserName;
     }
@@ -91,7 +91,7 @@ public class UserWizardPage1Impl extends BaseDataContainer implements
             String label = getAdapter().getBundle().getString("UserWizardPage1.SambaUserPassword");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_SambaUserPassword = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_SambaUserPassword;
     }
@@ -108,7 +108,7 @@ public class UserWizardPage1Impl extends BaseDataContainer implements
             String label = getAdapter().getBundle().getString("UserWizardPage1.SambaUserPassword2");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_SambaUserPassword2 = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_SambaUserPassword2;
     }
@@ -125,7 +125,7 @@ public class UserWizardPage1Impl extends BaseDataContainer implements
             String label = getAdapter().getBundle().getString("UserWizardPage1.isGuest");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_usr_IsGuest = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,
-                    label, "", converter);
+                    label, null, converter);
         }
         return ic_usr_IsGuest;
     }
@@ -204,11 +204,11 @@ public class UserWizardPage1Impl extends BaseDataContainer implements
     public void copyFrom(DataContainer sourceContainer) throws WbemsmtException {
         UserWizardPage1Impl source = (UserWizardPage1Impl) sourceContainer;
 
-        get_SambaUserName().setValue(source.get_SambaUserName().getValue());
-        get_SystemUserName().setValue(source.get_SystemUserName().getValue());
-        get_SambaUserPassword().setValue(source.get_SambaUserPassword().getValue());
-        get_SambaUserPassword2().setValue(source.get_SambaUserPassword2().getValue());
-        get_usr_IsGuest().setValue(source.get_usr_IsGuest().getValue());
+        get_SambaUserName().copyFrom(source.get_SambaUserName());
+        get_SystemUserName().copyFrom(source.get_SystemUserName());
+        get_SambaUserPassword().copyFrom(source.get_SambaUserPassword());
+        get_SambaUserPassword2().copyFrom(source.get_SambaUserPassword2());
+        get_usr_IsGuest().copyFrom(source.get_usr_IsGuest());
 
     }
 

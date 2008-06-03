@@ -67,7 +67,7 @@ public class PrintingGlobalsDataContainerImpl extends BaseDataContainer implemen
                     "PrintingGlobalsDataContainer.PrintcapCacheTime");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.UnsignedInt64StringConverter();
             ic_PrintcapCacheTime = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_PrintcapCacheTime;
     }
@@ -85,7 +85,7 @@ public class PrintingGlobalsDataContainerImpl extends BaseDataContainer implemen
                     "PrintingGlobalsDataContainer.SystemPrinterName");
             org.sblim.wbemsmt.tools.converter.StringArrayConverter converter = new org.sblim.wbemsmt.tools.converter.UnsignedInt16StringArrayConverter();
             ic_usr_SystemPrinterName = new org.sblim.wbemsmt.tools.input.test.LabeledTestStringArrayComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_SystemPrinterName;
     }
@@ -103,7 +103,7 @@ public class PrintingGlobalsDataContainerImpl extends BaseDataContainer implemen
                     "PrintingGlobalsDataContainer.CupsOptions");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_CupsOptions = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,
-                    label, "", converter);
+                    label, null, converter);
         }
         return ic_CupsOptions;
     }
@@ -121,7 +121,7 @@ public class PrintingGlobalsDataContainerImpl extends BaseDataContainer implemen
                     "PrintingGlobalsDataContainer.DefaultDevMode");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_DefaultDevMode = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_DefaultDevMode;
     }
@@ -139,7 +139,7 @@ public class PrintingGlobalsDataContainerImpl extends BaseDataContainer implemen
                     "PrintingGlobalsDataContainer.MaxPrintjobs");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.UnsignedInt64StringConverter();
             ic_MaxPrintjobs = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_MaxPrintjobs;
     }
@@ -157,7 +157,7 @@ public class PrintingGlobalsDataContainerImpl extends BaseDataContainer implemen
                     "PrintingGlobalsDataContainer.MaxReportedPrintjobs");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.UnsignedInt64StringConverter();
             ic_MaxReportedPrintjobs = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_MaxReportedPrintjobs;
     }
@@ -175,7 +175,7 @@ public class PrintingGlobalsDataContainerImpl extends BaseDataContainer implemen
                     "PrintingGlobalsDataContainer.PrintCommand");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_PrintCommand = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_PrintCommand;
     }
@@ -193,7 +193,7 @@ public class PrintingGlobalsDataContainerImpl extends BaseDataContainer implemen
                     "PrintingGlobalsDataContainer.UseClientDriver");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_UseClientDriver = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_UseClientDriver;
     }
@@ -350,14 +350,14 @@ public class PrintingGlobalsDataContainerImpl extends BaseDataContainer implemen
     public void copyFrom(DataContainer sourceContainer) throws WbemsmtException {
         PrintingGlobalsDataContainerImpl source = (PrintingGlobalsDataContainerImpl) sourceContainer;
 
-        get_PrintcapCacheTime().setValue(source.get_PrintcapCacheTime().getValue());
-        get_usr_SystemPrinterName().setValue(source.get_usr_SystemPrinterName().getValue());
-        get_CupsOptions().setValue(source.get_CupsOptions().getValue());
-        get_DefaultDevMode().setValue(source.get_DefaultDevMode().getValue());
-        get_MaxPrintjobs().setValue(source.get_MaxPrintjobs().getValue());
-        get_MaxReportedPrintjobs().setValue(source.get_MaxReportedPrintjobs().getValue());
-        get_PrintCommand().setValue(source.get_PrintCommand().getValue());
-        get_UseClientDriver().setValue(source.get_UseClientDriver().getValue());
+        get_PrintcapCacheTime().copyFrom(source.get_PrintcapCacheTime());
+        get_usr_SystemPrinterName().copyFrom(source.get_usr_SystemPrinterName());
+        get_CupsOptions().copyFrom(source.get_CupsOptions());
+        get_DefaultDevMode().copyFrom(source.get_DefaultDevMode());
+        get_MaxPrintjobs().copyFrom(source.get_MaxPrintjobs());
+        get_MaxReportedPrintjobs().copyFrom(source.get_MaxReportedPrintjobs());
+        get_PrintCommand().copyFrom(source.get_PrintCommand());
+        get_UseClientDriver().copyFrom(source.get_UseClientDriver());
 
         List targetListForUsers = (List) getUsers();
         List sourceListForUsers = (List) source.getUsers();

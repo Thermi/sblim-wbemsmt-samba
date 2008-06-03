@@ -233,8 +233,7 @@ public class Linux_SambaWinsOptions extends CIM_SettingData {
     public boolean set_DNS_Proxy(String newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_DNS_PROXY.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_DNS_Proxy(currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_DNS_Proxy(currentProperty, newValue));
             return true;
         }
         else {
@@ -316,8 +315,7 @@ public class Linux_SambaWinsOptions extends CIM_SettingData {
     public boolean set_key_Name(String newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_NAME.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_key_Name(currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_key_Name(currentProperty, newValue));
             return true;
         }
         else {
@@ -399,8 +397,7 @@ public class Linux_SambaWinsOptions extends CIM_SettingData {
     public boolean set_WINSHook(String newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_WINSHOOK.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_WINSHook(currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_WINSHook(currentProperty, newValue));
             return true;
         }
         else {
@@ -482,8 +479,7 @@ public class Linux_SambaWinsOptions extends CIM_SettingData {
     public boolean set_WINSProxy(Boolean newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_WINSPROXY.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_WINSProxy(currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_WINSProxy(currentProperty, newValue));
             return true;
         }
         else {
@@ -565,8 +561,7 @@ public class Linux_SambaWinsOptions extends CIM_SettingData {
     public boolean set_WINSServer(String newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_WINSSERVER.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_WINSServer(currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_WINSServer(currentProperty, newValue));
             return true;
         }
         else {
@@ -648,8 +643,7 @@ public class Linux_SambaWinsOptions extends CIM_SettingData {
     public boolean set_WINSSupport(Boolean newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_WINSSUPPORT.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_WINSSupport(currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_WINSSupport(currentProperty, newValue));
             return true;
         }
         else {

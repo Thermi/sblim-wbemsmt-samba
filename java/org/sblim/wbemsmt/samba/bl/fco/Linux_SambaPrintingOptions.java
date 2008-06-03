@@ -238,8 +238,7 @@ public class Linux_SambaPrintingOptions extends CIM_SettingData {
     public boolean set_CupsOptions(String newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_CUPSOPTIONS.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_CupsOptions(currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_CupsOptions(currentProperty, newValue));
             return true;
         }
         else {
@@ -321,8 +320,7 @@ public class Linux_SambaPrintingOptions extends CIM_SettingData {
     public boolean set_DefaultDevMode(Boolean newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_DEFAULTDEVMODE.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_DefaultDevMode(currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_DefaultDevMode(currentProperty, newValue));
             return true;
         }
         else {
@@ -404,8 +402,7 @@ public class Linux_SambaPrintingOptions extends CIM_SettingData {
     public boolean set_MaxPrintjobs(javax.cim.UnsignedInteger64 newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_MAXPRINTJOBS.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_MaxPrintjobs(currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_MaxPrintjobs(currentProperty, newValue));
             return true;
         }
         else {
@@ -487,8 +484,7 @@ public class Linux_SambaPrintingOptions extends CIM_SettingData {
     public boolean set_MaxReportedPrintjobs(javax.cim.UnsignedInteger64 newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_MAXREPORTEDPRINTJOBS.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_MaxReportedPrintjobs(currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_MaxReportedPrintjobs(currentProperty, newValue));
             return true;
         }
         else {
@@ -570,8 +566,7 @@ public class Linux_SambaPrintingOptions extends CIM_SettingData {
     public boolean set_key_Name(String newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_NAME.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_key_Name(currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_key_Name(currentProperty, newValue));
             return true;
         }
         else {
@@ -653,8 +648,7 @@ public class Linux_SambaPrintingOptions extends CIM_SettingData {
     public boolean set_PrintCommand(String newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_PRINTCOMMAND.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_PrintCommand(currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_PrintCommand(currentProperty, newValue));
             return true;
         }
         else {
@@ -736,8 +730,7 @@ public class Linux_SambaPrintingOptions extends CIM_SettingData {
     public boolean set_UseClientDriver(Boolean newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_USECLIENTDRIVER.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_UseClientDriver(currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_UseClientDriver(currentProperty, newValue));
             return true;
         }
         else {

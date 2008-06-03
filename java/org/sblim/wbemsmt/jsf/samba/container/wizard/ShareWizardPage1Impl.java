@@ -177,9 +177,9 @@ public class ShareWizardPage1Impl extends org.sblim.wbemsmt.tools.wizard.jsf.Wiz
     public void copyFrom(DataContainer sourceContainer) throws WbemsmtException {
         ShareWizardPage1Impl source = (ShareWizardPage1Impl) sourceContainer;
 
-        get_Name().setValue(source.get_Name().getValue());
-        get_Path().setValue(source.get_Path().getValue());
-        get_Comment().setValue(source.get_Comment().getValue());
+        get_Name().copyFrom(source.get_Name());
+        get_Path().copyFrom(source.get_Path());
+        get_Comment().copyFrom(source.get_Comment());
 
     }
 

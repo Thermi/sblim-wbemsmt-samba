@@ -154,8 +154,8 @@ public class AdminUsersInPrinterGlobals_AsUsers_InPrintingGlobalsDataContainerIm
     public void copyFrom(DataContainer sourceContainer) throws WbemsmtException {
         AdminUsersInPrinterGlobals_AsUsers_InPrintingGlobalsDataContainerImpl source = (AdminUsersInPrinterGlobals_AsUsers_InPrintingGlobalsDataContainerImpl) sourceContainer;
 
-        get_usr_SambaUserName().setValue(source.get_usr_SambaUserName().getValue());
-        get_usr_Admin().setValue(source.get_usr_Admin().getValue());
+        get_usr_SambaUserName().copyFrom(source.get_usr_SambaUserName());
+        get_usr_Admin().copyFrom(source.get_usr_Admin());
 
     }
 

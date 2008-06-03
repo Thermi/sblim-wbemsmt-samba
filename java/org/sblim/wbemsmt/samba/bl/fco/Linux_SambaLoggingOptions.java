@@ -218,7 +218,7 @@ public class Linux_SambaLoggingOptions extends CIM_SettingData {
          * @param value the value to find the ValueMapEntry for
          * @return the ValueMap entry or null if not found
          */
-        //org.sblim.wbemsmt.dcg.generator.DCGContextUtil$Wrapper@7a007a
+        //org.sblim.wbemsmt.dcg.generator.DCGContextUtil$Wrapper@70a270a2
         public static javax.cim.UnsignedInteger16 getValueMapEntry(String value) {
 
             if (VALUE_ENTRY_LOG_ERR.equals(value)) {
@@ -475,8 +475,7 @@ public class Linux_SambaLoggingOptions extends CIM_SettingData {
     public boolean set_DebugHiresTimestamp(Boolean newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_DEBUGHIRESTIMESTAMP.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_DebugHiresTimestamp(currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_DebugHiresTimestamp(currentProperty, newValue));
             return true;
         }
         else {
@@ -558,8 +557,7 @@ public class Linux_SambaLoggingOptions extends CIM_SettingData {
     public boolean set_DebugPID(Boolean newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_DEBUGPID.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_DebugPID(currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_DebugPID(currentProperty, newValue));
             return true;
         }
         else {
@@ -641,8 +639,7 @@ public class Linux_SambaLoggingOptions extends CIM_SettingData {
     public boolean set_DebugTimestamp(Boolean newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_DEBUGTIMESTAMP.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_DebugTimestamp(currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_DebugTimestamp(currentProperty, newValue));
             return true;
         }
         else {
@@ -724,8 +721,7 @@ public class Linux_SambaLoggingOptions extends CIM_SettingData {
     public boolean set_DebugUID(Boolean newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_DEBUGUID.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_DebugUID(currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_DebugUID(currentProperty, newValue));
             return true;
         }
         else {
@@ -807,8 +803,7 @@ public class Linux_SambaLoggingOptions extends CIM_SettingData {
     public boolean set_LogFile(String newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_LOGFILE.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_LogFile(currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_LogFile(currentProperty, newValue));
             return true;
         }
         else {
@@ -889,8 +884,7 @@ public class Linux_SambaLoggingOptions extends CIM_SettingData {
     public boolean set_LogLevel(String newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_LOGLEVEL.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_LogLevel(currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_LogLevel(currentProperty, newValue));
             return true;
         }
         else {
@@ -972,8 +966,7 @@ public class Linux_SambaLoggingOptions extends CIM_SettingData {
     public boolean set_MaxLogSize(javax.cim.UnsignedInteger32 newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_MAXLOGSIZE.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_MaxLogSize(currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_MaxLogSize(currentProperty, newValue));
             return true;
         }
         else {
@@ -1055,8 +1048,7 @@ public class Linux_SambaLoggingOptions extends CIM_SettingData {
     public boolean set_key_Name(String newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_NAME.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_key_Name(currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_key_Name(currentProperty, newValue));
             return true;
         }
         else {
@@ -1138,8 +1130,7 @@ public class Linux_SambaLoggingOptions extends CIM_SettingData {
     public boolean set_SysLog(javax.cim.UnsignedInteger16 newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_SYSLOG.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_SysLog(currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_SysLog(currentProperty, newValue));
             return true;
         }
         else {
@@ -1221,8 +1212,7 @@ public class Linux_SambaLoggingOptions extends CIM_SettingData {
     public boolean set_SysLogOnly(Boolean newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_SYSLOGONLY.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_SysLogOnly(currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_SysLogOnly(currentProperty, newValue));
             return true;
         }
         else {

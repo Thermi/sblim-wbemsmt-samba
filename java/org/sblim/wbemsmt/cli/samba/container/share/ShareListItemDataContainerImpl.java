@@ -62,7 +62,7 @@ public class ShareListItemDataContainerImpl extends BaseDataContainer implements
             String label = getAdapter().getBundle().getString("ShareListItemDataContainer.Name");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_Name = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this, label,
-                    "", converter);
+                    null, converter);
         }
         return ic_Name;
     }
@@ -80,7 +80,7 @@ public class ShareListItemDataContainerImpl extends BaseDataContainer implements
                     "ShareListItemDataContainer.Available");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_Available = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,
-                    label, "", converter);
+                    label, null, converter);
         }
         return ic_Available;
     }
@@ -97,7 +97,7 @@ public class ShareListItemDataContainerImpl extends BaseDataContainer implements
             String label = getAdapter().getBundle().getString("ShareListItemDataContainer.Comment");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_Comment = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,
-                    label, "", converter);
+                    label, null, converter);
         }
         return ic_Comment;
     }
@@ -114,7 +114,7 @@ public class ShareListItemDataContainerImpl extends BaseDataContainer implements
             String label = getAdapter().getBundle().getString("ShareListItemDataContainer.Path");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_Path = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this, label,
-                    "", converter);
+                    null, converter);
         }
         return ic_Path;
     }
@@ -132,7 +132,7 @@ public class ShareListItemDataContainerImpl extends BaseDataContainer implements
                     "ShareListItemDataContainer.Browsable");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_Browsable = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,
-                    label, "", converter);
+                    label, null, converter);
         }
         return ic_Browsable;
     }
@@ -149,7 +149,7 @@ public class ShareListItemDataContainerImpl extends BaseDataContainer implements
             String label = getAdapter().getBundle().getString("ShareListItemDataContainer.GuestOK");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_GuestOK = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,
-                    label, "", converter);
+                    label, null, converter);
         }
         return ic_GuestOK;
     }
@@ -167,7 +167,7 @@ public class ShareListItemDataContainerImpl extends BaseDataContainer implements
                     "ShareListItemDataContainer.GuestOnly");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_GuestOnly = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,
-                    label, "", converter);
+                    label, null, converter);
         }
         return ic_GuestOnly;
     }
@@ -185,7 +185,7 @@ public class ShareListItemDataContainerImpl extends BaseDataContainer implements
                     "ShareListItemDataContainer.HostsAllow");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_HostsAllow = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,
-                    label, "", converter);
+                    label, null, converter);
         }
         return ic_HostsAllow;
     }
@@ -203,7 +203,7 @@ public class ShareListItemDataContainerImpl extends BaseDataContainer implements
                     "ShareListItemDataContainer.HostsDeny");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_HostsDeny = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,
-                    label, "", converter);
+                    label, null, converter);
         }
         return ic_HostsDeny;
     }
@@ -221,7 +221,7 @@ public class ShareListItemDataContainerImpl extends BaseDataContainer implements
                     .getString("ShareListItemDataContainer.ReadOnly");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_ReadOnly = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,
-                    label, "", converter);
+                    label, null, converter);
         }
         return ic_ReadOnly;
     }
@@ -331,16 +331,16 @@ public class ShareListItemDataContainerImpl extends BaseDataContainer implements
     public void copyFrom(DataContainer sourceContainer) throws WbemsmtException {
         ShareListItemDataContainerImpl source = (ShareListItemDataContainerImpl) sourceContainer;
 
-        get_Name().setValue(source.get_Name().getValue());
-        get_Available().setValue(source.get_Available().getValue());
-        get_Comment().setValue(source.get_Comment().getValue());
-        get_Path().setValue(source.get_Path().getValue());
-        get_Browsable().setValue(source.get_Browsable().getValue());
-        get_GuestOK().setValue(source.get_GuestOK().getValue());
-        get_GuestOnly().setValue(source.get_GuestOnly().getValue());
-        get_HostsAllow().setValue(source.get_HostsAllow().getValue());
-        get_HostsDeny().setValue(source.get_HostsDeny().getValue());
-        get_ReadOnly().setValue(source.get_ReadOnly().getValue());
+        get_Name().copyFrom(source.get_Name());
+        get_Available().copyFrom(source.get_Available());
+        get_Comment().copyFrom(source.get_Comment());
+        get_Path().copyFrom(source.get_Path());
+        get_Browsable().copyFrom(source.get_Browsable());
+        get_GuestOK().copyFrom(source.get_GuestOK());
+        get_GuestOnly().copyFrom(source.get_GuestOnly());
+        get_HostsAllow().copyFrom(source.get_HostsAllow());
+        get_HostsDeny().copyFrom(source.get_HostsDeny());
+        get_ReadOnly().copyFrom(source.get_ReadOnly());
 
     }
 

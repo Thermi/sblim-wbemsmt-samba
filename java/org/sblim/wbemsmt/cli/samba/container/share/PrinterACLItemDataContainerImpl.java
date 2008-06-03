@@ -57,7 +57,7 @@ public class PrinterACLItemDataContainerImpl extends BaseDataContainer implement
                     "PrinterACLItemDataContainer.PrinterName");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_PrinterName = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,
-                    label, "", converter);
+                    label, null, converter);
         }
         return ic_PrinterName;
     }
@@ -75,7 +75,7 @@ public class PrinterACLItemDataContainerImpl extends BaseDataContainer implement
                     "PrinterACLItemDataContainer.accessTypeVI");
             org.sblim.wbemsmt.tools.converter.StringArrayConverter converter = new org.sblim.wbemsmt.tools.converter.UnsignedInt16StringArrayConverter();
             ic_usr_AccessTypeVI = new org.sblim.wbemsmt.tools.input.test.LabeledTestStringArrayComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_AccessTypeVI;
     }
@@ -93,7 +93,7 @@ public class PrinterACLItemDataContainerImpl extends BaseDataContainer implement
                     "PrinterACLItemDataContainer.accessTypeRW");
             org.sblim.wbemsmt.tools.converter.StringArrayConverter converter = new org.sblim.wbemsmt.tools.converter.UnsignedInt16StringArrayConverter();
             ic_usr_AccessTypeRW = new org.sblim.wbemsmt.tools.input.test.LabeledTestStringArrayComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_AccessTypeRW;
     }
@@ -110,7 +110,7 @@ public class PrinterACLItemDataContainerImpl extends BaseDataContainer implement
             String label = getAdapter().getBundle().getString("PrinterACLItemDataContainer.admin");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_usr_Admin = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,
-                    label, "", converter);
+                    label, null, converter);
         }
         return ic_usr_Admin;
     }
@@ -184,10 +184,10 @@ public class PrinterACLItemDataContainerImpl extends BaseDataContainer implement
     public void copyFrom(DataContainer sourceContainer) throws WbemsmtException {
         PrinterACLItemDataContainerImpl source = (PrinterACLItemDataContainerImpl) sourceContainer;
 
-        get_PrinterName().setValue(source.get_PrinterName().getValue());
-        get_usr_AccessTypeVI().setValue(source.get_usr_AccessTypeVI().getValue());
-        get_usr_AccessTypeRW().setValue(source.get_usr_AccessTypeRW().getValue());
-        get_usr_Admin().setValue(source.get_usr_Admin().getValue());
+        get_PrinterName().copyFrom(source.get_PrinterName());
+        get_usr_AccessTypeVI().copyFrom(source.get_usr_AccessTypeVI());
+        get_usr_AccessTypeRW().copyFrom(source.get_usr_AccessTypeRW());
+        get_usr_Admin().copyFrom(source.get_usr_Admin());
 
     }
 

@@ -170,9 +170,7 @@ public class Linux_SambaHostsForService extends CIM_Component {
     public boolean set_PartComponent_Linux_SambaHost(Linux_SambaHost newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_PARTCOMPONENT_LINUX_SAMBAHOST.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_PartComponent_Linux_SambaHost(currentProperty,
-                    newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_PartComponent_Linux_SambaHost(currentProperty, newValue));
             return true;
         }
         else {
@@ -256,9 +254,8 @@ public class Linux_SambaHostsForService extends CIM_Component {
     public boolean set_GroupComponent_Linux_SambaService(Linux_SambaService newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_GROUPCOMPONENT_LINUX_SAMBASERVICE.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_GroupComponent_Linux_SambaService(currentProperty,
-                    newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_GroupComponent_Linux_SambaService(currentProperty,
+                    newValue));
             return true;
         }
         else {

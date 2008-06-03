@@ -58,7 +58,7 @@ public class ShareFileAttributesImpl extends BaseDataContainer implements
             String label = getAdapter().getBundle().getString("ShareFileAttributes.CaseSensitive");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_CaseSensitive = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_CaseSensitive;
     }
@@ -75,7 +75,7 @@ public class ShareFileAttributesImpl extends BaseDataContainer implements
             String label = getAdapter().getBundle().getString("ShareFileAttributes.HideDotFiles");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_HideDotFiles = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_HideDotFiles;
     }
@@ -92,7 +92,7 @@ public class ShareFileAttributesImpl extends BaseDataContainer implements
             String label = getAdapter().getBundle().getString("ShareFileAttributes.DosFiletimes");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_DosFiletimes = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_DosFiletimes;
     }
@@ -109,7 +109,7 @@ public class ShareFileAttributesImpl extends BaseDataContainer implements
             String label = getAdapter().getBundle().getString("ShareFileAttributes.EASupport");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_EASupport = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,
-                    label, "", converter);
+                    label, null, converter);
         }
         return ic_EASupport;
     }
@@ -127,7 +127,7 @@ public class ShareFileAttributesImpl extends BaseDataContainer implements
                     "ShareFileAttributes.AclCompatibility");
             org.sblim.wbemsmt.tools.converter.StringArrayConverter converter = new org.sblim.wbemsmt.tools.converter.UnsignedInt8StringArrayConverter();
             ic_AclCompatibility = new org.sblim.wbemsmt.tools.input.test.LabeledTestStringArrayComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_AclCompatibility;
     }
@@ -144,7 +144,7 @@ public class ShareFileAttributesImpl extends BaseDataContainer implements
             String label = getAdapter().getBundle().getString("ShareFileAttributes.NTACLSupport");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_NTACLSupport = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_NTACLSupport;
     }
@@ -229,12 +229,12 @@ public class ShareFileAttributesImpl extends BaseDataContainer implements
     public void copyFrom(DataContainer sourceContainer) throws WbemsmtException {
         ShareFileAttributesImpl source = (ShareFileAttributesImpl) sourceContainer;
 
-        get_CaseSensitive().setValue(source.get_CaseSensitive().getValue());
-        get_HideDotFiles().setValue(source.get_HideDotFiles().getValue());
-        get_DosFiletimes().setValue(source.get_DosFiletimes().getValue());
-        get_EASupport().setValue(source.get_EASupport().getValue());
-        get_AclCompatibility().setValue(source.get_AclCompatibility().getValue());
-        get_NTACLSupport().setValue(source.get_NTACLSupport().getValue());
+        get_CaseSensitive().copyFrom(source.get_CaseSensitive());
+        get_HideDotFiles().copyFrom(source.get_HideDotFiles());
+        get_DosFiletimes().copyFrom(source.get_DosFiletimes());
+        get_EASupport().copyFrom(source.get_EASupport());
+        get_AclCompatibility().copyFrom(source.get_AclCompatibility());
+        get_NTACLSupport().copyFrom(source.get_NTACLSupport());
 
     }
 

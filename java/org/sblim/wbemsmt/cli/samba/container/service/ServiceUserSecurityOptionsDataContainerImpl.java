@@ -64,7 +64,7 @@ public class ServiceUserSecurityOptionsDataContainerImpl extends BaseDataContain
                     "ServiceUserSecurityOptionsDataContainer.guestUser");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_usr_GuestUser = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_GuestUser;
     }
@@ -82,7 +82,7 @@ public class ServiceUserSecurityOptionsDataContainerImpl extends BaseDataContain
                     "ServiceUserSecurityOptionsDataContainer.currentForceUser");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_usr_CurrentForceUser = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_CurrentForceUser;
     }
@@ -100,7 +100,7 @@ public class ServiceUserSecurityOptionsDataContainerImpl extends BaseDataContain
                     "ServiceUserSecurityOptionsDataContainer.newForceUser");
             org.sblim.wbemsmt.tools.converter.StringArrayConverter converter = new org.sblim.wbemsmt.tools.converter.UnsignedInt16StringArrayConverter();
             ic_usr_NewForceUser = new org.sblim.wbemsmt.tools.input.test.LabeledTestStringArrayComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_NewForceUser;
     }
@@ -242,9 +242,9 @@ public class ServiceUserSecurityOptionsDataContainerImpl extends BaseDataContain
     public void copyFrom(DataContainer sourceContainer) throws WbemsmtException {
         ServiceUserSecurityOptionsDataContainerImpl source = (ServiceUserSecurityOptionsDataContainerImpl) sourceContainer;
 
-        get_usr_GuestUser().setValue(source.get_usr_GuestUser().getValue());
-        get_usr_CurrentForceUser().setValue(source.get_usr_CurrentForceUser().getValue());
-        get_usr_NewForceUser().setValue(source.get_usr_NewForceUser().getValue());
+        get_usr_GuestUser().copyFrom(source.get_usr_GuestUser());
+        get_usr_CurrentForceUser().copyFrom(source.get_usr_CurrentForceUser());
+        get_usr_NewForceUser().copyFrom(source.get_usr_NewForceUser());
 
         List targetListForUserRights = (List) getUserRights();
         List sourceListForUserRights = (List) source.getUserRights();

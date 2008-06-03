@@ -58,7 +58,7 @@ public class ShareAllowHostSecurityDataContainerImpl extends BaseDataContainer i
                     "ShareAllowHostSecurityDataContainer.allowedHosts");
             org.sblim.wbemsmt.tools.converter.StringArrayConverter converter = new org.sblim.wbemsmt.tools.converter.UnsignedInt16StringArrayConverter();
             ic_usr_AllowedHosts = new org.sblim.wbemsmt.tools.input.test.LabeledTestStringArrayComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_AllowedHosts;
     }
@@ -76,7 +76,7 @@ public class ShareAllowHostSecurityDataContainerImpl extends BaseDataContainer i
                     "ShareAllowHostSecurityDataContainer.hostsToAllow");
             org.sblim.wbemsmt.tools.converter.StringArrayConverter converter = new org.sblim.wbemsmt.tools.converter.UnsignedInt16StringArrayConverter();
             ic_usr_HostsToAllow = new org.sblim.wbemsmt.tools.input.test.LabeledTestStringArrayComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_HostsToAllow;
     }
@@ -94,7 +94,7 @@ public class ShareAllowHostSecurityDataContainerImpl extends BaseDataContainer i
                     "ShareAllowHostSecurityDataContainer.addHost");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_usr_AddHost = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_AddHost;
     }
@@ -112,7 +112,7 @@ public class ShareAllowHostSecurityDataContainerImpl extends BaseDataContainer i
                     "ShareAllowHostSecurityDataContainer.removeHost");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_usr_RemoveHost = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_RemoveHost;
     }
@@ -176,10 +176,10 @@ public class ShareAllowHostSecurityDataContainerImpl extends BaseDataContainer i
     public void copyFrom(DataContainer sourceContainer) throws WbemsmtException {
         ShareAllowHostSecurityDataContainerImpl source = (ShareAllowHostSecurityDataContainerImpl) sourceContainer;
 
-        get_usr_AllowedHosts().setValue(source.get_usr_AllowedHosts().getValue());
-        get_usr_HostsToAllow().setValue(source.get_usr_HostsToAllow().getValue());
-        get_usr_AddHost().setValue(source.get_usr_AddHost().getValue());
-        get_usr_RemoveHost().setValue(source.get_usr_RemoveHost().getValue());
+        get_usr_AllowedHosts().copyFrom(source.get_usr_AllowedHosts());
+        get_usr_HostsToAllow().copyFrom(source.get_usr_HostsToAllow());
+        get_usr_AddHost().copyFrom(source.get_usr_AddHost());
+        get_usr_RemoveHost().copyFrom(source.get_usr_RemoveHost());
 
     }
 

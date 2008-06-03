@@ -55,7 +55,7 @@ public class ShareWizardPage1Impl extends BaseDataContainer implements
             String label = getAdapter().getBundle().getString("ShareWizardPage1.Name");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_Name = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this, label,
-                    "", converter);
+                    null, converter);
         }
         return ic_Name;
     }
@@ -72,7 +72,7 @@ public class ShareWizardPage1Impl extends BaseDataContainer implements
             String label = getAdapter().getBundle().getString("ShareWizardPage1.Path");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_Path = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this, label,
-                    "", converter);
+                    null, converter);
         }
         return ic_Path;
     }
@@ -89,7 +89,7 @@ public class ShareWizardPage1Impl extends BaseDataContainer implements
             String label = getAdapter().getBundle().getString("ShareWizardPage1.Comment");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_Comment = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,
-                    label, "", converter);
+                    label, null, converter);
         }
         return ic_Comment;
     }
@@ -156,9 +156,9 @@ public class ShareWizardPage1Impl extends BaseDataContainer implements
     public void copyFrom(DataContainer sourceContainer) throws WbemsmtException {
         ShareWizardPage1Impl source = (ShareWizardPage1Impl) sourceContainer;
 
-        get_Name().setValue(source.get_Name().getValue());
-        get_Path().setValue(source.get_Path().getValue());
-        get_Comment().setValue(source.get_Comment().getValue());
+        get_Name().copyFrom(source.get_Name());
+        get_Path().copyFrom(source.get_Path());
+        get_Comment().copyFrom(source.get_Comment());
 
     }
 

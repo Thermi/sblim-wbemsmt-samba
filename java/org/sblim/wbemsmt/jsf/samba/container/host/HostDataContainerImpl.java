@@ -116,7 +116,7 @@ public class HostDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.EditBaseP
     public void copyFrom(DataContainer sourceContainer) throws WbemsmtException {
         HostDataContainerImpl source = (HostDataContainerImpl) sourceContainer;
 
-        get_Name().setValue(source.get_Name().getValue());
+        get_Name().copyFrom(source.get_Name());
 
     }
 

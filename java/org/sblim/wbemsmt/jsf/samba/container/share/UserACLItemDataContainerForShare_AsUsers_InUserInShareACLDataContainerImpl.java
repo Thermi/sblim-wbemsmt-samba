@@ -221,10 +221,10 @@ public class UserACLItemDataContainerForShare_AsUsers_InUserInShareACLDataContai
     public void copyFrom(DataContainer sourceContainer) throws WbemsmtException {
         UserACLItemDataContainerForShare_AsUsers_InUserInShareACLDataContainerImpl source = (UserACLItemDataContainerForShare_AsUsers_InUserInShareACLDataContainerImpl) sourceContainer;
 
-        get_SambaUserName().setValue(source.get_SambaUserName().getValue());
-        get_usr_AccessTypeVI().setValue(source.get_usr_AccessTypeVI().getValue());
-        get_usr_AccessTypeRW().setValue(source.get_usr_AccessTypeRW().getValue());
-        get_usr_Admin().setValue(source.get_usr_Admin().getValue());
+        get_SambaUserName().copyFrom(source.get_SambaUserName());
+        get_usr_AccessTypeVI().copyFrom(source.get_usr_AccessTypeVI());
+        get_usr_AccessTypeRW().copyFrom(source.get_usr_AccessTypeRW());
+        get_usr_Admin().copyFrom(source.get_usr_Admin());
 
     }
 

@@ -172,9 +172,8 @@ public class Linux_SambaShareBrowseForShare extends CIM_ElementSettingData {
             Linux_SambaShareBrowseOptions newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_SETTINGDATA_LINUX_SAMBASHAREBROWSEOPTIONS.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_SettingData_Linux_SambaShareBrowseOptions(
-                    currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_SettingData_Linux_SambaShareBrowseOptions(currentProperty,
+                    newValue));
             return true;
         }
         else {
@@ -260,9 +259,8 @@ public class Linux_SambaShareBrowseForShare extends CIM_ElementSettingData {
     public boolean set_ManagedElement_Linux_SambaShareOptions(Linux_SambaShareOptions newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_MANAGEDELEMENT_LINUX_SAMBASHAREOPTIONS.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_ManagedElement_Linux_SambaShareOptions(
-                    currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_ManagedElement_Linux_SambaShareOptions(currentProperty,
+                    newValue));
             return true;
         }
         else {

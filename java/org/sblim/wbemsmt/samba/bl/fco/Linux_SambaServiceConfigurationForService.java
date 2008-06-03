@@ -174,9 +174,8 @@ public class Linux_SambaServiceConfigurationForService extends CIM_ElementConfig
             Linux_SambaServiceConfiguration newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_CONFIGURATION_LINUX_SAMBASERVICECONFIGURATION.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_Configuration_Linux_SambaServiceConfiguration(
-                    currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_Configuration_Linux_SambaServiceConfiguration(
+                    currentProperty, newValue));
             return true;
         }
         else {
@@ -266,8 +265,7 @@ public class Linux_SambaServiceConfigurationForService extends CIM_ElementConfig
     public boolean set_Element_Linux_SambaService(Linux_SambaService newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_ELEMENT_LINUX_SAMBASERVICE.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_Element_Linux_SambaService(currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_Element_Linux_SambaService(currentProperty, newValue));
             return true;
         }
         else {

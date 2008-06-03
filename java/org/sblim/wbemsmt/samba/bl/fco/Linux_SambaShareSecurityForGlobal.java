@@ -172,9 +172,8 @@ public class Linux_SambaShareSecurityForGlobal extends CIM_ElementSettingData {
             Linux_SambaShareSecurityOptions newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_SETTINGDATA_LINUX_SAMBASHARESECURITYOPTIONS.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_SettingData_Linux_SambaShareSecurityOptions(
-                    currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_SettingData_Linux_SambaShareSecurityOptions(
+                    currentProperty, newValue));
             return true;
         }
         else {
@@ -261,9 +260,8 @@ public class Linux_SambaShareSecurityForGlobal extends CIM_ElementSettingData {
     public boolean set_ManagedElement_Linux_SambaGlobalOptions(Linux_SambaGlobalOptions newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_MANAGEDELEMENT_LINUX_SAMBAGLOBALOPTIONS.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_ManagedElement_Linux_SambaGlobalOptions(
-                    currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_ManagedElement_Linux_SambaGlobalOptions(currentProperty,
+                    newValue));
             return true;
         }
         else {

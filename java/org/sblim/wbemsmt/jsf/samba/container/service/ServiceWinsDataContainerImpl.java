@@ -232,11 +232,11 @@ public class ServiceWinsDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.Ed
     public void copyFrom(DataContainer sourceContainer) throws WbemsmtException {
         ServiceWinsDataContainerImpl source = (ServiceWinsDataContainerImpl) sourceContainer;
 
-        get_DNS_Proxy().setValue(source.get_DNS_Proxy().getValue());
-        get_WINSHook().setValue(source.get_WINSHook().getValue());
-        get_WINSProxy().setValue(source.get_WINSProxy().getValue());
-        get_WINSServer().setValue(source.get_WINSServer().getValue());
-        get_WINSSupport().setValue(source.get_WINSSupport().getValue());
+        get_DNS_Proxy().copyFrom(source.get_DNS_Proxy());
+        get_WINSHook().copyFrom(source.get_WINSHook());
+        get_WINSProxy().copyFrom(source.get_WINSProxy());
+        get_WINSServer().copyFrom(source.get_WINSServer());
+        get_WINSSupport().copyFrom(source.get_WINSSupport());
 
     }
 

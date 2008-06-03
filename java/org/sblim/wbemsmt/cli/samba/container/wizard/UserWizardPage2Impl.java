@@ -69,7 +69,7 @@ public class UserWizardPage2Impl extends BaseDataContainer implements
             String label = getAdapter().getBundle().getString("UserWizardPage2.accessToAll");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_usr_AccessToAll = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_AccessToAll;
     }
@@ -298,7 +298,7 @@ public class UserWizardPage2Impl extends BaseDataContainer implements
     public void copyFrom(DataContainer sourceContainer) throws WbemsmtException {
         UserWizardPage2Impl source = (UserWizardPage2Impl) sourceContainer;
 
-        get_usr_AccessToAll().setValue(source.get_usr_AccessToAll().getValue());
+        get_usr_AccessToAll().copyFrom(source.get_usr_AccessToAll());
 
         List targetListForShares = (List) getShares();
         List sourceListForShares = (List) source.getShares();

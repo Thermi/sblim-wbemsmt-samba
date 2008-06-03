@@ -356,15 +356,15 @@ public class CMDShareGlobalsDataContainerImpl extends org.sblim.wbemsmt.tools.js
     public void copyFrom(DataContainer sourceContainer) throws WbemsmtException {
         CMDShareGlobalsDataContainerImpl source = (CMDShareGlobalsDataContainerImpl) sourceContainer;
 
-        get_CaseSensitive().setValue(source.get_CaseSensitive().getValue());
-        get_DosFiletimes().setValue(source.get_DosFiletimes().getValue());
-        get_HideDotFiles().setValue(source.get_HideDotFiles().getValue());
-        get_AclCompatibility().setValue(source.get_AclCompatibility().getValue());
-        get_EASupport().setValue(source.get_EASupport().getValue());
-        get_NTACLSupport().setValue(source.get_NTACLSupport().getValue());
-        get_CreateMask().setValue(source.get_CreateMask().getValue());
-        get_DirectoryMask().setValue(source.get_DirectoryMask().getValue());
-        get_DirectorySecurityMask().setValue(source.get_DirectorySecurityMask().getValue());
+        get_CaseSensitive().copyFrom(source.get_CaseSensitive());
+        get_DosFiletimes().copyFrom(source.get_DosFiletimes());
+        get_HideDotFiles().copyFrom(source.get_HideDotFiles());
+        get_AclCompatibility().copyFrom(source.get_AclCompatibility());
+        get_EASupport().copyFrom(source.get_EASupport());
+        get_NTACLSupport().copyFrom(source.get_NTACLSupport());
+        get_CreateMask().copyFrom(source.get_CreateMask());
+        get_DirectoryMask().copyFrom(source.get_DirectoryMask());
+        get_DirectorySecurityMask().copyFrom(source.get_DirectorySecurityMask());
 
     }
 

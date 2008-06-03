@@ -295,13 +295,13 @@ public class WelcomeDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.EditBa
     public void copyFrom(DataContainer sourceContainer) throws WbemsmtException {
         WelcomeDataContainerImpl source = (WelcomeDataContainerImpl) sourceContainer;
 
-        get_usr_WelcomeText().setValue(source.get_usr_WelcomeText().getValue());
-        get_usr_SharePicture().setValue(source.get_usr_SharePicture().getValue());
-        get_usr_LinkCreateShare().setValue(source.get_usr_LinkCreateShare().getValue());
-        get_usr_Memo().setValue(source.get_usr_Memo().getValue());
-        get_usr_LinkCreatePrinter().setValue(source.get_usr_LinkCreatePrinter().getValue());
-        get_usr_LinkCreateUser().setValue(source.get_usr_LinkCreateUser().getValue());
-        get_usr_Actions().setValue(source.get_usr_Actions().getValue());
+        get_usr_WelcomeText().copyFrom(source.get_usr_WelcomeText());
+        get_usr_SharePicture().copyFrom(source.get_usr_SharePicture());
+        get_usr_LinkCreateShare().copyFrom(source.get_usr_LinkCreateShare());
+        get_usr_Memo().copyFrom(source.get_usr_Memo());
+        get_usr_LinkCreatePrinter().copyFrom(source.get_usr_LinkCreatePrinter());
+        get_usr_LinkCreateUser().copyFrom(source.get_usr_LinkCreateUser());
+        get_usr_Actions().copyFrom(source.get_usr_Actions());
 
     }
 

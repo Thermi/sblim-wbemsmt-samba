@@ -59,7 +59,7 @@ public class ShareGlobalsDataContainerImpl extends BaseDataContainer implements
                     "ShareGlobalsDataContainer.CaseSensitive");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_CaseSensitive = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_CaseSensitive;
     }
@@ -77,7 +77,7 @@ public class ShareGlobalsDataContainerImpl extends BaseDataContainer implements
                     "ShareGlobalsDataContainer.DosFiletimes");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_DosFiletimes = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_DosFiletimes;
     }
@@ -95,7 +95,7 @@ public class ShareGlobalsDataContainerImpl extends BaseDataContainer implements
                     "ShareGlobalsDataContainer.HideDotFiles");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_HideDotFiles = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_HideDotFiles;
     }
@@ -113,7 +113,7 @@ public class ShareGlobalsDataContainerImpl extends BaseDataContainer implements
                     "ShareGlobalsDataContainer.AclCompatibility");
             org.sblim.wbemsmt.tools.converter.StringArrayConverter converter = new org.sblim.wbemsmt.tools.converter.UnsignedInt8StringArrayConverter();
             ic_AclCompatibility = new org.sblim.wbemsmt.tools.input.test.LabeledTestStringArrayComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_AclCompatibility;
     }
@@ -131,7 +131,7 @@ public class ShareGlobalsDataContainerImpl extends BaseDataContainer implements
                     .getString("ShareGlobalsDataContainer.EASupport");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_EASupport = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,
-                    label, "", converter);
+                    label, null, converter);
         }
         return ic_EASupport;
     }
@@ -149,7 +149,7 @@ public class ShareGlobalsDataContainerImpl extends BaseDataContainer implements
                     "ShareGlobalsDataContainer.NTACLSupport");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_NTACLSupport = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_NTACLSupport;
     }
@@ -235,12 +235,12 @@ public class ShareGlobalsDataContainerImpl extends BaseDataContainer implements
     public void copyFrom(DataContainer sourceContainer) throws WbemsmtException {
         ShareGlobalsDataContainerImpl source = (ShareGlobalsDataContainerImpl) sourceContainer;
 
-        get_CaseSensitive().setValue(source.get_CaseSensitive().getValue());
-        get_DosFiletimes().setValue(source.get_DosFiletimes().getValue());
-        get_HideDotFiles().setValue(source.get_HideDotFiles().getValue());
-        get_AclCompatibility().setValue(source.get_AclCompatibility().getValue());
-        get_EASupport().setValue(source.get_EASupport().getValue());
-        get_NTACLSupport().setValue(source.get_NTACLSupport().getValue());
+        get_CaseSensitive().copyFrom(source.get_CaseSensitive());
+        get_DosFiletimes().copyFrom(source.get_DosFiletimes());
+        get_HideDotFiles().copyFrom(source.get_HideDotFiles());
+        get_AclCompatibility().copyFrom(source.get_AclCompatibility());
+        get_EASupport().copyFrom(source.get_EASupport());
+        get_NTACLSupport().copyFrom(source.get_NTACLSupport());
 
     }
 

@@ -359,15 +359,15 @@ public class ServiceScriptingDataContainerImpl extends org.sblim.wbemsmt.tools.j
     public void copyFrom(DataContainer sourceContainer) throws WbemsmtException {
         ServiceScriptingDataContainerImpl source = (ServiceScriptingDataContainerImpl) sourceContainer;
 
-        get_AddGroupScript().setValue(source.get_AddGroupScript().getValue());
-        get_AddPrinterCommand().setValue(source.get_AddPrinterCommand().getValue());
-        get_AddShareCommand().setValue(source.get_AddShareCommand().getValue());
-        get_AddUserScript().setValue(source.get_AddUserScript().getValue());
-        get_AddUsertoGroupScript().setValue(source.get_AddUsertoGroupScript().getValue());
-        get_DeleteGroupScript().setValue(source.get_DeleteGroupScript().getValue());
-        get_DeleteUserScript().setValue(source.get_DeleteUserScript().getValue());
-        get_DeleteUserfromGroupScript().setValue(source.get_DeleteUserfromGroupScript().getValue());
-        get_SetPrimaryGroupScript().setValue(source.get_SetPrimaryGroupScript().getValue());
+        get_AddGroupScript().copyFrom(source.get_AddGroupScript());
+        get_AddPrinterCommand().copyFrom(source.get_AddPrinterCommand());
+        get_AddShareCommand().copyFrom(source.get_AddShareCommand());
+        get_AddUserScript().copyFrom(source.get_AddUserScript());
+        get_AddUsertoGroupScript().copyFrom(source.get_AddUsertoGroupScript());
+        get_DeleteGroupScript().copyFrom(source.get_DeleteGroupScript());
+        get_DeleteUserScript().copyFrom(source.get_DeleteUserScript());
+        get_DeleteUserfromGroupScript().copyFrom(source.get_DeleteUserfromGroupScript());
+        get_SetPrimaryGroupScript().copyFrom(source.get_SetPrimaryGroupScript());
 
     }
 

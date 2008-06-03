@@ -196,8 +196,7 @@ public class Linux_SambaFileNameHandlingOptions extends CIM_SettingData {
     public boolean set_CaseSensitive(Boolean newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_CASESENSITIVE.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_CaseSensitive(currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_CaseSensitive(currentProperty, newValue));
             return true;
         }
         else {
@@ -280,8 +279,7 @@ public class Linux_SambaFileNameHandlingOptions extends CIM_SettingData {
     public boolean set_DosFiletimes(Boolean newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_DOSFILETIMES.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_DosFiletimes(currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_DosFiletimes(currentProperty, newValue));
             return true;
         }
         else {
@@ -364,8 +362,7 @@ public class Linux_SambaFileNameHandlingOptions extends CIM_SettingData {
     public boolean set_HideDotFiles(Boolean newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_HIDEDOTFILES.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_HideDotFiles(currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_HideDotFiles(currentProperty, newValue));
             return true;
         }
         else {
@@ -448,8 +445,7 @@ public class Linux_SambaFileNameHandlingOptions extends CIM_SettingData {
     public boolean set_key_Name(String newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_NAME.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_key_Name(currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_key_Name(currentProperty, newValue));
             return true;
         }
         else {

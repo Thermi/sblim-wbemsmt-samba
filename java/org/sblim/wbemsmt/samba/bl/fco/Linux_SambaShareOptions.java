@@ -302,8 +302,7 @@ public class Linux_SambaShareOptions extends CIM_SettingData {
     public boolean set_Available(Boolean newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_AVAILABLE.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_Available(currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_Available(currentProperty, newValue));
             return true;
         }
         else {
@@ -385,8 +384,7 @@ public class Linux_SambaShareOptions extends CIM_SettingData {
     public boolean set_Comment(String newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_COMMENT.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_Comment(currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_Comment(currentProperty, newValue));
             return true;
         }
         else {
@@ -467,8 +465,7 @@ public class Linux_SambaShareOptions extends CIM_SettingData {
     public boolean set_key_Name(String newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_NAME.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_key_Name(currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_key_Name(currentProperty, newValue));
             return true;
         }
         else {
@@ -550,8 +547,7 @@ public class Linux_SambaShareOptions extends CIM_SettingData {
     public boolean set_Path(String newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_PATH.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_Path(currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_Path(currentProperty, newValue));
             return true;
         }
         else {
@@ -632,8 +628,7 @@ public class Linux_SambaShareOptions extends CIM_SettingData {
     public boolean set_Printable(Boolean newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_PRINTABLE.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_Printable(currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_Printable(currentProperty, newValue));
             return true;
         }
         else {

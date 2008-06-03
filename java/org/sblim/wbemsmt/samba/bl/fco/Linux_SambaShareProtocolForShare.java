@@ -171,9 +171,8 @@ public class Linux_SambaShareProtocolForShare extends CIM_ElementSettingData {
     public boolean set_ManagedElement_Linux_SambaShareOptions(Linux_SambaShareOptions newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_MANAGEDELEMENT_LINUX_SAMBASHAREOPTIONS.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_ManagedElement_Linux_SambaShareOptions(
-                    currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_ManagedElement_Linux_SambaShareOptions(currentProperty,
+                    newValue));
             return true;
         }
         else {
@@ -260,9 +259,8 @@ public class Linux_SambaShareProtocolForShare extends CIM_ElementSettingData {
             Linux_SambaShareProtocolOptions newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_SETTINGDATA_LINUX_SAMBASHAREPROTOCOLOPTIONS.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_SettingData_Linux_SambaShareProtocolOptions(
-                    currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_SettingData_Linux_SambaShareProtocolOptions(
+                    currentProperty, newValue));
             return true;
         }
         else {

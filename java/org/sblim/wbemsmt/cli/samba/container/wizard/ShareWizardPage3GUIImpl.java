@@ -88,7 +88,7 @@ public class ShareWizardPage3GUIImpl extends BaseDataContainer implements
             String label = getAdapter().getBundle().getString("ShareWizardPage3GUI.create_u");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_usr_Create_u = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_Create_u;
     }
@@ -105,7 +105,7 @@ public class ShareWizardPage3GUIImpl extends BaseDataContainer implements
             String label = getAdapter().getBundle().getString("ShareWizardPage3GUI.create_g");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_usr_Create_g = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_Create_g;
     }
@@ -122,7 +122,7 @@ public class ShareWizardPage3GUIImpl extends BaseDataContainer implements
             String label = getAdapter().getBundle().getString("ShareWizardPage3GUI.create_s");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_usr_Create_s = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_Create_s;
     }
@@ -139,7 +139,7 @@ public class ShareWizardPage3GUIImpl extends BaseDataContainer implements
             String label = getAdapter().getBundle().getString("ShareWizardPage3GUI.create_user_r");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_usr_Create_user_r = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_Create_user_r;
     }
@@ -156,7 +156,7 @@ public class ShareWizardPage3GUIImpl extends BaseDataContainer implements
             String label = getAdapter().getBundle().getString("ShareWizardPage3GUI.create_user_w");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_usr_Create_user_w = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_Create_user_w;
     }
@@ -173,7 +173,7 @@ public class ShareWizardPage3GUIImpl extends BaseDataContainer implements
             String label = getAdapter().getBundle().getString("ShareWizardPage3GUI.create_user_x");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_usr_Create_user_x = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_Create_user_x;
     }
@@ -190,7 +190,7 @@ public class ShareWizardPage3GUIImpl extends BaseDataContainer implements
             String label = getAdapter().getBundle().getString("ShareWizardPage3GUI.create_group_r");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_usr_Create_group_r = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_Create_group_r;
     }
@@ -207,7 +207,7 @@ public class ShareWizardPage3GUIImpl extends BaseDataContainer implements
             String label = getAdapter().getBundle().getString("ShareWizardPage3GUI.create_group_w");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_usr_Create_group_w = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_Create_group_w;
     }
@@ -224,7 +224,7 @@ public class ShareWizardPage3GUIImpl extends BaseDataContainer implements
             String label = getAdapter().getBundle().getString("ShareWizardPage3GUI.create_group_x");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_usr_Create_group_x = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_Create_group_x;
     }
@@ -241,7 +241,7 @@ public class ShareWizardPage3GUIImpl extends BaseDataContainer implements
             String label = getAdapter().getBundle().getString("ShareWizardPage3GUI.create_other_r");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_usr_Create_other_r = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_Create_other_r;
     }
@@ -258,7 +258,7 @@ public class ShareWizardPage3GUIImpl extends BaseDataContainer implements
             String label = getAdapter().getBundle().getString("ShareWizardPage3GUI.create_other_w");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_usr_Create_other_w = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_Create_other_w;
     }
@@ -275,7 +275,7 @@ public class ShareWizardPage3GUIImpl extends BaseDataContainer implements
             String label = getAdapter().getBundle().getString("ShareWizardPage3GUI.create_other_x");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_usr_Create_other_x = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_Create_other_x;
     }
@@ -292,7 +292,7 @@ public class ShareWizardPage3GUIImpl extends BaseDataContainer implements
             String label = getAdapter().getBundle().getString("ShareWizardPage3GUI.directory_u");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_usr_Directory_u = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_Directory_u;
     }
@@ -309,7 +309,7 @@ public class ShareWizardPage3GUIImpl extends BaseDataContainer implements
             String label = getAdapter().getBundle().getString("ShareWizardPage3GUI.directory_g");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_usr_Directory_g = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_Directory_g;
     }
@@ -326,7 +326,7 @@ public class ShareWizardPage3GUIImpl extends BaseDataContainer implements
             String label = getAdapter().getBundle().getString("ShareWizardPage3GUI.directory_s");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_usr_Directory_s = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_Directory_s;
     }
@@ -344,7 +344,7 @@ public class ShareWizardPage3GUIImpl extends BaseDataContainer implements
                     "ShareWizardPage3GUI.directory_user_r");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_usr_Directory_user_r = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_Directory_user_r;
     }
@@ -362,7 +362,7 @@ public class ShareWizardPage3GUIImpl extends BaseDataContainer implements
                     "ShareWizardPage3GUI.directory_user_w");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_usr_Directory_user_w = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_Directory_user_w;
     }
@@ -380,7 +380,7 @@ public class ShareWizardPage3GUIImpl extends BaseDataContainer implements
                     "ShareWizardPage3GUI.directory_user_x");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_usr_Directory_user_x = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_Directory_user_x;
     }
@@ -398,7 +398,7 @@ public class ShareWizardPage3GUIImpl extends BaseDataContainer implements
                     "ShareWizardPage3GUI.directory_group_r");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_usr_Directory_group_r = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_Directory_group_r;
     }
@@ -416,7 +416,7 @@ public class ShareWizardPage3GUIImpl extends BaseDataContainer implements
                     "ShareWizardPage3GUI.directory_group_w");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_usr_Directory_group_w = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_Directory_group_w;
     }
@@ -434,7 +434,7 @@ public class ShareWizardPage3GUIImpl extends BaseDataContainer implements
                     "ShareWizardPage3GUI.directory_group_x");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_usr_Directory_group_x = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_Directory_group_x;
     }
@@ -452,7 +452,7 @@ public class ShareWizardPage3GUIImpl extends BaseDataContainer implements
                     "ShareWizardPage3GUI.directory_other_r");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_usr_Directory_other_r = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_Directory_other_r;
     }
@@ -470,7 +470,7 @@ public class ShareWizardPage3GUIImpl extends BaseDataContainer implements
                     "ShareWizardPage3GUI.directory_other_w");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_usr_Directory_other_w = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_Directory_other_w;
     }
@@ -488,7 +488,7 @@ public class ShareWizardPage3GUIImpl extends BaseDataContainer implements
                     "ShareWizardPage3GUI.directory_other_x");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_usr_Directory_other_x = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_Directory_other_x;
     }
@@ -506,7 +506,7 @@ public class ShareWizardPage3GUIImpl extends BaseDataContainer implements
                     "ShareWizardPage3GUI.directory_security_u");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_usr_Directory_security_u = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_Directory_security_u;
     }
@@ -524,7 +524,7 @@ public class ShareWizardPage3GUIImpl extends BaseDataContainer implements
                     "ShareWizardPage3GUI.directory_security_g");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_usr_Directory_security_g = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_Directory_security_g;
     }
@@ -542,7 +542,7 @@ public class ShareWizardPage3GUIImpl extends BaseDataContainer implements
                     "ShareWizardPage3GUI.directory_security_s");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_usr_Directory_security_s = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_Directory_security_s;
     }
@@ -560,7 +560,7 @@ public class ShareWizardPage3GUIImpl extends BaseDataContainer implements
                     "ShareWizardPage3GUI.directory_security_user_r");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_usr_Directory_security_user_r = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_Directory_security_user_r;
     }
@@ -578,7 +578,7 @@ public class ShareWizardPage3GUIImpl extends BaseDataContainer implements
                     "ShareWizardPage3GUI.directory_security_user_w");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_usr_Directory_security_user_w = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_Directory_security_user_w;
     }
@@ -596,7 +596,7 @@ public class ShareWizardPage3GUIImpl extends BaseDataContainer implements
                     "ShareWizardPage3GUI.directory_security_user_x");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_usr_Directory_security_user_x = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_Directory_security_user_x;
     }
@@ -614,7 +614,7 @@ public class ShareWizardPage3GUIImpl extends BaseDataContainer implements
                     "ShareWizardPage3GUI.directory_security_group_r");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_usr_Directory_security_group_r = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_Directory_security_group_r;
     }
@@ -632,7 +632,7 @@ public class ShareWizardPage3GUIImpl extends BaseDataContainer implements
                     "ShareWizardPage3GUI.directory_security_group_w");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_usr_Directory_security_group_w = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_Directory_security_group_w;
     }
@@ -650,7 +650,7 @@ public class ShareWizardPage3GUIImpl extends BaseDataContainer implements
                     "ShareWizardPage3GUI.directory_security_group_x");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_usr_Directory_security_group_x = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_Directory_security_group_x;
     }
@@ -668,7 +668,7 @@ public class ShareWizardPage3GUIImpl extends BaseDataContainer implements
                     "ShareWizardPage3GUI.directory_security_other_r");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_usr_Directory_security_other_r = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_Directory_security_other_r;
     }
@@ -686,7 +686,7 @@ public class ShareWizardPage3GUIImpl extends BaseDataContainer implements
                     "ShareWizardPage3GUI.directory_security_other_w");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_usr_Directory_security_other_w = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_Directory_security_other_w;
     }
@@ -704,7 +704,7 @@ public class ShareWizardPage3GUIImpl extends BaseDataContainer implements
                     "ShareWizardPage3GUI.directory_security_other_x");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_usr_Directory_security_other_x = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_Directory_security_other_x;
     }
@@ -978,51 +978,42 @@ public class ShareWizardPage3GUIImpl extends BaseDataContainer implements
     public void copyFrom(DataContainer sourceContainer) throws WbemsmtException {
         ShareWizardPage3GUIImpl source = (ShareWizardPage3GUIImpl) sourceContainer;
 
-        get_usr_Create_u().setValue(source.get_usr_Create_u().getValue());
-        get_usr_Create_g().setValue(source.get_usr_Create_g().getValue());
-        get_usr_Create_s().setValue(source.get_usr_Create_s().getValue());
-        get_usr_Create_user_r().setValue(source.get_usr_Create_user_r().getValue());
-        get_usr_Create_user_w().setValue(source.get_usr_Create_user_w().getValue());
-        get_usr_Create_user_x().setValue(source.get_usr_Create_user_x().getValue());
-        get_usr_Create_group_r().setValue(source.get_usr_Create_group_r().getValue());
-        get_usr_Create_group_w().setValue(source.get_usr_Create_group_w().getValue());
-        get_usr_Create_group_x().setValue(source.get_usr_Create_group_x().getValue());
-        get_usr_Create_other_r().setValue(source.get_usr_Create_other_r().getValue());
-        get_usr_Create_other_w().setValue(source.get_usr_Create_other_w().getValue());
-        get_usr_Create_other_x().setValue(source.get_usr_Create_other_x().getValue());
-        get_usr_Directory_u().setValue(source.get_usr_Directory_u().getValue());
-        get_usr_Directory_g().setValue(source.get_usr_Directory_g().getValue());
-        get_usr_Directory_s().setValue(source.get_usr_Directory_s().getValue());
-        get_usr_Directory_user_r().setValue(source.get_usr_Directory_user_r().getValue());
-        get_usr_Directory_user_w().setValue(source.get_usr_Directory_user_w().getValue());
-        get_usr_Directory_user_x().setValue(source.get_usr_Directory_user_x().getValue());
-        get_usr_Directory_group_r().setValue(source.get_usr_Directory_group_r().getValue());
-        get_usr_Directory_group_w().setValue(source.get_usr_Directory_group_w().getValue());
-        get_usr_Directory_group_x().setValue(source.get_usr_Directory_group_x().getValue());
-        get_usr_Directory_other_r().setValue(source.get_usr_Directory_other_r().getValue());
-        get_usr_Directory_other_w().setValue(source.get_usr_Directory_other_w().getValue());
-        get_usr_Directory_other_x().setValue(source.get_usr_Directory_other_x().getValue());
-        get_usr_Directory_security_u().setValue(source.get_usr_Directory_security_u().getValue());
-        get_usr_Directory_security_g().setValue(source.get_usr_Directory_security_g().getValue());
-        get_usr_Directory_security_s().setValue(source.get_usr_Directory_security_s().getValue());
-        get_usr_Directory_security_user_r().setValue(
-                source.get_usr_Directory_security_user_r().getValue());
-        get_usr_Directory_security_user_w().setValue(
-                source.get_usr_Directory_security_user_w().getValue());
-        get_usr_Directory_security_user_x().setValue(
-                source.get_usr_Directory_security_user_x().getValue());
-        get_usr_Directory_security_group_r().setValue(
-                source.get_usr_Directory_security_group_r().getValue());
-        get_usr_Directory_security_group_w().setValue(
-                source.get_usr_Directory_security_group_w().getValue());
-        get_usr_Directory_security_group_x().setValue(
-                source.get_usr_Directory_security_group_x().getValue());
-        get_usr_Directory_security_other_r().setValue(
-                source.get_usr_Directory_security_other_r().getValue());
-        get_usr_Directory_security_other_w().setValue(
-                source.get_usr_Directory_security_other_w().getValue());
-        get_usr_Directory_security_other_x().setValue(
-                source.get_usr_Directory_security_other_x().getValue());
+        get_usr_Create_u().copyFrom(source.get_usr_Create_u());
+        get_usr_Create_g().copyFrom(source.get_usr_Create_g());
+        get_usr_Create_s().copyFrom(source.get_usr_Create_s());
+        get_usr_Create_user_r().copyFrom(source.get_usr_Create_user_r());
+        get_usr_Create_user_w().copyFrom(source.get_usr_Create_user_w());
+        get_usr_Create_user_x().copyFrom(source.get_usr_Create_user_x());
+        get_usr_Create_group_r().copyFrom(source.get_usr_Create_group_r());
+        get_usr_Create_group_w().copyFrom(source.get_usr_Create_group_w());
+        get_usr_Create_group_x().copyFrom(source.get_usr_Create_group_x());
+        get_usr_Create_other_r().copyFrom(source.get_usr_Create_other_r());
+        get_usr_Create_other_w().copyFrom(source.get_usr_Create_other_w());
+        get_usr_Create_other_x().copyFrom(source.get_usr_Create_other_x());
+        get_usr_Directory_u().copyFrom(source.get_usr_Directory_u());
+        get_usr_Directory_g().copyFrom(source.get_usr_Directory_g());
+        get_usr_Directory_s().copyFrom(source.get_usr_Directory_s());
+        get_usr_Directory_user_r().copyFrom(source.get_usr_Directory_user_r());
+        get_usr_Directory_user_w().copyFrom(source.get_usr_Directory_user_w());
+        get_usr_Directory_user_x().copyFrom(source.get_usr_Directory_user_x());
+        get_usr_Directory_group_r().copyFrom(source.get_usr_Directory_group_r());
+        get_usr_Directory_group_w().copyFrom(source.get_usr_Directory_group_w());
+        get_usr_Directory_group_x().copyFrom(source.get_usr_Directory_group_x());
+        get_usr_Directory_other_r().copyFrom(source.get_usr_Directory_other_r());
+        get_usr_Directory_other_w().copyFrom(source.get_usr_Directory_other_w());
+        get_usr_Directory_other_x().copyFrom(source.get_usr_Directory_other_x());
+        get_usr_Directory_security_u().copyFrom(source.get_usr_Directory_security_u());
+        get_usr_Directory_security_g().copyFrom(source.get_usr_Directory_security_g());
+        get_usr_Directory_security_s().copyFrom(source.get_usr_Directory_security_s());
+        get_usr_Directory_security_user_r().copyFrom(source.get_usr_Directory_security_user_r());
+        get_usr_Directory_security_user_w().copyFrom(source.get_usr_Directory_security_user_w());
+        get_usr_Directory_security_user_x().copyFrom(source.get_usr_Directory_security_user_x());
+        get_usr_Directory_security_group_r().copyFrom(source.get_usr_Directory_security_group_r());
+        get_usr_Directory_security_group_w().copyFrom(source.get_usr_Directory_security_group_w());
+        get_usr_Directory_security_group_x().copyFrom(source.get_usr_Directory_security_group_x());
+        get_usr_Directory_security_other_r().copyFrom(source.get_usr_Directory_security_other_r());
+        get_usr_Directory_security_other_w().copyFrom(source.get_usr_Directory_security_other_w());
+        get_usr_Directory_security_other_x().copyFrom(source.get_usr_Directory_security_other_x());
 
     }
 

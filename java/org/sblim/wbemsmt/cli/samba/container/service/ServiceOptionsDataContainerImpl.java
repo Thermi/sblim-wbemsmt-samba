@@ -60,7 +60,7 @@ public class ServiceOptionsDataContainerImpl extends BaseDataContainer implement
                     "ServiceOptionsDataContainer.BindInterfacesOnly");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_BindInterfacesOnly = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_BindInterfacesOnly;
     }
@@ -78,7 +78,7 @@ public class ServiceOptionsDataContainerImpl extends BaseDataContainer implement
                     "ServiceOptionsDataContainer.Interfaces");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_Interfaces = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,
-                    label, "", converter);
+                    label, null, converter);
         }
         return ic_Interfaces;
     }
@@ -96,7 +96,7 @@ public class ServiceOptionsDataContainerImpl extends BaseDataContainer implement
                     "ServiceOptionsDataContainer.NetbiosAlias");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_NetbiosAlias = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_NetbiosAlias;
     }
@@ -114,7 +114,7 @@ public class ServiceOptionsDataContainerImpl extends BaseDataContainer implement
                     "ServiceOptionsDataContainer.NetbiosName");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_NetbiosName = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,
-                    label, "", converter);
+                    label, null, converter);
         }
         return ic_NetbiosName;
     }
@@ -132,7 +132,7 @@ public class ServiceOptionsDataContainerImpl extends BaseDataContainer implement
                     "ServiceOptionsDataContainer.ServerString");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_ServerString = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_ServerString;
     }
@@ -150,7 +150,7 @@ public class ServiceOptionsDataContainerImpl extends BaseDataContainer implement
                     "ServiceOptionsDataContainer.Workgroup");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_Workgroup = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,
-                    label, "", converter);
+                    label, null, converter);
         }
         return ic_Workgroup;
     }
@@ -168,7 +168,7 @@ public class ServiceOptionsDataContainerImpl extends BaseDataContainer implement
                     "ServiceOptionsDataContainer.ConfigurationFile");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_ConfigurationFile = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_ConfigurationFile;
     }
@@ -260,13 +260,13 @@ public class ServiceOptionsDataContainerImpl extends BaseDataContainer implement
     public void copyFrom(DataContainer sourceContainer) throws WbemsmtException {
         ServiceOptionsDataContainerImpl source = (ServiceOptionsDataContainerImpl) sourceContainer;
 
-        get_BindInterfacesOnly().setValue(source.get_BindInterfacesOnly().getValue());
-        get_Interfaces().setValue(source.get_Interfaces().getValue());
-        get_NetbiosAlias().setValue(source.get_NetbiosAlias().getValue());
-        get_NetbiosName().setValue(source.get_NetbiosName().getValue());
-        get_ServerString().setValue(source.get_ServerString().getValue());
-        get_Workgroup().setValue(source.get_Workgroup().getValue());
-        get_ConfigurationFile().setValue(source.get_ConfigurationFile().getValue());
+        get_BindInterfacesOnly().copyFrom(source.get_BindInterfacesOnly());
+        get_Interfaces().copyFrom(source.get_Interfaces());
+        get_NetbiosAlias().copyFrom(source.get_NetbiosAlias());
+        get_NetbiosName().copyFrom(source.get_NetbiosName());
+        get_ServerString().copyFrom(source.get_ServerString());
+        get_Workgroup().copyFrom(source.get_Workgroup());
+        get_ConfigurationFile().copyFrom(source.get_ConfigurationFile());
 
     }
 

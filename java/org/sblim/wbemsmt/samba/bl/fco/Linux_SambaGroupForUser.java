@@ -170,9 +170,7 @@ public class Linux_SambaGroupForUser extends CIM_Component {
     public boolean set_GroupComponent_Linux_SambaGroup(Linux_SambaGroup newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_GROUPCOMPONENT_LINUX_SAMBAGROUP.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_GroupComponent_Linux_SambaGroup(currentProperty,
-                    newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_GroupComponent_Linux_SambaGroup(currentProperty, newValue));
             return true;
         }
         else {
@@ -256,9 +254,7 @@ public class Linux_SambaGroupForUser extends CIM_Component {
     public boolean set_PartComponent_Linux_SambaUser(Linux_SambaUser newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_PARTCOMPONENT_LINUX_SAMBAUSER.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_PartComponent_Linux_SambaUser(currentProperty,
-                    newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_PartComponent_Linux_SambaUser(currentProperty, newValue));
             return true;
         }
         else {

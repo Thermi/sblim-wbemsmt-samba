@@ -213,8 +213,7 @@ public class Linux_SambaShareSecurityOptions extends CIM_SettingData {
     public boolean set_CreateMask(javax.cim.UnsignedInteger16 newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_CREATEMASK.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_CreateMask(currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_CreateMask(currentProperty, newValue));
             return true;
         }
         else {
@@ -296,8 +295,7 @@ public class Linux_SambaShareSecurityOptions extends CIM_SettingData {
     public boolean set_DirectoryMask(javax.cim.UnsignedInteger16 newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_DIRECTORYMASK.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_DirectoryMask(currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_DirectoryMask(currentProperty, newValue));
             return true;
         }
         else {
@@ -379,8 +377,7 @@ public class Linux_SambaShareSecurityOptions extends CIM_SettingData {
     public boolean set_DirectorySecurityMask(javax.cim.UnsignedInteger16 newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_DIRECTORYSECURITYMASK.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_DirectorySecurityMask(currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_DirectorySecurityMask(currentProperty, newValue));
             return true;
         }
         else {
@@ -462,8 +459,7 @@ public class Linux_SambaShareSecurityOptions extends CIM_SettingData {
     public boolean set_key_Name(String newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_NAME.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_key_Name(currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_key_Name(currentProperty, newValue));
             return true;
         }
         else {

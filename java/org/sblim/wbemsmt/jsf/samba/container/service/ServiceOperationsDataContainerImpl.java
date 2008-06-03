@@ -207,10 +207,10 @@ public class ServiceOperationsDataContainerImpl extends org.sblim.wbemsmt.tools.
     public void copyFrom(DataContainer sourceContainer) throws WbemsmtException {
         ServiceOperationsDataContainerImpl source = (ServiceOperationsDataContainerImpl) sourceContainer;
 
-        get_Started().setValue(source.get_Started().getValue());
-        get_invoke_StartService().setValue(source.get_invoke_StartService().getValue());
-        get_invoke_StopService().setValue(source.get_invoke_StopService().getValue());
-        get_usr_RestartService().setValue(source.get_usr_RestartService().getValue());
+        get_Started().copyFrom(source.get_Started());
+        get_invoke_StartService().copyFrom(source.get_invoke_StartService());
+        get_invoke_StopService().copyFrom(source.get_invoke_StopService());
+        get_usr_RestartService().copyFrom(source.get_usr_RestartService());
 
     }
 

@@ -57,7 +57,7 @@ public class ServiceDenyHostDataContainerImpl extends BaseDataContainer implemen
                     "ServiceDenyHostDataContainer.deniedHosts");
             org.sblim.wbemsmt.tools.converter.StringArrayConverter converter = new org.sblim.wbemsmt.tools.converter.UnsignedInt16StringArrayConverter();
             ic_usr_DeniedHosts = new org.sblim.wbemsmt.tools.input.test.LabeledTestStringArrayComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_DeniedHosts;
     }
@@ -75,7 +75,7 @@ public class ServiceDenyHostDataContainerImpl extends BaseDataContainer implemen
                     "ServiceDenyHostDataContainer.hostsToDeny");
             org.sblim.wbemsmt.tools.converter.StringArrayConverter converter = new org.sblim.wbemsmt.tools.converter.UnsignedInt16StringArrayConverter();
             ic_usr_HostsToDeny = new org.sblim.wbemsmt.tools.input.test.LabeledTestStringArrayComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_HostsToDeny;
     }
@@ -93,7 +93,7 @@ public class ServiceDenyHostDataContainerImpl extends BaseDataContainer implemen
                     "ServiceDenyHostDataContainer.addHost");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_usr_AddHost = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_AddHost;
     }
@@ -111,7 +111,7 @@ public class ServiceDenyHostDataContainerImpl extends BaseDataContainer implemen
                     "ServiceDenyHostDataContainer.removeHost");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_usr_RemoveHost = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_RemoveHost;
     }
@@ -175,10 +175,10 @@ public class ServiceDenyHostDataContainerImpl extends BaseDataContainer implemen
     public void copyFrom(DataContainer sourceContainer) throws WbemsmtException {
         ServiceDenyHostDataContainerImpl source = (ServiceDenyHostDataContainerImpl) sourceContainer;
 
-        get_usr_DeniedHosts().setValue(source.get_usr_DeniedHosts().getValue());
-        get_usr_HostsToDeny().setValue(source.get_usr_HostsToDeny().getValue());
-        get_usr_AddHost().setValue(source.get_usr_AddHost().getValue());
-        get_usr_RemoveHost().setValue(source.get_usr_RemoveHost().getValue());
+        get_usr_DeniedHosts().copyFrom(source.get_usr_DeniedHosts());
+        get_usr_HostsToDeny().copyFrom(source.get_usr_HostsToDeny());
+        get_usr_AddHost().copyFrom(source.get_usr_AddHost());
+        get_usr_RemoveHost().copyFrom(source.get_usr_RemoveHost());
 
     }
 

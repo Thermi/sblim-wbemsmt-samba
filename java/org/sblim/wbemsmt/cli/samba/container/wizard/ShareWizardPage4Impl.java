@@ -69,7 +69,7 @@ public class ShareWizardPage4Impl extends BaseDataContainer implements
             String label = getAdapter().getBundle().getString("ShareWizardPage4.Name");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_Name = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this, label,
-                    "", converter);
+                    null, converter);
         }
         return ic_Name;
     }
@@ -86,7 +86,7 @@ public class ShareWizardPage4Impl extends BaseDataContainer implements
             String label = getAdapter().getBundle().getString("ShareWizardPage4.Path");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_Path = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this, label,
-                    "", converter);
+                    null, converter);
         }
         return ic_Path;
     }
@@ -103,7 +103,7 @@ public class ShareWizardPage4Impl extends BaseDataContainer implements
             String label = getAdapter().getBundle().getString("ShareWizardPage4.Comment");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_Comment = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,
-                    label, "", converter);
+                    label, null, converter);
         }
         return ic_Comment;
     }
@@ -120,7 +120,7 @@ public class ShareWizardPage4Impl extends BaseDataContainer implements
             String label = getAdapter().getBundle().getString("ShareWizardPage4.seenByEverybody");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_usr_SeenByEverybody = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_SeenByEverybody;
     }
@@ -137,7 +137,7 @@ public class ShareWizardPage4Impl extends BaseDataContainer implements
             String label = getAdapter().getBundle().getString("ShareWizardPage4.enableGuest");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_usr_EnableGuest = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_EnableGuest;
     }
@@ -154,7 +154,7 @@ public class ShareWizardPage4Impl extends BaseDataContainer implements
             String label = getAdapter().getBundle().getString("ShareWizardPage4.CreateMask");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_CreateMask = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,
-                    label, "", converter);
+                    label, null, converter);
         }
         return ic_CreateMask;
     }
@@ -171,7 +171,7 @@ public class ShareWizardPage4Impl extends BaseDataContainer implements
             String label = getAdapter().getBundle().getString("ShareWizardPage4.DirectoryMask");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_DirectoryMask = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_DirectoryMask;
     }
@@ -189,7 +189,7 @@ public class ShareWizardPage4Impl extends BaseDataContainer implements
                     "ShareWizardPage4.DirectorySecurityMask");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_DirectorySecurityMask = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_DirectorySecurityMask;
     }
@@ -206,7 +206,7 @@ public class ShareWizardPage4Impl extends BaseDataContainer implements
             String label = getAdapter().getBundle().getString("ShareWizardPage4.forceUser");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_usr_ForceUser = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_ForceUser;
     }
@@ -396,15 +396,15 @@ public class ShareWizardPage4Impl extends BaseDataContainer implements
     public void copyFrom(DataContainer sourceContainer) throws WbemsmtException {
         ShareWizardPage4Impl source = (ShareWizardPage4Impl) sourceContainer;
 
-        get_Name().setValue(source.get_Name().getValue());
-        get_Path().setValue(source.get_Path().getValue());
-        get_Comment().setValue(source.get_Comment().getValue());
-        get_usr_SeenByEverybody().setValue(source.get_usr_SeenByEverybody().getValue());
-        get_usr_EnableGuest().setValue(source.get_usr_EnableGuest().getValue());
-        get_CreateMask().setValue(source.get_CreateMask().getValue());
-        get_DirectoryMask().setValue(source.get_DirectoryMask().getValue());
-        get_DirectorySecurityMask().setValue(source.get_DirectorySecurityMask().getValue());
-        get_usr_ForceUser().setValue(source.get_usr_ForceUser().getValue());
+        get_Name().copyFrom(source.get_Name());
+        get_Path().copyFrom(source.get_Path());
+        get_Comment().copyFrom(source.get_Comment());
+        get_usr_SeenByEverybody().copyFrom(source.get_usr_SeenByEverybody());
+        get_usr_EnableGuest().copyFrom(source.get_usr_EnableGuest());
+        get_CreateMask().copyFrom(source.get_CreateMask());
+        get_DirectoryMask().copyFrom(source.get_DirectoryMask());
+        get_DirectorySecurityMask().copyFrom(source.get_DirectorySecurityMask());
+        get_usr_ForceUser().copyFrom(source.get_usr_ForceUser());
 
         List targetListForUsers = (List) getUsers();
         List sourceListForUsers = (List) source.getUsers();

@@ -1,5 +1,6 @@
 Changes on top of 0.5.5-1
 ==============================================================================
+- 1977422 wbemsmt-tasks: add httpProtocolType as global cli arg
 - 1965983 wbemsmt-samba: migrate to jsr48
 
 

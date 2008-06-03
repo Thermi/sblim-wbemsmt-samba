@@ -122,6 +122,12 @@ public class CreateSambaShare extends CimCommand implements ContainerUpdater {
     public static final OptionDefinition KEY_GLOBAL_privatekeyfile = new OptionDefinition(null,
             "privatekeyfile", null, "privatekeyfile.argValue", false, false,
             "privatekeyfile.argDescription");
+    /**
+     * used for selection:  --httpProtocolType, default: http
+     */
+    public static final OptionDefinition KEY_GLOBAL_httpProtocolType = new OptionDefinition(null,
+            "httpProtocolType", "http", "httpProtocolType.argValue", false, false,
+            "httpProtocolType.argDescription");
 
     // Global Common Options
     /**
@@ -148,7 +154,8 @@ public class CreateSambaShare extends CimCommand implements ContainerUpdater {
 
     private static final OptionDefinition[] GLOBAL_WBEMSMT_COMMUNICATION_OPTIONS = new OptionDefinition[] {
             KEY_GLOBAL_hostname, KEY_GLOBAL_port, KEY_GLOBAL_namespace, KEY_GLOBAL_user,
-            KEY_GLOBAL_password, KEY_GLOBAL_publickeyfile, KEY_GLOBAL_privatekeyfile, };
+            KEY_GLOBAL_password, KEY_GLOBAL_publickeyfile, KEY_GLOBAL_privatekeyfile,
+            KEY_GLOBAL_httpProtocolType, };
 
     private static final OptionDefinition[] GLOBAL_WBEMSMT_COMMON_OPTIONS = new OptionDefinition[] {
             KEY_GLOBAL_QUESTION_MARK_, KEY_GLOBAL_help, KEY_GLOBAL_locale, };
@@ -368,7 +375,10 @@ public class CreateSambaShare extends CimCommand implements ContainerUpdater {
             int count = 0;
 
             count = adapter
-                    .count(org.sblim.wbemsmt.samba.bl.container.wizard.UserInShareWizardACLItemDataContainer.class);
+                    .count(
+                            "users",
+                            org.sblim.wbemsmt.samba.bl.container.wizard.UserInShareWizardACLItemDataContainer.class,
+                            dc);
             dc.getUsers().clear();
             for (int i = 0; i < count; i++) {
                 org.sblim.wbemsmt.cli.samba.container.wizard.UserInShareWizardACLItemDataContainerImpl child = new org.sblim.wbemsmt.cli.samba.container.wizard.UserInShareWizardACLItemDataContainerImpl(
@@ -408,7 +418,10 @@ public class CreateSambaShare extends CimCommand implements ContainerUpdater {
             int count = 0;
 
             count = adapter
-                    .count(org.sblim.wbemsmt.samba.bl.container.wizard.UserInShareWizardACLItemDataContainer.class);
+                    .count(
+                            "users",
+                            org.sblim.wbemsmt.samba.bl.container.wizard.UserInShareWizardACLItemDataContainer.class,
+                            dc);
             dc.getUsers().clear();
             for (int i = 0; i < count; i++) {
                 org.sblim.wbemsmt.cli.samba.container.wizard.UserInShareWizardACLItemDataContainerImpl child = new org.sblim.wbemsmt.cli.samba.container.wizard.UserInShareWizardACLItemDataContainerImpl(
@@ -438,8 +451,8 @@ public class CreateSambaShare extends CimCommand implements ContainerUpdater {
 
     protected CimClientOptionValues getCimClientOptions() {
 
-        return new CimClientOptionValues(KEY_GLOBAL_hostname, KEY_GLOBAL_port,
-                KEY_GLOBAL_namespace, KEY_GLOBAL_user, KEY_GLOBAL_password,
+        return new CimClientOptionValues(KEY_GLOBAL_httpProtocolType, KEY_GLOBAL_hostname,
+                KEY_GLOBAL_port, KEY_GLOBAL_namespace, KEY_GLOBAL_user, KEY_GLOBAL_password,
                 KEY_GLOBAL_publickeyfile, KEY_GLOBAL_privatekeyfile);
     }
 

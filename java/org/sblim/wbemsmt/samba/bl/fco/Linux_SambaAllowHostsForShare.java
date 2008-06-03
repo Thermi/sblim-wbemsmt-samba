@@ -171,9 +171,7 @@ public class Linux_SambaAllowHostsForShare extends CIM_Component {
     public boolean set_PartComponent_Linux_SambaHost(Linux_SambaHost newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_PARTCOMPONENT_LINUX_SAMBAHOST.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_PartComponent_Linux_SambaHost(currentProperty,
-                    newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_PartComponent_Linux_SambaHost(currentProperty, newValue));
             return true;
         }
         else {
@@ -257,9 +255,8 @@ public class Linux_SambaAllowHostsForShare extends CIM_Component {
     public boolean set_GroupComponent_Linux_SambaShareOptions(Linux_SambaShareOptions newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_GROUPCOMPONENT_LINUX_SAMBASHAREOPTIONS.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_GroupComponent_Linux_SambaShareOptions(
-                    currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_GroupComponent_Linux_SambaShareOptions(currentProperty,
+                    newValue));
             return true;
         }
         else {

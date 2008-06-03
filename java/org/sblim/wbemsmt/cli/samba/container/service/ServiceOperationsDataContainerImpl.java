@@ -58,7 +58,7 @@ public class ServiceOperationsDataContainerImpl extends BaseDataContainer implem
                     "ServiceOperationsDataContainer.Started");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_Started = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,
-                    label, "", converter);
+                    label, null, converter);
         }
         return ic_Started;
     }
@@ -76,7 +76,7 @@ public class ServiceOperationsDataContainerImpl extends BaseDataContainer implem
                     "ServiceOperationsDataContainer.startService");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_invoke_StartService = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_invoke_StartService;
     }
@@ -94,7 +94,7 @@ public class ServiceOperationsDataContainerImpl extends BaseDataContainer implem
                     "ServiceOperationsDataContainer.stopService");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_invoke_StopService = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_invoke_StopService;
     }
@@ -112,7 +112,7 @@ public class ServiceOperationsDataContainerImpl extends BaseDataContainer implem
                     "ServiceOperationsDataContainer.restartService");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_usr_RestartService = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_RestartService;
     }
@@ -171,10 +171,10 @@ public class ServiceOperationsDataContainerImpl extends BaseDataContainer implem
     public void copyFrom(DataContainer sourceContainer) throws WbemsmtException {
         ServiceOperationsDataContainerImpl source = (ServiceOperationsDataContainerImpl) sourceContainer;
 
-        get_Started().setValue(source.get_Started().getValue());
-        get_invoke_StartService().setValue(source.get_invoke_StartService().getValue());
-        get_invoke_StopService().setValue(source.get_invoke_StopService().getValue());
-        get_usr_RestartService().setValue(source.get_usr_RestartService().getValue());
+        get_Started().copyFrom(source.get_Started());
+        get_invoke_StartService().copyFrom(source.get_invoke_StartService());
+        get_invoke_StopService().copyFrom(source.get_invoke_StopService());
+        get_usr_RestartService().copyFrom(source.get_usr_RestartService());
 
     }
 

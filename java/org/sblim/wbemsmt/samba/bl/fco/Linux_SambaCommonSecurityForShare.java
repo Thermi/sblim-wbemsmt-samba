@@ -172,9 +172,8 @@ public class Linux_SambaCommonSecurityForShare extends CIM_ElementSettingData {
             Linux_SambaCommonSecurityOptions newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_SETTINGDATA_LINUX_SAMBACOMMONSECURITYOPTIONS.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_SettingData_Linux_SambaCommonSecurityOptions(
-                    currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_SettingData_Linux_SambaCommonSecurityOptions(
+                    currentProperty, newValue));
             return true;
         }
         else {
@@ -262,9 +261,8 @@ public class Linux_SambaCommonSecurityForShare extends CIM_ElementSettingData {
     public boolean set_ManagedElement_Linux_SambaShareOptions(Linux_SambaShareOptions newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_MANAGEDELEMENT_LINUX_SAMBASHAREOPTIONS.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_ManagedElement_Linux_SambaShareOptions(
-                    currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_ManagedElement_Linux_SambaShareOptions(currentProperty,
+                    newValue));
             return true;
         }
         else {

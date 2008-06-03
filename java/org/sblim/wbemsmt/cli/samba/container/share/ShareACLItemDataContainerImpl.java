@@ -57,7 +57,7 @@ public class ShareACLItemDataContainerImpl extends BaseDataContainer implements
                     .getString("ShareACLItemDataContainer.shareName");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_ShareName = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,
-                    label, "", converter);
+                    label, null, converter);
         }
         return ic_ShareName;
     }
@@ -75,7 +75,7 @@ public class ShareACLItemDataContainerImpl extends BaseDataContainer implements
                     "ShareACLItemDataContainer.accessTypeVI");
             org.sblim.wbemsmt.tools.converter.StringArrayConverter converter = new org.sblim.wbemsmt.tools.converter.UnsignedInt16StringArrayConverter();
             ic_usr_AccessTypeVI = new org.sblim.wbemsmt.tools.input.test.LabeledTestStringArrayComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_AccessTypeVI;
     }
@@ -93,7 +93,7 @@ public class ShareACLItemDataContainerImpl extends BaseDataContainer implements
                     "ShareACLItemDataContainer.accessTypeRW");
             org.sblim.wbemsmt.tools.converter.StringArrayConverter converter = new org.sblim.wbemsmt.tools.converter.UnsignedInt16StringArrayConverter();
             ic_usr_AccessTypeRW = new org.sblim.wbemsmt.tools.input.test.LabeledTestStringArrayComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_AccessTypeRW;
     }
@@ -110,7 +110,7 @@ public class ShareACLItemDataContainerImpl extends BaseDataContainer implements
             String label = getAdapter().getBundle().getString("ShareACLItemDataContainer.admin");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_usr_Admin = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,
-                    label, "", converter);
+                    label, null, converter);
         }
         return ic_usr_Admin;
     }
@@ -184,10 +184,10 @@ public class ShareACLItemDataContainerImpl extends BaseDataContainer implements
     public void copyFrom(DataContainer sourceContainer) throws WbemsmtException {
         ShareACLItemDataContainerImpl source = (ShareACLItemDataContainerImpl) sourceContainer;
 
-        get_ShareName().setValue(source.get_ShareName().getValue());
-        get_usr_AccessTypeVI().setValue(source.get_usr_AccessTypeVI().getValue());
-        get_usr_AccessTypeRW().setValue(source.get_usr_AccessTypeRW().getValue());
-        get_usr_Admin().setValue(source.get_usr_Admin().getValue());
+        get_ShareName().copyFrom(source.get_ShareName());
+        get_usr_AccessTypeVI().copyFrom(source.get_usr_AccessTypeVI());
+        get_usr_AccessTypeRW().copyFrom(source.get_usr_AccessTypeRW());
+        get_usr_Admin().copyFrom(source.get_usr_Admin());
 
     }
 

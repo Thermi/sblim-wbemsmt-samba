@@ -57,7 +57,7 @@ public class PrinterWizardPage2Impl extends BaseDataContainer implements
                     .getString("PrinterWizardPage2.SambaPrinterName");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_SambaPrinterName = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_SambaPrinterName;
     }
@@ -75,7 +75,7 @@ public class PrinterWizardPage2Impl extends BaseDataContainer implements
                     "PrinterWizardPage2.SystemPrinterName");
             org.sblim.wbemsmt.tools.converter.StringArrayConverter converter = new org.sblim.wbemsmt.tools.converter.UnsignedInt16StringArrayConverter();
             ic_usr_SystemPrinterName = new org.sblim.wbemsmt.tools.input.test.LabeledTestStringArrayComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_SystemPrinterName;
     }
@@ -92,7 +92,7 @@ public class PrinterWizardPage2Impl extends BaseDataContainer implements
             String label = getAdapter().getBundle().getString("PrinterWizardPage2.Path");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_Path = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this, label,
-                    "", converter);
+                    null, converter);
         }
         return ic_Path;
     }
@@ -109,7 +109,7 @@ public class PrinterWizardPage2Impl extends BaseDataContainer implements
             String label = getAdapter().getBundle().getString("PrinterWizardPage2.Comment");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_Comment = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,
-                    label, "", converter);
+                    label, null, converter);
         }
         return ic_Comment;
     }
@@ -182,10 +182,10 @@ public class PrinterWizardPage2Impl extends BaseDataContainer implements
     public void copyFrom(DataContainer sourceContainer) throws WbemsmtException {
         PrinterWizardPage2Impl source = (PrinterWizardPage2Impl) sourceContainer;
 
-        get_SambaPrinterName().setValue(source.get_SambaPrinterName().getValue());
-        get_usr_SystemPrinterName().setValue(source.get_usr_SystemPrinterName().getValue());
-        get_Path().setValue(source.get_Path().getValue());
-        get_Comment().setValue(source.get_Comment().getValue());
+        get_SambaPrinterName().copyFrom(source.get_SambaPrinterName());
+        get_usr_SystemPrinterName().copyFrom(source.get_usr_SystemPrinterName());
+        get_Path().copyFrom(source.get_Path());
+        get_Comment().copyFrom(source.get_Comment());
 
     }
 

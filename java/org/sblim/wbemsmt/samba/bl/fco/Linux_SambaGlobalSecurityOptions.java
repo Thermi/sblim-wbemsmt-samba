@@ -374,7 +374,7 @@ public class Linux_SambaGlobalSecurityOptions extends CIM_SettingData {
          * @param value the value to find the ValueMapEntry for
          * @return the ValueMap entry or null if not found
          */
-        //org.sblim.wbemsmt.dcg.generator.DCGContextUtil$Wrapper@53e253e2
+        //org.sblim.wbemsmt.dcg.generator.DCGContextUtil$Wrapper@61d261d2
         public static javax.cim.UnsignedInteger8 getValueMapEntry(String value) {
 
             if (VALUE_ENTRY_User.equals(value)) {
@@ -616,8 +616,7 @@ public class Linux_SambaGlobalSecurityOptions extends CIM_SettingData {
     public boolean set_AuthMethods(String newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_AUTHMETHODS.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_AuthMethods(currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_AuthMethods(currentProperty, newValue));
             return true;
         }
         else {
@@ -700,8 +699,7 @@ public class Linux_SambaGlobalSecurityOptions extends CIM_SettingData {
     public boolean set_EncryptPasswords(Boolean newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_ENCRYPTPASSWORDS.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_EncryptPasswords(currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_EncryptPasswords(currentProperty, newValue));
             return true;
         }
         else {
@@ -784,8 +782,7 @@ public class Linux_SambaGlobalSecurityOptions extends CIM_SettingData {
     public boolean set_MinPasswordLength(javax.cim.UnsignedInteger8 newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_MINPASSWORDLENGTH.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_MinPasswordLength(currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_MinPasswordLength(currentProperty, newValue));
             return true;
         }
         else {
@@ -868,8 +865,7 @@ public class Linux_SambaGlobalSecurityOptions extends CIM_SettingData {
     public boolean set_key_Name(String newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_NAME.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_key_Name(currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_key_Name(currentProperty, newValue));
             return true;
         }
         else {
@@ -952,8 +948,7 @@ public class Linux_SambaGlobalSecurityOptions extends CIM_SettingData {
     public boolean set_NullPasswords(Boolean newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_NULLPASSWORDS.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_NullPasswords(currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_NullPasswords(currentProperty, newValue));
             return true;
         }
         else {
@@ -1036,8 +1031,7 @@ public class Linux_SambaGlobalSecurityOptions extends CIM_SettingData {
     public boolean set_PassdbBackend(String newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_PASSDBBACKEND.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_PassdbBackend(currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_PassdbBackend(currentProperty, newValue));
             return true;
         }
         else {
@@ -1120,8 +1114,7 @@ public class Linux_SambaGlobalSecurityOptions extends CIM_SettingData {
     public boolean set_SMBPasswdFile(String newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_SMBPASSWDFILE.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_SMBPasswdFile(currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_SMBPasswdFile(currentProperty, newValue));
             return true;
         }
         else {
@@ -1204,8 +1197,7 @@ public class Linux_SambaGlobalSecurityOptions extends CIM_SettingData {
     public boolean set_Security(javax.cim.UnsignedInteger8 newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_SECURITY.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_Security(currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_Security(currentProperty, newValue));
             return true;
         }
         else {

@@ -171,9 +171,8 @@ public class Linux_SambaForceGroupForPrinter extends CIM_Component {
     public boolean set_GroupComponent_Linux_SambaPrinterOptions(Linux_SambaPrinterOptions newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_GROUPCOMPONENT_LINUX_SAMBAPRINTEROPTIONS.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_GroupComponent_Linux_SambaPrinterOptions(
-                    currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_GroupComponent_Linux_SambaPrinterOptions(currentProperty,
+                    newValue));
             return true;
         }
         else {
@@ -258,9 +257,7 @@ public class Linux_SambaForceGroupForPrinter extends CIM_Component {
     public boolean set_PartComponent_Linux_SambaGroup(Linux_SambaGroup newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_PARTCOMPONENT_LINUX_SAMBAGROUP.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_PartComponent_Linux_SambaGroup(currentProperty,
-                    newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_PartComponent_Linux_SambaGroup(currentProperty, newValue));
             return true;
         }
         else {

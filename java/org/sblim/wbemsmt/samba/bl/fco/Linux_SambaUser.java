@@ -345,8 +345,7 @@ public class Linux_SambaUser extends CIM_ManagedElement {
     public boolean set_key_SambaUserName(String newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_SAMBAUSERNAME.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_key_SambaUserName(currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_key_SambaUserName(currentProperty, newValue));
             return true;
         }
         else {
@@ -409,8 +408,7 @@ public class Linux_SambaUser extends CIM_ManagedElement {
     public boolean set_SambaUserPassword(String newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_SAMBAUSERPASSWORD.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_SambaUserPassword(currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_SambaUserPassword(currentProperty, newValue));
             return true;
         }
         else {
@@ -492,8 +490,7 @@ public class Linux_SambaUser extends CIM_ManagedElement {
     public boolean set_SystemUserName(String newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_SYSTEMUSERNAME.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_SystemUserName(currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_SystemUserName(currentProperty, newValue));
             return true;
         }
         else {

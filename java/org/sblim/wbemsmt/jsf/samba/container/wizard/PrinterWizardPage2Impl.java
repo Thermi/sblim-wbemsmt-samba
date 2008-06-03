@@ -209,10 +209,10 @@ public class PrinterWizardPage2Impl extends org.sblim.wbemsmt.tools.wizard.jsf.W
     public void copyFrom(DataContainer sourceContainer) throws WbemsmtException {
         PrinterWizardPage2Impl source = (PrinterWizardPage2Impl) sourceContainer;
 
-        get_SambaPrinterName().setValue(source.get_SambaPrinterName().getValue());
-        get_usr_SystemPrinterName().setValue(source.get_usr_SystemPrinterName().getValue());
-        get_Path().setValue(source.get_Path().getValue());
-        get_Comment().setValue(source.get_Comment().getValue());
+        get_SambaPrinterName().copyFrom(source.get_SambaPrinterName());
+        get_usr_SystemPrinterName().copyFrom(source.get_usr_SystemPrinterName());
+        get_Path().copyFrom(source.get_Path());
+        get_Comment().copyFrom(source.get_Comment());
 
     }
 

@@ -400,9 +400,9 @@ public class ServiceUserSecurityOptionsDataContainerImpl extends
     public void copyFrom(DataContainer sourceContainer) throws WbemsmtException {
         ServiceUserSecurityOptionsDataContainerImpl source = (ServiceUserSecurityOptionsDataContainerImpl) sourceContainer;
 
-        get_usr_GuestUser().setValue(source.get_usr_GuestUser().getValue());
-        get_usr_CurrentForceUser().setValue(source.get_usr_CurrentForceUser().getValue());
-        get_usr_NewForceUser().setValue(source.get_usr_NewForceUser().getValue());
+        get_usr_GuestUser().copyFrom(source.get_usr_GuestUser());
+        get_usr_CurrentForceUser().copyFrom(source.get_usr_CurrentForceUser());
+        get_usr_NewForceUser().copyFrom(source.get_usr_NewForceUser());
 
         List targetListForUserRights = (List) getUserRights();
         List sourceListForUserRights = (List) source.getUserRights();

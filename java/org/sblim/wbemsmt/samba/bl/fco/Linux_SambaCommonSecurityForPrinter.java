@@ -172,9 +172,8 @@ public class Linux_SambaCommonSecurityForPrinter extends CIM_ElementSettingData 
             Linux_SambaCommonSecurityOptions newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_SETTINGDATA_LINUX_SAMBACOMMONSECURITYOPTIONS.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_SettingData_Linux_SambaCommonSecurityOptions(
-                    currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_SettingData_Linux_SambaCommonSecurityOptions(
+                    currentProperty, newValue));
             return true;
         }
         else {
@@ -262,9 +261,8 @@ public class Linux_SambaCommonSecurityForPrinter extends CIM_ElementSettingData 
     public boolean set_ManagedElement_Linux_SambaPrinterOptions(Linux_SambaPrinterOptions newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_MANAGEDELEMENT_LINUX_SAMBAPRINTEROPTIONS.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_ManagedElement_Linux_SambaPrinterOptions(
-                    currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_ManagedElement_Linux_SambaPrinterOptions(currentProperty,
+                    newValue));
             return true;
         }
         else {

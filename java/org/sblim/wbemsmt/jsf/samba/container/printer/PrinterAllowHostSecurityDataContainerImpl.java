@@ -209,10 +209,10 @@ public class PrinterAllowHostSecurityDataContainerImpl extends
     public void copyFrom(DataContainer sourceContainer) throws WbemsmtException {
         PrinterAllowHostSecurityDataContainerImpl source = (PrinterAllowHostSecurityDataContainerImpl) sourceContainer;
 
-        get_usr_AllowedHosts().setValue(source.get_usr_AllowedHosts().getValue());
-        get_usr_HostsToAllow().setValue(source.get_usr_HostsToAllow().getValue());
-        get_usr_AddHost().setValue(source.get_usr_AddHost().getValue());
-        get_usr_RemoveHost().setValue(source.get_usr_RemoveHost().getValue());
+        get_usr_AllowedHosts().copyFrom(source.get_usr_AllowedHosts());
+        get_usr_HostsToAllow().copyFrom(source.get_usr_HostsToAllow());
+        get_usr_AddHost().copyFrom(source.get_usr_AddHost());
+        get_usr_RemoveHost().copyFrom(source.get_usr_RemoveHost());
 
     }
 

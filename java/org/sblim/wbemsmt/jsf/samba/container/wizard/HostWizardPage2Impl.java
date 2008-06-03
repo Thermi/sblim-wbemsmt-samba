@@ -116,7 +116,7 @@ public class HostWizardPage2Impl extends org.sblim.wbemsmt.tools.wizard.jsf.Wiza
     public void copyFrom(DataContainer sourceContainer) throws WbemsmtException {
         HostWizardPage2Impl source = (HostWizardPage2Impl) sourceContainer;
 
-        get_Name().setValue(source.get_Name().getValue());
+        get_Name().copyFrom(source.get_Name());
 
     }
 

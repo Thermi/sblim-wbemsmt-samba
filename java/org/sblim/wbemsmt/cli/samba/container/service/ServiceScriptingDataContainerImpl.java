@@ -63,7 +63,7 @@ public class ServiceScriptingDataContainerImpl extends BaseDataContainer impleme
                     "ServiceScriptingDataContainer.AddGroupScript");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_AddGroupScript = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_AddGroupScript;
     }
@@ -81,7 +81,7 @@ public class ServiceScriptingDataContainerImpl extends BaseDataContainer impleme
                     "ServiceScriptingDataContainer.AddPrinterCommand");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_AddPrinterCommand = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_AddPrinterCommand;
     }
@@ -99,7 +99,7 @@ public class ServiceScriptingDataContainerImpl extends BaseDataContainer impleme
                     "ServiceScriptingDataContainer.AddShareCommand");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_AddShareCommand = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_AddShareCommand;
     }
@@ -117,7 +117,7 @@ public class ServiceScriptingDataContainerImpl extends BaseDataContainer impleme
                     "ServiceScriptingDataContainer.AddUserScript");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_AddUserScript = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_AddUserScript;
     }
@@ -135,7 +135,7 @@ public class ServiceScriptingDataContainerImpl extends BaseDataContainer impleme
                     "ServiceScriptingDataContainer.AddUsertoGroupScript");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_AddUsertoGroupScript = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_AddUsertoGroupScript;
     }
@@ -153,7 +153,7 @@ public class ServiceScriptingDataContainerImpl extends BaseDataContainer impleme
                     "ServiceScriptingDataContainer.DeleteGroupScript");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_DeleteGroupScript = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_DeleteGroupScript;
     }
@@ -171,7 +171,7 @@ public class ServiceScriptingDataContainerImpl extends BaseDataContainer impleme
                     "ServiceScriptingDataContainer.DeleteUserScript");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_DeleteUserScript = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_DeleteUserScript;
     }
@@ -189,7 +189,7 @@ public class ServiceScriptingDataContainerImpl extends BaseDataContainer impleme
                     "ServiceScriptingDataContainer.DeleteUserfromGroupScript");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_DeleteUserfromGroupScript = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_DeleteUserfromGroupScript;
     }
@@ -207,7 +207,7 @@ public class ServiceScriptingDataContainerImpl extends BaseDataContainer impleme
                     "ServiceScriptingDataContainer.SetPrimaryGroupScript");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_SetPrimaryGroupScript = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_SetPrimaryGroupScript;
     }
@@ -311,15 +311,15 @@ public class ServiceScriptingDataContainerImpl extends BaseDataContainer impleme
     public void copyFrom(DataContainer sourceContainer) throws WbemsmtException {
         ServiceScriptingDataContainerImpl source = (ServiceScriptingDataContainerImpl) sourceContainer;
 
-        get_AddGroupScript().setValue(source.get_AddGroupScript().getValue());
-        get_AddPrinterCommand().setValue(source.get_AddPrinterCommand().getValue());
-        get_AddShareCommand().setValue(source.get_AddShareCommand().getValue());
-        get_AddUserScript().setValue(source.get_AddUserScript().getValue());
-        get_AddUsertoGroupScript().setValue(source.get_AddUsertoGroupScript().getValue());
-        get_DeleteGroupScript().setValue(source.get_DeleteGroupScript().getValue());
-        get_DeleteUserScript().setValue(source.get_DeleteUserScript().getValue());
-        get_DeleteUserfromGroupScript().setValue(source.get_DeleteUserfromGroupScript().getValue());
-        get_SetPrimaryGroupScript().setValue(source.get_SetPrimaryGroupScript().getValue());
+        get_AddGroupScript().copyFrom(source.get_AddGroupScript());
+        get_AddPrinterCommand().copyFrom(source.get_AddPrinterCommand());
+        get_AddShareCommand().copyFrom(source.get_AddShareCommand());
+        get_AddUserScript().copyFrom(source.get_AddUserScript());
+        get_AddUsertoGroupScript().copyFrom(source.get_AddUsertoGroupScript());
+        get_DeleteGroupScript().copyFrom(source.get_DeleteGroupScript());
+        get_DeleteUserScript().copyFrom(source.get_DeleteUserScript());
+        get_DeleteUserfromGroupScript().copyFrom(source.get_DeleteUserfromGroupScript());
+        get_SetPrimaryGroupScript().copyFrom(source.get_SetPrimaryGroupScript());
 
     }
 

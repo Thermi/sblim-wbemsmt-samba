@@ -61,7 +61,7 @@ public class ServiceLoggingDataContainerImpl extends BaseDataContainer implement
             String label = getAdapter().getBundle().getString("ServiceLoggingDataContainer.SysLog");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.UnsignedInt16StringConverter();
             ic_SysLog = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,
-                    label, "", converter);
+                    label, null, converter);
         }
         return ic_SysLog;
     }
@@ -79,7 +79,7 @@ public class ServiceLoggingDataContainerImpl extends BaseDataContainer implement
                     "ServiceLoggingDataContainer.SysLogOnly");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_SysLogOnly = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,
-                    label, "", converter);
+                    label, null, converter);
         }
         return ic_SysLogOnly;
     }
@@ -97,7 +97,7 @@ public class ServiceLoggingDataContainerImpl extends BaseDataContainer implement
                     "ServiceLoggingDataContainer.MaxLogSize");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.UnsignedInt32StringConverter();
             ic_MaxLogSize = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,
-                    label, "", converter);
+                    label, null, converter);
         }
         return ic_MaxLogSize;
     }
@@ -115,7 +115,7 @@ public class ServiceLoggingDataContainerImpl extends BaseDataContainer implement
                     "ServiceLoggingDataContainer.DebugHiresTimestamp");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_DebugHiresTimestamp = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_DebugHiresTimestamp;
     }
@@ -133,7 +133,7 @@ public class ServiceLoggingDataContainerImpl extends BaseDataContainer implement
                     "ServiceLoggingDataContainer.DebugPID");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_DebugPID = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,
-                    label, "", converter);
+                    label, null, converter);
         }
         return ic_DebugPID;
     }
@@ -151,7 +151,7 @@ public class ServiceLoggingDataContainerImpl extends BaseDataContainer implement
                     "ServiceLoggingDataContainer.DebugTimestamp");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_DebugTimestamp = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_DebugTimestamp;
     }
@@ -169,7 +169,7 @@ public class ServiceLoggingDataContainerImpl extends BaseDataContainer implement
                     "ServiceLoggingDataContainer.DebugUID");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_DebugUID = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,
-                    label, "", converter);
+                    label, null, converter);
         }
         return ic_DebugUID;
     }
@@ -187,7 +187,7 @@ public class ServiceLoggingDataContainerImpl extends BaseDataContainer implement
                     .getString("ServiceLoggingDataContainer.LogFile");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_LogFile = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,
-                    label, "", converter);
+                    label, null, converter);
         }
         return ic_LogFile;
     }
@@ -205,7 +205,7 @@ public class ServiceLoggingDataContainerImpl extends BaseDataContainer implement
                     "ServiceLoggingDataContainer.LogLevel");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_LogLevel = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,
-                    label, "", converter);
+                    label, null, converter);
         }
         return ic_LogLevel;
     }
@@ -309,15 +309,15 @@ public class ServiceLoggingDataContainerImpl extends BaseDataContainer implement
     public void copyFrom(DataContainer sourceContainer) throws WbemsmtException {
         ServiceLoggingDataContainerImpl source = (ServiceLoggingDataContainerImpl) sourceContainer;
 
-        get_SysLog().setValue(source.get_SysLog().getValue());
-        get_SysLogOnly().setValue(source.get_SysLogOnly().getValue());
-        get_MaxLogSize().setValue(source.get_MaxLogSize().getValue());
-        get_DebugHiresTimestamp().setValue(source.get_DebugHiresTimestamp().getValue());
-        get_DebugPID().setValue(source.get_DebugPID().getValue());
-        get_DebugTimestamp().setValue(source.get_DebugTimestamp().getValue());
-        get_DebugUID().setValue(source.get_DebugUID().getValue());
-        get_LogFile().setValue(source.get_LogFile().getValue());
-        get_LogLevel().setValue(source.get_LogLevel().getValue());
+        get_SysLog().copyFrom(source.get_SysLog());
+        get_SysLogOnly().copyFrom(source.get_SysLogOnly());
+        get_MaxLogSize().copyFrom(source.get_MaxLogSize());
+        get_DebugHiresTimestamp().copyFrom(source.get_DebugHiresTimestamp());
+        get_DebugPID().copyFrom(source.get_DebugPID());
+        get_DebugTimestamp().copyFrom(source.get_DebugTimestamp());
+        get_DebugUID().copyFrom(source.get_DebugUID());
+        get_LogFile().copyFrom(source.get_LogFile());
+        get_LogLevel().copyFrom(source.get_LogLevel());
 
     }
 

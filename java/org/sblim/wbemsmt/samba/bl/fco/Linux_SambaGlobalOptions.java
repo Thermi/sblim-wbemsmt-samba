@@ -400,8 +400,7 @@ public class Linux_SambaGlobalOptions extends CIM_SettingData {
     public boolean set_BindInterfacesOnly(Boolean newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_BINDINTERFACESONLY.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_BindInterfacesOnly(currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_BindInterfacesOnly(currentProperty, newValue));
             return true;
         }
         else {
@@ -483,8 +482,7 @@ public class Linux_SambaGlobalOptions extends CIM_SettingData {
     public boolean set_Interfaces(String newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_INTERFACES.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_Interfaces(currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_Interfaces(currentProperty, newValue));
             return true;
         }
         else {
@@ -566,8 +564,7 @@ public class Linux_SambaGlobalOptions extends CIM_SettingData {
     public boolean set_key_Name(String newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_NAME.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_key_Name(currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_key_Name(currentProperty, newValue));
             return true;
         }
         else {
@@ -649,8 +646,7 @@ public class Linux_SambaGlobalOptions extends CIM_SettingData {
     public boolean set_NetbiosAlias(String newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_NETBIOSALIAS.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_NetbiosAlias(currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_NetbiosAlias(currentProperty, newValue));
             return true;
         }
         else {
@@ -732,8 +728,7 @@ public class Linux_SambaGlobalOptions extends CIM_SettingData {
     public boolean set_NetbiosName(String newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_NETBIOSNAME.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_NetbiosName(currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_NetbiosName(currentProperty, newValue));
             return true;
         }
         else {
@@ -815,8 +810,7 @@ public class Linux_SambaGlobalOptions extends CIM_SettingData {
     public boolean set_Printable(Boolean newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_PRINTABLE.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_Printable(currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_Printable(currentProperty, newValue));
             return true;
         }
         else {
@@ -898,8 +892,7 @@ public class Linux_SambaGlobalOptions extends CIM_SettingData {
     public boolean set_ServerString(String newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_SERVERSTRING.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_ServerString(currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_ServerString(currentProperty, newValue));
             return true;
         }
         else {
@@ -981,8 +974,7 @@ public class Linux_SambaGlobalOptions extends CIM_SettingData {
     public boolean set_Workgroup(String newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_WORKGROUP.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_Workgroup(currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_Workgroup(currentProperty, newValue));
             return true;
         }
         else {

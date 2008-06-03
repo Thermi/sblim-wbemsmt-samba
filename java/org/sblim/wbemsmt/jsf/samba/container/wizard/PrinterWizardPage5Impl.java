@@ -627,16 +627,16 @@ public class PrinterWizardPage5Impl extends org.sblim.wbemsmt.tools.wizard.jsf.W
     public void copyFrom(DataContainer sourceContainer) throws WbemsmtException {
         PrinterWizardPage5Impl source = (PrinterWizardPage5Impl) sourceContainer;
 
-        get_usr_AllOrOne().setValue(source.get_usr_AllOrOne().getValue());
-        get_SambaPrinterName().setValue(source.get_SambaPrinterName().getValue());
-        get_usr_SystemPrinterName().setValue(source.get_usr_SystemPrinterName().getValue());
-        get_Path().setValue(source.get_Path().getValue());
-        get_Comment().setValue(source.get_Comment().getValue());
-        get_usr_SeenByEverybody().setValue(source.get_usr_SeenByEverybody().getValue());
-        get_usr_EnableGuest().setValue(source.get_usr_EnableGuest().getValue());
-        get_CupsOptions().setValue(source.get_CupsOptions().getValue());
-        get_PrintCommand().setValue(source.get_PrintCommand().getValue());
-        get_usr_ForceUser().setValue(source.get_usr_ForceUser().getValue());
+        get_usr_AllOrOne().copyFrom(source.get_usr_AllOrOne());
+        get_SambaPrinterName().copyFrom(source.get_SambaPrinterName());
+        get_usr_SystemPrinterName().copyFrom(source.get_usr_SystemPrinterName());
+        get_Path().copyFrom(source.get_Path());
+        get_Comment().copyFrom(source.get_Comment());
+        get_usr_SeenByEverybody().copyFrom(source.get_usr_SeenByEverybody());
+        get_usr_EnableGuest().copyFrom(source.get_usr_EnableGuest());
+        get_CupsOptions().copyFrom(source.get_CupsOptions());
+        get_PrintCommand().copyFrom(source.get_PrintCommand());
+        get_usr_ForceUser().copyFrom(source.get_usr_ForceUser());
 
         List targetListForUsers = (List) getUsers();
         List sourceListForUsers = (List) source.getUsers();

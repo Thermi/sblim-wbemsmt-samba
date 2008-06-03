@@ -64,7 +64,7 @@ public class PrinterWizardPage3Impl extends BaseDataContainer implements
             String label = getAdapter().getBundle().getString("PrinterWizardPage3.seenByEverybody");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_usr_SeenByEverybody = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_SeenByEverybody;
     }
@@ -81,7 +81,7 @@ public class PrinterWizardPage3Impl extends BaseDataContainer implements
             String label = getAdapter().getBundle().getString("PrinterWizardPage3.enableGuest");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_usr_EnableGuest = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_EnableGuest;
     }
@@ -98,7 +98,7 @@ public class PrinterWizardPage3Impl extends BaseDataContainer implements
             String label = getAdapter().getBundle().getString("PrinterWizardPage3.enableAllUsers");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_usr_EnableAllUsers = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_EnableAllUsers;
     }
@@ -115,7 +115,7 @@ public class PrinterWizardPage3Impl extends BaseDataContainer implements
             String label = getAdapter().getBundle().getString("PrinterWizardPage3.forceUser");
             org.sblim.wbemsmt.tools.converter.StringArrayConverter converter = new org.sblim.wbemsmt.tools.converter.UnsignedInt16StringArrayConverter();
             ic_usr_ForceUser = new org.sblim.wbemsmt.tools.input.test.LabeledTestStringArrayComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_ForceUser;
     }
@@ -275,10 +275,10 @@ public class PrinterWizardPage3Impl extends BaseDataContainer implements
     public void copyFrom(DataContainer sourceContainer) throws WbemsmtException {
         PrinterWizardPage3Impl source = (PrinterWizardPage3Impl) sourceContainer;
 
-        get_usr_SeenByEverybody().setValue(source.get_usr_SeenByEverybody().getValue());
-        get_usr_EnableGuest().setValue(source.get_usr_EnableGuest().getValue());
-        get_usr_EnableAllUsers().setValue(source.get_usr_EnableAllUsers().getValue());
-        get_usr_ForceUser().setValue(source.get_usr_ForceUser().getValue());
+        get_usr_SeenByEverybody().copyFrom(source.get_usr_SeenByEverybody());
+        get_usr_EnableGuest().copyFrom(source.get_usr_EnableGuest());
+        get_usr_EnableAllUsers().copyFrom(source.get_usr_EnableAllUsers());
+        get_usr_ForceUser().copyFrom(source.get_usr_ForceUser());
 
         List targetListForUsers = (List) getUsers();
         List sourceListForUsers = (List) source.getUsers();

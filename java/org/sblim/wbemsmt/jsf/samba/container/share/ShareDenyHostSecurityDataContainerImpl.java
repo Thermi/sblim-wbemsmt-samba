@@ -209,10 +209,10 @@ public class ShareDenyHostSecurityDataContainerImpl extends
     public void copyFrom(DataContainer sourceContainer) throws WbemsmtException {
         ShareDenyHostSecurityDataContainerImpl source = (ShareDenyHostSecurityDataContainerImpl) sourceContainer;
 
-        get_usr_DeniedHosts().setValue(source.get_usr_DeniedHosts().getValue());
-        get_usr_HostsToDeny().setValue(source.get_usr_HostsToDeny().getValue());
-        get_usr_AddHost().setValue(source.get_usr_AddHost().getValue());
-        get_usr_RemoveHost().setValue(source.get_usr_RemoveHost().getValue());
+        get_usr_DeniedHosts().copyFrom(source.get_usr_DeniedHosts());
+        get_usr_HostsToDeny().copyFrom(source.get_usr_HostsToDeny());
+        get_usr_AddHost().copyFrom(source.get_usr_AddHost());
+        get_usr_RemoveHost().copyFrom(source.get_usr_RemoveHost());
 
     }
 

@@ -71,7 +71,7 @@ public class UserWizardPage3Impl extends BaseDataContainer implements
             String label = getAdapter().getBundle().getString("UserWizardPage3.SambaUserName");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_SambaUserName = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_SambaUserName;
     }
@@ -88,7 +88,7 @@ public class UserWizardPage3Impl extends BaseDataContainer implements
             String label = getAdapter().getBundle().getString("UserWizardPage3.SystemUserName");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_SystemUserName = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_SystemUserName;
     }
@@ -105,7 +105,7 @@ public class UserWizardPage3Impl extends BaseDataContainer implements
             String label = getAdapter().getBundle().getString("UserWizardPage3.isGuest");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_usr_IsGuest = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,
-                    label, "", converter);
+                    label, null, converter);
         }
         return ic_usr_IsGuest;
     }
@@ -346,9 +346,9 @@ public class UserWizardPage3Impl extends BaseDataContainer implements
     public void copyFrom(DataContainer sourceContainer) throws WbemsmtException {
         UserWizardPage3Impl source = (UserWizardPage3Impl) sourceContainer;
 
-        get_SambaUserName().setValue(source.get_SambaUserName().getValue());
-        get_SystemUserName().setValue(source.get_SystemUserName().getValue());
-        get_usr_IsGuest().setValue(source.get_usr_IsGuest().getValue());
+        get_SambaUserName().copyFrom(source.get_SambaUserName());
+        get_SystemUserName().copyFrom(source.get_SystemUserName());
+        get_usr_IsGuest().copyFrom(source.get_usr_IsGuest());
 
         List targetListForShares = (List) getShares();
         List sourceListForShares = (List) source.getShares();

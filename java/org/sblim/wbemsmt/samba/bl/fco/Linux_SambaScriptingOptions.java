@@ -290,8 +290,7 @@ public class Linux_SambaScriptingOptions extends CIM_SettingData {
     public boolean set_key_Name(String newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_NAME.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_key_Name(currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_key_Name(currentProperty, newValue));
             return true;
         }
         else {
@@ -373,8 +372,7 @@ public class Linux_SambaScriptingOptions extends CIM_SettingData {
     public boolean set_addGroupScript(String newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_ADDGROUPSCRIPT.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_addGroupScript(currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_addGroupScript(currentProperty, newValue));
             return true;
         }
         else {
@@ -456,8 +454,7 @@ public class Linux_SambaScriptingOptions extends CIM_SettingData {
     public boolean set_addPrinterCommand(String newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_ADDPRINTERCOMMAND.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_addPrinterCommand(currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_addPrinterCommand(currentProperty, newValue));
             return true;
         }
         else {
@@ -539,8 +536,7 @@ public class Linux_SambaScriptingOptions extends CIM_SettingData {
     public boolean set_addShareCommand(String newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_ADDSHARECOMMAND.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_addShareCommand(currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_addShareCommand(currentProperty, newValue));
             return true;
         }
         else {
@@ -622,8 +618,7 @@ public class Linux_SambaScriptingOptions extends CIM_SettingData {
     public boolean set_addUserScript(String newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_ADDUSERSCRIPT.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_addUserScript(currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_addUserScript(currentProperty, newValue));
             return true;
         }
         else {
@@ -705,8 +700,7 @@ public class Linux_SambaScriptingOptions extends CIM_SettingData {
     public boolean set_addUsertoGroupScript(String newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_ADDUSERTOGROUPSCRIPT.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_addUsertoGroupScript(currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_addUsertoGroupScript(currentProperty, newValue));
             return true;
         }
         else {
@@ -788,8 +782,7 @@ public class Linux_SambaScriptingOptions extends CIM_SettingData {
     public boolean set_deleteGrouprScript(String newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_DELETEGROUPRSCRIPT.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_deleteGrouprScript(currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_deleteGrouprScript(currentProperty, newValue));
             return true;
         }
         else {
@@ -871,8 +864,7 @@ public class Linux_SambaScriptingOptions extends CIM_SettingData {
     public boolean set_deleteUserScript(String newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_DELETEUSERSCRIPT.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_deleteUserScript(currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_deleteUserScript(currentProperty, newValue));
             return true;
         }
         else {
@@ -954,8 +946,7 @@ public class Linux_SambaScriptingOptions extends CIM_SettingData {
     public boolean set_deleteUserfromGroupScript(String newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_DELETEUSERFROMGROUPSCRIPT.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_deleteUserfromGroupScript(currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_deleteUserfromGroupScript(currentProperty, newValue));
             return true;
         }
         else {
@@ -1037,8 +1028,7 @@ public class Linux_SambaScriptingOptions extends CIM_SettingData {
     public boolean set_setPrimaryGroupScript(String newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_SETPRIMARYGROUPSCRIPT.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_setPrimaryGroupScript(currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_setPrimaryGroupScript(currentProperty, newValue));
             return true;
         }
         else {

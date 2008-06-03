@@ -394,8 +394,8 @@ public class UserInShareACLDataContainerImpl extends org.sblim.wbemsmt.tools.jsf
     public void copyFrom(DataContainer sourceContainer) throws WbemsmtException {
         UserInShareACLDataContainerImpl source = (UserInShareACLDataContainerImpl) sourceContainer;
 
-        get_usr_NewForceUser().setValue(source.get_usr_NewForceUser().getValue());
-        get_usr_CurrentForceUser().setValue(source.get_usr_CurrentForceUser().getValue());
+        get_usr_NewForceUser().copyFrom(source.get_usr_NewForceUser());
+        get_usr_CurrentForceUser().copyFrom(source.get_usr_CurrentForceUser());
 
         List targetListForUsers = (List) getUsers();
         List sourceListForUsers = (List) source.getUsers();

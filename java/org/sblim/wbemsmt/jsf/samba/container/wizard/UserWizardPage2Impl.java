@@ -600,7 +600,7 @@ public class UserWizardPage2Impl extends org.sblim.wbemsmt.tools.wizard.jsf.Wiza
     public void copyFrom(DataContainer sourceContainer) throws WbemsmtException {
         UserWizardPage2Impl source = (UserWizardPage2Impl) sourceContainer;
 
-        get_usr_AccessToAll().setValue(source.get_usr_AccessToAll().getValue());
+        get_usr_AccessToAll().copyFrom(source.get_usr_AccessToAll());
 
         List targetListForShares = (List) getShares();
         List sourceListForShares = (List) source.getShares();

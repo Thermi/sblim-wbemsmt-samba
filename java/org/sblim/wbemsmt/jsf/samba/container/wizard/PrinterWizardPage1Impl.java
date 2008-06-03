@@ -125,7 +125,7 @@ public class PrinterWizardPage1Impl extends org.sblim.wbemsmt.tools.wizard.jsf.W
     public void copyFrom(DataContainer sourceContainer) throws WbemsmtException {
         PrinterWizardPage1Impl source = (PrinterWizardPage1Impl) sourceContainer;
 
-        get_usr_AllOrOne().setValue(source.get_usr_AllOrOne().getValue());
+        get_usr_AllOrOne().copyFrom(source.get_usr_AllOrOne());
 
     }
 

@@ -55,7 +55,7 @@ public class AdminUsersInShareGlobalsImpl extends BaseDataContainer implements
                     "AdminUsersInShareGlobals.SambaUserName");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_usr_SambaUserName = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_SambaUserName;
     }
@@ -72,7 +72,7 @@ public class AdminUsersInShareGlobalsImpl extends BaseDataContainer implements
             String label = getAdapter().getBundle().getString("AdminUsersInShareGlobals.admin");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_usr_Admin = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,
-                    label, "", converter);
+                    label, null, converter);
         }
         return ic_usr_Admin;
     }
@@ -134,8 +134,8 @@ public class AdminUsersInShareGlobalsImpl extends BaseDataContainer implements
     public void copyFrom(DataContainer sourceContainer) throws WbemsmtException {
         AdminUsersInShareGlobalsImpl source = (AdminUsersInShareGlobalsImpl) sourceContainer;
 
-        get_usr_SambaUserName().setValue(source.get_usr_SambaUserName().getValue());
-        get_usr_Admin().setValue(source.get_usr_Admin().getValue());
+        get_usr_SambaUserName().copyFrom(source.get_usr_SambaUserName());
+        get_usr_Admin().copyFrom(source.get_usr_Admin());
 
     }
 

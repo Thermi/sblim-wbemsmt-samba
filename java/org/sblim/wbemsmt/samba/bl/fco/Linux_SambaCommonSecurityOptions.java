@@ -245,8 +245,7 @@ public class Linux_SambaCommonSecurityOptions extends CIM_SettingData {
     public boolean set_GuestOK(Boolean newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_GUESTOK.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_GuestOK(currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_GuestOK(currentProperty, newValue));
             return true;
         }
         else {
@@ -329,8 +328,7 @@ public class Linux_SambaCommonSecurityOptions extends CIM_SettingData {
     public boolean set_GuestOnly(Boolean newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_GUESTONLY.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_GuestOnly(currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_GuestOnly(currentProperty, newValue));
             return true;
         }
         else {
@@ -413,8 +411,7 @@ public class Linux_SambaCommonSecurityOptions extends CIM_SettingData {
     public boolean set_HostsAllow(String newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_HOSTSALLOW.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_HostsAllow(currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_HostsAllow(currentProperty, newValue));
             return true;
         }
         else {
@@ -497,8 +494,7 @@ public class Linux_SambaCommonSecurityOptions extends CIM_SettingData {
     public boolean set_HostsDeny(String newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_HOSTSDENY.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_HostsDeny(currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_HostsDeny(currentProperty, newValue));
             return true;
         }
         else {
@@ -581,8 +577,7 @@ public class Linux_SambaCommonSecurityOptions extends CIM_SettingData {
     public boolean set_key_Name(String newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_NAME.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_key_Name(currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_key_Name(currentProperty, newValue));
             return true;
         }
         else {
@@ -665,8 +660,7 @@ public class Linux_SambaCommonSecurityOptions extends CIM_SettingData {
     public boolean set_ReadOnly(Boolean newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_READONLY.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_ReadOnly(currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_ReadOnly(currentProperty, newValue));
             return true;
         }
         else {

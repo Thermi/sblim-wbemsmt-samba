@@ -64,7 +64,7 @@ public class UserInPrinterACLDataContainerImpl extends BaseDataContainer impleme
                     "UserInPrinterACLDataContainer.currentForceUser");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_usr_CurrentForceUser = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_CurrentForceUser;
     }
@@ -82,7 +82,7 @@ public class UserInPrinterACLDataContainerImpl extends BaseDataContainer impleme
                     "UserInPrinterACLDataContainer.newForceUser");
             org.sblim.wbemsmt.tools.converter.StringArrayConverter converter = new org.sblim.wbemsmt.tools.converter.UnsignedInt16StringArrayConverter();
             ic_usr_NewForceUser = new org.sblim.wbemsmt.tools.input.test.LabeledTestStringArrayComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_NewForceUser;
     }
@@ -232,8 +232,8 @@ public class UserInPrinterACLDataContainerImpl extends BaseDataContainer impleme
     public void copyFrom(DataContainer sourceContainer) throws WbemsmtException {
         UserInPrinterACLDataContainerImpl source = (UserInPrinterACLDataContainerImpl) sourceContainer;
 
-        get_usr_CurrentForceUser().setValue(source.get_usr_CurrentForceUser().getValue());
-        get_usr_NewForceUser().setValue(source.get_usr_NewForceUser().getValue());
+        get_usr_CurrentForceUser().copyFrom(source.get_usr_CurrentForceUser());
+        get_usr_NewForceUser().copyFrom(source.get_usr_NewForceUser());
 
         List targetListForUsers = (List) getUsers();
         List sourceListForUsers = (List) source.getUsers();

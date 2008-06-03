@@ -57,7 +57,7 @@ public class ServiceWinsDataContainerImpl extends BaseDataContainer implements
             String label = getAdapter().getBundle().getString("ServiceWinsDataContainer.DNS_Proxy");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_DNS_Proxy = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,
-                    label, "", converter);
+                    label, null, converter);
         }
         return ic_DNS_Proxy;
     }
@@ -74,7 +74,7 @@ public class ServiceWinsDataContainerImpl extends BaseDataContainer implements
             String label = getAdapter().getBundle().getString("ServiceWinsDataContainer.WINSHook");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_WINSHook = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,
-                    label, "", converter);
+                    label, null, converter);
         }
         return ic_WINSHook;
     }
@@ -91,7 +91,7 @@ public class ServiceWinsDataContainerImpl extends BaseDataContainer implements
             String label = getAdapter().getBundle().getString("ServiceWinsDataContainer.WINSProxy");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_WINSProxy = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,
-                    label, "", converter);
+                    label, null, converter);
         }
         return ic_WINSProxy;
     }
@@ -109,7 +109,7 @@ public class ServiceWinsDataContainerImpl extends BaseDataContainer implements
                     .getString("ServiceWinsDataContainer.WINSServer");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_WINSServer = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,
-                    label, "", converter);
+                    label, null, converter);
         }
         return ic_WINSServer;
     }
@@ -127,7 +127,7 @@ public class ServiceWinsDataContainerImpl extends BaseDataContainer implements
                     "ServiceWinsDataContainer.WINSSupport");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_WINSSupport = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,
-                    label, "", converter);
+                    label, null, converter);
         }
         return ic_WINSSupport;
     }
@@ -207,11 +207,11 @@ public class ServiceWinsDataContainerImpl extends BaseDataContainer implements
     public void copyFrom(DataContainer sourceContainer) throws WbemsmtException {
         ServiceWinsDataContainerImpl source = (ServiceWinsDataContainerImpl) sourceContainer;
 
-        get_DNS_Proxy().setValue(source.get_DNS_Proxy().getValue());
-        get_WINSHook().setValue(source.get_WINSHook().getValue());
-        get_WINSProxy().setValue(source.get_WINSProxy().getValue());
-        get_WINSServer().setValue(source.get_WINSServer().getValue());
-        get_WINSSupport().setValue(source.get_WINSSupport().getValue());
+        get_DNS_Proxy().copyFrom(source.get_DNS_Proxy());
+        get_WINSHook().copyFrom(source.get_WINSHook());
+        get_WINSProxy().copyFrom(source.get_WINSProxy());
+        get_WINSServer().copyFrom(source.get_WINSServer());
+        get_WINSSupport().copyFrom(source.get_WINSSupport());
 
     }
 

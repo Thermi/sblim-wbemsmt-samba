@@ -146,8 +146,8 @@ public class AdminUsersInShareGlobalsImpl extends org.sblim.wbemsmt.tools.jsf.Ed
     public void copyFrom(DataContainer sourceContainer) throws WbemsmtException {
         AdminUsersInShareGlobalsImpl source = (AdminUsersInShareGlobalsImpl) sourceContainer;
 
-        get_usr_SambaUserName().setValue(source.get_usr_SambaUserName().getValue());
-        get_usr_Admin().setValue(source.get_usr_Admin().getValue());
+        get_usr_SambaUserName().copyFrom(source.get_usr_SambaUserName());
+        get_usr_Admin().copyFrom(source.get_usr_Admin());
 
     }
 

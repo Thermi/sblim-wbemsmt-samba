@@ -516,20 +516,20 @@ public class ServiceGlobalSecurityOptionsDataContainerImpl extends
     public void copyFrom(DataContainer sourceContainer) throws WbemsmtException {
         ServiceGlobalSecurityOptionsDataContainerImpl source = (ServiceGlobalSecurityOptionsDataContainerImpl) sourceContainer;
 
-        get_AuthMethods().setValue(source.get_AuthMethods().getValue());
-        get_EncryptPasswords().setValue(source.get_EncryptPasswords().getValue());
-        get_MinPasswordLength().setValue(source.get_MinPasswordLength().getValue());
-        get_NullPasswords().setValue(source.get_NullPasswords().getValue());
-        get_usr_PassdbBackend().setValue(source.get_usr_PassdbBackend().getValue());
-        get_SMBPasswdFile().setValue(source.get_SMBPasswdFile().getValue());
-        get_Security().setValue(source.get_Security().getValue());
-        get_GuestOK().setValue(source.get_GuestOK().getValue());
-        get_GuestOnly().setValue(source.get_GuestOnly().getValue());
-        get_HostsAllow().setValue(source.get_HostsAllow().getValue());
-        get_HostsDeny().setValue(source.get_HostsDeny().getValue());
-        get_ReadOnly().setValue(source.get_ReadOnly().getValue());
-        get_DomainMaster().setValue(source.get_DomainMaster().getValue());
-        get_Browsable().setValue(source.get_Browsable().getValue());
+        get_AuthMethods().copyFrom(source.get_AuthMethods());
+        get_EncryptPasswords().copyFrom(source.get_EncryptPasswords());
+        get_MinPasswordLength().copyFrom(source.get_MinPasswordLength());
+        get_NullPasswords().copyFrom(source.get_NullPasswords());
+        get_usr_PassdbBackend().copyFrom(source.get_usr_PassdbBackend());
+        get_SMBPasswdFile().copyFrom(source.get_SMBPasswdFile());
+        get_Security().copyFrom(source.get_Security());
+        get_GuestOK().copyFrom(source.get_GuestOK());
+        get_GuestOnly().copyFrom(source.get_GuestOnly());
+        get_HostsAllow().copyFrom(source.get_HostsAllow());
+        get_HostsDeny().copyFrom(source.get_HostsDeny());
+        get_ReadOnly().copyFrom(source.get_ReadOnly());
+        get_DomainMaster().copyFrom(source.get_DomainMaster());
+        get_Browsable().copyFrom(source.get_Browsable());
 
     }
 

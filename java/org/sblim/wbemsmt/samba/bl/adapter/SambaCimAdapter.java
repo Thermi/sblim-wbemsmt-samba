@@ -535,6 +535,7 @@ public class SambaCimAdapter extends AbstractBaseCimAdapter {
 	}
 
 	public void loadInitial(WBEMClient cimClient) throws WbemsmtException {
+	    load(cimClient);
 	}
 
 	public InitContainerDelegatee getInitContainerDelegatee() {

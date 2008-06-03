@@ -95,7 +95,7 @@ public class GUIShareFileAttributesImpl extends BaseDataContainer implements
                     "GUIShareFileAttributes.CaseSensitive");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_CaseSensitive = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_CaseSensitive;
     }
@@ -113,7 +113,7 @@ public class GUIShareFileAttributesImpl extends BaseDataContainer implements
                     .getString("GUIShareFileAttributes.HideDotFiles");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_HideDotFiles = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_HideDotFiles;
     }
@@ -131,7 +131,7 @@ public class GUIShareFileAttributesImpl extends BaseDataContainer implements
                     .getString("GUIShareFileAttributes.DosFiletimes");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_DosFiletimes = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_DosFiletimes;
     }
@@ -148,7 +148,7 @@ public class GUIShareFileAttributesImpl extends BaseDataContainer implements
             String label = getAdapter().getBundle().getString("GUIShareFileAttributes.EASupport");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_EASupport = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,
-                    label, "", converter);
+                    label, null, converter);
         }
         return ic_EASupport;
     }
@@ -166,7 +166,7 @@ public class GUIShareFileAttributesImpl extends BaseDataContainer implements
                     "GUIShareFileAttributes.AclCompatibility");
             org.sblim.wbemsmt.tools.converter.StringArrayConverter converter = new org.sblim.wbemsmt.tools.converter.UnsignedInt8StringArrayConverter();
             ic_AclCompatibility = new org.sblim.wbemsmt.tools.input.test.LabeledTestStringArrayComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_AclCompatibility;
     }
@@ -184,7 +184,7 @@ public class GUIShareFileAttributesImpl extends BaseDataContainer implements
                     .getString("GUIShareFileAttributes.NTACLSupport");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_NTACLSupport = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_NTACLSupport;
     }
@@ -201,7 +201,7 @@ public class GUIShareFileAttributesImpl extends BaseDataContainer implements
             String label = getAdapter().getBundle().getString("GUIShareFileAttributes.create_u");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_usr_Create_u = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_Create_u;
     }
@@ -218,7 +218,7 @@ public class GUIShareFileAttributesImpl extends BaseDataContainer implements
             String label = getAdapter().getBundle().getString("GUIShareFileAttributes.create_g");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_usr_Create_g = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_Create_g;
     }
@@ -235,7 +235,7 @@ public class GUIShareFileAttributesImpl extends BaseDataContainer implements
             String label = getAdapter().getBundle().getString("GUIShareFileAttributes.create_s");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_usr_Create_s = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_Create_s;
     }
@@ -253,7 +253,7 @@ public class GUIShareFileAttributesImpl extends BaseDataContainer implements
                     "GUIShareFileAttributes.create_user_r");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_usr_Create_user_r = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_Create_user_r;
     }
@@ -271,7 +271,7 @@ public class GUIShareFileAttributesImpl extends BaseDataContainer implements
                     "GUIShareFileAttributes.create_user_w");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_usr_Create_user_w = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_Create_user_w;
     }
@@ -289,7 +289,7 @@ public class GUIShareFileAttributesImpl extends BaseDataContainer implements
                     "GUIShareFileAttributes.create_user_x");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_usr_Create_user_x = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_Create_user_x;
     }
@@ -307,7 +307,7 @@ public class GUIShareFileAttributesImpl extends BaseDataContainer implements
                     "GUIShareFileAttributes.create_group_r");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_usr_Create_group_r = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_Create_group_r;
     }
@@ -325,7 +325,7 @@ public class GUIShareFileAttributesImpl extends BaseDataContainer implements
                     "GUIShareFileAttributes.create_group_w");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_usr_Create_group_w = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_Create_group_w;
     }
@@ -343,7 +343,7 @@ public class GUIShareFileAttributesImpl extends BaseDataContainer implements
                     "GUIShareFileAttributes.create_group_x");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_usr_Create_group_x = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_Create_group_x;
     }
@@ -361,7 +361,7 @@ public class GUIShareFileAttributesImpl extends BaseDataContainer implements
                     "GUIShareFileAttributes.create_other_r");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_usr_Create_other_r = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_Create_other_r;
     }
@@ -379,7 +379,7 @@ public class GUIShareFileAttributesImpl extends BaseDataContainer implements
                     "GUIShareFileAttributes.create_other_w");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_usr_Create_other_w = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_Create_other_w;
     }
@@ -397,7 +397,7 @@ public class GUIShareFileAttributesImpl extends BaseDataContainer implements
                     "GUIShareFileAttributes.create_other_x");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_usr_Create_other_x = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_Create_other_x;
     }
@@ -414,7 +414,7 @@ public class GUIShareFileAttributesImpl extends BaseDataContainer implements
             String label = getAdapter().getBundle().getString("GUIShareFileAttributes.directory_u");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_usr_Directory_u = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_Directory_u;
     }
@@ -431,7 +431,7 @@ public class GUIShareFileAttributesImpl extends BaseDataContainer implements
             String label = getAdapter().getBundle().getString("GUIShareFileAttributes.directory_g");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_usr_Directory_g = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_Directory_g;
     }
@@ -448,7 +448,7 @@ public class GUIShareFileAttributesImpl extends BaseDataContainer implements
             String label = getAdapter().getBundle().getString("GUIShareFileAttributes.directory_s");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_usr_Directory_s = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_Directory_s;
     }
@@ -466,7 +466,7 @@ public class GUIShareFileAttributesImpl extends BaseDataContainer implements
                     "GUIShareFileAttributes.directory_user_r");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_usr_Directory_user_r = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_Directory_user_r;
     }
@@ -484,7 +484,7 @@ public class GUIShareFileAttributesImpl extends BaseDataContainer implements
                     "GUIShareFileAttributes.directory_user_w");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_usr_Directory_user_w = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_Directory_user_w;
     }
@@ -502,7 +502,7 @@ public class GUIShareFileAttributesImpl extends BaseDataContainer implements
                     "GUIShareFileAttributes.directory_user_x");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_usr_Directory_user_x = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_Directory_user_x;
     }
@@ -520,7 +520,7 @@ public class GUIShareFileAttributesImpl extends BaseDataContainer implements
                     "GUIShareFileAttributes.directory_group_r");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_usr_Directory_group_r = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_Directory_group_r;
     }
@@ -538,7 +538,7 @@ public class GUIShareFileAttributesImpl extends BaseDataContainer implements
                     "GUIShareFileAttributes.directory_group_w");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_usr_Directory_group_w = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_Directory_group_w;
     }
@@ -556,7 +556,7 @@ public class GUIShareFileAttributesImpl extends BaseDataContainer implements
                     "GUIShareFileAttributes.directory_group_x");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_usr_Directory_group_x = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_Directory_group_x;
     }
@@ -574,7 +574,7 @@ public class GUIShareFileAttributesImpl extends BaseDataContainer implements
                     "GUIShareFileAttributes.directory_other_r");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_usr_Directory_other_r = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_Directory_other_r;
     }
@@ -592,7 +592,7 @@ public class GUIShareFileAttributesImpl extends BaseDataContainer implements
                     "GUIShareFileAttributes.directory_other_w");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_usr_Directory_other_w = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_Directory_other_w;
     }
@@ -610,7 +610,7 @@ public class GUIShareFileAttributesImpl extends BaseDataContainer implements
                     "GUIShareFileAttributes.directory_other_x");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_usr_Directory_other_x = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_Directory_other_x;
     }
@@ -628,7 +628,7 @@ public class GUIShareFileAttributesImpl extends BaseDataContainer implements
                     "GUIShareFileAttributes.directory_security_u");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_usr_Directory_security_u = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_Directory_security_u;
     }
@@ -646,7 +646,7 @@ public class GUIShareFileAttributesImpl extends BaseDataContainer implements
                     "GUIShareFileAttributes.directory_security_g");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_usr_Directory_security_g = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_Directory_security_g;
     }
@@ -664,7 +664,7 @@ public class GUIShareFileAttributesImpl extends BaseDataContainer implements
                     "GUIShareFileAttributes.directory_security_s");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_usr_Directory_security_s = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_Directory_security_s;
     }
@@ -682,7 +682,7 @@ public class GUIShareFileAttributesImpl extends BaseDataContainer implements
                     "GUIShareFileAttributes.directory_security_user_r");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_usr_Directory_security_user_r = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_Directory_security_user_r;
     }
@@ -700,7 +700,7 @@ public class GUIShareFileAttributesImpl extends BaseDataContainer implements
                     "GUIShareFileAttributes.directory_security_user_w");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_usr_Directory_security_user_w = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_Directory_security_user_w;
     }
@@ -718,7 +718,7 @@ public class GUIShareFileAttributesImpl extends BaseDataContainer implements
                     "GUIShareFileAttributes.directory_security_user_x");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_usr_Directory_security_user_x = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_Directory_security_user_x;
     }
@@ -736,7 +736,7 @@ public class GUIShareFileAttributesImpl extends BaseDataContainer implements
                     "GUIShareFileAttributes.directory_security_group_r");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_usr_Directory_security_group_r = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_Directory_security_group_r;
     }
@@ -754,7 +754,7 @@ public class GUIShareFileAttributesImpl extends BaseDataContainer implements
                     "GUIShareFileAttributes.directory_security_group_w");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_usr_Directory_security_group_w = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_Directory_security_group_w;
     }
@@ -772,7 +772,7 @@ public class GUIShareFileAttributesImpl extends BaseDataContainer implements
                     "GUIShareFileAttributes.directory_security_group_x");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_usr_Directory_security_group_x = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_Directory_security_group_x;
     }
@@ -790,7 +790,7 @@ public class GUIShareFileAttributesImpl extends BaseDataContainer implements
                     "GUIShareFileAttributes.directory_security_other_r");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_usr_Directory_security_other_r = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_Directory_security_other_r;
     }
@@ -808,7 +808,7 @@ public class GUIShareFileAttributesImpl extends BaseDataContainer implements
                     "GUIShareFileAttributes.directory_security_other_w");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_usr_Directory_security_other_w = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_Directory_security_other_w;
     }
@@ -826,7 +826,7 @@ public class GUIShareFileAttributesImpl extends BaseDataContainer implements
                     "GUIShareFileAttributes.directory_security_other_x");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_usr_Directory_security_other_x = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_Directory_security_other_x;
     }
@@ -1137,57 +1137,48 @@ public class GUIShareFileAttributesImpl extends BaseDataContainer implements
     public void copyFrom(DataContainer sourceContainer) throws WbemsmtException {
         GUIShareFileAttributesImpl source = (GUIShareFileAttributesImpl) sourceContainer;
 
-        get_CaseSensitive().setValue(source.get_CaseSensitive().getValue());
-        get_HideDotFiles().setValue(source.get_HideDotFiles().getValue());
-        get_DosFiletimes().setValue(source.get_DosFiletimes().getValue());
-        get_EASupport().setValue(source.get_EASupport().getValue());
-        get_AclCompatibility().setValue(source.get_AclCompatibility().getValue());
-        get_NTACLSupport().setValue(source.get_NTACLSupport().getValue());
-        get_usr_Create_u().setValue(source.get_usr_Create_u().getValue());
-        get_usr_Create_g().setValue(source.get_usr_Create_g().getValue());
-        get_usr_Create_s().setValue(source.get_usr_Create_s().getValue());
-        get_usr_Create_user_r().setValue(source.get_usr_Create_user_r().getValue());
-        get_usr_Create_user_w().setValue(source.get_usr_Create_user_w().getValue());
-        get_usr_Create_user_x().setValue(source.get_usr_Create_user_x().getValue());
-        get_usr_Create_group_r().setValue(source.get_usr_Create_group_r().getValue());
-        get_usr_Create_group_w().setValue(source.get_usr_Create_group_w().getValue());
-        get_usr_Create_group_x().setValue(source.get_usr_Create_group_x().getValue());
-        get_usr_Create_other_r().setValue(source.get_usr_Create_other_r().getValue());
-        get_usr_Create_other_w().setValue(source.get_usr_Create_other_w().getValue());
-        get_usr_Create_other_x().setValue(source.get_usr_Create_other_x().getValue());
-        get_usr_Directory_u().setValue(source.get_usr_Directory_u().getValue());
-        get_usr_Directory_g().setValue(source.get_usr_Directory_g().getValue());
-        get_usr_Directory_s().setValue(source.get_usr_Directory_s().getValue());
-        get_usr_Directory_user_r().setValue(source.get_usr_Directory_user_r().getValue());
-        get_usr_Directory_user_w().setValue(source.get_usr_Directory_user_w().getValue());
-        get_usr_Directory_user_x().setValue(source.get_usr_Directory_user_x().getValue());
-        get_usr_Directory_group_r().setValue(source.get_usr_Directory_group_r().getValue());
-        get_usr_Directory_group_w().setValue(source.get_usr_Directory_group_w().getValue());
-        get_usr_Directory_group_x().setValue(source.get_usr_Directory_group_x().getValue());
-        get_usr_Directory_other_r().setValue(source.get_usr_Directory_other_r().getValue());
-        get_usr_Directory_other_w().setValue(source.get_usr_Directory_other_w().getValue());
-        get_usr_Directory_other_x().setValue(source.get_usr_Directory_other_x().getValue());
-        get_usr_Directory_security_u().setValue(source.get_usr_Directory_security_u().getValue());
-        get_usr_Directory_security_g().setValue(source.get_usr_Directory_security_g().getValue());
-        get_usr_Directory_security_s().setValue(source.get_usr_Directory_security_s().getValue());
-        get_usr_Directory_security_user_r().setValue(
-                source.get_usr_Directory_security_user_r().getValue());
-        get_usr_Directory_security_user_w().setValue(
-                source.get_usr_Directory_security_user_w().getValue());
-        get_usr_Directory_security_user_x().setValue(
-                source.get_usr_Directory_security_user_x().getValue());
-        get_usr_Directory_security_group_r().setValue(
-                source.get_usr_Directory_security_group_r().getValue());
-        get_usr_Directory_security_group_w().setValue(
-                source.get_usr_Directory_security_group_w().getValue());
-        get_usr_Directory_security_group_x().setValue(
-                source.get_usr_Directory_security_group_x().getValue());
-        get_usr_Directory_security_other_r().setValue(
-                source.get_usr_Directory_security_other_r().getValue());
-        get_usr_Directory_security_other_w().setValue(
-                source.get_usr_Directory_security_other_w().getValue());
-        get_usr_Directory_security_other_x().setValue(
-                source.get_usr_Directory_security_other_x().getValue());
+        get_CaseSensitive().copyFrom(source.get_CaseSensitive());
+        get_HideDotFiles().copyFrom(source.get_HideDotFiles());
+        get_DosFiletimes().copyFrom(source.get_DosFiletimes());
+        get_EASupport().copyFrom(source.get_EASupport());
+        get_AclCompatibility().copyFrom(source.get_AclCompatibility());
+        get_NTACLSupport().copyFrom(source.get_NTACLSupport());
+        get_usr_Create_u().copyFrom(source.get_usr_Create_u());
+        get_usr_Create_g().copyFrom(source.get_usr_Create_g());
+        get_usr_Create_s().copyFrom(source.get_usr_Create_s());
+        get_usr_Create_user_r().copyFrom(source.get_usr_Create_user_r());
+        get_usr_Create_user_w().copyFrom(source.get_usr_Create_user_w());
+        get_usr_Create_user_x().copyFrom(source.get_usr_Create_user_x());
+        get_usr_Create_group_r().copyFrom(source.get_usr_Create_group_r());
+        get_usr_Create_group_w().copyFrom(source.get_usr_Create_group_w());
+        get_usr_Create_group_x().copyFrom(source.get_usr_Create_group_x());
+        get_usr_Create_other_r().copyFrom(source.get_usr_Create_other_r());
+        get_usr_Create_other_w().copyFrom(source.get_usr_Create_other_w());
+        get_usr_Create_other_x().copyFrom(source.get_usr_Create_other_x());
+        get_usr_Directory_u().copyFrom(source.get_usr_Directory_u());
+        get_usr_Directory_g().copyFrom(source.get_usr_Directory_g());
+        get_usr_Directory_s().copyFrom(source.get_usr_Directory_s());
+        get_usr_Directory_user_r().copyFrom(source.get_usr_Directory_user_r());
+        get_usr_Directory_user_w().copyFrom(source.get_usr_Directory_user_w());
+        get_usr_Directory_user_x().copyFrom(source.get_usr_Directory_user_x());
+        get_usr_Directory_group_r().copyFrom(source.get_usr_Directory_group_r());
+        get_usr_Directory_group_w().copyFrom(source.get_usr_Directory_group_w());
+        get_usr_Directory_group_x().copyFrom(source.get_usr_Directory_group_x());
+        get_usr_Directory_other_r().copyFrom(source.get_usr_Directory_other_r());
+        get_usr_Directory_other_w().copyFrom(source.get_usr_Directory_other_w());
+        get_usr_Directory_other_x().copyFrom(source.get_usr_Directory_other_x());
+        get_usr_Directory_security_u().copyFrom(source.get_usr_Directory_security_u());
+        get_usr_Directory_security_g().copyFrom(source.get_usr_Directory_security_g());
+        get_usr_Directory_security_s().copyFrom(source.get_usr_Directory_security_s());
+        get_usr_Directory_security_user_r().copyFrom(source.get_usr_Directory_security_user_r());
+        get_usr_Directory_security_user_w().copyFrom(source.get_usr_Directory_security_user_w());
+        get_usr_Directory_security_user_x().copyFrom(source.get_usr_Directory_security_user_x());
+        get_usr_Directory_security_group_r().copyFrom(source.get_usr_Directory_security_group_r());
+        get_usr_Directory_security_group_w().copyFrom(source.get_usr_Directory_security_group_w());
+        get_usr_Directory_security_group_x().copyFrom(source.get_usr_Directory_security_group_x());
+        get_usr_Directory_security_other_r().copyFrom(source.get_usr_Directory_security_other_r());
+        get_usr_Directory_security_other_w().copyFrom(source.get_usr_Directory_security_other_w());
+        get_usr_Directory_security_other_x().copyFrom(source.get_usr_Directory_security_other_x());
 
     }
 

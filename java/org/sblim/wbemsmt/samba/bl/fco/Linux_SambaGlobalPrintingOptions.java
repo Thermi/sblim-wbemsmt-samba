@@ -191,8 +191,7 @@ public class Linux_SambaGlobalPrintingOptions extends Linux_SambaPrintingOptions
     public boolean set_key_Name(String newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_NAME.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_key_Name(currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_key_Name(currentProperty, newValue));
             return true;
         }
         else {
@@ -275,8 +274,7 @@ public class Linux_SambaGlobalPrintingOptions extends Linux_SambaPrintingOptions
     public boolean set_PrintcapCacheTime(javax.cim.UnsignedInteger64 newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_PRINTCAPCACHETIME.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_PrintcapCacheTime(currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_PrintcapCacheTime(currentProperty, newValue));
             return true;
         }
         else {
@@ -359,8 +357,7 @@ public class Linux_SambaGlobalPrintingOptions extends Linux_SambaPrintingOptions
     public boolean set_SystemPrinterName(String newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_SYSTEMPRINTERNAME.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_SystemPrinterName(currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_SystemPrinterName(currentProperty, newValue));
             return true;
         }
         else {

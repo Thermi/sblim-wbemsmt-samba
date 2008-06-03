@@ -210,8 +210,7 @@ public class Linux_SambaGroup extends CIM_ManagedElement {
     public boolean set_key_SambaGroupName(String newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_SAMBAGROUPNAME.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_key_SambaGroupName(currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_key_SambaGroupName(currentProperty, newValue));
             return true;
         }
         else {
@@ -293,8 +292,7 @@ public class Linux_SambaGroup extends CIM_ManagedElement {
     public boolean set_SystemGroupName(String newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_SYSTEMGROUPNAME.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_SystemGroupName(currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_SystemGroupName(currentProperty, newValue));
             return true;
         }
         else {

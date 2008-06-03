@@ -62,7 +62,7 @@ public class CMDShareGlobalsDataContainerImpl extends BaseDataContainer implemen
                     "CMDShareGlobalsDataContainer.CaseSensitive");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_CaseSensitive = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_CaseSensitive;
     }
@@ -80,7 +80,7 @@ public class CMDShareGlobalsDataContainerImpl extends BaseDataContainer implemen
                     "CMDShareGlobalsDataContainer.DosFiletimes");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_DosFiletimes = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_DosFiletimes;
     }
@@ -98,7 +98,7 @@ public class CMDShareGlobalsDataContainerImpl extends BaseDataContainer implemen
                     "CMDShareGlobalsDataContainer.HideDotFiles");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_HideDotFiles = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_HideDotFiles;
     }
@@ -116,7 +116,7 @@ public class CMDShareGlobalsDataContainerImpl extends BaseDataContainer implemen
                     "CMDShareGlobalsDataContainer.AclCompatibility");
             org.sblim.wbemsmt.tools.converter.StringArrayConverter converter = new org.sblim.wbemsmt.tools.converter.UnsignedInt8StringArrayConverter();
             ic_AclCompatibility = new org.sblim.wbemsmt.tools.input.test.LabeledTestStringArrayComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_AclCompatibility;
     }
@@ -134,7 +134,7 @@ public class CMDShareGlobalsDataContainerImpl extends BaseDataContainer implemen
                     "CMDShareGlobalsDataContainer.EASupport");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_EASupport = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,
-                    label, "", converter);
+                    label, null, converter);
         }
         return ic_EASupport;
     }
@@ -152,7 +152,7 @@ public class CMDShareGlobalsDataContainerImpl extends BaseDataContainer implemen
                     "CMDShareGlobalsDataContainer.NTACLSupport");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_NTACLSupport = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_NTACLSupport;
     }
@@ -170,7 +170,7 @@ public class CMDShareGlobalsDataContainerImpl extends BaseDataContainer implemen
                     "CMDShareGlobalsDataContainer.CreateMask");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.UnsignedInt16StringConverter();
             ic_CreateMask = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,
-                    label, "", converter);
+                    label, null, converter);
         }
         return ic_CreateMask;
     }
@@ -188,7 +188,7 @@ public class CMDShareGlobalsDataContainerImpl extends BaseDataContainer implemen
                     "CMDShareGlobalsDataContainer.DirectoryMask");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.UnsignedInt16StringConverter();
             ic_DirectoryMask = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_DirectoryMask;
     }
@@ -206,7 +206,7 @@ public class CMDShareGlobalsDataContainerImpl extends BaseDataContainer implemen
                     "CMDShareGlobalsDataContainer.DirectorySecurityMask");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.UnsignedInt16StringConverter();
             ic_DirectorySecurityMask = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_DirectorySecurityMask;
     }
@@ -310,15 +310,15 @@ public class CMDShareGlobalsDataContainerImpl extends BaseDataContainer implemen
     public void copyFrom(DataContainer sourceContainer) throws WbemsmtException {
         CMDShareGlobalsDataContainerImpl source = (CMDShareGlobalsDataContainerImpl) sourceContainer;
 
-        get_CaseSensitive().setValue(source.get_CaseSensitive().getValue());
-        get_DosFiletimes().setValue(source.get_DosFiletimes().getValue());
-        get_HideDotFiles().setValue(source.get_HideDotFiles().getValue());
-        get_AclCompatibility().setValue(source.get_AclCompatibility().getValue());
-        get_EASupport().setValue(source.get_EASupport().getValue());
-        get_NTACLSupport().setValue(source.get_NTACLSupport().getValue());
-        get_CreateMask().setValue(source.get_CreateMask().getValue());
-        get_DirectoryMask().setValue(source.get_DirectoryMask().getValue());
-        get_DirectorySecurityMask().setValue(source.get_DirectorySecurityMask().getValue());
+        get_CaseSensitive().copyFrom(source.get_CaseSensitive());
+        get_DosFiletimes().copyFrom(source.get_DosFiletimes());
+        get_HideDotFiles().copyFrom(source.get_HideDotFiles());
+        get_AclCompatibility().copyFrom(source.get_AclCompatibility());
+        get_EASupport().copyFrom(source.get_EASupport());
+        get_NTACLSupport().copyFrom(source.get_NTACLSupport());
+        get_CreateMask().copyFrom(source.get_CreateMask());
+        get_DirectoryMask().copyFrom(source.get_DirectoryMask());
+        get_DirectorySecurityMask().copyFrom(source.get_DirectorySecurityMask());
 
     }
 

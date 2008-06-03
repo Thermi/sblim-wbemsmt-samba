@@ -57,7 +57,7 @@ public class UserACLItemDataContainerForServiceImpl extends BaseDataContainer im
                     "UserACLItemDataContainerForService.SambaUserName");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_SambaUserName = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_SambaUserName;
     }
@@ -75,7 +75,7 @@ public class UserACLItemDataContainerForServiceImpl extends BaseDataContainer im
                     "UserACLItemDataContainerForService.accessTypeVI");
             org.sblim.wbemsmt.tools.converter.StringArrayConverter converter = new org.sblim.wbemsmt.tools.converter.UnsignedInt16StringArrayConverter();
             ic_usr_AccessTypeVI = new org.sblim.wbemsmt.tools.input.test.LabeledTestStringArrayComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_AccessTypeVI;
     }
@@ -93,7 +93,7 @@ public class UserACLItemDataContainerForServiceImpl extends BaseDataContainer im
                     "UserACLItemDataContainerForService.accessTypeRW");
             org.sblim.wbemsmt.tools.converter.StringArrayConverter converter = new org.sblim.wbemsmt.tools.converter.UnsignedInt16StringArrayConverter();
             ic_usr_AccessTypeRW = new org.sblim.wbemsmt.tools.input.test.LabeledTestStringArrayComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_AccessTypeRW;
     }
@@ -161,9 +161,9 @@ public class UserACLItemDataContainerForServiceImpl extends BaseDataContainer im
     public void copyFrom(DataContainer sourceContainer) throws WbemsmtException {
         UserACLItemDataContainerForServiceImpl source = (UserACLItemDataContainerForServiceImpl) sourceContainer;
 
-        get_SambaUserName().setValue(source.get_SambaUserName().getValue());
-        get_usr_AccessTypeVI().setValue(source.get_usr_AccessTypeVI().getValue());
-        get_usr_AccessTypeRW().setValue(source.get_usr_AccessTypeRW().getValue());
+        get_SambaUserName().copyFrom(source.get_SambaUserName());
+        get_usr_AccessTypeVI().copyFrom(source.get_usr_AccessTypeVI());
+        get_usr_AccessTypeRW().copyFrom(source.get_usr_AccessTypeRW());
 
     }
 

@@ -145,8 +145,8 @@ public class UserIsAdminItemImpl extends org.sblim.wbemsmt.tools.jsf.EditBasePan
     public void copyFrom(DataContainer sourceContainer) throws WbemsmtException {
         UserIsAdminItemImpl source = (UserIsAdminItemImpl) sourceContainer;
 
-        get_usr_SambaUserName().setValue(source.get_usr_SambaUserName().getValue());
-        get_usr_Admin().setValue(source.get_usr_Admin().getValue());
+        get_usr_SambaUserName().copyFrom(source.get_usr_SambaUserName());
+        get_usr_Admin().copyFrom(source.get_usr_Admin());
 
     }
 

@@ -96,7 +96,7 @@ public class Linux_SambaGlobalBrowseOptions extends Linux_SambaBrowseOptions {
          * @param value the value to find the ValueMapEntry for
          * @return the ValueMap entry or null if not found
          */
-        //org.sblim.wbemsmt.dcg.generator.DCGContextUtil$Wrapper@71567156
+        //org.sblim.wbemsmt.dcg.generator.DCGContextUtil$Wrapper@3a223a22
         public static javax.cim.UnsignedInteger16 getValueMapEntry(String value) {
 
             if (VALUE_ENTRY_No.equals(value)) {
@@ -322,8 +322,7 @@ public class Linux_SambaGlobalBrowseOptions extends Linux_SambaBrowseOptions {
     public boolean set_DomainMaster(javax.cim.UnsignedInteger16 newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_DOMAINMASTER.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_DomainMaster(currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_DomainMaster(currentProperty, newValue));
             return true;
         }
         else {
@@ -405,8 +404,7 @@ public class Linux_SambaGlobalBrowseOptions extends Linux_SambaBrowseOptions {
     public boolean set_key_Name(String newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_NAME.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_key_Name(currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_key_Name(currentProperty, newValue));
             return true;
         }
         else {

@@ -238,11 +238,11 @@ public class UserWizardPage1Impl extends org.sblim.wbemsmt.tools.wizard.jsf.Wiza
     public void copyFrom(DataContainer sourceContainer) throws WbemsmtException {
         UserWizardPage1Impl source = (UserWizardPage1Impl) sourceContainer;
 
-        get_SambaUserName().setValue(source.get_SambaUserName().getValue());
-        get_SystemUserName().setValue(source.get_SystemUserName().getValue());
-        get_SambaUserPassword().setValue(source.get_SambaUserPassword().getValue());
-        get_SambaUserPassword2().setValue(source.get_SambaUserPassword2().getValue());
-        get_usr_IsGuest().setValue(source.get_usr_IsGuest().getValue());
+        get_SambaUserName().copyFrom(source.get_SambaUserName());
+        get_SystemUserName().copyFrom(source.get_SystemUserName());
+        get_SambaUserPassword().copyFrom(source.get_SambaUserPassword());
+        get_SambaUserPassword2().copyFrom(source.get_SambaUserPassword2());
+        get_usr_IsGuest().copyFrom(source.get_usr_IsGuest());
 
     }
 

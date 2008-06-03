@@ -59,7 +59,7 @@ public class PrintingOptionsDataContainerImpl extends BaseDataContainer implemen
                     "PrintingOptionsDataContainer.CupsOptions");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_CupsOptions = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,
-                    label, "", converter);
+                    label, null, converter);
         }
         return ic_CupsOptions;
     }
@@ -77,7 +77,7 @@ public class PrintingOptionsDataContainerImpl extends BaseDataContainer implemen
                     "PrintingOptionsDataContainer.DefaultDevMode");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_DefaultDevMode = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_DefaultDevMode;
     }
@@ -95,7 +95,7 @@ public class PrintingOptionsDataContainerImpl extends BaseDataContainer implemen
                     "PrintingOptionsDataContainer.MaxPrintjobs");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.UnsignedInt64StringConverter();
             ic_MaxPrintjobs = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_MaxPrintjobs;
     }
@@ -113,7 +113,7 @@ public class PrintingOptionsDataContainerImpl extends BaseDataContainer implemen
                     "PrintingOptionsDataContainer.MaxReportedPrintjobs");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.UnsignedInt64StringConverter();
             ic_MaxReportedPrintjobs = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_MaxReportedPrintjobs;
     }
@@ -131,7 +131,7 @@ public class PrintingOptionsDataContainerImpl extends BaseDataContainer implemen
                     "PrintingOptionsDataContainer.PrintCommand");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_PrintCommand = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_PrintCommand;
     }
@@ -149,7 +149,7 @@ public class PrintingOptionsDataContainerImpl extends BaseDataContainer implemen
                     "PrintingOptionsDataContainer.UseClientDriver");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_UseClientDriver = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_UseClientDriver;
     }
@@ -235,12 +235,12 @@ public class PrintingOptionsDataContainerImpl extends BaseDataContainer implemen
     public void copyFrom(DataContainer sourceContainer) throws WbemsmtException {
         PrintingOptionsDataContainerImpl source = (PrintingOptionsDataContainerImpl) sourceContainer;
 
-        get_CupsOptions().setValue(source.get_CupsOptions().getValue());
-        get_DefaultDevMode().setValue(source.get_DefaultDevMode().getValue());
-        get_MaxPrintjobs().setValue(source.get_MaxPrintjobs().getValue());
-        get_MaxReportedPrintjobs().setValue(source.get_MaxReportedPrintjobs().getValue());
-        get_PrintCommand().setValue(source.get_PrintCommand().getValue());
-        get_UseClientDriver().setValue(source.get_UseClientDriver().getValue());
+        get_CupsOptions().copyFrom(source.get_CupsOptions());
+        get_DefaultDevMode().copyFrom(source.get_DefaultDevMode());
+        get_MaxPrintjobs().copyFrom(source.get_MaxPrintjobs());
+        get_MaxReportedPrintjobs().copyFrom(source.get_MaxReportedPrintjobs());
+        get_PrintCommand().copyFrom(source.get_PrintCommand());
+        get_UseClientDriver().copyFrom(source.get_UseClientDriver());
 
     }
 

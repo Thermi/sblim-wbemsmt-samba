@@ -177,9 +177,9 @@ public class UserListItemDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.E
     public void copyFrom(DataContainer sourceContainer) throws WbemsmtException {
         UserListItemDataContainerImpl source = (UserListItemDataContainerImpl) sourceContainer;
 
-        get_SambaUserName().setValue(source.get_SambaUserName().getValue());
-        get_SystemUserName().setValue(source.get_SystemUserName().getValue());
-        get_usr_IsGuest().setValue(source.get_usr_IsGuest().getValue());
+        get_SambaUserName().copyFrom(source.get_SambaUserName());
+        get_SystemUserName().copyFrom(source.get_SystemUserName());
+        get_usr_IsGuest().copyFrom(source.get_usr_IsGuest());
 
     }
 

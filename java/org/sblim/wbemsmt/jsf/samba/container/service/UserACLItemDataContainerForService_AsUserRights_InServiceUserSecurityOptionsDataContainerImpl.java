@@ -188,9 +188,9 @@ public class UserACLItemDataContainerForService_AsUserRights_InServiceUserSecuri
     public void copyFrom(DataContainer sourceContainer) throws WbemsmtException {
         UserACLItemDataContainerForService_AsUserRights_InServiceUserSecurityOptionsDataContainerImpl source = (UserACLItemDataContainerForService_AsUserRights_InServiceUserSecurityOptionsDataContainerImpl) sourceContainer;
 
-        get_SambaUserName().setValue(source.get_SambaUserName().getValue());
-        get_usr_AccessTypeVI().setValue(source.get_usr_AccessTypeVI().getValue());
-        get_usr_AccessTypeRW().setValue(source.get_usr_AccessTypeRW().getValue());
+        get_SambaUserName().copyFrom(source.get_SambaUserName());
+        get_usr_AccessTypeVI().copyFrom(source.get_usr_AccessTypeVI());
+        get_usr_AccessTypeRW().copyFrom(source.get_usr_AccessTypeRW());
 
     }
 
