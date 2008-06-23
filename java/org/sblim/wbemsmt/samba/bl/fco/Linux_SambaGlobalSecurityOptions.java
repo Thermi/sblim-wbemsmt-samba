@@ -374,7 +374,7 @@ public class Linux_SambaGlobalSecurityOptions extends CIM_SettingData {
          * @param value the value to find the ValueMapEntry for
          * @return the ValueMap entry or null if not found
          */
-        //org.sblim.wbemsmt.dcg.generator.DCGContextUtil$Wrapper@61d261d2
+        //org.sblim.wbemsmt.dcg.generator.DCGContextUtil$Wrapper@11c0d60
         public static javax.cim.UnsignedInteger8 getValueMapEntry(String value) {
 
             if (VALUE_ENTRY_User.equals(value)) {

@@ -24,10 +24,10 @@ import java.util.List;
 
 import javax.wbem.client.WBEMClient;
 
+import org.sblim.wbemsmt.bl.tree.CIMClassNode;
 import org.sblim.wbemsmt.exception.WbemsmtException;
 import org.sblim.wbemsmt.samba.bl.fco.Linux_SambaService;
 import org.sblim.wbemsmt.samba.bl.fco.Linux_SambaServiceHelper;
-import org.sblim.wbemsmt.tasklauncher.CIMClassNode;
 import org.sblim.wbemsmt.tasklauncher.initialobjectloading.WbemsmtInitialObjectLoader;
 
 /**

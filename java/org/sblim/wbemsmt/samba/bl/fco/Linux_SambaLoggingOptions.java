@@ -218,7 +218,7 @@ public class Linux_SambaLoggingOptions extends CIM_SettingData {
          * @param value the value to find the ValueMapEntry for
          * @return the ValueMap entry or null if not found
          */
-        //org.sblim.wbemsmt.dcg.generator.DCGContextUtil$Wrapper@70a270a2
+        //org.sblim.wbemsmt.dcg.generator.DCGContextUtil$Wrapper@64023c
         public static javax.cim.UnsignedInteger16 getValueMapEntry(String value) {
 
             if (VALUE_ENTRY_LOG_ERR.equals(value)) {

@@ -30,11 +30,11 @@ import javax.cim.CIMProperty;
 import javax.cim.UnsignedInteger16;
 import javax.wbem.client.WBEMClient;
 
-import org.sblim.wbemsmt.bl.WbemsmtBusinessObject;
 import org.sblim.wbemsmt.bl.adapter.AbstractBaseCimAdapter;
 import org.sblim.wbemsmt.bl.adapter.CimObjectKey;
 import org.sblim.wbemsmt.bl.adapter.DataContainer;
 import org.sblim.wbemsmt.bl.fco.AbstractWbemsmtFco;
+import org.sblim.wbemsmt.bl.wrapper.WbemsmtBusinessObject;
 import org.sblim.wbemsmt.exception.WbemsmtException;
 import org.sblim.wbemsmt.samba.bl.container.global.UserIsAdminItem;
 import org.sblim.wbemsmt.samba.bl.fco.Linux_SambaPrinterOptions;

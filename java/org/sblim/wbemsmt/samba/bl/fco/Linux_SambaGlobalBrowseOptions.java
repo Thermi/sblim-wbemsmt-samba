@@ -96,7 +96,7 @@ public class Linux_SambaGlobalBrowseOptions extends Linux_SambaBrowseOptions {
          * @param value the value to find the ValueMapEntry for
          * @return the ValueMap entry or null if not found
          */
-        //org.sblim.wbemsmt.dcg.generator.DCGContextUtil$Wrapper@3a223a22
+        //org.sblim.wbemsmt.dcg.generator.DCGContextUtil$Wrapper@1d87b85
         public static javax.cim.UnsignedInteger16 getValueMapEntry(String value) {
 
             if (VALUE_ENTRY_No.equals(value)) {

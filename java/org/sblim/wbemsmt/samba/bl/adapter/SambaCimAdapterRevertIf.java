@@ -37,179 +37,179 @@ public interface SambaCimAdapterRevertIf extends RevertDelegatee {
     /** 
      * Revert-Methods
      **/
-    public MessageList revertImpl(
+    public org.sblim.wbemsmt.bl.messages.MessageList revertImpl(
             org.sblim.wbemsmt.samba.bl.container.global.AdminUsersInPrinterGlobals container)
             throws WbemsmtException;
 
-    public MessageList revertImpl(
+    public org.sblim.wbemsmt.bl.messages.MessageList revertImpl(
             org.sblim.wbemsmt.samba.bl.container.global.AdminUsersInShareGlobals container)
             throws WbemsmtException;
 
-    public MessageList revertImpl(
+    public org.sblim.wbemsmt.bl.messages.MessageList revertImpl(
             org.sblim.wbemsmt.samba.bl.container.share.CMDShareFileAttributes container)
             throws WbemsmtException;
 
-    public MessageList revertImpl(
+    public org.sblim.wbemsmt.bl.messages.MessageList revertImpl(
             org.sblim.wbemsmt.samba.bl.container.global.CMDShareGlobalsDataContainer container)
             throws WbemsmtException;
 
-    public MessageList revertImpl(
+    public org.sblim.wbemsmt.bl.messages.MessageList revertImpl(
             org.sblim.wbemsmt.samba.bl.container.share.GUIShareFileAttributes container)
             throws WbemsmtException;
 
-    public MessageList revertImpl(
+    public org.sblim.wbemsmt.bl.messages.MessageList revertImpl(
             org.sblim.wbemsmt.samba.bl.container.global.GUIShareGlobalsDataContainer container)
             throws WbemsmtException;
 
-    public MessageList revertImpl(
+    public org.sblim.wbemsmt.bl.messages.MessageList revertImpl(
             org.sblim.wbemsmt.samba.bl.container.host.HostDataContainer container)
             throws WbemsmtException;
 
-    public MessageList revertImpl(
+    public org.sblim.wbemsmt.bl.messages.MessageList revertImpl(
             org.sblim.wbemsmt.samba.bl.container.share.PrinterACLItemDataContainer container)
             throws WbemsmtException;
 
-    public MessageList revertImpl(
+    public org.sblim.wbemsmt.bl.messages.MessageList revertImpl(
             org.sblim.wbemsmt.samba.bl.container.printer.PrinterAllowHostSecurityDataContainer container)
             throws WbemsmtException;
 
-    public MessageList revertImpl(
+    public org.sblim.wbemsmt.bl.messages.MessageList revertImpl(
             org.sblim.wbemsmt.samba.bl.container.printer.PrinterDenyHostSecurityDataContainer container)
             throws WbemsmtException;
 
-    public MessageList revertImpl(
+    public org.sblim.wbemsmt.bl.messages.MessageList revertImpl(
             org.sblim.wbemsmt.samba.bl.container.user.PrinterInUserACLDataContainer container)
             throws WbemsmtException;
 
-    public MessageList revertImpl(
+    public org.sblim.wbemsmt.bl.messages.MessageList revertImpl(
             org.sblim.wbemsmt.samba.bl.container.printer.PrinterOptionsDataContainer container)
             throws WbemsmtException;
 
-    public MessageList revertImpl(
+    public org.sblim.wbemsmt.bl.messages.MessageList revertImpl(
             org.sblim.wbemsmt.samba.bl.container.global.PrintingGlobalsDataContainer container)
             throws WbemsmtException;
 
-    public MessageList revertImpl(
+    public org.sblim.wbemsmt.bl.messages.MessageList revertImpl(
             org.sblim.wbemsmt.samba.bl.container.printer.PrintingOptionsDataContainer container)
             throws WbemsmtException;
 
-    public MessageList revertImpl(
+    public org.sblim.wbemsmt.bl.messages.MessageList revertImpl(
             org.sblim.wbemsmt.samba.bl.container.service.ServiceAllowHostSecurityDataContainer container)
             throws WbemsmtException;
 
-    public MessageList revertImpl(
+    public org.sblim.wbemsmt.bl.messages.MessageList revertImpl(
             org.sblim.wbemsmt.samba.bl.container.service.ServiceDenyHostDataContainer container)
             throws WbemsmtException;
 
-    public MessageList revertImpl(
+    public org.sblim.wbemsmt.bl.messages.MessageList revertImpl(
             org.sblim.wbemsmt.samba.bl.container.service.ServiceGlobalSecurityOptionsDataContainer container)
             throws WbemsmtException;
 
-    public MessageList revertImpl(
+    public org.sblim.wbemsmt.bl.messages.MessageList revertImpl(
             org.sblim.wbemsmt.samba.bl.container.service.ServiceLoggingDataContainer container)
             throws WbemsmtException;
 
-    public MessageList revertImpl(
+    public org.sblim.wbemsmt.bl.messages.MessageList revertImpl(
             org.sblim.wbemsmt.samba.bl.container.service.ServiceOperationsDataContainer container)
             throws WbemsmtException;
 
-    public MessageList revertImpl(
+    public org.sblim.wbemsmt.bl.messages.MessageList revertImpl(
             org.sblim.wbemsmt.samba.bl.container.service.ServiceOptionsDataContainer container)
             throws WbemsmtException;
 
-    public MessageList revertImpl(
+    public org.sblim.wbemsmt.bl.messages.MessageList revertImpl(
             org.sblim.wbemsmt.samba.bl.container.service.ServiceScriptingDataContainer container)
             throws WbemsmtException;
 
-    public MessageList revertImpl(
+    public org.sblim.wbemsmt.bl.messages.MessageList revertImpl(
             org.sblim.wbemsmt.samba.bl.container.service.ServiceUserSecurityOptionsDataContainer container)
             throws WbemsmtException;
 
-    public MessageList revertImpl(
+    public org.sblim.wbemsmt.bl.messages.MessageList revertImpl(
             org.sblim.wbemsmt.samba.bl.container.service.ServiceWinsDataContainer container)
             throws WbemsmtException;
 
-    public MessageList revertImpl(
+    public org.sblim.wbemsmt.bl.messages.MessageList revertImpl(
             org.sblim.wbemsmt.samba.bl.container.share.ShareACLItemDataContainer container)
             throws WbemsmtException;
 
-    public MessageList revertImpl(
+    public org.sblim.wbemsmt.bl.messages.MessageList revertImpl(
             org.sblim.wbemsmt.samba.bl.container.share.ShareAllowHostSecurityDataContainer container)
             throws WbemsmtException;
 
-    public MessageList revertImpl(
+    public org.sblim.wbemsmt.bl.messages.MessageList revertImpl(
             org.sblim.wbemsmt.samba.bl.container.share.ShareDenyHostSecurityDataContainer container)
             throws WbemsmtException;
 
-    public MessageList revertImpl(
+    public org.sblim.wbemsmt.bl.messages.MessageList revertImpl(
             org.sblim.wbemsmt.samba.bl.container.share.ShareFileAttributes container)
             throws WbemsmtException;
 
-    public MessageList revertImpl(
+    public org.sblim.wbemsmt.bl.messages.MessageList revertImpl(
             org.sblim.wbemsmt.samba.bl.container.global.ShareGlobalsDataContainer container)
             throws WbemsmtException;
 
-    public MessageList revertImpl(
+    public org.sblim.wbemsmt.bl.messages.MessageList revertImpl(
             org.sblim.wbemsmt.samba.bl.container.user.ShareInUserACLDataContainer container)
             throws WbemsmtException;
 
-    public MessageList revertImpl(
+    public org.sblim.wbemsmt.bl.messages.MessageList revertImpl(
             org.sblim.wbemsmt.samba.bl.container.share.ShareOptionsDataContainer container)
             throws WbemsmtException;
 
-    public MessageList revertImpl(
+    public org.sblim.wbemsmt.bl.messages.MessageList revertImpl(
             org.sblim.wbemsmt.samba.bl.container.printer.UserACLItemDataContainerForPrinter container)
             throws WbemsmtException;
 
-    public MessageList revertImpl(
+    public org.sblim.wbemsmt.bl.messages.MessageList revertImpl(
             org.sblim.wbemsmt.samba.bl.container.service.UserACLItemDataContainerForService container)
             throws WbemsmtException;
 
-    public MessageList revertImpl(
+    public org.sblim.wbemsmt.bl.messages.MessageList revertImpl(
             org.sblim.wbemsmt.samba.bl.container.share.UserACLItemDataContainerForShare container)
             throws WbemsmtException;
 
-    public MessageList revertImpl(
+    public org.sblim.wbemsmt.bl.messages.MessageList revertImpl(
             org.sblim.wbemsmt.samba.bl.container.user.UserDataContainer container)
             throws WbemsmtException;
 
-    public MessageList revertImpl(
+    public org.sblim.wbemsmt.bl.messages.MessageList revertImpl(
             org.sblim.wbemsmt.samba.bl.container.printer.UserInPrinterACLDataContainer container)
             throws WbemsmtException;
 
-    public MessageList revertImpl(
+    public org.sblim.wbemsmt.bl.messages.MessageList revertImpl(
             org.sblim.wbemsmt.samba.bl.container.share.UserInShareACLDataContainer container)
             throws WbemsmtException;
 
-    public MessageList revertImpl(
+    public org.sblim.wbemsmt.bl.messages.MessageList revertImpl(
             org.sblim.wbemsmt.samba.bl.container.global.UserIsAdminItem container)
             throws WbemsmtException;
 
-    public MessageList revertImpl(
+    public org.sblim.wbemsmt.bl.messages.MessageList revertImpl(
             org.sblim.wbemsmt.samba.bl.container.global.AdminUsersInPrinterGlobals container,
             org.sblim.wbemsmt.samba.bl.fco.Linux_SambaUser fco) throws WbemsmtException;
 
-    public MessageList revertImpl(
+    public org.sblim.wbemsmt.bl.messages.MessageList revertImpl(
             org.sblim.wbemsmt.samba.bl.container.global.AdminUsersInShareGlobals container,
             org.sblim.wbemsmt.samba.bl.fco.Linux_SambaUser fco) throws WbemsmtException;
 
-    public MessageList revertImpl(
+    public org.sblim.wbemsmt.bl.messages.MessageList revertImpl(
             org.sblim.wbemsmt.samba.bl.container.printer.UserACLItemDataContainerForPrinter container,
             org.sblim.wbemsmt.samba.bl.fco.Linux_SambaUser fco) throws WbemsmtException;
 
-    public MessageList revertImpl(
+    public org.sblim.wbemsmt.bl.messages.MessageList revertImpl(
             org.sblim.wbemsmt.samba.bl.container.service.UserACLItemDataContainerForService container,
             org.sblim.wbemsmt.samba.bl.fco.Linux_SambaUser fco) throws WbemsmtException;
 
-    public MessageList revertImpl(
+    public org.sblim.wbemsmt.bl.messages.MessageList revertImpl(
             org.sblim.wbemsmt.samba.bl.container.share.PrinterACLItemDataContainer container,
             org.sblim.wbemsmt.samba.bl.fco.Linux_SambaPrinterOptions fco) throws WbemsmtException;
 
-    public MessageList revertImpl(
+    public org.sblim.wbemsmt.bl.messages.MessageList revertImpl(
             org.sblim.wbemsmt.samba.bl.container.share.ShareACLItemDataContainer container,
             org.sblim.wbemsmt.samba.bl.fco.Linux_SambaShareOptions fco) throws WbemsmtException;
 
-    public MessageList revertImpl(
+    public org.sblim.wbemsmt.bl.messages.MessageList revertImpl(
             org.sblim.wbemsmt.samba.bl.container.share.UserACLItemDataContainerForShare container,
             org.sblim.wbemsmt.samba.bl.fco.Linux_SambaUser fco) throws WbemsmtException;
 
