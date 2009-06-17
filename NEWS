@@ -1,9 +1,12 @@
+Changes in 0.5.6-1
+==============================================================================
+- Maintenance release
+
 Changes on top of 0.5.5-CVS
 ==============================================================================
 - 1992943 wbemsmt-client: code cleanup
 - 1977422 wbemsmt-tasks: add httpProtocolType as global cli arg
 - 1965983 wbemsmt-samba: migrate to jsr48
-
 
 Changes in 0.5.5-1
 ==============================================================================
