@@ -1,14 +1,14 @@
  /** 
   * SambaObject.java
   *
-  * © Copyright IBM Corp. 2005
+  * © Copyright IBM Corp.  2009,2005
   *
-  * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
+  * THIS FILE IS PROVIDED UNDER THE TERMS OF THE ECLIPSE PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
   * CONSTITUTES RECIPIENTS ACCEPTANCE OF THE AGREEMENT.
   *
-  * You can obtain a current copy of the Common Public License from
-  * http://www.opensource.org/licenses/cpl1.0.php
+  * You can obtain a current copy of the Eclipse Public License from
+  * http://www.opensource.org/licenses/eclipse-1.0.php
   *
   * @author: Michael Bauschert <Michael.Bauschert@de.ibm.com>
   *
@@ -45,7 +45,7 @@ import org.sblim.wbemsmt.samba.bl.wrapper.User;
 import org.sblim.wbemsmt.samba.bl.wrapper.list.PrinterList;
 import org.sblim.wbemsmt.samba.bl.wrapper.list.ShareList;
 import org.sblim.wbemsmt.samba.bl.wrapper.list.UserList;
-import org.sblim.wbemsmt.schema.cim29.CIM_ManagedElement;
+import org.sblim.wbemsmt.schema.cim221.CIM_ManagedElement;
 import org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf;
 import org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf;
 import org.sblim.wbemsmt.tools.resources.WbemSmtResourceBundle;
@@ -69,39 +69,39 @@ public abstract class SambaObject extends WbemsmtBusinessObject {
 
 	protected Logger logger = Logger.getLogger(SambaObject.class.getName());	
 	
-	protected Map allHosts = new HashMap();
+	protected Map<String,String> allHosts = new HashMap<String,String>();
 	protected boolean reloadChilds;
 
 	private static final DecimalFormat DF_MASK_STRING = new DecimalFormat("0000");
 	
 	public abstract CimObjectKey getCimObjectKey() throws WbemsmtException;
 	
-	protected void setShareUsers(Set map, List associated_Linux_SambaUsers) {
-		for (Iterator iter = associated_Linux_SambaUsers.iterator(); iter.hasNext();) {
+	protected void setShareUsers(Set<String> map, List<CIMObjectPath> associated_Linux_SambaUsers) {
+		for (Iterator<CIMObjectPath> iter = associated_Linux_SambaUsers.iterator(); iter.hasNext();) {
 			CIMObjectPath path = (CIMObjectPath) iter.next();
 			String name = (String) path.getKey("SambaUserName").getValue();
 			map.add(name);
 		}
 	}
 
-	protected void setUserPrinters(Set map, List associated_Linux_SambaUsers) {
-		for (Iterator iter = associated_Linux_SambaUsers.iterator(); iter.hasNext();) {
+	protected void setUserPrinters(Set<String> map, List<CIMObjectPath> associated_Linux_SambaUsers) {
+		for (Iterator<CIMObjectPath> iter = associated_Linux_SambaUsers.iterator(); iter.hasNext();) {
 			CIMObjectPath path = (CIMObjectPath) iter.next();
 			String name = (String) path.getKey("Name").getValue();
 			map.add(name);
 		}
 	}
 	
-	protected void setUserShares(Set map, List associated_Linux_SambaUsers) {
-		for (Iterator iter = associated_Linux_SambaUsers.iterator(); iter.hasNext();) {
+	protected void setUserShares(Set<String> map, List<CIMObjectPath> associated_Linux_SambaUsers) {
+		for (Iterator<CIMObjectPath> iter = associated_Linux_SambaUsers.iterator(); iter.hasNext();) {
 			CIMObjectPath path = (CIMObjectPath) iter.next();
 			String name = (String) path.getKey("Name").getValue();
 			map.add(name);
 		}
 	}
 
-	protected void setHosts(Set map, List associated_Linux_SambaHosts) {
-		for (Iterator iter = associated_Linux_SambaHosts.iterator(); iter.hasNext();) {
+	protected void setHosts(Set<String> map, List<CIMObjectPath> associated_Linux_SambaHosts) {
+		for (Iterator<CIMObjectPath> iter = associated_Linux_SambaHosts.iterator(); iter.hasNext();) {
 			CIMObjectPath path = (CIMObjectPath) iter.next();
 			String name = (String) path.getKey("Name").getValue();
 			map.add(name);
@@ -156,8 +156,8 @@ public abstract class SambaObject extends WbemsmtBusinessObject {
 		}
 	}
 
-	protected void seperateDenyHosts(Set allowHosts, Set denyHosts, List listHostsToDeny, List listHostsDenied) {
-		Iterator iterator = allHosts.keySet().iterator();
+	protected void seperateDenyHosts(Set<String> allowHosts, Set<String> denyHosts, List<String> listHostsToDeny, List<String> listHostsDenied) {
+		Iterator<String> iterator = allHosts.keySet().iterator();
 		while (iterator.hasNext())
 		{
 			String hostname = (String) iterator.next();
@@ -171,8 +171,8 @@ public abstract class SambaObject extends WbemsmtBusinessObject {
 			}
 		}
 	}
-	protected void seperateAllowHosts(Set allowHosts, Set denyHosts, List listHostsToAllow, List listHostsAllowed) {
-		Iterator iterator = allHosts.keySet().iterator();
+	protected void seperateAllowHosts(Set<String> allowHosts, Set<String> denyHosts, List<String> listHostsToAllow, List<String> listHostsAllowed) {
+		Iterator<String> iterator = allHosts.keySet().iterator();
 		while (iterator.hasNext())
 		{
 			String hostname = (String) iterator.next();
@@ -187,7 +187,7 @@ public abstract class SambaObject extends WbemsmtBusinessObject {
 		}
 	}
 	
-	protected void updateValidInvalidWithUserList(DataContainer container, LabeledStringArrayInputComponentIf viField, String key, Set invalidUsers, Set validUsers, boolean globalAcl, Service service) throws WbemsmtException {
+	protected void updateValidInvalidWithUserList(DataContainer container, LabeledStringArrayInputComponentIf viField, String key, Set<String> invalidUsers, Set<String> validUsers, boolean globalAcl, Service service) throws WbemsmtException {
 		UnsignedInteger16 selectedIV = null; 
 
 		WbemSmtResourceBundle bundle = container.getAdapter().getBundle();
@@ -234,7 +234,7 @@ public abstract class SambaObject extends WbemsmtBusinessObject {
 		
 	}
 
-	protected void updateReadWriteWithUserList(DataContainer container, LabeledStringArrayInputComponentIf rwField, String key, Set readUsers, Set writeUsers, boolean globalAcl, Service service) throws WbemsmtException {
+	protected void updateReadWriteWithUserList(DataContainer container, LabeledStringArrayInputComponentIf rwField, String key, Set<String> readUsers, Set<String> writeUsers, boolean globalAcl, Service service) throws WbemsmtException {
 		UnsignedInteger16 selectedRW = null; 
 
 		WbemSmtResourceBundle bundle = container.getAdapter().getBundle();
@@ -279,7 +279,7 @@ public abstract class SambaObject extends WbemsmtBusinessObject {
 //		}
 	}
 	
-	protected void updateAdminWithUserList(DataContainer container, LabeledBaseInputComponentIf adminField, String key, Set adminUsers, Service service, Set setWithGlobalAdmins, boolean globalAcl) throws WbemsmtException {
+	protected void updateAdminWithUserList(DataContainer container, LabeledBaseInputComponentIf adminField, String key, Set<String> adminUsers, Service service, Set<String> setWithGlobalAdmins, boolean globalAcl) throws WbemsmtException {
 		adminField.setControlValue(new Boolean(adminUsers.contains(key) || setWithGlobalAdmins.contains(key)));
 		
 		if (!globalAcl)
@@ -315,7 +315,7 @@ public abstract class SambaObject extends WbemsmtBusinessObject {
 		}
 	}
 	
-	protected void updateModelHostsAcl(DataContainer container, LabeledBaseInputComponentIf btnAdd, LabeledBaseInputComponentIf btnRemove, LabeledStringArrayInputComponentIf allowedHosts, LabeledStringArrayInputComponentIf hostsToAllow, List listHostsAllowed, List listHostsToAllow) {
+	protected void updateModelHostsAcl(DataContainer container, LabeledBaseInputComponentIf btnAdd, LabeledBaseInputComponentIf btnRemove, LabeledStringArrayInputComponentIf allowedHosts, LabeledStringArrayInputComponentIf hostsToAllow, List<String> listHostsAllowed, List<String> listHostsToAllow) {
 		AbstractBaseCimAdapter adapter = container.getAdapter();
 		
 		if (adapter.getUpdateTrigger() == btnRemove)
@@ -378,7 +378,7 @@ public abstract class SambaObject extends WbemsmtBusinessObject {
 		}
 	}
 
-	protected void updateSharePrinterAdminForGlobalControls(UserIsAdminItem container, Linux_SambaUser fco, Set adminsBySambaUserName) {
+	protected void updateSharePrinterAdminForGlobalControls(UserIsAdminItem container, Linux_SambaUser fco, Set<String> adminsBySambaUserName) {
 
 		String username = fco.get_key_SambaUserName();
 		container.get_usr_SambaUserName().setControlValue(username);
@@ -386,7 +386,7 @@ public abstract class SambaObject extends WbemsmtBusinessObject {
 		
 	}
 
-	protected void updateSharePrinterAdminForGlobalControls(UserIsAdminItem container, Set adminsBySambaUserName, Service service) throws WbemsmtException {
+	protected void updateSharePrinterAdminForGlobalControls(UserIsAdminItem container, Set<String> adminsBySambaUserName, Service service) throws WbemsmtException {
 
 		User user = getCurrenUser(container, service);
         Linux_SambaUser fco = user.getUser();
@@ -414,7 +414,7 @@ public abstract class SambaObject extends WbemsmtBusinessObject {
 		String name = currentForceUserFco != null ? currentForceUserFco.get_key_SambaUserName() : container.getAdapter().getBundle().getString("no.force.user");
         currentForceUser.setControlValue( name );
         
-        List userNames = new ArrayList();
+        List<String> userNames = new ArrayList<String>();
         userNames.add(container.getAdapter().getBundle().getString("no.new.force.user"));
         userNames.addAll(StringUtil.asList(service.getUsers().getNameArray()));
         String[] array = (String[]) userNames.toArray(new String[userNames.size()]);
@@ -427,21 +427,21 @@ public abstract class SambaObject extends WbemsmtBusinessObject {
         newForceUser.setControlValue(new UnsignedInteger16(index));
 	}
 
-	protected boolean saveValidInvalid(LabeledStringArrayInputComponentIf viField, Linux_SambaUser fco, Set invalidUsers, Set validUsers, CIMProperty[] vKeyProperties, Class invalidAssocClass, Class validAssocClass) throws WbemsmtException {
+	protected boolean saveValidInvalid(LabeledStringArrayInputComponentIf viField, Linux_SambaUser fco, Set<String> invalidUsers, Set<String> validUsers, CIMProperty[] vKeyProperties, Class<?> invalidAssocClass, Class<?> validAssocClass) throws WbemsmtException {
 		String key = fco.get_key_SambaUserName();
 		return saveValidInvalidImpl(viField, invalidUsers, validUsers, vKeyProperties, invalidAssocClass, validAssocClass, key);
 	}
 
-	protected boolean saveValidInvalid(LabeledStringArrayInputComponentIf viField, Linux_SambaPrinterOptions fco, Set invalidPrinters, Set validPrinters, CIMProperty[] vKeyProperties, Class invalidAssocClass, Class validAssocClass) throws WbemsmtException {
+	protected boolean saveValidInvalid(LabeledStringArrayInputComponentIf viField, Linux_SambaPrinterOptions fco, Set<String> invalidPrinters, Set<String> validPrinters, CIMProperty[] vKeyProperties, Class<?> invalidAssocClass, Class<?> validAssocClass) throws WbemsmtException {
 		String key = fco.get_key_Name();
 		return saveValidInvalidImpl(viField, invalidPrinters, validPrinters, vKeyProperties, invalidAssocClass, validAssocClass, key);
 	}
-	protected boolean saveValidInvalid(LabeledStringArrayInputComponentIf viField, Linux_SambaShareOptions fco, Set invalidShares, Set validShares, CIMProperty[] vKeyProperties, Class invalidAssocClass, Class validAssocClass) throws WbemsmtException {
+	protected boolean saveValidInvalid(LabeledStringArrayInputComponentIf viField, Linux_SambaShareOptions fco, Set<String> invalidShares, Set<String> validShares, CIMProperty[] vKeyProperties, Class<?> invalidAssocClass, Class<?> validAssocClass) throws WbemsmtException {
 		String key = fco.get_key_Name();
 		return saveValidInvalidImpl(viField, invalidShares, validShares, vKeyProperties, invalidAssocClass, validAssocClass, key);
 	}
 
-	private boolean saveValidInvalidImpl(LabeledStringArrayInputComponentIf viField, Set invalids, Set valids, CIMProperty[] vKeyProperties, Class invalidAssocClass, Class validAssocClass, String key) throws WbemsmtException {
+	private boolean saveValidInvalidImpl(LabeledStringArrayInputComponentIf viField, Set<String> invalids, Set<String> valids, CIMProperty[] vKeyProperties, Class<?> invalidAssocClass, Class<?> validAssocClass, String key) throws WbemsmtException {
 		UnsignedInteger16 index = null;
 		try {
 			index = (UnsignedInteger16) viField.getConvertedControlValue();
@@ -468,22 +468,22 @@ public abstract class SambaObject extends WbemsmtBusinessObject {
 		return save(valid,valids,validAssocClass,key,vKeyProperties) || reload;
 	}
 
-	protected boolean saveReadWrite(LabeledStringArrayInputComponentIf rwField, Linux_SambaUser fco, Set readUsers, Set writeUsers, CIMProperty[] vKeyProperties, Class readListAssocClass, Class writeListAssocClass) throws WbemsmtException {
+	protected boolean saveReadWrite(LabeledStringArrayInputComponentIf rwField, Linux_SambaUser fco, Set<String> readUsers, Set<String> writeUsers, CIMProperty[] vKeyProperties, Class<?> readListAssocClass, Class<?> writeListAssocClass) throws WbemsmtException {
 		String key = fco.get_key_SambaUserName();
 		return saveReadWriteImpl(rwField, readUsers, writeUsers, vKeyProperties, readListAssocClass, writeListAssocClass, key);
 	}
 
-	protected boolean saveReadWrite(LabeledStringArrayInputComponentIf rwField, Linux_SambaShareOptions fco, Set readShares, Set writeShares, CIMProperty[] vKeyProperties, Class readListAssocClass, Class writeListAssocClass) throws WbemsmtException {
+	protected boolean saveReadWrite(LabeledStringArrayInputComponentIf rwField, Linux_SambaShareOptions fco, Set<String> readShares, Set<String> writeShares, CIMProperty[] vKeyProperties, Class<?> readListAssocClass, Class<?> writeListAssocClass) throws WbemsmtException {
 		String key = fco.get_key_Name();
 		return saveReadWriteImpl(rwField, readShares, writeShares, vKeyProperties, readListAssocClass, writeListAssocClass, key);
 	}
 
-	protected boolean saveReadWrite(LabeledStringArrayInputComponentIf rwField, Linux_SambaPrinterOptions fco, Set readPrinters, Set writePrinters, CIMProperty[] vKeyProperties, Class readListAssocClass, Class writeListAssocClass) throws WbemsmtException {
+	protected boolean saveReadWrite(LabeledStringArrayInputComponentIf rwField, Linux_SambaPrinterOptions fco, Set<String> readPrinters, Set<String> writePrinters, CIMProperty[] vKeyProperties, Class<?> readListAssocClass, Class<?> writeListAssocClass) throws WbemsmtException {
 		String key = fco.get_key_Name();
 		return saveReadWriteImpl(rwField, readPrinters, writePrinters, vKeyProperties, readListAssocClass, writeListAssocClass, key);
 	}
 
-	private boolean saveReadWriteImpl(LabeledStringArrayInputComponentIf rwField, Set reads, Set writes, CIMProperty[] vKeyProperties, Class readListAssocClass, Class writeListAssocClass, String key) throws WbemsmtException {
+	private boolean saveReadWriteImpl(LabeledStringArrayInputComponentIf rwField, Set<String> reads, Set<String> writes, CIMProperty[] vKeyProperties, Class<?> readListAssocClass, Class<?> writeListAssocClass, String key) throws WbemsmtException {
 	    UnsignedInteger16 index = null;
 		try {
 			index = (UnsignedInteger16) rwField.getConvertedControlValue();
@@ -521,7 +521,7 @@ public abstract class SambaObject extends WbemsmtBusinessObject {
 	 * @return
 	 * @throws WbemsmtException
 	 */
-	public boolean save(boolean createFlag, Set set, Class fcoClass, String key, CIMProperty[] keyProperties) throws WbemsmtException {
+	public boolean save(boolean createFlag, Set<String> set, Class<?> fcoClass, String key, CIMProperty[] keyProperties) throws WbemsmtException {
 		
 	    WBEMClient cc = adapter.getCimClient();
 	    AbstractWbemsmtFco o = null;
@@ -533,7 +533,7 @@ public abstract class SambaObject extends WbemsmtBusinessObject {
 				{
 					reload = true;
 					
-					Constructor constructor = fcoClass.getConstructor(new Class[]{WBEMClient.class, String.class});
+					Constructor<?> constructor = fcoClass.getConstructor(new Class[]{WBEMClient.class, String.class});
 					constructor.setAccessible(true);
 					o = (AbstractWbemsmtFco)constructor.newInstance(new Object[]{cc, adapter.getNamespace()});
 					o.setCimInstance(o.getCimInstance().deriveInstance(keyProperties));

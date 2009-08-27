@@ -1,14 +1,14 @@
  /** 
   * Service.java
   *
-  * © Copyright IBM Corp. 2005
+  * © Copyright IBM Corp.  2009,2005
   *
-  * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
+  * THIS FILE IS PROVIDED UNDER THE TERMS OF THE ECLIPSE PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
   * CONSTITUTES RECIPIENTS ACCEPTANCE OF THE AGREEMENT.
   *
-  * You can obtain a current copy of the Common Public License from
-  * http://www.opensource.org/licenses/cpl1.0.php
+  * You can obtain a current copy of the Eclipse Public License from
+  * http://www.opensource.org/licenses/eclipse-1.0.php
   *
   * @author: Michael Bauschert <Michael.Bauschert@de.ibm.com>
   *
@@ -22,6 +22,7 @@ package org.sblim.wbemsmt.samba.bl.wrapper;
 import java.util.*;
 import java.util.logging.Level;
 
+import javax.cim.CIMObjectPath;
 import javax.cim.CIMProperty;
 import javax.cim.UnsignedInteger16;
 import javax.cim.UnsignedInteger32;
@@ -42,8 +43,8 @@ import org.sblim.wbemsmt.samba.bl.container.service.*;
 import org.sblim.wbemsmt.samba.bl.fco.*;
 import org.sblim.wbemsmt.samba.bl.fco.Linux_SambaPrinterOptions.GetAllSystemDefinedPrintersResult;
 import org.sblim.wbemsmt.samba.bl.wrapper.list.*;
-import org.sblim.wbemsmt.schema.cim29.CIM_Service.StartServiceResult;
-import org.sblim.wbemsmt.schema.cim29.CIM_Service.StopServiceResult;
+import org.sblim.wbemsmt.schema.cim221.CIM_Service.StartServiceResult;
+import org.sblim.wbemsmt.schema.cim221.CIM_Service.StopServiceResult;
 import org.sblim.wbemsmt.tools.runtime.RuntimeUtil;
 
 public class Service extends SambaObject {
@@ -55,13 +56,13 @@ public class Service extends SambaObject {
 	public String allowHostsFromServer = "";
 	public String denyHostsFromServer = "";
 	
-	public Set allowHosts = new HashSet();
-	public Set denyHosts = new HashSet();
-	protected Set invalidUsers = null;
-	protected Set validUsers = null;
-	protected Set readUsers = null;
-	protected Set writeUsers = null;
-	protected Set adminUsers = null;
+	public Set<String> allowHosts = new HashSet<String>();
+	public Set<String> denyHosts = new HashSet<String>();
+	protected Set<String> invalidUsers = null;
+	protected Set<String> validUsers = null;
+	protected Set<String> readUsers = null;
+	protected Set<String> writeUsers = null;
+	protected Set<String> adminUsers = null;
 	private Linux_SambaLoggingOptions loggingOptions1;
 	private Linux_SambaGlobalSecurityOptions globalSecurityOptions1;
 	private Linux_SambaServiceConfiguration serviceConfig1;
@@ -75,10 +76,10 @@ public class Service extends SambaObject {
 	private PrinterList printers;
 	private UserList users;
 	private HostList hosts;
-	public List listHostsToDeny;
-	public List listHostsDenied;
-	public List listHostsToAllow;
-	public List listHostsAllowed;
+	public List<String> listHostsToDeny;
+	public List<String> listHostsDenied;
+	public List<String> listHostsToAllow;
+	public List<String> listHostsAllowed;
 	private boolean reloadShareUsers = false;
 	
 	private ShareGlobals shareGlobals = null;
@@ -244,51 +245,51 @@ public class Service extends SambaObject {
 		
 	}	
 	
-	public Set getAdminUsers() throws WbemsmtException {
+	public Set<String> getAdminUsers() throws WbemsmtException {
 		
 		if (adminUsers == null || reloadShareUsers)
         {
-        	adminUsers = new HashSet();
+        	adminUsers = new HashSet<String>();
         	setShareUsers(adminUsers,getGlobalOptions().getAssociated_Linux_SambaUser_Linux_SambaAdminUsersForGlobalNames(adapter.getCimClient()));
         }
         return adminUsers;
 	}
 		
-	public Set getReadUsers() throws WbemsmtException {
+	public Set<String> getReadUsers() throws WbemsmtException {
 		
 		if (readUsers == null || reloadShareUsers)
         {
-        	readUsers = new HashSet();
+        	readUsers = new HashSet<String>();
         	setShareUsers(readUsers,getGlobalOptions().getAssociated_Linux_SambaUser_Linux_SambaReadListForGlobalNames(adapter.getCimClient()));
         }
         return readUsers;
 	}
 	
-	public Set getWriteUsers() throws WbemsmtException  {
+	public Set<String> getWriteUsers() throws WbemsmtException  {
 		
 		if (writeUsers == null || reloadShareUsers)
         {
-        	writeUsers = new HashSet();
+        	writeUsers = new HashSet<String>();
         	setShareUsers(writeUsers,getGlobalOptions().getAssociated_Linux_SambaUser_Linux_SambaWriteListForGlobalNames(adapter.getCimClient()));
         }
         return writeUsers;
 	}
 	
-	public Set getValidUsers()  throws WbemsmtException {
+	public Set<String> getValidUsers()  throws WbemsmtException {
 		
 		if (validUsers == null || reloadShareUsers)
         {
-        	validUsers = new HashSet();
+        	validUsers = new HashSet<String>();
         	setShareUsers(validUsers,getGlobalOptions().getAssociated_Linux_SambaUser_Linux_SambaValidUsersForGlobalNames(adapter.getCimClient()));
         }
         return validUsers;
 	}
 
-	public Set getInvalidUsers() throws WbemsmtException {
+	public Set<String> getInvalidUsers() throws WbemsmtException {
 		
 		if (invalidUsers == null || reloadShareUsers)
         {
-        	invalidUsers = new HashSet();
+        	invalidUsers = new HashSet<String>();
         	setShareUsers(invalidUsers,getGlobalOptions().getAssociated_Linux_SambaUser_Linux_SambaInvalidUsersForGlobalNames(adapter.getCimClient()));
         }
         return invalidUsers;
@@ -309,7 +310,7 @@ public class Service extends SambaObject {
         {
         	if (allowHosts.size() == 0)
         	{
-        		List hosts = new ArrayList();
+        		List<CIMObjectPath> hosts = new ArrayList<CIMObjectPath>();
 //				Linux_SambaHost host = new Linux_SambaHost();
 //				host.set_Name("host1");
 //				hosts.add(host);
@@ -322,7 +323,7 @@ public class Service extends SambaObject {
         	
         	if (denyHosts.size() == 0)
         	{
-        		List hosts = new ArrayList();
+        		List<CIMObjectPath> hosts = new ArrayList<CIMObjectPath>();
 //				Linux_SambaHost host = new Linux_SambaHost();
 //				host.set_Name("host3");
 //				hosts.add(host);
@@ -477,7 +478,14 @@ public class Service extends SambaObject {
         container.get_NullPasswords().setControlValue(getGlobalSecurityOptions().get_NullPasswords());
 
         container.get_usr_PassdbBackend().setValues(Linux_SambaGlobalSecurityOptions.PROPERTY_PASSDBBACKEND.VALUE_ENTRIES_FOR_DISPLAY);
-        container.get_usr_PassdbBackend().setControlValue(getGlobalSecurityOptions().get_PassdbBackend());
+
+	if (Linux_SambaGlobalSecurityOptions.PROPERTY_PASSDBBACKEND.getValueMapEntry(getGlobalSecurityOptions().get_PassdbBackend()) != null)
+	    container.get_usr_PassdbBackend().setControlValue(new UnsignedInteger16(Linux_SambaGlobalSecurityOptions.PROPERTY_PASSDBBACKEND.getValueMapEntry(getGlobalSecurityOptions().get_PassdbBackend())));
+	else
+	    container.get_usr_PassdbBackend().setControlValue(new UnsignedInteger16(Linux_SambaGlobalSecurityOptions.PROPERTY_PASSDBBACKEND.VALUE_MAP_ENTRY_mysql_FOR_VALUE_ENTRY_4));
+
+	//	container.get_usr_PassdbBackend().setControlValue((UnsignedInteger16) getGlobalSecurityOptions().get_PassdbBackend());
+
         container.get_ReadOnly().setControlValue(getCommonSecurity().get_ReadOnly());
 
         container.get_Security().setValues(Linux_SambaGlobalSecurityOptions.PROPERTY_SECURITY.VALUE_ENTRIES_FOR_DISPLAY);
@@ -501,8 +509,8 @@ public class Service extends SambaObject {
 	}
 
 	public void updateControls(ServiceDenyHostDataContainer container)  throws WbemsmtException {
-		listHostsToDeny = new ArrayList();
-		listHostsDenied = new ArrayList();
+		listHostsToDeny = new ArrayList<String>();
+		listHostsDenied = new ArrayList<String>();
 		seperateDenyHosts(allowHosts,denyHosts,listHostsToDeny,listHostsDenied);
 		container.get_usr_DeniedHosts().setValues((String[]) listHostsDenied.toArray(new String[listHostsDenied.size()]));
 		container.get_usr_HostsToDeny().setValues((String[]) listHostsToDeny.toArray(new String[listHostsToDeny.size()]));
@@ -510,8 +518,8 @@ public class Service extends SambaObject {
 
 	public void updateControls(ServiceAllowHostSecurityDataContainer container) throws WbemsmtException 
 	{
-		listHostsToAllow = new ArrayList();
-		listHostsAllowed = new ArrayList();
+		listHostsToAllow = new ArrayList<String>();
+		listHostsAllowed = new ArrayList<String>();
 		
 		seperateAllowHosts(allowHosts,denyHosts,listHostsToAllow,listHostsAllowed);
 		
@@ -810,7 +818,7 @@ public class Service extends SambaObject {
         if (oldGuest != null)
         {
         	logger.info("Deleting Guest " + oldGuest.get_key_SambaUserName());
-        	Vector keys = new Vector();
+        	Vector<CIMProperty> keys = new Vector<CIMProperty>();
             keys.add(Linux_SambaGuestAccountForGlobal.create_GroupComponent_Linux_SambaGlobalOptions(adapter.getCimClient(), adapter.getNamespace(), getGlobalOptions()));
             keys.add(Linux_SambaGuestAccountForGlobal.create_PartComponent_Linux_SambaUser(adapter.getCimClient(), adapter.getNamespace(), oldGuest));
 
@@ -841,8 +849,8 @@ public class Service extends SambaObject {
 		
 		WBEMClient cc = adapter.getCimClient();
 		
-		List list = Linux_SambaGuestAccountForGlobalHelper.enumerateInstances(adapter.getCimClient(), adapter.getNamespace(),false);
-        for (Iterator iter = list.iterator(); iter.hasNext();) {
+		List<Linux_SambaGuestAccountForGlobal> list = Linux_SambaGuestAccountForGlobalHelper.enumerateInstances(adapter.getCimClient(), adapter.getNamespace(),false);
+        for (Iterator<Linux_SambaGuestAccountForGlobal> iter = list.iterator(); iter.hasNext();) {
         	Linux_SambaGuestAccountForGlobal guestAcc = (Linux_SambaGuestAccountForGlobal) iter.next();
         	if (guestAcc.get_PartComponent_Linux_SambaUser(adapter.getCimClient()).equals(guestToRemove.getCimObjectPath()))
         	{
@@ -875,8 +883,8 @@ public class Service extends SambaObject {
 	public void loadUserList() throws WbemsmtException {
 		users = new UserList();
         Linux_SambaUser fco;
-        List list = service.getAssociated_Linux_SambaUser_Linux_SambaUsersForServices(adapter.getCimClient());
-        for (Iterator iter = list.iterator(); iter.hasNext();) {
+        List<Linux_SambaUser> list = service.getAssociated_Linux_SambaUser_Linux_SambaUsersForServices(adapter.getCimClient());
+        for (Iterator<Linux_SambaUser> iter = list.iterator(); iter.hasNext();) {
         	fco = (Linux_SambaUser) iter.next();
         	users.addUser(new User(this,fco,adapter));
         }
@@ -885,8 +893,8 @@ public class Service extends SambaObject {
 	public void loadPrinterList() throws WbemsmtException {
 		printers = new PrinterList();
         Linux_SambaPrinterOptions fco;
-        List list = service.getAssociated_Linux_SambaPrinterOptions_Linux_SambaPrinterForServices(adapter.getCimClient());
-        for (Iterator iter = list.iterator(); iter.hasNext();) {
+        List<Linux_SambaPrinterOptions> list = service.getAssociated_Linux_SambaPrinterOptions_Linux_SambaPrinterForServices(adapter.getCimClient());
+        for (Iterator<Linux_SambaPrinterOptions> iter = list.iterator(); iter.hasNext();) {
         	fco = (Linux_SambaPrinterOptions) iter.next();
         	printers.addPrinter(new Printer(this,fco,adapter));
         }
@@ -895,8 +903,8 @@ public class Service extends SambaObject {
 	public void loadShareList() throws WbemsmtException {
 		shares = new ShareList();
         Linux_SambaShareOptions fco;
-        List list = service.getAssociated_Linux_SambaShareOptions_Linux_SambaShareForServices(adapter.getCimClient());
-        for (Iterator iter = list.iterator(); iter.hasNext();) {
+        List<Linux_SambaShareOptions> list = service.getAssociated_Linux_SambaShareOptions_Linux_SambaShareForServices(adapter.getCimClient());
+        for (Iterator<Linux_SambaShareOptions> iter = list.iterator(); iter.hasNext();) {
         	fco = (Linux_SambaShareOptions) iter.next();
         	shares.addShare(new Share(this,fco,adapter));
         }
@@ -916,7 +924,7 @@ public class Service extends SambaObject {
 	public Linux_SambaUser getForceUser() throws WbemsmtException {
 		if (forceUser == null || reloadChilds)
         {
-        	List list = getGlobalOptions().getAssociated_Linux_SambaUser_Linux_SambaForceUserForGlobals(adapter.getCimClient()); 
+        	List<Linux_SambaUser> list = getGlobalOptions().getAssociated_Linux_SambaUser_Linux_SambaForceUserForGlobals(adapter.getCimClient()); 
         	forceUser = (Linux_SambaUser)getFirstChild(Linux_SambaUser.class, list , true);
         }
         return forceUser;
@@ -936,7 +944,7 @@ public class Service extends SambaObject {
             if (oldForceUser != null)
             {
                 logger.info("Deleting ForceUser " + oldForceUser.get_key_SambaUserName());
-                Vector keys = new Vector();
+                Vector<CIMProperty> keys = new Vector<CIMProperty>();
                 keys.add(Linux_SambaForceUserForGlobal.create_GroupComponent_Linux_SambaGlobalOptions(adapter.getCimClient(), adapter.getNamespace(), getGlobalOptions()));
                 keys.add(Linux_SambaForceUserForGlobal.create_PartComponent_Linux_SambaUser(adapter.getCimClient(), adapter.getNamespace(), oldForceUser));
                 

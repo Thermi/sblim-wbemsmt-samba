@@ -1,14 +1,14 @@
  /** 
   * ShareWizard.java
   *
-  * © Copyright IBM Corp. 2005
+  * © Copyright IBM Corp.  2009,2005
   *
-  * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
+  * THIS FILE IS PROVIDED UNDER THE TERMS OF THE ECLIPSE PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
   * CONSTITUTES RECIPIENTS ACCEPTANCE OF THE AGREEMENT.
   *
-  * You can obtain a current copy of the Common Public License from
-  * http://www.opensource.org/licenses/cpl1.0.php
+  * You can obtain a current copy of the Eclipse Public License from
+  * http://www.opensource.org/licenses/eclipse-1.0.php
   *
   * @author: Michael Bauschert <Michael.Bauschert@de.ibm.com>
   *
@@ -44,7 +44,7 @@ public class ShareWizard   extends SambaWizard{
 	private ShareWizardPage4 page4;
 	private DataContainer lastcontainer;
 	private int listCount;
-	private Set updatedContainers = new HashSet();
+	private Set<ShareWizardPage2> updatedContainers = new HashSet<ShareWizardPage2>();
 //	private static final DecimalFormat FORMAT_MASK = new DecimalFormat("0000");
 
 	public ShareWizard(SambaCimAdapter adapter) {
@@ -108,7 +108,7 @@ public class ShareWizard   extends SambaWizard{
 	}
 
 	private void createUserAcl(Linux_SambaShareOptions share) throws WbemsmtException {
-		List items = page4.getUsers();
+		List<UserInShareWizardACLItemDataContainer> items = page4.getUsers();
 		for (int i=0; i < items.size(); i++)
 		{
 		    UserInShareWizardACLItemDataContainer item = (UserInShareWizardACLItemDataContainer)items.get(i);
@@ -322,13 +322,13 @@ container.get_DirectorySecurityMask().getProperties().setVisible(false);
 		
 		if (adapter.getUpdateTrigger() == container.get_usr_EnableAllUsers())
 		{
-			List items = page2.getUsers();
+			List<UserInShareWizardACLItemDataContainer> items = page2.getUsers();
 			changeAllUsers(items,container);
 		}
 
 	}
 
-	private void changeAllUsers(List items,ShareWizardPage2 container) {
+	private void changeAllUsers(List<UserInShareWizardACLItemDataContainer> items,ShareWizardPage2 container) {
 
 		boolean enableAll = ((Boolean)container.get_usr_EnableAllUsers().getConvertedControlValue()).booleanValue();
 		

@@ -1,14 +1,14 @@
  /** 
   * ShareGlobals.java
   *
-  * © Copyright IBM Corp. 2005
+  * © Copyright IBM Corp.  2009,2005
   *
-  * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
+  * THIS FILE IS PROVIDED UNDER THE TERMS OF THE ECLIPSE PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
   * CONSTITUTES RECIPIENTS ACCEPTANCE OF THE AGREEMENT.
   *
-  * You can obtain a current copy of the Common Public License from
-  * http://www.opensource.org/licenses/cpl1.0.php
+  * You can obtain a current copy of the Eclipse Public License from
+  * http://www.opensource.org/licenses/eclipse-1.0.php
   *
   * @author: Michael Bauschert <Michael.Bauschert@de.ibm.com>
   *
@@ -21,6 +21,7 @@ package org.sblim.wbemsmt.samba.bl.wrapper;
 
 import java.util.*;
 
+import javax.cim.CIMProperty;
 import javax.cim.UnsignedInteger8;
 import javax.wbem.client.WBEMClient;
 
@@ -42,7 +43,7 @@ public class ShareGlobals extends SambaObject {
 	private Linux_SambaGlobalFileNameHandlingOptions filenameHandlingOptions1;
 	private Linux_SambaGlobalProtocolOptions protocolOptions1;
 	private Linux_SambaShareSecurityOptions shareSecurityOptions1;
-	private Set adminsBySambaUserName;
+	private Set<String> adminsBySambaUserName;
 
 	public ShareGlobals(Service service, SambaCimAdapter adapter) throws WbemsmtException {
 		super(adapter);
@@ -55,9 +56,9 @@ public class ShareGlobals extends SambaObject {
 		//get the associated Admin
 	    WBEMClient cimClient = adapter.getCimClient();
 	    
-	    List admins = service.getGlobalOptions().getAssociated_Linux_SambaUser_Linux_SambaAdminUsersForGlobals(cimClient);
-        adminsBySambaUserName = new HashSet();
-        for (Iterator iter = admins.iterator(); iter.hasNext();) {
+	    List<Linux_SambaUser> admins = service.getGlobalOptions().getAssociated_Linux_SambaUser_Linux_SambaAdminUsersForGlobals(cimClient);
+        adminsBySambaUserName = new HashSet<String>();
+        for (Iterator<Linux_SambaUser> iter = admins.iterator(); iter.hasNext();) {
         	Linux_SambaUser user = (Linux_SambaUser) iter.next();
         	adminsBySambaUserName.add(user.get_key_SambaUserName());			
         }
@@ -247,7 +248,7 @@ public class ShareGlobals extends SambaObject {
 
 		if (!checked && adminsBySambaUserName.contains(userName))
         {
-        	Vector vKeyProperties = new Vector();
+        	Vector<CIMProperty> vKeyProperties = new Vector<CIMProperty>();
             vKeyProperties.add(Linux_SambaAdminUsersForGlobal.create_GroupComponent_Linux_SambaGlobalOptions(adapter.getCimClient(), adapter.getNamespace(), service.getGlobalOptions()));
             vKeyProperties.add(Linux_SambaAdminUsersForGlobal.create_PartComponent_Linux_SambaUser(adapter.getCimClient(), adapter.getNamespace(), fco));
 

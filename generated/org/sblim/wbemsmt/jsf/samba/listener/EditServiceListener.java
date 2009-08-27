@@ -1,0 +1,92 @@
+/**
+ * EditServiceListener.java Â© Copyright IBM Corp.  2009,2006,2007 THIS FILE IS PROVIDED UNDER THE TER MS
+ * OF THE ECLIPSE PUBLIC LICENSE ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
+ * CONSTITUTES RECIPIENTS ACCEPTANCE OF THE AGREEMENT. You can obtain a current copy of the Common
+ * Public License from http://www.opensource.org/licenses/eclipse-1.0.php
+ * 
+ * @author: org.sblim.wbemsmt.dcg.generator.jsf.JSFPresentationLayerGenerator
+ * @template: org/sblim/wbemsmt/dcg/templates/jsf/editListener.vm Contributors: Prashanth
+ *            Karnam<prkarnam@in.ibm.com> Description: generated Class
+ */
+
+package org.sblim.wbemsmt.jsf.samba.listener;
+
+import java.util.*;
+import javax.faces.context.FacesContext;
+
+import org.sblim.wbemsmt.tasklauncher.event.jsf.*;
+import org.sblim.wbemsmt.bl.tree.*;
+import org.sblim.wbemsmt.tools.beans.BeanNameConstants;
+import org.sblim.wbemsmt.tools.jsf.*;
+import org.sblim.wbemsmt.tools.resources.*;
+import org.sblim.wbemsmt.exception.WbemsmtException;
+import org.sblim.wbemsmt.webapp.jsf.ObjectActionControllerBean;
+import org.sblim.wbemsmt.bl.help.HelpManager;
+
+public class EditServiceListener extends JsfEditListener {
+
+    public String processEvent(TaskLauncherTreeNodeEvent event) throws WbemsmtException {
+
+        ITaskLauncherTreeNode treeNode = event.getTreeNode();
+
+        FacesContext fc = FacesContext.getCurrentInstance();
+        Locale locale = LocaleManager.getCurrent(FacesContext.getCurrentInstance())
+                .getCurrentLocale();
+        bundle = ResourceBundleManager.getResourceBundle(
+                new String[] { "messages", "messagesSamba" }, locale);
+        final ObjectActionControllerBean oac = (ObjectActionControllerBean) BeanNameConstants.OBJECT_ACTION_CONTROLLER
+                .asValueExpression(fc).getValue(fc.getELContext());
+
+        //set the currentListener as topic for the help
+        final HelpManager helpManager = (HelpManager) BeanNameConstants.HELP_MANAGER
+                .asValueExpression(fc).getValue(fc.getELContext());
+        helpManager.setMode(HelpManager.MODE_EDIT);
+        helpManager.setCurrentTopic("SAMBA", "EditServiceListener");
+
+        EditBean bean = null;
+
+        Boolean revert = event.getBooleanParameter(TaskLauncherTreeNodeEvent.PARAM_REVERT);
+
+        if (oac.getCurrentEditListener() != null && revert != null && revert.booleanValue()) {
+            oac.getCurrentEditListener().revert(false);
+        }
+
+        oac.clearEditBeans();
+
+        TabbedPane tabbedPane = new TabbedPane(bundle);
+        String bundleKey;
+
+        //ADD THE CONTAINERS IN TAB tabServiceOptions			
+        bean = new org.sblim.wbemsmt.jsf.samba.listener.EditServiceListenerEditBeanTabServiceOptions();
+        editBeans.add(bean);
+        bean.edit(treeNode);
+        oac.addEditBean("tabServiceOptions", bean);
+        bundleKey = "tab.tabServiceOptions";
+        tabbedPane.addTab("tabServiceOptions", bundleKey, bean.getPanel());
+
+        //ADD THE CONTAINERS IN TAB tabSecurity			
+        bean = new org.sblim.wbemsmt.jsf.samba.listener.EditServiceListenerEditBeanTabSecurity();
+        editBeans.add(bean);
+        bean.edit(treeNode);
+        oac.addEditBean("tabSecurity", bean);
+        bundleKey = "tab.tabSecurity";
+        tabbedPane.addTab("tabSecurity", bundleKey, bean.getPanel());
+
+        //ADD THE CONTAINERS IN TAB tabOperations			
+        bean = new org.sblim.wbemsmt.jsf.samba.listener.EditServiceListenerEditBeanTabOperations();
+        editBeans.add(bean);
+        bean.edit(treeNode);
+        oac.addEditBean("tabOperations", bean);
+        bundleKey = "tab.tabOperations";
+        tabbedPane.addTab("tabOperations", bundleKey, bean.getPanel());
+
+        boolean createOKRevertButtons = !false && true;
+        tabbedPane.create(createOKRevertButtons);
+        oac.setCurrentEditor(tabbedPane.getPanel());
+        oac.setSelectedTabIndex(0);
+        oac.setTabbedPane(tabbedPane);
+        oac.setCurrentEditListener(this);
+
+        return "editPage";
+    }
+}

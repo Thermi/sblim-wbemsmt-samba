@@ -1,14 +1,14 @@
  /** 
   * User.java
   *
-  * © Copyright IBM Corp. 2005
+  * © Copyright IBM Corp.  2009,2005
   *
-  * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
+  * THIS FILE IS PROVIDED UNDER THE TERMS OF THE ECLIPSE PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
   * CONSTITUTES RECIPIENTS ACCEPTANCE OF THE AGREEMENT.
   *
-  * You can obtain a current copy of the Common Public License from
-  * http://www.opensource.org/licenses/cpl1.0.php
+  * You can obtain a current copy of the Eclipse Public License from
+  * http://www.opensource.org/licenses/eclipse-1.0.php
   *
   * @author: Michael Bauschert <Michael.Bauschert@de.ibm.com>
   *
@@ -45,19 +45,19 @@ public class User extends SambaObject {
 
 	private Linux_SambaUser user;
 
-	protected Set invalidPrinters = null;
-	protected Set validPrinters = null;
-	protected Set readPrinters = null;
-	protected Set writePrinters = null;
-	protected Set forcePrinters = null;
-	protected Set adminPrinters = null;
+	protected Set<String> invalidPrinters = null;
+	protected Set<String> validPrinters = null;
+	protected Set<String> readPrinters = null;
+	protected Set<String> writePrinters = null;
+	protected Set<String> forcePrinters = null;
+	protected Set<String> adminPrinters = null;
 	
-	protected Set invalidShares = null;
-	protected Set validShares = null;
-	protected Set forceShares = null;
-	protected Set adminShares = null;
-	protected Set readShares = null;
-	protected Set writeShares = null;
+	protected Set<String> invalidShares = null;
+	protected Set<String> validShares = null;
+	protected Set<String> forceShares = null;
+	protected Set<String> adminShares = null;
+	protected Set<String> readShares = null;
+	protected Set<String> writeShares = null;
 
 	private boolean isGuestWorkingCopy;
 
@@ -91,12 +91,12 @@ public class User extends SambaObject {
 	}
 		
 	private void loadShareAcl() throws WbemsmtException {
-		forceShares = new HashSet();
-		invalidShares = new HashSet();
-		validShares = new HashSet();
-		adminShares = new HashSet();
-		writeShares = new HashSet();
-		readShares = new HashSet();
+		forceShares = new HashSet<String>();
+		invalidShares = new HashSet<String>();
+		validShares = new HashSet<String>();
+		adminShares = new HashSet<String>();
+		writeShares = new HashSet<String>();
+		readShares = new HashSet<String>();
 		
 		setUserShares(forceShares,user.getAssociated_Linux_SambaShareOptions_Linux_SambaForceUserForShareNames(adapter.getCimClient()));
         setUserShares(invalidShares,user.getAssociated_Linux_SambaShareOptions_Linux_SambaInvalidUsersForShareNames(adapter.getCimClient()));
@@ -107,12 +107,12 @@ public class User extends SambaObject {
 	}
 
 	private void loadPrinterAcl() throws WbemsmtException {
-		forcePrinters = new HashSet();
-		invalidPrinters = new HashSet();
-		validPrinters = new HashSet();
-		readPrinters = new HashSet();
-		writePrinters = new HashSet();
-		adminPrinters = new HashSet();
+		forcePrinters = new HashSet<String>();
+		invalidPrinters = new HashSet<String>();
+		validPrinters = new HashSet<String>();
+		readPrinters = new HashSet<String>();
+		writePrinters = new HashSet<String>();
+		adminPrinters = new HashSet<String>();
 		setUserPrinters(forcePrinters,user.getAssociated_Linux_SambaPrinterOptions_Linux_SambaForceUserForPrinterNames(adapter.getCimClient()));
         setUserPrinters(adminPrinters,user.getAssociated_Linux_SambaPrinterOptions_Linux_SambaPrinterAdminForPrinterNames(adapter.getCimClient()));
         setUserPrinters(invalidPrinters,user.getAssociated_Linux_SambaPrinterOptions_Linux_SambaInvalidUsersForPrinterNames(adapter.getCimClient()));
@@ -219,7 +219,7 @@ public class User extends SambaObject {
         updateAdminWithUserList(container,container.get_usr_Admin(), fco.get_key_Name(), user.get_key_SambaUserName(), getAdminShares(), service,service.getAdminUsers());
 	}
 
-	protected void updateValidInvalidWithUserList(DataContainer container, LabeledStringArrayInputComponentIf viField, String keyLocal, String keyGlobal, Set invalidSet, Set validSet, boolean globalAcl, Service service) throws WbemsmtException {
+	protected void updateValidInvalidWithUserList(DataContainer container, LabeledStringArrayInputComponentIf viField, String keyLocal, String keyGlobal, Set<String> invalidSet, Set<String> validSet, boolean globalAcl, Service service) throws WbemsmtException {
 		UnsignedInteger16 selectedIV = null; 
 
 		WbemSmtResourceBundle bundle = container.getAdapter().getBundle();
@@ -265,7 +265,7 @@ public class User extends SambaObject {
 //		}
 	}
 
-	protected void updateReadWriteWithUserList(DataContainer container, LabeledStringArrayInputComponentIf rwField, String keyLocal, String keyGlobal, Set readSet, Set writeSet, boolean globalAcl, Service service) throws WbemsmtException {
+	protected void updateReadWriteWithUserList(DataContainer container, LabeledStringArrayInputComponentIf rwField, String keyLocal, String keyGlobal, Set<String> readSet, Set<String> writeSet, boolean globalAcl, Service service) throws WbemsmtException {
 		UnsignedInteger16 selectedRW = null; 
 
 		WbemSmtResourceBundle bundle = container.getAdapter().getBundle();
@@ -310,7 +310,7 @@ public class User extends SambaObject {
 //		}
 	}
 	
-	protected void updateAdminWithUserList(DataContainer container, LabeledBaseInputComponentIf adminField, String localKey, String globalKey, Set adminUsers, Service service, Set setWithGlobalAdmins) throws WbemsmtException {
+	protected void updateAdminWithUserList(DataContainer container, LabeledBaseInputComponentIf adminField, String localKey, String globalKey, Set<String> adminUsers, Service service, Set<?> setWithGlobalAdmins) throws WbemsmtException {
 		adminField.setControlValue(new Boolean(adminUsers.contains(localKey) || setWithGlobalAdmins.contains(globalKey)));
 		adminField.getProperties().setReadOnly(setWithGlobalAdmins.contains(globalKey));
 	}		
@@ -389,7 +389,7 @@ public class User extends SambaObject {
 	}
 
 
-	private Set getAdminShares() throws WbemsmtException {
+	private Set<String> getAdminShares() throws WbemsmtException {
 		if (adminShares == null)
 		{
 			loadShareAcl();
@@ -397,7 +397,7 @@ public class User extends SambaObject {
 		return adminShares;
 	}
 
-	private Set getReadShares() throws WbemsmtException {
+	private Set<String> getReadShares() throws WbemsmtException {
 		if (readShares == null)
 		{
 			loadShareAcl();
@@ -405,7 +405,7 @@ public class User extends SambaObject {
 		return readShares;
 	}
 
-	private Set getWriteShares() throws WbemsmtException {
+	private Set<String> getWriteShares() throws WbemsmtException {
 		if (writeShares == null)
 		{
 			loadShareAcl();
@@ -413,7 +413,7 @@ public class User extends SambaObject {
 		return writeShares;
 	}
 
-	private Set getInvalidShares() throws WbemsmtException {
+	private Set<String> getInvalidShares() throws WbemsmtException {
 		if (invalidShares == null)
 		{
 			loadShareAcl();
@@ -421,7 +421,7 @@ public class User extends SambaObject {
 		return invalidShares;
 	}
 
-	private Set getValidShares() throws WbemsmtException {
+	private Set<String> getValidShares() throws WbemsmtException {
 		if (validShares == null)
 		{
 			loadShareAcl();
@@ -430,7 +430,7 @@ public class User extends SambaObject {
 	}
 
 
-	private Set getAdminPrinters() throws WbemsmtException {
+	private Set<String> getAdminPrinters() throws WbemsmtException {
 		if (adminPrinters == null)
 		{
 			loadPrinterAcl();
@@ -438,7 +438,7 @@ public class User extends SambaObject {
 		return adminPrinters;
 	}
 
-	private Set getValidPrinters() throws WbemsmtException {
+	private Set<String> getValidPrinters() throws WbemsmtException {
 		if (validPrinters == null)
 		{
 			loadPrinterAcl();
@@ -446,7 +446,7 @@ public class User extends SambaObject {
 		return validPrinters;
 	}
 
-	private Set getInvalidPrinters() throws WbemsmtException {
+	private Set<String> getInvalidPrinters() throws WbemsmtException {
 		if (invalidPrinters == null)
 		{
 			loadPrinterAcl();
@@ -454,7 +454,7 @@ public class User extends SambaObject {
 		return invalidPrinters;
 	}
 	
-	private Set getReadPrinters() throws WbemsmtException {
+	private Set<String> getReadPrinters() throws WbemsmtException {
 		if (readPrinters == null)
 		{
 			loadPrinterAcl();
@@ -462,7 +462,7 @@ public class User extends SambaObject {
 		return readPrinters;
 	}
 
-	private Set getWritePrinters() throws WbemsmtException {
+	private Set<String> getWritePrinters() throws WbemsmtException {
 		if (writePrinters == null)
 		{
 			loadPrinterAcl();

@@ -1,14 +1,14 @@
  /** 
   * SambaWizard.java
   *
-  * © Copyright IBM Corp. 2005
+  * © Copyright IBM Corp.  2009,2005
   *
-  * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
+  * THIS FILE IS PROVIDED UNDER THE TERMS OF THE ECLIPSE PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
   * CONSTITUTES RECIPIENTS ACCEPTANCE OF THE AGREEMENT.
   *
-  * You can obtain a current copy of the Common Public License from
-  * http://www.opensource.org/licenses/cpl1.0.php
+  * You can obtain a current copy of the Eclipse Public License from
+  * http://www.opensource.org/licenses/eclipse-1.0.php
   *
   * @author: Michael Bauschert <Michael.Bauschert@de.ibm.com>
   *
@@ -33,7 +33,7 @@ import org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter;
 import org.sblim.wbemsmt.samba.bl.adapter.SambaObject;
 import org.sblim.wbemsmt.samba.bl.fco.Linux_SambaUser;
 import org.sblim.wbemsmt.samba.bl.wrapper.Service;
-import org.sblim.wbemsmt.schema.cim29.CIM_SettingData;
+import org.sblim.wbemsmt.schema.cim221.CIM_SettingData;
 import org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf;
 import org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf;
 import org.sblim.wbemsmt.util.StringUtil;
@@ -53,7 +53,7 @@ public class SambaWizard extends SambaObject {
 	}
 	
 	public void updateForceUserForWizard(DataContainer container, LabeledStringArrayInputComponentIf newForceUser, Service service) throws WbemsmtException {
-            List userNames = new ArrayList();
+            List<String> userNames = new ArrayList<String>();
             userNames.add(container.getAdapter().getBundle().getString("no.new.force.user"));
             userNames.addAll(StringUtil.asList(service.getUsers().getNameArray()));
             String[] array = (String[]) userNames.toArray(new String[userNames.size()]);

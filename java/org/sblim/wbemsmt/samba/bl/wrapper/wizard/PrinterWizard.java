@@ -1,14 +1,14 @@
  /** 
   * PrinterWizard.java
   *
-  * © Copyright IBM Corp. 2005
+  * © Copyright IBM Corp.  2009,2005
   *
-  * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
+  * THIS FILE IS PROVIDED UNDER THE TERMS OF THE ECLIPSE PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
   * CONSTITUTES RECIPIENTS ACCEPTANCE OF THE AGREEMENT.
   *
-  * You can obtain a current copy of the Common Public License from
-  * http://www.opensource.org/licenses/cpl1.0.php
+  * You can obtain a current copy of the Eclipse Public License from
+  * http://www.opensource.org/licenses/eclipse-1.0.php
   *
   * @author: Michael Bauschert <Michael.Bauschert@de.ibm.com>
   *
@@ -32,8 +32,23 @@ import org.sblim.wbemsmt.bl.adapter.CimObjectKey;
 import org.sblim.wbemsmt.bl.adapter.DataContainer;
 import org.sblim.wbemsmt.exception.WbemsmtException;
 import org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter;
-import org.sblim.wbemsmt.samba.bl.container.wizard.*;
-import org.sblim.wbemsmt.samba.bl.fco.*;
+import org.sblim.wbemsmt.samba.bl.container.wizard.PrinterWizardPage1;
+import org.sblim.wbemsmt.samba.bl.container.wizard.PrinterWizardPage2;
+import org.sblim.wbemsmt.samba.bl.container.wizard.PrinterWizardPage3;
+import org.sblim.wbemsmt.samba.bl.container.wizard.PrinterWizardPage4;
+import org.sblim.wbemsmt.samba.bl.container.wizard.PrinterWizardPage5;
+import org.sblim.wbemsmt.samba.bl.container.wizard.UserInPrinterWizardACLItemDataContainer;
+import org.sblim.wbemsmt.samba.bl.fco.Linux_SambaCommonSecurityOptions;
+import org.sblim.wbemsmt.samba.bl.fco.Linux_SambaForceUserForPrinter;
+import org.sblim.wbemsmt.samba.bl.fco.Linux_SambaInvalidUsersForPrinter;
+import org.sblim.wbemsmt.samba.bl.fco.Linux_SambaPrinterAdminForPrinter;
+import org.sblim.wbemsmt.samba.bl.fco.Linux_SambaPrinterBrowseOptions;
+import org.sblim.wbemsmt.samba.bl.fco.Linux_SambaPrinterOptions;
+import org.sblim.wbemsmt.samba.bl.fco.Linux_SambaPrinterPrintingOptions;
+import org.sblim.wbemsmt.samba.bl.fco.Linux_SambaReadListForPrinter;
+import org.sblim.wbemsmt.samba.bl.fco.Linux_SambaUser;
+import org.sblim.wbemsmt.samba.bl.fco.Linux_SambaValidUsersForPrinter;
+import org.sblim.wbemsmt.samba.bl.fco.Linux_SambaWriteListForPrinter;
 import org.sblim.wbemsmt.samba.bl.wrapper.Service;
 import org.sblim.wbemsmt.samba.bl.wrapper.SystemPrinter;
 import org.sblim.wbemsmt.samba.bl.wrapper.list.SystemPrinterList;
@@ -49,7 +64,7 @@ public class PrinterWizard  extends SambaWizard {
 	private PrinterWizardPage4 page4;
 	private PrinterWizardPage5 page5;
 	private DataContainer lastcontainer;
-	private Set updatedContainers = new HashSet();
+	private Set<PrinterWizardPage3> updatedContainers = new HashSet<PrinterWizardPage3>();
 	
 	private int listCount;
 
@@ -148,7 +163,7 @@ public class PrinterWizard  extends SambaWizard {
 	
 	
 	private void createUserAcl(Linux_SambaPrinterOptions printer) throws WbemsmtException {
-		List items = page3.getUsers();
+		List<UserInPrinterWizardACLItemDataContainer> items = page3.getUsers();
 		for (int i=0; i < items.size(); i++)
 		{
 		    UserInPrinterWizardACLItemDataContainer item = (UserInPrinterWizardACLItemDataContainer)items.get(i);
@@ -365,7 +380,7 @@ public class PrinterWizard  extends SambaWizard {
 			Service srv = adapter.getSelectedService();
 			updateValidInvalidWithUserList(container,container.get_usr_AccessTypeVI(), fco.get_key_SambaUserName(), srv.getInvalidUsers(), srv.getValidUsers(), false, srv);
             updateReadWriteWithUserList(container,container.get_usr_AccessTypeRW(), fco.get_key_SambaUserName(), srv.getReadUsers(), srv.getWriteUsers(),false,srv);
-            Set printerAdmins = adapter.getSelectedService().getPrinterGlobals().getAdminUsers();
+            Set<String> printerAdmins = adapter.getSelectedService().getPrinterGlobals().getAdminUsers();
             updateAdminWithUserList(container,container.get_usr_Admin(), fco.get_key_SambaUserName(), printerAdmins, srv,printerAdmins, false);
 		}		
 	}
@@ -376,12 +391,12 @@ public class PrinterWizard  extends SambaWizard {
 	public void updateModel(PrinterWizardPage3 container) {
 		if (adapter.getUpdateTrigger() == container.get_usr_EnableAllUsers())
 		{
-			List items = container.getUsers();
+			List<UserInPrinterWizardACLItemDataContainer> items = container.getUsers();
 			changeAllUsers(items,container);
 		}
 	}
 
-	private void changeAllUsers(List items,PrinterWizardPage3 container) {
+	private void changeAllUsers(List<UserInPrinterWizardACLItemDataContainer> items,PrinterWizardPage3 container) {
 
 		boolean enableAll = ((Boolean)container.get_usr_EnableAllUsers().getConvertedControlValue()).booleanValue();
 		

@@ -1,14 +1,14 @@
  /** 
   * Share.java
   *
-  * © Copyright IBM Corp. 2005
+  * © Copyright IBM Corp.  2009,2005
   *
-  * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
+  * THIS FILE IS PROVIDED UNDER THE TERMS OF THE ECLIPSE PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
   * CONSTITUTES RECIPIENTS ACCEPTANCE OF THE AGREEMENT.
   *
-  * You can obtain a current copy of the Common Public License from
-  * http://www.opensource.org/licenses/cpl1.0.php
+  * You can obtain a current copy of the Eclipse Public License from
+  * http://www.opensource.org/licenses/eclipse-1.0.php
   *
   * @author: Michael Bauschert <Michael.Bauschert@de.ibm.com>
   *
@@ -19,7 +19,11 @@
   */
 package org.sblim.wbemsmt.samba.bl.wrapper;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+import java.util.Vector;
 
 import javax.cim.CIMProperty;
 import javax.cim.UnsignedInteger16;
@@ -31,19 +35,39 @@ import org.sblim.wbemsmt.bl.messages.MessageList;
 import org.sblim.wbemsmt.exception.WbemsmtException;
 import org.sblim.wbemsmt.samba.bl.adapter.SambaCimAdapter;
 import org.sblim.wbemsmt.samba.bl.adapter.SambaObject;
-import org.sblim.wbemsmt.samba.bl.container.share.*;
-import org.sblim.wbemsmt.samba.bl.fco.*;
+import org.sblim.wbemsmt.samba.bl.container.share.CMDShareFileAttributes;
+import org.sblim.wbemsmt.samba.bl.container.share.GUIShareFileAttributes;
+import org.sblim.wbemsmt.samba.bl.container.share.ShareAllowHostSecurityDataContainer;
+import org.sblim.wbemsmt.samba.bl.container.share.ShareDenyHostSecurityDataContainer;
+import org.sblim.wbemsmt.samba.bl.container.share.ShareFileAttributes;
+import org.sblim.wbemsmt.samba.bl.container.share.ShareOptionsDataContainer;
+import org.sblim.wbemsmt.samba.bl.container.share.UserACLItemDataContainerForShare;
+import org.sblim.wbemsmt.samba.bl.container.share.UserInShareACLDataContainer;
+import org.sblim.wbemsmt.samba.bl.fco.Linux_SambaAdminUsersForShare;
+import org.sblim.wbemsmt.samba.bl.fco.Linux_SambaCommonSecurityOptions;
+import org.sblim.wbemsmt.samba.bl.fco.Linux_SambaForceUserForShare;
+import org.sblim.wbemsmt.samba.bl.fco.Linux_SambaForceUserForShareHelper;
+import org.sblim.wbemsmt.samba.bl.fco.Linux_SambaInvalidUsersForShare;
+import org.sblim.wbemsmt.samba.bl.fco.Linux_SambaReadListForShare;
+import org.sblim.wbemsmt.samba.bl.fco.Linux_SambaShareBrowseOptions;
+import org.sblim.wbemsmt.samba.bl.fco.Linux_SambaShareFileNameHandlingOptions;
+import org.sblim.wbemsmt.samba.bl.fco.Linux_SambaShareOptions;
+import org.sblim.wbemsmt.samba.bl.fco.Linux_SambaShareProtocolOptions;
+import org.sblim.wbemsmt.samba.bl.fco.Linux_SambaShareSecurityOptions;
+import org.sblim.wbemsmt.samba.bl.fco.Linux_SambaUser;
+import org.sblim.wbemsmt.samba.bl.fco.Linux_SambaValidUsersForShare;
+import org.sblim.wbemsmt.samba.bl.fco.Linux_SambaWriteListForShare;
 
 public class Share extends SambaObject
 {
 
-	protected Set allowHosts = new HashSet();
-	protected Set denyHosts = new HashSet();
-	protected Set invalidUsers = null;
-	protected Set validUsers = null;
-	protected Set readUsers = null;
-	protected Set writeUsers = null;
-	protected Set adminUsers = null;
+	protected Set<String> allowHosts = new HashSet<String>();
+	protected Set<String> denyHosts = new HashSet<String>();
+	protected Set<String> invalidUsers = null;
+	protected Set<String> validUsers = null;
+	protected Set<String> readUsers = null;
+	protected Set<String> writeUsers = null;
+	protected Set<String> adminUsers = null;
 	
 	private Linux_SambaShareOptions share;
 
@@ -54,10 +78,10 @@ public class Share extends SambaObject
 	private Linux_SambaShareFileNameHandlingOptions fileNameHandlingOptions  = null;
 	private Linux_SambaShareProtocolOptions protocolOptions =  null;
 	private final Service service;
-	private ArrayList listHostsToAllow;
-	private ArrayList listHostsAllowed;
-	private ArrayList listHostsDenied;
-	private ArrayList listHostsToDeny;
+	private ArrayList<String> listHostsToAllow;
+	private ArrayList<String> listHostsAllowed;
+	private ArrayList<String> listHostsDenied;
+	private ArrayList<String> listHostsToDeny;
 	private boolean reloadShareUsers;
 	private Linux_SambaUser forceUser;
 	public Share(Service service, Linux_SambaShareOptions share, SambaCimAdapter adapter) throws WbemsmtException {
@@ -116,51 +140,51 @@ public class Share extends SambaObject
 		
 	}
 
-	private Set getAdminUsers() throws WbemsmtException {
+	private Set<String> getAdminUsers() throws WbemsmtException {
 		
 		if (adminUsers == null || reloadShareUsers)
         {
-        	adminUsers = new HashSet();
+        	adminUsers = new HashSet<String>();
         	setShareUsers(adminUsers,share.getAssociated_Linux_SambaUser_Linux_SambaAdminUsersForShareNames(adapter.getCimClient()));
         }
         return adminUsers;
 	}
 		
-	private Set getReadUsers() throws WbemsmtException {
+	private Set<String> getReadUsers() throws WbemsmtException {
 		
 		if (readUsers == null || reloadShareUsers)
         {
-        	readUsers = new HashSet();
+        	readUsers = new HashSet<String>();
         	setShareUsers(readUsers,share.getAssociated_Linux_SambaUser_Linux_SambaReadListForShareNames(adapter.getCimClient()));
         }
         return readUsers;
 	}
 	
-	private Set getWriteUsers() throws WbemsmtException {
+	private Set<String> getWriteUsers() throws WbemsmtException {
 		
 		if (writeUsers == null || reloadShareUsers)
         {
-        	writeUsers = new HashSet();
+        	writeUsers = new HashSet<String>();
         	setShareUsers(writeUsers,share.getAssociated_Linux_SambaUser_Linux_SambaWriteListForShareNames(adapter.getCimClient()));
         }
         return writeUsers;
 	}
 	
-	private Set getValidUsers() throws WbemsmtException {
+	private Set<String> getValidUsers() throws WbemsmtException {
 		
 		if (validUsers == null || reloadShareUsers)
         {
-        	validUsers = new HashSet();
+        	validUsers = new HashSet<String>();
         	setShareUsers(validUsers,share.getAssociated_Linux_SambaUser_Linux_SambaValidUsersForShareNames(adapter.getCimClient()));
         }
         return validUsers;
 	}
 
-	private Set getInvalidUsers() throws WbemsmtException {
+	private Set<String> getInvalidUsers() throws WbemsmtException {
 		
 		if (invalidUsers == null || reloadShareUsers)
         {
-        	invalidUsers = new HashSet();
+        	invalidUsers = new HashSet<String>();
         	setShareUsers(invalidUsers,share.getAssociated_Linux_SambaUser_Linux_SambaInvalidUsersForShareNames(adapter.getCimClient()));
         }
         return invalidUsers;
@@ -234,8 +258,8 @@ public class Share extends SambaObject
 	}
 
 	public void updateControls(ShareDenyHostSecurityDataContainer container)  throws WbemsmtException {
-		listHostsToDeny = new ArrayList();
-		listHostsDenied = new ArrayList();
+		listHostsToDeny = new ArrayList<String>();
+		listHostsDenied = new ArrayList<String>();
 		
 		seperateDenyHosts(allowHosts,denyHosts,listHostsToDeny,listHostsDenied);
 		
@@ -244,8 +268,8 @@ public class Share extends SambaObject
 	}
 
 	public void updateControls(ShareAllowHostSecurityDataContainer container)  throws WbemsmtException {
-		listHostsToAllow = new ArrayList();
-		listHostsAllowed = new ArrayList();
+		listHostsToAllow = new ArrayList<String>();
+		listHostsAllowed = new ArrayList<String>();
 		
 		seperateAllowHosts(allowHosts,denyHosts,listHostsToAllow,listHostsAllowed);
 		
@@ -305,7 +329,7 @@ public class Share extends SambaObject
 	public Linux_SambaUser getForceUser() throws WbemsmtException {
 		if (forceUser == null || reloadChilds)
         {
-        	List list = share.getAssociated_Linux_SambaUser_Linux_SambaForceUserForShares(adapter.getCimClient()); 
+        	List<Linux_SambaUser> list = share.getAssociated_Linux_SambaUser_Linux_SambaForceUserForShares(adapter.getCimClient()); 
         	forceUser = (Linux_SambaUser)getFirstChild(Linux_SambaUser.class, list , true);
         }
         return forceUser;
@@ -323,7 +347,7 @@ public class Share extends SambaObject
         if (oldForceUser != null)
         {
             logger.info("Deleting ForceUser " + oldForceUser.get_key_SambaUserName());
-            Vector keys = new Vector();
+            Vector<CIMProperty> keys = new Vector<CIMProperty>();
             keys.add(Linux_SambaForceUserForShare.create_GroupComponent_Linux_SambaShareOptions(adapter.getCimClient(), adapter.getNamespace(), share));
             keys.add(Linux_SambaForceUserForShare.create_PartComponent_Linux_SambaUser(adapter.getCimClient(), adapter.getNamespace(), oldForceUser));
             
@@ -565,7 +589,7 @@ public class Share extends SambaObject
 		{
 			throw new WbemsmtException(WbemsmtException.ERR_DELETE_OBJECT,"Cannot delete object - wrong share selected");
 		}
-		
+		adapter.setMarkedForReload();
 	}
 	
 }

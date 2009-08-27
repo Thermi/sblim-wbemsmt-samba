@@ -1,0 +1,9 @@
+#Mon Jul 27 08:21:50 EDT 2009
+DELEGATES_PREFERENCE=delegateValidatorList
+USER_MANUAL_PREFERENCE=enabledManualValidatorListorg.eclipse.jst.j2ee.internal.classpathdep.ClasspathDependencyValidator;org.eclipse.wst.wsi.ui.internal.WSIMessageValidator;org.eclipse.wst.common.componentcore.internal.ModuleCoreValidator;
+eclipse.preferences.version=1
+override=true
+USER_BUILD_PREFERENCE=enabledBuildValidatorListorg.eclipse.jst.j2ee.internal.classpathdep.ClasspathDependencyValidator;org.eclipse.wst.wsi.ui.internal.WSIMessageValidator;org.eclipse.wst.common.componentcore.internal.ModuleCoreValidator;
+suspend=true
+vf.version=3
+USER_PREFERENCE=overrideGlobalPreferencestruedisableAllValidationtrueversion1.2.6.v200902121900

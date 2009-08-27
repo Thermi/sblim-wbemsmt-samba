@@ -1,14 +1,14 @@
  /** 
   * UserWizard.java
   *
-  * © Copyright IBM Corp. 2005
+  * © Copyright IBM Corp.  2009,2005
   *
-  * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
+  * THIS FILE IS PROVIDED UNDER THE TERMS OF THE ECLIPSE PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
   * CONSTITUTES RECIPIENTS ACCEPTANCE OF THE AGREEMENT.
   *
-  * You can obtain a current copy of the Common Public License from
-  * http://www.opensource.org/licenses/cpl1.0.php
+  * You can obtain a current copy of the Eclipse Public License from
+  * http://www.opensource.org/licenses/eclipse-1.0.php
   *
   * @author: Michael Bauschert <Michael.Bauschert@de.ibm.com>
   *
@@ -137,18 +137,18 @@ public class UserWizard extends SambaWizard {
 
 		boolean enableAll = ((Boolean)container.get_usr_AccessToAll().getConvertedControlValue()).booleanValue();
 		
-		List items = container.getShares();
-		for (int i=0; i < items.size(); i++)
+		List<ShareInUserWizardACLItemDataContainer> shareItems = container.getShares();
+		for (int i=0; i < shareItems.size(); i++)
 		{
-			ShareInUserWizardACLItemDataContainer item = (ShareInUserWizardACLItemDataContainer)items.get(i);
+			ShareInUserWizardACLItemDataContainer item = (ShareInUserWizardACLItemDataContainer)shareItems.get(i);
 			item.get_usr_AccessTypeVI().setControlValue(new UnsignedInteger16(enableAll ? USR_ACL_IDX_ENABLE : USR_ACL_IDX_DISABLE));
 			item.get_usr_AccessTypeRW().setControlValue(enableAll ?  new UnsignedInteger16(USR_ACL_IDX_WRITE) : null);
 		}
 
-		items = container.getPrinters();
-		for (int i=0; i < items.size(); i++)
+		List<PrinterInUserWizardACLItemDataContainer> printerItems = container.getPrinters();
+		for (int i=0; i < printerItems.size(); i++)
 		{
-			PrinterInUserWizardACLItemDataContainer item = (PrinterInUserWizardACLItemDataContainer)items.get(i);
+			PrinterInUserWizardACLItemDataContainer item = (PrinterInUserWizardACLItemDataContainer)printerItems.get(i);
 			item.get_usr_AccessTypeVI().setControlValue(new UnsignedInteger16(enableAll ? USR_ACL_IDX_ENABLE : USR_ACL_IDX_DISABLE));
 			item.get_usr_AccessTypeRW().setControlValue(enableAll ?  new UnsignedInteger16(USR_ACL_IDX_WRITE) : null);
 		}
@@ -177,7 +177,7 @@ public class UserWizard extends SambaWizard {
 	}
 
 	private void createShareAcl(Linux_SambaUser user) throws WbemsmtException {
-		List shares = page2.getShares();
+		List<ShareInUserWizardACLItemDataContainer> shares = page2.getShares();
 		for (int i=0; i < shares.size(); i++)
 		{
 		    ShareInUserWizardACLItemDataContainer item = (ShareInUserWizardACLItemDataContainer)shares.get(i);
@@ -204,7 +204,7 @@ public class UserWizard extends SambaWizard {
 	}
 	
 	private void createPrinterAcl(Linux_SambaUser user) throws WbemsmtException {
-		List printers = page2.getPrinters();
+		List<PrinterInUserWizardACLItemDataContainer> printers = page2.getPrinters();
 		for (int i=0; i < printers.size(); i++)
 		{
 		    PrinterInUserWizardACLItemDataContainer item = (PrinterInUserWizardACLItemDataContainer)printers.get(i);

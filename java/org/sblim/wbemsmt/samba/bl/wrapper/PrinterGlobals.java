@@ -1,14 +1,14 @@
  /** 
   * PrinterGlobals.java
   *
-  * © Copyright IBM Corp. 2005
+  * © Copyright IBM Corp.  2009,2005
   *
-  * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
+  * THIS FILE IS PROVIDED UNDER THE TERMS OF THE ECLIPSE PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
   * CONSTITUTES RECIPIENTS ACCEPTANCE OF THE AGREEMENT.
   *
-  * You can obtain a current copy of the Common Public License from
-  * http://www.opensource.org/licenses/cpl1.0.php
+  * You can obtain a current copy of the Eclipse Public License from
+  * http://www.opensource.org/licenses/eclipse-1.0.php
   *
   * @author: Michael Bauschert <Michael.Bauschert@de.ibm.com>
   *
@@ -44,7 +44,7 @@ public class PrinterGlobals extends SambaObject {
 
 	private final Service service;
 	private Linux_SambaGlobalPrintingOptions globalPrintingOptions1;
-	private Set adminsBySambaUserName;
+	private Set<String> adminsBySambaUserName;
 
 	public PrinterGlobals(Service service, SambaCimAdapter adapter) throws WbemsmtException {
 		super(adapter);
@@ -76,9 +76,9 @@ public class PrinterGlobals extends SambaObject {
 
 	private void loadGlobalPrinterAdmins() throws WbemsmtException
 	{
-		List admins = service.getGlobalOptions().getAssociated_Linux_SambaUser_Linux_SambaPrinterAdminForGlobals(adapter.getCimClient());
-        adminsBySambaUserName = new HashSet();
-        for (Iterator iter = admins.iterator(); iter.hasNext();) {
+		List<Linux_SambaUser> admins = service.getGlobalOptions().getAssociated_Linux_SambaUser_Linux_SambaPrinterAdminForGlobals(adapter.getCimClient());
+        adminsBySambaUserName = new HashSet<String>();
+        for (Iterator<Linux_SambaUser> iter = admins.iterator(); iter.hasNext();) {
         	Linux_SambaUser user = (Linux_SambaUser) iter.next();
         	adminsBySambaUserName.add(user.get_key_SambaUserName());			
         }
@@ -162,7 +162,7 @@ public class PrinterGlobals extends SambaObject {
 		if (!checked && adminsBySambaUserName.contains(userName))
         {
             
-            List list = fco.getAssociations_Linux_SambaPrinterAdminForGlobal(cc, false, false, null, null);
+            List<Linux_SambaPrinterAdminForGlobal> list = fco.getAssociations_Linux_SambaPrinterAdminForGlobal(cc, false, false, null, null);
             adapter.getFcoHelper().delete(list, cc);
         	loadGlobalPrinterAdmins();
         }
@@ -190,7 +190,7 @@ public class PrinterGlobals extends SambaObject {
         return save(container,fco);		
 	}
 	
-	public Set getAdminUsers() throws WbemsmtException
+	public Set<String> getAdminUsers() throws WbemsmtException
 	{
 		return adminsBySambaUserName;
 	}

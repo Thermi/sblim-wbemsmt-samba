@@ -1,14 +1,14 @@
  /** 
   * Printer.java
   *
-  * © Copyright IBM Corp. 2005
+  * © Copyright IBM Corp.  2009,2005
   *
-  * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
+  * THIS FILE IS PROVIDED UNDER THE TERMS OF THE ECLIPSE PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
   * CONSTITUTES RECIPIENTS ACCEPTANCE OF THE AGREEMENT.
   *
-  * You can obtain a current copy of the Common Public License from
-  * http://www.opensource.org/licenses/cpl1.0.php
+  * You can obtain a current copy of the Eclipse Public License from
+  * http://www.opensource.org/licenses/eclipse-1.0.php
   *
   * @author: Michael Bauschert <Michael.Bauschert@de.ibm.com>
   *
@@ -42,18 +42,18 @@ public class Printer extends SambaObject {
 	private Linux_SambaPrinterPrintingOptions printingOptions;
 	private Linux_SambaPrinterBrowseOptions browseOptions;
 
-	protected Set allowHosts =null;
-	protected Set denyHosts = null;
-	protected Set invalidUsers = null;
-	protected Set validUsers = null;
-	protected Set readUsers = null;
-	protected Set writeUsers = null;
-	protected Set adminUsers = null;
+	protected Set<String> allowHosts =null;
+	protected Set<String> denyHosts = null;
+	protected Set<String> invalidUsers = null;
+	protected Set<String> validUsers = null;
+	protected Set<String> readUsers = null;
+	protected Set<String> writeUsers = null;
+	protected Set<String> adminUsers = null;
 	
-	private ArrayList listHostsToAllow;
-	private ArrayList listHostsAllowed;
-	private ArrayList listHostsDenied;
-	private ArrayList listHostsToDeny;
+	private ArrayList<String> listHostsToAllow;
+	private ArrayList<String> listHostsAllowed;
+	private ArrayList<String> listHostsDenied;
+	private ArrayList<String> listHostsToDeny;
 	
 	private boolean reloadPrinterUsers;
 	private String[] systemPrinterNames;
@@ -107,50 +107,50 @@ public class Printer extends SambaObject {
 	
 	}
 
-	private Set getAdminUsers() throws WbemsmtException {
+	private Set<String> getAdminUsers() throws WbemsmtException {
 		
 		if (adminUsers == null || reloadPrinterUsers)
         {
-        	adminUsers = new HashSet();
+        	adminUsers = new HashSet<String>();
         	setShareUsers(adminUsers,printer.getAssociated_Linux_SambaUser_Linux_SambaPrinterAdminForPrinterNames(adapter.getCimClient()));
         }
         return adminUsers;
 	}	
-	private Set getValidUsers() throws WbemsmtException {
+	private Set<String> getValidUsers() throws WbemsmtException {
 		
 		if (validUsers == null || reloadPrinterUsers)
         {
-        	validUsers = new HashSet();
+        	validUsers = new HashSet<String>();
         	setShareUsers(validUsers,printer.getAssociated_Linux_SambaUser_Linux_SambaValidUsersForPrinterNames(adapter.getCimClient()));
         }
         return validUsers;
 	}
 
-	private Set getInvalidUsers() throws WbemsmtException {
+	private Set<String> getInvalidUsers() throws WbemsmtException {
 		
 		if (invalidUsers == null || reloadPrinterUsers)
         {
-        	invalidUsers = new HashSet();
+        	invalidUsers = new HashSet<String>();
         	setShareUsers(invalidUsers,printer.getAssociated_Linux_SambaUser_Linux_SambaInvalidUsersForPrinterNames(adapter.getCimClient()));
         }
         return invalidUsers;
 	}	
 	
-	private Set getWriteUsers() throws WbemsmtException {
+	private Set<String> getWriteUsers() throws WbemsmtException {
 		
 		if (writeUsers == null || reloadPrinterUsers)
         {
-        	writeUsers = new HashSet();
+        	writeUsers = new HashSet<String>();
         	setShareUsers(writeUsers,printer.getAssociated_Linux_SambaUser_Linux_SambaWriteListForPrinterNames(adapter.getCimClient()));
         }
         return writeUsers;
 	}
 
-	private Set getReadUsers() throws WbemsmtException {
+	private Set<String> getReadUsers() throws WbemsmtException {
 		
 		if (readUsers == null || reloadPrinterUsers)
         {
-        	readUsers = new HashSet();
+        	readUsers = new HashSet<String>();
         	setShareUsers(readUsers,printer.getAssociated_Linux_SambaUser_Linux_SambaReadListForPrinterNames(adapter.getCimClient()));
         }
         return readUsers;
@@ -205,8 +205,8 @@ public class Printer extends SambaObject {
 	}
 
 	public void updateControls(PrinterDenyHostSecurityDataContainer container)  throws WbemsmtException {
-		listHostsToDeny = new ArrayList();
-		listHostsDenied = new ArrayList();
+		listHostsToDeny = new ArrayList<String>();
+		listHostsDenied = new ArrayList<String>();
 		
 		seperateDenyHosts(allowHosts,denyHosts,listHostsToDeny,listHostsDenied);
 		
@@ -215,8 +215,8 @@ public class Printer extends SambaObject {
 	}
 
 	public void updateControls(PrinterAllowHostSecurityDataContainer container)  throws WbemsmtException {
-		listHostsToAllow = new ArrayList();
-		listHostsAllowed = new ArrayList();
+		listHostsToAllow = new ArrayList<String>();
+		listHostsAllowed = new ArrayList<String>();
 		
 		seperateAllowHosts(allowHosts,denyHosts,listHostsToAllow,listHostsAllowed);
 		
@@ -391,7 +391,7 @@ public class Printer extends SambaObject {
 	public Linux_SambaUser getForceUser() throws WbemsmtException {
 		if (forceUser == null || reloadChilds)
         {
-        	List list = printer.getAssociated_Linux_SambaUser_Linux_SambaForceUserForPrinters(adapter.getCimClient()); 
+        	List<Linux_SambaUser> list = printer.getAssociated_Linux_SambaUser_Linux_SambaForceUserForPrinters(adapter.getCimClient()); 
         	forceUser = (Linux_SambaUser)getFirstChild(Linux_SambaUser.class, list , true);
         }
         return forceUser;
@@ -410,7 +410,7 @@ public class Printer extends SambaObject {
         {
         	logger.info("Deleting Force User " + oldForceUser.get_key_SambaUserName());
         	
-        	List list = oldForceUser.getAssociations_Linux_SambaForceUserForPrinter(adapter.getCimClient(), false,false,null,null);
+        	List<Linux_SambaForceUserForPrinter> list = oldForceUser.getAssociations_Linux_SambaForceUserForPrinter(adapter.getCimClient(), false,false,null,null);
         	adapter.getFcoHelper().delete(list,adapter.getCimClient());
         }
         //create new Guest

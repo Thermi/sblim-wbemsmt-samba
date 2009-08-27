@@ -1,14 +1,14 @@
  /** 
   * SambaLoader.java
   *
-  * © Copyright IBM Corp. 2005
+  * © Copyright IBM Corp.  2009,2005
   *
-  * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
+  * THIS FILE IS PROVIDED UNDER THE TERMS OF THE ECLIPSE PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
   * CONSTITUTES RECIPIENTS ACCEPTANCE OF THE AGREEMENT.
   *
-  * You can obtain a current copy of the Common Public License from
-  * http://www.opensource.org/licenses/cpl1.0.php
+  * You can obtain a current copy of the Eclipse Public License from
+  * http://www.opensource.org/licenses/eclipse-1.0.php
   *
   * @author: Michael Bauschert <Michael.Bauschert@de.ibm.com>
   *
@@ -123,22 +123,22 @@ public class SambaLoader {
 	}
 
 	protected CIMObjectPath getPathOfHost(AbstractBaseCimAdapter adapter, Linux_SambaService service, String hostName) throws WbemsmtException {
-        List hostNames = service.getAssociated_Linux_SambaHost_Linux_SambaHostsForServiceNames(adapter.getCimClient());
+        List<CIMObjectPath> hostNames = service.getAssociated_Linux_SambaHost_Linux_SambaHostsForServiceNames(adapter.getCimClient());
         return adapter.getFcoHelper().getPath(hostNames,"Name",hostName);
 	}
 
 	protected CIMObjectPath getPathOfPrinter(AbstractBaseCimAdapter adapter, Linux_SambaService service, String printerName) throws WbemsmtException {
-        List printerNames = service.getAssociated_Linux_SambaPrinterOptions_Linux_SambaPrinterForServiceNames(adapter.getCimClient());
+        List<CIMObjectPath> printerNames = service.getAssociated_Linux_SambaPrinterOptions_Linux_SambaPrinterForServiceNames(adapter.getCimClient());
         return adapter.getFcoHelper().getPath(printerNames,"Name",printerName);
 	}
 
 	protected CIMObjectPath getPathOfShare(AbstractBaseCimAdapter adapter, Linux_SambaService service, String shareName) throws WbemsmtException {
-        List shareNames = service.getAssociated_Linux_SambaShareOptions_Linux_SambaShareForServiceNames(adapter.getCimClient());
+        List<CIMObjectPath> shareNames = service.getAssociated_Linux_SambaShareOptions_Linux_SambaShareForServiceNames(adapter.getCimClient());
         return adapter.getFcoHelper().getPath(shareNames,"Name",shareName);
 	}
 
 	protected CIMObjectPath getPathOfUser(AbstractBaseCimAdapter adapter, Linux_SambaService service, String sambaUserName) throws WbemsmtException {
-        List userNames = service.getAssociated_Linux_SambaUser_Linux_SambaUsersForServiceNames(adapter.getCimClient());
+        List<CIMObjectPath> userNames = service.getAssociated_Linux_SambaUser_Linux_SambaUsersForServiceNames(adapter.getCimClient());
         return adapter.getFcoHelper().getPath(userNames,"SambaUserName",sambaUserName);
 	}
 
